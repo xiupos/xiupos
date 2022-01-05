@@ -122,7 +122,7 @@ languageName = ":us:"
 [[languages.en.menu.main]]
 name = "Blog"
 weight = 2
-url = "https://blog.nombi.link/"
+url = "https://blog.xiupos.net/"
 
 [[languages.en.menu.main]]
 name = "Misskey"

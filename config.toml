@@ -124,11 +124,6 @@ name = "Blog"
 weight = 2
 url = "https://blog.xiupos.net/"
 
-[[languages.en.menu.main]]
-name = "Misskey"
-weight = 3
-url = "https://mk.nombi.link/@xiupos"
-
 # [languages.pt-br]
 # languageName = ":brazil:"
 # title = "João Ninguém"

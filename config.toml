@@ -109,7 +109,7 @@ url = "https://github.com/xiupos/"
 name = "Medium"
 icon = "fa fa-2x fa-activitypub"
 weight = 3
-url = "https://mk.nombi.link/@xiupos"
+url = "https://mk.xiupos.net/@xiupos"
 
 [languages.en]
 languageName = ":us:"

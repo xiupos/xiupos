@@ -93,11 +93,11 @@ connectsrc = ["'self'", "https://www.google-analytics.com"]
 # tag = "tags"
 # author = "authors"
 
-# [[params.social]]
-# name = "Twitter"
-# icon = "fa fa-2x fa-twitter"
-# weight = 1
-# url = "https://twitter.com/xiupos/"
+[[params.social]]
+name = "Pixelfed"
+icon = "fa fa-2x fa-pixelfed"
+weight = 1
+url = "https://pf.xiupos.net/xiupos"
 
 [[params.social]]
 name = "Github"

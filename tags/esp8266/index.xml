@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>esp8266 on Xiupos</title><link>https://xiupos.net/tags/esp8266/</link><description>Recent content in esp8266 on Xiupos</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 17 Mar 2020 16:08:03 +0900</lastBuildDate><atom:link href="https://xiupos.net/tags/esp8266/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP8266 : ArduinoOTAで無線書き込み</title><link>https://xiupos.net/posts/esp8266/ota/</link><pubDate>Tue, 17 Mar 2020 16:08:03 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/ota/</guid><description>&lt;p>Wi-Fiが使えるマイコンで,
+一度はやってみたかった&lt;strong>無線書き込み&lt;/strong>.&lt;br>
+気になって調べてみたら,
+想像以上に簡単だった.&lt;/p></description></item><item><title>ESP8266 : 二進数時計</title><link>https://xiupos.net/posts/esp8266/bin-clock/</link><pubDate>Mon, 24 Feb 2020 09:40:15 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/bin-clock/</guid><description>&lt;p>
+&lt;img
+src="bin-clock-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>ESP-WROOM-02でのハードの制御の練習に,
+二進数時計を作ってみた.&lt;/p></description></item><item><title>ESP8266 : マイコンなのにHello, world!</title><link>https://xiupos.net/posts/esp8266/hello/</link><pubDate>Sun, 23 Feb 2020 06:12:45 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/hello/</guid><description>&lt;p>&lt;a href="https://xiupos.net/posts/esp8266/blink/">LチカをしたESP-WROOM-02&lt;/a>だが,
+やっぱりESP8266の威力を体験するためにはWi-Fi関連を使わねばならない.
+そこで, (マイコンでは珍しく)&lt;code>Hello, world!&lt;/code>をする.&lt;/p></description></item><item><title>ESP8266 : いまさらLチカをする</title><link>https://xiupos.net/posts/esp8266/blink/</link><pubDate>Sat, 22 Feb 2020 18:26:18 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/blink/</guid><description>&lt;p>先日, 秋月の税込250円の
+&lt;a href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02&lt;/a>を買ったので,
+いつも通りボード作ってLチカしてみた.&lt;/p></description></item></channel></rss>

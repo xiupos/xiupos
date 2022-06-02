@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>electronics on Xiupos</title><link>https://xiupos.net/tags/electronics/</link><description>Recent content in electronics on Xiupos</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 19 Feb 2021 02:45:30 +0000</lastBuildDate><atom:link href="https://xiupos.net/tags/electronics/index.xml" rel="self" type="application/rss+xml"/><item><title>ソーラートラッカーの自作</title><link>https://xiupos.net/posts/electronics/solar-tracker/</link><pubDate>Fri, 19 Feb 2021 02:45:30 +0000</pubDate><guid>https://xiupos.net/posts/electronics/solar-tracker/</guid><description>最近の高校では「総合的な探究の時間」というものがある. 実施される内容は学校ごとに違うらしいが, 通っていた学校は教育実験校でもあったため, 探究とは研究の真似事をする時間だった. そこで私がやった(似非)研究の要旨を, 情報としてまとめておく. 高校生が趣味の延長として探究した内容であるから, 研究とは受け取らないで, 優しい気持ちで読んでほしい1.
+理論 順問題 太陽の方向と明るさがわかれば, (快晴かつ障害物の無い広い地表で, 大気を無視した場合,) 天球のある方向に向けた面の照度は計算で簡単に求めることができる.
+太陽の方向を $(\theta_\odot, \phi_\odot)$, 面の法線の方向を $(\theta, \phi)$ とする. ただし, $\theta,\phi$ は球面座標におけるそれらと同義で, 角度を表わす. このとき, 太陽の方向と面の法線の方向がなす角を $\psi$ とすると,
+$$ \cos \psi = \cos \theta_\odot \cos \theta + \sin \theta_\odot \sin \theta \cos (\phi_\odot - \phi) $$
+であることが知られている2.
+また, 太陽の(見かけの)光度を $I$ とし, 太陽と面の距離を $d$ と置くと, 面の照度 $E$ は,
+$$ E = \frac{I}{d^2} \cos \psi $$
+となることが知られている3.
+ここで, 太陽と地球の距離は平均 $1.5 \times 10^{11} \, \mathrm{m}$ であり, 高校生にとってはとても長い距離であるから, $d$ は定数と見做すことができる.</description></item><item><title>ESP8266 : ArduinoOTAで無線書き込み</title><link>https://xiupos.net/posts/esp8266/ota/</link><pubDate>Tue, 17 Mar 2020 16:08:03 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/ota/</guid><description>&lt;p>Wi-Fiが使えるマイコンで,
+一度はやってみたかった&lt;strong>無線書き込み&lt;/strong>.&lt;br>
+気になって調べてみたら,
+想像以上に簡単だった.&lt;/p></description></item><item><title>ESP8266 : 二進数時計</title><link>https://xiupos.net/posts/esp8266/bin-clock/</link><pubDate>Mon, 24 Feb 2020 09:40:15 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/bin-clock/</guid><description>&lt;p>
+&lt;img
+src="bin-clock-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>ESP-WROOM-02でのハードの制御の練習に,
+二進数時計を作ってみた.&lt;/p></description></item><item><title>ESP8266 : マイコンなのにHello, world!</title><link>https://xiupos.net/posts/esp8266/hello/</link><pubDate>Sun, 23 Feb 2020 06:12:45 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/hello/</guid><description>&lt;p>&lt;a href="https://xiupos.net/posts/esp8266/blink/">LチカをしたESP-WROOM-02&lt;/a>だが,
+やっぱりESP8266の威力を体験するためにはWi-Fi関連を使わねばならない.
+そこで, (マイコンでは珍しく)&lt;code>Hello, world!&lt;/code>をする.&lt;/p></description></item><item><title>ESP8266 : いまさらLチカをする</title><link>https://xiupos.net/posts/esp8266/blink/</link><pubDate>Sat, 22 Feb 2020 18:26:18 +0900</pubDate><guid>https://xiupos.net/posts/esp8266/blink/</guid><description>&lt;p>先日, 秋月の税込250円の
+&lt;a href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02&lt;/a>を買ったので,
+いつも通りボード作ってLチカしてみた.&lt;/p></description></item><item><title>格安レリーズ(TC-2001)に電源スイッチを付ける</title><link>https://xiupos.net/posts/camera/tc-2001/</link><pubDate>Tue, 06 Aug 2019 19:34:26 +0900</pubDate><guid>https://xiupos.net/posts/camera/tc-2001/</guid><description>&lt;p>
+&lt;img
+src="tc-2001-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>&lt;a href="https://xiupos.net/posts/camera/x-e1/">X-E1&lt;/a>用に,
+ロワジャパンの&lt;a href="https://www.rowa.co.jp/cabinet/form.cgi?no=6648">レリーズ(TC-2001)&lt;/a>を買った.&lt;/p></description></item><item><title>PIC18F14K50 : I2Cを使った</title><link>https://xiupos.net/posts/pic18f14k50/i2c/</link><pubDate>Sat, 09 Feb 2019 20:00:58 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/i2c/</guid><description>&lt;p>
+&lt;img
+src="i2c-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>PIC18F14K50でI2Cを使ってみた.
+が, 解説を書こうかな&amp;hellip;とか思っているうちに10か月経ったので,
+とりあえず解説無しで公開だけする.&lt;/p></description></item><item><title>YMZ294をSPIで制御する</title><link>https://xiupos.net/posts/electronics/ymz294-spi/</link><pubDate>Mon, 31 Dec 2018 09:08:01 +0900</pubDate><guid>https://xiupos.net/posts/electronics/ymz294-spi/</guid><description>&lt;p>
+&lt;img
+src="ymz294-spi-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>前に使った&lt;a href="https://xiupos.net/posts/electronics/ymz294-spi/">YMZ294&lt;/a>が,
+また使おうとするとあの配線をやり直す必要があった.
+そこで, 思い切って&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9">SPI&lt;/a>化することで配線の手間を減らし使いやすくしようと思い, やってみた.&lt;/p></description></item><item><title>簡易正弦波ジェネレータ</title><link>https://xiupos.net/posts/electronics/sin/</link><pubDate>Sun, 15 Jul 2018 12:58:06 +0900</pubDate><guid>https://xiupos.net/posts/electronics/sin/</guid><description>&lt;p>
+&lt;img
+src="sin-1.jpg"
+alt=""
+>&lt;/img>
+&lt;/p>
+&lt;p>私の電子工学への理解が薄い気がするので, これからしばらくはアナログ回路の勉強をすることにした.
+で, 私はとにかく形から入るタイプなので, とりあえず簡易的な正弦波ジェネレータを作ってみた.&lt;/p></description></item><item><title>PIC18F14K50 : Lチカ</title><link>https://xiupos.net/posts/pic18f14k50/blink/</link><pubDate>Mon, 30 Apr 2018 08:35:33 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/blink/</guid><description>&lt;p>始めたばかりのPIC18F14K50で定番のLチカしてみる.&lt;/p></description></item><item><title>PIC18F14K50 : マイコンボード作り</title><link>https://xiupos.net/posts/pic18f14k50/board/</link><pubDate>Tue, 03 Apr 2018 16:50:22 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/board/</guid><description>&lt;p>最近, アセンブリを書くことに疲れてきたので,
+しばらくはC言語で開発していきたいと思う.
+しかし, PIC16F84AのC言語を使うくらいだったらアセンブリの方が使いやすいし(本末転倒),
+せっかくなので他のPICをはじめたいと思った.&lt;/p></description></item><item><title>PIC16F84A : マトリクスLEDを使う(74HC595使用)</title><link>https://xiupos.net/posts/pic16f84a/matrix/</link><pubDate>Wed, 21 Mar 2018 15:05:29 +0900</pubDate><guid>https://xiupos.net/posts/pic16f84a/matrix/</guid><description>&lt;p>16F84Aのコツをつかんできたため, 思い切って&lt;a href="http://www.akiba-led.jp/product/1068">8x8マトリクスLED&lt;/a>の制御をしてみた.&lt;/p></description></item><item><title>PIC16F84A : サーボモータを使う</title><link>https://xiupos.net/posts/pic16f84a/servo/</link><pubDate>Tue, 20 Mar 2018 16:26:07 +0900</pubDate><guid>https://xiupos.net/posts/pic16f84a/servo/</guid><description>&lt;p>PIC16F84AでTimer0を使って, サーボモータを制御してみた.
+Timer0で20msの周期で割り込みして, 0.5~2.5msだけ出力をHIGHにする.&lt;/p></description></item><item><title>PIC16F84A : キャラクタLCDを使う</title><link>https://xiupos.net/posts/pic16f84a/char-lcd/</link><pubDate>Tue, 13 Mar 2018 16:50:59 +0900</pubDate><guid>https://xiupos.net/posts/pic16f84a/char-lcd/</guid><description>&lt;p>勉強中のPIC16F84Aを使って, キャラクタLCDを使ってみた.&lt;br>
+使ったキャラクタLCDはSD1602H.&lt;/p></description></item><item><title>PIC16F84A : 音源IC(YMZ294)を鳴らす</title><link>https://xiupos.net/posts/pic16f84a/ymz294/</link><pubDate>Tue, 06 Feb 2018 10:59:43 +0900</pubDate><guid>https://xiupos.net/posts/pic16f84a/ymz294/</guid><description>&lt;p>新しいマイコンを始めるとき, まずは&lt;a href="http://dic.nicovideo.jp/a/l%E3%83%81%E3%82%AB">Lチカ&lt;/a>をするのが世の常であるが, 思い切ってYMZ294を鳴らしてみた.&lt;/p></description></item><item><title>PIC16F84A : マイコンボード作リ</title><link>https://xiupos.net/posts/pic16f84a/board/</link><pubDate>Thu, 11 Jan 2018 16:11:35 +0900</pubDate><guid>https://xiupos.net/posts/pic16f84a/board/</guid><description>&lt;p>去年の夏に諸事情でPICマイコンを触る機会があって,&lt;br>
+PICマイコン面白いな, と興味を持ち,&lt;br>
+本格的にPICを勉強したいなと思った.&lt;/p></description></item></channel></rss>

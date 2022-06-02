@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>android on Xiupos</title><link>https://xiupos.net/tags/android/</link><description>Recent content in android on Xiupos</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 17 Mar 2021 08:01:47 +0900</lastBuildDate><atom:link href="https://xiupos.net/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>TermuxにLua付きVimをインストールする</title><link>https://xiupos.net/posts/computer/termux-vim/</link><pubDate>Wed, 17 Mar 2021 08:01:47 +0900</pubDate><guid>https://xiupos.net/posts/computer/termux-vim/</guid><description>Lua付きのVimが, どうしようもなく欲しくなることがある. ここあたりを参考にすれば普通は入るが, Termuxはインストール場所が特殊だったりして少し面倒だった. そのメモ.
+pkg install -y git build-essential ncurses lua54 luajit python python2 ruby # これをしておかないとconfigureで引っ掛かる. ln -s $PREFIX/bin/lua5.4 $PREFIX/bin/lua mkdir -p ~/src &amp;amp;&amp;amp; cd ~/src git clone https://github.com/vim/vim.git cd vim # prefixは$PREFIXに統一. Python, Rubyは任意. ./configure --with-features=huge --enable-multibyte --enable-luainterp=dynamic --with-lua-prefix=$PREFIX --enable-gpm --enable-cscope --enable-fontset --enable-fail-if-missing --prefix=$PREFIX --enable-pythoninterp=dynamic --enable-python3interp=dynamic --enable-rubyinterp=dynamic make &amp;amp;&amp;amp; make install ncurses-dev とかの *-dev パッケージが, Termuxではメインパッケージに含まれている. 地味に躓く.</description></item><item><title>多言語改変版 SKK for Android</title><link>https://xiupos.net/posts/computer/android-skk/</link><pubDate>Wed, 22 Apr 2020 15:18:43 +0900</pubDate><guid>https://xiupos.net/posts/computer/android-skk/</guid><description>海月玲二氏のSKK for Android を, 多言語で入力できるように改変した.
+GitHub - xiupos/android-skk
+SKK for Android について ニコニコ大百科にもあるが, SKKをAndroidに移植した猛者がいる.
+Android向けにSKKを作ってみた - minghaiの日記
+そして, これを基に日本語フリックキーボードを作った猛者がいる.
+SKK for Android (海月玲二氏)
+SKKの機能をのままにフリックキーボードが使え, またBluetoothキーボードを接続した際に普段通りのSKK入力ができる. これが大変便利である.
+なぜ改変するか しかし, Android標準のキーボードである Gboard は, 標準が故に多言語での入力を容易に実現できる. 趣味柄, 特殊文字を入力したい場面も多く, その度にキーボードを切り替えるのが面倒でいつしかSKKから離れていた.
+しかし, GboardにもSKKができない以外の欠点がある. Bluetoothキーボードだと日本語⇔英字の切り替えが上手くできない. これは極めて重大な問題である.
+そこで, SKK for Androidを改変することによって 自分好みのキーボードに仕上げてしまおうと考えた.
+改変内容 リポジトリのREADMEに書いたのでそちらを参照されたい.
+インストール Release
+F-DroidやGoogle Playストアで配信する予定はない.
+対応端末 動作確認は Huawei P20 (Android 9) で行なっている. 最近のAndroidならば動くんじゃないかな.
+GitHub Actionsによるビルド GitHub Actions で Android アプリをビルドして apk ファイルをアップロードする - Qiita
+このワークフローより, Lint, Testを省略して導入した.</description></item><item><title>Termuxの諸設定 (SSH, ストレージ, フォント, etc...)</title><link>https://xiupos.net/posts/computer/termux-config/</link><pubDate>Sun, 25 Aug 2019 18:34:19 +0900</pubDate><guid>https://xiupos.net/posts/computer/termux-config/</guid><description>&lt;p>&lt;a href="https://xiupos.net/posts/computer/uot/">UoT&lt;/a>を使ってて,
+少々Termux側の設定で気になったことがあったのでそのメモ.&lt;/p></description></item><item><title>Ubuntu on Termux : 国内ミラーサーバに変える</title><link>https://xiupos.net/posts/computer/uot-nameserver/</link><pubDate>Sun, 21 Jul 2019 15:08:23 +0900</pubDate><guid>https://xiupos.net/posts/computer/uot-nameserver/</guid><description>&lt;p>先日構築した&lt;a href="https://xiupos.net/posts/computer/uot/">Ubuntu on Termux&lt;/a>で,
+&lt;code>apt&lt;/code>コマンドの利用リポジトリのサーバを国内のものに変更しようとした際に手こずったのでメモ.&lt;/p></description></item><item><title>Androidにまともなターミナル環境(Ubuntu on Termux)を作った話</title><link>https://xiupos.net/posts/computer/uot/</link><pubDate>Thu, 18 Jul 2019 08:51:36 +0900</pubDate><guid>https://xiupos.net/posts/computer/uot/</guid><description>&lt;p>前々から試行錯誤してたAndroidのターミナル環境作りが一段落したので,
+そのメモ. ようやく, まともに使える&amp;amp;使いやすい環境を作ることができた.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,130 @@
+<!doctype html><html lang=en-us><head><title>Pi Zero W + Git + Docker で簡単なデプロイ環境を作る - Xiupos</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.85.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="xiupos"><meta name=description content><link rel=stylesheet href=https://xiupos.net/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Pi Zero W + Git + Docker で簡単なデプロイ環境を作る"><meta name=twitter:description content="約1年前にRaspberry Pi Zero Wを買ったが, ラズパイの環境構築は小さい分, 汚れ易い. そこで, ローカルで開発しgit pushだけでデプロイできる herokuのような環境を構築した. 私は潔癖症である.
+目次  作ったもの  構成イメージ 使い方   インストール  Raspberry Pi OSのインストール Dockerのインストール Docker Composeのインストール Gitのインストール gitユーザーの作成 pihubのインストール   Hello, World! Lチカ 参考  作ったもの pihub という管理ツールをNimで作った.
+GitHub - xiupos/pihub
+イメージは, herokuコマンドのようなもの. ただし, 実行は全てdocker-compose upで行うため, 機能はGitLab CI/CDの方が近い. (Zero以外のラズパイだったら GitLabを載せるのもアリだと思う.) もっとも, pihubはインフラ系の運用だけでなく GPIOを弄るようなハードウェア制御も想定している.
+構成イメージ +----------Raspberry Pi Zero W-----------+ | +--Remote--+ +-----Production-----+ | | | |pull| +-Container-+ | | | | (2) |===>| (3) | (4) | | | | | | | +===========+ | | | +====/\====+ +====================+ | +======||================================+ || push +--Local---+ $ pihub create repo | (1) | で, この構成が作られる."><meta property="og:title" content="Pi Zero W + Git + Docker で簡単なデプロイ環境を作る"><meta property="og:description" content="約1年前にRaspberry Pi Zero Wを買ったが, ラズパイの環境構築は小さい分, 汚れ易い. そこで, ローカルで開発しgit pushだけでデプロイできる herokuのような環境を構築した. 私は潔癖症である.
+目次  作ったもの  構成イメージ 使い方   インストール  Raspberry Pi OSのインストール Dockerのインストール Docker Composeのインストール Gitのインストール gitユーザーの作成 pihubのインストール   Hello, World! Lチカ 参考  作ったもの pihub という管理ツールをNimで作った.
+GitHub - xiupos/pihub
+イメージは, herokuコマンドのようなもの. ただし, 実行は全てdocker-compose upで行うため, 機能はGitLab CI/CDの方が近い. (Zero以外のラズパイだったら GitLabを載せるのもアリだと思う.) もっとも, pihubはインフラ系の運用だけでなく GPIOを弄るようなハードウェア制御も想定している.
+構成イメージ +----------Raspberry Pi Zero W-----------+ | +--Remote--+ +-----Production-----+ | | | |pull| +-Container-+ | | | | (2) |===>| (3) | (4) | | | | | | | +===========+ | | | +====/\====+ +====================+ | +======||================================+ || push +--Local---+ $ pihub create repo | (1) | で, この構成が作られる."><meta property="og:type" content="article"><meta property="og:url" content="https://xiupos.net/posts/computer/pi-docker/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-05-14T13:01:47+09:00"><meta property="article:modified_time" content="2020-05-14T13:01:47+09:00"></head><body><header class=app-header><a href=https://xiupos.net/><img class=app-header-avatar src=/avatar.jpg alt=xiupos></a><h1>Xiupoς</h1><nav class=app-header-menu><a class=app-header-menu-item href=/about/>ABOUT</a>
+/
+<a class=app-header-menu-item href=/tags/>TAGS</a></nav><p>Tech notes, trip photos, etc.</p><div class=app-header-social><a href=https://twitter.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a><a href=https://github.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://mk.xiupos.net/@xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-message-square"><title>Misskey</title><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Pi Zero W + Git + Docker で簡単なデプロイ環境を作る</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>May 14, 2020</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://xiupos.net/tags/computer/>computer</a>
+<a class=tag href=https://xiupos.net/tags/docker/>docker</a></div></div></header><div class=post-content><p>約1年前に<a href=https://www.raspberrypi.org/products/raspberry-pi-zero-w/>Raspberry Pi Zero W</a>を買ったが,
+ラズパイの環境構築は小さい分, 汚れ易い.
+そこで, ローカルで開発し<code>git push</code>だけでデプロイできる
+<a href=https://blog.xiupos.net/heroku.com>heroku</a>のような環境を構築した.
+私は潔癖症である.</p><h2 id=目次>目次</h2><ol><li><a href=#%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%82%E3%81%AE>作ったもの</a><ol><li><a href=#%E6%A7%8B%E6%88%90%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8>構成イメージ</a></li><li><a href=#%E4%BD%BF%E3%81%84%E6%96%B9>使い方</a></li></ol></li><li><a href=#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>インストール</a><ol><li><a href=#raspberry-pi-os%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>Raspberry Pi OSのインストール</a></li><li><a href=#docker%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>Dockerのインストール</a></li><li><a href=#docker-compose%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>Docker Composeのインストール</a></li><li><a href=#git%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>Gitのインストール</a></li><li><a href=#git%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90>gitユーザーの作成</a></li><li><a href=#pihub%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>pihubのインストール</a></li></ol></li><li><a href=#hello-world>Hello, World!</a></li><li><a href=#l%E3%83%81%E3%82%AB>Lチカ</a></li><li><a href=#%E5%8F%82%E8%80%83>参考</a></li></ol><h2 id=作ったもの>作ったもの</h2><p><strong>pihub</strong> という管理ツールをNimで作った.</p><p>GitHub - <a href=https://github.com/xiupos/pihub>xiupos/pihub</a></p><p>イメージは, <code>heroku</code>コマンドのようなもの.
+ただし, 実行は全て<code>docker-compose up</code>で行うため,
+機能は<a href=https://docs.gitlab.com/ee/ci/>GitLab CI/CD</a>の方が近い.
+(Zero以外のラズパイだったら
+<a href=https://about.gitlab.com/>GitLab</a>を載せるのもアリだと思う.)
+もっとも,
+<code>pihub</code>はインフラ系の運用だけでなく
+GPIOを弄るようなハードウェア制御も想定している.</p><h3 id=構成イメージ>構成イメージ</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>+----------Raspberry Pi Zero W-----------+
+| +--Remote--+    +-----Production-----+ |
+| |          |pull|     +-Container-+  | |
+| |   (2)    |===&gt;| (3) |    (4)    |  | |
+| |          |    |     +===========+  | |
+| +====/\====+    +====================+ |
++======||================================+
+       || push
+  +--Local---+    $ pihub create repo
+  |   (1)    |    で, この構成が作られる.
+  +==========+
+
+(1) ローカルリポジトリ, ここで開発
+(2) リモートリポジトリ, ここにpush
+(3) 本番環境, (2)へのpush後に自動的にpull
+(4) デプロイ環境(コンテナ), (3)のpull後に走る
+</code></pre></div><h3 id=使い方>使い方</h3><p><code>pihub</code>はラズパイ上のツールであり,
+ローカルからはSSH経由で操作する.
+ただし, <code>alias</code>で登録をするとローカルでも
+同様に操作ができる.</p><p>以下, ホスト名は<code>raspberrypi.local</code>とする.</p><h4 id=リポジトリの作成>リポジトリの作成</h4><p><code>repo_name</code>はリポジトリの名前.
+<strong>末尾に<code>.git</code>を含めてはいけない.</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pihub create repo_name
+</code></pre></div><p>これで<code>git@raspberrypi.local:repo_name.git</code>にリポジトリが,
+<code>/home/git/prod/repo_name</code>に本番環境ができる.</p><h4 id=リポジトリ一覧の表示>リポジトリ一覧の表示</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pihub list
+<span style=color:#75715e># repo_name.git</span>
+<span style=color:#75715e># repo_another.git</span>
+<span style=color:#75715e># ...</span>
+</code></pre></div><h4 id=デプロイ>デプロイ</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git remote add pi git@raspberrypi.local:repo_name.git
+git push pi master
+</code></pre></div><p>リモートに登録し, <code>git push</code>をすれば
+<code>docker-compose up -d</code>が走る.</p><h4 id=リポジトリの削除>リポジトリの削除</h4><p><code>create</code>と同様に,
+<strong>末尾に<code>.git</code>を含めてはいけない.</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pihub delete repo_name
+</code></pre></div><p>これで<code>git@raspberrypi.local:repo_name.git</code>と
+<code>/home/git/prod/repo_name</code>が削除される
+(同時に<code>docker-compose down --rmi all</code>も実行される).</p><h4 id=無い機能>無い機能</h4><ul><li><code>git push</code>以外で<code>docker-compose up</code>をする</li><li><code>docker-compose stop</code>など停止系, 削除系</li><li>デプロイなしで, テストできたら楽しそう</li></ul><h2 id=インストール>インストール</h2><p>必要なもの</p><ul><li>Raspbian on Raspberry Pi Zero W
+Zero W以外では試していない (というか持っていない).</li><li>git</li><li>docker</li><li>docker-compose</li></ul><p>また, <code>git</code>ユーザーを作成する.</p><h3 id=raspberry-pi-osのインストール>Raspberry Pi OSのインストール</h3><p>日本語情報は既に大量にあるので,
+ここでは簡単に.</p><p><a href=https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit>公式サイト</a>より
+Raspberry Pi OSのイメージをダウンロードして解凍.
+Zeroなのでlite版で十分.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># SDカードへの書き込み</span>
+sudo dd bs<span style=color:#f92672>=</span>4M <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>path/to/image.img of<span style=color:#f92672>=</span>/dev/sdb conv<span style=color:#f92672>=</span>fsync
+</code></pre></div><p>(<code>/dev/sdb</code>の部分は環境に合うよう書き直す.)</p><p>SDカードに書き込んだらSDカードの<code>boot</code>パーティションをマウントし,
+<code>boot</code>内で以下を実行,
+USB経由でSSH接続できるように設定する.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>touch ssh <span style=color:#75715e># SSH有効化</span>
+echo <span style=color:#e6db74>&#34;dtoverlay=dwc2&#34;</span> &gt;&gt; config.txt
+vim cmdline.txt
+<span style=color:#75715e># modules-load=dwc2,g_ether を rootwait の直後に追加</span>
+<span style=color:#75715e># See also http://blog.gbaman.info/?p=791</span>
+</code></pre></div><p>SDカードをアンマウントしてZero Wに挿入すれば
+Raspbianが起動する.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ssh pi@raspberrypi.local
+<span style=color:#75715e># Pass: raspberry</span>
+</code></pre></div><p>でSSH接続できるはずだが,
+自分の環境では
+ネット設定の有線接続1の IPv4 の Method を
+<strong>Link-Local Only</strong> に変更する必要があった.</p><p>SSH接続したら,
+初期設定やら更新やらをする.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Password, Host, Wi-Fi などの設定</span>
+sudo raspi-config
+
+<span style=color:#75715e># Packages と OS のアップグレード</span>
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+
+<span style=color:#75715e># Farmware のアップグレード</span>
+sudo rpi-update
+sudo reboot <span style=color:#75715e># 再起動</span>
+</code></pre></div><p>適宜, SSH接続の設定などもする.</p><h3 id=dockerのインストール>Dockerのインストール</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Docker のインストール</span>
+curl -sSL https://get.docker.com/ | sh
+</code></pre></div><h3 id=docker-composeのインストール>Docker Composeのインストール</h3><p>Armでは公式サイトの方法は使えないので,
+<code>pip</code>でインストールをする.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># pip のインストール</span>
+sudo apt-get install -y build-essential python3-distutils
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py <span style=color:#f92672>&amp;&amp;</span> sudo python3 get-pip.py
+
+<span style=color:#75715e># Docker Compose のインストール</span>
+sudo pip install docker-compose
+</code></pre></div><p><code>python3-distutils</code>は<code>pip</code>のインストールに必要らしいのでいれておく.</p><h3 id=gitのインストール>Gitのインストール</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt install -y git
+</code></pre></div><h3 id=gitユーザーの作成>gitユーザーの作成</h3><p><code>pihub</code>を扱うユーザーを作る.
+要するにいわゆるGitサーバー用のユーザー.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo adduser git
+
+<span style=color:#75715e># &#34;docker&#34; グループにユーザーを追加</span>
+sudo usermod -aG docker git
+</code></pre></div><p><code>docker</code>コマンドを扱うために,
+<code>docker</code>グループにユーザーを登録する.</p><h3 id=pihubのインストール>pihubのインストール</h3><p>GitHub - <a href=https://github.com/xiupos/pihub>xiupos/pihub</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/xiupos/pihub.git ~/.pihub
+cd ~/.pihub
+docker-compose up <span style=color:#75715e># Dockerでビルド</span>
+
+<span style=color:#75715e># PATHを通す</span>
+echo <span style=color:#e6db74>&#34;export PATH=</span>$PATH<span style=color:#e6db74>:</span>$HOME<span style=color:#e6db74>/.pihub/bin&#34;</span> &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre></div><p>インストールは<code>nimble install</code>でできるが,
+Nim環境の需要はそんなにないと思うので
+Dockerでビルドさせている.
+(<a href=https://hub.docker.com/r/balenalib/rpi-raspbian>balenalib/rpi-raspbian</a>
+イメージを使っている.)</p><p>ちなみにこれも<code>pihub</code>で開発した.</p><h4 id=ssh経由で操作するためのalias>SSH経由で操作するためのalias</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Local PC (Debian など)</span>
+echo <span style=color:#e6db74>&#34;alias pihub=&#39;ssh git@raspberrypi.local /home/git/.pihub/bin/pihub&#39;&#34;</span> &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre></div><p>Windowsで登録する方法は知らない.</p><h2 id=hello-world>Hello, World!</h2><p>お約束. コンソールではつまらないので<code>nginx</code>を使う.</p><p>GitHub - <a href=https://github.com/xiupos/pidocker-server>xiupos/pidocker-server</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Local PC</span>
+git clone https://github.com/xiupos/pidocker-server.git
+cd pidocker-server
+pihub create hello <span style=color:#75715e># リポジトリの作成</span>
+git remote add pi git@raspberrypi.local:hello.git
+git push pi master <span style=color:#75715e># デプロイ 初回は時間がかかる</span>
+</code></pre></div><p><a href=http://rasberrypi.local:8080/>http://rasberrypi.local:8080/</a>にアクセスすると
+<strong>Hello, world!</strong> が表示される.</p><h2 id=lチカ>Lチカ</h2><p>GPIOを弄らなきゃラズパイじゃない !</p><p>GitHub - <a href=https://github.com/xiupos/pidocker-blink>xiupos/pidocker-blink</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/xiupos/pidocker-blink.git
+cd pidocker-blink
+pihub create blink <span style=color:#75715e># リポジトリの作成</span>
+git remote add pi git@raspberrypi.local:blink.git
+git push pi master <span style=color:#75715e># デプロイ</span>
+</code></pre></div><p>接続はこんな感じ.</p><p><img src=https://blog.alexellis.io/content/images/2016/08/Screen-Shot-2016-08-20-at-09-40-46-1.png alt></img></p><p>画像の引用元: <a href=https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/>Get Started with Docker 1.12 on Raspberry Pi</a></p><p>ずっとチカチカしてるとコンテナが開きっぱになるので,
+10回で停止するようにしている.</p><h2 id=参考>参考</h2><h4 id=raspbian初期設定とか>Raspbian初期設定とか</h4><ul><li><p><a href=https://www.raspi.jp/2016/07/pizero-usb-otg/>Raspberry Pi ZeroをUSBケーブル1本で遊ぶ | Japanese Raspberry Pi Users Group</a></p></li><li><p><a href="http://blog.gbaman.info/?p=791">Raspberry Pi Zero – Programming over USB! (Part 2) | Andrew&rsquo;s blog</a></p></li></ul><h4 id=docker-on-raspberry-pi>Docker on Raspberry Pi</h4><ul><li><p><a href=https://qiita.com/hisurga/items/7aca7484ac5bfd084294>Raspberry PiにDockerを入れる - Qiita</a></p></li><li><p><a href=https://qiita.com/ykshr/items/c78eb72e3ee75664a5fe>Docker on Raspberry PiのインストールとLチカ - Qiita</a></p></li><li><p><a href=https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/>Docker comes to Raspberry Pi - Raspberry Pi</a></p></li></ul><h4 id=docker-compose-on-raspberry-pi>Docker Compose on Raspberry Pi</h4><ul><li><a href=https://jonathanmeier.io/install-docker-and-docker-compose-raspberry-pi/>Install Docker and Docker-Compose on your Raspberry Pi - Jonathan Meier</a></li></ul><h4 id=gitサーバー>Gitサーバー</h4><ul><li><p><a href=https://qiita.com/zaburo/items/8886be1a733aaf581045>gitでシンプルなデプロイ環境を作る - Qiita</a></p></li><li><p><a href=https://qiita.com/__mick/items/1f73fcb0d5dc7f5982f4>gitを使ったデプロイ方法 - Qiita</a></p></li><li><p><a href=https://blog.s-giken.net/343.html>Gitで基本的なデプロイ（push、pullで本番公開）環境を作る手順解説 | エス技研</a></p></li><li><p><a href=http://vdeep.net/git-push-deploy>git pushで本番環境に"自動デプロイ"できる環境を作ってみよう！ | vdeep</a></p></li></ul><h4 id=nginx構築>Nginx構築</h4><ul><li><a href=https://www.mk-mode.com/blog/2017/09/16/debian-9-nginx-installation-by-official-apt/>Debian 9 (Stretch) - Web サーバ Nginx 構築（Nginx 公式リポジトリ使用）！ - mk-mode BLOG</a></li></ul><h4 id=lチカ-1>Lチカ</h4><ul><li><p><a href=https://qiita.com/ykshr/items/c78eb72e3ee75664a5fe>Docker on Raspberry PiのインストールとLチカ - Qiita</a></p></li><li><p><a href=https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/>Get Started with Docker 1.12 on Raspberry Pi</a></p></li></ul></div><div class=post-footer></div></article><link rel=stylesheet href=/css/style.css></main></body></html>

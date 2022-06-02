@@ -1,0 +1,334 @@
+<!doctype html><html lang=en-us><head><title>HugoでTikZを使う - Xiupos</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.85.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="xiupos"><meta name=description content><link rel=stylesheet href=https://xiupos.net/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="HugoでTikZを使う"><meta name=twitter:description content="Hugoは$\KaTeX{}$で数式表記できるように設定できる.
+それで遊んでいたときに,
+TikZによる作図もできると便利だなと思って調べてみたら
+TikZJaxなるものを見つけたので,
+これのショートコードを作成した."><meta property="og:title" content="HugoでTikZを使う"><meta property="og:description" content="Hugoは$\KaTeX{}$で数式表記できるように設定できる.
+それで遊んでいたときに,
+TikZによる作図もできると便利だなと思って調べてみたら
+TikZJaxなるものを見つけたので,
+これのショートコードを作成した."><meta property="og:type" content="article"><meta property="og:url" content="https://xiupos.net/posts/computer/tikz/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-04-14T18:10:05+09:00"><meta property="article:modified_time" content="2020-04-14T18:10:05+09:00"></head><body><header class=app-header><a href=https://xiupos.net/><img class=app-header-avatar src=/avatar.jpg alt=xiupos></a><h1>Xiupoς</h1><nav class=app-header-menu><a class=app-header-menu-item href=/about/>ABOUT</a>
+/
+<a class=app-header-menu-item href=/tags/>TAGS</a></nav><p>Tech notes, trip photos, etc.</p><div class=app-header-social><a href=https://twitter.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a><a href=https://github.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://mk.xiupos.net/@xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-message-square"><title>Misskey</title><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>HugoでTikZを使う</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Apr 14, 2020</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://xiupos.net/tags/computer/>computer</a>
+<a class=tag href=https://xiupos.net/tags/hugo/>hugo</a></div></div></header><div class=post-content><p>Hugoは$\KaTeX{}$で数式表記できるように<a href=https://katex.org/docs/autorender.html>設定できる</a>.
+それで遊んでいたときに,
+TikZによる作図もできると便利だなと思って調べてみたら
+<a href=http://tikzjax.com/>TikZJax</a>なるものを見つけたので,
+これのショートコードを作成した.</p><figure><script type=text/tikz>
+    
+\begin{tikzpicture}[scale=2,transform shape]
+  \draw (-1,0) to[bend left] (1,0);
+  \draw (-1.2,.1) to[bend right] (1.2,.1);
+  \draw[rotate=0] (0,0) ellipse (100pt and 50pt);
+\end{tikzpicture}
+
+  </script></figure><h2 id=tikzとは>TikZとは</h2><blockquote><p>TikZ and PGF are TeX packages for creating graphics programmatically.</p></blockquote><p><a href=http://www.texample.net/tikz/>TikZ and PGF | TeXample.net</a></p><p>画像を$\TeX{}$で書ける便利なツール.
+ここでは文法などの説明は割愛するので,
+詳しいことは以下のQiita記事がわかりやすい.</p><p><a href=https://qiita.com/seekworser/items/0ef417ab788e0786d59a>PGF/TikZをオススメする記事 - Qiita</a></p><p>結構メジャーなので日本語文献も多い.</p><h3 id=tikzjax>TikZJax</h3><p><a href=https://github.com/kisonecat/tikzjax>kisonecat/tikzjax: TikZJax is TikZ running under WebAssembly in the browser</a></p><p>TikZをブラウザ上で描画してしまうという恐しいツール.
+日本語文献は限りなく無いが,
+<code>README.md</code>によると
+<a href=https://github.com/kisonecat/web2js>kisonecat/web2js</a>なるものを使って,
+WebAssemblyにコンパイルしているらしい.
+更に恐しい. 使ってみたい.</p><h2 id=hugoで使う>Hugoで使う</h2><p><a href=https://github.com/kisonecat/tikzjax/blob/master/README.md>README.md</a>の通りにやればできると思ったが,
+途中のWebAssemblyをfetchする時に<a href=https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>CORS</a>で引っ掛かる.
+なので, あまり上品ではないが, スクリプトとWebAssemblyを手元に落とすことにする.</p><p>まず問題のスクリプトを引っ張ってくる.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget -O static/script/tikzjax.js http://tikzjax.com/v1/tikzjax.js
+</code></pre></div><p>このスクリプトの<strong>21864~21866行目</strong>を以下のように変更.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>tex</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>urlRoot</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/wasm/tikzjax.wasm&#39;</span>);
+<span style=color:#a6e22e>code</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>tex</span>.<span style=color:#a6e22e>arrayBuffer</span>();
+<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch_readablestream__WEBPACK_IMPORTED_MODULE_5___default</span>()(<span style=color:#a6e22e>urlRoot</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/gzip/tikzjax.gz&#39;</span>);
+</code></pre></div><p>そしてWebAssembly達を引っ張ってくる.
+セキュリティが心配な場合は<code>git clone</code>して手元でビルドする.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget -O static/wasm/tikzjax.wasm http://tikzjax.com/ef253ef29e2f057334f77ead7f06ed8f22607d38.wasm
+wget -O static/gzip/tikzjax.gz http://tikzjax.com/7620f557a41f2bf40820e76ba1fd4d89a484859d.gz
+</code></pre></div><p>そして<code>layouts/partials/tikzjax.html</code>を作成.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/css&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://tikzjax.com/v1/fonts.css&#34;</span>&gt;
+&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/script/tikzjax.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</code></pre></div><p>1行目は数式用のフォントを定義しているが,
+BaKoMaフォントというものらしい.
+<a href=https://ctan.org/tex-archive/fonts/cm/ps-type1/bakoma/>CTANにある</a>ので
+<code>static/font/</code>などに配置してもいいかもしれない.</p><p>あとは, レイアウトのhead部分に</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{{ if or .Params.tikz .Site.Params.tikz }}
+  {{ partial &#34;tikzjax.html&#34; . }}
+{{ end }}
+</code></pre></div><p>などと追加する.
+これだと記事ファイルの冒頭部分に<code>tikz: true</code>とすることで
+スクリプトが読み込まれる. ここら辺は好みであろう.</p><h3 id=ショートコード>ショートコード</h3><p><code>layouts/shortcodes/tikz.html</code>を作成する.
+これも好みだと思うが, 私は<code>{{ figure }}</code>風に登録している.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>figure</span>&gt;
+  &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/tikz&#34;</span>&gt;
+    {{ .<span style=color:#a6e22e>Inner</span> }}
+  &lt;/<span style=color:#f92672>script</span>&gt;
+  {{ with .Get &#34;title&#34; }}
+  &lt;<span style=color:#f92672>figcaption</span>&gt;
+    &lt;<span style=color:#f92672>h4</span>&gt;{{ . }}&lt;/<span style=color:#f92672>h4</span>&gt;
+  &lt;/<span style=color:#f92672>figcaption</span>&gt;
+  {{ end }}
+&lt;/<span style=color:#f92672>figure</span>&gt;
+</code></pre></div><p>これ以外に<code>&lt;style></code>~<code>&lt;/style></code>でテーマに合うようにデザインを調整している.</p><h2 id=サンプル>サンプル</h2><p><a href=http://www.texample.net/>TEXample</a>にサンプルがあるのでいくつか書かせてみる.</p><h3 id=a-simple-cycle>A simple cycle</h3><p><a href=http://www.texample.net/tikz/examples/cycle/>A simple cycle | TikZ example</a></p><figure><script type=text/tikz>
+    
+\begin{tikzpicture}[scale=1.5,transform shape]
+  \def \n {5}
+  \def \radius {3cm}
+  \def \margin {8} % margin in angles, depends on the radius
+
+  \foreach \s in {1,...,\n}
+  {
+    \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
+    \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius) 
+      arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
+  }
+\end{tikzpicture}
+
+  </script></figure><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>{{&lt; tikz &#34;A simple cycle&#34; &gt;}}
+<span style=color:#66d9ef>\begin</span>{tikzpicture}[scale=1.5,transform shape]
+  <span style=color:#66d9ef>\def</span> <span style=color:#66d9ef>\n</span> {5}
+  <span style=color:#66d9ef>\def</span> <span style=color:#66d9ef>\radius</span> {3cm}
+  <span style=color:#66d9ef>\def</span> <span style=color:#66d9ef>\margin</span> {8} <span style=color:#75715e>% margin in angles, depends on the radius
+</span><span style=color:#75715e></span>
+  <span style=color:#66d9ef>\foreach</span> <span style=color:#66d9ef>\s</span> in {1,...,<span style=color:#66d9ef>\n</span>}
+  {
+    <span style=color:#66d9ef>\node</span><span style=color:#a6e22e>[draw, circle]</span> at ({360/<span style=color:#66d9ef>\n</span> * (<span style=color:#66d9ef>\s</span> - 1)}:<span style=color:#66d9ef>\radius</span>) {<span style=color:#e6db74>$</span>\s<span style=color:#e6db74>$</span>};
+    <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-&gt;, &gt;=latex]</span> ({360/<span style=color:#66d9ef>\n</span> * (<span style=color:#66d9ef>\s</span> - 1)+<span style=color:#66d9ef>\margin</span>}:<span style=color:#66d9ef>\radius</span>) 
+      arc ({360/<span style=color:#66d9ef>\n</span> * (<span style=color:#66d9ef>\s</span> - 1)+<span style=color:#66d9ef>\margin</span>}:{360/<span style=color:#66d9ef>\n</span> * (<span style=color:#66d9ef>\s</span>)-<span style=color:#66d9ef>\margin</span>}:<span style=color:#66d9ef>\radius</span>);
+  }
+<span style=color:#66d9ef>\end</span>{tikzpicture}
+{{&lt; /tikz &gt;}}
+</code></pre></div><h3 id=intersecting-lines>Intersecting lines</h3><p><a href=http://www.texample.net/tikz/examples/intersecting-lines/>Intersecting lines | TikZ example</a></p><figure><script type=text/tikz>
+    
+\begin{tikzpicture}[scale=2.5,transform shape]
+  % Draw axes
+  \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
+      |- (3,0) node (xaxis) [right] {$x$};
+  % Draw two intersecting lines
+  \draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
+  \draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
+  % Calculate the intersection of the lines a_1 -- a_2 and b_1 -- b_2
+  % and store the coordinate in c.
+  \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+  % Draw lines indicating intersection with y and x axis. Here we use
+  % the perpendicular coordinate system
+  \draw[dashed] (yaxis |- c) node[left] {$y'$}
+      -| (xaxis -| c) node[below] {$x'$};
+  % Draw a dot to indicate intersection point
+  \fill[red] (c) circle (2pt);
+\end{tikzpicture}
+
+  </script></figure><p>テーマと合わせるために<code>filter: invert()</code>で色を反転させているので,
+丸が水色になっている.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>{{&lt; tikz &#34;Intersecting lines&#34; &gt;}}
+<span style=color:#66d9ef>\begin</span>{tikzpicture}[scale=2.5,transform shape]
+  <span style=color:#75715e>% Draw axes
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\draw</span> [&lt;-&gt;,thick] (0,2) node (yaxis) [above] {<span style=color:#e6db74>$</span>y<span style=color:#e6db74>$</span>}
+      |- (3,0) node (xaxis) [right] {<span style=color:#e6db74>$</span>x<span style=color:#e6db74>$</span>};
+  <span style=color:#75715e>% Draw two intersecting lines
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\draw</span> (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
+  <span style=color:#66d9ef>\draw</span> (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
+  <span style=color:#75715e>% Calculate the intersection of the lines a_1 -- a_2 and b_1 -- b_2
+</span><span style=color:#75715e></span>  <span style=color:#75715e>% and store the coordinate in c.
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\coordinate</span> (c) at (intersection of a_1--a_2 and b_1--b_2);
+  <span style=color:#75715e>% Draw lines indicating intersection with y and x axis. Here we use
+</span><span style=color:#75715e></span>  <span style=color:#75715e>% the perpendicular coordinate system
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[dashed]</span> (yaxis |- c) node[left] {<span style=color:#e6db74>$</span>y&#39;<span style=color:#e6db74>$</span>}
+      -| (xaxis -| c) node[below] {<span style=color:#e6db74>$</span>x&#39;<span style=color:#e6db74>$</span>};
+  <span style=color:#75715e>% Draw a dot to indicate intersection point
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[red]</span> (c) circle (2pt);
+<span style=color:#66d9ef>\end</span>{tikzpicture}
+{{&lt; /tikz &gt;}}
+</code></pre></div><h3 id=swan-wave-model>SWAN wave model</h3><p><a href=http://www.texample.net/tikz/examples/swan-wave-model/>SWAN wave model | TikZ example</a></p><figure><script type=text/tikz>
+    
+\usetikzlibrary{positioning}
+\\begin *{document}
+\begin{tikzpicture}[scale=.9,every node/.style={minimum size=1cm}]
+  %slanting: production of a set of n 'laminae' to be piled up. N=number of grids.
+  \begin{scope}[
+          yshift=-83,every node/.append style={
+          yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+          ]
+      % opacity to prevent graphical interference
+      \fill[white,fill opacity=0.9] (0,0) rectangle (5,5);
+      \draw[step=4mm, black] (0,0) grid (5,5); %defining grids
+      \draw[step=1mm, red!50,thin] (3,1) grid (4,2);  %Nested Grid
+      \draw[black,very thick] (0,0) rectangle (5,5);%marking borders
+      \fill[red] (0.05,0.05) rectangle (0.35,0.35);
+      %Idem as above, for the n-th grid:
+  \end{scope}
+    
+  \begin{scope}[
+    yshift=0,every node/.append style={
+        yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                  ]
+      \fill[white,fill opacity=.9] (0,0) rectangle (5,5);
+      \draw[black,very thick] (0,0) rectangle (5,5);
+      \draw[step=5mm, black] (0,0) grid (5,5);
+  \end{scope}
+    
+  \begin{scope}[
+    yshift=90,every node/.append style={
+    yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                  ]
+    \fill[white,fill opacity=.9] (0,0) rectangle (5,5);
+    \draw[step=10mm, black] (1,1) grid (4,4);
+    \draw[black,very thick] (1,1) rectangle (4,4);
+    \draw[black,dashed] (0,0) rectangle (5,5);
+  \end{scope}
+    
+  \begin{scope}[
+    yshift=170,every node/.append style={
+        yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+      ]
+      \fill[white,fill opacity=0.6] (0,0) rectangle (5,5);
+      \draw[step=10mm, black] (2,2) grid (5,5);
+      \draw[step=2mm, green] (2,2) grid (3,3);
+      \draw[black,very thick] (2,2) rectangle (5,5);
+      \draw[black,dashed] (0,0) rectangle (5,5);
+  \end{scope}
+    
+  \begin{scope}[
+      yshift=-170,every node/.append style={
+      yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                ]
+      %marking border
+      \draw[black,very thick] (0,0) rectangle (5,5);
+
+      %drawing corners (P1,P2, P3): only 3 points needed to define a plane.
+      \draw [fill=lime](0,0) circle (.1) ;
+      \draw [fill=lime](0,5) circle (.1);
+      \draw [fill=lime](5,0) circle (.1);
+      \draw [fill=lime](5,5) circle (.1);
+
+      %drawing bathymetric hypotetic countours on the bottom grid:    	
+      \draw [ultra thick](0,1) parabola bend (2,2) (5,1)  ;
+      \draw [dashed] (0,1.5) parabola bend (2.5,2.5) (5,1.5) ;
+      \draw [dashed] (0,2) parabola bend (2.7,2.7) (5,2)  ;
+      \draw [dashed] (0,2.5) parabola bend (3.5,3.5) (5,2.5)  ;
+      \draw [dashed] (0,3.5)  parabola bend (2.75,4.5) (5,3.5);
+      \draw [dashed] (0,4)  parabola bend (2.75,4.8) (5,4);
+      \draw [dashed] (0,3)  parabola bend (2.75,3.8) (5,3);
+      \draw[-latex,thick](2.8,1)node[right]{$\mathsf{Shoreline}$}
+                to[out=180,in=270] (2,1.99);
+  \end{scope} %end of drawing grids
+
+  %putting arrows and labels:
+  \draw[-latex,thick] (6.2,2) node[right]{$\mathsf{Bathymetry}$}
+        to[out=180,in=90] (4,2);
+
+  \draw[-latex,thick](5.8,-.3)node[right]{$\mathsf{Comp.\ G.}$}
+      to[out=180,in=90] (3.9,-1);
+
+  \draw[-latex,thick](5.9,5)node[right]{$\mathsf{Wind\ G.}$}
+      to[out=180,in=90] (3.6,5);
+
+  \draw[-latex,thick](5.9,8.4)node[right]{$\mathsf{Friction\ G.}$}
+      to[out=180,in=90] (3.2,8);
+
+  \draw[-latex,thick,red](5.3,-4.2)node[right]{$\mathsf{G. Cell}$}
+      to[out=180,in=90] (0,-2.5);
+
+  \draw[-latex,thick,red](4.3,-1.9)node[right]{$\mathsf{Nested\ G.}$}
+      to[out=180,in=90] (2,-.5);
+
+  \draw[-latex,thick](4,-6)node[right]{$\mathsf{Batymetry}$}
+      to[out=180,in=90] (2,-5);	
+  %drawing points on grid's conrners.
+  \fill[black,font=\footnotesize]
+      (-5,-4.3) node [above] {$P_{1}$}
+      (-.3,-5.6) node [below] {$P_{2}$}
+      (5.5,-4) node [above] {$P_{3}$};
+\end{tikzpicture}
+
+  </script></figure><p><code>positioning</code>ライブラリが必要.
+反転して色が変だが, すごい.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>{{&lt; tikz &#34;SWAN wave model&#34; &gt;}}
+<span style=color:#66d9ef>\usetikzlibrary</span>{positioning}
+<span style=color:#66d9ef>\\</span>begin *{document}
+<span style=color:#66d9ef>\begin</span>{tikzpicture}[scale=.9 every node/.style={minimum size=1cm}]
+  <span style=color:#75715e>%slanting: production of a set of n &#39;laminae&#39; to be piled up. N=number of grids.
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\begin</span>{scope}[
+          yshift=-83,every node/.append style={
+          yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+          ]
+      <span style=color:#75715e>% opacity to prevent graphical interference
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[white,fill opacity=0.9]</span> (0,0) rectangle (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=4mm, black]</span> (0,0) grid (5,5); <span style=color:#75715e>%defining grids
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=1mm, red!50,thin]</span> (3,1) grid (4,2);  <span style=color:#75715e>%Nested Grid
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,very thick]</span> (0,0) rectangle (5,5);<span style=color:#75715e>%marking borders
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[red]</span> (0.05,0.05) rectangle (0.35,0.35);
+      <span style=color:#75715e>%Idem as above, for the n-th grid:
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\end</span>{scope}
+    
+  <span style=color:#66d9ef>\begin</span>{scope}[
+    yshift=0,every node/.append style={
+        yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                  ]
+      <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[white,fill opacity=.9]</span> (0,0) rectangle (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,very thick]</span> (0,0) rectangle (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=5mm, black]</span> (0,0) grid (5,5);
+  <span style=color:#66d9ef>\end</span>{scope}
+    
+  <span style=color:#66d9ef>\begin</span>{scope}[
+    yshift=90,every node/.append style={
+    yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                  ]
+    <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[white,fill opacity=.9]</span> (0,0) rectangle (5,5);
+    <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=10mm, black]</span> (1,1) grid (4,4);
+    <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,very thick]</span> (1,1) rectangle (4,4);
+    <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,dashed]</span> (0,0) rectangle (5,5);
+  <span style=color:#66d9ef>\end</span>{scope}
+    
+  <span style=color:#66d9ef>\begin</span>{scope}[
+    yshift=170,every node/.append style={
+        yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+      ]
+      <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[white,fill opacity=0.6]</span> (0,0) rectangle (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=10mm, black]</span> (2,2) grid (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[step=2mm, green]</span> (2,2) grid (3,3);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,very thick]</span> (2,2) rectangle (5,5);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,dashed]</span> (0,0) rectangle (5,5);
+  <span style=color:#66d9ef>\end</span>{scope}
+    
+  <span style=color:#66d9ef>\begin</span>{scope}[
+      yshift=-170,every node/.append style={
+      yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                ]
+      <span style=color:#75715e>%marking border
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[black,very thick]</span> (0,0) rectangle (5,5);
+
+      <span style=color:#75715e>%drawing corners (P1,P2, P3): only 3 points needed to define a plane.
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\draw</span> [fill=lime](0,0) circle (.1) ;
+      <span style=color:#66d9ef>\draw</span> [fill=lime](0,5) circle (.1);
+      <span style=color:#66d9ef>\draw</span> [fill=lime](5,0) circle (.1);
+      <span style=color:#66d9ef>\draw</span> [fill=lime](5,5) circle (.1);
+
+      <span style=color:#75715e>%drawing bathymetric hypotetic countours on the bottom grid:    	
+</span><span style=color:#75715e></span>      <span style=color:#66d9ef>\draw</span> [ultra thick](0,1) parabola bend (2,2) (5,1)  ;
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,1.5) parabola bend (2.5,2.5) (5,1.5) ;
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,2) parabola bend (2.7,2.7) (5,2)  ;
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,2.5) parabola bend (3.5,3.5) (5,2.5)  ;
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,3.5)  parabola bend (2.75,4.5) (5,3.5);
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,4)  parabola bend (2.75,4.8) (5,4);
+      <span style=color:#66d9ef>\draw</span> [dashed] (0,3)  parabola bend (2.75,3.8) (5,3);
+      <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span>(2.8,1)node[right]{<span style=color:#e6db74>$</span>\mathsf{Shoreline}<span style=color:#e6db74>$</span>}
+                to[out=180,in=270] (2,1.99);
+  <span style=color:#66d9ef>\end</span>{scope} <span style=color:#75715e>%end of drawing grids
+</span><span style=color:#75715e></span>
+  <span style=color:#75715e>%putting arrows and labels:
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span> (6.2,2) node[right]{<span style=color:#e6db74>$</span>\mathsf{Bathymetry}<span style=color:#e6db74>$</span>}
+        to[out=180,in=90] (4,2);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span>(5.8,-.3)node[right]{<span style=color:#e6db74>$</span>\mathsf{Comp.\ G.}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (3.9,-1);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span>(5.9,5)node[right]{<span style=color:#e6db74>$</span>\mathsf{Wind\ G.}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (3.6,5);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span>(5.9,8.4)node[right]{<span style=color:#e6db74>$</span>\mathsf{Friction\ G.}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (3.2,8);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick,red]</span>(5.3,-4.2)node[right]{<span style=color:#e6db74>$</span>\mathsf{G. Cell}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (0,-2.5);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick,red]</span>(4.3,-1.9)node[right]{<span style=color:#e6db74>$</span>\mathsf{Nested\ G.}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (2,-.5);
+
+  <span style=color:#66d9ef>\draw</span><span style=color:#a6e22e>[-latex,thick]</span>(4,-6)node[right]{<span style=color:#e6db74>$</span>\mathsf{Batymetry}<span style=color:#e6db74>$</span>}
+      to[out=180,in=90] (2,-5);	
+  <span style=color:#75715e>%drawing points on grid&#39;s conrners.
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>\fill</span><span style=color:#a6e22e>[black,font=\footnotesize]</span>
+      (-5,-4.3) node [above] {<span style=color:#e6db74>$</span>P_{<span style=color:#ae81ff>1</span>}<span style=color:#e6db74>$</span>}
+      (-.3,-5.6) node [below] {<span style=color:#e6db74>$</span>P_{<span style=color:#ae81ff>2</span>}<span style=color:#e6db74>$</span>}
+      (5.5,-4) node [above] {<span style=color:#e6db74>$</span>P_{<span style=color:#ae81ff>3</span>}<span style=color:#e6db74>$</span>};
+<span style=color:#66d9ef>\end</span>{tikzpicture}
+{{&lt; /tikz &gt;}}
+</code></pre></div></div><div class=post-footer></div></article><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css integrity=sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><style>.katex-display{overflow:hidden;overflow-x:auto}</style><link rel=stylesheet type=text/css href=http://tikzjax.com/v1/fonts.css><script src=/script/tikzjax.js></script><style>.post-content figure div{display:block;max-width:100%;height:auto;margin:auto;border-radius:4px}.post-content figure svg{filter:invert();width:93%}</style></main></body></html>

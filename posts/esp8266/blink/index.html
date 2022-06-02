@@ -1,0 +1,53 @@
+<!doctype html><html lang=en-us><head><title>ESP8266 : いまさらLチカをする - Xiupos</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.85.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="xiupos"><meta name=description content><link rel=stylesheet href=https://xiupos.net/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="ESP8266 : いまさらLチカをする"><meta name=twitter:description content="先日, 秋月の税込250円の
+ESP-WROOM-02を買ったので,
+いつも通りボード作ってLチカしてみた."><meta property="og:title" content="ESP8266 : いまさらLチカをする"><meta property="og:description" content="先日, 秋月の税込250円の
+ESP-WROOM-02を買ったので,
+いつも通りボード作ってLチカしてみた."><meta property="og:type" content="article"><meta property="og:url" content="https://xiupos.net/posts/esp8266/blink/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-22T18:26:18+09:00"><meta property="article:modified_time" content="2020-02-22T18:26:18+09:00"></head><body><header class=app-header><a href=https://xiupos.net/><img class=app-header-avatar src=/avatar.jpg alt=xiupos></a><h1>Xiupoς</h1><nav class=app-header-menu><a class=app-header-menu-item href=/about/>ABOUT</a>
+/
+<a class=app-header-menu-item href=/tags/>TAGS</a></nav><p>Tech notes, trip photos, etc.</p><div class=app-header-social><a href=https://twitter.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a><a href=https://github.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://mk.xiupos.net/@xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-message-square"><title>Misskey</title><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>ESP8266 : いまさらLチカをする</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Feb 22, 2020</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://xiupos.net/tags/electronics/>electronics</a>
+<a class=tag href=https://xiupos.net/tags/esp8266/>esp8266</a>
+<a class=tag href=https://xiupos.net/tags/blink-helloworld/>blink-helloworld</a></div></div></header><div class=post-content><p>先日, 秋月の税込250円の
+<a href=http://akizukidenshi.com/catalog/g/gM-09607/>ESP-WROOM-02</a>を買ったので,
+いつも通りボード作ってLチカしてみた.</p><h2 id=esp-wroom-02とは>ESP-WROOM-02とは?</h2><p>Espressif Systems社のWi-Fiモジュール.
+Wi-Fiモジュールなのに,
+<a href=https://ja.wikipedia.org/wiki/ESP8266>ESP8266EX</a>を搭載してるが故にマイコンとして使われてしまっている可哀想なモジュール.</p><p>32bit MCU, 4MB ROM, SPI・UARTとか主要インターフェースがあり,
+それに加えてWi-Fiが使える(技適あり)んだから便利, と<strong>数年前に</strong>流行った.
+つまり, ちょっと流行りが過ぎている.</p><p>しかも, <a href=http://akizukidenshi.com/catalog/g/gM-13289>ESP-WROOM-02D</a>という
+後継のものがある.
+周波数がD無しより改善されているらしい. そんなせいもあるのか, D無しは秋月では破格の税込250円で販売されている.</p><p>ちなみに, <a href=http://akizukidenshi.com/catalog/g/gM-11647/>ESP-WROOM-32</a>という
+上位機種がある.
+こちらはBluetoothまで使える. ただし, 税込550円でマイコンチップにしては高級品.
+なぜか持っているがまだ遊んでいない.
+というかそれが必要となるほど大きなプロジェクトがない.</p><h2 id=マイコンボードを作る>マイコンボードを作る</h2><p><img src=blink-1.jpg alt></img></p><p>いつも通り<a href=http://akizukidenshi.com/catalog/g/gP-11735/>45基板</a>にまとめてみた.
+シリアル変換は<a href=http://akizukidenshi.com/catalog/g/gK-14745/>AE-CH340E-TYPEC</a>という
+去年11月に発売されたモジュールを使った.
+なんと, USBコネクタがType-C. モダン.
+現在, シリアル変換モジュールで最安(税込480円).</p><h3 id=esp-wroom-02の取り付け>ESP-WROOM-02の取り付け</h3><p>ESP-WROOM-02の端子は1.5mmピッチなので,
+ユニバーサル基板に取り付けるのには工夫が必要.
+世の中にはDIP化基板が出回っているが,
+ブレッドボードで使う予定はないので,
+UEWを使って直付けした.</p><p><img src=blink-2.jpg alt></img></p><h3 id=回路>回路</h3><p>秋月の<a href=http://akizukidenshi.com/download/ds/akizuki/AE-ESP-WROOM02-DEV.pdf>ESP-WROOM-02開発ボード</a>の回路図を参考に, 上手く組みた.
+本当ならいつも通り回路図を置きたいが,
+先日, メインPCのOSを換装したためにまだ環境が整ってない&mldr;
+水魚堂みたいに直感的に操作できる簡単なエディタがないものか.</p><h3 id=ハマったところ>ハマったところ</h3><h4 id=atコマンドでokされるまで>ATコマンドでOKされるまで</h4><p>ファームウェアを書き換えていない素のESP-WROOM-02は,
+シリアル通信でコマンドを送信することによって,
+本来のWi-Fiモジュールとしての設定をすることができる(<a href="https://www.mkbtm.jp/?p=618">参考</a>).
+で, <code>AT</code>を送信すると正常なら<code>OK</code>と返ってくるはずなのが,
+ここで<code>ERROR</code>ばっかし返ってきて苦労した.</p><p>結論を言うと,
+シリアルコンソールの改行コードの設定を
+受信<strong>CR</strong>, 送信<strong>CR+LF</strong>にする必要があった.</p><p><img src=blink-2.png alt></img></p><h4 id=書き込みモード切り替え>書き込みモード切り替え</h4><p>ESP-WROOM-02は, ファームウェア書き込みの際に「書き込み可能状態」にする必要がある.
+具体的には, IO0(ピン8)をLOWにしながらマイコンをリセットすると, ファームウェアを書き込める状態になる.</p><p>それ自体はLPCシリーズやArduinoのブートローダと似ているので,
+ArduinoIDE等で書き込む際にフローで自動化できる(<a href=https://days-of-programming.blogspot.com/2018/05/esp8266dtrrts.html>参考</a>).</p><p>で, このボードでも自動化回路を組込もうとしたのが,
+CH340EにはDTRが無い! ので結局実装はしなかった.
+まあ, いつかOTA書き込みを標準にしてしまえば
+スイッチを押す必要は無くなるだろう&mldr;</p><h2 id=lチカする>Lチカする</h2><p>さて主題のLチカが, <a href=https://www.arduino.cc/en/main/software>Arduino IDE</a>を使って爆速で終わらせる.</p><ol><li>「ファイル」>「環境設定」の「追加のボードマネージャ」に<code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code>を追加</li><li>「ツールメニュー」>「ボード」>「ボードマネージャ」で<strong>ESP8266 Community</strong>を検索, 追加.</li><li>「ツールメニュー」>「ボード」で<strong>Generic ESP8226 Module</strong>を選択.</li></ol><p>で, 以下のよくみるコードを入力し, モジュールに書き込む.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+  pinMode(<span style=color:#ae81ff>16</span>, OUTPUT);
+}
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+  digitalWrite(<span style=color:#ae81ff>16</span>, HIGH);
+  delay(<span style=color:#ae81ff>1000</span>);
+  digitalWrite(<span style=color:#ae81ff>16</span>, LOW);
+  delay(<span style=color:#ae81ff>1000</span>);
+}
+</code></pre></div><p>ピン番号は環境に合わせて替えてください.</p><p>で, こうなる.<p><video src=blink-1.mp4 autoplay loop muted preload=auto playsinline style=max-width:100%></video></p></p><p>次はHello,world!したい.</p><p>追記: した.</p><p><a href=/posts/esp8266/hello/>ESP8266 : マイコンなのにHello, world!</a></p></div><div class=post-footer></div></article><link rel=stylesheet href=/css/style.css></main></body></html>

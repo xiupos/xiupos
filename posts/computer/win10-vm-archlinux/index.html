@@ -1,0 +1,50 @@
+<!doctype html><html lang=en-us><head><title>Windows 10のVMをArch Linuxでサクっと動かすメモ - Xiupos</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.85.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="xiupos"><meta name=description content><link rel=stylesheet href=https://xiupos.net/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Windows 10のVMをArch Linuxでサクっと動かすメモ"><meta name=twitter:description content="最近またPCをクリーンインストールした. 今度の OS は Arch Linux. 今まで Debian系を使い続けていたが, 「Docker があれば OS なんて関係ないのでは」と気付いてしまったのだ.
+クリーンインストールは(苦労したが)上手くいった. だが, 1つ問題がわかった. Windows か Mac でしかアクセスできないサービスにアクセスできない (Debian でもできないが). ぶっちゃけ, 私はそんなサービスは存在価値ないと思っているが, コロナのせいで在宅○○が増えて使わなくてはいけない場面に出会ってしまった. あゝ悍ましい.
+ということで, Arch Linux でレガシテスト用の Windows 10 を VM するメモ.
+VirtualBox と Vagrant のインストール VMware はエラーが出てインストールできなかった. Wiki が充実していた VirtualBox を使う.
+sudo pacman -Syu virtualbox vagrant sudo modprobe -a vboxdrv sudo sh -c &#34;echo 'vboxdrv' > /etc/modules-load.d/virtualbox.conf&#34; sudo gpasswd -a $USER vboxusers インストールとカーネルモジュールの起動, 登録などする.
+イメージファイルのダウンロードと起動 Virtual Machines - Microsoft Edge Developer"><meta property="og:title" content="Windows 10のVMをArch Linuxでサクっと動かすメモ"><meta property="og:description" content="最近またPCをクリーンインストールした. 今度の OS は Arch Linux. 今まで Debian系を使い続けていたが, 「Docker があれば OS なんて関係ないのでは」と気付いてしまったのだ.
+クリーンインストールは(苦労したが)上手くいった. だが, 1つ問題がわかった. Windows か Mac でしかアクセスできないサービスにアクセスできない (Debian でもできないが). ぶっちゃけ, 私はそんなサービスは存在価値ないと思っているが, コロナのせいで在宅○○が増えて使わなくてはいけない場面に出会ってしまった. あゝ悍ましい.
+ということで, Arch Linux でレガシテスト用の Windows 10 を VM するメモ.
+VirtualBox と Vagrant のインストール VMware はエラーが出てインストールできなかった. Wiki が充実していた VirtualBox を使う.
+sudo pacman -Syu virtualbox vagrant sudo modprobe -a vboxdrv sudo sh -c &#34;echo 'vboxdrv' > /etc/modules-load.d/virtualbox.conf&#34; sudo gpasswd -a $USER vboxusers インストールとカーネルモジュールの起動, 登録などする.
+イメージファイルのダウンロードと起動 Virtual Machines - Microsoft Edge Developer"><meta property="og:type" content="article"><meta property="og:url" content="https://xiupos.net/posts/computer/win10-vm-archlinux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-08-03T10:48:26+09:00"><meta property="article:modified_time" content="2020-08-03T10:48:26+09:00"></head><body><header class=app-header><a href=https://xiupos.net/><img class=app-header-avatar src=/avatar.jpg alt=xiupos></a><h1>Xiupoς</h1><nav class=app-header-menu><a class=app-header-menu-item href=/about/>ABOUT</a>
+/
+<a class=app-header-menu-item href=/tags/>TAGS</a></nav><p>Tech notes, trip photos, etc.</p><div class=app-header-social><a href=https://twitter.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a><a href=https://github.com/xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://mk.xiupos.net/@xiupos target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-message-square"><title>Misskey</title><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Windows 10のVMをArch Linuxでサクっと動かすメモ</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Aug 3, 2020</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://xiupos.net/tags/computer/>computer</a>
+<a class=tag href=https://xiupos.net/tags/archlinux/>archlinux</a></div></div></header><div class=post-content><p>最近またPCをクリーンインストールした.
+今度の OS は <a href=https://www.archlinux.org/>Arch Linux</a>.
+今まで Debian系を使い続けていたが,
+「Docker があれば OS なんて関係ないのでは」と気付いてしまったのだ.</p><p>クリーンインストールは(苦労したが)上手くいった.
+だが, 1つ問題がわかった.
+Windows か Mac でしかアクセスできないサービスにアクセスできない
+(Debian でもできないが).
+ぶっちゃけ,
+私はそんなサービスは存在価値ないと思っているが,
+コロナのせいで在宅○○が増えて使わなくてはいけない場面に出会ってしまった.
+あゝ悍ましい.</p><p>ということで,
+Arch Linux でレガシテスト用の Windows 10 を VM するメモ.</p><h2 id=virtualbox-と-vagrant-のインストール>VirtualBox と Vagrant のインストール</h2><p>VMware はエラーが出てインストールできなかった.
+Wiki が充実していた VirtualBox を使う.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo pacman -Syu virtualbox vagrant
+sudo modprobe -a vboxdrv
+sudo sh -c <span style=color:#e6db74>&#34;echo &#39;vboxdrv&#39; &gt; /etc/modules-load.d/virtualbox.conf&#34;</span>
+sudo gpasswd -a $USER vboxusers
+</code></pre></div><p>インストールとカーネルモジュールの起動, 登録などする.</p><h2 id=イメージファイルのダウンロードと起動>イメージファイルのダウンロードと起動</h2><p><a href=https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/>Virtual Machines - Microsoft Edge Developer</a></p><p>ちょっと前までmodern.IEと呼ばれていたもの.
+Windows 10 なら90日間動作する仮想マシン.
+ここから <strong>Vagrant</strong>用 (<code>MSEdge.Win10.Vagrant.zip</code>) をダウンロードしてくる.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mkdir -p ~/Vagrant/win10edge
+cd ~/Vagrant/win10edge
+unzip ~/Download/MSEdge.Win10.Vagrant.zip
+<span style=color:#75715e># &#39;MSEdge - Win10.box&#39; が解凍される.</span>
+mv <span style=color:#e6db74>&#39;MSEdge - Win10.box&#39;</span> win10.box
+vagrant box add win10edge win10.box
+<span style=color:#75715e># スペースが入っているとエラーを吐く</span>
+vagrant init win10edge
+vim Vagrantfile
+<span style=color:#75715e># # 以下のコメントを戻す</span>
+<span style=color:#75715e># config.vm.provider &#34;virtualbox&#34; do |vb|</span>
+<span style=color:#75715e>#   vb.gui = true</span>
+<span style=color:#75715e>#   vb.memory = &#34;2048&#34;</span>
+<span style=color:#75715e># end</span>
+vagrant up
+</code></pre></div><p>これで GUI で Windows 10 が起動する.
+ちなみに, メモリは 4096MB くらいにしてあげると快適に動く.</p><p>あと, Edge 最新版で動くと称すサービスがこの Edge で使えなかった.
+大人しく Chrome をインストールすべき.
+どこの模試とは言わない.</p><h2 id=参考>参考</h2><ul><li><a href=https://wiki.archlinux.jp/index.php/VirtualBox>https://wiki.archlinux.jp/index.php/VirtualBox</a></li><li><a href=https://wiki.archlinux.jp/index.php/Vagrant>https://wiki.archlinux.jp/index.php/Vagrant</a></li><li><a href="https://www.youtube.com/watch?v=QzOrQGlehpQ">https://www.youtube.com/watch?v=QzOrQGlehpQ</a></li></ul></div><div class=post-footer></div></article><link rel=stylesheet href=/css/style.css></main></body></html>

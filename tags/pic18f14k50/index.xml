@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pic18f14k50 on Xiupos</title><link>https://xiupos.net/tags/pic18f14k50/</link><description>Recent content in pic18f14k50 on Xiupos</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 09 Feb 2019 20:00:58 +0900</lastBuildDate><atom:link href="https://xiupos.net/tags/pic18f14k50/index.xml" rel="self" type="application/rss+xml"/><item><title>PIC18F14K50 : I2Cを使った</title><link>https://xiupos.net/posts/pic18f14k50/i2c/</link><pubDate>Sat, 09 Feb 2019 20:00:58 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/i2c/</guid><description>&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pic18f14k50 on Xiupos</title><link>https://xiupos.net/tags/pic18f14k50/</link><description>Recent content in pic18f14k50 on Xiupos</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 09 Feb 2019 20:00:58 +0900</lastBuildDate><atom:link href="https://xiupos.net/tags/pic18f14k50/index.xml" rel="self" type="application/rss+xml"/><item><title>PIC18F14K50 : I2Cを使った</title><link>https://xiupos.net/blog/pic18f14k50/i2c/</link><pubDate>Sat, 09 Feb 2019 20:00:58 +0900</pubDate><guid>https://xiupos.net/blog/pic18f14k50/i2c/</guid><description>&lt;p>
 &lt;img
 src="i2c-1.jpg"
 alt=""
@@ -6,7 +6,7 @@ alt=""
 &lt;/p>
 &lt;p>PIC18F14K50でI2Cを使ってみた.
 が, 解説を書こうかな&amp;hellip;とか思っているうちに10か月経ったので,
-とりあえず解説無しで公開だけする.&lt;/p></description></item><item><title>PIC18F14K50 : Lチカ</title><link>https://xiupos.net/posts/pic18f14k50/blink/</link><pubDate>Mon, 30 Apr 2018 08:35:33 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/blink/</guid><description>&lt;p>始めたばかりのPIC18F14K50で定番のLチカしてみる.&lt;/p></description></item><item><title>PIC18F14K50 : マイコンボード作り</title><link>https://xiupos.net/posts/pic18f14k50/board/</link><pubDate>Tue, 03 Apr 2018 16:50:22 +0900</pubDate><guid>https://xiupos.net/posts/pic18f14k50/board/</guid><description>&lt;p>最近, アセンブリを書くことに疲れてきたので,
+とりあえず解説無しで公開だけする.&lt;/p></description></item><item><title>PIC18F14K50 : Lチカ</title><link>https://xiupos.net/blog/pic18f14k50/blink/</link><pubDate>Mon, 30 Apr 2018 08:35:33 +0900</pubDate><guid>https://xiupos.net/blog/pic18f14k50/blink/</guid><description>&lt;p>始めたばかりのPIC18F14K50で定番のLチカしてみる.&lt;/p></description></item><item><title>PIC18F14K50 : マイコンボード作り</title><link>https://xiupos.net/blog/pic18f14k50/board/</link><pubDate>Tue, 03 Apr 2018 16:50:22 +0900</pubDate><guid>https://xiupos.net/blog/pic18f14k50/board/</guid><description>&lt;p>最近, アセンブリを書くことに疲れてきたので,
 しばらくはC言語で開発していきたいと思う.
 しかし, PIC16F84AのC言語を使うくらいだったらアセンブリの方が使いやすいし(本末転倒),
 せっかくなので他のPICをはじめたいと思った.&lt;/p></description></item></channel></rss>

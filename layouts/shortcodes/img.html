@@ -1,0 +1,8 @@
+<p>
+  <img
+    src="{{ .Get 0 }}"
+    {{ if len .Params | eq 2}}
+      alt="{{ .Get 1 }}"
+    {{ end }}
+  ></img>
+</p>

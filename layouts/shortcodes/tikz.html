@@ -1,0 +1,10 @@
+<figure>
+  <script type="text/tikz">
+    {{ .Inner }}
+  </script>
+  {{ with .Get "title" }}
+  <figcaption>
+    <h4>{{ . }}</h4>
+  </figcaption>
+  {{ end }}
+</figure>

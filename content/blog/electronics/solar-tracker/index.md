@@ -10,6 +10,8 @@ math: true
 tikz: false
 ---
 
+{{< img "solar-tracker-1.jpg" "" >}}
+
 最近の高校では「[総合的な探究の時間](https://www.mext.go.jp/content/1407196_21_1_1_2.pdf)」というものがある.
 実施される内容は学校ごとに違うらしいが,
 通っていた学校は教育実験校でもあったため,
@@ -196,7 +198,7 @@ $$
 
 逆問題の解を実装した装置を作った.
 
-{{< img "solar-tracker-1.jpg" "" >}}
+{{< img "solar-tracker-2.jpg" "" >}}
 
 
 マイコンには[STM32F303K8](https://www.st.com/en/evaluation-tools/nucleo-f303k8.html)を使い,

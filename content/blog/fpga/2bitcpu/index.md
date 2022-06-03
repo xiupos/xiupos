@@ -3,6 +3,7 @@ title : "DE0-Nano : Lチカできる2bitCPU"
 tags : [
   "fpga",
   "de0-nano",
+  "blink-helloworld",
 ]
 date : "2022-03-19T23:00:00+09:00"
 math : true

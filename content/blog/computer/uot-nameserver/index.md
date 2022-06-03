@@ -22,7 +22,7 @@ toc : true
 
 ## 国内サーバへの切り替え
 
-切り替えるサーバはUNIVERSITY OF TOYAMA with Ubuntu Japanese LoCoの[http://jp.archive.ubuntu.com/]. [Ubuntu Japanese Local Community Team](https://lists.ubuntu.com/mailman/listinfo/ubuntu-jp)の[このメーリングリストのアーカイブ](https://lists.ubuntu.com/archives/ubuntu-jp/2009-August/002059.html)を参考に, ``/etc/apt/sources.list``を書き直した.
+切り替えるサーバはUNIVERSITY OF TOYAMA with Ubuntu Japanese LoCoの[jp.archive.ubuntu.com/](http://jp.archive.ubuntu.com/). [Ubuntu Japanese Local Community Team](https://lists.ubuntu.com/mailman/listinfo/ubuntu-jp)の[このメーリングリストのアーカイブ](https://lists.ubuntu.com/archives/ubuntu-jp/2009-August/002059.html)を参考に, ``/etc/apt/sources.list``を書き直した.
 
 ```bash
 sudo vim /etc/apt/sources.list

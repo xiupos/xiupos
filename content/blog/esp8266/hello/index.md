@@ -71,7 +71,7 @@ void loop() {
 POSTの説明はWikipediaに任せようと思ったのに, 
 意外なことに日本語版が無かった.
 
-[https://en.wikipedia.org/wiki/POST_(HTTP)]
+[POST (HTTP) - Wikipedia](https://en.wikipedia.org/wiki/POST_(HTTP))
 
 私は現代っ子なので, 今回は[LINE Notify](https://notify-bot.line.me/ja/)を叩いてみる.
 またもやArduino IDE.

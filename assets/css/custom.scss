@@ -1,0 +1,9 @@
+@media (max-width: 940px) {
+  .post-content {
+    img, video {
+      max-width: calc(100% + 5rem)!important;
+      width: calc(100% + 5rem)!important;
+      margin: 0 -2.5rem;
+    }
+  }
+}

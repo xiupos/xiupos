@@ -6,7 +6,7 @@ $$ \cos \psi = \cos \theta_\odot \cos \theta + \sin \theta_\odot \sin \theta \co
 また, 太陽の(見かけの)光度を $I$ とし, 太陽と面の距離を $d$ と置くと, 面の照度 $E$ は,
 $$ E = \frac{I}{d^2} \cos \psi $$
 となることが知られている3.
-ここで, 太陽と地球の距離は平均 $1.5 \times 10^{11} \, \mathrm{m}$ であり, 高校生にとってはとても長い距離であるから, $d$ は定数と見做すことができる.</description></item><item><title>YMZ294をSPIで制御する</title><link>https://xiupos.net/blog/electronics/ymz294-spi/</link><pubDate>Mon, 31 Dec 2018 09:08:01 +0900</pubDate><guid>https://xiupos.net/blog/electronics/ymz294-spi/</guid><description>&lt;p>
+ここで, 太陽と地球の距離は平均 $1.</description></item><item><title>YMZ294をSPIで制御する</title><link>https://xiupos.net/blog/electronics/ymz294-spi/</link><pubDate>Mon, 31 Dec 2018 09:08:01 +0900</pubDate><guid>https://xiupos.net/blog/electronics/ymz294-spi/</guid><description>&lt;p>
 &lt;img
 src="ymz294-spi-1.jpg"
 alt=""

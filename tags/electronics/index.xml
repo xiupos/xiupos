@@ -6,7 +6,7 @@ $$ \cos \psi = \cos \theta_\odot \cos \theta + \sin \theta_\odot \sin \theta \co
 また, 太陽の(見かけの)光度を $I$ とし, 太陽と面の距離を $d$ と置くと, 面の照度 $E$ は,
 $$ E = \frac{I}{d^2} \cos \psi $$
 となることが知られている3.
-ここで, 太陽と地球の距離は平均 $1.5 \times 10^{11} \, \mathrm{m}$ であり, 高校生にとってはとても長い距離であるから, $d$ は定数と見做すことができる.</description></item><item><title>ESP8266 : ArduinoOTAで無線書き込み</title><link>https://xiupos.net/blog/esp8266/ota/</link><pubDate>Tue, 17 Mar 2020 16:08:03 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/ota/</guid><description>&lt;p>Wi-Fiが使えるマイコンで,
+ここで, 太陽と地球の距離は平均 $1.</description></item><item><title>ESP8266 : ArduinoOTAで無線書き込み</title><link>https://xiupos.net/blog/esp8266/ota/</link><pubDate>Tue, 17 Mar 2020 16:08:03 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/ota/</guid><description>&lt;p>Wi-Fiが使えるマイコンで,
 一度はやってみたかった&lt;strong>無線書き込み&lt;/strong>.&lt;br>
 気になって調べてみたら,
 想像以上に簡単だった.&lt;/p></description></item><item><title>ESP8266 : 二進数時計</title><link>https://xiupos.net/blog/esp8266/bin-clock/</link><pubDate>Mon, 24 Feb 2020 09:40:15 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/bin-clock/</guid><description>&lt;p>

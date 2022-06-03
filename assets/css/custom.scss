@@ -1,18 +1,32 @@
-@media (max-width: 940px) {
-  .post-content {
+.post-content {
+  @media (max-width: 940px) {
     img, video {
       max-width: calc(100% + 5rem)!important;
       width: calc(100% + 5rem)!important;
       margin: 0 -2.5rem;
     }
+    
+    pre {
+      max-width: calc(100% + 5rem)!important;
+      width: calc(100% + 5rem)!important;
+      margin: 0 -2.5rem;
+      // border: none!important;
+      // padding: 1em 2.5rem!important;
+      padding: 1em 2.5rem 1em calc(2.5rem - 0.4em)!important;
+    }
   }
 
-  pre {
-    max-width: calc(100% + 5rem)!important;
-    width: calc(100% + 5rem)!important;
-    margin: 0 -2.5rem;
-    // border: none!important;
-    // padding: 1em 2.5rem!important;
-    padding: 1em 2.5rem 1em calc(2.5rem - 0.4em)!important;
+  ::-webkit-scrollbar {
+    height: 6px;
+    margin: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #00000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff22;
+    border-radius: 3px;
   }
 }

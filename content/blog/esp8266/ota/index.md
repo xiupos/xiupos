@@ -113,7 +113,7 @@ PratformIOのプロジェクトフォルダにある
 `platfirmio.ini`に
 次の2行を追加するだけ.
 
-```
+```txt
 upload_protocol = espota
 upload_port = 192.168.x.xx
 ```

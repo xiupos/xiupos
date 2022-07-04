@@ -32,7 +32,7 @@ theme = "m10c"
   [[params.social]]
     icon = "message-square"
     name = "Misskey"
-    url = "https://mk.xiupos.net/@xiupos"
+    url = "https://m.x4s.io/@xiupos"
   [params.style]
     darkestColor = "#171817"
     darkColor = "#101110"

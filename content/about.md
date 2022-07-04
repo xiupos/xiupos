@@ -11,7 +11,7 @@ I would be grateful if you could get some ideas from my posts.
 Since I'm writing in Japanese, Google Translate should help read entries.
 
 However, I will answer English or German questions.
-Contact me on [Twitter](https://twitter.com/xiupos) or [ActivityPub](https://mk.xiupos.net/@xiupos).
+Contact me on [Twitter](https://twitter.com/xiupos) or [ActivityPub](https://m.x4s.io/@xiupos).
 Generally I approve follow requests.
 
 ### DISCLAIMER

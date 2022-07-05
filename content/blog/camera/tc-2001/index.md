@@ -12,7 +12,7 @@ toc : true
 
 {{< img "tc-2001-1.jpg" "" >}}
 
-[X-E1](/posts/camera/x-e1/)用に, 
+[X-E1](/blog/camera/x-e1/)用に, 
 ロワジャパンの[レリーズ(TC-2001)](https://www.rowa.co.jp/cabinet/form.cgi?no=6648)を買った.
 <!--more-->
 このレリーズはタイマー機能やインターバル撮影機能が付いているにも関わらず, 

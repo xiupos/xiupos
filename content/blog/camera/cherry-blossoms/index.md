@@ -14,7 +14,7 @@ date : "2018-03-30T08:12:19+09:00"
 
 {{< img "cherry-blossoms-1.jpg" "Fujifilm X-E1 + Nikon NIKKOR-S･C Auto 50mm f/1.4" >}}
 
-ついでに, [このあいだ買ったX-E1](/posts/camera/x-e1/)の練習をしてきた. マニュアルフォーカス難しい!  
+ついでに, [このあいだ買ったX-E1](/blog/camera/x-e1/)の練習をしてきた. マニュアルフォーカス難しい!  
 以下, 奇跡的にピントが合った数少ない写真たち.
 
 {{< img "cherry-blossoms-2.jpg" "Fujifilm X-E1 + Nikon NIKKOR-S･C Auto 50mm f/1.4" >}}

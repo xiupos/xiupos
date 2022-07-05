@@ -10,7 +10,7 @@ toc : true
 
 {{< img "ymz294-spi-1.jpg" "" >}}
 
-前に使った[YMZ294](/posts/electronics/ymz294-spi/)が, 
+前に使った[YMZ294](/blog/electronics/ymz294-spi/)が, 
 また使おうとするとあの配線をやり直す必要があった.
 そこで, 思い切って[SPI](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9)化することで配線の手間を減らし使いやすくしようと思い, やってみた.   
 <!--more-->
@@ -20,7 +20,7 @@ toc : true
 {{< img "ymz294-spi-2.png" "変換アダプタ" >}}
 
 SPI化には, [シフトレジスタ(74HC595)](http://akizukidenshi.com/catalog/g/gI-08605/)を用いた.
-理由は, [前に使ったことがあるから](/posts/pic16f84a/matrix/).
+理由は, [前に使ったことがあるから](/blog/pic16f84a/matrix/).
 そのまま8ビットバスとSPIマスタの間につなげば使える, と思ったのが, 
 どうも書き込みの際の/WR/CSや/A0の扱いが74HC595だけでは上手くいきそうになかったので, 
 [PIC12F683](http://akizukidenshi.com/catalog/g/gI-00801/)で制御した.

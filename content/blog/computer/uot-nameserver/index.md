@@ -9,7 +9,7 @@ date : "2019-07-21T15:08:23+09:00"
 toc : true
 ---
 
-先日構築した[Ubuntu on Termux](/posts/computer/uot/)で, 
+先日構築した[Ubuntu on Termux](/blog/computer/uot/)で, 
 ``apt``コマンドの利用リポジトリのサーバを国内のものに変更しようとした際に手こずったのでメモ.
 <!--more-->
 

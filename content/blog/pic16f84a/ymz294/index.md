@@ -90,4 +90,4 @@ YMZ294を買ったときについてきたデータシートに16F84A用のサ�
 YMZ294のMIDI音源化みたいなことした↓
 
 
-[YMZ294をSPIで制御する - NOMBIRIdoryoku](/posts/electronics/ymz294-spi/)
+[YMZ294をSPIで制御する - NOMBIRIdoryoku](/blog/electronics/ymz294-spi/)

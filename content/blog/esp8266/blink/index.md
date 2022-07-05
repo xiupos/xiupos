@@ -125,4 +125,4 @@ void loop() {
 
 追記: した.
 
-[ESP8266 : マイコンなのにHello, world!](/posts/esp8266/hello/)
+[ESP8266 : マイコンなのにHello, world!](/blog/esp8266/hello/)

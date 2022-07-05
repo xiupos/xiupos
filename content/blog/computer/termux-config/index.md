@@ -9,7 +9,7 @@ date : "2019-08-25T18:34:19+09:00"
 toc : true
 ---
 
-[UoT](/posts/computer/uot/)を使ってて, 
+[UoT](/blog/computer/uot/)を使ってて, 
 少々Termux側の設定で気になったことがあったのでそのメモ.
 <!--more-->
 最近はUoTがストレージを食いすぎているので, 少しの間だけUoTから離れてTermux単体で使っている.

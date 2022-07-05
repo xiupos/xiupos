@@ -112,7 +112,7 @@ hugo server
 [GitHub Pages](https://pages.github.com/)
 
 Hugoで生成したサイトのホスティングにはGitHub Pagesを利用している.
-[タスク管理ツール](/posts/computer/todoo/)を作ったときにも使ったが,
+[タスク管理ツール](/blog/computer/todoo/)を作ったときにも使ったが,
 `git push`するだけで反映されるのは便利.
 あと, いつの間にか[GitHub Actions](https://github.com/features/actions)なるものができていた.
 GitLabと悩んでいたが, Twitterで教えてもらいGitHub Pagesに決定した.

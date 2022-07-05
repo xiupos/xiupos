@@ -16,7 +16,7 @@ alt=""
 >&lt;/img>
 &lt;/p>
 &lt;p>ESP-WROOM-02でのハードの制御の練習に,
-二進数時計を作ってみた.&lt;/p></description></item><item><title>ESP8266 : マイコンなのにHello, world!</title><link>https://xiupos.net/blog/esp8266/hello/</link><pubDate>Sun, 23 Feb 2020 06:12:45 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/hello/</guid><description>&lt;p>&lt;a href="https://xiupos.net/posts/esp8266/blink/">LチカをしたESP-WROOM-02&lt;/a>だが,
+二進数時計を作ってみた.&lt;/p></description></item><item><title>ESP8266 : マイコンなのにHello, world!</title><link>https://xiupos.net/blog/esp8266/hello/</link><pubDate>Sun, 23 Feb 2020 06:12:45 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/hello/</guid><description>&lt;p>&lt;a href="https://xiupos.net/blog/esp8266/blink/">LチカをしたESP-WROOM-02&lt;/a>だが,
 やっぱりESP8266の威力を体験するためにはWi-Fi関連を使わねばならない.
 そこで, (マイコンでは珍しく)&lt;code>Hello, world!&lt;/code>をする.&lt;/p></description></item><item><title>ESP8266 : いまさらLチカをする</title><link>https://xiupos.net/blog/esp8266/blink/</link><pubDate>Sat, 22 Feb 2020 18:26:18 +0900</pubDate><guid>https://xiupos.net/blog/esp8266/blink/</guid><description>&lt;p>先日, 秋月の税込250円の
 &lt;a href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02&lt;/a>を買ったので,
@@ -26,7 +26,7 @@ src="tc-2001-1.jpg"
 alt=""
 >&lt;/img>
 &lt;/p>
-&lt;p>&lt;a href="https://xiupos.net/posts/camera/x-e1/">X-E1&lt;/a>用に,
+&lt;p>&lt;a href="https://xiupos.net/blog/camera/x-e1/">X-E1&lt;/a>用に,
 ロワジャパンの&lt;a href="https://www.rowa.co.jp/cabinet/form.cgi?no=6648">レリーズ(TC-2001)&lt;/a>を買った.&lt;/p></description></item><item><title>PIC18F14K50 : I2Cを使った</title><link>https://xiupos.net/blog/pic18f14k50/i2c/</link><pubDate>Sat, 09 Feb 2019 20:00:58 +0900</pubDate><guid>https://xiupos.net/blog/pic18f14k50/i2c/</guid><description>&lt;p>
 &lt;img
 src="i2c-1.jpg"
@@ -41,7 +41,7 @@ src="ymz294-spi-1.jpg"
 alt=""
 >&lt;/img>
 &lt;/p>
-&lt;p>前に使った&lt;a href="https://xiupos.net/posts/electronics/ymz294-spi/">YMZ294&lt;/a>が,
+&lt;p>前に使った&lt;a href="https://xiupos.net/blog/electronics/ymz294-spi/">YMZ294&lt;/a>が,
 また使おうとするとあの配線をやり直す必要があった.
 そこで, 思い切って&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9">SPI&lt;/a>化することで配線の手間を減らし使いやすくしようと思い, やってみた.&lt;/p></description></item><item><title>簡易正弦波ジェネレータ</title><link>https://xiupos.net/blog/electronics/sin/</link><pubDate>Sun, 15 Jul 2018 12:58:06 +0900</pubDate><guid>https://xiupos.net/blog/electronics/sin/</guid><description>&lt;p>
 &lt;img

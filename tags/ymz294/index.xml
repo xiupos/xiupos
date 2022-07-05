@@ -12,6 +12,6 @@ src="ymz294-spi-1.jpg"
 alt=""
 >&lt;/img>
 &lt;/p>
-&lt;p>前に使った&lt;a href="https://xiupos.net/posts/electronics/ymz294-spi/">YMZ294&lt;/a>が,
+&lt;p>前に使った&lt;a href="https://xiupos.net/blog/electronics/ymz294-spi/">YMZ294&lt;/a>が,
 また使おうとするとあの配線をやり直す必要があった.
 そこで, 思い切って&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9">SPI&lt;/a>化することで配線の手間を減らし使いやすくしようと思い, やってみた.&lt;/p></description></item><item><title>PIC16F84A : 音源IC(YMZ294)を鳴らす</title><link>https://xiupos.net/blog/pic16f84a/ymz294/</link><pubDate>Tue, 06 Feb 2018 10:59:43 +0900</pubDate><guid>https://xiupos.net/blog/pic16f84a/ymz294/</guid><description>&lt;p>新しいマイコンを始めるとき, まずは&lt;a href="http://dic.nicovideo.jp/a/l%E3%83%81%E3%82%AB">Lチカ&lt;/a>をするのが世の常であるが, 思い切ってYMZ294を鳴らしてみた.&lt;/p></description></item></channel></rss>

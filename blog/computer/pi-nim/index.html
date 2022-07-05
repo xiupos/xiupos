@@ -32,7 +32,7 @@ C言語で書かれたNim) の <strong>v0.20.0</strong> にすら及ばない.</
 だから,
 実際には下のDockerでどうにかした方がいい.</p><h3 id=docker>Docker</h3><p>本題はこっち.
 こちらの方が自分的には需要がある.
-Dockerのインストールは<a href=https://blog.xiupos.net/posts/computer/pi-docker/#docker%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>前回の記事</a>を見てほしい.</p><p>使い方としては,
+Dockerのインストールは<a href=https://blog.xiupos.net/blog/computer/pi-docker/#docker%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB>前回の記事</a>を見てほしい.</p><p>使い方としては,
 <code>docker-compose.yml</code>でビルド用のコンテナを分ける感じだろうか.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=display:flex><span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> balenalib/rpi-raspbian:buster</span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> echo <span style=color:#e6db74>&#34;deb http://archive.raspbian.org/raspbian testing main&#34;</span> <span style=color:#ae81ff>\

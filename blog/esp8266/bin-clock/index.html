@@ -14,7 +14,7 @@ ESP-WROOM-02でのハードの制御の練習に,
 <a class=tag href=https://xiupos.net/tags/esp8266/>esp8266</a>
 <a class=tag href=https://xiupos.net/tags/matrix-led/>matrix-led</a></div></div></header><div class=post-content><p><img src=bin-clock-1.jpg alt></img></p><p>ESP-WROOM-02でのハードの制御の練習に,
 二進数時計を作ってみた.</p><p>前に作成した
-<a href=/posts/pic16f84a/matrix/>マトリクスLEDのボード</a>は
+<a href=/blog/pic16f84a/matrix/>マトリクスLEDのボード</a>は
 シフトレジスタに74HC595を使っているため,
 Arduino IDEの<code>SPI.h</code>で簡単に制御することができる.
 それと, Wi-Fiによって時間を<a href=https://ja.wikipedia.org/wiki/Network_Time_Protocol>NTP</a>より取得し,
@@ -92,7 +92,7 @@ Arduino IDEの<code>SPI.h</code>で簡単に制御することができる.
 </span></span></code></pre></div><p>ESP8266によるNTPの設定は想像以上に簡単.
 <a href=https://qiita.com/h_nari/items/d0374d1e1e36b9d988c0>こちら</a>のサイトを参考にした.
 マトリクスLEDは<code>timer0</code>を使って3msごとに1行ずつ表示する.
-前に<a href=/posts/pic16f84a/matrix/>PIC16F84Aで扱ったとき</a>の方法と同じ.
+前に<a href=/blog/pic16f84a/matrix/>PIC16F84Aで扱ったとき</a>の方法と同じ.
 <code>timer0</code>については<a href=https://lipoyang.hatenablog.com/entry/20161205/p1>こちら</a>を参考にした.</p><p>年は2020で8bitでは表示しきれないので,
 2行に分けて16bitで表示した.</p><h3 id=動いているところ>動いているところ</h3><p>で, 動いている様子はこんな感じ.</p><p><video src=bin-clock-1.mp4 autoplay loop muted preload=auto playsinline style=max-width:100%></video></p><p>どうも, たまに静止する.
 割り込み処理が上手くいってないかもしれない.

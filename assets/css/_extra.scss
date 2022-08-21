@@ -8,10 +8,10 @@
       margin: 0 -2.5rem;
     }
 
-    table {
-      min-width: calc(100% + 5rem) !important;
-      margin: 0 -2.5rem;
-    }
+    // table {
+    //   min-width: calc(100% + 5rem) !important;
+    //   margin: 0 -2.5rem;
+    // }
 
     pre {
       padding: 1em 2.5rem 1em calc(2.5rem - 0.4em) !important;
@@ -37,10 +37,10 @@
   }
 
   table {
-    // display: block;
     border-collapse: collapse;
-    // overflow: hidden;
-    // overflow-x: auto;
+    display: block;
+    overflow: hidden;
+    overflow-x: auto;
 
       th,
       td {

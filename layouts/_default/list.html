@@ -1,6 +1,29 @@
 {{ define "main" }}
   <article>
-    <h1>{{ if eq .Title .Site.Title }}{{ .Site.Params.blogtitle }}{{ else }}{{ .Title }}{{ end }}</h1>
+    <h1>
+      {{ if or
+        (eq .Title .Site.Title)
+        (in .Site.Sections .CurrentSection)
+      }}
+        {{ $.Site.Params.section_prefix }}
+        {{- range $key, $item := .Site.Sections }}
+          {{- if ne $key 0 }}
+            {{ $.Site.Params.section_item_separator | default " - " | safeHTML }}
+          {{ end }}
+          {{ if eq $item.Section $.Section }}
+            <span style="text-transform: capitalize;">
+              {{ $item.Section }}
+            </span>
+          {{ else }}
+            <a href="/{{ $item.Section }}/" style="text-transform: capitalize;">
+              {{ $item.Section }}
+            </a>
+          {{ end }}
+          {{ end }}
+      {{ else }}
+        {{ .Title }}
+      {{ end }}
+    </h1>
     <ul class="posts-list">
       {{ range where .Paginator.Pages "Type" "!=" "page" }}
         <li class="posts-list-item">

@@ -21,7 +21,8 @@ theme = "m10c"
   author = "xiupos"
   description = "Tech notes, trip photos, etc."
   menu_item_separator = " / "
-  blogTitle = "Xiupoy blog"
+  section_item_separator = " / "
+  section_prefix = "Xiupoy"
 
   [[params.social]]
     icon = "twitter"

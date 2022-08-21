@@ -32,6 +32,23 @@
   a {
     word-break: break-all;
   }
+
+  table {
+    border-collapse:collapse;
+
+    th {
+      border-bottom: 1px solid #888;
+    }
+
+    th, td {
+      padding: 0.8rem 1.5rem;
+      margin: 0;
+    }
+
+    tbody tr:nth-child(even) {
+      background: $darkest-color;
+    }
+  }
 }
 
 code {

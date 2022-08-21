@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 .post-content {
   @media (max-width: 940px) {
     img,
@@ -46,7 +50,7 @@
       td {
         padding: 0.5rem 1rem;
         margin: 0;
-        // white-space: nowrap;
+        white-space: nowrap;
       }
 
       thead {

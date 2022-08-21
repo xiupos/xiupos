@@ -1,18 +1,19 @@
 .post-content {
   @media (max-width: 940px) {
-    img, video {
-      max-width: calc(100% + 5rem)!important;
-      width: calc(100% + 5rem)!important;
+    img,
+    video {
+      max-width: calc(100% + 5rem) !important;
+      width: calc(100% + 5rem) !important;
       margin: 0 -2.5rem;
     }
-    
+
     pre {
-      max-width: calc(100% + 5rem)!important;
-      width: calc(100% + 5rem)!important;
+      max-width: calc(100% + 5rem) !important;
+      width: calc(100% + 5rem) !important;
       margin: 0 -2.5rem;
       // border: none!important;
       // padding: 1em 2.5rem!important;
-      padding: 1em 2.5rem 1em calc(2.5rem - 0.4em)!important;
+      padding: 1em 2.5rem 1em calc(2.5rem - 0.4em) !important;
     }
   }
 
@@ -33,4 +34,8 @@
   a {
     word-break: break-all;
   }
+}
+
+code {
+  overflow-wrap: break-word;
 }

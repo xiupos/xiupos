@@ -32,7 +32,6 @@
       {{ template "_internal/disqus.html" . }}
     </div>
   </article>
-  <link rel="stylesheet" href="/css/style.css" />
 	{{ if or .Params.math .Site.Params.math }}
 		{{ partial "math.html" . }}
 	{{ end }}

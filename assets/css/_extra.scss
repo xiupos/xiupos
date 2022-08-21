@@ -2,7 +2,8 @@
   @media (max-width: 940px) {
     img,
     video,
-    pre {
+    pre,
+    table {
       max-width: calc(100% + 5rem) !important;
       width: calc(100% + 5rem) !important;
       margin: 0 -2.5rem;
@@ -32,7 +33,6 @@
   }
 
   table {
-    display: block;
     border-collapse: collapse;
     overflow: hidden;
     overflow-x: auto;

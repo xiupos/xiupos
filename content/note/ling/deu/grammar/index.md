@@ -44,20 +44,20 @@ draft: true
 
 #### 冠詞, 代名詞
 
-**mein型** → 括弧無し, **dieser型** → 括弧有り.
-
 | | m. | w. | s. | Pl. |
 | :-: | :-- | :-- | :-- | :-- |
 | Nom. | $-$(er) | $-$(i)e | $-$(**e**s)[^das] | $-$(i)e |
-| Akk. | $-$es | $-$er | $-$es | $-$er |
-| Dat. | $-$em | $-$er | $-$em | $-$en |
+| Akk. | $-$es{sen} | $-$er{en} | $-$es{sen} | $-$er{en} |
+| Dat. | $-$em | $-$er | $-$em | $-$en{en} |
 | Gen. | $-$en | $-$(i)e | $-$(**e**s)[^das] | $-$(i)e |
+
+**mein型** → 括弧無し.
+**dieser型** → ()括弧有り.  
+定冠詞型指示代名詞の 名詞的用法 および 関係代名詞 → d + {}括弧あり.
 
 [^das]: 定冠詞の時のみ "*d***a**s".
 
 #### 形容詞
-
-**強変化** → dieser型. **混合変化** → 括弧有り. **弱変化** → 括弧無し.
 
 | | m. | w. | s. | Pl. |
 | :-: | :-- | :-- | :-- | :-- |
@@ -65,6 +65,10 @@ draft: true
 | Akk. | $-$en | $-$en | $-$en | $-$en |
 | Dat. | $-$en | $-$en | $-$en | $-$en |
 | Gen. | $-$en | $-$e | $-$e(s) | $-$en |
+
+強変化 → dieser型.
+**混合変化** → 括弧有り.
+**弱変化** → 括弧無し.
 
 #### 名詞
 
@@ -89,20 +93,16 @@ draft: true
   | Dat. | $\overset{(\cdot\cdot)}{-}$(e)n | $\ddot{-}$ern | $-$(e)n | $-$s |
   | Gen. | $\overset{(\cdot\cdot)}{-}$(e) | $\ddot{-}$er | $-$(e)n | $-$s |
 
-### 代名詞
-
 #### 人称代名詞
-
-所有代名詞の **付加的用法** → mein型[^unsere*], **名詞的用法** → dieser型.
 
 - Sg.
 
   | | 1. Sg. | 2. Sg | 3. Sg. m. | 3. Sg. w. | 3. Sg. s. |
   | :-: | :-- | :-- | :-- | :-- | :-- |
   | Nom. | ich | du | er | sie | es |
-  | Akk. | (meiner) | (deiner) | (seiner) | (ihrer) | (seiner) |
-  | Dat. | mir | dir | ihm[^sich] | ihr[^sich] | ihm[^sich] |
-  | Gen. | mich | dich | ihn[^sich] | sie[^sich] | es[^sich] |
+  | Akk. | meiner | deiner | seiner | ihrer | seiner |
+  | Dat. | mir | dir | ihm (sich) | ihr (sich) | ihm (sich) |
+  | Gen. | mich | dich | ihn (sich) | sie (sich) | es (sich) |
   | 所有 | mein | dein | sein | ihr | sein |
 
 - Pl.
@@ -110,10 +110,13 @@ draft: true
   | | 1. Pl. | 2. Pl. | 3. Pl. |
   | :-: | :-- | :-- | :-- |
   | Nom. | wir | ihr | sie |
-  | Akk. | (unser) | (euer) | (ihrer) |
-  | Dat. | uns | euch | ihnen[^sich] |
-  | Gen. | uns | euch | sie[^sich] |
+  | Akk. | unser | euer | ihrer |
+  | Dat. | uns | euch | ihnen (sich) |
+  | Gen. | uns | euch | sie (sich) |
   | 所有 | unser | euer | ihr |
 
-[^sich]: 再帰代名詞は "sich".
+**再帰代名詞** → 括弧.  
+所有代名詞の 付加語的用法 → mein型[^unsere*],
+名詞的用法 → dieser型.
+
 [^unsere*]: uns[e]re*, eu[e]re*.

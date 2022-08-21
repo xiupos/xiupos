@@ -2,10 +2,14 @@
   @media (max-width: 940px) {
     img,
     video,
-    pre,
-    table {
+    pre {
       max-width: calc(100% + 5rem) !important;
       width: calc(100% + 5rem) !important;
+      margin: 0 -2.5rem;
+    }
+
+    table {
+      min-width: calc(100% + 5rem) !important;
       margin: 0 -2.5rem;
     }
 
@@ -33,22 +37,28 @@
   }
 
   table {
+    // display: block;
     border-collapse: collapse;
-    overflow: hidden;
-    overflow-x: auto;
+    // overflow: hidden;
+    // overflow-x: auto;
 
-    th {
-      border-bottom: 1px solid #888;
-    }
+      th,
+      td {
+        padding: 0.5rem 1rem;
+        margin: 0;
+        // white-space: nowrap;
+      }
 
-    th,
-    td {
-      padding: 0.5rem 1rem;
-      margin: 0;
-    }
+      thead {
+        th {
+          border-bottom: 1px solid #888;
+        }  
+      }
 
-    tbody tr:nth-child(even) {
-      background: $darkest-color;
+      tbody {
+        tr:nth-child(even) {
+        background: $darkest-color;
+      }
     }
   }
 }

@@ -1,16 +1,14 @@
 .post-content {
   @media (max-width: 940px) {
     img,
-    video {
+    video,
+    pre {
       max-width: calc(100% + 5rem) !important;
       width: calc(100% + 5rem) !important;
       margin: 0 -2.5rem;
     }
 
     pre {
-      max-width: calc(100% + 5rem) !important;
-      width: calc(100% + 5rem) !important;
-      margin: 0 -2.5rem;
       padding: 1em 2.5rem 1em calc(2.5rem - 0.4em) !important;
     }
   }
@@ -34,13 +32,17 @@
   }
 
   table {
-    border-collapse:collapse;
+    display: block;
+    border-collapse: collapse;
+    overflow: hidden;
+    overflow-x: auto;
 
     th {
       border-bottom: 1px solid #888;
     }
 
-    th, td {
+    th,
+    td {
       padding: 0.8rem 1.5rem;
       margin: 0;
     }

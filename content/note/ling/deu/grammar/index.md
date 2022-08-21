@@ -2,6 +2,7 @@
 title: "ドイツ語文法まとめ"
 date: 2022-08-21T17:31:04+09:00
 tags : [
+  "ling"
 ]
 toc : false
 math: true

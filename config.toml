@@ -9,6 +9,7 @@ theme = "m10c"
     name = "ABOUT"
     url = "/about/"
     weight = 1
+
   [[menu.main]]
     identifier = "tags"
     name = "TAGS"
@@ -21,18 +22,22 @@ theme = "m10c"
   description = "Tech notes, trip photos, etc."
   menu_item_separator = " / "
   blogTitle = "Xiupoy blog"
+
   [[params.social]]
     icon = "twitter"
     name = "Twitter"
     url = "https://twitter.com/xiupos"
+
   [[params.social]]
     icon = "github"
     name = "Github"
     url = "https://github.com/xiupos"
+
   [[params.social]]
     icon = "message-square"
     name = "Misskey"
     url = "https://m.x4s.io/@xiupos"
+
   [params.style]
     darkestColor = "#171817"
     darkColor = "#101110"

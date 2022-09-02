@@ -1,14 +1,17 @@
 ---
-title: "ドイツ語文法まとめ"
-date: 2022-08-21T17:31:04+09:00
+title: "ドイツ語文法メモ"
+date: 2022-09-02T23:18:04+09:00
 tags : [
   "ling"
 ]
 toc : false
 math: true
 tikz: false
-draft: true
+# draft: true
 ---
+
+気が向いたら更新するかも.
+正確かは保証しません.
 
 ## 暗記表
 

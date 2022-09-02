@@ -27,6 +27,11 @@
     <ul class="posts-list">
       {{ range where .Paginator.Pages "Type" "!=" "page" }}
         <li class="posts-list-item">
+          {{ if ne .Section $.Section }}
+            <span style="text-transform: capitalize;">
+              {{ .Section }}
+            </span>|
+          {{ end }}
           <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
           <span class="posts-list-item-description">
             {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}

@@ -2,6 +2,7 @@
 title: "チューバ"
 date: 2022-09-02T23:27:26+09:00
 tags : [
+  "tuba",
 ]
 toc : false
 math: true

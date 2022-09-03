@@ -1,10 +1,10 @@
 ---
-title: "ABOUT ME & MY BLOG"
+title: "ABOUT ME & MY BLOG and NOTE"
 ---
 
 Hey, I'm [xiupos](https://xiupos.net/).
 
-The blog updates irregularly about the electronic work and the scenery photos to improve the writing power of xiupos.
+This blog and note update irregularly about the electronic work and the scenery photos to improve the writing power of xiupos.
 Since it is written as a memorandum for myself, there are many difficult-to-understand contents.
 I would be grateful if you could get some ideas from my posts.
 
@@ -21,9 +21,9 @@ Also, if there is a problem with their accuracy or suitability, I may change or 
 
 I don't take any responsibility for any actions or damages or losses incurred using the information on this site. Please note.
 
-# ブログについて
+# ブログとノートについて
 
-ブログでは, 電子工作中に思ったことや, 出掛けた際の風景写真などを不定期に更新しています.
+このブログとノートでは, 電子工作中に思ったことや, 出掛けた際の風景写真などを不定期に更新しています.
 自分用の備忘録として書いていますので, 分かりにくい内容も多々あると思います.
 少しでも参考になる記事があれば嬉しいです.
 

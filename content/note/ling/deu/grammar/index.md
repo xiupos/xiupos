@@ -7,7 +7,7 @@ tags : [
 toc : false
 math: true
 tikz: false
-# draft: true
+draft: true
 ---
 
 気が向いたら更新するかも.

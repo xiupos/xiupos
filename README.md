@@ -3,5 +3,5 @@
 ```
 Website     ->  xiupos.net
 Twitter     ->  @xiupos@twitter.com
-ActivityPub ->  @xiupos@m.x4s.io
+ActivityPub ->  @xiupos@mk.xiupos.net
 ```

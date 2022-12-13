@@ -127,5 +127,4 @@ draft: true
 ## 参考文献
 
 - 中島悠爾, 平尾浩三, 朝倉巧 (2003). 『必携ドイツ文法総まとめ』. 白水社.
-- Langenscheidt (2006): „Langenscheidt Grosswörterbuch: Deutsch als Fremdsprache“, Langenscheidt.
 - Langenscheidt (2016): „Langenscheidt Schulwörterbuch: Deutsch als Fremdsprache“, Langenscheidt.

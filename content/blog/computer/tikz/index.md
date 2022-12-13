@@ -10,7 +10,7 @@ math: true
 tikz: true
 ---
 
-Hugoは$\KaTeX{}$で数式表記できるように[設定できる](https://katex.org/docs/autorender.html).
+HugoはKaTeXで数式表記できるように[設定できる](https://katex.org/docs/autorender.html).
 それで遊んでいたときに,
 TikZによる作図もできると便利だなと思って調べてみたら
 [TikZJax](http://tikzjax.com/)なるものを見つけたので,

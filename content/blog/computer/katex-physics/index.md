@@ -13,9 +13,9 @@ tikz: false
 レポート側の LaTeX で [physics](https://ctan.org/pkg/physics) パッケージを使っているが,
 エディタ側 (vscode) の [md プレビュー](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) で KaTeX が使われているため一部のコマンドの結果が見れない.
 MathJax の v3 以降なら [physics 拡張](https://docs.mathjax.org/en/v3.2-latest/input/tex/extensions/physics.html) がある[^1]が,
-KaTeX はそういった拡張が無い.
-一応, MathJax v2[^2] にも third party な [physics 拡張](https://github.com/mathjax/MathJax-third-party-extensions/blob/master/legacy/physics/) があるが,
-この拡張は単純なマクロの集合なので,
+KaTeX にはそういった拡張は無い.
+一応, MathJax v2[^2] にも third party な [physics 拡張](https://github.com/mathjax/MathJax-third-party-extensions/blob/master/legacy/physics/) があり,
+この拡張は単純なマクロの集合であるから,
 加工することで KaTeX マクロとしても使うことができる.
 
 [^1]: この記事で使用している拡張.

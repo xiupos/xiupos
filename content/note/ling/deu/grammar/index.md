@@ -30,6 +30,19 @@ draft: true
   | 2. Pl. | $-$t | $-$tet | $-$et | $-$tet |
   | 3. Pl. | $-$en | $-$ten | $-$en | $-$ten |
 
+```txt
+|      |       |            |       |         |
+| ---- | ----- | ---------- | ----- | ------- |
+| Inf  | -e n  |    - te    | -e    | - te    |   
+| Part | -e nd | ge - t     |       |         | 
+| ich  | -e    |    - te    | -e    | - te    |   
+| du   | -  st |    - te st | -e st | - te st |   
+| er   | -  t  |    - te    | -e t  | - te    |   
+| wir  | -e n  |    - te n  | -e n  | - te n  |   
+| ihr  | -  t  |    - te t  | -e t  | - te t  |   
+| sie  | -e n  |    - te n  | -e n  | - te n  |   
+```
+
 - 強変化
 
   | | 直接法 現在 | 直接法 過去 | 接続法 I | 接続法 II |
@@ -42,6 +55,19 @@ draft: true
   | 1. Pl. | $-$en | $\overset{\times}{-}$en | $-$en | $\overset{\times}{\ddot{-}}$te n |
   | 2. Pl. | $-$t | $\overset{\times}{-}$t | $-$et | $\overset{\times}{\ddot{-}}$te t |
   | 3. Pl. | $-$en | $\overset{\times}{-}$en | $-$en | $\overset{\times}{\ddot{-}}$te n |
+
+```txt
+|      |       |          |       |          |
+| ---- | ----- | -------- | ----- | -------- |
+| Inf  | -e n  |    =     | -e    | =" te    |   
+| Part | -e nd | ge =e n  |       |          | 
+| ich  | -e    |    =     | -e    | =" te    |   
+| du   | =  st |    =  st | -e st | =" te st |   
+| er   | =  t  |    =     | -e t  | =" te    |   
+| wir  | -e n  |    =e n  | -e n  | =" te n  |   
+| ihr  | -  t  |    =  t  | -e t  | =" te t  |   
+| sie  | -e n  |    =e n  | -e n  | =" te n  |  
+```
 
 ### 格変化
 

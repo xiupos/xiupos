@@ -25,23 +25,18 @@ theme = "m10c"
   section_prefix = "Xiupoy"
 
   [[params.social]]
-    icon = "twitter"
-    name = "Twitter"
-    url = "https://twitter.com/xiupos"
-
-  [[params.social]]
     icon = "github"
     name = "Github"
     url = "https://github.com/xiupos"
 
   [[params.social]]
-    icon = "message-square"
-    name = "Misskey"
-    url = "https://mk.xiupos.net/@xiupos"
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/xiupos"
 
   [params.style]
     darkestColor = "#171817"
     darkColor = "#101110"
-    primaryColor = "#61ae76"
+    primaryColor = "#d5c063"
     lightColor = "#DCDDDD"
     lightestColor = "#EDEDEB"

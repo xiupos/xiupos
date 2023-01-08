@@ -28,9 +28,11 @@ tikz: false
 
 ### 教科書
 
-- NHk出版『[これならわかる ○○語文法 入門から上級まで](https://www.nhk-book.co.jp/list/genre-198.html)』
+- [NHk出版](https://www.nhk-book.co.jp/list/midcategory-302.html)
+  - 『これからはじめる ○○語入門』
+  - 『[これならわかる ○○語文法 入門から上級まで](https://www.nhk-book.co.jp/list/genre-198.html)』
 - 大阪大学出版会 (大阪大学外国語学部)『[世界の言語シリーズ ○○語](https://www.osaka-up.or.jp/book_list.php?gc=14)』
-- 東京外国語大学出版会『[大学の○○語](https://wp.tufs.ac.jp/tufspress/books/)』
+- [東京外国語大学出版会](https://wp.tufs.ac.jp/tufspress/books/)『大学の○○語』
 - 白水社
   - 『CDエクスプレス ○○語』『ニューエクスプレス ○○語』『[ニューエクスプレスプラス ○○語](https://www.hakusuisha.co.jp/search/s11991.html)』
   - 『[○○語のしくみ](https://www.hakusuisha.co.jp/search/?search_series=6994)』

@@ -53,9 +53,9 @@ tikz: false
 ### 辞典
 
 - 三省堂
-  - 『[クラウン○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
-  - 『[コンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
-  - 『[デイリーコンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%83%87%E3%82%A4%E3%83%AA%E3%83%BC%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
+  - 『[クラウン○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3+%E5%92%8C%E8%BE%9E%E5%85%B8)』
+  - 『[コンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8)』
+  - 『[デイリーコンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%83%87%E3%82%A4%E3%83%AA%E3%83%BC%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8)』
 - 白水社
   - 『[パスポート初級○○語辞典](https://www.hakusuisha.co.jp/search/?&search_title=%E3%83%91%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E5%88%9D%E7%B4%9A+%E8%BE%9E%E5%85%B8)』
   - 『[パズポート○○小辞典](https://www.hakusuisha.co.jp/search/?&search_title=%E3%83%91%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88+%E5%B0%8F%E8%BE%9E%E5%85%B8)』

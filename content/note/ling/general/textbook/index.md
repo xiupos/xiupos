@@ -27,6 +27,9 @@ tikz: false
 - [Français](#français)
   - [Manuel](#manuel)
   - [Dictionnaire](#dictionnaire)
+- [中文](#中文)
+  - [教材](#教材)
+  - [词典](#词典)
 
 ## 日本語
 
@@ -132,3 +135,15 @@ tikz: false
   - "[Dictionnaire Le Robert & Collins Maxi Plus ○○](https://www.lerobert.com/collection-le-robert-collins-maxi-maxi-plus.html)"
   - "[Dictionnaire Le Robert & Collins Collège ○○](https://www.lerobert.com/collection-le-robert-collins-college.html)"
   - "[Dictionnaire Le Robert & Collins Poche ○○](https://www.lerobert.com/collection-le-robert-collins-poche-poche-plus.html)"
+
+## 中文
+
+### 教材
+
+- 上海外语教育出版社
+  - 『[○語综合教程](https://www.flebm.com/search.php?encode=YTozOntzOjg6ImtleXdvcmRzIjtzOjE1OiLor63nu7zlkIjmlZnnqIsiO3M6MTY6InN0b3JlX3NlYXJjaF9jbXQiO3M6MToiMCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE2NzMxODQ3MzY7fQ==)』
+
+### 词典
+
+- 上海外语教育出版社
+  - 『[外教社简明○汉-汉○词典](https://www.flebm.com/search.php?encode=YTozOntzOjg6ImtleXdvcmRzIjtzOjIyOiLlpJbmlZnnpL7nroDmmI4g6K%2bN5YW4IjtzOjE2OiJzdG9yZV9zZWFyY2hfY210IjtzOjE6IjAiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNjczMTg1MzU1O30=)』

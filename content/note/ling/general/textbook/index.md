@@ -48,7 +48,7 @@ tikz: false
 
 ### 辞典
 
-- [三省堂](https://dictionary.sanseido-publ.co.jp/dicts_cat/03_foreign)
+- 三省堂
   - 『[クラウン○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
   - 『[コンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
   - 『[デイリーコンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%83%87%E3%82%A4%E3%83%AA%E3%83%BC%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』

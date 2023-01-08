@@ -32,7 +32,7 @@ tikz: false
 ### 教科書
 
 - NHk出版
-  - 『[これからはじめる ○○語入門](http://search.nhk-book.co.jp/?ref=https%3A%2F%2Fwww.nhk-book.co.jp%2Flist%2Fmidcategory-302.html&kw=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B&temp=item&ie=u&by=js)』
+  - 『[これからはじめる ○○語入門](http://search.nhk-book.co.jp/?kw=%82%B1%82%EA%82%A9%82%E7%82%CD%82%B6%82%DF%82%E9)』
   - 『[これならわかる ○○語文法 入門から上級まで](https://www.nhk-book.co.jp/list/genre-198.html)』
 - 大阪大学出版会 (大阪大学外国語学部)
   - 『[世界の言語シリーズ ○○語](https://www.osaka-up.or.jp/book_list.php?gc=14)』
@@ -46,6 +46,8 @@ tikz: false
 - 三修社
   - 『[ゼロから話せる○○語](https://www.sanshusha.co.jp/np/search_result.html?ser=28)』
   - 『[○○語の基本](https://www.sanshusha.co.jp/np/search_result.html?q=%E8%AA%9E%E3%81%AE%E5%9F%BA%E6%9C%AC)』
+- 大学書林
+  - 『[○○語四週間](http://www.daigakusyorin.co.jp/search/?search_keyword=%E8%AA%9E%E5%9B%9B%E9%80%B1%E9%96%93)』
 
 ### 辞典
 

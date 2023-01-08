@@ -23,34 +23,46 @@ tikz: false
 - [Deutsch](#deutsch)
   - [Lehr- und Übungsbuch](#lehr--und-übungsbuch)
   - [Wörterbuch](#wörterbuch)
+- [Français](#français)
+  - [Dictionnaire](#dictionnaire)
 
 ## 日本語
 
 ### 教科書
 
-- [NHk出版](https://www.nhk-book.co.jp/list/midcategory-302.html)
-  - 『これからはじめる ○○語入門』
+- NHk出版
+  - 『[これからはじめる ○○語入門](http://search.nhk-book.co.jp/?ref=https%3A%2F%2Fwww.nhk-book.co.jp%2Flist%2Fmidcategory-302.html&kw=%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B&temp=item&ie=u&by=js)』
   - 『[これならわかる ○○語文法 入門から上級まで](https://www.nhk-book.co.jp/list/genre-198.html)』
-- 大阪大学出版会 (大阪大学外国語学部)『[世界の言語シリーズ ○○語](https://www.osaka-up.or.jp/book_list.php?gc=14)』
-- [東京外国語大学出版会](https://wp.tufs.ac.jp/tufspress/books/)『大学の○○語』
+- 大阪大学出版会 (大阪大学外国語学部)
+  - 『[世界の言語シリーズ ○○語](https://www.osaka-up.or.jp/book_list.php?gc=14)』
+- 東京外国語大学出版会
+  - 『[大学の○○語](https://wp.tufs.ac.jp/tufspress?s=%E5%A4%A7%E5%AD%A6%E3%81%AE)』
 - 白水社
-  - 『CDエクスプレス ○○語』『ニューエクスプレス ○○語』『[ニューエクスプレスプラス ○○語](https://www.hakusuisha.co.jp/search/s11991.html)』
+  - 『CDエクスプレス ○○語』  
+    『ニューエクスプレス ○○語』  
+    『[ニューエクスプレスプラス ○○語](https://www.hakusuisha.co.jp/search/s11991.html)』
   - 『[○○語のしくみ](https://www.hakusuisha.co.jp/search/?search_series=6994)』
+- 三修社
+  - 『[ゼロから話せる○○語](https://www.sanshusha.co.jp/np/search_result.html?ser=28)』
+  - 『[○○語の基本](https://www.sanshusha.co.jp/np/search_result.html?q=%E8%AA%9E%E3%81%AE%E5%9F%BA%E6%9C%AC)』
 
 ### 辞典
 
 - [三省堂](https://dictionary.sanseido-publ.co.jp/dicts_cat/03_foreign)
-  - 『クラウン○和辞典』
-  - 『コンサイス○和辞典』
-  - 『デイリーコンサイス○和辞典』
+  - 『[クラウン○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
+  - 『[コンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
+  - 『[デイリーコンサイス○和辞典](https://dictionary.sanseido-publ.co.jp/?s=%E3%83%87%E3%82%A4%E3%83%AA%E3%83%BC%E3%82%B3%E3%83%B3%E3%82%B5%E3%82%A4%E3%82%B9+%E5%92%8C%E8%BE%9E%E5%85%B8&post_type=dict)』
 
 ## English
 
 ### Textbook
 
-- Routledge "[Colloquial ○○](https://routledgetextbooks.com/textbooks/colloquial/)" (England)
-- Teach Yourself "[Complete ○○](https://library.teachyourself.com/all/Complete/21430)" (England)
-- [McGraw Hill](https://www.mhprofessional.com/languages-reference) "Practice Makes Perfect: Complete ○○ All-in-One" (United States)
+- Routledge (England)
+  - "[Colloquial ○○](https://routledgetextbooks.com/textbooks/colloquial/)"
+- Teach Yourself (England)
+  - "[Complete ○○](https://library.teachyourself.com/all/Complete/21430)"
+- McGraw Hill (United States)
+  - "[Practice Makes Perfect: Complete ○○ All-in-One](https://www.mhprofessional.com/catalogsearch/result/?q=Practice+Makes+Perfect%3A+Complete+All-in-One)"
 
 ### Dictionary
 
@@ -67,15 +79,16 @@ tikz: false
 
 ### Lehr- und Übungsbuch
 
-- Langensheidt "[Langenscheidt Komplett-Paket ○○](https://www.langenscheidt.com/shop/komplett-paket)" (Deutschland)
+- Langensheidt (Deutschland)
+  - "[Langenscheidt Komplett-Paket ○○](https://www.langenscheidt.com/shop/komplett-paket)"
 - Hueber (Deutschland)
   - "[Die neue Power-Grammatik ○○](https://shop.hueber.de/de/reihen-und-lehrwerke/die-neue-power-grammatik.html)"
   - "[Großes Übungsbuch ○○ Neu](https://shop.hueber.de/de/reihen-und-lehrwerke/grosses-ubungsbuch-neu.html)"
   - "[Große Lerngrammatik ○○](https://shop.hueber.de/de/reihen-und-lehrwerke/grosse-lerngrammatik.html)"
-- [PONS](https://de.pons.com/shop/) (Deutschland)
-  - "PONS Der große Sprachkurs ○○"
-  - "PONS Power-Sprachkurs ○○ für Anfänger"
-  - "PONS Grammatik kurz und bündig ○○"
+- PONS (Deutschland)
+  - "[PONS Der große Sprachkurs ○○](https://de.pons.com/shop/search?sSearch=PONS%2BDer%2Bgro%C3%9Fe%2BSprachkurs&p=1)"
+  - "[PONS Power-Sprachkurs ○○ für Anfänger](https://de.pons.com/shop/search?sSearch=PONS%2BPower-Sprachkurs%2B%2Bf%C3%BCr%2BAnf%C3%A4nger&p=1)"
+  - "[PONS Grammatik kurz und bündig ○○](https://de.pons.com/shop/search?sSearch=PONS%2BGrammatik%2Bkurz%2Bund%2Bb%C3%BCndig&p=1)"
 
 ### Wörterbuch
 
@@ -85,8 +98,24 @@ tikz: false
   - "[Langenscheidt Grundwortschatz ○○](https://www.langenscheidt.com/shop/grundwortschatz)"
   - "[Langenscheidt Schulwörterbuch ○○](https://www.langenscheidt.com/shop/schulwoerterbuch)"
   - "[Langenscheidt Universal-Wörterbuch ○○](https://www.langenscheidt.com/shop/universal-woerterbuch)"
-- [PONS](https://de.pons.com/shop/) (Deutschland)
-  - "PONS Großwörterbuch ○○"
-  - "PONS Schülerwörterbuch ○○"
-  - "PONS Basiswöterbuch ○○" "PONS Basiswöterbuch Plus ○○"
-  - "PONS Kompaktwörterbuch ○○" "PONS Kompaktwörterbuch Plus ○○"
+- PONS (Deutschland)
+  - "[PONS Großwörterbuch ○○](https://de.pons.com/shop/search?sSearch=PONS+Gro%C3%9Fw%C3%B6rterbuch)"
+  - "[PONS Schülerwörterbuch ○○](https://de.pons.com/shop/search?sSearch=PONS+Sch%C3%BClerw%C3%B6rterbuch)"
+  - "[PONS Basiswöterbuch ○○](https://de.pons.com/shop/search?sSearch=PONS+Sch%C3%BClerw%C3%B6rterbuch)"  
+    "[PONS Basiswöterbuch Plus ○○](https://de.pons.com/shop/search?sSearch=PONS+Basisw%C3%B6terbuch+Plus)"
+  - "[PONS Kompaktwörterbuch ○○](https://de.pons.com/shop/search?sSearch=PONS+Kompaktw%C3%B6rterbuch)"  
+    "[PONS Kompaktwörterbuch Plus ○○](https://de.pons.com/shop/search?sSearch=PONS+Kompaktw%C3%B6rterbuch+Plus)"
+
+## Français
+
+### Dictionnaire
+
+- Larousse  (France)
+  - "[Dictionnaire Larousse maxi poche plus ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+maxi+poche+plus)"
+  - "[Dictionnaire Larousse poche ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+poche)"
+  - "[Dictionnaire Larousse mini ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+mini)"
+  - "[Dictionnaire Larousse micro ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+micro)"
+- Le Robert (France)
+  - "[Dictionnaire Le Robert & Collins Maxi Plus ○○](https://www.lerobert.com/collection-le-robert-collins-maxi-maxi-plus.html)"
+  - "[Dictionnaire Le Robert & Collins Collège ○○](https://www.lerobert.com/collection-le-robert-collins-college.html)"
+  - "[Dictionnaire Le Robert & Collins Poche ○○](https://www.lerobert.com/collection-le-robert-collins-poche-poche-plus.html)"

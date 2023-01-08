@@ -140,12 +140,12 @@ tikz: false
 
 ### 教材
 
-- 上海外语教育出版社(上海)
+- 上海外语教育出版社 (上海)
   - 『[○語综合教程](https://www.flebm.com/search.php?encode=YTozOntzOjg6ImtleXdvcmRzIjtzOjE1OiLor63nu7zlkIjmlZnnqIsiO3M6MTY6InN0b3JlX3NlYXJjaF9jbXQiO3M6MToiMCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE2NzMxODQ3MzY7fQ==)』
-- 國際學村(台北)
+- 國際學村 (台北)
   - 『我的第一本○語課本』
 
 ### 词典/詞典
 
-- 上海外语教育出版社(上海)
+- 上海外语教育出版社 (上海)
   - 『[外教社简明○汉-汉○词典](https://www.flebm.com/search.php?encode=YTozOntzOjg6ImtleXdvcmRzIjtzOjIyOiLlpJbmlZnnpL7nroDmmI4g6K%2bN5YW4IjtzOjE2OiJzdG9yZV9zZWFyY2hfY210IjtzOjE6IjAiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNjczMTg1MzU1O30=)』

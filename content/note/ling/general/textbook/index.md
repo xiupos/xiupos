@@ -117,13 +117,13 @@ tikz: false
 
 ### Manuel
 
-- [Bescherelle](https://www.bescherelle.com/livres-langues-etrangeres/)
+- [Bescherelle](https://www.bescherelle.com/livres-langues-etrangeres/) (France)
   - "Bescherelle ○○ pour tous"
   - "Bescherelle ○○: la grammaire"
 
 ### Dictionnaire
 
-- Larousse  (France)
+- Larousse (France)
   - "[Dictionnaire Larousse maxi poche plus ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+maxi+poche+plus)"
   - "[Dictionnaire Larousse poche ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+poche)"
   - "[Dictionnaire Larousse mini ○○](https://www.editions-larousse.fr/recherche?search_api_views_fulltext=Dictionnaire+Larousse+mini)"

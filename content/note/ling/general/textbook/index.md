@@ -9,7 +9,7 @@ math: false
 tikz: false
 ---
 
-各言語で書かれた[^1], 代表的な語学教科書と辞典シリーズのまとめ.
+各言語で書かれた[^1], 代表的な語学教科書と辞典シリーズのメモ.
 書名の「○○」は言語名.
 
 [^1]: 「その言語を学ぶ教科書」では無いことに注意.
@@ -78,8 +78,11 @@ tikz: false
 ### Wörterbuch
 
 - Langenscheidt (Deutschland)
-  - "[Langenscheidt Universal-Wörterbuch ○○](https://www.langenscheidt.com/shop/universal-woerterbuch)"
+  - "[Langenscheidt Taschenwörterbuch ○○](https://www.langenscheidt.com/shop/taschenwoerterbuch)"  
+  - "[Langenscheidt Handwörterbuch ○○](https://www.langenscheidt.com/shop/handwoerterbuch)"
+  - "[Langenscheidt Grundwortschatz ○○](https://www.langenscheidt.com/shop/grundwortschatz)"
   - "[Langenscheidt Schulwörterbuch ○○](https://www.langenscheidt.com/shop/schulwoerterbuch)"
+  - "[Langenscheidt Universal-Wörterbuch ○○](https://www.langenscheidt.com/shop/universal-woerterbuch)"
 - [PONS](https://de.pons.com/shop/) (Deutschland)
   - "PONS Großwörterbuch ○○"
   - "PONS Schülerwörterbuch ○○"

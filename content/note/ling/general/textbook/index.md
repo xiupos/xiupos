@@ -1,13 +1,12 @@
 ---
 title: "語学の教科書・辞典シリーズのメモ"
-date: 2023-01-08T13:44:04+09:00
+date: 2023-01-08T14:13:04+09:00
 tags : [
   "ling"
 ]
 toc : false
 math: false
 tikz: false
-# draft: true
 ---
 
 各言語で書かれた, 代表的な語学教科書と辞典シリーズのまとめ.

@@ -1,5 +1,5 @@
 baseURL = "https://xiupos.net/"
-defaultContentLanguage = "ja"
+LanguageCode = "ja"
 title = "Xiupos"
 theme = "m10c"
 

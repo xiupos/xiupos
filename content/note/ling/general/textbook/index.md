@@ -25,6 +25,7 @@ tikz: false
   - [Lehr- und Übungsbuch](#lehr--und-übungsbuch)
   - [Wörterbuch](#wörterbuch)
 - [Français](#français)
+  - [Manuel](#manuel)
   - [Dictionnaire](#dictionnaire)
 
 ## 日本語
@@ -113,6 +114,12 @@ tikz: false
     "[PONS Kompaktwörterbuch Plus ○○](https://de.pons.com/shop/search?sSearch=PONS+Kompaktw%C3%B6rterbuch+Plus)"
 
 ## Français
+
+### Manuel
+
+- [Bescherelle](https://www.bescherelle.com/livres-langues-etrangeres/)
+  - "Bescherelle ○○ pour tous"
+  - "Bescherelle ○○: la grammaire"
 
 ### Dictionnaire
 

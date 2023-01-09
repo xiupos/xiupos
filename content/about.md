@@ -5,7 +5,7 @@ title: "ABOUT"
 Hi, I'm [xiupos](https://xiupos.net/)!
 
 ```yaml
-name: 'xiupos' # /ɕjoʊpəs/
+name: 'xiupos' # /s\joUp@s/
 type: 'undergraduate student'
 links:
   - gitHub: 'xiupos'

@@ -51,7 +51,7 @@ tikz: false
   - 『[ゼロから話せる○○語](https://www.sanshusha.co.jp/np/search_result.html?ser=28)』
   - 『[○○語の基本](https://www.sanshusha.co.jp/np/search_result.html?q=%E8%AA%9E%E3%81%AE%E5%9F%BA%E6%9C%AC)』
 - 大学書林
-  - 『[○○語四週間](http://www.daigakusyorin.co.jp/search/?search_keyword=%E8%AA%9E%E5%9B%9B%E9%80%B1%E9%96%93)』
+  - 『[○○語四週間](http://www.daigakusyorin.co.jp/search/?&search_keyword=%E8%AA%9E%E5%9B%9B%E9%80%B1%E9%96%93)』
 
 ### 辞典
 

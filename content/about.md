@@ -8,7 +8,7 @@ Hi, I'm [xiupos](https://xiupos.net/)!
 name: 'xiupos' # /s\joUp@s/
 type: 'undergraduate student'
 links:
-  - gitHub: 'xiupos'
+  - github: 'xiupos'
   - twitter: '@xiupos'
   - activitypub: '@xiupos@mk.xiupos.net'
 ```

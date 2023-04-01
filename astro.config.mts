@@ -5,6 +5,8 @@ import sitemap from '@astrojs/sitemap';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+
+// @ts-ignore
 import rehypeWrapAll from 'rehype-wrap-all';
 
 const katex_options = {
@@ -102,7 +104,7 @@ const katex_options = {
     "\\matrixelement": "{\\left\\langle{ #1 }\\right\\vert{ #2 }\\left\\vert{ #3 }\\right\\rangle}",
     "\\matrixel": "{\\left\\langle{ #1 }\\right\\vert{ #2 }\\left\\vert{ #3 }\\right\\rangle}",
     "\\mel": "{\\left\\langle{ #1 }\\right\\vert{ #2 }\\left\\vert{ #3 }\\right\\rangle}",
-  }
+  },
 };
 
 // https://astro.build/config

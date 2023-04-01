@@ -101,7 +101,7 @@ $\mathbf{B}$ のアダマール積.
 $$
 \begin{aligned}
   \frac{\partial E}{\partial \mathbf{w}^{(1)}} &=
-    - \sum^{n-1}\_{k=0}
+    - \sum^{n-1}_{k=0}
     \left(
       \left(
         y_k - \hat{y}_k
@@ -114,7 +114,7 @@ $$
     \right)x_k,
   \\
   \frac{\partial E}{\partial \mathbf{b}^{(1)}} &=
-    - \sum^{n-1}\_{k=0}
+    - \sum^{n-1}_{k=0}
     \left(
       \left(
         y_k - \hat{y}_k
@@ -127,7 +127,7 @@ $$
     \right),
   \\
   \frac{\partial E}{\partial \mathbf{w}^{(2)}} &=
-    - \sum^{n-1}\_{k=0}
+    - \sum^{n-1}_{k=0}
     \left(
       y_k - \hat{y}_k
     \right)
@@ -136,7 +136,7 @@ $$
     \right)^\mathsf{T},
   \\
   \frac{\partial E}{\partial b^{(2)}} &=
-    - \sum^{n-1}\_{k=0}
+    - \sum^{n-1}_{k=0}
     \left(
       y_k - \hat{y}_k
     \right).
@@ -160,12 +160,12 @@ $\frac{\partial f}{\partial \mathbf{x}}$ という表現は,
 学習率を $\alpha$ として,
 
 $$
-\mathbf{a}\_\mathrm{new} =
-  \mathbf{a}\_\mathrm{old} -
+\mathbf{a}_\mathrm{new} =
+  \mathbf{a}_\mathrm{old} -
   \alpha
   \left.
     \frac{\partial E}{\partial \mathbf{a}}
-  \right|\_{\mathbf{a}=\mathbf{a}_\mathrm{old}}
+  \right|_{\mathbf{a}=\mathbf{a}_\mathrm{old}}
 $$
 
 を繰り返し計算すれば良い.

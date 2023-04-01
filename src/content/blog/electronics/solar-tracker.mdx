@@ -111,16 +111,16 @@ $$
 $$
 \begin{aligned}
   \mu
-  &= \frac{1}{n} \sum^{n-1}\_{k=0} E_k \\ 
-  &= \frac{1}{n} \sum^{n-1}\_{k=0} R \left\{
+  &= \frac{1}{n} \sum^{n-1}_{k=0} E_k \\ 
+  &= \frac{1}{n} \sum^{n-1}_{k=0} R \left\{
       \cos \theta_\odot \cos \theta +
       \sin \theta_\odot \sin \theta
       \cos \left(\phi_\odot - \frac{2 \pi k}{n} \right)
     \right\} \\
   &= R \cos \theta_\odot \cos \theta, \\
   \sigma^2
-  &= \frac{1}{n} \sum^{n-1}\_{k=0} (E_k - \mu)^2 \\ 
-  &= \frac{1}{n} \sum^{n-1}\_{k=0} \left\{
+  &= \frac{1}{n} \sum^{n-1}_{k=0} (E_k - \mu)^2 \\ 
+  &= \frac{1}{n} \sum^{n-1}_{k=0} \left\{
       R \sin \theta_\odot \sin \theta
       \cos \left(\phi_\odot - \frac{2 \pi k}{n} \right)
     \right\}^2 \\ 
@@ -129,8 +129,8 @@ $$
 $$
 
 となる. ただし,
-$\sum^{n-1}\_{k=0} \cos \left(\phi_\odot - 2 \pi k / n \right) = 0$,
-$\sum^{n-1}\_{k=0} \cos^2 \left(\phi_\odot - 2 \pi k / n \right) = n/2$
+$\sum^{n-1}_{k=0} \cos \left(\phi_\odot - 2 \pi k / n \right) = 0$,
+$\sum^{n-1}_{k=0} \cos^2 \left(\phi_\odot - 2 \pi k / n \right) = n/2$
 であることを用いた(証明は省略).
 
 まとめて,
@@ -167,7 +167,7 @@ $$
 
 $$
 L = \sum^{n-1}_{k=0} \left\{
-  \frac{E_k - \mu}{\sqrt{2} \sigma} - \cos \left(\phi\_\odot - \frac{2 \pi k}{n} \right)
+  \frac{E_k - \mu}{\sqrt{2} \sigma} - \cos \left(\phi_\odot - \frac{2 \pi k}{n} \right)
 \right\}^2
 $$
 
@@ -179,8 +179,8 @@ L =
   \frac{n^2}{2} +
   \sum^{n-1}_{k=0} \frac{(E_k - \mu)^2}{2 \sigma^2} -
   \frac{\sqrt{2}}{\sigma} \left(
-    \cos \phi\_\odot \sum^{n-1}\_{k=0} E_k \cos \frac{2 \pi k}{n} +
-    \sin \phi\_\odot \sum^{n-1}\_{k=0} E_k \sin \frac{2 \pi k}{n}
+    \cos \phi_\odot \sum^{n-1}_{k=0} E_k \cos \frac{2 \pi k}{n} +
+    \sin \phi_\odot \sum^{n-1}_{k=0} E_k \sin \frac{2 \pi k}{n}
   \right).
 $$
 
@@ -188,8 +188,8 @@ $$
 
 $$
 \phi_\odot = \underline{ \arg \left(
-  \sum^{n-1}\_{k=0} E\_k \cos \frac{2 \pi k}{n} +
-  j \sum^{n-1}\_{k=0} E\_k \sin \frac{2 \pi k}{n}
+  \sum^{n-1}_{k=0} E_k \cos \frac{2 \pi k}{n} +
+  j \sum^{n-1}_{k=0} E_k \sin \frac{2 \pi k}{n}
 \right)}.
 $$
 
@@ -231,8 +231,8 @@ temp_sin = (SQRT_2 * temp_sg) / SIN_TH;
 temp_theta = RAD2DEG(atan2(temp_sin, temp_cos));
 ```
 
-3. $\sum^{n-1}\_{k=0} E_k \\cos (2 \pi k / n)$ と
-$\sum^{n-1}\_{k=0} E_k \sin (2 \pi k / n)$ を計算して,
+3. $\sum^{n-1}_{k=0} E_k \\cos (2 \pi k / n)$ と
+$\sum^{n-1}_{k=0} E_k \sin (2 \pi k / n)$ を計算して,
 `atan2(sin,cos)` で偏角 $\phi_\odot$ を求める.
 
 ```cpp

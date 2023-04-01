@@ -1,8 +1,0 @@
-<p>
-  <audio controls>
-    <source src="{{ .Get 0 }}">
-    {{ if len .Params | eq 2}}
-      <p>{{ .Get 1 }}</p>
-    {{ end }}
-  </audio>
-</p>

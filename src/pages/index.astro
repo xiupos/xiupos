@@ -1,0 +1,86 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import {Content as IndexContent} from '../components/IndexContent.mdx';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style lang="styl">
+      // Noto Sans by Google
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&text=',.HIXimopuς&display=swap")
+
+      // Fork Awesome
+      @import url("https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css")
+
+      div.hi
+        display flex
+        flex-wrap wrap
+        justify-content center
+        align-items center
+        align-content center
+        gap 1em
+        margin 5rem 5rem 4rem
+        font-size 1.5em
+        height 30rem
+        max-height 50vh
+
+        img
+          width 8em
+
+        h1
+          font-family 'Noto Sans', sans-serif
+          font-weight 900
+          margin 0
+          text-align center
+          line-height 1.2
+
+          span
+            color var(--accent)
+      
+      div.social
+        display flex
+        justify-content center
+        align-items center
+        align-content center
+        gap 0.7em
+        margin 0.5em auto
+        font-size 1.7em
+
+        a
+          color inherit
+
+          &:hover
+            color var(--accent)
+
+        
+      article :global(pre code)
+        overflow-x auto
+        white-space pre-wrap
+        word-wrap break-word
+    </style>
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <div class="hi">
+        <img src="/images/avater.png" />
+        <h1>Hi, I&#39;m <span>Xiupoς</span></h1>
+      </div>
+      <div class="social">
+        <a href="https://github.com/xiupos"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/xiupos"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://mk.xiupos.net/@xiupos"><i class="fa fa-activitypub" aria-hidden="true"></i></a>
+      </div>
+      <article>
+        <IndexContent />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,51 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={BLOG_TITLE} description={BLOG_DESCRIPTION} />
+    <style lang="stylus">
+      ul 
+        box-sizing border-box
+        padding 0
+        list-style-type none
+
+        li
+          display flex
+          margin-bottom .3em
+
+          :global(time)
+            flex 0 0 8em
+            color var(--sub)
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <FormattedDate date={post.data.date} />
+                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

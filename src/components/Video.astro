@@ -1,0 +1,16 @@
+---
+const { src, loop = false } = Astro.props;
+---
+
+<div class="responsive">
+  <video
+    src={src}
+    autoplay={loop}
+    loop={loop}
+    muted={loop}
+    controls={!loop}
+    preload="auto"
+    playsinline
+  >
+  </video>
+</div>

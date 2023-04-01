@@ -1,0 +1,29 @@
+{
+  "name": "new-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.18.2",
+    "@astrojs/rss": "^2.3.1",
+    "@astrojs/sitemap": "^1.2.1",
+    "astro": "^2.1.8"
+  },
+  "devDependencies": {
+    "@astrojs/markdown-remark": "^2.1.2",
+    "rehype-katex": "^6.0.2",
+    "rehype-wrap-all": "^1.1.0",
+    "remark-math": "^5.1.1",
+    "stylus": "^0.59.0"
+  },
+  "volta": {
+    "node": "18.15.0",
+    "yarn": "1.22.19"
+  }
+}

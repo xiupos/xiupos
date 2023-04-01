@@ -1,0 +1,164 @@
+// Source Code Pro by Adobe
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&text=,-.0123456789abcdefghijklmnopqrstuvwxyz©&display=swap")
+
+// KaTeX
+@import url("https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css")
+
+body
+  --accent #e6db74
+  --sub #999
+  --width 50rem
+  --back #333
+  font-family "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif
+  margin 0
+  padding 1.5rem 0
+  background-color var(--back)
+  word-wrap break-word
+  overflow-wrap break-word
+  overflow-x hidden
+  line-height 1.8
+  color #ddd
+
+main
+  width 100%
+
+a
+  text-decoration none
+  color var(--accent)
+  word-break break-all
+  &:hover
+    color inherit
+
+.monospace
+  font-family 'Source Code Pro', monospace
+  font-weight 400
+  text-transform lowercase
+
+article
+  display block
+  margin 0 auto
+
+  > *, pre > code
+    width 90%
+    max-width var(--width)
+    margin-right auto
+    margin-left auto
+    box-sizing border-box
+
+  header
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    gap 1rem
+    margin-top 2rem
+    margin-bottom 3rem
+
+    h1
+      margin 0
+      text-align center
+
+  // for the fox browser
+  img, video
+    margin 0 -5vw
+    max-width calc(100% + 10vw)
+    width calc(100% + 10vw)
+    height auto
+
+  // for the others
+  div.responsive
+    display flex
+    justify-content center
+    align-items center
+    width 100%
+    max-width calc(var(--width) + 10vw)
+    margin-top 1em
+    margin-bottom 1em
+
+    img, video
+      margin 0 auto
+      max-width 100%
+      width unset
+
+    table
+      display block
+      border-collapse collapse
+      overflow-x scroll
+
+      th, td
+        padding 0.5rem 1rem
+        margin 0
+
+      thead
+        th
+          background var(--back)
+          border-bottom 0.1em solid #888
+
+          &:first-child
+            position sticky
+            top 0
+            left 0
+            z-index 1
+
+      tbody
+        tr
+          &:nth-child(odd)
+            td
+              background var(--back)
+
+          &:nth-child(even)
+            td
+              background #2b2b2b
+
+        td:first-child
+          position sticky
+          top 0
+          left 0
+          z-index 1
+
+      .katex .katex-mathml
+        display none
+
+  code-back = #222
+
+  p > code
+    padding 0.3em 0.5em
+    background-color code-back
+    border-radius 0.3em
+    margin 0 0.5em
+    overflow-wrap break-word
+
+  pre
+    padding 1rem 0
+    width 100%
+    max-width unset
+    background-color code-back !important
+
+    > code
+      display block
+      tab-size 2
+
+  blockquote
+    border-left .3rem solid var(--sub)
+    color inherit
+    padding .2em 1.6em
+    font-style italic
+
+  hr
+    border unset
+    border-top 1px solid var(--sub)
+
+  .katex-display
+    overflow hidden
+    overflow-x auto
+
+  ::-webkit-scrollbar
+    height 4px
+    margin 2px
+
+  ::-webkit-scrollbar-track
+    background #00000000
+
+  ::-webkit-scrollbar-thumb
+    background #ffffff22
+    border-radius 2px

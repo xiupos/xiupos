@@ -9,6 +9,7 @@ const blog = defineCollection({
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),
+    lang: z.string(),
   }),
 });
 

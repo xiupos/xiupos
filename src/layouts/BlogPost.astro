@@ -8,10 +8,10 @@ import { BLOG_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, date } = Astro.props;
+const { title, date, lang } = Astro.props;
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <BaseHead title={title + ' - ' + BLOG_TITLE} description='' />
     <style lang="stylus">

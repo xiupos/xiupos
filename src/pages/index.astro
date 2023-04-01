@@ -33,6 +33,15 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
         img
           width 8em
 
+          &:active
+            animation jump 0.1s cubic-bezier(.4,.9,.6,.1)
+
+          @keyframes jump
+            0%, 100%
+              transform translateY(0)
+            50%
+              transform translateY(-0.35em)
+
         h1
           font-family 'Noto Sans', sans-serif
           font-weight 900
@@ -42,7 +51,7 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
 
           span
             color var(--accent)
-      
+
       div.social
         display flex
         justify-content center

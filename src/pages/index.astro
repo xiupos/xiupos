@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
 
 import {Content as IndexContent} from '../components/IndexContent.mdx';
 ---
@@ -10,7 +10,7 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={SITE_TITLE} author={SITE_AUTHOR} description={SITE_DESCRIPTION} />
     <style lang="styl">
       // Noto Sans by Google
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&text=',.HIXimopuς&display=swap")
@@ -67,7 +67,6 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
           &:hover
             color var(--accent)
 
-        
       article :global(pre code)
         overflow-x auto
         white-space pre-wrap

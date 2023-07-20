@@ -36,15 +36,21 @@ a
   text-transform lowercase
 
 article
+  --header-margin 1.7rem
   display block
   margin 0 auto
 
   > *, pre > code
     width 90%
     max-width var(--width)
-    margin-right auto
-    margin-left auto
+    margin var(--header-margin) auto
     box-sizing border-box
+
+  > h1, > h2, > h3, > h4, > h5
+    margin-top 3rem
+
+    &+h1, &+h2, &+h3, &+h4, &+h5
+      margin-top var(--header-margin)
 
   header
     display flex
@@ -74,8 +80,8 @@ article
     align-items center
     width 100%
     max-width calc(var(--width) + 10vw)
-    margin-top 1em
-    margin-bottom 1em
+    margin-top calc(var(--header-margin) + 0.5rem)
+    margin-bottom calc(var(--header-margin) + 0.5rem)
 
     img, video
       margin 0 auto

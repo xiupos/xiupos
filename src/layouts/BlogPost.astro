@@ -8,7 +8,7 @@ import { BLOG_TITLE, SITE_AUTHOR } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, date, lang } = Astro.props;
+const { title, pubDate, lang } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -27,7 +27,7 @@ const { title, date, lang } = Astro.props;
       <article>
         <header>
           <h1 class="title">{title}</h1>
-          <FormattedDate date={date} />
+          <FormattedDate date={pubDate} />
         </header>
         <slot />
       </article>

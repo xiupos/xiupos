@@ -22,39 +22,42 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
       // Noto Sans by Google
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&text=',.HIXimopuς&display=swap")
 
-      div.hi
-        display flex
-        flex-wrap wrap
-        justify-content center
-        align-items center
-        align-content center
-        gap 1em
-        margin 5rem 5rem 4rem
-        font-size 1.5em
-        height 30rem
-        max-height 50vh
+      main
+        margin-bottom 3rem
 
-        img
-          width 8em
+        div.hi
+          display flex
+          flex-wrap wrap
+          justify-content center
+          align-items center
+          align-content center
+          gap 1em
+          margin 5rem 5rem 4rem
+          font-size 1.5em
+          height 30rem
+          max-height 50vh
 
-          &:active
-            animation jump 0.1s cubic-bezier(.4,.9,.6,.1)
+          img
+            width 8em
 
-          @keyframes jump
-            0%, 100%
-              transform translateY(0)
-            50%
-              transform translateY(-0.35em)
+            &:active
+              animation jump 0.1s cubic-bezier(.4,.9,.6,.1)
 
-        h1
-          font-family 'Noto Sans', sans-serif
-          font-weight 900
-          margin 0
-          text-align center
-          line-height 1.2
+            @keyframes jump
+              0%, 100%
+                transform translateY(0)
+              50%
+                transform translateY(-0.35em)
 
-          span
-            color var(--accent)
+          h1
+            font-family 'Noto Sans', sans-serif
+            font-weight 900
+            margin 0
+            text-align center
+            line-height 1.2
+
+            span
+              color var(--accent)
 
       article :global(pre code)
         overflow-x auto

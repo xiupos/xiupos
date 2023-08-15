@@ -15,9 +15,12 @@ const { title, pubDate, lang } = Astro.props;
   <head>
     <BaseHead title={title + ' - ' + BLOG_TITLE} author={SITE_AUTHOR} description='' />
     <style lang="stylus">
-      .title
-        font-size 2em
-        margin 0.25em 0 0
+      article
+        padding-bottom 1rem
+
+        .title
+          font-size 2em
+          margin 0.25em 0 0
     </style>
   </head>
 

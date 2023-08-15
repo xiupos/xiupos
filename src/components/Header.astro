@@ -1,7 +1,18 @@
+---
+export interface Props {
+  links: {name: string, link: string}[];
+}
+
+const { links } = Astro.props;
+---
+
 <header>
   <nav class="monospace">
-    <a href="/">xiupos.net</a>
-    <a href="/blog/">blog</a>
+    {
+      links.map((link) => (
+        <a href={link.link}>{link.name}</a>
+      ))
+    }
   </nav>
 </header>
 

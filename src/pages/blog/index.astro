@@ -2,7 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { BLOG_TITLE, SITE_AUTHOR, BLOG_DESCRIPTION } from '../../consts';
+import { BLOG_TITLE, SITE_AUTHOR, BLOG_DESCRIPTION, HEADER_LINKS } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
@@ -31,7 +31,7 @@ const posts = (await getCollection('blog')).sort(
     </style>
   </head>
   <body>
-    <Header />
+    <Header links={HEADER_LINKS} />
     <main>
       <article>
         <ul>

@@ -3,15 +3,15 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Social from '../components/Social.astro';
-import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION, HEADER_LINKS } from '../consts';
+import {
+  SITE_TITLE,
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  HEADER_LINKS,
+  SOCIAL_LINKS,
+} from '../consts';
 
 import {Content as IndexContent} from '../components/IndexContent.mdx';
-
-const socialLinks = [
-  { link: 'https://github.com/xiupos', icon: 'github' },
-  { link: 'https://twitter.com/xiupos', icon: 'twitter' },
-  { link: 'https://mk.xiupos.net/@xiupos', icon: 'activitypub' },
-]
 ---
 
 <!DOCTYPE html>
@@ -21,9 +21,6 @@ const socialLinks = [
     <style lang="stylus">
       // Noto Sans by Google
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&text=',.HIXimopuς&display=swap")
-
-      // Fork Awesome
-      @import url("https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css")
 
       div.hi
         display flex
@@ -72,7 +69,7 @@ const socialLinks = [
         <img src="/images/avater.png" />
         <h1>Hi, I&#39;m <span>Xiupoς</span></h1>
       </div>
-      <Social links={socialLinks} />
+      <Social links={SOCIAL_LINKS} />
       <article>
         <IndexContent />
       </article>

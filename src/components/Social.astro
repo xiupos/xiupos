@@ -1,6 +1,35 @@
 ---
 export interface Props {
-  links: {name: string, link: string}[];
+  links: {
+    link: string,
+    icon: string,
+  }[];
 }
+
+const { links } = Astro.props;
 ---
 
+<div class="social">
+  {
+    links.map((link) => (
+      <a href={link.link}><i class={'fa fa-' + link.icon} aria-hidden="true"></i></a>
+    ))
+  }
+</div>
+
+<style lang="stylus">
+  .social
+    display flex
+    justify-content center
+    align-items center
+    align-content center
+    gap 0.7em
+    margin 0.5em auto
+    font-size 1.7em
+
+    a
+      color inherit
+
+      &:hover
+        color var(--accent)
+</style>

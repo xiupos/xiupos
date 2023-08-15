@@ -2,9 +2,16 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Social from '../components/Social.astro';
 import { SITE_TITLE, SITE_AUTHOR, SITE_DESCRIPTION, HEADER_LINKS } from '../consts';
 
 import {Content as IndexContent} from '../components/IndexContent.mdx';
+
+const socialLinks = [
+  { link: 'https://github.com/xiupos', icon: 'github' },
+  { link: 'https://twitter.com/xiupos', icon: 'twitter' },
+  { link: 'https://mk.xiupos.net/@xiupos', icon: 'activitypub' },
+]
 ---
 
 <!DOCTYPE html>
@@ -52,21 +59,6 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
           span
             color var(--accent)
 
-      div.social
-        display flex
-        justify-content center
-        align-items center
-        align-content center
-        gap 0.7em
-        margin 0.5em auto
-        font-size 1.7em
-
-        a
-          color inherit
-
-          &:hover
-            color var(--accent)
-
       article :global(pre code)
         overflow-x auto
         white-space pre-wrap
@@ -80,11 +72,7 @@ import {Content as IndexContent} from '../components/IndexContent.mdx';
         <img src="/images/avater.png" />
         <h1>Hi, I&#39;m <span>Xiupoς</span></h1>
       </div>
-      <div class="social">
-        <a href="https://github.com/xiupos"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://twitter.com/xiupos"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href="https://mk.xiupos.net/@xiupos"><i class="fa fa-activitypub" aria-hidden="true"></i></a>
-      </div>
+      <Social links={socialLinks} />
       <article>
         <IndexContent />
       </article>

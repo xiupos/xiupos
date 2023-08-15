@@ -1,7 +1,7 @@
 {
-  "name": "new-blog",
+  "name": "xiupos.net",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,9 +21,5 @@
     "rehype-wrap-all": "^1.1.0",
     "remark-math": "^5.1.1",
     "stylus": "^0.59.0"
-  },
-  "volta": {
-    "node": "18.15.0",
-    "yarn": "1.22.19"
   }
 }

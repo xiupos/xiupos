@@ -11,9 +11,7 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const rssLink = [
-  { link: 'https://xiupos.net/blog/rss.xml', icon: 'rss' },
-]
+const rssLink = [{ link: 'https://xiupos.net/blog/rss.xml', icon: 'rss' }];
 ---
 
 <!DOCTYPE html>

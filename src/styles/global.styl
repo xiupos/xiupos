@@ -78,10 +78,9 @@ article
     max-width calc(100% + 10vw)
     width calc(100% + 10vw)
     height auto
-    max-height calc(var(--width) + 10vw)
 
   // for the others
-  div.responsive
+  div.responsive, p:has(> img)
     display flex
     justify-content center
     align-items center
@@ -94,6 +93,7 @@ article
       margin 0 auto
       max-width 100%
       width unset
+      max-height calc(var(--width) + 10vw)
 
     table
       display block

@@ -111,6 +111,13 @@ const katex_options = {
 export default defineConfig({
   site: 'https://xiupos.net',
   integrations: [mdx(), sitemap()],
+  vite: {
+    resolve: {
+      alias: {
+        '@components': '/src/components',
+      },
+    },
+  },
   markdown: {
     remarkPlugins: [
       remarkMath,
@@ -126,9 +133,9 @@ export default defineConfig({
     ],
     shikiConfig: {
       theme: 'one-dark-pro',
-    },
-    image: {
-      service: squooshImageService(),
     }
-  }
+  },
+  image: {
+    service: squooshImageService(),
+  },
 });

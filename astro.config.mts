@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
@@ -111,9 +111,6 @@ const katex_options = {
 export default defineConfig({
   site: 'https://xiupos.net',
   integrations: [mdx(), sitemap()],
-  experimental: {
-    assets: true
-  },
   markdown: {
     remarkPlugins: [
       remarkMath,
@@ -130,5 +127,8 @@ export default defineConfig({
     shikiConfig: {
       theme: 'one-dark-pro',
     },
+    image: {
+      service: squooshImageService(),
+    }
   }
 });

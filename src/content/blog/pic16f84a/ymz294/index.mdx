@@ -1,0 +1,91 @@
+---
+title : "PIC16F84A : 音源IC YMZ294"
+tags : [
+  "electronics",
+  "ymz294",
+  "pic16f84a",
+]
+pubDate : "2018-02-06T10:59:43+09:00"
+toc : true
+lang : ja
+---
+
+import Video from '../../../../components/Video.astro';
+import video1 from './_1.mp4';
+import video2 from './_2.mp4';
+import video3 from './_3.mp4';
+
+新しいマイコンを始めるとき, まずは[Lチカ](http://dic.nicovideo.jp/a/l%E3%83%81%E3%82%AB)をするのが世の常であるが, 思い切ってYMZ294を鳴らしてみた.
+
+といっても, 基本的には秋月のデータシートに載ってたコードを参考にしているので, Lチカより簡単な気がするが...
+
+## YMZ294ボードを作る
+
+いちいちブレッドボードで回路を組むのは嫌いなので,
+例の如くまたユニ基板に回路を載せた.
+
+### YMZ294本体
+
+![YMZ294](./_1.jpg)
+
+YMZ294はヤマハ製の, 「PSG」という種類の音源IC. 秋月で300円.
+ファミコンに搭載されていた音源ICもPSGらしく, 似た音が出る.
+
+[Programmable Sound Generator - Wikipedia](https://ja.wikipedia.org/wiki/Programmable_Sound_Generator)
+
+[ヤマハ音源ＩＣ（ＹＭＺ２９４）: 半導体 秋月電子通商-電子部品・ネット通販](http://akizukidenshi.com/catalog/g/gI-12141/)
+
+### 発振器
+
+![4MHzクリスタルオシレータ](./_2.jpg)
+
+YMZ294を動作させるには発信回路が必要.
+私がICを買った時は4MHzのクリスタルオシレータが付属していた.
+現在は付属していないらしく, [水晶発振子](http://akizukidenshi.com/catalog/g/gP-08665/)で発信回路を組む必要があるよう.
+もっと買っておけば良かった.
+
+今回は付属していた4MHzのクリスタルオシレータを使用する.
+
+![クリスタルオシレータ ピン配置図](./_3.png)
+
+### 配線
+
+![ピンソケット](./_4.jpg)
+
+制御用のピンはL型にして, 隣の基板とつなげられるようにしてみた.
+そのせいでマイコンとの接続は面倒になった.
+出力のミニジャックは手元にあったものを使った.
+LEDは電源確認用.
+
+![裏面](./_5.jpg)
+
+![回路図](./_6.png)
+
+上はPIC16F84Aとの接続の回路図.
+
+## 鳴らす
+
+YMZ294を買ったときについてきたデータシートに16F84A用のサンプルが載っていたので, それを基にいくつか鳴らしてみた.
+
+
+### 喜びの歌
+
+和音のテスト.
+2チャンネルしか使ってないのに他の音が聞こえる. 倍音かな？
+[16F84A+YMZ294（喜びの歌）](https://gist.github.com/xiupos/a4c3d3396ceaa2aeb02f63ac9f5ae67f)
+
+<Video src="_1.mp4" />
+
+
+### きらきら星（エンベロープ使用）
+エンベロープで減衰をしてみた. エンベロープ周波数は適当.
+[16F84A+YMZ294（きらきら星, エンベロープ）](https://gist.github.com/xiupos/ef6cd501f81ce69d553674f23d50f842)
+
+<Video src="_2.mp4" />
+
+
+### ドラム風（エンベロープ使用）
+ドラムっぽくなったかな.
+[16F84A+YMZ294（ドラム風, エンベロープ）](https://gist.github.com/xiupos/70c8780308edc1861a601429b6e207fe)
+
+<Video src="_3.mp4" />

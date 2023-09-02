@@ -1,0 +1,74 @@
+---
+title : "YMZ294をSPIで制御する"
+tags : [
+  "electronics",
+  "ymz294",
+]
+pubDate : "2018-12-31T09:08:01+09:00"
+toc : true
+lang : ja
+---
+
+import Audio from '../../../../components/Audio.astro';
+import audio1 from './_1.mp3';
+import audio2 from './_2.mp3';
+import audio3 from './_3.mp3';
+import audio4 from './_4.mp3';
+
+前に使った[YMZ294](/blog/electronics/ymz294-spi/)について,
+また使おうとするとあの配線をやり直す必要があった.
+そこで, 思い切って[SPI](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%9A%E3%83%AA%E3%83%95%E3%82%A7%E3%83%A9%E3%83%AB%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9)化することで配線の手間を減らし使いやすくしてみる.
+
+## 変換アダプタもどき
+
+![変換アダプタ](./_2.png)
+
+SPI化には, [シフトレジスタ(74HC595)](http://akizukidenshi.com/catalog/g/gI-08605/)を用いた.
+理由は, [前に使ったことがあるから](/blog/pic16f84a/matrix/).
+そのまま8ビットバスとSPIマスタの間につなげば使える, と思ったのが,
+どうも書き込みの際の/WR/CSや/A0の扱いが74HC595だけでは上手くいきそうになかったので,
+[PIC12F683](http://akizukidenshi.com/catalog/g/gI-00801/)で制御した.
+74HC595がラッチされるのを検知して, /WR/CSをHIGH, LOWする.
+PIC12F683の[ソースコード](https://gist.github.com/xiupos/943d75f813021092b6f4207b43e41da1).
+A0はマスタ側で直接制御する. ホントはPIC12F683で一緒に制御できれば楽だったが, 仕方ない.
+
+![回路図](./_3.png)
+
+[裏面の写真](./_5.jpg)
+
+## 演奏してみた
+
+割とMIDIでYMZ294を制御している方は多い.
+中には私と同じようにピン数圧縮してる方もいらっしゃいた[^1].
+[^1]: [YMZ294のMIDI音源化と, YMZのピン数圧縮 | curious4dev](http://curious4dev.mydns.jp/post-1184/) など.
+似たようなこと考える人ってやっぱいる.   
+
+ピアノは弾けないので, ネットで拾ってきたMIDI譜面を流し込む.
+
+![Arduinoと接続](./_4.jpg)
+
+マスタはArduinoを使う. いつかはPIC18F14K50でMIDIを制御したい.
+[ソースコード](https://gist.github.com/xiupos/003ec66c355f43848eb86c17d77cc453).
+ネットのサンプルコードを組み合わせて適当に見繕った.
+
+MIDIの再生は[Domino](http://takabosoft.com/domino)で, MIDIデータの送信は,
+本当は[Moco](http://morecatlab.akiba.coocan.jp/lab/index.php/aruino/midi-firmware-for-arduino-uno-moco/)を使いたかったけれど,
+どうもArduino UNOのパターンをはがしてしまったようでDFUで認識できず.
+かわりに[The Hairless MIDI\<-\>Serial Bridge](http://projectgus.github.io/hairless-midiserial/)を使う.
+先人に感謝 ! こちらはシリアル通信でMIDIが使えるため, 互換機でも使える.
+
+以下が演奏してみたもの. 譜面は[かきむき様のもの](http://kakimuki.blog91.fc2.com/blog-entry-6.html)を使わせていただいた.
+
+- **千本桜**
+<Audio src={audio1} />
+
+- **Bad Apple!!**
+<Audio src={audio2} />
+
+- **Tell Your world**
+<Audio src={audio3} />
+
+- **前前前世**
+<Audio src={audio4} />
+
+3音でこれだけ鳴ればいい方では.

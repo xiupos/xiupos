@@ -7,7 +7,7 @@ import Social from '@components/Social.astro';
 import { BLOG_TITLE, SITE_AUTHOR, BLOG_DESCRIPTION, HEADER_LINKS } from '../../consts';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blog')).filter((post) => !post.data.draft).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 

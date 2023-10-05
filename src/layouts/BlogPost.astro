@@ -8,12 +8,12 @@ import { BLOG_TITLE, SITE_AUTHOR, HEADER_LINKS } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, pubDate, lang } = Astro.props;
+const { title, pubDate, lang, draft } = Astro.props;
 ---
 
 <html lang={lang}>
   <head>
-    <BaseHead title={title + ' - ' + BLOG_TITLE} author={SITE_AUTHOR} description='' />
+    <BaseHead title={title + ' - ' + BLOG_TITLE} author={SITE_AUTHOR} description='' noindex={draft} />
     <style lang="stylus">
       article
         padding-bottom 1rem

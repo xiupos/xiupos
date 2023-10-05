@@ -8,7 +8,7 @@ export async function get(context: any) {
     title: BLOG_TITLE,
     description: BLOG_DESCRIPTION,
     site: context.site,
-    items: blog.map((post) => ({
+    items: blog.filter((post) => !post.data.draft).map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       // description: post.data.description,

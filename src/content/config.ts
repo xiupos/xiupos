@@ -9,7 +9,8 @@ const blog = defineCollection({
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),
-    lang: z.string(),
+    lang: z.string().default('en'),
+    draft: z.boolean().default(false),
   }),
 });
 

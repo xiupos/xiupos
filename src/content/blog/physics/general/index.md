@@ -275,9 +275,9 @@ $$
 
 **底空間** base space と呼ばれる空間 $B$ と**全空間** total space と呼ばれる空間 $E$ に対して, **射影** projection と呼ばれる写像 $\pi : E \rightarrow B$ があるとき, 三対 $(E, \pi, B)$ を**束** bundle という. $E \xrightarrow{\pi} B$, または単に $E$ を束と呼ぶこともある.
 $$
-\begin{CD}
-E \\ @VV{\pi}V \\ B
-\end{CD}
+\xymatrix{
+  E \ar[d]^{\pi} \\ M
+}
 $$
 
 任意の $b \in B$ について, 射影による逆像 $\pi^{-1}(b) \in E$ を束の $b$ 上の**ファイバー** fibre という. 位相空間 $B$, $E$ を底空間, 全空間に持つ束 $E \xrightarrow{\pi} B$ に対し, 位相空間 $F$ が任意の $b \in B$ 上のファイバーと同相であるとき, $F$ を束のファイバーという. 特に $E = B \times F$ であるとき, この束 $E$ は**自明な束** trivial bundle という.
@@ -288,14 +288,20 @@ $$
 
 全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $\pi$ が全射である束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $\varphi_i : U_i \times F \rightarrow \pi^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{\pi} M$ を**ファイバー束** fibre bundle という.
 $$
-\begin{CD}
-U_i \times F @>{\varphi_i}>> \pi^{-1}(U_i) @. \subset @. E \\
-@. @VV{\pi}V @. @VV{\pi}V \\
-@. U_i @. \subset @. M
-\end{CD}
+\xymatrix{
+  U_i \times F \ar[rd]_{\mathrm{prod}_1} \ar[r]^{\varphi_i} & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
+  & U_i \ar@{}[r]|*{\subset} & M
+}
 $$
 
-点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす. $F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i \cap U_j \rightarrow G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{\pi} M$ を $G$**-束** $G$-bundle ともいう.
+点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
+$$
+\xymatrix{
+  (U_i \cap U_j) \times F \ar[rd]_{\varphi_i} && (U_i \cap U_j) \times F \ar[ll]_{g_{ij}} \ar[ld]^{\varphi_j} \\
+  & \pi^{-1}(U_i \cap U_j)
+}
+$$
+$F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i \cap U_j \rightarrow G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{\pi} M$ を $G$**-束** $G$-bundle ともいう.
 
 底空間 $M$とその開被覆 $\{U_i\}$, ファイバー $F$, 構造群 $G$, 変換関数 $g_{ij} (p)$ が与えられたとき, ファイバー束を構成可能である.
 

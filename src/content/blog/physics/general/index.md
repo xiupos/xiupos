@@ -276,29 +276,35 @@ $$
 **底空間** base space と呼ばれる空間 $B$ と**全空間** total space と呼ばれる空間 $E$ に対して, **射影** projection と呼ばれる写像 $\pi : E \rightarrow B$ があるとき, 三対 $(E, \pi, B)$ を**束** bundle という. $E \xrightarrow{\pi} B$, または単に $E$ を束と呼ぶこともある.
 $$
 \xymatrix{
-  E \ar[d]^{\pi} \\ M
+  E \ar[d]^\pi \\ M
 }
 $$
 
 任意の $b \in B$ について, 射影による逆像 $\pi^{-1}(b) \in E$ を束の $b$ 上の**ファイバー** fibre という. 位相空間 $B$, $E$ を底空間, 全空間に持つ束 $E \xrightarrow{\pi} B$ に対し, 位相空間 $F$ が任意の $b \in B$ 上のファイバーと同相であるとき, $F$ を束のファイバーという. 特に $E = B \times F$ であるとき, この束 $E$ は**自明な束** trivial bundle という.
 
 また, 写像 $\sigma : B \rightarrow E$ が $\pi \circ \sigma = 1_B$ を満たすとき, $\sigma$ を**切断** cross section という. 言い換えると, 切断とは, 任意の底空間上の点 $b \in B$ に対して各ファイバー上の 1 点 $\sigma(b) \in \pi^{-1}(b)$ を決める写像 $\sigma$ である. 束 $E$ の切断の全体を $\Gamma(E)$ と表す.
+$$
+\xymatrix{
+  E \\ M \ar[u]_{\sigma \in \Gamma(E)}
+}
+$$
 
 ### ファイバー束と構造群
 
 全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $\pi$ が全射である束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $\varphi_i : U_i \times F \rightarrow \pi^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{\pi} M$ を**ファイバー束** fibre bundle という.
 $$
 \xymatrix{
-  U_i \times F \ar[rd]_{\mathrm{prod}_1} \ar[r]^{\varphi_i} & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
+  U_i \times F \ar[rd]_{\mathrm{prod}_1} \ar[r]_{\varphi_i}^\simeq & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
   & U_i \ar@{}[r]|*{\subset} & M
 }
 $$
 
-点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
+点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}(p)$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
 $$
 \xymatrix{
-  (U_i \cap U_j) \times F \ar[rd]_{\varphi_i} && (U_i \cap U_j) \times F \ar[ll]_{g_{ij}} \ar[ld]^{\varphi_j} \\
-  & \pi^{-1}(U_i \cap U_j)
+  F \ar[rd]_{\varphi_{i,p}}^\simeq && F \ar[ll]_{g_{ij}(p)} \ar[ld]^{\varphi_{j,p}}_\simeq \\
+  & \pi^{-1}(p) \ar[d]^\pi \\
+  & \{p\} &
 }
 $$
 $F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i \cap U_j \rightarrow G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{\pi} M$ を $G$**-束** $G$-bundle ともいう.
@@ -321,13 +327,22 @@ $$
 
 ### 接束と余接束
 
-可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の開近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} = T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
+可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の開近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} (p) \in T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
 
-接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ dx^\mu \}$ である: $dx^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1} = T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
+接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ dx^\mu \}$ である: $dx^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1}(p) \in T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
 
 ### 微分形式とベクトル束上の接続
 
-ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $\Lambda^k (T^{*}M) := \bigcup_{p \in M} \Lambda^k (T^{*}_pM)$ を付け加えた $E \otimes \Lambda^k (T^{*}M) \xrightarrow{\pi_1} M$ の切断 $\Omega^{k} (M, E) := \Gamma(\Lambda^k (T^{*}M) \otimes E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という. ベクトル束 $E$ が自明な束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
+ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $\Lambda^k (T^{*}M) := \bigcup_{p \in M} \Lambda^k (T^{*}_pM)$ を付け加えた $\Lambda^k (T^{*}M) \otimes E \xrightarrow{\pi_1} M$ の切断 $\Omega^{k} (M, E) := \Gamma(\Lambda^k (T^{*}M) \otimes E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という.
+$$
+\xymatrix{
+  \Lambda^k (T^{*}_pM) \otimes F \ar[rd]_{\varphi_{i,p}}^\simeq && \Lambda^k (T^{*}_pM) \otimes F \ar[ll]_{g_{ij}(p)} \ar[ld]^{\varphi_{j,p}}_\simeq \\
+  & \Lambda^k (T^{*}_pM) \otimes \pi^{-1}(p) \\
+  & \{p\} \ar[u]_{\phi \in \Omega^{k} (M, E)} &
+}
+$$
+
+ベクトル束 $E$ が自明な束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
 
 #### 全微分 : $\Omega^0 (M) \rightarrow \Omega^1 (M)$
 

@@ -336,13 +336,18 @@ $$
 ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $\Lambda^k (T^{*}M) := \bigcup_{p \in M} \Lambda^k (T^{*}_pM)$ を付け加えた $\Lambda^k (T^{*}M) \otimes E \xrightarrow{\pi_1} M$ の切断 $\Omega^{k} (M, E) := \Gamma(\Lambda^k (T^{*}M) \otimes E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という.
 $$
 \xymatrix{
-  \Lambda^k (T^{*}_pM) \otimes F \ar[rd]_{\varphi_{i,p}}^\simeq && \Lambda^k (T^{*}_pM) \otimes F \ar[ll]_{g_{ij}(p)} \ar[ld]^{\varphi_{j,p}}_\simeq \\
-  & \Lambda^k (T^{*}_pM) \otimes \pi^{-1}(p) \\
-  & \{p\} \ar[u]_{\phi \in \Omega^{k} (M, E)} &
+  \Lambda^k (T^{*}M) \otimes E \\
+  M \ar[u]_{\phi \in \Omega^{k} (M, E)}
 }
 $$
 
 ベクトル束 $E$ が自明な束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
+$$
+\xymatrix{
+  \Lambda^k (T^{*}M) \\
+  M \ar[u]_{\omega \in \Omega^{k} (M)}
+}
+$$
 
 #### 全微分 : $\Omega^0 (M) \rightarrow \Omega^1 (M)$
 
@@ -350,7 +355,15 @@ $$
 $$
 d(fg) = (df) g + f (dg).
 $$
-また, $T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $f \in \Omega^0 (M)$ は局所的に
+$$
+\xymatrix{
+  K & T^{*}M \\
+  \ \ar@{.>}[r]^{d} & \ \\
+  M \ar[uu]^{\Omega^0 (M) \ni f} & M \ar[uu]_{df \in \Omega^1 (M)}
+}
+$$
+
+$T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $f \in \Omega^0 (M)$ は局所的に
 $$
 df := (\partial_\mu f )\ dx^\mu.
 $$
@@ -361,7 +374,15 @@ $$
 $$
 d (\omega \wedge \xi) = d \omega \wedge \xi + (-1)^k \omega \wedge d \xi.
 $$
-また, $T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $\omega = \frac1{k!} \omega_{\mu_1\cdots\mu_k} dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k} \in \Omega^k (M)$ は局所的に
+$$
+\xymatrix{
+  \Lambda^k (T^{*}M) & \Lambda^{k+1} (T^{*}M) \\
+  \ \ar@{.>}[r]^{d} & \ \\
+  M \ar[uu]^{\Omega^{k} (M) \ni \omega} & M \ar[uu]_{d\omega \in \Omega^{k+1} (M)}
+}
+$$
+
+$T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $\omega = \frac1{k!} \omega_{\mu_1\cdots\mu_k} dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k} \in \Omega^k (M)$ は局所的に
 $$
 d \omega := \frac1{k!} (\partial_\nu \omega_{\mu_1\cdots\mu_k}) dx^\nu \wedge dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k}.
 $$
@@ -376,7 +397,15 @@ $$
 $$
 D (f \xi') = df \otimes \xi' + f D \xi'.
 $$
-また, $p \in M$ の近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
+$$
+\xymatrix{
+  E & T^{*}M \otimes E \\
+  \ \ar@{.>}[r]^{D} & \ \\
+  M \ar[uu]^{\Omega^0 (M, E) \ni \xi} & M \ar[uu]_{D \xi \in \Omega^1 (M, E)}
+}
+$$
+
+$p \in M$ の近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
 $$
 D \phi := \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi.
 $$
@@ -430,7 +459,15 @@ $$
 $$
 D (\omega \otimes \xi) = d \omega \otimes \xi + (-1)^k \omega \wedge D \xi.
 $$
-また, 接ベクトル $X, Y \in T_pM$ に対し, $\phi \in \Omega^1 (M, E)$ の共変外微分は次の等式を満たす:
+$$
+\xymatrix{
+  \Lambda^k (T^{*}M) \otimes E & \Lambda^{k+1} (T^{*}M) \otimes E \\
+  \ \ar@{.>}[r]^{D} & \ \\
+  M \ar[uu]^{\Omega^{k} (M, E) \ni \phi} & M \ar[uu]_{D\phi \in \Omega^{k+1} (M, E)}
+}
+$$
+
+接ベクトル $X, Y \in T_pM$ に対し, $\phi \in \Omega^1 (M, E)$ の共変外微分は次の等式を満たす:
 $$
 D \phi (X, Y) = D_X (\phi (Y)) - D_Y (\phi (X)) - \phi ([ X, Y ]).
 $$

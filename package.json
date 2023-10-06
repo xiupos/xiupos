@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^3.0.0",
-    "rehype-katex": "^6.0.3",
+    "rehype-mathjax": "^5.0.0",
     "rehype-wrap-all": "^1.1.0",
     "remark-math": "^5.1.1",
     "stylus": "^0.60.0"

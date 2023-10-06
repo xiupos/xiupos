@@ -82,24 +82,24 @@ $$
 
 ### 内積空間
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $V$ について, 写像 $\braket{\ ,\ } : V \times V \rightarrow \mathbb{C}$ が $u, v, w \in V$, $a, b \in \mathbb{C}$ に関して以下の条件を満たすとき, この写像を**内積**と呼び, このとき $V$ を**内積空間**と呼ぶ. 第一引数を制限した内積は $V$ に双対である: $u \in V$ に対して $\braket{u, \ } \in \mathrm{Hom}_\mathbb{C} (V, \mathbb{C}) = V^{*}$.
+複素数体 $\mathbb{C}$ 上のベクトル空間 $V$ について, 写像 $\ev*{\ ,\ } : V \times V \rightarrow \mathbb{C}$ が $u, v, w \in V$, $a, b \in \mathbb{C}$ に関して以下の条件を満たすとき, この写像を**内積**と呼び, このとき $V$ を**内積空間**と呼ぶ. 第一引数を制限した内積は $V$ に双対である: $u \in V$ に対して $\ev*{u, \ } \in \mathrm{Hom}_\mathbb{C} (V, \mathbb{C}) = V^{*}$.
 
-1. 第二引数に対する**線形性**: $\braket{u, a v + b w} = a \braket{u, v} + b \braket{u, w}$,
-2. **共役対称性**: $\braket{u, v} = (\braket{v, u})^{*}$,
-3. **正定値性**: $\braket{u, u} \geq 0$,
-4. **非退化性**: $\braket{u, u} = 0 \Rightarrow u = 0$.
+1. 第二引数に対する**線形性**: $\ev*{u, a v + b w} = a \ev*{u, v} + b \ev*{u, w}$,
+2. **共役対称性**: $\ev*{u, v} = (\ev*{v, u})^{*}$,
+3. **正定値性**: $\ev*{u, u} \geq 0$,
+4. **非退化性**: $\ev*{u, u} = 0 \Rightarrow u = 0$.
 
-$V$ の基底 $\{ u_i \}$ が $\braket{u_i, u_j} = \delta_{i, j}$ を満たすとき, この $\{ u_i \}$ を $V$ の**正規直交基底**という. このとき, $\{ \braket{u_i, \ } \}$ は $\{ u_i \}$ の双対基底である.
+$V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすとき, この $\{ u_i \}$ を $V$ の**正規直交基底**という. このとき, $\{ \ev*{u_i, \ } \}$ は $\{ u_i \}$ の双対基底である.
 
-線形変換 $T \in \mathrm{End}_\mathbb{C} (V)$ が Hermite 変換であるとき, $u, v \in V$ に対して $\braket{u, T(v)} = \braket{T(u), v}$ を満たす.
+線形変換 $T \in \mathrm{End}_\mathbb{C} (V)$ が Hermite 変換であるとき, $u, v \in V$ に対して $\ev*{u, T(v)} = \ev*{T(u), v}$ を満たす.
 
-線形変換 $U \in \mathrm{End}_\mathbb{C} (V)$ が内積を不変に保つ, つまり $u, v \in V$ に対して $\braket{U(u), U(v)} = \braket{u, v}$ を満たすとき, $U$ を **unitary 変換**という. 言い換えると, unitary 変換は $U^\dagger U = UU^\dagger = 1_V$ あるいは $U^\dagger = U^{-1}$ を満たす線形変換 $U$ である.
+線形変換 $U \in \mathrm{End}_\mathbb{C} (V)$ が内積を不変に保つ, つまり $u, v \in V$ に対して $\ev*{U(u), U(v)} = \ev*{u, v}$ を満たすとき, $U$ を **unitary 変換**という. 言い換えると, unitary 変換は $U^\dagger U = UU^\dagger = 1_V$ あるいは $U^\dagger = U^{-1}$ を満たす線形変換 $U$ である.
 
 ### ブラ-ケット記法
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ のベクトルを $\ket{\varphi}$ と書き, **ケットベクトル**と呼ぶ. また, 双対空間 $H^{*}$ のベクトルを $\bra{\varphi} := \braket{(\ket{\varphi}), \ }$ と書き, **ブラベクトル**と呼ぶ. これらの記法を用いて, ベクトル $\ket{\varphi}, \ket{\psi} \in H$ の内積は $\braket{\varphi | \psi}$ と書く. 例えば, $H$ の基底 $\{ \ket{m} \}$ とその双対基底 $\{ \bra{n} \}$ は $\braket{n | m} = \delta_{nm}$ を満たす. また, 双対写像はブラベクトルに右から作用する: $A^\dagger \in \mathrm{End}_K (H^{*})$ で $\braket{(A \ket{\varphi}), \ } = \bra{\varphi} A^\dagger$. 線形変換 $A \in \mathrm{End}_\mathbb{C} (H)$ が Hermite 変換, つまり $\bra{\varphi} (A \ket{\psi}) = (\bra{\varphi} A) \ket{\psi}$ であるとき, これを単に $\braket{\varphi | A | \psi}$ と書く. また, $\ket{\varphi}^\dagger := \bra{\varphi}$, $\bra{\varphi}^\dagger := \ket{\varphi}$ と定義すれば $(A \ket{\varphi})^\dagger = \bra{\varphi} A^\dagger$ が得られる.
+複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ のベクトルを $\ket*{\varphi}$ と書き, **ケットベクトル**と呼ぶ. また, 双対空間 $H^{*}$ のベクトルを $\bra*{\varphi} := \ev*{(\ket*{\varphi}), \ }$ と書き, **ブラベクトル**と呼ぶ. これらの記法を用いて, ベクトル $\ket*{\varphi}, \ket*{\psi} \in H$ の内積は $\braket*{\varphi}{\psi}$ と書く. 例えば, $H$ の基底 $\{ \ket*{m} \}$ とその双対基底 $\{ \bra*{n} \}$ は $\braket*{n}{m} = \delta_{nm}$ を満たす. また, 双対写像はブラベクトルに右から作用する: $A^\dagger \in \mathrm{End}_K (H^{*})$ で $\ev*{(A \ket*{\varphi}), \ } = \bra*{\varphi} A^\dagger$. 線形変換 $A \in \mathrm{End}_\mathbb{C} (H)$ が Hermite 変換, つまり $\bra*{\varphi} (A \ket*{\psi}) = (\bra*{\varphi} A) \ket*{\psi}$ であるとき, これを単に $\ev*{A}{\psi}$ と書く. また, $\ket*{\varphi}^\dagger := \bra*{\varphi}$, $\bra*{\varphi}^\dagger := \ket*{\varphi}$ と定義すれば $(A \ket*{\varphi})^\dagger = \bra*{\varphi} A^\dagger$ が得られる.
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ の基底 $\{ \ket{n} \}$ に対し, 線形写像 $\ket{n} \bra{n}$ は射影写像という: ケットベクトル $\ket{\varphi} = \sum_m \varphi_m \ket{m}$ に対し, $\ket{n} \braket{n | \varphi} = \varphi_n \ket{n}$.
+複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ の基底 $\{ \ket*{n} \}$ に対し, 線形写像 $\ketbra*{n}$ は射影写像という: ケットベクトル $\ket*{\varphi} = \sum_m \varphi_m \ket*{m}$ に対し, $\ket*{n} \ev*{n | \varphi} = \varphi_n \ket*{n}$.
 
 ## 場の解析力学
 

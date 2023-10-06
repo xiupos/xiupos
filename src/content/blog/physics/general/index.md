@@ -358,7 +358,7 @@ $$
 $$
 \xymatrix{
   K & T^{*}M \\
-  \ \ar@{.>}[r]^{d} & \ \\
+  \ \ar@{|.>}[r]^{d} & \ \\
   M \ar[uu]^{\Omega^0 (M) \ni f} & M \ar[uu]_{df \in \Omega^1 (M)}
 }
 $$
@@ -377,7 +377,7 @@ $$
 $$
 \xymatrix{
   \Lambda^k (T^{*}M) & \Lambda^{k+1} (T^{*}M) \\
-  \ \ar@{.>}[r]^{d} & \ \\
+  \ \ar@{|.>}[r]^{d} & \ \\
   M \ar[uu]^{\Omega^{k} (M) \ni \omega} & M \ar[uu]_{d\omega \in \Omega^{k+1} (M)}
 }
 $$
@@ -400,7 +400,7 @@ $$
 $$
 \xymatrix{
   E & T^{*}M \otimes E \\
-  \ \ar@{.>}[r]^{D} & \ \\
+  \ \ar@{|.>}[r]^{D} & \ \\
   M \ar[uu]^{\Omega^0 (M, E) \ni \xi} & M \ar[uu]_{D \xi \in \Omega^1 (M, E)}
 }
 $$
@@ -462,7 +462,7 @@ $$
 $$
 \xymatrix{
   \Lambda^k (T^{*}M) \otimes E & \Lambda^{k+1} (T^{*}M) \otimes E \\
-  \ \ar@{.>}[r]^{D} & \ \\
+  \ \ar@{|.>}[r]^{D} & \ \\
   M \ar[uu]^{\Omega^{k} (M, E) \ni \phi} & M \ar[uu]_{D\phi \in \Omega^{k+1} (M, E)}
 }
 $$

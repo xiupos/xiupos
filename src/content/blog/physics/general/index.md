@@ -350,7 +350,7 @@ $$
 
 #### 共変微分 : $\Omega^0 (M, E) \rightarrow \Omega^1(M, E)$
 
-ベクトル束 $E$ に値を取る $0$-形式を $1$-形式に移す微分 $D : \Omega^0 (M, E) = \Gamma (E) \rightarrow \Gamma (T^{*}M \otimes E) = \Omega^1 (M, E)$ を**接続** connection という: $f \in \Omega^0 (M)$, $\xi' \in \Omega^0 (M, E) = \Gamma(E)$, $f \xi' \in \Omega^0 (M, E)$ に対して, Leibniz 則を満たす:
+ベクトル束 $E$ に値を取る $0$-形式を $1$-形式に移す微分 $D : \Omega^0 (M, E) \rightarrow \Omega^1 (M, E)$ を**接続** connection という: $f \in \Omega^0 (M)$, $\xi' \in \Omega^0 (M, E) = \Gamma(E)$, $f \xi' \in \Omega^0 (M, E)$ に対して, Leibniz 則を満たす:
 $$
 D (f \xi') = df \otimes \xi' + f D \xi'.
 $$
@@ -400,7 +400,7 @@ $$
 
 #### 共変外微分 : $\Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$
 
-ベクトル束 $E$ に値を取る $k$-形式を $(k+1)$-形式に移す微分 $D : \Omega^k (M, E) = \Gamma (\Lambda^k (T^{*}M) \otimes E) \rightarrow \Gamma (\Lambda^{k + 1} (T^{*}M) \otimes E) = \Omega^{k+1} (M, E)$ を**共変外微分** covariant exterior derivative という: $\omega \in \Omega^k (M) = \Gamma (\Lambda^k(T^{*}M))$, $\xi \in \Omega^l (M, E) = \Gamma (\Lambda^l(T^{*}M) \otimes E)$, $\omega \wedge \xi \in \Omega^{k+l} (M, E) = \Gamma (\Lambda^{k+l} (T^{*}M) \otimes E)$ に対して, Leibniz 則を満たす:
+ベクトル束 $E$ に値を取る $k$-形式を $(k+1)$-形式に移す微分 $D : \Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$ を**共変外微分** covariant exterior derivative という: $\omega \in \Omega^k (M) = \Gamma (\Lambda^k(T^{*}M))$, $\xi \in \Omega^l (M, E) = \Gamma (\Lambda^l(T^{*}M) \otimes E)$, $\omega \wedge \xi \in \Omega^{k+l} (M, E) = \Gamma (\Lambda^{k+l} (T^{*}M) \otimes E)$ に対して, Leibniz 則を満たす:
 $$
 D (\omega \wedge \xi) = d \omega \wedge \xi + (-1)^k \omega \wedge D \xi,
 $$
@@ -447,7 +447,16 @@ $$
 $$
 R e_a = (d {A^b}_a + {A^b}_c \wedge {A^c}_a) \otimes e_b.
 $$
-このとき, $R e_a = {F^b}_a \otimes e_b$ となる Lie 代数に値を取る $2$-形式 $F = ({F^b}_a) = (d {A^b}_a + {A^b}_c \wedge {A^c}_a) = dA + A \wedge A \in \Omega^2 (M, \mathrm{End}(E)) = \Gamma (\Lambda^2 (T^{*}M) \otimes \frak{g})$ を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A \mapsto A' = gdg^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F \mapsto F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
+このとき, $R e_a = {F^b}_a \otimes e_b$ となる Lie 代数に値を取る $2$-形式
+$$
+\begin{aligned}
+F &= ({F^b}_a) \\
+  &= (d {A^b}_a + {A^b}_c \wedge {A^c}_a) \\
+  &= dA + A \wedge A \\
+  &\in \Omega^2 (M, \mathrm{End}(E)) = \Gamma (\Lambda^2 (T^{*}M) \otimes \frak{g})
+\end{aligned}
+$$
+を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A \mapsto A' = gdg^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F \mapsto F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
 $$
 \begin{aligned}
 dF

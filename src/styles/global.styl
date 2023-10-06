@@ -15,6 +15,7 @@ body
   --sub #999
   --width 50rem
   --back #333
+  --color #ddd
   font-family "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif
   margin 0
   padding 1.5rem 0
@@ -46,12 +47,14 @@ article
   --headerMargin 1.7rem
   display block
   margin 0 auto
+  color var(--back)
 
   > *, pre > code
     width 90%
     max-width var(--width)
     margin var(--headerMargin) auto
     box-sizing border-box
+    color #ddd
 
   > h1, > h2, > h3, > h4, > h5
     margin-top 3rem
@@ -61,8 +64,11 @@ article
 
   > mjx-container
     margin var(--headerMargin) auto !important
-    overflow: hidden;
-    overflow-x: auto;
+    overflow hidden
+    overflow-x auto
+
+    mjx-xypic
+      filter invert()
 
   header
     display flex

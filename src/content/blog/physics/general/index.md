@@ -3,6 +3,7 @@ title : 物理ノート
 pubDate : 2023-10-05T01:00:00+09:00
 lang : ja
 draft : true
+math : true
 ---
 
 ## 線形代数

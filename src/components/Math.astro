@@ -1,0 +1,20 @@
+<script is:inline>
+MathJax = {
+  loader: {
+    load: ["[tex]/physics", "[xyjax]/xypic.js"],
+    paths: {
+      xyjax: "https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/",
+    },
+  },
+  tex: {
+    packages: { "[+]": ["physics", ["xypic"]] },
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+  },
+};
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

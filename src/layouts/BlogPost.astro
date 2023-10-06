@@ -3,12 +3,13 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import Math from '@components/Math.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 import { BLOG_TITLE, SITE_AUTHOR, HEADER_LINKS } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, pubDate, lang, draft } = Astro.props;
+const { title, pubDate, lang, draft, math } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -37,4 +38,5 @@ const { title, pubDate, lang, draft } = Astro.props;
     </main>
     <Footer />
   </body>
+  {math && <Math />}
 </html>

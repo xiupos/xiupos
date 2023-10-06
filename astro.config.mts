@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
+import rehypeMathjax from 'rehype-mathjax/browser';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
 // @ts-ignore
@@ -25,11 +25,8 @@ export default defineConfig({
       remarkMath,
     ],
     rehypePlugins: [
-      // @ts-ignore
       [rehypeMathjax, {
-        tex: {
-          packages: {'[+]': ['physics', 'color', 'ams', 'amscd']},
-        }
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       }],
       rehypeHeadingIds,
       [rehypeWrapAll, [

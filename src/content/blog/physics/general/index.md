@@ -326,7 +326,7 @@ $$
 
 ### 接束と余接束
 
-可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の開近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} (p) \in T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
+可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の座標近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} (p) \in T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
 
 接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ dx^\mu \}$ である: $dx^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1}(p) \in T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
 
@@ -404,11 +404,11 @@ $$
 }
 $$
 
-$p \in M$ の近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
+$p \in M$ の座標近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
 $$
 D \phi := \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi.
 $$
-ここで, Lie 代数に値を取る $1$-形式 $A_i \in \Omega^1 (U_i, \mathrm{End} (E)) = \Gamma(T^{*}U_i \otimes \frak{g})$ は**接続 $1$-形式**または**ゲージ場** gauge field といい, **局所標構場** local frame field と呼ばれる $\Omega (U_i, E) = \Gamma(\pi^{-1} (U_i))$ の局所的な基底 $\{ e_a \}$ を用いて, $\nabla  e_a = \varphi_{i,p} {(A_i)^b}_a \otimes \varphi_{i,p}^{-1} \circ e_b$ と展開できる. また, ゲージ場は別の近傍と「接続」する役割を持つ: $p \in M$ の近傍 $U_i, U_j \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$, $\varphi_{j,p} := \varphi_j (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ は
+ここで, Lie 代数に値を取る $1$-形式 $A_i \in \Omega^1 (U_i, \mathrm{End} (E)) = \Gamma(T^{*}U_i \otimes \frak{g})$ は**接続 $1$-形式**または**ゲージ場** gauge field といい, **局所標構場** local frame field と呼ばれる $\Omega (U_i, E) = \Gamma(\pi^{-1} (U_i))$ の局所的な基底 $\{ e_a \}$ を用いて, $\nabla  e_a = \varphi_{i,p} {(A_i)^b}_a \otimes \varphi_{i,p}^{-1} \circ e_b$ と展開できる. また, ゲージ場は別の座標近傍と「接続」する役割を持つ: $p \in M$ の座標近傍 $U_i, U_j \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$, $\varphi_{j,p} := \varphi_j (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ は
 $$
 D \phi = \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi,
 $$
@@ -491,7 +491,7 @@ $$
 \begin{aligned}
 D (D \xi) (X, Y)
   &= D_X (D \xi (Y)) - D_Y (D \xi (X)) - D \xi ([ X, Y ]) \\
-  &= D_X D_Y \xi - D_Y D_X \xi - D_[ X, Y ] \xi
+  &= D_X D_Y \xi - D_Y D_X \xi - D_{[ X, Y ]} \xi
 \end{aligned}
 $$
 より, **Ricchi 恒等式** Ricci identity が得られる:

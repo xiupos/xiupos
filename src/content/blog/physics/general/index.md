@@ -294,7 +294,7 @@ $$
 全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $\pi$ が全射である束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $\varphi_i : U_i \times F \rightarrow \pi^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{\pi} M$ を**ファイバー束** fibre bundle という.
 $$
 \xymatrix{
-  U_i \times F \ar[rd]_{\mathrm{prod}_1} \ar[r]_{\varphi_i}^\simeq & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
+  U_i \times F \ar[r]_-{\varphi_i}^-\simeq & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
   & U_i \ar@{}[r]|*{\subset} & M
 }
 $$
@@ -302,8 +302,7 @@ $$
 点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}(p)$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
 $$
 \xymatrix{
-  F \ar[rd]_{\varphi_{i,p}}^\simeq && F \ar[ll]_{g_{ij}(p)} \ar[ld]^{\varphi_{j,p}}_\simeq \\
-  & \pi^{-1}(p) \ar[d]^\pi \\
+  F \ar[r]_-{\varphi_{i,p}} & \pi^{-1}(p) \ar[d]^\pi & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
   & \{p\} &
 }
 $$
@@ -323,7 +322,7 @@ $$
 
 ### ベクトル束
 
-ベクトル空間 $V$ をファイバーとするファイバー束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, $p \in U_i \subset M$ における局所自明化 $\phi_i(p,\ ): V \rightarrow \pi^{-1}$ が線形同型を与えるとき, このファイバー束 $E \xrightarrow{\pi} M$ を**ベクトル束** vector bundle という. 言い換えると, ベクトル束とは, 次元 $n$ のベクトル空間をファイバーとして持つ $GL(n)$-束である. また, 主 $GL(n)$-束の同伴ファイバー束は**同伴ベクトル束**と呼ばれる.
+体 $K$ 上のベクトル空間 $V$ をファイバーとするファイバー束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, $p \in U_i \subset M$ における局所自明化 $\phi_i(p,\ ): V \rightarrow \pi^{-1}$ が線形同型を与えるとき, このファイバー束 $E \xrightarrow{\pi} M$ を**ベクトル束** vector bundle という. 言い換えると, ベクトル束とは, 次元 $n$ のベクトル空間をファイバーとして持つ $GL(n)$-束である. 自明かつファイバーが $V = K$ であるベクトル束を**自明な直線束**という. また, 主 $GL(n)$-束の同伴ファイバー束は**同伴ベクトル束**と呼ばれる.
 
 ### 接束と余接束
 
@@ -341,7 +340,7 @@ $$
 }
 $$
 
-ベクトル束 $E$ が自明な束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
+ベクトル束 $E$ が自明な直線束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
 $$
 \xymatrix{
   \Lambda^k (T^{*}M) \\
@@ -351,7 +350,7 @@ $$
 
 #### 全微分 : $\Omega^0 (M) \rightarrow \Omega^1 (M)$
 
-自明な束に値を取る $0$-形式を $1$-形式に移す微分 $d : \Omega^0 (M) \rightarrow \Gamma(T^{*}M) = \Omega^1 (M)$ は全微分である: $f, g \in \Omega^0 (M)$, $fg \in \Omega^0 (M)$ に対して, Leibniz 則を満たす:
+自明な直線束に値を取る $0$-形式を $1$-形式に移す微分 $d : \Omega^0 (M) \rightarrow \Gamma(T^{*}M) = \Omega^1 (M)$ は全微分である: $f, g \in \Omega^0 (M)$, $fg \in \Omega^0 (M)$ に対して, Leibniz 則を満たす:
 $$
 d(fg) = (df) g + f (dg).
 $$
@@ -370,7 +369,7 @@ $$
 
 #### 外微分 : $\Omega^k (M) \rightarrow \Omega^{k+1} (M)$
 
-自明な束に値を取る $k$-形式を $(k+1)$-形式に移す微分 $d : \Omega^k (M) \rightarrow \Omega^{k+1} (M)$ を**外微分** exterior derivative という: $\omega \in \Omega^k (M)$, $\xi \in \Omega^l (M)$, $\omega \wedge \xi \in \Omega^{k+l} (M)$ に対して, Leibniz 則を満たす:
+自明な直線束に値を取る $k$-形式を $(k+1)$-形式に移す微分 $d : \Omega^k (M) \rightarrow \Omega^{k+1} (M)$ を**外微分** exterior derivative という: $\omega \in \Omega^k (M)$, $\xi \in \Omega^l (M)$, $\omega \wedge \xi \in \Omega^{k+l} (M)$ に対して, Leibniz 則を満たす:
 $$
 d (\omega \wedge \xi) = d \omega \wedge \xi + (-1)^k \omega \wedge d \xi.
 $$
@@ -413,7 +412,7 @@ $$
 $$
 D \phi = \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi,
 $$
-あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi $, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi $, それらに対する局所的な接続 $D_i := d + A_i$, $D_j := d + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
+あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi $, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi $ と, それらに対する局所的な接続 $D_i := d + A_i$, $D_j := d + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
 $$
 D_i \phi_i = g_{ij} (p) D_j \phi_j.
 $$
@@ -438,6 +437,14 @@ $$
 A' = g d g^{-1} + g A g^{-1}.
 $$
 変換関数による変換に相当する $A \mapsto A' = g d g^{-1} + g A g^{-1}$ を**ゲージ変換** gauge transformation という. また, ゲージ場をスカラー倍 $A \mapsto \lambda A$ しても接続の性質は変わらない.
+
+$$
+\xymatrix{
+  F \ar[r]_-{\varphi_{i,p}} & \pi^{-1}(p) & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} & T^{*}_pM \otimes F \ar[r]_-{\varphi_{i,p}} & T^{*}_pM \otimes \pi^{-1}(p) & T^{*}_pM \otimes F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
+  & \ \ar@{|.>}@/^5pt/[rrr]^{D} &&& \ \\
+  & \{p\} \ar[uul]^{\phi_i} \ar[uu]^{\phi} \ar[uur]_{\phi_j} &&& \{p\} \ar[uul]^{D_i \phi_i} \ar[uu]_{D \phi} \ar[uur]_{D_j \phi_j}
+}
+$$
 
 実用上, 接続はしばしば局所的な接続と同一視される:
 $$

@@ -400,7 +400,7 @@ $$
 \xymatrix{
   E & T^{*}M \otimes E \\
   \ \ar@{|.>}[r]^{D} & \ \\
-  M \ar[uu]^{\Omega^0 (M, E) \ni \xi} & M \ar[uu]_{D \xi \in \Omega^1 (M, E)}
+  M \ar[uu]^{\Omega^0 (M, E) \ni \phi} & M \ar[uu]_{D \phi \in \Omega^1 (M, E)}
 }
 $$
 

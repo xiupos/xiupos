@@ -549,13 +549,13 @@ $$
 また, ベクトル束の構造群が $GL(n)$ であることを用いて,
 $$
 \begin{aligned}
-  \varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi
-    &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
-    &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi_{i,p} \circ \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
-    &= \varphi_{j,p} d (g_{ji} (p) \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
-    &= \varphi_{j,p} d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{j,p} g_{ji} (p) d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
-    &= \varphi_{i,p} d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{i,p} g_{ij} (p) d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{i,p} g_{ij} (p) A_j g_{ji} (p) \varphi_{i,p}^{-1} \circ \phi \\
-    &= \varphi_{i,p} (d + g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
+\varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi
+&= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
+&= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi_{i,p} \circ \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
+&= \varphi_{j,p} d (g_{ji} (p) \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
+&= \varphi_{j,p} d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{j,p} g_{ji} (p) d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
+&= \varphi_{i,p} d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{i,p} g_{ij} (p) d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{i,p} g_{ij} (p) A_j g_{ji} (p) \varphi_{i,p}^{-1} \circ \phi \\
+&= \varphi_{i,p} (d + g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
 \end{aligned}
 $$
 これが $\varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi $ と等しい条件は,

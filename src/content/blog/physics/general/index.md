@@ -6,7 +6,137 @@ draft : true
 math : true
 ---
 
-## 代数学
+## 解析力学
+
+### 最小作用の原理
+
+時間に依存する**一般化座標**と呼ばれるパラメータ $q_i$ に対して, **作用** action と呼ばれる汎関数 $S[q_i]$ が存在し, $q_i$ は物理現象において $S[q_i]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[q_i] = 0$ を満たす.
+
+### Euler–Lagrange の運動方程式
+
+作用は, 座標と時間に関する **Lagrangian** $L (q_i, \dot{q}_i, t)$ を用いて以下のように表される:
+$$
+S[q_i] = \int \dd t L (q_i, \dot{q}_i, t).
+$$
+$q_i + \delta q_i$ の変分をとって,
+$$
+\begin{aligned}
+\delta S[q_i]
+  =&
+    \int \dd t
+    \bqty{
+      L ( q_i + \delta q_i, \dot{q}_i + \delta \dot{q}_i, t)
+      - L (q_i, \dot{q}_i, t)
+    }
+    \\
+  =&
+    \int \dd t
+    \bqty{
+      \delta q_i \pdv{L}{q_i}
+      + \delta \dot{q}_i \pdv{L}{\dot{q}_i}
+      + o \pqty{\sqrt{\delta q_i \delta q_i + \delta \dot{q}_i \delta \dot{q}_i}}
+    }
+    \\
+  =&
+    \int \dd t
+    \bqty{
+      \delta q_i \pdv{L}{q_i}
+      + \dv{\delta q_i}{t} \pdv{L}{\dot{q}_i}
+    }
+    \quad \pqty{\because \delta \dot{q}_i = \dv{\delta q_i}{t}}
+    \\
+  =&
+    \int \dd t
+    \bqty{
+      \delta q_i \pdv{L}{q_i}
+      - \delta q_i \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
+      + \dv{}{t} \pqty{ \delta q_i \pdv{L}{\dot{q}_i} }
+    }.
+\end{aligned}
+$$
+ここで, 発散項は境界条件より消える:
+$$
+\delta S[q_i]
+  =
+    \int \dd t
+    \delta q_i
+    \bqty{
+      \pdv{L}{q_i}
+      - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
+    }.
+$$
+したがって, 停留条件 $\delta S[q_i] = 0$ より,
+**Euler–Lagrange の運動方程式**が得られる:
+$$
+\pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
+$$
+
+### Hamilton の運動方程式
+
+**一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
+$$
+\begin{aligned}
+\dd H
+  &=
+    \dot{q}_i \dd p_i
+    + p_i \dd {\dot{q}_i}
+    - \dd L
+    \\
+  &=
+    \dot{q}_i \dd p_i
+    + p_i \dd {\dot{q}_i}
+    - \pdv{L}{q_i} \dd q_i
+    - p_i \dd {\dot{q}_i}
+    - \pdv{L}{t} \dd t
+    \\
+  & \quad \pqty{
+      \because
+      \dd L
+        =
+          \pdv{L}{q_i} \dd q_i
+          + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i}
+          + \pdv{L}{t} \dd t
+    }
+    \\
+  &=
+    - \pdv{L}{q_i} \dd q_i
+    + \dot{q}_i \dd p_i
+    - \pdv{L}{t} \dd t.
+\end{aligned}
+$$
+ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}_i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+$$
+\begin{aligned}
+\dot{p}_i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p_i}.
+\end{aligned}
+$$
+このとき $p_i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p_i)$ の組を**正準変数** canonical variables という.
+
+また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
+$$
+\pdv{H}{t} = -\pdv{L}{t} = 0.
+$$
+
+### 正準変換
+
+正準変数の変換 $(p_i, q_i) \mapsto (P_j, Q_j) = (P_j(p_i, q_i), Q_j(p_i, q_i))$ に対し, **母関数**と呼ばれるある関数 $W(q_i, Q_i)$ が存在し, 以下が成立するとき, この変換を**正準変換**という:
+$$
+\begin{aligned}
+p_i = \pdv{W}{q_i}, && P_i = - \pdv{W}{Q_i}.
+\end{aligned}
+$$
+
+### Poisson 括弧
+
+正準変数 $(q_i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
+$$
+\{A, B\}_\mathrm{P}
+  \equiv
+    \pdv{A}{q_i}\pdv{B}{p_i}
+    - \pdv{B}{q_i}\pdv{A}{p_i}.
+$$
+
+## 群
 
 ### 群
 
@@ -21,7 +151,7 @@ math : true
 
 群 $G$ が有限集合であるとき, $G$ を**有限群** finite group という. このとき, $G$ の濃度を $G$ の**位数** order といい, $|G|$ と書く. 群 $G$ が有限群でないとき, $G$ を**無限群** infinite group という.
 
-群 $G$ の元 $g$ に対して, $g^n = e$ となる $n \in \mathbb{N}$ が存在するとき, $g$ は有限位数であるといい, またこれを満たす最小の $n$ を $g$ の位数といい, $\mathrm{ord}(g)$ と書く.
+群 $G$ の元 $g$ に対して, $g^n = e$ となる $n \in \mathbb{N}$ が存在するとき, $g$ は有限位数であるといい, またこれを満たす最小の $n$ を $g$ の位数といい, $\mathrm{ord}(g)$ と書く. 位数 $n$ の $g$ の羃乗で作られる群を**巡回群**という.
 
 集合 $X$ から $X$ への全単射の全体は, 写像の合成に関して群をなし, これを $X$ の**自己同型群**といい, $\mathrm{Aut} (X)$ と書く.
 
@@ -41,7 +171,7 @@ math : true
 
 ### 群の作用
 
-群 $G$ と集合 $X$ について, 準同型 $\rho : G \rightarrow \mathrm{Aut} (X)$ が与えられたとき, **群 $G$ が集合 $X$ に左作用する** G acts on X あるいは単に**作用する**といい, $g \cdot x = gx := \rho(g) (x)$ と書く. このとき, $g, h \in G$, $x \in X$ に対し, $g (hx) = (gh) x$, $ex = x$ を満たす. また, この $X$ を**左 $G$-集合** left $G$-set あるいは単に **$G$-集合** $G$-set という. 同様に右作用と右 $G$-集合も $x \cdot g = xg := \rho(g) (x)$ によって定義される.
+群 $G$ と集合 $X$ について, 準同型 $\rho : G \rightarrow \mathrm{Aut} (X)$ が与えられたとき, **群 $G$ が集合 $X$ に左作用する** $G$ acts on $X$ あるいは単に**作用する**といい, $g \cdot x = gx := \rho(g) (x)$ と書く. このとき, $g, h \in G$, $x \in X$ に対し, $g (hx) = (gh) x$, $ex = x$ を満たす. また, この $X$ を**左 $G$-集合** left $G$-set あるいは単に **$G$-集合** $G$-set という. 同様に右作用と右 $G$-集合も $x \cdot g = xg := \rho(g) (x)$ によって定義される.
 
 群 $G$ の $X$ への作用 $G \times X \rightarrow X$ に対して, $Gx := \{ gx \mid g \in G \}$ を $x$ の**軌道** orbit という. また, $G_x := \{ g \in G \mid gx = x \}$ を**固定化部分群** stabilizer という. このとき, $G$ の $G_x$ による商群と軌道 $Gx$ は同型である: $G / G_x \simeq Gx$.
 
@@ -151,11 +281,9 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 ### Lagrangian 密度
 
-作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial \phi)$ を用いて以下のように表される:
+作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial_\mu \phi)$ を用いて以下のように表される:
 $$
-\boxed{
-  S[\phi] = \int d^4 x \mathcal{L}(\phi, \partial {\phi})
-}
+S[\phi] = \int d^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
 $$
 $\phi + \delta\phi$ の変分をとって,
 $$
@@ -164,9 +292,9 @@ $$
   =&
     \int d^4 x
     \left[
-      \mathcal{L}(\phi + \delta\phi, \partial\phi + \partial\delta\phi)
+      \mathcal{L}(\phi + \delta\phi, \partial_\mu \phi + \partial_\mu \delta\phi)
       -
-      \mathcal{L}(\phi, \partial\phi)
+      \mathcal{L}(\phi, \partial_\mu \phi)
     \right]
     \\
   =&
@@ -228,20 +356,18 @@ $$
     \right].
 $$
 したがって, 停留条件 $\delta S[\phi] = 0$ より,
-**Euler–Lagrange 方程式**が得られる:
+**Euler–Lagrange の運動方程式**が得られる:
 $$
-\boxed{
-  \frac{\partial \mathcal{L}}{\partial \phi} -
-  \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right)
-  = 0
-}
+\frac{\partial \mathcal{L}}{\partial \phi} -
+\partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right)
+= 0.
 $$
 
 #### 例: 自由スカラー場
 
 自由スカラー場 $\phi$ の Lagrangian 密度は,
 $$
-\mathcal{L}(\phi, \partial \phi) = \frac12 \partial_\mu \phi \partial^\mu \phi - \frac12 \mu^2 \phi^2.
+\mathcal{L}(\phi, \partial_\mu \phi) = \frac12 \partial_\mu \phi \partial^\mu \phi - \frac12 \mu^2 \phi^2.
 $$
 ここで,
 $$
@@ -252,7 +378,7 @@ $$
       \partial_\mu \partial^\mu \phi.
 \end{aligned}
 $$
-したがって, Euler–Lagrange 方程式より,
+したがって, Euler–Lagrange の運動方程式より,
 $$
 (\partial_\mu \partial^\mu + \mu^2) \phi = 0.
 $$
@@ -262,7 +388,7 @@ $$
 電磁場 $A_\mu$ の Lagrangian 密度は,
 $$
 \begin{aligned}
-  \mathcal{L}(A, \partial A) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
+  \mathcal{L}(A, \partial_\mu A) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
   F^{\mu\nu} := \partial^\mu A^\nu - \partial^\nu A^\mu.
 \end{aligned}
 $$
@@ -285,7 +411,7 @@ $$
   &=  - \partial_\mu F^{\mu\nu}.
 \end{aligned}
 $$
-したがって, Euler–Lagrange 方程式より,
+したがって, Euler–Lagrange の運動方程式より,
 $$
 \partial_\mu F^{\mu\nu} = - j^\nu.
 $$
@@ -296,14 +422,14 @@ $$
 $$
 \begin{aligned}
   S[\phi(x)]
-    &= \int d^4 x \mathcal{L} (\phi(x, t), \partial \phi(x, t)) \\
-    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), D \phi(x, t), \dot{\phi}(x, t)) \\
-    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), D \phi(x, t), \dot{x}^\top D \phi(x, t)).
+    &= \int d^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
+    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
+    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:
 $$
-L(x, \dot{x}, t) = \int d^3 x \mathcal{L} (\phi(x, t), D \phi(x, t), \dot{x}^\top D \phi(x, t)).
+L(x, \dot{x}, t) = \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 $$
 このとき, 作用は
 $$

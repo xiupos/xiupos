@@ -22,32 +22,21 @@ $q_i + \delta q_i$ の変分をとって,
 $$
 \begin{aligned}
 \delta S[q_i]
-  =&
-    \int \dd t
-    \bqty{
+=&  \int \dd t \bqty{
       L ( q_i + \delta q_i, \dot{q}_i + \delta \dot{q}_i, t)
       - L (q_i, \dot{q}_i, t)
-    }
-    \\
-  =&
-    \int \dd t
-    \bqty{
+    } \\
+=&  \int \dd t \bqty{
       \delta q_i \pdv{L}{q_i}
       + \delta \dot{q}_i \pdv{L}{\dot{q}_i}
       + o \pqty{\sqrt{\delta q_i \delta q_i + \delta \dot{q}_i \delta \dot{q}_i}}
-    }
-    \\
-  =&
-    \int \dd t
-    \bqty{
+    } \\
+=&  \int \dd t \bqty{
       \delta q_i \pdv{L}{q_i}
       + \dv{\delta q_i}{t} \pdv{L}{\dot{q}_i}
     }
-    \quad \pqty{\because \delta \dot{q}_i = \dv{\delta q_i}{t}}
-    \\
-  =&
-    \int \dd t
-    \bqty{
+    \quad \pqty{\because \delta \dot{q}_i = \dv{\delta q_i}{t}} \\
+=&  \int \dd t \bqty{
       \delta q_i \pdv{L}{q_i}
       - \delta q_i \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
       + \dv{}{t} \pqty{ \delta q_i \pdv{L}{\dot{q}_i} }
@@ -57,13 +46,9 @@ $$
 ここで, 発散項は境界条件より消える:
 $$
 \delta S[q_i]
-  =
-    \int \dd t
-    \delta q_i
-    \bqty{
-      \pdv{L}{q_i}
-      - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
-    }.
+= \int \dd t \delta q_i \bqty{
+    \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
+  }.
 $$
 したがって, 停留条件 $\delta S[q_i] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
@@ -75,33 +60,14 @@ $$
 
 **一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
 $$
-\begin{aligned}
-\dd H
-  &=
-    \dot{q}_i \dd p_i
-    + p_i \dd {\dot{q}_i}
-    - \dd L
-    \\
-  &=
-    \dot{q}_i \dd p_i
-    + p_i \dd {\dot{q}_i}
-    - \pdv{L}{q_i} \dd q_i
-    - p_i \dd {\dot{q}_i}
-    - \pdv{L}{t} \dd t
-    \\
-  & \quad \pqty{
-      \because
-      \dd L
-        =
-          \pdv{L}{q_i} \dd q_i
-          + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i}
-          + \pdv{L}{t} \dd t
-    }
-    \\
-  &=
-    - \pdv{L}{q_i} \dd q_i
-    + \dot{q}_i \dd p_i
-    - \pdv{L}{t} \dd t.
+\begin{aligned} \dd H
+&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i} - \dd L \\
+&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i}
+    - \pdv{L}{q_i} \dd q_i - p_i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
+&   \quad \pqty{
+      \because \dd L = \pdv{L}{q_i} \dd q_i + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i} + \pdv{L}{t} \dd t
+    } \\
+&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p_i - \pdv{L}{t} \dd t.
 \end{aligned}
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}_i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
@@ -141,9 +107,8 @@ $$
 正準変数 $(q_i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \{A, B\}_\mathrm{P}
-  \equiv
-    \pdv{A}{q_i}\pdv{B}{p_i}
-    - \pdv{B}{q_i}\pdv{A}{p_i}.
+\equiv  \pdv{A}{q_i}\pdv{B}{p_i}
+        - \pdv{B}{q_i}\pdv{A}{p_i}.
 $$
 例えば,
 $$
@@ -155,6 +120,19 @@ $$
 \begin{aligned}
 \{q_i, q_j\} = \{p_i, p_j\} = 0, && \{q_i, p_j\} = \delta_{ij}.
 \end{aligned}
+$$
+
+ある物理量 $A(q_i, p_i, t)$ について, 時間による完全微分は,
+$$
+\begin{aligned}
+\dv{A}{t}
+&=  \pdv{A}{q_i} \dot{q}_i + \pdv{A}{p_i} \dot{p}_i + \pdv{A}{t} \\
+&=  \pdv{A}{q_i} \pdv{H}{p_i} + \pdv{A}{p_i} \pdv{H}{q_i} + \pdv{A}{t}.
+\end{aligned}
+$$
+Poisson 括弧を用いて書き直すと, 物理量 $A$ の時間発展に関する式が得られる:
+$$
+\dv{A}{t} = \{A, H\}_\mathrm{P} + \pdv{A}{t}.
 $$
 
 ## 群
@@ -259,13 +237,11 @@ $$
 交代テンソル空間 $\Lambda^p(V)$, $\Lambda^q(V)$ について, 2つの交代テンソル空間を交代テンソル空間に移す双線形写像 $\Lambda^p(V) \times \Lambda^q(V) \rightarrow \Lambda^{p+q}(V)$ を以下で定義する: $\Lambda^p(V)$ の基底 $\{ e_1 \wedge \cdots \wedge e_p \}$ と $\Lambda^q(V)$ の基底 $\{ e_1 \wedge \cdots \wedge e_q \}$ に対し, $\displaystyle t = \frac1{p!} t^{\mu_1\cdots\mu_p} e_{\mu_1} \wedge \cdots \wedge e_{\mu_p} \in {\textstyle \Lambda}^p(V)$, $\displaystyle s = \frac1{q!} s^{\mu_1\cdots\mu_q} e_{\mu_1} \wedge \cdots \wedge e_{\mu_q} \in {\textstyle \Lambda}^q(V)$ の外積は,
 $$
 \begin{aligned}
-  t \wedge s
-  &=
-    \left( \frac1{p!} t^{\mu_1\cdots\mu_p} e_{\mu_1} \wedge \cdots \wedge e_{\mu_p} \right)
+t \wedge s
+&=  \left( \frac1{p!} t^{\mu_1\cdots\mu_p} e_{\mu_1} \wedge \cdots \wedge e_{\mu_p} \right)
     \wedge
     \left( \frac1{q!} s^{\mu_1\cdots\mu_q} e_{\mu_1} \wedge \cdots \wedge e_{\mu_q} \right) \\
-  &:=
-    \frac1{p!q!} t^{\mu_1\cdots\mu_p} s^{\mu_{p+1}\cdots\mu_{p+q}}
+&:= \frac1{p!q!} t^{\mu_1\cdots\mu_p} s^{\mu_{p+1}\cdots\mu_{p+q}}
     (e_{\mu_1} \wedge \cdots \wedge e_{\mu_p}) \wedge (e_{\mu_{p+1}} \wedge \cdots \wedge e_{\mu_{p+q}}).
 \end{aligned}
 $$
@@ -294,6 +270,10 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ の基底 $\{ \ket*{n} \}$ に対し, 線形写像 $\ketbra*{n}$ は射影写像という: ケットベクトル $\ket*{\varphi} = \sum_m \varphi_m \ket*{m}$ に対し, $\ket*{n} \ev*{n | \varphi} = \varphi_n \ket*{n}$.
 
+## 量子力学
+
+### 正準量子化
+
 ## 場の解析力学
 
 ### 最小作用の原理
@@ -310,77 +290,43 @@ $\phi + \delta\phi$ の変分をとって,
 $$
 \begin{aligned}
 \delta S[\phi]
-  =&
-    \int d^4 x
-    \left[
+=&  \int d^4 x \bqty{
       \mathcal{L}(\phi + \delta\phi, \partial_\mu \phi + \partial_\mu \delta\phi)
-      -
-      \mathcal{L}(\phi, \partial_\mu \phi)
-    \right]
-    \\
-  =&
-    \int d^4 x
-    \left[
-      \delta \phi
-      \frac{\partial \mathcal{L}}{\partial \phi}
-      +
-      \delta \partial_\mu \phi
-      \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}
-      +
-      o\left(\sqrt{\delta \phi^{*} \delta \phi + (\delta \partial_\mu\phi)^{*} \delta \partial^\mu\phi}\right)
-    \right]
-    \\
-  =&
-    \int d^4 x
-    \left[
-      \delta \phi
-      \frac{\partial \mathcal{L}}{\partial \phi}
-      +
-      \partial_\mu \delta \phi
-      \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}
-    \right]
-    \quad (\because \delta \partial_\mu \phi = \partial_\mu \delta \phi)
-    \\
-  =&
-    \int d^4 x
-    \left[
-      \delta \phi
-      \frac{\partial \mathcal{L}}{\partial \phi}
-      -
-      \delta \phi
-      \partial_\mu
-      \left(
-        \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}
-      \right)
-      +
-      \partial_\mu
-      \left(
-        \delta \phi
-        \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}
-      \right)
-    \right].
+      - \mathcal{L}(\phi, \partial_\mu \phi)
+    } \\
+=&  \int d^4 x \bqty{
+      \delta \phi \pdv{\mathcal{L}}{\phi}
+      + \delta \partial_\mu \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+      + o\pqty{\sqrt{
+        \delta \phi^{*} \delta \phi + (\delta \partial_\mu\phi)^{*} \delta \partial^\mu\phi
+      }}
+    } \\
+=&  \int d^4 x \bqty{
+      \delta \phi \pdv{\mathcal{L}}{\phi}
+      + \partial_\mu \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+    }
+    \quad (\because \delta \partial_\mu \phi = \partial_\mu \delta \phi) \\
+=&  \int d^4 x \bqty{
+      \delta \phi \pdv{\mathcal{L}}{\phi}
+      - \delta \phi \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
+      + \partial_\mu \pqty{
+        \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+      }
+    }.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
 $$
 \delta S[\phi]
-  =
-    \int d^4 x
-    \delta \phi
-    \left[
-      \frac{\partial \mathcal{L}}{\partial \phi}
-      -
-      \partial_\mu
-      \left(
-        \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}
-      \right)
-    \right].
+= \int d^4 x \delta \phi \bqty{
+    \pdv{\mathcal{L}}{\phi}
+    - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
+  }.
 $$
 したがって, 停留条件 $\delta S[\phi] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
 $$
-\frac{\partial \mathcal{L}}{\partial \phi} -
-\partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right)
+\pdv{\mathcal{L}}{\phi} - \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi)} }
 = 0.
 $$
 
@@ -393,10 +339,8 @@ $$
 ここで,
 $$
 \begin{aligned}
-  \frac{\partial \mathcal{L}}{\partial \phi} = - \mu^2 \phi, &&
-  \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right)
-    =
-      \partial_\mu \partial^\mu \phi.
+\pdv{\mathcal{L}}{\phi} = - \mu^2 \phi, &&
+\partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi)} } = \partial_\mu \partial^\mu \phi.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
@@ -409,27 +353,25 @@ $$
 電磁場 $A_\mu$ の Lagrangian 密度は,
 $$
 \begin{aligned}
-  \mathcal{L}(A, \partial_\mu A) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
-  F^{\mu\nu} := \partial^\mu A^\nu - \partial^\nu A^\mu.
+\mathcal{L}(A, \partial_\mu A) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
+F^{\mu\nu} := \partial^\mu A^\nu - \partial^\nu A^\mu.
 \end{aligned}
 $$
 ここで,
 $$
 \begin{aligned}
-  \frac{\partial \mathcal{L}}{\partial A_\nu} &= j^\mu, \\
-  \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu A_\nu)} \right)
-  &=  \partial_\mu \frac{\partial}{\partial (\partial_\mu A_\nu)} \left(- \frac14 F_{\rho\sigma} F^{\rho\sigma} \right) \\
-  &=  \partial_\mu \frac{\partial}{\partial (\partial_\mu A_\nu)}
-      \left[- \frac12 (
-        \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
-        \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
-      ) \right] \\
-  &=  \partial_\mu
-      \left[- \frac12 (
-        2 \partial^{\mu} A^{\nu} -
-        2 \partial^{\nu} A^{\mu}
-      ) \right] \\
-  &=  - \partial_\mu F^{\mu\nu}.
+\pdv{\mathcal{L}}{A_\nu} &= j^\mu, \\
+\partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu A_\nu)}}
+&=  \partial_\mu \pdv{}{(\partial_\mu A_\nu)} \pqty{ - \frac14 F_{\rho\sigma} F^{\rho\sigma} } \\
+&=  \partial_\mu \pqty{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
+      \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
+      \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
+    ) } \\
+&=  \partial_\mu \bqty{ - \frac12 (
+      2 \partial^{\mu} A^{\nu} -
+      2 \partial^{\nu} A^{\mu}
+    ) } \\
+&=  - \partial_\mu F^{\mu\nu}.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
@@ -442,10 +384,10 @@ $$
 スカラー場 $\phi$ について, 空間座標と時間座標に分けて考える: $\phi(x, t)$. 作用は
 $$
 \begin{aligned}
-  S[\phi(x)]
-    &= \int d^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
-    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
-    &= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+S[\phi(x)]
+&= \int d^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
+&= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
+&= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:

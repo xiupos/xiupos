@@ -119,10 +119,20 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(p_i, q_i) \mapsto (P_j, Q_j) = (P_j(p_i, q_i), Q_j(p_i, q_i))$ に対し, **母関数**と呼ばれるある関数 $W(q_i, Q_i)$ が存在し, 以下が成立するとき, この変換を**正準変換**という:
+正準変数の変換 $(p_i, q_i) \mapsto (P_j, Q_j) = (P_j(p_i, q_i), Q_j(p_i, q_i))$ に対して Hamiltonian が $H (q_i, p_i) \mapsto K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $\delta \int \dd t (p_i \dot{q}_i - H) = 0$ かつ $\delta \int \dd t (P_i \dot{Q}_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+$$
+(p_i \dot{q}_i - H) - (P_i \dot{Q}_i - K) = \dv{W}{t}.
+$$
+$$
+\therefore
+\dd W = p_i \dd q_i - P_i \dd Q_i + (K - H) \dd t.
+$$
+この $W(q_i, Q_i, t)$ を**母関数**といい, 以下を満たす.
 $$
 \begin{aligned}
-p_i = \pdv{W}{q_i}, && P_i = - \pdv{W}{Q_i}.
+p_i = \pdv{W}{q_i},
+&& P_i = - \pdv{W}{Q_i},
+&& K = H + \pdv{W}{t}.
 \end{aligned}
 $$
 
@@ -134,6 +144,17 @@ $$
   \equiv
     \pdv{A}{q_i}\pdv{B}{p_i}
     - \pdv{B}{q_i}\pdv{A}{p_i}.
+$$
+例えば,
+$$
+\begin{aligned}
+\{q_i, H\}_\mathrm{P} = \dot{q}, && \{p_i, H\}_\mathrm{P} = \dot{p}.
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\{q_i, q_j\} = \{p_i, p_j\} = 0, && \{q_i, p_j\} = \delta_{ij}.
+\end{aligned}
 $$
 
 ## 群

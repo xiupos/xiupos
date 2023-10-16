@@ -56,6 +56,25 @@ $$
 \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
 $$
 
+#### 例: 調和振動子
+
+調和振動子の Lagrangian は,
+$$
+L(q, \dot{q}, t) = \frac{m}{2} \dot{q}^2 - \frac{k}{2} q^2.
+$$
+ここで,
+$$
+\begin{aligned}
+\pdv{L}{q} &= -kq, &
+\dv{}{t}\pqty{\pdv{L}{\dot{q}}} &= \dv{}{t} (m \dot{q}) = m \ddot{q}.
+\end{aligned}
+$$
+したがって,
+Euler–Lagrange の運動方程式より,
+$$
+m\ddot{q} + k q = 0.
+$$
+
 ### Hamilton の運動方程式
 
 **一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
@@ -81,6 +100,33 @@ $$
 また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
+$$
+
+#### 例: 調和振動子
+
+調和振動子の Lagrangian は,
+$$
+L(q, \dot{q}, t) = \frac{m}{2} \dot{q}^2 - \frac{k}{2} q^2.
+$$
+ここで, 一般化運動量の定義より,
+$$
+p = \pdv{L}{\dot{q}} = m \dot{q}.
+$$
+したがって $\dot{q} = p / m$ であるから, Hamiltonian の定義より,
+$$
+H (q, p, t) = p \frac{p}{m} - L \pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac{k}{2} q^2.
+$$
+ここで,
+$$
+\begin{aligned}
+\pdv{H}{q} &= kq, & \pdv{H}{p} &= \frac{p}{m}.
+\end{aligned}
+$$
+したがって, Hamilton の運動方程式は,
+$$
+\begin{aligned}
+\dot{p} &= - kq, & \dot{q} &= \frac{p}{m}.
+\end{aligned}
 $$
 
 ### 正準変換
@@ -353,7 +399,7 @@ $$
 電磁場 $A_\mu$ の Lagrangian 密度は,
 $$
 \begin{aligned}
-\mathcal{L}(A, \partial_\mu A) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
+\mathcal{L}(A_\nu, \partial_\mu A_\nu) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
 F^{\mu\nu} := \partial^\mu A^\nu - \partial^\nu A^\mu.
 \end{aligned}
 $$

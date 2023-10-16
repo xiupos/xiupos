@@ -316,6 +316,10 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ の基底 $\{ \ket*{n} \}$ に対し, 線形写像 $\ketbra*{n}$ を**射影写像**という: ケットベクトル $\ket*{\varphi} = \sum_m \varphi_m \ket*{m}$ に対し, $\ket*{n} \ev*{n | \varphi} = \varphi_n \ket*{n}$. また, $\sum_n \ketbra*{n} = 1_H$ である.
 
+## Fourier 展開
+
+### 
+
 ## 量子力学
 
 ### 正準量子化
@@ -413,9 +417,9 @@ $$
       \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
       \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
     ) } \\
-&=  \partial_\mu \bqty{ - \frac12 (
-      2 \partial^{\mu} A^{\nu} -
-      2 \partial^{\nu} A^{\mu}
+&=  \partial_\mu \bqty{ - (
+      \partial^{\mu} A^{\nu} -
+      \partial^{\nu} A^{\mu}
     ) } \\
 &=  - \partial_\mu F^{\mu\nu}.
 \end{aligned}
@@ -432,13 +436,12 @@ $$
 \begin{aligned}
 S[\phi(x)]
 &= \int \dd{}^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
-&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
-&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:
 $$
-L(x, \dot{x}, t) = \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+L(x, \dot{x}, t) = \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)).
 $$
 このとき, 作用は
 $$
@@ -534,7 +537,7 @@ $$
 \xymatrix{
   K & T^{*}M \\
   \ \ar@{|.>}[r]^{d} & \ \\
-  M \ar[uu]^{\Omega^0 (M) \ni f} & M \ar[uu]_{df \in \Omega^1 (M)}
+  M \ar[uu]^{\Omega^0 (M) \ni f} & M \ar[uu]_{\dd f\in \Omega^1 (M)}
 }
 $$
 
@@ -570,7 +573,7 @@ $$
 
 ベクトル束 $E$ に値を取る $0$-形式を $1$-形式に移す微分 $D : \Omega^0 (M, E) \rightarrow \Omega^1 (M, E)$ を**接続** connection という: $f \in \Omega^0 (M)$, $\xi' \in \Omega^0 (M, E) = \Gamma(E)$, $f \xi' \in \Omega^0 (M, E)$ に対して, Leibniz 則を満たす:
 $$
-D (f \xi') = df \otimes \xi' + f D \xi'.
+D (f \xi') = \dd f\otimes \xi' + f D \xi'.
 $$
 $$
 \xymatrix{
@@ -698,11 +701,11 @@ F &= ({F^b}_a) \\
   &\in \Omega^2 (M, \mathrm{End}(E)) = \Gamma (\Lambda^2 (T^{*}M) \otimes \frak{g})
 \end{aligned}
 $$
-を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A \mapsto A' = gdg^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F \mapsto F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
+を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A \mapsto A' = g \dd g^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F \mapsto F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
 $$
 \begin{aligned}
-dF
-  &= \dd(dA + A \wedge A) \\
+\dd F
+  &= \dd(\dd A + A \wedge A) \\
   &= \dd{}^2 A + \dd(A \wedge A) \\
   &= \dd A \wedge A - A \wedge \dd A \\
   &= (F - A \wedge A) \wedge A - A \wedge (F - A \wedge A) \\

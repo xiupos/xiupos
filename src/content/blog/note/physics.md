@@ -330,29 +330,29 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial_\mu \phi)$ を用いて以下のように表される:
 $$
-S[\phi] = \int \dd^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
+S[\phi] = \int \dd{}^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
 $$
 $\phi + \delta\phi$ の変分をとって,
 $$
 \begin{aligned}
 \delta S[\phi]
-=&  \int \dd^4 x \bqty{
+=&  \int \dd{}^4 x \bqty{
       \mathcal{L}(\phi + \delta\phi, \partial_\mu \phi + \partial_\mu \delta\phi)
       - \mathcal{L}(\phi, \partial_\mu \phi)
     } \\
-=&  \int \dd^4 x \bqty{
+=&  \int \dd{}^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       + \delta \partial_\mu \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
       + o\pqty{\sqrt{
         \delta \phi^{*} \delta \phi + (\delta \partial_\mu\phi)^{*} \delta \partial^\mu\phi
       }}
     } \\
-=&  \int \dd^4 x \bqty{
+=&  \int \dd{}^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       + \partial_\mu \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
     }
     \quad (\because \delta \partial_\mu \phi = \partial_\mu \delta \phi) \\
-=&  \int \dd^4 x \bqty{
+=&  \int \dd{}^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       - \delta \phi \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
       + \partial_\mu \pqty{
@@ -364,7 +364,7 @@ $$
 ここで, 発散項は境界条件より消える:
 $$
 \delta S[\phi]
-= \int \dd^4 x \delta \phi \bqty{
+= \int \dd{}^4 x \delta \phi \bqty{
     \pdv{\mathcal{L}}{\phi}
     - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
   }.
@@ -431,14 +431,14 @@ $$
 $$
 \begin{aligned}
 S[\phi(x)]
-&= \int \dd^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
-&= \int \dd t \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
-&= \int \dd t \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+&= \int \dd{}^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
+&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
+&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:
 $$
-L(x, \dot{x}, t) = \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+L(x, \dot{x}, t) = \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 $$
 このとき, 作用は
 $$
@@ -703,7 +703,7 @@ $$
 \begin{aligned}
 dF
   &= \dd(dA + A \wedge A) \\
-  &= \dd^2 A + \dd(A \wedge A) \\
+  &= \dd{}^2 A + \dd(A \wedge A) \\
   &= \dd A \wedge A - A \wedge \dd A \\
   &= (F - A \wedge A) \wedge A - A \wedge (F - A \wedge A) \\
   &= F \wedge A - A \wedge F \\
@@ -711,7 +711,7 @@ dF
 \end{aligned}
 $$
 $$
-\therefore \dd_A F := \dd F + [A, F] = 0.
+\therefore \dd{}_A F := \dd F + [A, F] = 0.
 $$
 また, ゲージ場 $A = A_\mu \dd x^\mu$, 場の強さ $\displaystyle F = \frac12 F_{\mu\nu} \dd x^\mu \wedge \dd x^\nu$ について,
 $$

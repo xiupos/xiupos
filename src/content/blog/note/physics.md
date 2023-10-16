@@ -330,29 +330,29 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial_\mu \phi)$ を用いて以下のように表される:
 $$
-S[\phi] = \int d^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
+S[\phi] = \int \dd^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
 $$
 $\phi + \delta\phi$ の変分をとって,
 $$
 \begin{aligned}
 \delta S[\phi]
-=&  \int d^4 x \bqty{
+=&  \int \dd^4 x \bqty{
       \mathcal{L}(\phi + \delta\phi, \partial_\mu \phi + \partial_\mu \delta\phi)
       - \mathcal{L}(\phi, \partial_\mu \phi)
     } \\
-=&  \int d^4 x \bqty{
+=&  \int \dd^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       + \delta \partial_\mu \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
       + o\pqty{\sqrt{
         \delta \phi^{*} \delta \phi + (\delta \partial_\mu\phi)^{*} \delta \partial^\mu\phi
       }}
     } \\
-=&  \int d^4 x \bqty{
+=&  \int \dd^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       + \partial_\mu \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
     }
     \quad (\because \delta \partial_\mu \phi = \partial_\mu \delta \phi) \\
-=&  \int d^4 x \bqty{
+=&  \int \dd^4 x \bqty{
       \delta \phi \pdv{\mathcal{L}}{\phi}
       - \delta \phi \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
       + \partial_\mu \pqty{
@@ -364,7 +364,7 @@ $$
 ここで, 発散項は境界条件より消える:
 $$
 \delta S[\phi]
-= \int d^4 x \delta \phi \bqty{
+= \int \dd^4 x \delta \phi \bqty{
     \pdv{\mathcal{L}}{\phi}
     - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
   }.
@@ -409,7 +409,7 @@ $$
 \pdv{\mathcal{L}}{A_\nu} &= j^\mu, \\
 \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu A_\nu)}}
 &=  \partial_\mu \pdv{}{(\partial_\mu A_\nu)} \pqty{ - \frac14 F_{\rho\sigma} F^{\rho\sigma} } \\
-&=  \partial_\mu \pqty{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
+&=  \partial_\mu \pdv{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
       \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
       \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
     ) } \\
@@ -431,18 +431,18 @@ $$
 $$
 \begin{aligned}
 S[\phi(x)]
-&= \int d^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
-&= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
-&= \int dt \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+&= \int \dd^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
+&= \int \dd t \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)) \\
+&= \int \dd t \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:
 $$
-L(x, \dot{x}, t) = \int d^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
+L(x, \dot{x}, t) = \int \dd^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{x}^\top \nabla \phi(x, t)).
 $$
 このとき, 作用は
 $$
-S[x] = \int dt L(x, \dot{x}, t).
+S[x] = \int \dd tL(x, \dot{x}, t).
 $$
 
 ## 束と接続
@@ -504,7 +504,7 @@ $$
 
 可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の座標近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} (p) \in T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
 
-接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ dx^\mu \}$ である: $dx^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1}(p) \in T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
+接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ \dd x^\mu \}$ である: $\dd x^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1}(p) \in T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
 
 ### 微分形式とベクトル束上の接続
 
@@ -528,7 +528,7 @@ $$
 
 自明な直線束に値を取る $0$-形式を $1$-形式に移す微分 $d : \Omega^0 (M) \rightarrow \Gamma(T^{*}M) = \Omega^1 (M)$ は全微分である: $f, g \in \Omega^0 (M)$, $fg \in \Omega^0 (M)$ に対して, Leibniz 則を満たす:
 $$
-d(fg) = (df) g + f (dg).
+\dd (fg) = (\dd f) g + f (\dd g).
 $$
 $$
 \xymatrix{
@@ -538,16 +538,16 @@ $$
 }
 $$
 
-$T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $f \in \Omega^0 (M)$ は局所的に
+$T^{*}_pM$ の基底 $\{\dd x^\mu\}$ に対し, $f \in \Omega^0 (M)$ は局所的に
 $$
-df := (\partial_\mu f )\ dx^\mu.
+\dd f := (\partial_\mu f )\ \dd x^\mu.
 $$
 
 #### 外微分 : $\Omega^k (M) \rightarrow \Omega^{k+1} (M)$
 
 自明な直線束に値を取る $k$-形式を $(k+1)$-形式に移す微分 $d : \Omega^k (M) \rightarrow \Omega^{k+1} (M)$ を**外微分** exterior derivative という: $\omega \in \Omega^k (M)$, $\xi \in \Omega^l (M)$, $\omega \wedge \xi \in \Omega^{k+l} (M)$ に対して, Leibniz 則を満たす:
 $$
-d (\omega \wedge \xi) = d \omega \wedge \xi + (-1)^k \omega \wedge d \xi.
+\dd (\omega \wedge \xi) = \dd \omega \wedge \xi + (-1)^k \omega \wedge \dd \xi.
 $$
 $$
 \xymatrix{
@@ -557,13 +557,13 @@ $$
 }
 $$
 
-$T^{*}_pM$ の基底 $\{dx^\mu\}$ に対し, $\omega = \frac1{k!} \omega_{\mu_1\cdots\mu_k} dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k} \in \Omega^k (M)$ は局所的に
+$T^{*}_pM$ の基底 $\{\dd x^\mu\}$ に対し, $\omega = \frac1{k!} \omega_{\mu_1\cdots\mu_k} \dd x^{\mu_1} \wedge \cdots \wedge \dd x^{\mu_k} \in \Omega^k (M)$ は局所的に
 $$
-d \omega := \frac1{k!} (\partial_\nu \omega_{\mu_1\cdots\mu_k}) dx^\nu \wedge dx^{\mu_1} \wedge \cdots \wedge dx^{\mu_k}.
+\dd \omega := \frac1{k!} (\partial_\nu \omega_{\mu_1\cdots\mu_k}) \dd x^\nu \wedge \dd x^{\mu_1} \wedge \cdots \wedge \dd x^{\mu_k}.
 $$
 このとき, 外積代数の交代性より外微分を2回作用させると0になる: $d^2 = 0$. また, $X, Y \in T_pM$ に対し, $\omega \in \Omega^1 (M)$ の外微分は次の等式を満たす:
 $$
-d \omega (X, Y) = X (\omega (Y)) - Y (\omega (X)) - \omega ([ X, Y ]).
+\dd \omega (X, Y) = X (\omega (Y)) - Y (\omega (X)) - \omega ([ X, Y ]).
 $$
 
 #### 共変微分 : $\Omega^0 (M, E) \rightarrow \Omega^1(M, E)$
@@ -582,37 +582,37 @@ $$
 
 $p \in M$ の座標近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
 $$
-D \phi := \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi.
+D \phi := \varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi.
 $$
 ここで, Lie 代数に値を取る $1$-形式 $A_i \in \Omega^1 (U_i, \mathrm{End} (E)) = \Gamma(T^{*}U_i \otimes \frak{g})$ は**接続 $1$-形式**または**ゲージ場** gauge field といい, **局所標構場** local frame field と呼ばれる $\Omega (U_i, E) = \Gamma(\pi^{-1} (U_i))$ の局所的な基底 $\{ e_a \}$ を用いて, $\nabla  e_a = \varphi_{i,p} {(A_i)^b}_a \otimes \varphi_{i,p}^{-1} \circ e_b$ と展開できる. また, ゲージ場は別の座標近傍と「接続」する役割を持つ: $p \in M$ の座標近傍 $U_i, U_j \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$, $\varphi_{j,p} := \varphi_j (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ は
 $$
-D \phi = \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi,
+D \phi = \varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (\dd + A_j) \varphi_{j,p}^{-1} \circ \phi,
 $$
-あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi $, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi $ と, それらに対する局所的な接続 $D_i := d + A_i$, $D_j := d + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
+あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi $, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi $ と, それらに対する局所的な接続 $D_i := \dd + A_i$, $D_j := \dd + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
 $$
 D_i \phi_i = g_{ij} (p) D_j \phi_j.
 $$
 また, ベクトル束の構造群が $GL(n)$ であることを用いて,
 $$
 \begin{aligned}
-\varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi
+\varphi_{j,p} (\dd + A_j) \varphi_{j,p}^{-1} \circ \phi
 &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi_{i,p} \circ \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (g_{ji} (p) \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{j,p} g_{ji} (p) d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{i,p} d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{i,p} g_{ij} (p) d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{i,p} g_{ij} (p) A_j g_{ji} (p) \varphi_{i,p}^{-1} \circ \phi \\
-&= \varphi_{i,p} (d + g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
+&= \varphi_{i,p} (d + g_{ij} (p) \dd g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
 \end{aligned}
 $$
-これが $\varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi $ と等しい条件は,
+これが $\varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi $ と等しい条件は,
 $$
-A_i = g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p),
+A_i = g_{ij} (p) \dd g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p),
 $$
 あるいは $A := A_j$, $A' := A_i$, $g := g_{ij} (p)$ として,
 $$
-A' = g d g^{-1} + g A g^{-1}.
+A' = g \dd g^{-1} + g A g^{-1}.
 $$
-変換関数による変換に相当する $A \mapsto A' = g d g^{-1} + g A g^{-1}$ を**ゲージ変換** gauge transformation という. また, ゲージ場をスカラー倍 $A \mapsto \lambda A$ しても接続の性質は変わらない.
+変換関数による変換に相当する $A \mapsto A' = g \dd g^{-1} + g A g^{-1}$ を**ゲージ変換** gauge transformation という. また, ゲージ場をスカラー倍 $A \mapsto \lambda A$ しても接続の性質は変わらない.
 
 $$
 \xymatrix{
@@ -624,23 +624,23 @@ $$
 
 実用上, 接続はしばしば局所的な接続と同一視される:
 $$
-D \phi := (d + A) \phi.
+D \phi := (\dd + A) \phi.
 $$
-例えば, $D e_a = {A^b}_a \otimes e_b$, $D' \phi' = g D \phi$ など. $T^{*}_pM$ の基底 $\{ dx^\mu \}$ に対して, 接続 $1$-形式 $A = A_\mu dx^\mu$ を用いて, 局所的に $D \phi = D_\mu \phi \ dx^\mu = (\partial_\mu + A_\mu) \phi \ dx^\mu$ と展開される. このとき, 接続の成分表示を**共変微分** convariant derivative という:
+例えば, $D e_a = {A^b}_a \otimes e_b$, $D' \phi' = g D \phi$ など. $T^{*}_pM$ の基底 $\{ \dd x^\mu \}$ に対して, 接続 $1$-形式 $A = A_\mu \dd x^\mu$ を用いて, 局所的に $D \phi = D_\mu \phi \ \dd x^\mu = (\partial_\mu + A_\mu) \phi \ \dd x^\mu$ と展開される. このとき, 接続の成分表示を**共変微分** convariant derivative という:
 $$
 D_\mu \phi = (\partial_\mu + A_\mu) \phi.
 $$
-また, $\{ dx^\mu \}$ を双対基底に持つ $T_pM$ の基底 $\{ \partial_\mu \}$ に対して, $X = X^\mu \partial_\mu \in T_pM$ を用いた $D_X \phi := D \phi (X) = X^\mu D_\mu \phi : \Gamma (E) \rightarrow \Gamma (E)$ を共変微分と呼ぶこともある. また, 単に接続 $D \phi = (d + A) \phi$ を共変微分と呼ぶこともある.
+また, $\{ \dd x^\mu \}$ を双対基底に持つ $T_pM$ の基底 $\{ \partial_\mu \}$ に対して, $X = X^\mu \partial_\mu \in T_pM$ を用いた $D_X \phi := D \phi (X) = X^\mu D_\mu \phi : \Gamma (E) \rightarrow \Gamma (E)$ を共変微分と呼ぶこともある. また, 単に接続 $D \phi = (\dd + A) \phi$ を共変微分と呼ぶこともある.
 
 #### 共変外微分 : $\Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$
 
 ベクトル束 $E$ に値を取る $k$-形式を $(k+1)$-形式に移す微分 $D : \Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$ を**共変外微分** covariant exterior derivative という: $\omega \in \Omega^k (M) = \Gamma (\Lambda^k(T^{*}M))$, $\xi \in \Omega^l (M, E) = \Gamma (\Lambda^l(T^{*}M) \otimes E)$, $\omega \wedge \xi \in \Omega^{k+l} (M, E) = \Gamma (\Lambda^{k+l} (T^{*}M) \otimes E)$ に対して, Leibniz 則を満たす:
 $$
-D (\omega \wedge \xi) = d \omega \wedge \xi + (-1)^k \omega \wedge D \xi,
+D (\omega \wedge \xi) = \dd \omega \wedge \xi + (-1)^k \omega \wedge D \xi,
 $$
 あるいは, $l = 0$ のとき,
 $$
-D (\omega \otimes \xi) = d \omega \otimes \xi + (-1)^k \omega \wedge D \xi.
+D (\omega \otimes \xi) = \dd \omega \otimes \xi + (-1)^k \omega \wedge D \xi.
 $$
 $$
 \xymatrix{
@@ -680,20 +680,20 @@ $$
 \begin{aligned}
 D^2 e_a
   &= D ({A^b}_a \otimes e_b) \\
-  &= d {A^b}_a \otimes e_b - {A^b}_a \wedge D e_b \\
-  &= d {A^b}_a \otimes e_b - {A^b}_a \wedge {A^c}_b \otimes e_c \\
-  &= (d {A^c}_a + {A^c}_b \wedge {A^b}_a) \otimes e_c
+  &= \dd {A^b}_a \otimes e_b - {A^b}_a \wedge D e_b \\
+  &= \dd {A^b}_a \otimes e_b - {A^b}_a \wedge {A^c}_b \otimes e_c \\
+  &= (\dd {A^c}_a + {A^c}_b \wedge {A^b}_a) \otimes e_c
 \end{aligned}
 $$
 であるから, **構造方程式** structure equation が得られる:
 $$
-R e_a = (d {A^b}_a + {A^b}_c \wedge {A^c}_a) \otimes e_b.
+R e_a = (\dd {A^b}_a + {A^b}_c \wedge {A^c}_a) \otimes e_b.
 $$
 このとき, $R e_a = {F^b}_a \otimes e_b$ となる Lie 代数に値を取る $2$-形式
 $$
 \begin{aligned}
 F &= ({F^b}_a) \\
-  &= (d {A^b}_a + {A^b}_c \wedge {A^c}_a) \\
+  &= (\dd {A^b}_a + {A^b}_c \wedge {A^c}_a) \\
   &= dA + A \wedge A \\
   &\in \Omega^2 (M, \mathrm{End}(E)) = \Gamma (\Lambda^2 (T^{*}M) \otimes \frak{g})
 \end{aligned}
@@ -702,25 +702,25 @@ $$
 $$
 \begin{aligned}
 dF
-  &= d(dA + A \wedge A) \\
-  &= d^2 A + d(A \wedge A) \\
-  &= dA \wedge A - A \wedge dA \\
+  &= \dd(dA + A \wedge A) \\
+  &= \dd^2 A + \dd(A \wedge A) \\
+  &= \dd A \wedge A - A \wedge \dd A \\
   &= (F - A \wedge A) \wedge A - A \wedge (F - A \wedge A) \\
   &= F \wedge A - A \wedge F \\
   &=: - [A, F]. \\
 \end{aligned}
 $$
 $$
-\therefore d_A F := dF + [A, F] = 0.
+\therefore \dd_A F := \dd F + [A, F] = 0.
 $$
-また, ゲージ場 $A = A_\mu dx^\mu$, 場の強さ $\displaystyle F = \frac12 F_{\mu\nu} dx^\mu \wedge dx^\nu$ について,
+また, ゲージ場 $A = A_\mu \dd x^\mu$, 場の強さ $\displaystyle F = \frac12 F_{\mu\nu} \dd x^\mu \wedge \dd x^\nu$ について,
 $$
 \begin{aligned}
 F &= dA + A \wedge A \\
-  &= d(A_\mu dx^\mu) + (A_\mu dx^\mu) \wedge (A_\nu dx^\nu) \\
-  &= \partial_\nu A_\mu dx^\nu \wedge dx^\mu + A_\mu A_\nu dx^\mu \wedge dx^\nu \\
-  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu) dx^\mu \wedge dx^\nu + \frac12 (A_\mu A_\nu - A_\nu A_\mu) dx^\mu \wedge dx^\nu \\
-  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu]) dx^\mu \wedge dx^\nu.
+  &= d(A_\mu \dd x^\mu) + (A_\mu \dd x^\mu) \wedge (A_\nu \dd x^\nu) \\
+  &= \partial_\nu A_\mu \dd x^\nu \wedge \dd x^\mu + A_\mu A_\nu \dd x^\mu \wedge \dd x^\nu \\
+  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu) \dd x^\mu \wedge \dd x^\nu + \frac12 (A_\mu A_\nu - A_\nu A_\mu) \dd x^\mu \wedge \dd x^\nu \\
+  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu]) \dd x^\mu \wedge \dd x^\nu.
 \end{aligned}
 $$
 したがって, 場の強さの成分表示は,

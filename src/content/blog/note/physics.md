@@ -454,8 +454,8 @@ $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i \hbar \partial_t \psi + \frac{\hbar}{2 m} \laplacian \psi &= 0, \\
-  - i \hbar \partial_t \psi^\dagger + \frac{\hbar}{2 m} \laplacian \psi^\dagger &= 0.
+  i \hbar \partial_t \psi &= - \frac{\hbar}{2 m} \laplacian \psi, \\
+  - i \hbar \partial_t \psi^\dagger &= - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
 \end{aligned}
 $$
 

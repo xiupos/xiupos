@@ -360,7 +360,7 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 4 元座標に依存するパラメータ $\phi (x)$ について, **作用** action と呼ばれる汎関数 $S[\phi]$ が存在し, $\phi$ は物理現象において $S[\phi]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[\phi] = 0$ を満たす.
 
-### Lagrangian 密度
+### Euler–Lagrange の運動方程式
 
 作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial_\mu \phi)$ を用いて以下のように表される:
 $$
@@ -378,7 +378,7 @@ $$
       \delta \phi \pdv{\mathcal{L}}{\phi}
       + \delta \partial_\mu \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
       + o\pqty{\sqrt{
-        \delta \phi^{*} \delta \phi + (\delta \partial_\mu\phi)^{*} \delta \partial^\mu\phi
+        \delta \phi^{*} \delta \phi + \delta \partial_\mu\phi^{*} \delta \partial^\mu\phi
       }}
     } \\
 =&  \int \dd{}^4 x \bqty{
@@ -410,9 +410,9 @@ $$
 = 0.
 $$
 
-#### 例: 自由スカラー場
+#### 例: 実 Klein-Gordon 場
 
-自由スカラー場 $\phi$ の Lagrangian 密度は,
+実 Klein-Gordon 場 $\phi$ の Lagrangian 密度は,
 $$
 \mathcal{L}(\phi, \partial_\mu \phi) = \frac12 \partial_\mu \phi \partial^\mu \phi - \frac12 \mu^2 \phi^2.
 $$
@@ -426,6 +426,37 @@ $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 (\partial_\mu \partial^\mu + \mu^2) \phi = 0.
+$$
+
+#### 例: Schrödinger 場
+
+Schrödinger 場 $\psi$ の Lagrangian 密度は,
+$$
+\mathcal{L}(\psi, \partial_\mu \psi) = i \hbar \psi^\dagger \partial_t \psi - \frac{\hbar^2}{2m} \partial_i \psi^\dagger \partial^i \psi.
+$$
+ここで, $\psi$ と $\psi^\dagger$ を独立に扱って,
+$$
+\begin{aligned}
+  \pdv{\mathcal{L}}{\psi^\dagger} &= i \hbar \partial_t \psi, \\
+  \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \psi^\dagger)} } &= \partial_t \pqty{ \pdv{\mathcal{L}}{(\partial_t \psi^\dagger)} } + \partial_i \pqty{ \pdv{\mathcal{L}}{(\partial_i \psi^\dagger)} } \\
+    &= 0 - \frac{\hbar}{2 m} \partial_i \partial^i \psi \\
+    &= - \frac{\hbar}{2 m} \laplacian \psi,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+  \pdv{\mathcal{L}}{\psi} &= 0, \\
+  \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \psi)} } &= \partial_t \pqty{ \pdv{\mathcal{L}}{(\partial_t \psi)} } + \partial_i \pqty{ \pdv{\mathcal{L}}{(\partial_i \psi)} } \\
+    &= i \hbar \partial_i \psi^\dagger - \frac{\hbar}{2 m} \partial_i \partial^i \psi^\dagger \\
+    &= i \hbar \partial_i \psi^\dagger - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
+\end{aligned}
+$$
+したがって, Euler–Lagrange の運動方程式より,
+$$
+\begin{aligned}
+  i \hbar \partial_t \psi + \frac{\hbar}{2 m} \laplacian \psi &= 0, \\
+  - i \hbar \partial_t \psi^\dagger + \frac{\hbar}{2 m} \laplacian \psi^\dagger &= 0.
+\end{aligned}
 $$
 
 #### 例: 電磁場
@@ -476,6 +507,33 @@ $$
 このとき, 作用は
 $$
 S[x] = \int \dd tL(x, \dot{x}, t).
+$$
+
+### Hamiltonの運動方程式
+
+**一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
+$$
+\begin{aligned} \dd H
+&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i} - \dd L \\
+&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i}
+    - \pdv{L}{q_i} \dd q_i - p_i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
+&   \quad \pqty{
+      \because \dd L = \pdv{L}{q_i} \dd q_i + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i} + \pdv{L}{t} \dd t
+    } \\
+&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p_i - \pdv{L}{t} \dd t.
+\end{aligned}
+$$
+ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}_i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+$$
+\begin{aligned}
+\dot{p}_i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p_i}.
+\end{aligned}
+$$
+このとき $p_i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p_i)$ の組を**正準変数** canonical variables という.
+
+また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
+$$
+\pdv{H}{t} = -\pdv{L}{t} = 0.
 $$
 
 ## 束と接続

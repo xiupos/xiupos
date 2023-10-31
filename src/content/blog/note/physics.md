@@ -358,74 +358,74 @@ $V$ の基底 $\{ u_i \}$ が $\ev*{u_i, u_j} = \delta_{i, j}$ を満たすと�
 
 ### 最小作用の原理
 
-4 元座標に依存するパラメータ $\phi (x)$ について, **作用** action と呼ばれる汎関数 $S[\phi]$ が存在し, $\phi$ は物理現象において $S[\phi]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[\phi] = 0$ を満たす.
+4 元座標に依存するパラメータ $\phi_\alpha (x)$ について, **作用** action と呼ばれる汎関数 $S[\phi_\alpha]$ が存在し, $\phi_\alpha$ は物理現象において $S[\phi_\alpha]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[\phi_\alpha] = 0$ を満たす.
 
 ### Euler–Lagrange の運動方程式
 
-作用は, スカラー場 $\phi$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi, \partial_\mu \phi)$ を用いて以下のように表される:
+作用は, スカラー場 $\phi_\alpha$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha)$ を用いて以下のように表される:
 $$
-S[\phi] = \int \dd{}^4 x \mathcal{L}(\phi, \partial_\mu {\phi}).
+S[\phi_\alpha] = \int \dd{}^4 x \mathcal{L}(\phi_\alpha, \partial_\mu {\phi_\alpha}).
 $$
-$\phi + \delta\phi$ の変分をとって,
+$\phi_\alpha + \delta\phi_\alpha$ の変分をとって,
 $$
 \begin{aligned}
-\delta S[\phi]
+\delta S[\phi_\alpha]
 =&  \int \dd{}^4 x \bqty{
-      \mathcal{L}(\phi + \delta\phi, \partial_\mu \phi + \partial_\mu \delta\phi)
-      - \mathcal{L}(\phi, \partial_\mu \phi)
+      \mathcal{L}(\phi_\alpha + \delta\phi_\alpha, \partial_\mu \phi_\alpha + \partial_\mu \delta\phi_\alpha)
+      - \mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha)
     } \\
 =&  \int \dd{}^4 x \bqty{
-      \delta \phi \pdv{\mathcal{L}}{\phi}
-      + \delta \partial_\mu \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
+      + \delta \partial_\mu \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
       + o\pqty{\sqrt{
-        \delta \phi^{*} \delta \phi + \delta \partial_\mu\phi^{*} \delta \partial^\mu\phi
+        \delta \phi_\alpha^{*} \delta \phi_\alpha + \delta \partial_\mu\phi_\alpha^{*} \delta \partial^\mu\phi_\alpha
       }}
     } \\
 =&  \int \dd{}^4 x \bqty{
-      \delta \phi \pdv{\mathcal{L}}{\phi}
-      + \partial_\mu \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
+      + \partial_\mu \delta \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
     }
-    \quad (\because \delta \partial_\mu \phi = \partial_\mu \delta \phi) \\
+    \quad (\because \delta \partial_\mu \phi_\alpha = \partial_\mu \delta \phi_\alpha) \\
 =&  \int \dd{}^4 x \bqty{
-      \delta \phi \pdv{\mathcal{L}}{\phi}
-      - \delta \phi \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
+      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
+      - \delta \phi_\alpha \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}}
       + \partial_\mu \pqty{
-        \delta \phi \pdv{\mathcal{L}}{(\partial_\mu \phi)}
+        \delta \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
       }
     }.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
 $$
-\delta S[\phi]
-= \int \dd{}^4 x \delta \phi \bqty{
-    \pdv{\mathcal{L}}{\phi}
-    - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi)}}
+\delta S[\phi_\alpha]
+= \int \dd{}^4 x \delta \phi_\alpha \bqty{
+    \pdv{\mathcal{L}}{\phi_\alpha}
+    - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}}
   }.
 $$
-したがって, 停留条件 $\delta S[\phi] = 0$ より,
+したがって, 停留条件 $\delta S[\phi_\alpha] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
 $$
-\pdv{\mathcal{L}}{\phi} - \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi)} }
+\pdv{\mathcal{L}}{\phi_\alpha} - \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)} }
 = 0.
 $$
 
 #### 例: 実 Klein-Gordon 場
 
-実 Klein-Gordon 場 $\phi$ の Lagrangian 密度は,
+実 Klein-Gordon 場 $\phi_\alpha$ の Lagrangian 密度は,
 $$
-\mathcal{L}(\phi, \partial_\mu \phi) = \frac12 \partial_\mu \phi \partial^\mu \phi - \frac12 \mu^2 \phi^2.
+\mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha) = \frac12 \partial_\mu \phi_\alpha \partial^\mu \phi_\alpha - \frac12 \mu^2 \phi_\alpha^2.
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{\mathcal{L}}{\phi} = - \mu^2 \phi, &&
-\partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi)} } = \partial_\mu \partial^\mu \phi.
+\pdv{\mathcal{L}}{\phi_\alpha} = - \mu^2 \phi_\alpha, &&
+\partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)} } = \partial_\mu \partial^\mu \phi_\alpha.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(\partial_\mu \partial^\mu + \mu^2) \phi = 0.
+(\partial_\mu \partial^\mu + \mu^2) \phi_\alpha = 0.
 $$
 
 #### 例: Schrödinger 場
@@ -454,8 +454,7 @@ $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i \hbar \partial_t \psi &= - \frac{\hbar}{2 m} \laplacian \psi, \\
-  - i \hbar \partial_t \psi^\dagger &= - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
+  i \hbar \partial_t \psi &= - \frac{\hbar}{2 m} \laplacian \psi, & - i \hbar \partial_t \psi^\dagger &= - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
 \end{aligned}
 $$
 
@@ -473,11 +472,11 @@ $$
 \begin{aligned}
 \pdv{\mathcal{L}}{A_\nu} &= j^\mu, \\
 \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu A_\nu)}}
-&=  \partial_\mu \pdv{}{(\partial_\mu A_\nu)} \pqty{ - \frac14 F_{\rho\sigma} F^{\rho\sigma} } \\
-&=  \partial_\mu \pdv{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
+&=  \partial_\mu \qty{ \pdv{}{(\partial_\mu A_\nu)} \pqty{ - \frac14 F_{\rho\sigma} F^{\rho\sigma} } } \\
+&=  \partial_\mu \qty{ \pdv{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
       \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
       \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
-    ) } \\
+    ) } } \\
 &=  \partial_\mu \bqty{ - (
       \partial^{\mu} A^{\nu} -
       \partial^{\nu} A^{\mu}
@@ -511,30 +510,33 @@ $$
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
-$$
-\begin{aligned} \dd H
-&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i} - \dd L \\
-&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i}
-    - \pdv{L}{q_i} \dd q_i - p_i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
-&   \quad \pqty{
-      \because \dd L = \pdv{L}{q_i} \dd q_i + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i} + \pdv{L}{t} \dd t
-    } \\
-&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p_i - \pdv{L}{t} \dd t.
-\end{aligned}
-$$
-ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}_i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+**一般化運動量** $\pi_\alpha \equiv \partial \mathcal{L} / \partial \dot{\phi}_\alpha$ を用いて, **Hamiltonian 密度** $\mathcal{H}(\phi_\alpha, \nabla \phi_\alpha, \pi_\alpha, \nabla \pi_\alpha) \equiv \pi_\alpha \dot{\phi}_\alpha - \mathcal{L}$ を定義する. Hamiltonian の定義の変分は,
 $$
 \begin{aligned}
-\dot{p}_i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p_i}.
+  \delta \mathcal{H}
+  &= \dot{\phi}_\alpha \delta \pi_\alpha + \pi_\alpha \delta \dot{\phi}_\alpha - \delta \mathcal{L} \\
+  &= \dot{\phi}_\alpha \delta \pi_\alpha + \pi_\alpha \delta \dot{\phi}_\alpha - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \pi_\alpha \delta \dot{\phi_\alpha} \\
+  &= - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \dot{\phi}_\alpha \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha}.
 \end{aligned}
 $$
-このとき $p_i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p_i)$ の組を**正準変数** canonical variables という.
-
-また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
+また, Hamiltonianの変分は,
 $$
-\pdv{H}{t} = -\pdv{L}{t} = 0.
+\begin{aligned}
+  \delta \mathcal{H}
+  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \cdot \delta (\grad \phi_\alpha) + \pdv{\mathcal{H}}{\pi_\alpha} \delta \pi_\alpha + \pdv{\mathcal{H}}{(\grad \pi_\alpha)} \cdot \delta (\grad \pi_\alpha) \\
+  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha + \pdv{\mathcal{H}}{\pi_\alpha} \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha \\
+  &= \bqty{\pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \bqty{\pdv{\mathcal{H}}{\pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)}} \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha}
+\end{aligned}
 $$
+ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \dot{\pi}_\alpha = - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+$$
+\begin{aligned}
+  \dot{\phi}_\alpha &= \bqty{\pdv{\mathcal{H}}{\pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)}}, \\
+  \dot{\pi}_\alpha &= - \pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}.
+\end{aligned}
+$$
+TODO: ただし発散項は作用で消えることを用いた.
+このとき $\pi_\alpha$ は $\phi_\alpha$ に**共役な運動量** conjugate momentum といい, また $(\phi_i, \pi_i)$ の組を**正準変数** canonical variables という.
 
 ## 位相空間
 

@@ -6,6 +6,15 @@ draft : true
 math : true
 ---
 
+## 汎関数
+
+### 汎関数微分
+
+汎関数 $F[\varphi(x)]$ の点 $y$ における汎関数微分は
+$$
+\frac{\delta F[\varphi(x)]}{\delta \varepsilon(y)} := \lim_{\varepsilon \rightarrow 0} \frac{F[\varphi(x) + \varepsilon \delta(x - y)] - F[\varphi(x)]}{\varepsilon}.
+$$
+
 ## 解析力学
 
 ### 最小作用の原理
@@ -56,6 +65,34 @@ $$
 \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
 $$
 
+または, 作用の汎関数微分は
+$$
+\begin{aligned}
+\frac{\delta S[q_i(t')]}{\delta q_i(t)}
+&=  \lim_{\varepsilon \rightarrow 0}
+    \frac{S[q_i(t') + \varepsilon \delta(t' - t)] - S[q_i(t')]}{\varepsilon} \\
+&=  \lim_{\varepsilon \rightarrow 0}
+    \frac1\varepsilon
+    \int \dd t' \bqty{
+      L ( q_i(t') + \varepsilon \delta(t' - t), \dot{q}_i(t') + \varepsilon \dot\delta(t' - t), t')
+      - L (q_i(t'), \dot{q}_i(t'), t')
+    } \\
+&=  \lim_{\varepsilon \rightarrow 0}
+    \frac1\varepsilon
+    \int \dd t' \bqty{
+      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t - t') + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot\delta(t - t')
+    } \\
+&=  \int \dd t \bqty{
+      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t - t') + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot\delta(t - t')
+    } \\
+&=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}. \qquad \pqty{\because \int \dd t' f(t') \dot\delta(t - t') = - \dot{f}(t)}
+\end{aligned}
+$$
+これを用いると Euler–Lagrange の運動方程式は
+$$
+\frac{\delta S[q_i(t')]}{\delta q_i(t)} = \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
+$$
+
 #### 例: 調和振動子
 
 調和振動子の Lagrangian は,
@@ -77,25 +114,25 @@ $$
 
 ### Hamilton の運動方程式
 
-**一般化運動量** $p_i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p_i, t) \equiv p_i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
+**一般化運動量** $p^i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p^i, t) \equiv p^i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
 $$
 \begin{aligned} \dd H
-&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i} - \dd L \\
-&=  \dot{q}_i \dd p_i + p_i \dd {\dot{q}_i}
-    - \pdv{L}{q_i} \dd q_i - p_i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
+&=  \dot{q}_i \dd p^i + p^i \dd {\dot{q}_i} - \dd L \\
+&=  \dot{q}_i \dd p^i + p^i \dd {\dot{q}_i}
+    - \pdv{L}{q_i} \dd q_i - p^i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
 &   \quad \pqty{
       \because \dd L = \pdv{L}{q_i} \dd q_i + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i} + \pdv{L}{t} \dd t
     } \\
-&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p_i - \pdv{L}{t} \dd t.
+&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p^i - \pdv{L}{t} \dd t.
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}_i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}^i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
 \begin{aligned}
-\dot{p}_i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p_i}.
+\dot{p}^i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p^i}.
 \end{aligned}
 $$
-このとき $p_i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p_i)$ の組を**正準変数** canonical variables という.
+このとき $p^i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p^i)$ の組を**正準変数** canonical variables という.
 
 また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
@@ -131,49 +168,49 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(p_i, q_i) \mapsto (P_j, Q_j) = (P_j(p_i, q_i), Q_j(p_i, q_i))$ に対して Hamiltonian が $H (q_i, p_i) \mapsto K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $\delta \int \dd t (p_i \dot{q}_i - H) = 0$ かつ $\delta \int \dd t (P_i \dot{Q}_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(p^i, q_i) \mapsto (P_j, Q_j) = (P_j(p^i, q_i), Q_j(p^i, q_i))$ に対して Hamiltonian が $H (q_i, p^i) \mapsto K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $\delta \int \dd t (p^i \dot{q}_i - H) = 0$ かつ $\delta \int \dd t (P^i \dot{Q}_i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
-(p_i \dot{q}_i - H) - (P_i \dot{Q}_i - K) = \dv{W}{t}.
+(p^i \dot{q}_i - H) - (P^i \dot{Q}_i - K) = \dv{W}{t}.
 $$
 $$
 \therefore
-\dd W = p_i \dd q_i - P_i \dd Q_i + (K - H) \dd t.
+\dd W = p^i \dd q_i - P^i \dd Q_i + (K - H) \dd t.
 $$
 この $W(q_i, Q_i, t)$ を**母関数**といい, 以下を満たす.
 $$
 \begin{aligned}
-p_i = \pdv{W}{q_i},
-&& P_i = - \pdv{W}{Q_i},
+p^i = \pdv{W}{q_i},
+&& P^i = - \pdv{W}{Q_i},
 && K = H + \pdv{W}{t}.
 \end{aligned}
 $$
 
 ### Poisson 括弧
 
-正準変数 $(q_i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
+正準変数 $(q_i, p^i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \{A, B\}_\mathrm{P}
-\equiv  \pdv{A}{q_i}\pdv{B}{p_i}
-        - \pdv{B}{q_i}\pdv{A}{p_i}.
+\equiv  \pdv{A}{q_i}\pdv{B}{p^i}
+        - \pdv{B}{q_i}\pdv{A}{p^i}.
 $$
 例えば,
 $$
 \begin{aligned}
-\{q_i, H\}_\mathrm{P} = \dot{q}, && \{p_i, H\}_\mathrm{P} = \dot{p}.
+\{q_i, H\}_\mathrm{P} = \dot{q}_i, && \{p^i, H\}_\mathrm{P} = \dot{p}_i.
 \end{aligned}
 $$
 $$
 \begin{aligned}
-\{q_i, q_j\} = \{p_i, p_j\} = 0, && \{q_i, p_j\} = \delta_{ij}.
+\{q_i, q_j\} = \{p^i, p_j\} = 0, && \{q_i, p_j\} = \delta_{ij}.
 \end{aligned}
 $$
 
-ある物理量 $A(q_i, p_i, t)$ について, 時間による完全微分は,
+ある物理量 $A(q_i, p^i, t)$ について, 時間による完全微分は,
 $$
 \begin{aligned}
 \dv{A}{t}
-&=  \pdv{A}{q_i} \dot{q}_i + \pdv{A}{p_i} \dot{p}_i + \pdv{A}{t} \\
-&=  \pdv{A}{q_i} \pdv{H}{p_i} + \pdv{A}{p_i} \pdv{H}{q_i} + \pdv{A}{t}.
+&=  \pdv{A}{q_i} \dot{q}_i + \pdv{A}{p^i} \dot{p}^i + \pdv{A}{t} \\
+&=  \pdv{A}{q_i} \pdv{H}{p^i} + \pdv{A}{p^i} \pdv{H}{q_i} + \pdv{A}{t}.
 \end{aligned}
 $$
 Poisson 括弧を用いて書き直すと, 物理量 $A$ の時間発展に関する式が得られる:
@@ -350,7 +387,7 @@ $V$ の基底 $\{ u_i \}$ が $\ev{u_i, u_j} = \delta_{i, j}$ を満たすとき
 
 ### 状態ベクトルと観測量
 
-ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{\psi}$ で表される. また, 観測により物理状態が $\ket{\psi}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{\psi}|^2$ で与えられる.
+ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{\psi}$ で表される. また, 観測により物理状態が $\ket{\psi}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{\psi}|^2$ で与えられ, $\braket{\varphi}{\psi}$ を遷移振幅という.
 
 ある物理量 $A$ を観測するとき, $A$ に対応する Hermite 演算子 $\hat{A}$ の固有値 $a$ が観測される物理量で, 物理状態は物理量 $A = a$ を観測後に固有状態 $\ket{a}$ に遷移する.
 
@@ -600,7 +637,7 @@ $$
 }
 $$
 
-点 $p_i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}(p)$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
+点 $p^i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}(p)$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
 $$
 \xymatrix{
   F \ar[r]_-{\varphi_{i,p}} & \pi^{-1}(p) \ar[d]^\pi & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\

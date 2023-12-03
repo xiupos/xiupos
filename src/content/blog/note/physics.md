@@ -196,7 +196,7 @@ $$
 例えば,
 $$
 \begin{aligned}
-\{q_i, H\}_\mathrm{P} = \dot{q}_i, && \{p^i, H\}_\mathrm{P} = \dot{p}_i.
+\{q_i, H\}_\mathrm{P} = \dot{q}_i, && \{p^i, H\}_\mathrm{P} = \dot{p}^i.
 \end{aligned}
 $$
 $$

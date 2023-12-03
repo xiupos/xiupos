@@ -555,33 +555,33 @@ $$
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $\pi_\alpha \equiv \partial \mathcal{L} / \partial \dot{\phi}_\alpha$ を用いて, **Hamiltonian 密度** $\mathcal{H}(\phi_\alpha, \nabla \phi_\alpha, \pi_\alpha, \nabla \pi_\alpha) \equiv \pi_\alpha \dot{\phi}_\alpha - \mathcal{L}$ を定義する. Hamiltonian の定義の変分は,
+**一般化運動量** $\pi^\alpha \equiv \partial \mathcal{L} / \partial \dot{\phi}_\alpha$ を用いて, **Hamiltonian 密度** $\mathcal{H}(\phi_\alpha, \nabla \phi_\alpha, \pi^\alpha, \nabla \pi^\alpha) \equiv \pi^\alpha \dot{\phi}_\alpha - \mathcal{L}$ を定義する. Hamiltonian の定義の変分は,
 $$
 \begin{aligned}
   \delta \mathcal{H}
-  &= \dot{\phi}_\alpha \delta \pi_\alpha + \pi_\alpha \delta \dot{\phi}_\alpha - \delta \mathcal{L} \\
-  &= \dot{\phi}_\alpha \delta \pi_\alpha + \pi_\alpha \delta \dot{\phi}_\alpha - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \pi_\alpha \delta \dot{\phi_\alpha} \\
-  &= - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \dot{\phi}_\alpha \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha}.
+  &= \dot{\phi}_\alpha \delta \pi^\alpha + \pi^\alpha \delta \dot{\phi}_\alpha - \delta \mathcal{L} \\
+  &= \dot{\phi}_\alpha \delta \pi^\alpha + \pi^\alpha \delta \dot{\phi}_\alpha - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \pi^\alpha \delta \dot{\phi_\alpha} \\
+  &= - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \dot{\phi}_\alpha \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha}.
 \end{aligned}
 $$
 また, Hamiltonianの変分は,
 $$
 \begin{aligned}
   \delta \mathcal{H}
-  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \cdot \delta (\grad \phi_\alpha) + \pdv{\mathcal{H}}{\pi_\alpha} \delta \pi_\alpha + \pdv{\mathcal{H}}{(\grad \pi_\alpha)} \cdot \delta (\grad \pi_\alpha) \\
-  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha + \pdv{\mathcal{H}}{\pi_\alpha} \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha \\
-  &= \bqty{\pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \bqty{\pdv{\mathcal{H}}{\pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)}} \delta \pi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi_\alpha)} \delta \pi_\alpha}
+  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \cdot \delta (\grad \phi_\alpha) + \pdv{\mathcal{H}}{\pi^\alpha} \delta \pi^\alpha + \pdv{\mathcal{H}}{(\grad \pi^\alpha)} \cdot \delta (\grad \pi^\alpha) \\
+  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha + \pdv{\mathcal{H}}{\pi^\alpha} \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha \\
+  &= \bqty{\pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \bqty{\pdv{\mathcal{H}}{\pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)}} \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha}
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \dot{\pi}_\alpha = - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \dot{\pi}^\alpha = - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
 \begin{aligned}
-  \dot{\phi}_\alpha &= \bqty{\pdv{\mathcal{H}}{\pi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi_\alpha)}}, \\
-  \dot{\pi}_\alpha &= - \pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}.
+  \dot{\phi}_\alpha &= \bqty{\pdv{\mathcal{H}}{\pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)}}, \\
+  \dot{\pi}^\alpha &= - \pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}.
 \end{aligned}
 $$
 TODO: ただし発散項は作用で消えることを用いた.
-このとき $\pi_\alpha$ は $\phi_\alpha$ に**共役な運動量** conjugate momentum といい, また $(\phi_i, \pi_i)$ の組を**正準変数** canonical variables という.
+このとき $\pi^\alpha$ は $\phi_\alpha$ に**共役な運動量** conjugate momentum といい, また $(\phi_i, \pi_i)$ の組を**正準変数** canonical variables という.
 
 ## 位相空間
 

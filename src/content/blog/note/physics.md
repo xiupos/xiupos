@@ -74,18 +74,19 @@ $$
 &=  \lim_{\varepsilon \rightarrow 0}
     \frac1\varepsilon
     \int \dd t' \bqty{
-      L ( q_i(t') + \varepsilon \delta(t' - t), \dot{q}_i(t') + \varepsilon \dot\delta(t' - t), t')
+      L ( q_i(t') + \varepsilon \delta(t' - t), \dot{q}_i(t') + \varepsilon \dot{\delta}(t' - t), t')
       - L (q_i(t'), \dot{q}_i(t'), t')
     } \\
 &=  \lim_{\varepsilon \rightarrow 0}
     \frac1\varepsilon
     \int \dd t' \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t - t') + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot\delta(t - t')
+      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t - t') + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot{\delta}(t' - t)
+      + o(\varepsilon^2)
     } \\
 &=  \int \dd t \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t - t') + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot\delta(t - t')
+      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t - t') + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot{\delta}(t' - t)
     } \\
-&=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}. \qquad \pqty{\because \int \dd t' f(t') \dot\delta(t - t') = - \dot{f}(t)}
+&=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}. \qquad \pqty{\because \int \dd t' f(t') \dot{\delta}(t' - t) = - \dot{f}(t)}
 \end{aligned}
 $$
 これを用いると Euler–Lagrange の運動方程式は
@@ -387,15 +388,18 @@ $V$ の基底 $\{ u_i \}$ が $\ev{u_i, u_j} = \delta_{i, j}$ を満たすとき
 
 ### 状態ベクトルと観測量
 
-ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{\psi}$ で表される. また, 観測により物理状態が $\ket{\psi}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{\psi}|^2$ で与えられ, $\braket{\varphi}{\psi}$ を遷移振幅という.
+ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{\psi}$ で表される. 状態ベクトル $\ket{\psi}$ に定数 $c \in \mathbb{C}$ をかけた $c \ket{\psi}$ は同じ状態を表し, 状態ベクトル $\ket{\psi}$ は常に正規化されているとする: $\braket{\psi}{\psi} = 1$. または, 正規化されていない状態ベクトル $\ket{\psi'}$ に対し, $\ket{\psi} = \ket{\psi'} / \sqrt\braket{\psi'}{\psi'}$ は正規化された状態ベクトルである. $\{e^{i \theta} \ket{\psi}\}_{\theta \in \mathbb{R}}$ を**射線** ray といい, 同じ状態を表す状態ベクトルである.
 
-ある物理量 $A$ を観測するとき, $A$ に対応する Hermite 演算子 $\hat{A}$ の固有値 $a$ が観測される物理量で, 物理状態は物理量 $A = a$ を観測後に固有状態 $\ket{a}$ に遷移する.
+観測により物理状態が $\ket{\psi}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{\psi}|^2$ で与えられ, $\braket{\varphi}{\psi}$ を**遷移振幅**という.
 
+ある物理量 $A$ を観測するとき, $A$ に対応する Hermite 演算子 $\hat{A}$ の固有値 $a$ が観測される物理量で, 物理状態は物理量 $A = a$ を観測後に固有値 $a$ に属する固有状態 $\ket{a}$ に遷移する. その確率は
 $$
-\braket{a}{\psi}
+|\braket{a}{\psi}|^2 = \braket{\psi}{a} \braket{a}{\psi} = \braket{\psi}{a} \braket{a}{a} \braket{a}{\psi} = |\ket{a} \braket{a}{\psi} |^2.
 $$
 
 ### 波動関数の座標表示
+
+座標演算子 $\hat{\bm{x}}$ について, 固有値 $x$ が観測される確率振幅を $\psi(\bm{x}) := \braket{\bm{x}}{\psi}$ と書き, **座標表示した波動関数**という.
 
 ### 正準量子化
 
@@ -473,9 +477,9 @@ $$
 (\partial_\mu \partial^\mu + \mu^2) \phi_\alpha = 0.
 $$
 
-#### 例: Schrödinger 場
+#### 例: de Broglie 場
 
-Schrödinger 場 $\psi$ の Lagrangian 密度は,
+de Broglie 場 $\psi$ の Lagrangian 密度は,
 $$
 \mathcal{L}(\psi, \partial_\mu \psi) = i \hbar \psi^\dagger \partial_t \psi - \frac{\hbar^2}{2m} \partial_i \psi^\dagger \partial^i \psi.
 $$

@@ -80,11 +80,11 @@ $$
 &=  \lim_{\varepsilon \rightarrow 0}
     \frac1\varepsilon
     \int \dd t' \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t - t') + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot{\delta}(t' - t)
+      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t' - t) + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot{\delta}(t' - t)
       + o(\varepsilon^2)
     } \\
 &=  \int \dd t \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t - t') + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot{\delta}(t' - t)
+      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t' - t) + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot{\delta}(t' - t)
     } \\
 &=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}. \qquad \pqty{\because \int \dd t' f(t') \dot{\delta}(t' - t) = - \dot{f}(t)}
 \end{aligned}

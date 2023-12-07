@@ -1,15 +1,16 @@
 <script is:inline>
 MathJax = {
   loader: {
-    load: ["[tex]/physics", "[xyjax]/xypic.js"],
+    load: ["[tex]/physics", "[tex]/boldsymbol", "[xyjax]/xypic.js"],
     paths: {
       xyjax: "https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/",
     },
   },
   tex: {
-    packages: { "[+]": ["physics", ["xypic"]] },
+    packages: { "[+]": ["physics", "boldsymbol", ["xypic"]] },
     inlineMath: [["\\(", "\\)"]],
     displayMath: [["\\[", "\\]"]],
+    macros:{ bm:["{\\boldsymbol{#1}}", 1] },
   },
 };
 </script>

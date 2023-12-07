@@ -12,86 +12,84 @@ math : true
 
 汎関数 $F[\varphi(x)]$ の点 $y$ における汎関数微分は
 $$
-\frac{\delta F[\varphi(x)]}{\delta \varepsilon(y)} := \lim_{\varepsilon \rightarrow 0} \frac{F[\varphi(x) + \varepsilon \delta(x - y)] - F[\varphi(x)]}{\varepsilon}.
+\frac{δF[\varphi(x)]}{δε(y)} := \lim_{ε→0} \frac{F[\varphi(x) + εδ(x-y)] - F[\varphi(x)]}{ε}.
 $$
 
 ## 解析力学
 
 ### 最小作用の原理
 
-時間に依存する**一般化座標**と呼ばれるパラメータ $q_i$ に対して, **作用** action と呼ばれる汎関数 $S[q_i]$ が存在し, $q_i$ は物理現象において $S[q_i]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[q_i] = 0$ を満たす.
+時間に依存する**一般化座標**と呼ばれるパラメータ $q_i$ に対して, **作用** action と呼ばれる汎関数 $S[q_i]$ が存在し, $q_i$ は物理現象において $S[q_i]$ が最小となるよう変化する. つまり, 停留条件 $δS[q_i] = 0$ を満たす.
 
 ### Euler–Lagrange の運動方程式
 
-作用は, 座標と時間に関する **Lagrangian** $L (q_i, \dot{q}_i, t)$ を用いて以下のように表される:
+作用は, 座標と時間に関する **Lagrangian** $L(q_i, \dot{q}_i, t)$ を用いて以下のように表される:
 $$
-S[q_i] = \int \dd t L (q_i, \dot{q}_i, t).
+S[q_i] = ∫ dt L(q_i, \dot{q}_i, t).
 $$
-$q_i + \delta q_i$ の変分をとって,
+$q_i + δq_i$ の変分をとって,
 $$
 \begin{aligned}
-\delta S[q_i]
-=&  \int \dd t \bqty{
-      L ( q_i + \delta q_i, \dot{q}_i + \delta \dot{q}_i, t)
-      - L (q_i, \dot{q}_i, t)
+δS[q_i]
+=&  ∫ dt \bqty{
+      L( q_i + δq_i, \dot{q}_i + δ\dot{q}_i, t) - L(q_i, \dot{q}_i, t)
     } \\
-=&  \int \dd t \bqty{
-      \delta q_i \pdv{L}{q_i}
-      + \delta \dot{q}_i \pdv{L}{\dot{q}_i}
-      + o \pqty{\sqrt{\delta q_i \delta q_i + \delta \dot{q}_i \delta \dot{q}_i}}
+=&  ∫ dt \bqty{
+      δq_i \frac{∂L}{∂q_i}
+      + δ\dot{q}_i \frac{∂L}{∂\dot{q}_i}
+      + o\pqty{\sqrt{δq_i δq_i + δ\dot{q}_i δ\dot{q}_i}}
     } \\
-=&  \int \dd t \bqty{
-      \delta q_i \pdv{L}{q_i}
-      + \dv{\delta q_i}{t} \pdv{L}{\dot{q}_i}
+=&  ∫ dt \bqty{
+      δq_i \frac{∂L}{∂q_i} + \frac{dδq_i}{dt} \frac{∂L}{∂\dot{q}_i}
     }
-    \quad \pqty{\because \delta \dot{q}_i = \dv{\delta q_i}{t}} \\
-=&  \int \dd t \bqty{
-      \delta q_i \pdv{L}{q_i}
-      - \delta q_i \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
-      + \dv{}{t} \pqty{ \delta q_i \pdv{L}{\dot{q}_i} }
+    \quad \pqty{∵ δ\dot{q}_i = \frac{dδq_i}{dt}} \\
+=&  ∫ dt \bqty{
+      δq_i \frac{∂L}{∂q_i}
+      - δq_i \frac{d}{dt} \pqty{\frac{∂L}{∂\dot{q}_i}}
+      + \frac{d}{dt} \pqty{ δq_i \frac{∂L}{∂\dot{q}_i} }
     }.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
 $$
-\delta S[q_i]
-= \int \dd t \delta q_i \bqty{
-    \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}
+δS[q_i]
+= ∫ dt δq_i \bqty{
+    \frac{∂L}{∂q_i} - \frac{d}{dt} \pqty{\frac{∂L}{∂\dot{q}_i}}
   }.
 $$
-したがって, 停留条件 $\delta S[q_i] = 0$ より,
+したがって, 停留条件 $δS[q_i] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
 $$
-\pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
+\frac{∂L}{∂q_i} - \frac{d}{dt} \pqty{\frac{∂L}{∂\dot{q}_i}} = 0.
 $$
 
 または, 作用の汎関数微分は
 $$
 \begin{aligned}
-\frac{\delta S[q_i(t')]}{\delta q_i(t)}
-&=  \lim_{\varepsilon \rightarrow 0}
-    \frac{S[q_i(t') + \varepsilon \delta(t' - t)] - S[q_i(t')]}{\varepsilon} \\
-&=  \lim_{\varepsilon \rightarrow 0}
-    \frac1\varepsilon
-    \int \dd t' \bqty{
-      L ( q_i(t') + \varepsilon \delta(t' - t), \dot{q}_i(t') + \varepsilon \dot{\delta}(t' - t), t')
+\frac{δS[q_i(t')]}{δq_i(t)}
+&=  \lim_{ε → 0}
+    \frac{S[q_i(t') + ε δ(t' - t)] - S[q_i(t')]}{ε} \\
+&=  \lim_{ε → 0}
+    \frac1ε
+    ∫ dt' \bqty{
+      L ( q_i(t') + ε δ(t' - t), \dot{q}_i(t') + ε \dot{δ}(t' - t), t')
       - L (q_i(t'), \dot{q}_i(t'), t')
     } \\
-&=  \lim_{\varepsilon \rightarrow 0}
-    \frac1\varepsilon
-    \int \dd t' \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \varepsilon \delta(t' - t) + \left. \pdv{L}{\dot{q_i}_i} \right|_{t = t'} \varepsilon \dot{\delta}(t' - t)
-      + o(\varepsilon^2)
+&=  \lim_{ε → 0}
+    \frac1ε
+    ∫ dt' \bqty{
+      \left. \frac{∂L}{∂q_i} \right|_{t = t'} ε δ(t' - t) + \left. \frac{∂L}{∂\dot{q_i}_i} \right|_{t = t'} ε \dot{δ}(t' - t)
+      + o(ε^2)
     } \\
-&=  \int \dd t \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} \delta(t' - t) + \left. \pdv{L}{\dot{q}_i} \right|_{t = t'} \dot{\delta}(t' - t)
+&=  ∫ dt \bqty{
+      \left. \frac{∂L}{∂q_i} \right|_{t = t'} δ(t' - t) + \left. \frac{∂L}{∂\dot{q}_i} \right|_{t = t'} \dot{δ}(t' - t)
     } \\
-&=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}}. \qquad \pqty{\because \int \dd t' f(t') \dot{\delta}(t' - t) = - \dot{f}(t)}
+&=  \frac{∂L}{∂q_i} - \frac{d}{dt} \pqty{\frac{∂L}{∂\dot{q}_i}}. \qquad \pqty{∵ ∫ dt' f(t') \dot{δ}(t' - t) = - \dot{f}(t)}
 \end{aligned}
 $$
 これを用いると Euler–Lagrange の運動方程式は
 $$
-\frac{\delta S[q_i(t')]}{\delta q_i(t)} = \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\dot{q}_i}} = 0.
+\frac{δS[q_i(t')]}{δq_i(t)} = \frac{∂L}{∂q_i} - \frac{d}{dt} \pqty{\frac{∂L}{∂\dot{q}_i}} = 0.
 $$
 
 #### 例: 調和振動子
@@ -103,8 +101,8 @@ $$
 ここで,
 $$
 \begin{aligned}
-\pdv{L}{q} &= -kq, &
-\dv{}{t}\pqty{\pdv{L}{\dot{q}}} &= \dv{}{t} (m \dot{q}) = m \ddot{q}.
+\frac{∂L}{∂q} &= -kq, &
+\frac{d}{dt}\pqty{\frac{∂L}{∂\dot{q}}} &= \frac{d}{dt} (m \dot{q}) = m \ddot{q}.
 \end{aligned}
 $$
 したがって,
@@ -115,29 +113,29 @@ $$
 
 ### Hamilton の運動方程式
 
-**一般化運動量** $p^i \equiv \partial L / \partial \dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p^i, t) \equiv p^i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
-$$
-\begin{aligned} \dd H
-&=  \dot{q}_i \dd p^i + p^i \dd {\dot{q}_i} - \dd L \\
-&=  \dot{q}_i \dd p^i + p^i \dd {\dot{q}_i}
-    - \pdv{L}{q_i} \dd q_i - p^i \dd {\dot{q}_i} - \pdv{L}{t} \dd t \\
-&   \quad \pqty{
-      \because \dd L = \pdv{L}{q_i} \dd q_i + \pdv{L}{\dot{q}_i} \dd {\dot{q}_i} + \pdv{L}{t} \dd t
-    } \\
-&=  - \pdv{L}{q_i} \dd q_i + \dot{q}_i \dd p^i - \pdv{L}{t} \dd t.
-\end{aligned}
-$$
-ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}^i = \partial L / \partial q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+**一般化運動量** $p^i ≡ ∂L / ∂\dot{q}_i$ を用いて, **Hamiltonian** $H(q_i, p^i, t) ≡ p^i \dot{q}_i - L$ を定義する. Hamiltonian の全微分は,
 $$
 \begin{aligned}
-\dot{p}^i = - \pdv{H}{q_i}, && \dot{q}_i = \pdv{H}{p^i}.
+dH  &=  \dot{q}_i d p^i + p^i d {\dot{q}_i} - d L \\
+    &=  \dot{q}_i d p^i + p^i d {\dot{q}_i}
+        - \frac{∂L}{∂q_i} d q_i - p^i d {\dot{q}_i} - \frac{∂L}{∂t} dt \\
+    &   \quad \pqty{
+          ∵ d L = \frac{∂L}{∂q_i} d q_i + \frac{∂L}{∂\dot{q}_i} d {\dot{q}_i} + \frac{∂L}{∂t} dt
+        } \\
+    &=  - \frac{∂L}{∂q_i} d q_i + \dot{q}_i d p^i - \frac{∂L}{∂t} dt.
+\end{aligned}
+$$
+ここで, Euler-Lagrangian 方程式が成立するとき $\dot{p}^i = ∂L / ∂q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+$$
+\begin{aligned}
+\dot{p}^i = - \frac{∂H}{∂q_i}, && \dot{q}_i = \frac{∂H}{∂p^i}.
 \end{aligned}
 $$
 このとき $p^i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p^i)$ の組を**正準変数** canonical variables という.
 
 また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
-\pdv{H}{t} = -\pdv{L}{t} = 0.
+\frac{∂H}{∂t} = -\frac{∂L}{∂t} = 0.
 $$
 
 #### 例: 調和振動子
@@ -148,16 +146,16 @@ L(q, \dot{q}, t) = \frac{m}{2} \dot{q}^2 - \frac{k}{2} q^2.
 $$
 ここで, 一般化運動量の定義より,
 $$
-p = \pdv{L}{\dot{q}} = m \dot{q}.
+p = \frac{∂L}{∂\dot{q}} = m \dot{q}.
 $$
 したがって $\dot{q} = p / m$ であるから, Hamiltonian の定義より,
 $$
-H (q, p, t) = p \frac{p}{m} - L \pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac{k}{2} q^2.
+H(q, p, t) = p \frac{p}{m} - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac{k}{2} q^2.
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{H}{q} &= kq, & \pdv{H}{p} &= \frac{p}{m}.
+\frac{∂H}{∂q} &= kq, & \frac{∂H}{∂p} &= \frac{p}{m}.
 \end{aligned}
 $$
 したがって, Hamilton の運動方程式は,
@@ -169,20 +167,20 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(p^i, q_i) \mapsto (P_j, Q_j) = (P_j(p^i, q_i), Q_j(p^i, q_i))$ に対して Hamiltonian が $H (q_i, p^i) \mapsto K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $\delta \int \dd t (p^i \dot{q}_i - H) = 0$ かつ $\delta \int \dd t (P^i \dot{Q}_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(p^i, q_i) ↦ (P_j, Q_j) = (P_j(p^i, q_i), Q_j(p^i, q_i))$ に対して Hamiltonian が $H (q_i, p^i) ↦ K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ dt (p^i \dot{q}_i - H) = 0$ かつ $δ∫ dt (P^i \dot{Q}_i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
-(p^i \dot{q}_i - H) - (P^i \dot{Q}_i - K) = \dv{W}{t}.
+(p^i \dot{q}_i - H) - (P^i \dot{Q}_i - K) = \frac{dW}{dt}.
 $$
 $$
-\therefore
-\dd W = p^i \dd q_i - P^i \dd Q_i + (K - H) \dd t.
+∴
+d W = p^i d q_i - P^i d Q_i + (K - H) dt.
 $$
 この $W(q_i, Q_i, t)$ を**母関数**といい, 以下を満たす.
 $$
 \begin{aligned}
-p^i = \pdv{W}{q_i},
-&& P^i = - \pdv{W}{Q_i},
-&& K = H + \pdv{W}{t}.
+p^i = \frac{∂W}{∂q_i},
+&& P^i = - \frac{∂W}{∂Q_i},
+&& K = H + \frac{∂W}{∂t}.
 \end{aligned}
 $$
 
@@ -191,8 +189,8 @@ $$
 正準変数 $(q_i, p^i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \{A, B\}_\mathrm{P}
-\equiv  \pdv{A}{q_i}\pdv{B}{p^i}
-        - \pdv{B}{q_i}\pdv{A}{p^i}.
+≡  \frac{∂A}{∂q_i}\frac{∂B}{∂p^i}
+        - \frac{∂B}{∂q_i}\frac{∂A}{∂p^i}.
 $$
 例えば,
 $$
@@ -202,100 +200,100 @@ $$
 $$
 $$
 \begin{aligned}
-\{q_i, q_j\} = \{p^i, p_j\} = 0, && \{q_i, p_j\} = \delta_{ij}.
+\{q_i, q_j\} = \{p^i, p_j\} = 0, && \{q_i, p_j\} = δ_{ij}.
 \end{aligned}
 $$
 
 ある物理量 $A(q_i, p^i, t)$ について, 時間による完全微分は,
 $$
 \begin{aligned}
-\dv{A}{t}
-&=  \pdv{A}{q_i} \dot{q}_i + \pdv{A}{p^i} \dot{p}^i + \pdv{A}{t} \\
-&=  \pdv{A}{q_i} \pdv{H}{p^i} + \pdv{A}{p^i} \pdv{H}{q_i} + \pdv{A}{t}.
+\frac{dA}{dt}
+&=  \frac{∂A}{∂q_i} \dot{q}_i + \frac{∂A}{∂p^i} \dot{p}^i + \frac{∂A}{∂t} \\
+&=  \frac{∂A}{∂q_i} \frac{∂H}{∂p^i} + \frac{∂A}{∂p^i} \frac{∂H}{∂q_i} + \frac{∂A}{∂t}.
 \end{aligned}
 $$
 Poisson 括弧を用いて書き直すと, 物理量 $A$ の時間発展に関する式が得られる:
 $$
-\dv{A}{t} = \{A, H\}_\mathrm{P} + \pdv{A}{t}.
+\frac{dA}{dt} = \{A, H\}_\mathrm{P} + \frac{∂A}{∂t}.
 $$
 
 ## 代数学
 
 ### 群
 
-集合 $G$ と写像 $\mu : G \times G \rightarrow G$ に対して, 以下の3条件を考える.
+集合 $G$ と写像 $μ : G × G → G$ に対して, 以下の3条件を考える.
 
-1. **結合律**: $\mu(\mu(x, y), z) = \mu(x, \mu(y, z))$,
-2. **単位元の存在**: $\exists e \in G$, $\mu(x, e) = \mu(e, x) = x$,
-3. **逆元の存在**: $\exists x' \in G$, $\mu(x, x') = \mu(x', x) = e$,
-4. **可換律**: $\mu(x, y) = \mu(y, x)$.
+1. **結合律**: $μ(μ(x, y), z) = μ(x, μ(y, z))$,
+2. **単位元の存在**: $∃ e ∈ G$, $μ(x, e) = μ(e, x) = x$,
+3. **逆元の存在**: $∃ x' ∈ G$, $μ(x, x') = μ(x', x) = e$,
+4. **可換律**: $μ(x, y) = μ(y, x)$.
 
-組 $(G, \mu)$ あるいは単に $G$ について, 条件1を満たすものを**半群** semi-group, 条件1,2を満たすものを**モノイド** monoid, 条件1,2,3を満たすものを**群** group, 条件1,2,3,4を満たすものを**可換群** commutative group あるいは **Abel 群** abelian group という. $\mu(x, y) =: x \cdot y =: xy$, $e =: 1$, $x' =: x^{-1}$ などと表記される. また, 可換群において, $\mu(x, y) =: x + y$, $e =: 0$, $x' =: -x$ などと表記される.
+組 $(G, μ)$ あるいは単に $G$ について, 条件1を満たすものを**半群** semi-group, 条件1,2を満たすものを**モノイド** monoid, 条件1,2,3を満たすものを**群** group, 条件1,2,3,4を満たすものを**可換群** commutative group あるいは **Abel 群** abelian group という. $μ(x, y) =: x ⋅ y =: xy$, $e =: 1$, $x' =: x^{-1}$ などと表記される. また, 可換群において, $μ(x, y) =: x + y$, $e =: 0$, $x' =: -x$ などと表記される.
 
 群 $G$ が有限集合であるとき, $G$ を**有限群** finite group という. このとき, $G$ の濃度を $G$ の**位数** order といい, $|G|$ と書く. 群 $G$ が有限群でないとき, $G$ を**無限群** infinite group という.
 
-群 $G$ の元 $g$ に対して, $g^n = e$ となる $n \in \mathbb{N}$ が存在するとき, $g$ は有限位数であるといい, またこれを満たす最小の $n$ を $g$ の位数といい, $\mathrm{ord}(g)$ と書く. 位数 $n$ の $g$ の羃乗で作られる群を**巡回群**という.
+群 $G$ の元 $g$ に対して, $g^n = e$ となる $n ∈ ℕ$ が存在するとき, $g$ は有限位数であるといい, またこれを満たす最小の $n$ を $g$ の位数といい, $\mathrm{ord}(g)$ と書く. 位数 $n$ の $g$ の羃乗で作られる群を**巡回群**という.
 
-集合 $X$ から $X$ への全単射の全体は, 写像の合成に関して群をなし, これを $X$ の**自己同型群**といい, $\mathrm{Aut} (X)$ と書く.
+集合 $X$ から $X$ への全単射の全体は, 写像の合成に関して群をなし, これを $X$ の**自己同型群**といい, $\mathrm{Aut}(X)$ と書く.
 
 ### 部分群と剰余類
 
-群 $G$ について, 部分集合 $H \subset G$ が群の元 $x, y \in H$ に対して $x y^{-1} \in H$ を満たすとき, $H$ を $G$ の**部分群**という. また, 部分集合 $S \subset G$ に対して, $S$ を含む最小の部分群を **$S$ が生成する部分群** subgroup generated by $S$ といい, $\ev{S}$ と書く. 特に $G = \ev{S}$ であるとき, $S$ を $G$ の**生成系** system of generators という.
+群 $G$ について, 部分集合 $H ⊂ G$ が群の元 $x, y ∈ H$ に対して $x y^{-1} ∈ H$ を満たすとき, $H$ を $G$ の**部分群**という. また, 部分集合 $S ⊂ G$ に対して, $S$ を含む最小の部分群を **$S$ が生成する部分群** subgroup generated by $S$ といい, $\ev{S}$ と書く. 特に $G = \ev{S}$ であるとき, $S$ を $G$ の**生成系** system of generators という.
 
-群 $G$ の部分群 $H$ について, $gH := \{ gh \mid h \in H \} \subset G$ を**左剰余類** left conset という. 左剰余類の全体を $G/H$ と書く. 同様に右剰余類 $Hg$ とその全体 $H \backslash G$ が定まる.
+群 $G$ の部分群 $H$ について, $gH := \{ gh \mid h ∈ H \} ⊂ G$ を**左剰余類** left conset という. 左剰余類の全体を $G/H$ と書く. 同様に右剰余類 $Hg$ とその全体 $H \backslash G$ が定まる.
 
-群 $G$ の部分群 $H$ について, 群の元 $g \in G$ に対し $gHg^{-1} = H$ を満たす $H$ を $G$ の**正規部分群** normal subgroup といい, $H \triangleleft G$ と書く. 群の元 $g, g' \in G$ に対して, $G/H$ 上の演算 $(gH)(g'H) := (gg')H$ によって $G/H$ は群となる. この群を**商群** quotient group という.
+群 $G$ の部分群 $H$ について, 群の元 $g ∈ G$ に対し $gHg^{-1} = H$ を満たす $H$ を $G$ の**正規部分群** normal subgroup といい, $H \triangleleft G$ と書く. 群の元 $g, g' ∈ G$ に対して, $G/H$ 上の演算 $(gH)(g'H) := (gg')H$ によって $G/H$ は群となる. この群を**商群** quotient group という.
 
 ### 準同型写像
 
-群 $G$, $G'$ について, 写像 $f : G \rightarrow G'$ が群の元 $x, y \in G$ に対し $f(xy) = f(x) f(y)$ を満たすとき, $f$ を $G$ から $G'$ への**準同型写像** homomorphism, あるいは単に**準同型** hommomorohic という. また, 準同型 $f$ が全単射であるとき, $f$ を**同型写像** isomorphism, あるいは単に**同型** isomorphic といい, $G \simeq G'$ と書く.
+群 $G$, $G'$ について, 写像 $f : G → G'$ が群の元 $x, y ∈ G$ に対し $f(xy) = f(x) f(y)$ を満たすとき, $f$ を $G$ から $G'$ への**準同型写像** homomorphism, あるいは単に**準同型** hommomorohic という. また, 準同型 $f$ が全単射であるとき, $f$ を**同型写像** isomorphism, あるいは単に**同型** isomorphic といい, $G ≃ G'$ と書く.
 
-準同型写像 $f : G \rightarrow G'$ に対して, 部分群 $\mathrm{Im} f := \{ f(x) \in G' \mid x \in G \}$ を $f$ の**像**, 部分群 $\mathrm{Ker} f := \{ x \in G \mid f(x) = e' \in G' \}$ を $f$ の**核**という. また, $\mathrm{Ker} f$ は $G$ の正規部分群である: $\mathrm{Ker} f \triangleleft G$. また, $\mathrm{Coker} f := G' / \mathrm{Im} f$ を**余核** cokernel, $\mathrm{Coim} f := G' / \mathrm{Ker} f$ を**余像** coimage という.
+準同型写像 $f : G → G'$ に対して, 部分群 $\Im f := \{ f(x) ∈ G' \mid x ∈ G \}$ を $f$ の**像**, 部分群 $\mathrm{Ker} f := \{ x ∈ G \mid f(x) = e' ∈ G' \}$ を $f$ の**核**という. また, $\mathrm{Ker} f$ は $G$ の正規部分群である: $\mathrm{Ker} f \triangleleft G$. また, $\mathrm{Coker} f := G' / \Im f$ を**余核** cokernel, $\mathrm{Coim} f := G' / \mathrm{Ker} f$ を**余像** coimage という.
 
 ### 群の作用
 
-群 $G$ と集合 $X$ について, 準同型 $\rho : G \rightarrow \mathrm{Aut} (X)$ が与えられたとき, **群 $G$ が集合 $X$ に左作用する** $G$ acts on $X$ あるいは単に**作用する**といい, $g \cdot x = gx := \rho(g) (x)$ と書く. このとき, $g, h \in G$, $x \in X$ に対し, $g (hx) = (gh) x$, $ex = x$ を満たす. また, この $X$ を**左 $G$-集合** left $G$-set あるいは単に **$G$-集合** $G$-set という. 同様に右作用と右 $G$-集合も $x \cdot g = xg := \rho(g) (x)$ によって定義される.
+群 $G$ と集合 $X$ について, 準同型 $ρ : G → \mathrm{Aut} (X)$ が与えられたとき, **群 $G$ が集合 $X$ に左作用する** $G$ acts on $X$ あるいは単に**作用する**といい, $g ⋅ x = gx := ρ(g) (x)$ と書く. このとき, $g, h ∈ G$, $x ∈ X$ に対し, $g (hx) = (gh) x$, $ex = x$ を満たす. また, この $X$ を**左 $G$-集合** left $G$-set あるいは単に **$G$-集合** $G$-set という. 同様に右作用と右 $G$-集合も $x ⋅ g = xg := ρ(g) (x)$ によって定義される.
 
-群 $G$ の $X$ への作用 $G \times X \rightarrow X$ に対して, $Gx := \{ gx \mid g \in G \}$ を $x$ の**軌道** orbit という. また, $G_x := \{ g \in G \mid gx = x \}$ を**固定化部分群** stabilizer という. このとき, $G$ の $G_x$ による商群と軌道 $Gx$ は同型である: $G / G_x \simeq Gx$.
+群 $G$ の $X$ への作用 $G × X → X$ に対して, $Gx := \{ gx \mid g ∈ G \}$ を $x$ の**軌道** orbit という. また, $G_x := \{ g ∈ G \mid gx = x \}$ を**固定化部分群** stabilizer という. このとき, $G$ の $G_x$ による商群と軌道 $Gx$ は同型である: $G / G_x ≃ Gx$.
 
-左 $G$-集合 $X$ について, $x \in X$ に対して $Gx = X$ となる作用は**推移的** transitive であるという. また, $G_x = \{ e \}$ であるとき, この作用は**単一推移的** simply transitive という.
+左 $G$-集合 $X$ について, $x ∈ X$ に対して $Gx = X$ となる作用は**推移的** transitive であるという. また, $G_x = \{ e \}$ であるとき, この作用は**単一推移的** simply transitive という.
 
 ### 環・体
 
-集合 $R$ に対して, 加法 $+$ について Abel 群, 乗法 $\cdot$ について半群で, $x, y, z \in R$ に対して**分配法則** $x (y + z) = x y + x z$, $(x + y) z = x z + y z$ を満たすとき, 組 $(R, +, \cdot)$ あるいは単に $R$ を**環** ring という.
+集合 $R$ に対して, 加法 $+$ について Abel 群, 乗法 $⋅$ について半群で, $x, y, z ∈ R$ に対して**分配法則** $x (y + z) = x y + x z$, $(x + y) z = x z + y z$ を満たすとき, 組 $(R, +, ⋅)$ あるいは単に $R$ を**環** ring という.
 
 乗法について可換である環を**可換環** commutative ring という. 乗法について群である環を**斜体** skew field または**可除環** division ring という. 乗法について可換群である環, つまり可換環かつ斜体である環を**可換体** commutative ring または単に**体** field という.
 
-環 $R$ が任意の元 $x, y \in R$ について $x, y \neq 0$ ならば $xy \neq 0$ であるとき, $R$ を整環 domain という. **聖域**である可換環を特に**整域** integral domain という.
+環 $R$ が任意の元 $x, y ∈ R$ について $x, y ≠ 0$ ならば $xy ≠ 0$ であるとき, $R$ を整環 domain という. **聖域**である可換環を特に**整域** integral domain という.
 
 ### 部分環
 
-環 $R$ の加法に関する部分群 $S$ について, $S$ が $R$ の乗法で閉じている, つまり任意の $S$ の元 $x, y \in S$ について $xy \in S$ であるとき, $S$ を $R$ の**部分環** subring という.
+環 $R$ の加法に関する部分群 $S$ について, $S$ が $R$ の乗法で閉じている, つまり任意の $S$ の元 $x, y ∈ S$ について $xy ∈ S$ であるとき, $S$ を $R$ の**部分環** subring という.
 
-環 $R$ 部分環 $\{ x \in R \mid \forall y \in R, x y = y x \}$ を $R$ の中心といい, $Z(R)$ と書く.
+環 $R$ 部分環 $\{ x ∈ R \mid ∀ y ∈ R, x y = y x \}$ を $R$ の中心といい, $Z(R)$ と書く.
 
 ### 環準同型
 
-環 $G$, $G'$ について, 写像 $\varphi : R \rightarrow R'$ が環の元 $x, y \in R$ に対し $f\varphi(x + y) = \varphi(x) + \varphi(y)$, $\varphi(xy) = \varphi(x) \varphi(y)$ を満たすとき, $\varphi$ を $R$ から $R'$ への**環準同型写像** ring homomorphism, あるいは単に**環準同型** ring hommomorohic という.
+環 $G$, $G'$ について, 写像 $\varphi : R → R'$ が環の元 $x, y ∈ R$ に対し $f\varphi(x + y) = \varphi(x) + \varphi(y)$, $\varphi(xy) = \varphi(x) \varphi(y)$ を満たすとき, $\varphi$ を $R$ から $R'$ への**環準同型写像** ring homomorphism, あるいは単に**環準同型** ring hommomorohic という.
 
 ### 代数
 
-環 $R$ に対し, 環 $S$ および環準同型 $\rho : R \rightarrow Z(S)$ の組 $(R, \rho)$ または単に $S$ を $R$ 上の**代数** algebra または **$R$ 代数**という.
+環 $R$ に対し, 環 $S$ および環準同型 $ρ : R → Z(S)$ の組 $(R, ρ)$ または単に $S$ を $R$ 上の**代数** algebra または **$R$ 代数**という.
 
-体 $K$ 上の代数 $S$ について, $S$ の $K$ 上の基底 $\{ e_\mu \}$ に対し
+体 $K$ 上の代数 $S$ について, $S$ の $K$ 上の基底 $\{ e_μ \}$ に対し
 $$
-e_\mu e_\nu = {a^\lambda}_{\mu\nu} e_\lambda
+e_μ e_ν = {a^λ}_{μν} e_λ
 $$
-を満たす ${a^\lambda}_{\mu\nu} \in K$ を $S$ の**構造定数** structure constant という.
+を満たす ${a^λ}_{μν} ∈ K$ を $S$ の**構造定数** structure constant という.
 
 ### 環上の加群
 
-環 $R$ に対し, Abel 群 $M$ の加法 $+$ と写像 $\lambda : R \times M \rightarrow M$ が $a, b \in R$, $m, m' \in R$ に対し以下の条件を満たすとき, 組 $(M, +, \lambda)$ または単に $M$ を $R$ 上の**左加群** left module over $R$ または単に**左 $R$ 加群** left $R$-module, **$R$ 加群** $R$-module という:
+環 $R$ に対し, Abel 群 $M$ の加法 $+$ と写像 $λ : R × M → M$ が $a, b ∈ R$, $m, m' ∈ R$ に対し以下の条件を満たすとき, 組 $(M, +, λ)$ または単に $M$ を $R$ 上の**左加群** left module over $R$ または単に**左 $R$ 加群** left $R$-module, **$R$ 加群** $R$-module という:
 
-1. **Abel 群の加法に対するスカラー作用の分配律**: $\lambda(a, m + m') = \lambda(a, m) + \lambda(a, m')$,
-2. **環の加法に対するスカラー作用の分配則**: $\lambda(a + b, m) = \lambda(a, m) + \lambda(a, m')$,
-3. **環の乗法とスカラー作用の両立条件**: $\lambda(ab, m) = \lambda(a, \lambda(b, m))$,
-4. **スカラー作用の単位元の存在**: $\lambda(1, m) = m$.
+1. **Abel 群の加法に対するスカラー作用の分配律**: $λ(a, m + m') = λ(a, m) + λ(a, m')$,
+2. **環の加法に対するスカラー作用の分配則**: $λ(a + b, m) = λ(a, m) + λ(a, m')$,
+3. **環の乗法とスカラー作用の両立条件**: $λ(ab, m) = λ(a, λ(b, m))$,
+4. **スカラー作用の単位元の存在**: $λ(1, m) = m$.
 
 $R$ 上の右加群または右 $R$-加群も同様に定義される.
 
@@ -305,101 +303,107 @@ $R$ 上の右加群または右 $R$-加群も同様に定義される.
 
 体 $K$ 上の加群を $K$ 上の**ベクトル空間**という. ベクトル空間の元を**ベクトル**と呼ぶ.
 
-ベクトル空間 $V$ のベクトル列 $\{ u_i \}$ の**線形結合**と呼ばれる $c^i u_i$ ($c^i \in K$) について,  $c^i u_i = 0$ を満たす $c^i$ が $c^i = 0$ に限るとき, この $\{ u_i \}$ は**線形独立**であるという. また, $V$ の全てのベクトルが $\{ u_i \}$ の線形結合で表されるとき, この $\{ u_i \}$ が $V$ を**生成する**という. $V$ のベクトル列 $\{ e_i \}$ が線形独立かつ $V$ を生成するとき, この $\{ e_i \}$ を $V$ の**基底**という. $V$ の基底を構成するベクトルの個数を $V$ の**次元**といい $\mathrm{dim}(V)$ と書く.
+ベクトル空間 $V$ のベクトル列 $\{ u_i \}$ の**線形結合**と呼ばれる $c^i u_i$ ($c^i ∈ K$) について,  $c^i u_i = 0$ を満たす $c^i$ が $c^i = 0$ に限るとき, この $\{ u_i \}$ は**線形独立**であるという. また, $V$ の全てのベクトルが $\{ u_i \}$ の線形結合で表されるとき, この $\{ u_i \}$ が $V$ を**生成する**という. $V$ のベクトル列 $\{ e_i \}$ が線形独立かつ $V$ を生成するとき, この $\{ e_i \}$ を $V$ の**基底**という. $V$ の基底を構成するベクトルの個数を $V$ の**次元**といい $\dim(V)$ と書く.
 
 ### 線形写像
 
-$K$ 上のベクトル空間 $U$, $V$ に対し, 写像 $T : U \rightarrow V$ が**線形性** $T(au + bv) = a T(u) + b T(v)$ ($a, b \in K$, $u, v \in U$) を満たすとき, $T$ を $K$ 上の**線形写像**といい, その全体を $\mathrm{Hom}_K (U, V)$ と書く. $U$ から $U$ 自身への線形写像の全体 $\mathrm{End}_K (U) := \mathrm{Hom}_K (U, U)$ の元を**線形変換**といい, 恒等写像 $1_U \in \mathrm{End}_K (U)$ を**単位変換**という. 線形写像の部分写像を**線形作用素**あるいは**線形演算子**という.
+$K$ 上のベクトル空間 $U$, $V$ に対し, 写像 $T : U → V$ が**線形性** $T(au + bv) = a T(u) + b T(v)$ ($a, b ∈ K$, $u, v ∈ U$) を満たすとき, $T$ を $K$ 上の**線形写像**といい, その全体を $\mathrm{Hom}_K (U, V)$ と書く. $U$ から $U$ 自身への線形写像の全体 $\mathrm{End}_K (U) := \mathrm{Hom}_K (U, U)$ の元を**線形変換**といい, 恒等写像 $1_U ∈ \mathrm{End}_K (U)$ を**単位変換**という. 線形写像の部分写像を**線形作用素**あるいは**線形演算子**という.
 
-線形写像 $T := \mathrm{Hom}_K (U, V)$ に対して, $T^{-1} T = 1_U$, $T T^{-1} = 1_V$ を満たす $T^{-1} \in \mathrm{Hom}_K (V, U)$ が存在するとき, $T$ を $K$ 上の**線形同型写像**といい, $U$ と $V$ は $K$ 上の**線形同型**という. 線形同型写像 $T \in \mathrm{End}_K (U)$ を**同型変換**, $T^{-1}$ を**逆変換**という.
+線形写像 $T := \mathrm{Hom}_K (U, V)$ に対して, $T^{-1} T = 1_U$, $T T^{-1} = 1_V$ を満たす $T^{-1} ∈ \mathrm{Hom}_K (V, U)$ が存在するとき, $T$ を $K$ 上の**線形同型写像**といい, $U$ と $V$ は $K$ 上の**線形同型**という. 線形同型写像 $T ∈ \mathrm{End}_K (U)$ を**同型変換**, $T^{-1}$ を**逆変換**という.
 
-線形写像 $T := \mathrm{Hom}_K (U, V)$ に対して, $\mathrm{Im} (T) = \{ T(u) \in V \mid u \in U \}$ を $T$ の**像**, $\mathrm{Ker} (T) = \{ u \in U \mid T(u) = 0 \in V \}$ を $T$ の**核**という.
+線形写像 $T := \mathrm{Hom}_K (U, V)$ に対して, $\Im (T) = \{ T(u) ∈ V \mid u ∈ U \}$ を $T$ の**像**, $\mathrm{Ker} (T) = \{ u ∈ U \mid T(u) = 0 ∈ V \}$ を $T$ の**核**という.
 
 線形写像 $T := \mathrm{Hom}_K (U, V)$ に対して, $U$ の基底 $\{ u_1, \dots u_n \}$, $V$ の基底 $\{ v_1, \dots, v_m \}$ について $(T( u_1), \cdots, T(u_n)) = (v_1, \cdots, v_m) A$ と表されるとき, 行列 $A$ を**表現行列**という.
 
-線形変換 $T \in \mathrm{End}_K (U)$ に対して, あるベクトル $u \in U$ が $T(u) = \lambda u$ を満たすとき, $\lambda \in K$ を $T$ の**固有値**, $u$ を $\lambda$ に属する $T$ の**固有ベクトル**という. 異なる固有値に属する固有ベクトルは直交する.
+線形変換 $T ∈ \mathrm{End}_K (U)$ に対して, あるベクトル $u ∈ U$ が $T(u) = λ u$ を満たすとき, $λ ∈ K$ を $T$ の**固有値**, $u$ を $λ$ に属する $T$ の**固有ベクトル**という. 異なる固有値に属する固有ベクトルは直交する.
 
 ### 双対空間
 
-$K$ 上のベクトル空間 $V$ に対し, 線形写像 $V^{*} := \mathrm{Hom}_K (V, K)$ を**双対空間**といい, $V^{*}$ の元を**線形汎関数**, あるいは代数的1-形式という. 双対空間はベクトル空間であり, その次元は元のベクトル空間と等しい: $\mathrm{dim} (V^{*}) = \mathrm{dim} (V)$.
+$K$ 上のベクトル空間 $V$ に対し, 線形写像 $V^{*} := \mathrm{Hom}_K (V, K)$ を**双対空間**といい, $V^{*}$ の元を**線形汎関数**, あるいは代数的1-形式という. 双対空間はベクトル空間であり, その次元は元のベクトル空間と等しい: $\dim (V^{*}) = \dim (V)$.
 
-$V$ の基底 $\{ e_i \}$ に対して, $e^i(e_j) = \delta_{ij}$ を満たす $V^{*}$ の基底 $\{ e^i \}$ を $\{ e_i \}$ の**双対基底**という. 線形写像 $T \in \mathrm{Hom}_K (U, V)$ に対して, $(T^\dagger (\omega))(u) = \omega(T(u))$ を満たす $T^\dagger \in \mathrm{Hom}_K (V^{*}, U^{*})$ を $T$ の**双対写像**という. 表現行列 $A$ を持つ線形写像 $T$ の双対写像 $T^\dagger$ の表現行列は $A^\dagger$ である. $A = A^\dagger$ であるとき $A$ を **Hermite 行列**あるいは**自己共役行列**といい, このとき $T = T^\dagger$ であるから $T$ を **Hermite 変換**あるいは**自己共役変換**という.
+$V$ の基底 $\{ e_i \}$ に対して, $e^i(e_j) = δ_{ij}$ を満たす $V^{*}$ の基底 $\{ e^i \}$ を $\{ e_i \}$ の**双対基底**という. 線形写像 $T ∈ \mathrm{Hom}_K (U, V)$ に対して, $(T^† (ω))(u) = ω(T(u))$ を満たす $T^† ∈ \mathrm{Hom}_K (V^{*}, U^{*})$ を $T$ の**双対写像**という. 表現行列 $A$ を持つ線形写像 $T$ の双対写像 $T^†$ の表現行列は $A^†$ である. $A = A^†$ であるとき $A$ を **Hermite 行列**あるいは**自己共役行列**といい, このとき $T = T^†$ であるから $T$ を **Hermite 変換**あるいは**自己共役変換**という.
 
 ### テンソル代数
 
-体 $K$ 上のベクトル空間 $V$, $W$ の基底 $\{ v_i \}$, $\{ w_j \}$ について, $v, v' \in V$, $w, w' \in W$, $c \in K$ に関して以下の**双線形性**を満たす**テンソル積** tensor product で作られる組 $\{ v_i \otimes w_j \}$ を基底とするベクトル空間を $V \otimes W$ と書き, $V$ と $W$ との**テンソル積空間** tensor product space という. このとき, $\mathrm{dim} (V \otimes W) = \mathrm{dim} (V) \cdot \mathrm{dim} (W)$.
+体 $K$ 上のベクトル空間 $V$, $W$ の基底 $\{ v_i \}$, $\{ w_j \}$ について, $v, v' ∈ V$, $w, w' ∈ W$, $c ∈ K$ に関して以下の**双線形性**を満たす**テンソル積** tensor product で作られる組 $\{ v_i ⊗ w_j \}$ を基底とするベクトル空間を $V ⊗ W$ と書き, $V$ と $W$ との**テンソル積空間** tensor product space という. このとき, $\dim (V ⊗ W) = \dim (V) ⋅ \dim (W)$.
 
-1. 第一引数に対する**線形性**: $(v + v') \otimes w = v \otimes w + v' \otimes w$,
-2. 第二引数に対する**線形性**: $v \otimes (w + w') = v \otimes w + v \otimes w'$,
-3. **スカラー倍に対する結合性**: $(c v) \otimes w = v \otimes (c w) = c (v \otimes w)$.
+1. 第一引数に対する**線形性**: $(v + v') ⊗ w = v ⊗ w + v' ⊗ w$,
+2. 第二引数に対する**線形性**: $v ⊗ (w + w') = v ⊗ w + v ⊗ w'$,
+3. **スカラー倍に対する結合性**: $(c v) ⊗ w = v ⊗ (c w) = c (v ⊗ w)$.
 
-ベクトル空間列 $\{ V_i \}$ に対し, 多重線形なテンソル積空間 $V_1 \otimes \cdots \otimes V_p$ が自然に構成される. 一つのベクトル空間 $V$ によるテンソル積空間 $V^{\otimes p} := \underbrace{V \otimes \cdots \otimes V}_p$ と ${V^{*}}^{\otimes q}$ について, $V^{\otimes p}$ あるいは $V^{\otimes p} \otimes {V^{*}}^{\otimes q}$ を**テンソル空間** tensor product という.
+ベクトル空間列 $\{ V_i \}$ に対し, 多重線形なテンソル積空間 $V_1 ⊗ \cdots ⊗ V_p$ が自然に構成される. 一つのベクトル空間 $V$ によるテンソル積空間 $V^{⊗ p} := \underbrace{V ⊗ \cdots ⊗ V}_p$ と ${V^{*}}^{⊗ q}$ について, $V^{⊗ p}$ あるいは $V^{⊗ p} ⊗ {V^{*}}^{⊗ q}$ を**テンソル空間** tensor product という.
 
-体 $K$ 上のベクトル空間 $V$ に対し, $T^0(V) := K$, $T^p(V) := V^{\otimes p}$ の直和 $T(V) := \bigoplus^\infty_{p=0} T^p(V)$ を**テンソル代数** tensor algebra という.
+体 $K$ 上のベクトル空間 $V$ に対し, $T^0(V) := K$, $T^p(V) := V^{⊗ p}$ の直和 $T(V) := ⨁^∞_{p=0} T^p(V)$ を**テンソル代数** tensor algebra という.
 
 ### 外積代数
 
-テンソル積空間 $V^{\otimes p}$ に対し, ベクトル $v_1, \dots v_p \in V$ と置換群 $S_p$ を用いて,
+テンソル積空間 $V^{⊗ p}$ に対し, ベクトル $v_1, \dots v_p ∈ V$ と置換群 $S_p$ を用いて,
 $$
 \begin{aligned}
-v_1 \odot \cdots \odot v_p &:= \frac1{p!} \sum_{\sigma \in S_p} v_{\sigma(1)} \otimes \cdots \otimes v_{\sigma}, \\
-v_1 \wedge \cdots \wedge v_p &:= \frac1{p!} \sum_{\sigma \in S_p} \mathrm{sgn} (\sigma) \ v_{\sigma(1)} \otimes \cdots \otimes v_{\sigma},
+v_1 ⊙ \cdots ⊙ v_p &:= \frac1{p!} ∑_{σ ∈ S_p} v_{σ(1)} ⊗ \cdots ⊗ v_{σ(p)}, \\
+v_1 ∧ \cdots ∧ v_p &:= \frac1{p!} ∑_{σ ∈ S_p} \mathrm{sgn} (σ) \ v_{σ(1)} ⊗ \cdots ⊗ v_{σ(p)},
 \end{aligned}
 $$
-と定義される積 $\otimes$ をそれぞれ**対称積**, $\wedge$ を**交代積**あるいは**外積**という. 対称積は $v_1 \cdots v_p := v_1 \odot \cdots \odot v_p$ とも書く. $u, v \in V$ について, $u \odot v = v \odot u$, $u \wedge v = - v \wedge u$ を満たす. また, 交代 $V$ の基底 $\{ e_i \}$ に対し, $\{ e_1 \odot \cdots \odot e_p \}$ を基底とするベクトル空間 $S^p (V)$ を $V$ の **$p$ 次対称テンソル空間** space of symmetric tensors, $\{ e_1 \wedge \cdots \wedge e_p \}$ を基底とするベクトル空間 $\Lambda^p (V)$ を $V$ の **$p$ 次交代テンソル空間** space of alternating tensors という.
+と定義される積 $⊗$ をそれぞれ**対称積**, $∧$ を**交代積**あるいは**外積**という. 対称積は $v_1 \cdots v_p := v_1 ⊙ \cdots ⊙ v_p$ とも書く. $u, v ∈ V$ について, $u ⊙ v = v ⊙ u$, $u ∧ v = - v ∧ u$ を満たす. また, 交代 $V$ の基底 $\{ e_i \}$ に対し, $\{ e_1 ⊙ \cdots ⊙ e_p \}$ を基底とするベクトル空間 $S^p (V)$ を $V$ の **$p$ 次対称テンソル空間** space of symmetric tensors, $\{ e_1 ∧ \cdots ∧ e_p \}$ を基底とするベクトル空間 $Λ^p (V)$ を $V$ の **$p$ 次交代テンソル空間** space of alternating tensors という.
 
-交代テンソル空間 $\Lambda^p(V)$, $\Lambda^q(V)$ について, 2つの交代テンソル空間を交代テンソル空間に移す双線形写像 $\Lambda^p(V) \times \Lambda^q(V) \rightarrow \Lambda^{p+q}(V)$ を以下で定義する: $\Lambda^p(V)$ の基底 $\{ e_1 \wedge \cdots \wedge e_p \}$ と $\Lambda^q(V)$ の基底 $\{ e_1 \wedge \cdots \wedge e_q \}$ に対し, $\displaystyle t = \frac1{p!} t^{\mu_1\cdots\mu_p} e_{\mu_1} \wedge \cdots \wedge e_{\mu_p} \in {\textstyle \Lambda}^p(V)$, $\displaystyle s = \frac1{q!} s^{\mu_1\cdots\mu_q} e_{\mu_1} \wedge \cdots \wedge e_{\mu_q} \in {\textstyle \Lambda}^q(V)$ の外積は,
+交代テンソル空間 $Λ^p(V)$, $Λ^q(V)$ について, 2つの交代テンソル空間を交代テンソル空間に移す双線形写像 $Λ^p(V) × Λ^q(V) → Λ^{p+q}(V)$ を以下で定義する: $Λ^p(V)$ の基底 $\{ e_1 ∧ \cdots ∧ e_p \}$ と $Λ^q(V)$ の基底 $\{ e_1 ∧ \cdots ∧ e_q \}$ に対し, $\displaystyle t = \frac1{p!} t^{μ_1\cdotsμ_p} e_{μ_1} ∧ \cdots ∧ e_{μ_p} ∈ Λ^p(V)$, $\displaystyle s = \frac1{q!} s^{μ_1\cdotsμ_q} e_{μ_1} ∧ \cdots ∧ e_{μ_q} ∈ Λ^q(V)$ の外積は,
 $$
 \begin{aligned}
-t \wedge s
-&=  \left( \frac1{p!} t^{\mu_1\cdots\mu_p} e_{\mu_1} \wedge \cdots \wedge e_{\mu_p} \right)
-    \wedge
-    \left( \frac1{q!} s^{\mu_1\cdots\mu_q} e_{\mu_1} \wedge \cdots \wedge e_{\mu_q} \right) \\
-&:= \frac1{p!q!} t^{\mu_1\cdots\mu_p} s^{\mu_{p+1}\cdots\mu_{p+q}}
-    (e_{\mu_1} \wedge \cdots \wedge e_{\mu_p}) \wedge (e_{\mu_{p+1}} \wedge \cdots \wedge e_{\mu_{p+q}}).
+t ∧ s
+&=  \left( \frac1{p!} t^{μ_1 \cdots μ_p} e_{μ_1} ∧ \cdots ∧ e_{μ_p} \right)
+    ∧
+    \left( \frac1{q!} s^{μ_1 \cdots μ_q} e_{μ_1} ∧ \cdots ∧ e_{μ_q} \right) \\
+&:= \frac1{p!q!} t^{μ_1 \cdots μ_p} s^{μ_{p+1} \cdots μ_{p+q}}
+    (e_{μ_1} ∧ \cdots ∧ e_{μ_p}) ∧ (e_{μ_{p+1}} ∧ \cdots ∧ e_{μ_{p+q}}).
 \end{aligned}
 $$
-また, $t \wedge s = (-1)^{pq} s \wedge t$ を満たす.
+また, $t ∧ s = (-1)^{pq} s ∧ t$ を満たす.
 
-体 $K$ 上のベクトル空間 $V$ に対して, $\Lambda^0(V) := K$ と $\Lambda^p(V)$ の直和 $\Lambda(V) := \bigoplus^\infty_{p=0} \Lambda^p(V)$ を **Grassmann 代数** Grassmann algebra あるいは**外積代数** exterior algebra という.
+体 $K$ 上のベクトル空間 $V$ に対して, $Λ^0(V) := K$ と $Λ^p(V)$ の直和 $Λ(V) := ⨁^∞_{p=0} Λ^p(V)$ を **Grassmann 代数** Grassmann algebra あるいは**外積代数** exterior algebra という.
 
 ### 内積空間
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $V$ について, 写像 $\ev{\ ,\ } : V \times V \rightarrow \mathbb{C}$ が $u, v, w \in V$, $a, b \in \mathbb{C}$ に関して以下の条件を満たすとき, この写像を**内積**と呼び, このとき $V$ を**内積空間**と呼ぶ. 第一引数を制限した内積は $V$ に双対である: $u \in V$ に対して $\ev{u, \ } \in \mathrm{Hom}_\mathbb{C} (V, \mathbb{C}) = V^{*}$.
+複素数体 $ℂ$ 上のベクトル空間 $V$ について, 写像 $\ev{\ ,\ } : V × V → ℂ$ が $u, v, w ∈ V$, $a, b ∈ ℂ$ に関して以下の条件を満たすとき, この写像を**内積**と呼び, このとき $V$ を**内積空間**と呼ぶ. 第一引数を制限した内積は $V$ に双対である: $u ∈ V$ に対して $\ev{u, \ } ∈ \mathrm{Hom}_ℂ (V, ℂ) = V^{*}$.
 
 1. 第二引数に対する**線形性**: $\ev{u, a v + b w} = a \ev{u, v} + b \ev{u, w}$,
 2. **共役対称性**: $\ev{u, v} = (\ev{v, u})^{*}$,
 3. **正定値性**: $\ev{u, u} \geq 0$,
-4. **非退化性**: $\ev{u, u} = 0 \Rightarrow u = 0$.
+4. **非退化性**: $\ev{u, u} = 0 ⇒ u = 0$.
 
-$V$ の基底 $\{ u_i \}$ が $\ev{u_i, u_j} = \delta_{i, j}$ を満たすとき, この $\{ u_i \}$ を $V$ の**正規直交基底**という. このとき, $\{ \ev{u_i, \ } \}$ は $\{ u_i \}$ の双対基底である.
+$V$ の基底 $\{ u_i \}$ が $\ev{u_i, u_j} = δ_{i, j}$ を満たすとき, この $\{ u_i \}$ を $V$ の**正規直交基底**という. このとき, $\{ \ev{u_i, \ } \}$ は $\{ u_i \}$ の双対基底である.
 
-線形変換 $T \in \mathrm{End}_\mathbb{C} (V)$ が Hermite 変換であるとき, $u, v \in V$ に対して $\ev{u, T(v)} = \ev{T(u), v}$ を満たす.
+線形変換 $T ∈ \mathrm{End}_ℂ (V)$ が Hermite 変換であるとき, $u, v ∈ V$ に対して $\ev{u, T(v)} = \ev{T(u), v}$ を満たす.
 
-線形変換 $U \in \mathrm{End}_\mathbb{C} (V)$ が内積を不変に保つ, つまり $u, v \in V$ に対して $\ev{U(u), U(v)} = \ev{u, v}$ を満たすとき, $U$ を **unitary 変換**という. 言い換えると, unitary 変換は $U^\dagger U = UU^\dagger = 1_V$ あるいは $U^\dagger = U^{-1}$ を満たす線形変換 $U$ である.
+線形変換 $U ∈ \mathrm{End}_ℂ (V)$ が内積を不変に保つ, つまり $u, v ∈ V$ に対して $\ev{U(u), U(v)} = \ev{u, v}$ を満たすとき, $U$ を **unitary 変換**という. 言い換えると, unitary 変換は $U^† U = UU^† = 1_V$ あるいは $U^† = U^{-1}$ を満たす線形変換 $U$ である.
 
 ### ブラ-ケット記法
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ のベクトルを $\ket{\varphi}$ と書き, **ケットベクトル**と呼ぶ. また, 双対空間 $H^{*}$ のベクトルを $\bra{\varphi} := \ev{(\ket{\varphi}), \ }$ と書き, **ブラベクトル**と呼ぶ. これらの記法を用いて, ベクトル $\ket{\varphi}, \ket{\psi} \in H$ の内積は $\braket{\varphi}{\psi}$ と書く. 例えば, $H$ の基底 $\{ \ket{m} \}$ とその双対基底 $\{ \bra{n} \}$ は $\braket{n}{m} = \delta_{nm}$ を満たす. また, 双対写像はブラベクトルに右から作用する: $A^\dagger \in \mathrm{End}_K (H^{*})$ で $\ev{(A \ket{\varphi}), \ } = \bra{\varphi} A^\dagger$. 線形変換 $A \in \mathrm{End}_\mathbb{C} (H)$ が Hermite 変換, つまり $\bra{\varphi} (A \ket{\psi}) = (\bra{\varphi} A) \ket{\psi}$ であるとき, これを単に $\ev{A}{\psi}$ と書く. また, $\ket{\varphi}^\dagger := \bra{\varphi}$, $\bra{\varphi}^\dagger := \ket{\varphi}$ と定義すれば $(A \ket{\varphi})^\dagger = \bra{\varphi} A^\dagger$ が得られる.
+複素数体 $ℂ$ 上のベクトル空間 $H$ のベクトルを $\ket{\varphi}$ と書き, **ケットベクトル**と呼ぶ. また, 双対空間 $H^{*}$ のベクトルを $\bra{\varphi} := \ev{(\ket{\varphi}), \ }$ と書き, **ブラベクトル**と呼ぶ. これらの記法を用いて, ベクトル $\ket{\varphi}, \ket{ψ} ∈ H$ の内積は $\braket{\varphi}{ψ}$ と書く. 例えば, $H$ の基底 $\{ \ket{m} \}$ とその双対基底 $\{ \bra{n} \}$ は $\braket{n}{m} = δ_{nm}$ を満たす. また, 双対写像はブラベクトルに右から作用する: $A^† ∈ \mathrm{End}_K (H^{*})$ で $\ev{(A \ket{\varphi}), \ } = \bra{\varphi} A^†$. 線形変換 $A ∈ \mathrm{End}_ℂ (H)$ が Hermite 変換, つまり $\bra{\varphi} (A \ket{ψ}) = (\bra{\varphi} A) \ket{ψ}$ であるとき, これを単に $\ev{A}{ψ}$ と書く. また, $\ket{\varphi}^† := \bra{\varphi}$, $\bra{\varphi}^† := \ket{\varphi}$ と定義すれば $(A \ket{\varphi})^† = \bra{\varphi} A^†$ が得られる.
 
-複素数体 $\mathbb{C}$ 上のベクトル空間 $H$ の基底 $\{ \ket{n} \}$ に対し, 線形写像 $\ketbra{n}{n}$ を**射影写像**という: ケットベクトル $\ket{\varphi} = \sum_m \varphi_m \ket{m}$ に対し, $\ket{n} \ev{n | \varphi} = \varphi_n \ket{n}$. また, $\sum_n \ketbra{n}{n} = 1_H$ である.
+複素数体 $ℂ$ 上のベクトル空間 $H$ の基底 $\{ \ket{n} \}$ に対し, 線形写像 $\ketbra{n}{n}$ を**射影写像**という: ケットベクトル $\ket{\varphi} = ∑_m \varphi_m \ket{m}$ に対し, $\ket{n} \ev{n | \varphi} = \varphi_n \ket{n}$. また, $∑_n \ketbra{n}{n} = 1_H$ である.
 
 ## 量子力学
 
 ### 状態ベクトルと観測量
 
-ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{\psi}$ で表される. 状態ベクトル $\ket{\psi}$ に定数 $c \in \mathbb{C}$ をかけた $c \ket{\psi}$ は同じ状態を表し, 状態ベクトル $\ket{\psi}$ は常に正規化されているとする: $\braket{\psi}{\psi} = 1$. または, 正規化されていない状態ベクトル $\ket{\psi'}$ に対し, $\ket{\psi} = \ket{\psi'} / \sqrt\braket{\psi'}{\psi'}$ は正規化された状態ベクトルである. $\{e^{i \theta} \ket{\psi}\}_{\theta \in \mathbb{R}}$ を**射線** ray といい, 同じ状態を表す状態ベクトルである.
+ある物理状態は**状態ベクトル**と呼ばれる Hilbert 空間のベクトル $\ket{ψ}$ で表される. 状態ベクトル $\ket{ψ}$ に定数 $c ∈ ℂ$ をかけた $c \ket{ψ}$ は同じ状態を表し, 状態ベクトル $\ket{ψ}$ は常に正規化されているとする: $\braket{ψ}{ψ} = 1$. または, 正規化されていない状態ベクトル $\ket{ψ'}$ に対し, $\ket{ψ} = \ket{ψ'} / \sqrt{\braket{ψ'}{ψ'}}$ は正規化された状態ベクトルである. $\{e^{i θ} \ket{ψ}\}_{θ ∈ ℝ}$ を**射線** ray といい, 同じ状態を表す状態ベクトルである.
 
-観測により物理状態が $\ket{\psi}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{\psi}|^2$ で与えられ, $\braket{\varphi}{\psi}$ を**遷移振幅**という.
+観測により物理状態が $\ket{ψ}$ から $\ket{\varphi}$ に遷移する確率は $|\braket{\varphi}{ψ}|^2$ で与えられ, $\braket{\varphi}{ψ}$ を**遷移振幅**という.
 
 ある物理量 $A$ を観測するとき, $A$ に対応する Hermite 演算子 $\hat{A}$ の固有値 $a$ が観測される物理量で, 物理状態は物理量 $A = a$ を観測後に固有値 $a$ に属する固有状態 $\ket{a}$ に遷移する. その確率は
 $$
-|\braket{a}{\psi}|^2 = \braket{\psi}{a} \braket{a}{\psi} = \braket{\psi}{a} \braket{a}{a} \braket{a}{\psi} = |\ket{a} \braket{a}{\psi} |^2.
+|\braket{a}{ψ}|^2 = \braket{ψ}{a} \braket{a}{ψ} = \braket{ψ}{a} \braket{a}{a} \braket{a}{ψ} = |\ket{a} \braket{a}{ψ} |^2.
+$$
+また, 物理量 $A$ の期待値は
+$$
+\begin{aligned}
+  \ev{A} := \bra{ψ} \hat{A} \ket{ψ} = \bra{ψ} \hat{A} \pqty{∫ d a \ketbra{a}{a}} \ket{ψ} = ∫ d a \bra{ψ} \hat{A}  \ket{a} \braket{a}{ψ} = ∫ da \ a |\braket{a}{ψ}|^2.
+\end{aligned}
 $$
 
-### 波動関数の座標表示
+### 波動関数
 
-座標演算子 $\hat{\bm{x}}$ について, 固有値 $x$ が観測される確率振幅を $\psi(\bm{x}) := \braket{\bm{x}}{\psi}$ と書き, **座標表示した波動関数**という.
+ある物理量 $A$ について, 固有値 $a$ が観測される確率振幅を $ψ(a) := \braket{a}{ψ}$ と書き, **$A$ 表示した波動関数**という. 例えば位置 $\bm{x}$ 表示の波動関数 $ψ(\bm{x}) = \braket{\bm{x}}{ψ}$.
 
 ### 正準量子化
 
@@ -407,135 +411,131 @@ $$
 
 ### 最小作用の原理
 
-4 元座標に依存するパラメータ $\phi_\alpha (x)$ について, **作用** action と呼ばれる汎関数 $S[\phi_\alpha]$ が存在し, $\phi_\alpha$ は物理現象において $S[\phi_\alpha]$ が最小となるよう変化する. つまり, 停留条件 $\delta S[\phi_\alpha] = 0$ を満たす.
+4 元座標に依存するパラメータ $\phi_α (x)$ について, **作用** action と呼ばれる汎関数 $S[\phi_α]$ が存在し, $\phi_α$ は物理現象において $S[\phi_α]$ が最小となるよう変化する. つまり, 停留条件 $δS[\phi_α] = 0$ を満たす.
 
 ### Euler–Lagrange の運動方程式
 
-作用は, スカラー場 $\phi_\alpha$ に関する **Lagrangian 密度** Lagrangian density $\mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha)$ を用いて以下のように表される:
+作用は, スカラー場 $\phi_α$ に関する **Lagrangian 密度** Lagrangian density $ℒ(\phi_α, ∂_μ \phi_α)$ を用いて以下のように表される:
 $$
-S[\phi_\alpha] = \int \dd{}^4 x \mathcal{L}(\phi_\alpha, \partial_\mu {\phi_\alpha}).
+S[\phi_α] = ∫ d^4 x ℒ(\phi_α, ∂_μ {\phi_α}).
 $$
-$\phi_\alpha + \delta\phi_\alpha$ の変分をとって,
+$\phi_α + δ\phi_α$ の変分をとって,
 $$
 \begin{aligned}
-\delta S[\phi_\alpha]
-=&  \int \dd{}^4 x \bqty{
-      \mathcal{L}(\phi_\alpha + \delta\phi_\alpha, \partial_\mu \phi_\alpha + \partial_\mu \delta\phi_\alpha)
-      - \mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha)
+δS[\phi_α]
+=&  ∫ d^4 x \bqty{
+      ℒ(\phi_α + δ\phi_α, ∂_μ \phi_α + ∂_μ δ\phi_α)
+      - ℒ(\phi_α, ∂_μ \phi_α)
     } \\
-=&  \int \dd{}^4 x \bqty{
-      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
-      + \delta \partial_\mu \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
+=&  ∫ d^4 x \bqty{
+      δ\phi_α \frac{∂ℒ}{∂\phi_α}
+      + δ∂_μ \phi_α \frac{∂ℒ}{∂(∂_μ \phi_α)}
       + o\pqty{\sqrt{
-        \delta \phi_\alpha^{*} \delta \phi_\alpha + \delta \partial_\mu\phi_\alpha^{*} \delta \partial^\mu\phi_\alpha
+        δ\phi_α^{*} δ\phi_α + δ∂_μ\phi_α^{*} δ∂^μ\phi_α
       }}
     } \\
-=&  \int \dd{}^4 x \bqty{
-      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
-      + \partial_\mu \delta \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
+=&  ∫ d^4 x \bqty{
+      δ\phi_α \frac{∂ℒ}{∂\phi_α}
+      + ∂_μ δ\phi_α \frac{∂ℒ}{∂(∂_μ \phi_α)}
     }
-    \quad (\because \delta \partial_\mu \phi_\alpha = \partial_\mu \delta \phi_\alpha) \\
-=&  \int \dd{}^4 x \bqty{
-      \delta \phi_\alpha \pdv{\mathcal{L}}{\phi_\alpha}
-      - \delta \phi_\alpha \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}}
-      + \partial_\mu \pqty{
-        \delta \phi_\alpha \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}
+    \quad (∵ δ∂_μ \phi_α = ∂_μ δ\phi_α) \\
+=&  ∫ d^4 x \bqty{
+      δ\phi_α \frac{∂ℒ}{∂\phi_α}
+      - δ\phi_α ∂_μ \pqty{\frac{∂ℒ}{∂(∂_μ \phi_α)}}
+      + ∂_μ \pqty{
+        δ\phi_α \frac{∂ℒ}{∂(∂_μ \phi_α)}
       }
     }.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
 $$
-\delta S[\phi_\alpha]
-= \int \dd{}^4 x \delta \phi_\alpha \bqty{
-    \pdv{\mathcal{L}}{\phi_\alpha}
-    - \partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)}}
+δS[\phi_α]
+= ∫ d^4 x δ\phi_α \bqty{
+    \frac{∂ℒ}{∂\phi_α}
+    - ∂_μ \pqty{\frac{∂ℒ}{∂(∂_μ \phi_α)}}
   }.
 $$
-したがって, 停留条件 $\delta S[\phi_\alpha] = 0$ より,
+したがって, 停留条件 $δS[\phi_α] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
 $$
-\pdv{\mathcal{L}}{\phi_\alpha} - \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)} }
+\frac{∂ℒ}{∂\phi_α} - ∂_μ \pqty{ \frac{∂ℒ}{∂(∂_μ \phi_α)} }
 = 0.
 $$
 
 #### 例: 実 Klein-Gordon 場
 
-実 Klein-Gordon 場 $\phi_\alpha$ の Lagrangian 密度は,
+実 Klein-Gordon 場 $\phi_α$ の Lagrangian 密度は,
 $$
-\mathcal{L}(\phi_\alpha, \partial_\mu \phi_\alpha) = \frac12 \partial_\mu \phi_\alpha \partial^\mu \phi_\alpha - \frac12 \mu^2 \phi_\alpha^2.
+ℒ(\phi_α, ∂_μ \phi_α) = \frac12 ∂_μ \phi_α ∂^μ \phi_α - \frac12 μ^2 \phi_α^2.
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{\mathcal{L}}{\phi_\alpha} = - \mu^2 \phi_\alpha, &&
-\partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \phi_\alpha)} } = \partial_\mu \partial^\mu \phi_\alpha.
+\frac{∂ℒ}{∂\phi_α} = - μ^2 \phi_α, &&
+∂_μ \pqty{ \frac{∂ℒ}{∂(∂_μ \phi_α)} } = ∂_μ ∂^μ \phi_α.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(\partial_\mu \partial^\mu + \mu^2) \phi_\alpha = 0.
+(∂_μ ∂^μ + μ^2) \phi_α = 0.
 $$
 
 #### 例: de Broglie 場
 
-de Broglie 場 $\psi$ の Lagrangian 密度は,
+de Broglie 場 $ψ$ の Lagrangian 密度は,
 $$
-\mathcal{L}(\psi, \partial_\mu \psi) = i \hbar \psi^\dagger \partial_t \psi - \frac{\hbar^2}{2m} \partial_i \psi^\dagger \partial^i \psi.
+ℒ(ψ, ∂_μ ψ) = i \hbar ψ^† ∂_t ψ - \frac{\hbar^2}{2m} ∂_i ψ^† ∂^i ψ.
 $$
-ここで, $\psi$ と $\psi^\dagger$ を独立に扱って,
+ここで, $ψ$ と $ψ^†$ を独立に扱って,
 $$
 \begin{aligned}
-  \pdv{\mathcal{L}}{\psi^\dagger} &= i \hbar \partial_t \psi, \\
-  \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \psi^\dagger)} } &= \partial_t \pqty{ \pdv{\mathcal{L}}{(\partial_t \psi^\dagger)} } + \partial_i \pqty{ \pdv{\mathcal{L}}{(\partial_i \psi^\dagger)} } \\
-    &= 0 - \frac{\hbar}{2 m} \partial_i \partial^i \psi \\
-    &= - \frac{\hbar}{2 m} \laplacian \psi,
+  \frac{∂ℒ}{∂ψ^†} &= i \hbar ∂_t ψ, \\
+  ∂_μ \pqty{ \frac{∂ℒ}{∂(∂_μ ψ^†)} } &= ∂_t \pqty{ \frac{∂ℒ}{∂(∂_t ψ^†)} } + ∂_i \pqty{ \frac{∂ℒ}{∂(∂_i ψ^†)} } \\
+    &= 0 - \frac{\hbar}{2 m} ∂_i ∂^i ψ \\
+    &= - \frac{\hbar}{2 m} \laplacian ψ,
 \end{aligned}
 $$
 $$
 \begin{aligned}
-  \pdv{\mathcal{L}}{\psi} &= 0, \\
-  \partial_\mu \pqty{ \pdv{\mathcal{L}}{(\partial_\mu \psi)} } &= \partial_t \pqty{ \pdv{\mathcal{L}}{(\partial_t \psi)} } + \partial_i \pqty{ \pdv{\mathcal{L}}{(\partial_i \psi)} } \\
-    &= i \hbar \partial_i \psi^\dagger - \frac{\hbar}{2 m} \partial_i \partial^i \psi^\dagger \\
-    &= i \hbar \partial_i \psi^\dagger - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
+  \frac{∂ℒ}{∂ψ} &= 0, \\
+  ∂_μ \pqty{ \frac{∂ℒ}{∂(∂_μ ψ)} } &= ∂_t \pqty{ \frac{∂ℒ}{∂(∂_t ψ)} } + ∂_i \pqty{ \frac{∂ℒ}{∂(∂_i ψ)} } \\
+    &= i \hbar ∂_i ψ^† - \frac{\hbar}{2 m} ∂_i ∂^i ψ^† \\
+    &= i \hbar ∂_i ψ^† - \frac{\hbar}{2 m} \laplacian ψ^†.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i \hbar \partial_t \psi &= - \frac{\hbar}{2 m} \laplacian \psi, & - i \hbar \partial_t \psi^\dagger &= - \frac{\hbar}{2 m} \laplacian \psi^\dagger.
+  i \hbar ∂_t ψ &= - \frac{\hbar}{2 m} \laplacian ψ, & - i \hbar ∂_t ψ^† &= - \frac{\hbar}{2 m} \laplacian ψ^†.
 \end{aligned}
 $$
 
 #### 例: 電磁場
 
-電磁場 $A_\mu$ の Lagrangian 密度は,
+電磁場 $A_μ$ の Lagrangian 密度は,
 $$
 \begin{aligned}
-\mathcal{L}(A_\nu, \partial_\mu A_\nu) = - \frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\mu, &&
-F^{\mu\nu} := \partial^\mu A^\nu - \partial^\nu A^\mu.
+ℒ(A_ν, ∂_μ A_ν) = - \frac14 F_{μν} F^{μν} + A_μ j^μ, &&
+F^{μν} := ∂^μ A^ν - ∂^ν A^μ.
 \end{aligned}
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{\mathcal{L}}{A_\nu} &= j^\mu, \\
-\partial_\mu \pqty{\pdv{\mathcal{L}}{(\partial_\mu A_\nu)}}
-&=  \partial_\mu \qty{ \pdv{}{(\partial_\mu A_\nu)} \pqty{ - \frac14 F_{\rho\sigma} F^{\rho\sigma} } } \\
-&=  \partial_\mu \qty{ \pdv{}{(\partial_\mu A_\nu)} \bqty{ - \frac12 (
-      \partial_{\rho} A_{\sigma} \partial^{\rho} A^{\sigma} -
-      \partial_{\rho} A_{\sigma} \partial^{\sigma} A^{\rho}
+\frac{∂ℒ}{∂A_ν} &= j^μ, \\
+∂_μ \pqty{\frac{∂ℒ}{∂(∂_μ A_ν)}}
+&=  ∂_μ \qty{ \frac{∂}{∂(∂_μ A_ν)} \pqty{ - \frac14 F_{ρσ} F^{ρσ} } } \\
+&=  ∂_μ \qty{ \frac{∂}{∂(∂_μ A_ν)} \bqty{ - \frac12 (
+      ∂_ρ A_σ ∂^ρ A^σ - ∂_ρ A_σ ∂^σ A^ρ
     ) } } \\
-&=  \partial_\mu \bqty{ - (
-      \partial^{\mu} A^{\nu} -
-      \partial^{\nu} A^{\mu}
-    ) } \\
-&=  - \partial_\mu F^{\mu\nu}.
+&=  ∂_μ \bqty{ - (∂^μ A^ν - ∂^ν A^μ) } \\
+&=  - ∂_μ F^{μν}.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-\partial_\mu F^{\mu\nu} = - j^\nu.
+∂_μ F^{μν} = - j^ν.
 $$
 
 #### 例: 自由粒子との関係
@@ -544,48 +544,48 @@ $$
 $$
 \begin{aligned}
 S[\phi(x)]
-&= \int \dd{}^4 x \mathcal{L} (\phi(x, t), \partial_\mu \phi(x, t)) \\
-&= \int \dd t \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)).
+&= ∫ d^4 x ℒ (\phi(x, t), ∂_μ \phi(x, t)) \\
+&= ∫ dt ∫ d^3 x ℒ (\phi(x, t), ∇ \phi(x, t), \dot{\phi}(x, t)).
 \end{aligned}
 $$
 ここで, **Lagrangian** $L(x, \dot{x}, t)$ を以下のように定義する:
 $$
-L(x, \dot{x}, t) = \int \dd{}^3 x \mathcal{L} (\phi(x, t), \nabla \phi(x, t), \dot{\phi}(x, t)).
+L(x, \dot{x}, t) = ∫ d^3 x ℒ (\phi(x, t), ∇ \phi(x, t), \dot{\phi}(x, t)).
 $$
 このとき, 作用は
 $$
-S[x] = \int \dd tL(x, \dot{x}, t).
+S[x] = ∫ dtL(x, \dot{x}, t).
 $$
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $\pi^\alpha \equiv \partial \mathcal{L} / \partial \dot{\phi}_\alpha$ を用いて, **Hamiltonian 密度** $\mathcal{H}(\phi_\alpha, \nabla \phi_\alpha, \pi^\alpha, \nabla \pi^\alpha) \equiv \pi^\alpha \dot{\phi}_\alpha - \mathcal{L}$ を定義する. Hamiltonian の定義の変分は,
+**一般化運動量** $π^α ≡ ∂ℒ / ∂\dot{\phi}_α$ を用いて, **Hamiltonian 密度** $ℋ(\phi_α, ∇ \phi_α, π^α, ∇ π^α) ≡ π^α \dot{\phi}_α - ℒ$ を定義する. Hamiltonian の定義の変分は,
 $$
 \begin{aligned}
-  \delta \mathcal{H}
-  &= \dot{\phi}_\alpha \delta \pi^\alpha + \pi^\alpha \delta \dot{\phi}_\alpha - \delta \mathcal{L} \\
-  &= \dot{\phi}_\alpha \delta \pi^\alpha + \pi^\alpha \delta \dot{\phi}_\alpha - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \pi^\alpha \delta \dot{\phi_\alpha} \\
-  &= - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \dot{\phi}_\alpha \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{L}}{(\grad \phi_\alpha)} \delta \phi_\alpha}.
+  δℋ
+  &= \dot{\phi}_α δπ^α + π^α δ\dot{\phi}_α - δℒ \\
+  &= \dot{\phi}_α δπ^α + π^α δ\dot{\phi}_α - \bqty{\frac{∂ℒ}{∂\phi_α} - \div \frac{∂ℒ}{∂(\grad \phi_α)}} δ\phi_α + \div \bqty{\frac{∂ℒ}{∂(\grad \phi_α)} δ\phi_α} + π^α δ\dot{\phi_α} \\
+  &= - \bqty{\frac{∂ℒ}{∂\phi_α} - \div \frac{∂ℒ}{∂(\grad \phi_α)}} δ\phi_α + \dot{\phi}_α δπ^α + \div \bqty{\frac{∂ℒ}{∂(\grad \phi_α)} δ\phi_α}.
 \end{aligned}
 $$
 また, Hamiltonianの変分は,
 $$
 \begin{aligned}
-  \delta \mathcal{H}
-  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \cdot \delta (\grad \phi_\alpha) + \pdv{\mathcal{H}}{\pi^\alpha} \delta \pi^\alpha + \pdv{\mathcal{H}}{(\grad \pi^\alpha)} \cdot \delta (\grad \pi^\alpha) \\
-  &= \pdv{\mathcal{H}}{\phi_\alpha} \delta \phi_\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha + \pdv{\mathcal{H}}{\pi^\alpha} \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha \\
-  &= \bqty{\pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}} \delta \phi_\alpha + \bqty{\pdv{\mathcal{H}}{\pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)}} \delta \pi^\alpha + \div \bqty{\pdv{\mathcal{H}}{(\grad \phi_\alpha)} \delta \phi_\alpha} + \div \bqty{\pdv{\mathcal{H}}{(\grad \pi^\alpha)} \delta \pi^\alpha}
+  δℋ
+  &= \frac{∂ℋ}{∂\phi_α} δ\phi_α + \frac{∂ℋ}{∂(\grad \phi_α)} ⋅ δ(\grad \phi_α) + \frac{∂ℋ}{∂π^α} δπ^α + \frac{∂ℋ}{∂(\grad π^α)} ⋅ δ(\grad π^α) \\
+  &= \frac{∂ℋ}{∂\phi_α} δ\phi_α + \div \bqty{\frac{∂ℋ}{∂(\grad \phi_α)} δ\phi_α} - \div \frac{∂ℋ}{∂(\grad \phi_α)} δ\phi_α + \frac{∂ℋ}{∂π^α} δπ^α + \div \bqty{\frac{∂ℋ}{∂(\grad π^α)} δπ^α} - \div \frac{∂ℋ}{∂(\grad π^α)} δπ^α \\
+  &= \bqty{\frac{∂ℋ}{∂\phi_α} - \div \frac{∂ℋ}{∂(\grad \phi_α)}} δ\phi_α + \bqty{\frac{∂ℋ}{∂π^α} - \div \frac{∂ℋ}{∂(\grad π^α)}} δπ^α + \div \bqty{\frac{∂ℋ}{∂(\grad \phi_α)} δ\phi_α} + \div \bqty{\frac{∂ℋ}{∂(\grad π^α)} δπ^α}
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \dot{\pi}^\alpha = - \bqty{\pdv{\mathcal{L}}{\phi_\alpha} - \div \pdv{\mathcal{L}}{(\grad \phi_\alpha)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \dot{π}^α = - \bqty{\frac{∂ℒ}{∂\phi_α} - \div \frac{∂ℒ}{∂(\grad \phi_α)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
 \begin{aligned}
-  \dot{\phi}_\alpha &= \bqty{\pdv{\mathcal{H}}{\pi^\alpha} - \div \pdv{\mathcal{H}}{(\grad \pi^\alpha)}}, \\
-  \dot{\pi}^\alpha &= - \pdv{\mathcal{H}}{\phi_\alpha} - \div \pdv{\mathcal{H}}{(\grad \phi_\alpha)}.
+  \dot{\phi}_α &= \bqty{\frac{∂ℋ}{∂π^α} - \div \frac{∂ℋ}{∂(\grad π^α)}}, \\
+  \dot{π}^α &= - \frac{∂ℋ}{∂\phi_α} - \div \frac{∂ℋ}{∂(\grad \phi_α)}.
 \end{aligned}
 $$
 TODO: ただし発散項は作用で消えることを用いた.
-このとき $\pi^\alpha$ は $\phi_\alpha$ に**共役な運動量** conjugate momentum といい, また $(\phi_i, \pi_i)$ の組を**正準変数** canonical variables という.
+このとき $π^α$ は $\phi_α$ に**共役な運動量** conjugate momentum といい, また $(\phi_i, π_i)$ の組を**正準変数** canonical variables という.
 
 ## 位相空間
 
@@ -593,196 +593,196 @@ TODO: ただし発散項は作用で消えることを用いた.
 
 **台集合**と呼ばれる集合 $X$ と**開集合系**と呼ばれる $X$ の部分集合の族 $\mathscr{U}$ に対して, 以下の条件を満たす組 $(X, \mathscr{U})$ または単に $X$ を**位相空間** topological space という. 開集合系の元を**開集合**という.
 
-1. 空集合および台集合は開集合:  $\varnothing, X \in \mathscr{U}$.
-2. 開集合の和もまた開集合: $\tilde{\mathscr{U}} \subset \mathscr{U} \Rightarrow \bigcup_{U \in \tilde{\mathscr{U}}} U \in \mathscr{U}$.
-3. 有限個の開集合の積もまた開集合: $U_1, \dots, U_n \in \mathscr{U} \Rightarrow \bigcap^n_{i = 1} U_i \in \mathscr{U}$.
+1. 空集合および台集合は開集合:  $\varnothing, X ∈ \mathscr{U}$.
+2. 開集合の和もまた開集合: $\tilde{\mathscr{U}} ⊂ \mathscr{U} ⇒ \bigcup_{U ∈ \tilde{\mathscr{U}}} U ∈ \mathscr{U}$.
+3. 有限個の開集合の積もまた開集合: $U_1, \dots, U_n ∈ \mathscr{U} ⇒ \bigcap^n_{i = 1} U_i ∈ \mathscr{U}$.
 
-位相空間 $X$ の点 $x \in X$ について, $x$ を含む開集合を $x$ の**開近傍**といい, $x$ の開近傍を含む任意の集合を $x$ の**近傍**という.
+位相空間 $X$ の点 $x ∈ X$ について, $x$ を含む開集合を $x$ の**開近傍**といい, $x$ の開近傍を含む任意の集合を $x$ の**近傍**という.
 
 ### 連続写像と同相
 
-位相空間 $X$, $Y$ と 写像 $f : X \rightarrow Y$ について, $x \in X$ に対し $f(x) \in Y$ の近傍の $f$ による逆像が $x$ の近傍になるとき, $f$ は $x$ で連続であるという. また, $Y$ の開集合の $f$ による逆像が $X$ の開集合となるとき, $f$ を連続という. 全単射 $f : X \rightarrow Y$ が連続で $f^{-1}$ も連続であるとき, $f$ を**同相写像**といい, $X$ と $Y$ は**位相同型**あるいは**同相**という.
+位相空間 $X$, $Y$ と 写像 $f : X → Y$ について, $x ∈ X$ に対し $f(x) ∈ Y$ の近傍の $f$ による逆像が $x$ の近傍になるとき, $f$ は $x$ で連続であるという. また, $Y$ の開集合の $f$ による逆像が $X$ の開集合となるとき, $f$ を連続という. 全単射 $f : X → Y$ が連続で $f^{-1}$ も連続であるとき, $f$ を**同相写像**といい, $X$ と $Y$ は**位相同型**あるいは**同相**という.
 
 ## 束と接続
 
 ### 束と切断
 
-**底空間** base space と呼ばれる空間 $B$ と**全空間** total space と呼ばれる空間 $E$ に対して, **射影** projection と呼ばれる写像 $\pi : E \rightarrow B$ があるとき, 三対 $(E, \pi, B)$ を**束** bundle という. $E \xrightarrow{\pi} B$, または単に $E$ を束と呼ぶこともある.
+**底空間** base space と呼ばれる空間 $B$ と**全空間** total space と呼ばれる空間 $E$ に対して, **射影** projection と呼ばれる写像 $π : E → B$ があるとき, 三対 $(E, π, B)$ を**束** bundle という. $E \xrightarrow{π} B$, または単に $E$ を束と呼ぶこともある.
 $$
 \xymatrix{
-  E \ar[d]^\pi \\
+  E \ar[d]^{π} \\
   B
 }
 $$
 
-任意の $b \in B$ について, 射影による逆像 $\pi^{-1}(b) \in E$ を束の $b$ 上の**ファイバー** fibre という. 位相空間 $B$, $E$ を底空間, 全空間に持つ束 $E \xrightarrow{\pi} B$ に対し, 位相空間 $F$ が任意の $b \in B$ 上のファイバーと同相であるとき, $F$ を束のファイバーという. 特に $E = B \times F$ であるとき, この束 $E$ は**自明な束** trivial bundle という. このときの射影は $\pi = \mathrm{prod}_1$.
+任意の $b ∈ B$ について, 射影による逆像 $π^{-1}(b) ∈ E$ を束の $b$ 上の**ファイバー** fibre という. 位相空間 $B$, $E$ を底空間, 全空間に持つ束 $E \xrightarrow{π} B$ に対し, 位相空間 $F$ が任意の $b ∈ B$ 上のファイバーと同相であるとき, $F$ を束のファイバーという. 特に $E = B × F$ であるとき, この束 $E$ は**自明な束** trivial bundle という. このときの射影は $π = \mathrm{prod}_1$.
 $$
 \xymatrix{
-  B \times F \ar[d]^{\mathrm{prod}_1} \\
+  B × F \ar[d]^{\mathrm{prod}_1} \\
   B
 }
 $$
 
-また, 写像 $\sigma : B \rightarrow E$ が $\pi \circ \sigma = 1_B$ を満たすとき, $\sigma$ を**切断** cross section という. 言い換えると, 切断とは, 任意の底空間上の点 $b \in B$ に対して各ファイバー上の 1 点 $\sigma(b) \in \pi^{-1}(b)$ を決める写像 $\sigma$ である. 束 $E$ の切断の全体を $\Gamma(E)$ と表す.
+また, 写像 $σ : B → E$ が $π \circ σ = 1_B$ を満たすとき, $σ$ を**切断** cross section という. 言い換えると, 切断とは, 任意の底空間上の点 $b ∈ B$ に対して各ファイバー上の 1 点 $σ(b) ∈ π^{-1}(b)$ を決める写像 $σ$ である. 束 $E$ の切断の全体を $Γ(E)$ と表す.
 $$
 \xymatrix{
   E \\
-  B \ar[u]_{\sigma \in \Gamma(E)}
+  B \ar[u]_{σ ∈ Γ(E)}
 }
 $$
 
 ### ファイバー束と構造群
 
-全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $\pi$ が全射である束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $\varphi_i : U_i \times F \rightarrow \pi^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{\pi} M$ を**ファイバー束** fibre bundle という.
+全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $π$ が全射である束 $E \xrightarrow{π} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $\varphi_i : U_i × F → π^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{π} M$ を**ファイバー束** fibre bundle という.
 $$
 \xymatrix{
-  U_i \times F \ar[d]^{\mathrm{pr}_1} \ar[r]_-{\varphi_i}^-\simeq & \pi^{-1}(U_i) \ar[d]^{\pi} \ar@{}[r]|*{\subset} & E \ar[d]^{\pi} \\
-  U_i \ar@{=}[r] & U_i \ar@{}[r]|{\subset} & M
+  U_i × F \ar[d]^{\mathrm{pr}_1} \ar[r]_-{\varphi_i}^-{≃} & π^{-1}(U_i) \ar[d]^{π} \ar@{}[r]|*{⊂} & E \ar[d]^{π} \\
+  U_i \ar@{=}[r] & U_i \ar@{}[r]|{⊂} & M
 }
 $$
 
-点 $p^i \in U_i \subset M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F \rightarrow \pi^{-1}(p)$ とする. 底空間上の点 $p \in U_i \cap U_j \neq \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F \rightarrow F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p \in U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
+点 $p^i ∈ U_i ⊂ M$ における局所自明化 $\varphi_i$ を $\varphi_{i,p} := \varphi_i(p,\ ) : F → π^{-1}(p)$ とする. 底空間上の点 $p ∈ U_i ∩ U_j ≠ \varnothing$ について, $g_{ij} (p) := \varphi_{i,p}^{-1} \circ \varphi_{j,p} : F → F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p ∈ U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
 $$
 \xymatrix{
-  F \ar[r]_-{\varphi_{i,p}} & \pi^{-1}(p) \ar[d]^\pi & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
+  F \ar[r]_-{\varphi_{i,p}} & π^{-1}(p) \ar[d]^{π} & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
   \{p\} \ar@{=}[r] & \{p\} & \{p\} \ar@{=}[l]
 }
 $$
-$F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i \cap U_j \rightarrow G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{\pi} M$ を $G$**-束** $G$-bundle ともいう.
+$F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i ∩ U_j → G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{π} M$ を $G$**-束** $G$-bundle ともいう.
 
 底空間 $M$とその開被覆 $\{U_i\}$, ファイバー $F$, 構造群 $G$, 変換関数 $g_{ij} (p)$ が与えられたとき, ファイバー束を構成可能である.
 
 ### 主 $G$-束と同伴ファイバー束
 
-射影 $\pi$ が微分可能な $G$-束 $P \xrightarrow{\pi} M$ を考える. $G$ が $P$ に右から作用し, $p \in M$ 上のファイバー上の点が $G$ の作用で同一ファイバー上に移る (**単純推移的** simply transitive) とき, このファイバー束 $P \xrightarrow{\pi} M$ を**主 $G$-束** principal $G$-bundle, あるいは単に**主束** principal bundle という. 言い換えると, 主 $G$-束とは, 射影が微分可能, ファイバーが位相群 $G$ である $G$-束である.
+射影 $π$ が微分可能な $G$-束 $P \xrightarrow{π} M$ を考える. $G$ が $P$ に右から作用し, $p ∈ M$ 上のファイバー上の点が $G$ の作用で同一ファイバー上に移る (**単純推移的** simply transitive) とき, このファイバー束 $P \xrightarrow{π} M$ を**主 $G$-束** principal $G$-bundle, あるいは単に**主束** principal bundle という. 言い換えると, 主 $G$-束とは, 射影が微分可能, ファイバーが位相群 $G$ である $G$-束である.
 
-主 $G$-束 $P \xrightarrow{\pi} M$, $G$ が左作用する可微分多様体 $F$ が与えられたとき, 商空間
+主 $G$-束 $P \xrightarrow{π} M$, $G$ が左作用する可微分多様体 $F$ が与えられたとき, 商空間
 $$
-P \times_G F := (P \times F) / G
+P ×_G F := (P × F) / G
 $$
-と写像 $\pi_1 : P \times_G F \rightarrow M, (u, f) \mapsto \pi(u)$ はファイバー $F$ のファイバー束 $P \times_G F \xrightarrow{\pi_1} M$ を与える. これを**同伴ファイバー束** associated fibre bundle という. 反対に, 上の定義のように $G$-束から同伴する主 $G$-束を構成可能である.
+と写像 $π_1 : P ×_G F → M, (u, f) ↦ π(u)$ はファイバー $F$ のファイバー束 $P ×_G F \xrightarrow{π_1} M$ を与える. これを**同伴ファイバー束** associated fibre bundle という. 反対に, 上の定義のように $G$-束から同伴する主 $G$-束を構成可能である.
 
 ### ベクトル束
 
-体 $K$ 上のベクトル空間 $V$ をファイバーとするファイバー束 $E \xrightarrow{\pi} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, $p \in U_i \subset M$ における局所自明化 $\phi_i(p,\ ): V \rightarrow \pi^{-1}$ が線形同型を与えるとき, このファイバー束 $E \xrightarrow{\pi} M$ を**ベクトル束** vector bundle という. 言い換えると, ベクトル束とは, 次元 $n$ のベクトル空間をファイバーとして持つ $GL(n)$-束である. 自明かつファイバーが $V = K$ であるベクトル束を**自明な直線束**という. また, 主 $GL(n)$-束の同伴ファイバー束は**同伴ベクトル束**と呼ばれる.
+体 $K$ 上のベクトル空間 $V$ をファイバーとするファイバー束 $E \xrightarrow{π} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, $p ∈ U_i ⊂ M$ における局所自明化 $\phi_i(p,\ ): V → π^{-1}$ が線形同型を与えるとき, このファイバー束 $E \xrightarrow{π} M$ を**ベクトル束** vector bundle という. 言い換えると, ベクトル束とは, 次元 $n$ のベクトル空間をファイバーとして持つ $GL(n)$-束である. 自明かつファイバーが $V = K$ であるベクトル束を**自明な直線束**という. また, 主 $GL(n)$-束の同伴ファイバー束は**同伴ベクトル束**と呼ばれる.
 
 ### 接束と余接束
 
-可微分多様体 $M$ 上の点 $p \in M$ に対し, $p$ の座標近傍における局所座標 $\{ x_\mu \}$ 上で定義された微分作用素 $\displaystyle \partial_\mu := \frac{\partial}{\partial x^\mu}$ を用いた $\{ \partial_\mu \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p \in M} T_pM$ に対して射影 $\pi : M \rightarrow TM$ が $\pi^{-1} (p) \in T_pM$ を満たすようなベクトル束 $TM \xrightarrow{\pi} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
+可微分多様体 $M$ 上の点 $p ∈ M$ に対し, $p$ の座標近傍における局所座標 $\{ x_μ \}$ 上で定義された微分作用素 $\displaystyle ∂_μ := \frac{∂}{∂x^μ}$ を用いた $\{ ∂_μ \}$ を基底とするベクトル空間 $T_pM$ を**接空間** tangent space といい, 接空間のベクトルを**接ベクトル** tangent vector という. 全空間 $TM := \bigcup_{p ∈ M} T_pM$ に対して射影 $π : M → TM$ が $π^{-1} (p) ∈ T_pM$ を満たすようなベクトル束 $TM \xrightarrow{π} M$ を**接束** tangent bundle という. 接束の切断を**ベクトル場** vector field という.
 
-接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ \partial_\mu \}$ の双対基底は $\{ \dd x^\mu \}$ である: $\dd x^\mu (\partial_\nu) = \delta^\mu_\nu$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p \in M} T^{*}_pM$ に対して射影 $\pi : M \rightarrow T^{*}M$ が $\pi^{-1}(p) \in T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{\pi} M$ を**余接束** cotangent bundle という.
+接空間 $T_pM$ の双対空間 $T^{*}_pM$ を**余接空間** cotangent space といい, $T_pM$ の基底 $\{ ∂_μ \}$ の双対基底は $\{ d x^μ \}$ である: $d x^μ (∂_ν) = δ^μ_ν$. また余接空間のベクトルを**余接ベクトル** cotangent vector という. 全空間 $T^{*}M := \bigcup_{p ∈ M} T^{*}_pM$ に対して射影 $π : M → T^{*}M$ が $π^{-1}(p) ∈ T^{*}_pM$ を満たすようなベクトル束 $T^{*}M \xrightarrow{π} M$ を**余接束** cotangent bundle という.
 
 ### 微分形式とベクトル束上の接続
 
-ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $\Lambda^k (T^{*}M) := \bigcup_{p \in M} \Lambda^k (T^{*}_pM)$ を付け加えた $\Lambda^k (T^{*}M) \otimes E \xrightarrow{\pi_1} M$ の切断 $\Omega^{k} (M, E) := \Gamma(\Lambda^k (T^{*}M) \otimes E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という.
+ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $Λ^k (T^{*}M) := \bigcup_{p ∈ M} Λ^k (T^{*}_pM)$ を付け加えた $Λ^k (T^{*}M) ⊗ E \xrightarrow{π_1} M$ の切断 $Ω^{k} (M, E) := Γ(Λ^k (T^{*}M) ⊗ E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という.
 $$
 \xymatrix{
-  \Lambda^k (T^{*}M) \otimes E \\
-  M \ar[u]_{\phi \in \Omega^{k} (M, E)}
+  Λ^k (T^{*}M) ⊗ E \\
+  M \ar[u]_{\phi ∈ Ω^{k} (M, E)}
 }
 $$
 
-ベクトル束 $E$ が自明な直線束であるとき単に $\Omega^k (M) := \Omega^k (M, E) = \Gamma(\Lambda^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
+ベクトル束 $E$ が自明な直線束であるとき単に $Ω^k (M) := Ω^k (M, E) = Γ(Λ^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
 $$
 \xymatrix{
-  \Lambda^k (T^{*}M) \\
-  M \ar[u]_{\omega \in \Omega^{k} (M)}
+  Λ^k (T^{*}M) \\
+  M \ar[u]_{ω ∈ Ω^{k} (M)}
 }
 $$
 
-#### 全微分 : $\Omega^0 (M) \rightarrow \Omega^1 (M)$
+#### 全微分 : $Ω^0 (M) → Ω^1 (M)$
 
-自明な直線束に値を取る $0$-形式を $1$-形式に移す微分 $d : \Omega^0 (M) \rightarrow \Gamma(T^{*}M) = \Omega^1 (M)$ は全微分である: $f, g \in \Omega^0 (M)$, $fg \in \Omega^0 (M)$ に対して, Leibniz 則を満たす:
+自明な直線束に値を取る $0$-形式を $1$-形式に移す微分 $d : Ω^0 (M) → Γ(T^{*}M) = Ω^1 (M)$ は全微分である: $f, g ∈ Ω^0 (M)$, $fg ∈ Ω^0 (M)$ に対して, Leibniz 則を満たす:
 $$
-\dd (fg) = (\dd f) g + f (\dd g).
+d (fg) = (d f) g + f (d g).
 $$
 $$
 \xymatrix{
   K & T^{*}M \\
-  \ \ar@{|.>}[r]^{\dd{}} & \ \\
-  M \ar[uu]^{\Omega^0 (M) \ni f} & M \ar[uu]_{\dd f\in \Omega^1 (M)}
+  \ \ar@{|.>}[r]^{d} & \ \\
+  M \ar[uu]^{Ω^0 (M) ∋ f} & M \ar[uu]_{d f ∈ Ω^1 (M)}
 }
 $$
 
-$T^{*}_pM$ の基底 $\{\dd x^\mu\}$ に対し, $f \in \Omega^0 (M)$ は局所的に
+$T^{*}_pM$ の基底 $\{d x^μ\}$ に対し, $f ∈ Ω^0 (M)$ は局所的に
 $$
-\dd f := (\partial_\mu f )\ \dd x^\mu.
+d f := (∂_μ f )\ d x^μ.
 $$
 
-#### 外微分 : $\Omega^k (M) \rightarrow \Omega^{k+1} (M)$
+#### 外微分 : $Ω^k (M) → Ω^{k+1} (M)$
 
-自明な直線束に値を取る $k$-形式を $(k+1)$-形式に移す微分 $d : \Omega^k (M) \rightarrow \Omega^{k+1} (M)$ を**外微分** exterior derivative という: $\omega \in \Omega^k (M)$, $\xi \in \Omega^l (M)$, $\omega \wedge \xi \in \Omega^{k+l} (M)$ に対して, Leibniz 則を満たす:
+自明な直線束に値を取る $k$-形式を $(k+1)$-形式に移す微分 $d : Ω^k (M) → Ω^{k+1} (M)$ を**外微分** exterior derivative という: $ω ∈ Ω^k (M)$, $ξ ∈ Ω^l (M)$, $ω ∧ ξ ∈ Ω^{k+l} (M)$ に対して, Leibniz 則を満たす:
 $$
-\dd (\omega \wedge \xi) = \dd \omega \wedge \xi + (-1)^k \omega \wedge \dd \xi.
+d (ω ∧ ξ) = d ω ∧ ξ + (-1)^k ω ∧ d ξ.
 $$
 $$
 \xymatrix{
-  \Lambda^k (T^{*}M) & \Lambda^{k+1} (T^{*}M) \\
-  \ \ar@{|.>}[r]^{\dd{}} & \ \\
-  M \ar[uu]^{\Omega^{k} (M) \ni \omega} & M \ar[uu]_{d\omega \in \Omega^{k+1} (M)}
+  Λ^k (T^{*}M) & Λ^{k+1} (T^{*}M) \\
+  \ \ar@{|.>}[r]^{d} & \ \\
+  M \ar[uu]^{Ω^{k} (M) ∋ ω} & M \ar[uu]_{dω ∈ Ω^{k+1} (M)}
 }
 $$
 
-$T^{*}_pM$ の基底 $\{\dd x^\mu\}$ に対し, $\omega = \frac1{k!} \omega_{\mu_1\cdots\mu_k} \dd x^{\mu_1} \wedge \cdots \wedge \dd x^{\mu_k} \in \Omega^k (M)$ は局所的に
+$T^{*}_pM$ の基底 $\{d x^μ\}$ に対し, $ω = \frac1{k!} ω_{μ_1 \cdots μ_k} d x^{μ_1} ∧ \cdots ∧ d x^{μ_k} ∈ Ω^k (M)$ は局所的に
 $$
-\dd \omega := \frac1{k!} (\partial_\nu \omega_{\mu_1\cdots\mu_k}) \dd x^\nu \wedge \dd x^{\mu_1} \wedge \cdots \wedge \dd x^{\mu_k}.
+d ω := \frac1{k!} (∂_ν ω_{μ_1 \cdots μ_k}) d x^ν ∧ d x^{μ_1} ∧ \cdots ∧ d x^{μ_k}.
 $$
-このとき, 外積代数の交代性より外微分を2回作用させると0になる: $d^2 = 0$. また, $X, Y \in T_pM$ に対し, $\omega \in \Omega^1 (M)$ の外微分は次の等式を満たす:
+このとき, 外積代数の交代性より外微分を2回作用させると0になる: $d^2 = 0$. また, $X, Y ∈ T_pM$ に対し, $ω ∈ Ω^1 (M)$ の外微分は次の等式を満たす:
 $$
-\dd \omega (X, Y) = X (\omega (Y)) - Y (\omega (X)) - \omega ([ X, Y ]).
+d ω (X, Y) = X (ω (Y)) - Y (ω (X)) - ω ([ X, Y ]).
 $$
 
-#### 共変微分 : $\Omega^0 (M, E) \rightarrow \Omega^1(M, E)$
+#### 共変微分 : $Ω^0 (M, E) → Ω^1(M, E)$
 
-ベクトル束 $E$ に値を取る $0$-形式を $1$-形式に移す微分 $D : \Omega^0 (M, E) \rightarrow \Omega^1 (M, E)$ を**接続** connection という: $f \in \Omega^0 (M)$, $\xi' \in \Omega^0 (M, E) = \Gamma(E)$, $f \xi' \in \Omega^0 (M, E)$ に対して, Leibniz 則を満たす:
+ベクトル束 $E$ に値を取る $0$-形式を $1$-形式に移す微分 $D : Ω^0 (M, E) → Ω^1 (M, E)$ を**接続** connection という: $f ∈ Ω^0 (M)$, $ξ' ∈ Ω^0 (M, E) = Γ(E)$, $f ξ' ∈ Ω^0 (M, E)$ に対して, Leibniz 則を満たす:
 $$
-D (f \xi') = \dd f\otimes \xi' + f D \xi'.
+D (f ξ') = d f⊗ ξ' + f D ξ'.
 $$
 $$
 \xymatrix{
-  E & T^{*}M \otimes E \\
+  E & T^{*}M ⊗ E \\
   \ \ar@{|.>}[r]^{D} & \ \\
-  M \ar[uu]^{\Omega^0 (M, E) \ni \phi} & M \ar[uu]_{D \phi \in \Omega^1 (M, E)}
+  M \ar[uu]^{Ω^0 (M, E) ∋ \phi} & M \ar[uu]_{D \phi ∈ Ω^1 (M, E)}
 }
 $$
 
-$p \in M$ の座標近傍 $U_i \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ の接続は
+$p ∈ M$ の座標近傍 $U_i ⊂ M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$ に対し, 切断 $\phi ∈ Γ(E)$ の接続は
 $$
-D \phi := \varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi.
+D \phi := \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi.
 $$
-ここで, Lie 代数に値を取る $1$-形式 $A_i \in \Omega^1 (U_i, \mathrm{End} (E)) = \Gamma(T^{*}U_i \otimes \frak{g})$ は**接続 $1$-形式**または**ゲージ場** gauge field といい, **局所標構場** local frame field と呼ばれる $\Omega (U_i, E) = \Gamma(\pi^{-1} (U_i))$ の局所的な基底 $\{ e_a \}$ を用いて, $\nabla  e_a = \varphi_{i,p} {(A_i)^b}_a \otimes \varphi_{i,p}^{-1} \circ e_b$ と展開できる. また, ゲージ場は別の座標近傍と「接続」する役割を持つ: $p \in M$ の座標近傍 $U_i, U_j \subset M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$, $\varphi_{j,p} := \varphi_j (p,\ )$ に対し, 切断 $\phi \in \Gamma(E)$ は
+ここで, Lie 代数に値を取る $1$-形式 $A_i ∈ Ω^1 (U_i, \mathrm{End} (E)) = Γ(T^{*}U_i ⊗ \frak{g})$ は**接続 $1$-形式**または**ゲージ場** gauge field といい, **局所標構場** local frame field と呼ばれる $Ω (U_i, E) = Γ(π^{-1} (U_i))$ の局所的な基底 $\{ e_a \}$ を用いて, $∇  e_a = \varphi_{i,p} {(A_i)^b}_a ⊗ \varphi_{i,p}^{-1} \circ e_b$ と展開できる. また, ゲージ場は別の座標近傍と「接続」する役割を持つ: $p ∈ M$ の座標近傍 $U_i, U_j ⊂ M$ とその局所自明化 $\varphi_{i,p} := \varphi_i (p,\ )$, $\varphi_{j,p} := \varphi_j (p,\ )$ に対し, 切断 $\phi ∈ Γ(E)$ は
 $$
-D \phi = \varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (\dd + A_j) \varphi_{j,p}^{-1} \circ \phi,
+D \phi = \varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi = \varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi,
 $$
-あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi $, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi $ と, それらに対する局所的な接続 $D_i := \dd + A_i$, $D_j := \dd + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
+あるいは 局所切断 $\phi_i := \varphi_{i,p}^{-1} \circ \phi$, $\phi_j  := \varphi_{j,p}^{-1} \circ \phi$ と, それらに対する局所的な接続 $D_i := d + A_i$, $D_j := d + A_j$ を用いて, 変換関数による局所的な接続の変換式が得られる:
 $$
 D_i \phi_i = g_{ij} (p) D_j \phi_j.
 $$
 また, ベクトル束の構造群が $GL(n)$ であることを用いて,
 $$
 \begin{aligned}
-\varphi_{j,p} (\dd + A_j) \varphi_{j,p}^{-1} \circ \phi
+\varphi_{j,p} (d + A_j) \varphi_{j,p}^{-1} \circ \phi
 &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (\varphi_{j,p}^{-1} \circ \phi_{i,p} \circ \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (g_{ji} (p) \phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{j,p} d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{j,p} g_{ji} (p) d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{j,p} A_j \varphi_{j,p}^{-1} \circ \phi \\
 &= \varphi_{i,p} d (\phi_{i,p}^{-1} \circ \phi ) + \varphi_{i,p} g_{ij} (p) d (g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi + \varphi_{i,p} g_{ij} (p) A_j g_{ji} (p) \varphi_{i,p}^{-1} \circ \phi \\
-&= \varphi_{i,p} (d + g_{ij} (p) \dd g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
+&= \varphi_{i,p} (d + g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p)) \phi_{i,p}^{-1} \circ \phi .
 \end{aligned}
 $$
-これが $\varphi_{i,p} (\dd + A_i) \varphi_{i,p}^{-1} \circ \phi $ と等しい条件は,
+これが $\varphi_{i,p} (d + A_i) \varphi_{i,p}^{-1} \circ \phi$ と等しい条件は,
 $$
-A_i = g_{ij} (p) \dd g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p),
+A_i = g_{ij} (p) d g_{ji} (p) + g_{ij} (p) A_j g_{ji} (p),
 $$
 あるいは $A := A_j$, $A' := A_i$, $g := g_{ij} (p)$ として,
 $$
-A' = g \dd g^{-1} + g A g^{-1}.
+A' = g d g^{-1} + g A g^{-1}.
 $$
-変換関数による変換に相当する $A \mapsto A' = g \dd g^{-1} + g A g^{-1}$ を**ゲージ変換** gauge transformation という. また, ゲージ場をスカラー倍 $A \mapsto \lambda A$ しても接続の性質は変わらない.
+変換関数による変換に相当する $A ↦ A' = g d g^{-1} + g A g^{-1}$ を**ゲージ変換** gauge transformation という. また, ゲージ場をスカラー倍 $A ↦ λ A$ しても接続の性質は変わらない.
 
 $$
 \xymatrix{
-  F \ar[r]_-{\varphi_{i,p}} & \pi^{-1}(p) & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} & T^{*}_pM \otimes F \ar[r]_-{\varphi_{i,p}} & T^{*}_pM \otimes \pi^{-1}(p) & T^{*}_pM \otimes F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
+  F \ar[r]_-{\varphi_{i,p}} & π^{-1}(p) & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} & T^{*}_pM ⊗ F \ar[r]_-{\varphi_{i,p}} & T^{*}_pM ⊗ π^{-1}(p) & T^{*}_pM ⊗ F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{\varphi_{j,p}} \\
   & \ \ar@{|.>}@/^5pt/[rrr]^{D} &&& \ \\
   \{p\} \ar[uu]^{\phi_i} \ar@{=}[r] & \{p\} \ar[uu]^{\phi} & \{p\} \ar@{=}[l] \ar[uu]_{\phi_j} & \{p\} \ar@{=}[r] \ar[uu]_{\phi_i} & \{p\} \ar[uu]_{\phi} & \{p\} \ar@{=}[l] \ar[uu]_{\phi_j}
 }
@@ -790,108 +790,108 @@ $$
 
 実用上, 接続はしばしば局所的な接続と同一視される:
 $$
-D \phi := (\dd + A) \phi.
+D \phi := (d + A) \phi.
 $$
-例えば, $D e_a = {A^b}_a \otimes e_b$, $D' \phi' = g D \phi$ など. $T^{*}_pM$ の基底 $\{ \dd x^\mu \}$ に対して, 接続 $1$-形式 $A = A_\mu \dd x^\mu$ を用いて, 局所的に $D \phi = D_\mu \phi \ \dd x^\mu = (\partial_\mu + A_\mu) \phi \ \dd x^\mu$ と展開される. このとき, 接続の成分表示を**共変微分** convariant derivative という:
+例えば, $D e_a = {A^b}_a ⊗ e_b$, $D' \phi' = g D \phi$ など. $T^{*}_pM$ の基底 $\{ d x^μ \}$ に対して, 接続 $1$-形式 $A = A_μ d x^μ$ を用いて, 局所的に $D \phi = D_μ \phi \ d x^μ = (∂_μ + A_μ) \phi \ d x^μ$ と展開される. このとき, 接続の成分表示を**共変微分** convariant derivative という:
 $$
-D_\mu \phi = (\partial_\mu + A_\mu) \phi.
+D_μ \phi = (∂_μ + A_μ) \phi.
 $$
-また, $\{ \dd x^\mu \}$ を双対基底に持つ $T_pM$ の基底 $\{ \partial_\mu \}$ に対して, $X = X^\mu \partial_\mu \in T_pM$ を用いた $D_X \phi := D \phi (X) = X^\mu D_\mu \phi : \Gamma (E) \rightarrow \Gamma (E)$ を共変微分と呼ぶこともある. また, 単に接続 $D \phi = (\dd + A) \phi$ を共変微分と呼ぶこともある.
+また, $\{ d x^μ \}$ を双対基底に持つ $T_pM$ の基底 $\{ ∂_μ \}$ に対して, $X = X^μ ∂_μ ∈ T_pM$ を用いた $D_X \phi := D \phi (X) = X^μ D_μ \phi : Γ (E) → Γ (E)$ を共変微分と呼ぶこともある. また, 単に接続 $D \phi = (d + A) \phi$ を共変微分と呼ぶこともある.
 
-#### 共変外微分 : $\Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$
+#### 共変外微分 : $Ω^k (M, E) → Ω^{k+1} (M, E)$
 
-ベクトル束 $E$ に値を取る $k$-形式を $(k+1)$-形式に移す微分 $D : \Omega^k (M, E) \rightarrow \Omega^{k+1} (M, E)$ を**共変外微分** covariant exterior derivative という: $\omega \in \Omega^k (M) = \Gamma (\Lambda^k(T^{*}M))$, $\xi \in \Omega^l (M, E) = \Gamma (\Lambda^l(T^{*}M) \otimes E)$, $\omega \wedge \xi \in \Omega^{k+l} (M, E) = \Gamma (\Lambda^{k+l} (T^{*}M) \otimes E)$ に対して, Leibniz 則を満たす:
+ベクトル束 $E$ に値を取る $k$-形式を $(k+1)$-形式に移す微分 $D : Ω^k (M, E) → Ω^{k+1} (M, E)$ を**共変外微分** covariant exterior derivative という: $ω ∈ Ω^k (M) = Γ (Λ^k(T^{*}M))$, $ξ ∈ Ω^l (M, E) = Γ (Λ^l(T^{*}M) ⊗ E)$, $ω ∧ ξ ∈ Ω^{k+l} (M, E) = Γ (Λ^{k+l} (T^{*}M) ⊗ E)$ に対して, Leibniz 則を満たす:
 $$
-D (\omega \wedge \xi) = \dd \omega \wedge \xi + (-1)^k \omega \wedge D \xi,
+D (ω ∧ ξ) = d ω ∧ ξ + (-1)^k ω ∧ D ξ,
 $$
 あるいは, $l = 0$ のとき,
 $$
-D (\omega \otimes \xi) = \dd \omega \otimes \xi + (-1)^k \omega \wedge D \xi.
+D (ω ⊗ ξ) = d ω ⊗ ξ + (-1)^k ω ∧ D ξ.
 $$
 $$
 \xymatrix{
-  \Lambda^k (T^{*}M) \otimes E & \Lambda^{k+1} (T^{*}M) \otimes E \\
+  Λ^k (T^{*}M) ⊗ E & Λ^{k+1} (T^{*}M) ⊗ E \\
   \ \ar@{|.>}[r]^{D} & \ \\
-  M \ar[uu]^{\Omega^{k} (M, E) \ni \phi} & M \ar[uu]_{D\phi \in \Omega^{k+1} (M, E)}
+  M \ar[uu]^{Ω^{k} (M, E) ∋ \phi} & M \ar[uu]_{D\phi ∈ Ω^{k+1} (M, E)}
 }
 $$
 
-接ベクトル $X, Y \in T_pM$ に対し, $\phi \in \Omega^1 (M, E)$ の共変外微分は次の等式を満たす:
+接ベクトル $X, Y ∈ T_pM$ に対し, $\phi ∈ Ω^1 (M, E)$ の共変外微分は次の等式を満たす:
 $$
 D \phi (X, Y) = D_X (\phi (Y)) - D_Y (\phi (X)) - \phi ([ X, Y ]).
 $$
 
 #### 曲率
 
-$p \in M$ において $E$ の切断を2回共変外微分する操作 $R := D^2 : \pi^{-1} (p) \rightarrow \Lambda^2(T^{*}_pM) \otimes \pi^{-1} (p)$ を $p$ における接続 $D$ の**曲率** curvature という. このとき, **Bianchi 恒等式** Bianchi identity を満たす:
+$p ∈ M$ において $E$ の切断を2回共変外微分する操作 $R := D^2 : π^{-1} (p) → Λ^2(T^{*}_pM) ⊗ π^{-1} (p)$ を $p$ における接続 $D$ の**曲率** curvature という. このとき, **Bianchi 恒等式** Bianchi identity を満たす:
 $$
 DR = 0.
 $$
 
-$\xi \in \Gamma(E) = \Omega^0 (M, E)$ に対し, $p \in M$ の接ベクトル $X, Y \in T_pM$ を用いた等式
+$ξ ∈ Γ(E) = Ω^0 (M, E)$ に対し, $p ∈ M$ の接ベクトル $X, Y ∈ T_pM$ を用いた等式
 $$
 \begin{aligned}
-D (D \xi) (X, Y)
-  &= D_X (D \xi (Y)) - D_Y (D \xi (X)) - D \xi ([ X, Y ]) \\
-  &= D_X D_Y \xi - D_Y D_X \xi - D_{[ X, Y ]} \xi
+D (D ξ) (X, Y)
+  &= D_X (D ξ (Y)) - D_Y (D ξ (X)) - D ξ ([ X, Y ]) \\
+  &= D_X D_Y ξ - D_Y D_X ξ - D_{[ X, Y ]} ξ
 \end{aligned}
 $$
 より, **Ricchi 恒等式** Ricci identity が得られる:
 $$
-R (X, Y) \xi = (D_X D_Y - D_Y D_X - D_{[X, Y]}) \xi.
+R (X, Y) ξ = (D_X D_Y - D_Y D_X - D_{[X, Y]}) ξ.
 $$
 
 局所標構場 $\{ e_a \}$ の曲率は, 接続 $1$-形式 $A = ({A^b}_a)$ を用いて,
 $$
 \begin{aligned}
 D^2 e_a
-  &= D ({A^b}_a \otimes e_b) \\
-  &= \dd {A^b}_a \otimes e_b - {A^b}_a \wedge D e_b \\
-  &= \dd {A^b}_a \otimes e_b - {A^b}_a \wedge {A^c}_b \otimes e_c \\
-  &= (\dd {A^c}_a + {A^c}_b \wedge {A^b}_a) \otimes e_c
+  &= D ({A^b}_a ⊗ e_b) \\
+  &= d {A^b}_a ⊗ e_b - {A^b}_a ∧ D e_b \\
+  &= d {A^b}_a ⊗ e_b - {A^b}_a ∧ {A^c}_b ⊗ e_c \\
+  &= (d {A^c}_a + {A^c}_b ∧ {A^b}_a) ⊗ e_c
 \end{aligned}
 $$
 であるから, **構造方程式** structure equation が得られる:
 $$
-R e_a = (\dd {A^b}_a + {A^b}_c \wedge {A^c}_a) \otimes e_b.
+R e_a = (d {A^b}_a + {A^b}_c ∧ {A^c}_a) ⊗ e_b.
 $$
-このとき, $R e_a = {F^b}_a \otimes e_b$ となる Lie 代数に値を取る $2$-形式
+このとき, $R e_a = {F^b}_a ⊗ e_b$ となる Lie 代数に値を取る $2$-形式
 $$
 \begin{aligned}
 F &= ({F^b}_a) \\
-  &= (\dd {A^b}_a + {A^b}_c \wedge {A^c}_a) \\
-  &= dA + A \wedge A \\
-  &\in \Omega^2 (M, \mathrm{End}(E)) = \Gamma (\Lambda^2 (T^{*}M) \otimes \frak{g})
+  &= (d {A^b}_a + {A^b}_c ∧ {A^c}_a) \\
+  &= dA + A ∧ A \\
+  &∈ Ω^2 (M, \mathrm{End}(E)) = Γ (Λ^2 (T^{*}M) ⊗ \frak{g})
 \end{aligned}
 $$
-を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A \mapsto A' = g \dd g^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F \mapsto F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
+を**曲率 $2$-形式** curvature $2$-form あるいは**場の強さ** field strength という. ゲージ変換 $A ↦ A' = g d g^{-1} + gAg^{-1}$ に対して, 場の強さ $F$ の変換規則は $F ↦ F' = gFg^{-1}$ である. また, 場の強さの外微分より, Bianchi 恒等式の別の表示が得られる:
 $$
 \begin{aligned}
-\dd F
-  &= \dd(\dd A + A \wedge A) \\
-  &= \dd{}^2 A + \dd(A \wedge A) \\
-  &= \dd A \wedge A - A \wedge \dd A \\
-  &= (F - A \wedge A) \wedge A - A \wedge (F - A \wedge A) \\
-  &= F \wedge A - A \wedge F \\
+d F
+  &= d(d A + A ∧ A) \\
+  &= d^2 A + d(A ∧ A) \\
+  &= d A ∧ A - A ∧ d A \\
+  &= (F - A ∧ A) ∧ A - A ∧ (F - A ∧ A) \\
+  &= F ∧ A - A ∧ F \\
   &=: - [A, F]. \\
 \end{aligned}
 $$
 $$
-\therefore \dd{}_A F := \dd F + [A, F] = 0.
+∴ d_A F := d F + [A, F] = 0.
 $$
-また, ゲージ場 $A = A_\mu \dd x^\mu$, 場の強さ $\displaystyle F = \frac12 F_{\mu\nu} \dd x^\mu \wedge \dd x^\nu$ について,
+また, ゲージ場 $A = A_μ d x^μ$, 場の強さ $\displaystyle F = \frac12 F_{μν} d x^μ ∧ d x^ν$ について,
 $$
 \begin{aligned}
-F &= dA + A \wedge A \\
-  &= d(A_\mu \dd x^\mu) + (A_\mu \dd x^\mu) \wedge (A_\nu \dd x^\nu) \\
-  &= \partial_\nu A_\mu \dd x^\nu \wedge \dd x^\mu + A_\mu A_\nu \dd x^\mu \wedge \dd x^\nu \\
-  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu) \dd x^\mu \wedge \dd x^\nu + \frac12 (A_\mu A_\nu - A_\nu A_\mu) \dd x^\mu \wedge \dd x^\nu \\
-  &= \frac12 (\partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu]) \dd x^\mu \wedge \dd x^\nu.
+F &= dA + A ∧ A \\
+  &= d(A_μ d x^μ) + (A_μ d x^μ) ∧ (A_ν d x^ν) \\
+  &= ∂_ν A_μ d x^ν ∧ d x^μ + A_μ A_ν d x^μ ∧ d x^ν \\
+  &= \frac12 (∂_μ A_ν - ∂_ν A_μ) d x^μ ∧ d x^ν + \frac12 (A_μ A_ν - A_ν A_μ) d x^μ ∧ d x^ν \\
+  &= \frac12 (∂_μ A_ν - ∂_ν A_μ + [A_μ, A_ν]) d x^μ ∧ d x^ν.
 \end{aligned}
 $$
 したがって, 場の強さの成分表示は,
 $$
-F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu].
+F_{μν} = ∂_μ A_ν - ∂_ν A_μ + [A_μ, A_ν].
 $$
 
 ### 主 $G$-束の接続

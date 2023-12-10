@@ -479,7 +479,7 @@ $$
     &= e^{- \frac{i}{\hbar} a_i \^p^i} \pqty{\int \dd{{}^D q'} \ketbra{q'}{q'}} \ket{ψ}
     = \int \dd{{}^D q'} e^{- \frac{i}{\hbar} a_i \^p^i} \ket{q'} \braket{q'}{ψ} \\
     &= \int \dd{{}^D q'} ψ(q') \ket{q' + a} \\
-    &= \int \dd{{}^D q'} ψ(q' - a) \ket{q'}
+    &= \int \dd{{}^D q'} ψ(q' - a) \ket{q'}.
 \end{aligned}
 $$
 左から $\bra{q}$ をかけると,
@@ -491,7 +491,7 @@ $$
     &= ψ(q - a).
 \end{aligned}
 $$
-$a$ について1次まで羃展開して,
+ただし固有状態の直交性 $\braket{q}{q'} = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
 $$
 \bra{q} \pqty{1 - \frac{i}{\hbar} a_i \^p^i} \ket{ψ} = \pqty{1 - a_i \pdv{}{q^i}} ψ(q). \quad ∴  - \frac{i}{\hbar} \bra{q} \^p^i \ket{ψ} = - \pdv{}{q^i} ψ(q).
 $$

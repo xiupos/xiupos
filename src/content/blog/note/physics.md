@@ -12,7 +12,26 @@ math : true
 
 汎関数 $F[\varphi(x)]$ の点 $y$ における汎関数微分は
 $$
-\fdv{F[\varphi(x)]}{ε(y)} := \lim_{ε→0} \frac{F[\varphi(x) + εδ(x-y)] - F[\varphi(x)]}{ε}.
+\fdv{F[\varphi(x)]}{\varphi(y)} := \lim_{h→0} \frac{F[\varphi(x) + hδ(x-y)] - F[\varphi(x)]}{h}.
+$$
+
+#### 例: 汎関数微分の計算
+
+- $F[\varphi(x)] = ∫ \dd{x} g(x) \varphi(x)$
+
+$$
+\begin{aligned}
+  \fdv{}{\varphi(y)} ∫ \dd{x} g(x) \varphi(x) =
+  &=  \lim_{h→0} \frac1h \bqty{∫ \dd{x} g(x) (\varphi(x) + hδ(x-y)) - ∫ \dd{x} g(x) \varphi(x)} \\
+  &=  \lim_{h→0} \frac1h ∫ \dd{x} g(x) hδ(x-y) \\
+  &=  ∫ \dd{x} g(x) δ(x-y) =  g(y).
+\end{aligned}
+$$
+
+- $F[\varphi(x)] = \varphi(x)$
+
+$$
+\fdv{\varphi(x)}{\varphi(y)} = \fdv{}{\varphi(y)} ∫ \dd{z} δ(x-z) \varphi(z) = δ(x-y).
 $$
 
 ## 解析力学

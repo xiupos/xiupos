@@ -10,15 +10,13 @@ math : true
 
 ## 汎関数
 
+定義域が関数であるような関数を汎関数という. 例えば, $F:(A→B)→C$ など. このとき, $φ:A→B$ を用いて $F[φ(x)]∈C$ と書く. ただし表記中 $x∈A$ は「ダミー」であって関数の定義とは別に与えられない.
+
 ### 汎関数の考え方
 
-汎関数 $F[φ(x)]$ を区間 $I = [a, b]$ での $x$ に対する $φ(x)$ の値を引数に取る関数とする. たとえば $F[φ(x)] = ∫_a^b \dd{x} φ(x)$ など. これはちょうど, $I$ の $N-1$ 分割 $a = x_1 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, $N$ 個の引数を取る関数 $f_N(φ_1,…,φ_N)$ の分割数を極限まで増やしたものと見做すことができる: $f_N(φ_1,…,φ_N) \overset{N→∞}{⟶} F[φ(x)]$. 例えば, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N-1}$, $\displaystyle Δx := \frac{b-a}{N-1}$ に対し,
+区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. たとえば $\displaystyle F[φ(x)] = ∫_a^b \dd{x} φ(x)$ など. これは Riemann 積分の考え方を用いると, $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, 関数 $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} φ_n (x_n - x_{n-1})$ の分割数を極限まで増やしたものと見做すことができる: $f_N(φ_1,…,φ_N) \overset{N→∞}{⟶} F[φ(x)]$. 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
-F[φ(x)] = ∫_a^b \dd{x} φ(x), \quad φ(x) = x^2
-$$
-とすると,
-$$
-f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N} x_n^2 \Delta{x} \overset{N→∞}{⟶} ∫_a^b \dd{x} x^2 = F[x^2].
+f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N-1} x_n^2 \Delta{x} \overset{N→∞}{⟶} ∫_a^b \dd{x} x^2 = F[x^2].
 $$
 
 ### 汎関数微分
@@ -33,7 +31,6 @@ $$
 以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する.
 
 - $\displaystyle F[φ(x)] = ∫ \dd{x} g(x) φ(x)$
-
 $$
 \begin{aligned}
   \fdv{}{φ(y)} ∫ \dd{x} g(x) φ(x) =
@@ -44,7 +41,6 @@ $$
 $$
 
 - $F[φ(x)] = φ(x')$
-
 $$
 \fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \dd{z} δ(x'-z) φ(z) = δ(x'-y).
 $$
@@ -91,11 +87,11 @@ $$
 $$
 \begin{aligned}
   ∫ \mathcal{D} φ F[φ(x)]
-    &:=  ∫⋯∫ \pqty{\prod_{x∈I} \frac{\dd{φ(x)}}{θ}} F[φ(x)]\\
-    &:= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} f_N(φ_1,…,φ_N)
+    &:= ∫⋯∫ \pqty{\prod_{x∈I} \frac{\dd{φ(x)}}{θ}} F[φ(x)]\\
+    &:= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} f_N(φ_0,…,φ_N).
 \end{aligned}
 $$
-ただし, $f_N(φ_1,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, $θ$ は有限値に収束するための正規化因子である.
+ただし, $θ$ は有限値に収束するための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫\dd{x}g(φ(x))$ であるとき, 積分範囲の $N$ 等分割 $x_0,…,x_N$, $Δx=(x_N-x_0)/N$, $x_n=x_0+nΔx$, $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=0}^N g(φ_m) Δx \overset{N→∞}{⟶} F[φ(x)]$ である.
 
 #### 例: 汎関数積分の計算
 
@@ -105,11 +101,11 @@ $$
 $$
 \begin{aligned}
   ∫ \mathcal{D} φ \exp \bqty{-∫ \dd{x} (φ(x))^2}
-    &= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} \exp \pqty{-∑_{n=1}^N φ_n^2 Δx} \\
-    &= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} ∏_{n=1}^N \exp \pqty{-φ_n^2 Δx} \\
-    &= \lim_{N→0} \frac1{θ^N} ∏_{n=1}^N ∫ \dd{φ_n} e^{- φ_n^2 Δx}
-    = \lim_{N→0} \frac1{θ^N} ∏_{n=1}^N \sqrt{\fracπ{Δx}} \\
-    &= \lim_{N→0} \pqty{\frac1{θ} \sqrt{\fracπ{Δx}}}^N.
+    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} \exp \pqty{-∑_{n=0}^N φ_n^2 Δx} \\
+    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} ∏_{n=0}^N \exp \pqty{-φ_n^2 Δx} \\
+    &= \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=0}^N ∫ \dd{φ_n} e^{- φ_n^2 Δx}
+    = \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=1}^{N+1} \sqrt{\fracπ{Δx}} \\
+    &= \lim_{N→0} \pqty{\frac1{θ} \sqrt{\fracπ{Δx}}}^{N+1}.
 \end{aligned}
 $$
 したがって, 正規化因子 $θ = \sqrt{Δx/π}$ を選んで $∫ \mathcal{D} φ e^{-F[φ(x)]} = 1$.
@@ -131,17 +127,11 @@ $$
 \begin{aligned}
 δS[q_i]
 =&  ∫ \dd{t} \bqty{
-      L( q_i + δq_i, \.q_i + δ\.q_i, t) - L(q_i, \.q_i, t)
-    } \\
-=&  ∫ \dd{t} \bqty{
-      δq_i \pdv{L}{q_i}
-      + δ\.q_i \pdv{L}{\.q_i}
-      + o\pqty{\sqrt{δq_i δq_i + δ\.q_i δ\.q_i}}
+      L\pqty{q_i + δq_i, \.q_i + \dv{δq_i}{t}, t} - L(q_i, \.q_i, t)
     } \\
 =&  ∫ \dd{t} \bqty{
       δq_i \pdv{L}{q_i} + \dv{δq_i}{t} \pdv{L}{\.q_i}
-    }
-    \quad \pqty{∵ δ\.q_i = \dv{δq_i}{t}} \\
+    } \\
 =&  ∫ \dd{t} \bqty{
       δq_i \pdv{L}{q_i}
       - δq_i \dv{}{t} \pqty{\pdv{L}{\.q_i}}

@@ -30,7 +30,9 @@ $$
 
 #### 例: 汎関数微分の計算
 
-- $F[φ(x)] = ∫ \dd{x} g(x) φ(x)$
+以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する.
+
+- $\displaystyle F[φ(x)] = ∫ \dd{x} g(x) φ(x)$
 
 $$
 \begin{aligned}
@@ -87,13 +89,22 @@ $$
 
 汎関数 $F[φ(x)]$ の汎関数積分は,
 $$
-∫ \mathcal{D} φ F[φ(x)] := \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} f_N(φ_1,…,φ_N)
+\begin{aligned}
+  ∫ \mathcal{D} φ F[φ(x)]
+    &:=  ∫⋯∫ \pqty{\prod_{x∈I} \frac{\dd{φ(x)}}{θ}} F[φ(x)]\\
+    &:= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} f_N(φ_1,…,φ_N)
+\end{aligned}
 $$
-ただし, $f_N(φ_1,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, $θ$ は積分の値が有限値に収束するための正規化因子である. 例えば, $F[φ(x)] = ∫ \dd{x} (φ(x))^2$ に対し,
+ただし, $f_N(φ_1,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, $θ$ は有限値に収束するための正規化因子である.
+
+#### 例: 汎関数積分の計算
+
+以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle ∫ \mathcal{D} φ e^{-F[φ(x)]}$ を計算する.
+
+- $\displaystyle F[φ(x)] = ∫ \dd{x} (φ(x))^2$
 $$
 \begin{aligned}
-  ∫ \mathcal{D} φ e^{-F[φ(x)]}
-    &= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} e^{-f_N(φ_1,…,φ_N)} \\
+  ∫ \mathcal{D} φ \exp \bqty{-∫ \dd{x} (φ(x))^2}
     &= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} \exp \pqty{-∑_{n=1}^N φ_n^2 Δx} \\
     &= \lim_{N→0} \underbrace{∫⋯∫}_N \frac{\dd{φ_1}⋯\dd{φ_N}}{θ^N} ∏_{n=1}^N \exp \pqty{-φ_n^2 Δx} \\
     &= \lim_{N→0} \frac1{θ^N} ∏_{n=1}^N ∫ \dd{φ_n} e^{- φ_n^2 Δx}

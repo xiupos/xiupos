@@ -10,13 +10,13 @@ math : true
 
 ## 汎関数
 
-定義域が関数であるような関数を汎関数という. 例えば, $F:(A→B)→C$ など. このとき, $φ:A→B$ を用いて $F[φ(x)]∈C$ と書く. ただし表記中 $x∈A$ は「ダミー」であって関数の定義とは別に与えられない.
+定義域が関数であるような関数を汎関数という. 例えば, $F:(A→B)→C$ など. このとき, $φ:A→B$ を用いて $F[φ(x)]∈C$ と書く. ただし表記中 $x∈A$ は「ダミー」であって汎関数の定義中で用いられる文字である.
 
 ### 汎関数の考え方
 
-区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. たとえば $\displaystyle F[φ(x)] = ∫_a^b \dd{x} φ(x)$ など. これは Riemann 積分の考え方を用いると, $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, 関数 $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} φ_n (x_n - x_{n-1})$ の分割数を極限まで増やしたものと見做すことができる: $f_N(φ_1,…,φ_N) \overset{N→∞}{⟶} F[φ(x)]$. 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
+区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, ある関数 $f_N(φ_0,…,φ_N)$ の分割数を極限まで増やしたものと見做すことができる. たとえば $\displaystyle F[φ(x)] = ∫_a^b \dd{x} φ(x)$ では, Riemann 積分の考え方を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} φ_n (x_n - x_{n-1}) \overset{N→∞}{⟶} F[φ(x)]$. または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
-f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N-1} x_n^2 \Delta{x} \overset{N→∞}{⟶} ∫_a^b \dd{x} x^2 = F[x^2].
+f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N} x_n^2 \Delta{x} \overset{N→∞}{⟶} ∫_a^b \dd{x} x^2 = F[x^2].
 $$
 
 ### 汎関数微分
@@ -28,9 +28,9 @@ $$
 
 #### 例: 汎関数微分の計算
 
-以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する.
+以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する:
 
-- $\displaystyle F[φ(x)] = ∫ \dd{x} g(x) φ(x)$""
+- $\displaystyle F[φ(x)] = ∫ \dd{x} g(x) φ(x)$:
 $$
 \begin{aligned}
   \fdv{}{φ(y)} ∫ \dd{x} g(x) φ(x) =
@@ -91,7 +91,7 @@ $$
     &:= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} f_N(φ_0,…,φ_N).
 \end{aligned}
 $$
-ただし, $θ$ は有限値に収束するための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫\dd{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, $Δx=(x_N-x_0)/N$, $x_n=x_0+nΔx$, $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=0}^N g(φ_m) Δx \overset{N→∞}{⟶} F[φ(x)]$ である.
+ただし, $θ$ は有限値に収束するための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫\dd{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, $Δx=(x_N-x_0)/N$, $x_n=x_0+nΔx$, $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} g(φ_m) Δx \overset{N→∞}{⟶} F[φ(x)]$ である.
 
 $\varphi(x)$ の端を固定した汎関数積分も重要である:
 $$
@@ -105,20 +105,28 @@ $$
 
 #### 例: 汎関数積分の計算
 
-以下の汎関数積分を計算する.
+以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle ∫ \mathcal{D} φ F[φ(x)]$ を計算する:
 
-- $\displaystyle F[φ(x)] = ∫ \dd{x} (φ(x))^2$ に対して汎関数積分 $\displaystyle ∫ \mathcal{D} φ e^{-F[φ(x)]}$:
+- $\displaystyle F[φ(x)] = \exp \bqty{- ∫ \dd{x} (φ(x))^2}$:
 $$
 \begin{aligned}
   ∫ \mathcal{D} φ \exp \bqty{-∫ \dd{x} (φ(x))^2}
-    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} \exp \pqty{-∑_{n=0}^N φ_n^2 Δx} \\
-    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} ∏_{n=0}^N \exp \pqty{-φ_n^2 Δx} \\
+    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} \exp \pqty{-∑_{n=1}^N φ_n^2 Δx} \\
+    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} ∏_{n=1}^N \exp \pqty{-φ_n^2 Δx} \\
     &= \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=0}^N ∫ \dd{φ_n} e^{- φ_n^2 Δx}
     = \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=1}^{N+1} \sqrt{\fracπ{Δx}} \\
     &= \lim_{N→0} \pqty{\frac1{θ} \sqrt{\fracπ{Δx}}}^{N+1}.
 \end{aligned}
 $$
 したがって, 正規化因子 $θ = \sqrt{Δx/π}$ を選んで $∫ \mathcal{D} φ e^{-F[φ(x)]} = 1$.
+
+- $\displaystyle F[φ(x)] = \exp \bqty{i ∫ \dd{x} \pqty{\dv{\varphi(x)}{t}}^2}$, ただし端点固定:
+$$
+\begin{aligned}
+  ∫_{φ_0}^φ \mathcal{D} φ \exp \bqty{i ∫ \dd{x} \pqty{\dv{\varphi(x)}{t}}^2}
+    &=  \lim_{N→0} \underbrace{∫⋯∫}_{N-1} \frac{\dd{φ_1}⋯\dd{φ_{N-1}}}{θ^{N-1}} \exp \pqty{i ∑_{n=0}^N \pqty{\frac{φ_n - φ_{n-1}}{}}}
+\end{aligned}
+$$
 
 ## 解析力学
 

@@ -81,6 +81,20 @@ $$
 \end{aligned}
 $$
 
+#### 例: 羃級数を用いた汎関数微分
+
+汎関数 $g(F[φ(x)])$ の汎関数微分は,
+$$
+\begin{aligned}
+  \fdv{g(F[φ(x)])}{φ(y)}
+    &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
+    &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \dd{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
+    &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
+    &=  \lim_{h→0} \frac1h \bqty{h \left.\dv{g}{z}\right|_{z=F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+    &=  g'(F[φ(x)]) \fdv{F[φ(x)]}{φ(y)}.
+\end{aligned}
+$$
+
 ### 汎関数積分
 
 $I$ 上の関数 $φ(x)$ 上の汎関数 $F[φ(x)]$ の汎関数積分は,

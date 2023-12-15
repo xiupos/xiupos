@@ -124,12 +124,12 @@ $$
 
 #### 例: 汎関数積分の計算
 
-以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]$ を計算する:
+以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \dd{φ} I(φ) = 1$ として正規化する:
 
 - $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
 $$
 \begin{aligned}
-  I &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
+  I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
     &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
     &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ}.
 \end{aligned}
@@ -148,21 +148,25 @@ $$
 より, $k=1,…,N-1$ で順に積分することで,
 $$
 \begin{aligned}
-  I &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+  I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
     &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
 \end{aligned}
 $$
 ここで, $θ(N) = \pqty{iπΔx}^{N/2}/C$ ($C$: 定数)とすれば,
 $$
 \begin{aligned}
-  I &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+  I(φ) &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
     &=  \lim_{N→∞} \frac{C}{\sqrt{iπNΔx}} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
     &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
 \end{aligned}
 $$
+ここで正規化条件は
+$$
+∫ \dd{φ} I(φ) = ∫ \dd{φ} \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}} = C = 1.
+$$
 したがって,
 $$
-∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}. \quad (\text{$C$: 定数})
+I(φ) = ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)] = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
 $$
 
 ## 解析力学
@@ -571,7 +575,7 @@ $$
 |ψ⟩ = \pqty{∫ \dd{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \dd{a} |a⟩ ⟨a ∣ ψ⟩ = ∫ \dd{a} ψ(a) |a⟩.
 $$
 
-物理量 $B$ について演算子 $\^B$ について, $\^B ψ(a) := ⟨a| \^B |ψ⟩$ と定義する. $B = b$ に属する固有状態 $|b⟩$ に対して, 固有波動関数 $ψ_b(a) := ⟨b ∣ a⟩$ とすれば,
+物理量 $B$ の演算子 $\^B$ について, 誤解が無いとき $\^B ψ(a) := ⟨a| \^B |ψ⟩$ と表記する. $B = b$ に属する固有状態 $|b⟩$ に対して, 固有波動関数 $ψ_b(a) := ⟨b ∣ a⟩$ とすれば,
 $$
 \^B ψ_b(a) = ⟨b| \^B |a⟩ = b ⟨b ∣ a⟩ = b ψ_b(a),
 $$
@@ -616,7 +620,7 @@ $$
 $$
 ∴ e^{- \frac{i}{ℏ} a_i \^p^i} |q⟩ = |q + a⟩.
 $$
-一般の状態ベクトル $|ψ⟩$ に $e^{- \frac{i}{ℏ} a_i \^p^i}$ を作用させることを考える.
+一般の状態ベクトル $|ψ⟩$ に $e^{- \frac{i}{ℏ} a_i \^p^i}$ を作用させることを考える:
 $$
 \begin{aligned}
   e^{- \frac{i}{ℏ} a_i \^p^i} |ψ⟩
@@ -637,10 +641,10 @@ $$
 $$
 ただし固有状態の直交性 $⟨q ∣ q'⟩ = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
 $$
-⟨q| \pqty{1 - \frac{i}{ℏ} a_i \^p^i} |ψ⟩ = \pqty{1 - a_i \pdv{}{q^i}} ψ(q). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ⟩ = - \pdv{}{q^i} ψ(q).
+⟨q| \pqty{1 - \frac{i}{ℏ} a_i \^p^i} |ψ⟩ = \pqty{1 - a_i \pdv{}{q_i}} ψ(q). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ⟩ = - \pdv{}{q_i} ψ(q).
 $$
 $$
-∴ \hat{p}^i ψ(q) = ⟨q| \^p^i |ψ⟩ = - i ℏ \pdv{}{q^i} ψ(q).
+∴ \hat{p}^i ψ(q) = ⟨q| \^p^i |ψ⟩ = - i ℏ \pdv{}{q_i} ψ(q).
 $$
 
 固有波動関数 $ψ_p(q)$ に対し,

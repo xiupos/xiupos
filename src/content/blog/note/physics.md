@@ -10,7 +10,7 @@ math : true
 
 ## 汎関数
 
-定義域が関数であるような関数を汎関数という. 例えば, $F:(A→B)→C$ など. このとき, $φ:A→B$ を用いて $F[φ(x)]∈C$ と書く. ただし表記中 $x∈A$ は「ダミー」であって汎関数の定義中で用いられる文字である.
+定義域が関数であるような関数を汎関数という. 例えば, $F:(A→B)→C$ など. このとき, $φ:A→B$ を用いて $F[φ(x)]∈C$ と書く. ただし表記中 $x∈A$ は「ダミー」であって汎関数の定義中で用いられる文字である. $F[φ(x)]$ が汎関数であるとき, 通常の関数 $g:C→D$ を用いた $g(F[φ(x)])$ もまた汎関数である.
 
 ### 汎関数の考え方
 
@@ -50,21 +50,21 @@ $$
 連続な汎関数は Tayler 級数に相当する以下の羃級数に展開することができる. これを **Volterra 級数** *Volterra series* という:
 $$
 \begin{aligned}
-  F[φ(x)] &= F[0] + ∫ \dd{y} \fdv{F[φ(x)]}{φ(y)} φ(y) + \frac12 ∫∫ \dd{y_1} \dd{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} φ(y_1) φ(y_2) + ⋯ \\
-  &= ∑_{n = 0}^∞ \frac1{n!} \underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n),
+  F[φ(x)] &= F[0] + ∫ \dd{y} \fdv{F[φ(x)]}{φ(y)} φ(y) + \frac12 ∫ \dd{y_1} ∫ \dd{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} φ(y_1) φ(y_2) + ⋯ \\
+  &= ∑_{n = 0}^∞ \frac1{n!} ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n),
 \end{aligned}
 $$
 または微小な関数 $η(x)$ を用いて,
 $$
 \begin{aligned}
-  F[φ(x) + η(x)] &= F[φ(x)] + ∫ \dd{y} \fdv{F[φ(x)]}{φ(y)} η(y) + \frac12 ∫∫ \dd{y_1} \dd{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
-  &= ∑_{n = 0}^∞ \frac1{n!} \underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
+  F[φ(x) + η(x)] &= F[φ(x)] + ∫ \dd{y} \fdv{F[φ(x)]}{φ(y)} η(y) + \frac12 ∫ \dd{y_1} ∫ \dd{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
+  &= ∑_{n = 0}^∞ \frac1{n!} ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
 \end{aligned}
 $$
 
 $n$ 階汎関数微分 $\displaystyle \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)}$ が $y_1,…,y_n$ について対称であると仮定して, $\displaystyle \fdv{{}^n F}{φ^n}$ と略記する. また,
 $$
-\fdv{{}^n F}{φ^n} * φ^n := \underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)
+\fdv{{}^n F}{φ^n} * φ^n := ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)
 $$
 とすると, Volterra 級数は以下のように書き直せる:
 $$
@@ -74,9 +74,9 @@ $$
 $$
 \begin{aligned}
   \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n}
-    &= \lim_{h→0} \frac1h \pqty{\underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n) - \underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} \\
-    &= \lim_{h→0} \frac1h \bqty{\underbrace{∫⋯∫}_n \dd{y_1}⋯\dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} \pqty{∑_{i=0}^n φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(x-y_i)}} \\
-    &= n \underbrace{∫⋯∫}_{n-1} \dd{y_1}⋯\dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_{n-1})δφ(y_i)} φ(y_1)⋯φ(y_{n-1}) \\
+    &= \lim_{h→0} \frac1h \pqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n) - ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} \\
+    &= \lim_{h→0} \frac1h \bqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} \pqty{∑_{i=0}^n φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(x-y_i)}} \\
+    &= n ∫ \dd{y_1} ⋯ ∫ \dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_{n-1})δφ(y_i)} φ(y_1)⋯φ(y_{n-1}) \\
     &= n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
 \end{aligned}
 $$
@@ -86,46 +86,64 @@ $$
 $I$ 上の関数 $φ(x)$ 上の汎関数 $F[φ(x)]$ の汎関数積分は,
 $$
 \begin{aligned}
-  ∫ \mathcal{D} φ F[φ(x)]
-    &:= ∫⋯∫ \pqty{\prod_{x∈I} \frac{\dd{φ(x)}}{θ}} F[φ(x)] \\
-    &:= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} f_N(φ_0,…,φ_N).
+  ∫ \mathcal{D} [φ(x)] F[φ(x)]
+    &:= \frac1{θ} \pqty{∏_{x∈I} ∫ \dd{φ(x)}} F[φ(x)] \\
+    &:= \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_0} ⋯ ∫ \dd{φ_N} f_N(φ_0,…,φ_N).
 \end{aligned}
 $$
-ただし, $θ$ は有限値に収束するための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫\dd{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, $Δx=(x_N-x_0)/N$, $x_n=x_0+nΔx$, $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} g(φ_m) Δx \overset{N→∞}{⟶} F[φ(x)]$ である.
+ただし, $θ$ は有限値に収束させるための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫\dd{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, $Δx=(x_N-x_0)/N$, $x_n=x_0+nΔx$, $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} g(φ_m) Δx \overset{N→∞}{⟶} F[φ(x)]$ である.
 
 $\varphi(x)$ の端を固定した汎関数積分も重要である:
 $$
 \begin{aligned}
-  ∫_{φ_0}^φ \mathcal{D} φ F[φ(x)]
-    &:= ∫⋯∫ \left. \pqty{\prod_{x∈I} \frac{\dd{φ(x)}}{θ}} F[φ(x)] \right|_{φ_0=φ_0}^{φ_N=φ} \\
-    &:= \lim_{N→0} \underbrace{∫⋯∫}_{N-1} \frac{\dd{φ_1}⋯\dd{φ_{N-1}}}{θ^{N-1}} f_N(φ_0,…,φ_N).
+  ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]
+    &:= \left. \frac1{θ} \pqty{∏_{x∈I} ∫ \dd{φ(x)}} F[φ(x)] \right|_{φ_0}^φ \\
+    &:= \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} f_N(φ_0,φ_1,…,φ_{N-1},φ).
 \end{aligned}
 $$
 これは, 端点を固定した経路について経路上各点について積分した積になっていることから, **経路積分**とも呼ばれる.
 
 #### 例: 汎関数積分の計算
 
-以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle ∫ \mathcal{D} φ F[φ(x)]$ を計算する:
+以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]$ を計算する:
 
-- $\displaystyle F[φ(x)] = \exp \bqty{- ∫ \dd{x} (φ(x))^2}$:
+- $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
 $$
 \begin{aligned}
-  ∫ \mathcal{D} φ \exp \bqty{-∫ \dd{x} (φ(x))^2}
-    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} \exp \pqty{-∑_{n=1}^N φ_n^2 Δx} \\
-    &= \lim_{N→0} \underbrace{∫⋯∫}_{N+1} \frac{\dd{φ_0}⋯\dd{φ_N}}{θ^{N+1}} ∏_{n=1}^N \exp \pqty{-φ_n^2 Δx} \\
-    &= \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=0}^N ∫ \dd{φ_n} e^{- φ_n^2 Δx}
-    = \lim_{N→0} \frac1{θ^{N+1}} ∏_{n=1}^{N+1} \sqrt{\fracπ{Δx}} \\
-    &= \lim_{N→0} \pqty{\frac1{θ} \sqrt{\fracπ{Δx}}}^{N+1}.
+  I &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_b^a \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
+    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
+    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ}.
 \end{aligned}
 $$
-したがって, 正規化因子 $θ = \sqrt{Δx/π}$ を選んで $∫ \mathcal{D} φ e^{-F[φ(x)]} = 1$.
-
-- $\displaystyle F[φ(x)] = \exp \bqty{i ∫ \dd{x} \pqty{\dv{\varphi(x)}{t}}^2}$, ただし端点固定:
+ここで,
 $$
 \begin{aligned}
-  ∫_{φ_0}^φ \mathcal{D} φ \exp \bqty{i ∫ \dd{x} \pqty{\dv{\varphi(x)}{t}}^2}
-    &=  \lim_{N→0} \underbrace{∫⋯∫}_{N-1} \frac{\dd{φ_1}⋯\dd{φ_{N-1}}}{θ^{N-1}} \exp \pqty{i ∑_{n=0}^N \pqty{\frac{φ_n - φ_{n-1}}{}}}
+  & ∫ \dd{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
+    =&  ∫ \dd{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
+    =&  ∫ \dd{φ_{N-k}} \exp \bqty{\frac{i}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{i}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
+    =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{- \frac{i}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
+    &   \quad \pqty{∵ ∫ \dd{x} \exp \pqty{-iax^2+ibx} = \sqrt{\frac{π}{ia}} \exp \pqty{\frac{ib^2}{4a}} } \\
+    =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{\frac{i}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
 \end{aligned}
+$$
+より, $k=1,…,N-1$ で順に積分することで,
+$$
+\begin{aligned}
+  I &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+    &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
+\end{aligned}
+$$
+ここで, $θ(N) = \pqty{iπΔx}^{N/2}/C$ ($C$: 定数)とすれば,
+$$
+\begin{aligned}
+  I &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+    &=  \lim_{N→∞} \frac{C}{\sqrt{iπNΔx}} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+    &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+\end{aligned}
+$$
+したがって,
+$$
+∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_b^a \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}. \quad (\text{$C$: 定数})
 $$
 
 ## 解析力学

@@ -70,28 +70,33 @@ $$
 $$
 F[φ(x)] = ∑_{n = 0}^∞ \frac1{n!} \fdv{{}^n F}{φ^n} * φ^n.
 $$
-また,
+
+#### 例: 羃級数を用いた汎関数微分
+
+以下の汎関数について汎関数微分を計算する:
+
+- $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$:
 $$
 \begin{aligned}
   \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n}
-    &= \lim_{h→0} \frac1h \pqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n) - ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} \\
-    &= \lim_{h→0} \frac1h \bqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} \pqty{∑_{i=0}^n φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(x-y_i)}} \\
-    &= n ∫ \dd{y_1} ⋯ ∫ \dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_{n-1})δφ(y_i)} φ(y_1)⋯φ(y_{n-1}) \\
+    &= \lim_{h→0} \frac1h \left[∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
+      &\qquad\qquad\quad - \left.∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
+    &= \lim_{h→0} \frac1h ∫ \dd{z} \fdv{}{z} \pqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
+    &= \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
+    &= n ∫ \dd{y_1} ⋯ ∫ \dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
     &= n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
 \end{aligned}
 $$
 
-#### 例: 羃級数を用いた汎関数微分
-
-汎関数 $g(F[φ(x)])$ の汎関数微分は,
+- $g(F[φ(x)])$:
 $$
 \begin{aligned}
   \fdv{g(F[φ(x)])}{φ(y)}
     &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
     &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \dd{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
     &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
-    &=  \lim_{h→0} \frac1h \bqty{h \left.\dv{g}{z}\right|_{z=F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
-    &=  g'(F[φ(x)]) \fdv{F[φ(x)]}{φ(y)}.
+    &=  \lim_{h→0} \frac1h \bqty{h \left.\dv{g(z)}{z}\right|_{z=F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+    &=  g'(F[φ(x)]) \fdv{F[φ(x)]}{φ(y)}. \qquad \pqty{g'(x):=\dv{g(x)}{x}}
 \end{aligned}
 $$
 

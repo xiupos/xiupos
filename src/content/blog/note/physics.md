@@ -110,7 +110,7 @@ $$
 - $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
 $$
 \begin{aligned}
-  I &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_b^a \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
+  I &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
     &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
     &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ}.
 \end{aligned}
@@ -143,7 +143,7 @@ $$
 $$
 したがって,
 $$
-∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_b^a \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}. \quad (\text{$C$: 定数})
+∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}. \quad (\text{$C$: 定数})
 $$
 
 ## 解析力学

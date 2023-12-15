@@ -131,7 +131,8 @@ $$
 \begin{aligned}
   I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
     &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
-    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ}.
+    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
+    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \dd{φ_1} ⋯ ∫ \dd{φ_{N-1}} \exp \qty{\frac{i}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
 \end{aligned}
 $$
 ここで,
@@ -152,7 +153,7 @@ $$
     &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
 \end{aligned}
 $$
-ここで, $θ(N) = \pqty{iπΔx}^{N/2}/C$ ($C$: 定数)とすれば,
+ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx}^{N/2}/C$ とすれば,
 $$
 \begin{aligned}
   I(φ) &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
@@ -160,13 +161,13 @@ $$
     &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
 \end{aligned}
 $$
-ここで正規化条件は
+また, 正規化条件より定数 $C$ を決定する:
 $$
 ∫ \dd{φ} I(φ) = ∫ \dd{φ} \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}} = C = 1.
 $$
 したがって,
 $$
-I(φ) = ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)] = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \dd{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
 $$
 
 ## 解析力学
@@ -1158,6 +1159,7 @@ $$
 
 ## 参考文献
 
+- Stevens, C. F. *The Six Core Theories of Modern Physics* (United Kingdom, MIT Press, 1995)
 - 三宅 敏恒 『線形代数学―初歩からジョルダン標準形へ』 (培風館, 2008)
 - 日置 善郎 『場の量子論 -摂動計算の基礎- (第3版)』 (吉岡書店, 2022)
 - 日置 善郎, [場の量子論への第一歩](https://www.phys.chuo-u.ac.jp/labs/inami/seminarfile/2011/Hioki.pdf), 2011.

@@ -241,11 +241,30 @@ $$
 \fdv{S[q_i(t')]}{q_i(t)} = \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}} = 0.
 $$
 
+#### 例: 一次元一粒子系
+
+一次元一粒子系の Lagrangian は,
+$$
+L(q, \.q, t) = \frac12 m \.q^2 - V(q).
+$$
+ここで,
+$$
+\begin{aligned}
+\pdv{L}{q} &= - \pdv{V}{q}, &
+\dv{}{t}\pqty{\pdv{L}{\.q}} &= \dv{}{t} (m \.q) = m \"q.
+\end{aligned}
+$$
+したがって,
+Euler–Lagrange の運動方程式より,
+$$
+m\"q + \pdv{V}{q} = 0.
+$$
+
 #### 例: 調和振動子
 
 調和振動子の Lagrangian は,
 $$
-L(q, \.q, t) = \frac12 \.q^2 - \frac12 m ω^2 q^2.
+L(q, \.q, t) = \frac12 m \.q^2 - \frac12 m ω^2 q^2.
 $$
 ここで,
 $$
@@ -285,6 +304,33 @@ $$
 また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
+$$
+
+#### 例: 一次元一粒子系
+
+一次元一粒子系の Lagrangian は,
+$$
+L(q, \.q, t) = \frac12 m \.q^2 - V(q).
+$$
+ここで, 一般化運動量の定義より,
+$$
+p = \pdv{L}{\.q} = m \.q.
+$$
+したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
+$$
+H(q, p, t) = p \frac{p}{m} - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + V(q).
+$$
+ここで,
+$$
+\begin{aligned}
+\pdv{H}{q} &= \pdv{V}{q}, & \pdv{H}{p} &= \frac{p}{m}.
+\end{aligned}
+$$
+したがって, Hamilton の運動方程式は,
+$$
+\begin{aligned}
+\.p &= - \pdv{V}{q}, & \.q &= \frac{p}{m}.
+\end{aligned}
 $$
 
 #### 例: 調和振動子
@@ -642,6 +688,8 @@ $$
 \{A,B\}_\mathrm{P} \mapsto -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
 $$
 
+#### 時間発展演算子と運動方程式
+
 時間に依存しない物理量 $A(q_i,p^i)$ の時間発展を正準量子化して,
 $$
 \dv{A}{t} = \{A, H\}_\mathrm{P}
@@ -665,7 +713,7 @@ $$
 $$
 iℏ \dv{\^U(t)}{t} = \^H \^U(t).
 $$
-これは時間発展演算子 $\^U(t)$ に関する微分方程式である. 解は, Hamiltonian が時間に陽に依存しているとき,
+これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表示が得られる: Hamiltonian が時間に陽に依存しているとき,
 $$
 U(t) = \exp \bqty{- \frac{i}{ℏ} ∫_0^t \dd{t'} \^H(t')},
 $$
@@ -685,27 +733,34 @@ $$
 $$
 \begin{aligned}
   iℏ \dv{\^U(t)}{t} |ψ⟩ &= \^H \^U(t) |ψ⟩. \\
-  ∴ iℏ \dv{}{t} |ψ(t)⟩ &= \^H |ψ(t)⟩.
+  ∴ \quad iℏ \dv{}{t} |ψ(t)⟩ &= \^H |ψ(t)⟩.
 \end{aligned}
 $$
-これは状態 $|ψ(t)⟩$ の時間発展を表した方程式であり, **Schrödinger の運動方程式**という.
+これは状態 $|ψ(t)⟩$ の時間発展を表した方程式であり, **Schrödinger の運動方程式**という. または左から $⟨q,t|$ を内積させて, 波動関数に関する Schrödinger の運動方程式が得られる:
+$$
+iℏ \dv{}{t} ψ(q, t) = \^H ψ(q, t).
+$$
+
+#### 正準交換関係
 
 正準変数 $(q_i, p^i)$ に対して正準量子化すると, 演算子 $(\^q_i, \^p^i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
 $$
 \begin{aligned}
   \{ q_i, p^j \}_\mathrm{P} &= δ_i^j, \\
   \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= δ_i^j, \\
-  ⇔ [{\^q_i}, {\^p^j}] &= iℏ.
+  ⇔ \quad [{\^q_i}, {\^p^j}] &= iℏ δ_i^j.
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \{ q_i, q_j \}_\mathrm{P} = \{ p^i, p^j \}_\mathrm{P} &= 0, \\
   \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^q_j}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p^i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= 0. \\
-  ⇔ [\^q_i, \^q_j] = [\^p^i, \^p^j] &= 0. \\
+  ⇔ \quad [\^q_i, \^q_j] = [\^p^i, \^p^j] &= 0. \\
 \end{aligned}
 $$
 正準変数を変数として持つ物理量 $A = A(q_i, p^i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A = \^A(\^q_i, \^p^i)$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する.
+
+#### 位置演算子と運動量演算子
 
 正準変数の演算子 $(\^q_i, \^p^i)$ について $\hat{q}_i = q_i$ であるとき, $\hat{p}^i$ の具体形を求める. ある定数 $a_i$ に対し, $e^{\frac{i}{ℏ} a_j \^p^j} \^q_i e^{- \frac{i}{ℏ} a_j \^p^j} = \^q_i + a_i$ である. 実際,
 $$
@@ -722,57 +777,75 @@ $$
 $$
 したがって,
 $$
-\^q_i e^{- \frac{i}{ℏ} a_j \^p^j} |q⟩ = e^{- \frac{i}{ℏ} a_j \^p^j} (\^q_i + a_i) |q⟩ = (q_i + a_i) e^{- \frac{i}{ℏ} a_j \^p^j} |q⟩.
+\^q_i e^{- \frac{i}{ℏ} a_j \^p^j} |q,t⟩ = e^{- \frac{i}{ℏ} a_j \^p^j} (\^q_i + a_i) |q,t⟩ = (q_i + a_i) e^{- \frac{i}{ℏ} a_j \^p^j} |q,t⟩.
 $$
 $$
-∴ e^{- \frac{i}{ℏ} a_i \^p^i} |q⟩ = |q + a⟩.
+∴ e^{- \frac{i}{ℏ} a_i \^p^i} |q,t⟩ = |q+a,t⟩.
 $$
-一般の状態ベクトル $|ψ⟩$ に $e^{- \frac{i}{ℏ} a_i \^p^i}$ を作用させることを考える:
-$$
-\begin{aligned}
-  e^{- \frac{i}{ℏ} a_i \^p^i} |ψ⟩
-    &= e^{- \frac{i}{ℏ} a_i \^p^i} \pqty{∫ \dd{{}^D q'} |q'⟩ ⟨q'|} |ψ⟩
-    = ∫ \dd{{}^D q'} e^{- \frac{i}{ℏ} a_i \^p^i} |q'⟩ ⟨q' ∣ ψ⟩ \\
-    &= ∫ \dd{{}^D q'} ψ(q') |q' + a⟩ \\
-    &= ∫ \dd{{}^D q'} ψ(q' - a) |q'⟩.
-\end{aligned}
-$$
-左から $⟨q|$ をかけると,
+一般の状態ベクトル $|ψ(t)⟩$ に $e^{- \frac{i}{ℏ} a_i \^p^i}$ を作用させることを考える:
 $$
 \begin{aligned}
-  ⟨q| e^{- \frac{i}{ℏ} a_i \^p^i} |ψ⟩
-    &= ⟨q| ∫ \dd{{}^D q'} ψ(q' - a) |q'⟩ = ∫ \dd{{}^D q'} ψ(q' - a) ⟨q ∣ q'⟩ \\
-    &= ∫ \dd{{}^D q'} ψ(q' - a) δ^D(q'_i - q_i) \\
-    &= ψ(q - a).
+  e^{- \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩
+    &= e^{- \frac{i}{ℏ} a_i \^p^i} \pqty{∫ \dd{{}^D q'} |q',t⟩ ⟨q',t|} |ψ(t)⟩
+    = ∫ \dd{{}^D q'} e^{- \frac{i}{ℏ} a_i \^p^i} |q',t⟩ ⟨q',t ∣ ψ(t)⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q',t) |q'+a,t⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q'-a,t) |q',t⟩.
 \end{aligned}
 $$
-ただし固有状態の直交性 $⟨q ∣ q'⟩ = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
+左から $⟨q,t|$ をかけると,
 $$
-⟨q| \pqty{1 - \frac{i}{ℏ} a_i \^p^i} |ψ⟩ = \pqty{1 - a_i \pdv{}{q_i}} ψ(q). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ⟩ = - \pdv{}{q_i} ψ(q).
+\begin{aligned}
+  ⟨q,t| e^{- \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩
+    &= ⟨q,t| ∫ \dd{{}^D q'} ψ(q'-a,t) |q',t⟩ = ∫ \dd{{}^D q'} ψ(q'-a,t) ⟨q,t ∣ q',t⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q'-a,t) δ^D(q'_i - q_i) \\
+    &= ψ(q-a,t).
+\end{aligned}
+$$
+ただし固有状態の直交性 $⟨q,t ∣ q',t⟩ = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
+$$
+⟨q,t| \pqty{1 - \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩ = \pqty{1 - a_i \pdv{}{q_i}} ψ(q,t). \quad ∴  - \frac{i}{ℏ} ⟨q,t| \^p^i |ψ(t)⟩ = - \pdv{}{q_i} ψ(q,t).
 $$
 $$
-∴ \hat{p}^i ψ(q) = ⟨q| \^p^i |ψ⟩ = - i ℏ \pdv{}{q_i} ψ(q).
+∴ \hat{p}^i ψ(q,t) = ⟨q,t| \^p^i |ψ(t)⟩ = - iℏ \pdv{}{q_i} ψ(q,t).
 $$
 
-固有波動関数 $ψ_p(q)$ に対し,
+固有波動関数 $ψ_p(q,t)$ に対し,
 $$
-- i ℏ \pdv{}{q_i} ψ_p(q) = \^p^i ψ_p(q) = p^i ψ_p(q).
+- i ℏ \pdv{}{q_i} ψ_p(q,t) = \^p^i ψ_p(q,t) = p^i ψ_p(q,t).
 $$
 $$
-∴ ψ_p(q) = ⟨q ∣ p⟩ = \frac1{(\sqrt{2π ℏ})^D} e^{\frac{i}{ℏ} q_i p^i}.
+∴ ψ_p(q,t) = ⟨q,t ∣ p,t⟩ = \frac1{(\sqrt{2π ℏ})^D} e^{\frac{i}{ℏ} q_i p^i}.
 $$
 ただし, $D$ は一般化座標の次元とし, 固有状態の直交性を満たすよう定数を取った:
 $$
 \begin{aligned}
-  ⟨p' ∣ p⟩ &= ⟨p'| \pqty{∫ \dd{{}^Dq} |q⟩ ⟨q|} |p⟩ = ∫ \dd{{}^D q} ⟨p' ∣ q⟩ ⟨q ∣ p⟩ \\
-    &= ∫ \dd{{}^D q} ψ_{p'}^{*}(q) ψ_p(q) = ∫ \frac{\dd{{}^D q}}{(2π ℏ)^D} e^{\frac{i}{ℏ} q_i (p^i - {p'}^i)} \\
+  ⟨p',t ∣ p,t⟩ &= ⟨p',t| \pqty{∫ \dd{{}^Dq} |q,t⟩ ⟨q,t|} |p,t⟩ = ∫ \dd{{}^D q} ⟨p',t ∣ q,t⟩ ⟨q,t ∣ p,t⟩ \\
+    &= ∫ \dd{{}^D q} ψ_{p',t}^{*}(q) ψ_p(q,t) = ∫ \frac{\dd{{}^D q}}{(2π ℏ)^D} e^{\frac{i}{ℏ} q_i (p^i - {p'}^i)} \\
     &= δ^D(p^i - {p'}^i).
 \end{aligned}
 $$
 
-#### 例: 調和振動子
+### Schrödinger 方程式
 
-調和振動子の Hamiltonian は
+Schrödinger の運動方程式に $\^H = \^H(\^q_i, \^p^i)$ を代入したものを **Schrödinger 方程式**という:
+$$
+iℏ \dv{}{t} ψ(q, t) = \^H(\^q_i, \^p^i) ψ(q, t).
+$$
+
+#### 例: 一次元一粒子系
+
+一次元一粒子系の Hamiltonian は
+$$
+H(q,p) = \frac{p^2}{2m} + V(q).
+$$
+正準量子化して, Hamiltonian の演算子は
+$$
+\^H(\^q_i, \^p^i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q).
+$$
+したがって Schrödinger 方程式は,
+$$
+iℏ \dv{}{t} ψ(q, t) = \bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t).
+$$
 
 ## 場の解析力学
 

@@ -630,23 +630,79 @@ $$
     &= \^U^{-1}(t) \^A \^U(t) \^U^{-1}(t) \^B \^U(t) - \^U^{-1}(t) \^B \^U(t) \^U^{-1}(t) \^A \^U(t) \\
     &= \^U^{-1}(t) \^A \^B \^U(t) - \^U^{-1}(t) \^B \^A \^U(t) \\
     &= \^U^{-1}(t) (\^A \^B - \^B \^A) \^U(t) \\
-    &= \^U^{-1}(t) [\^A, \^B] \^U(t) := [\^A, \^B]_\mathrm{H}.
+    &= \^U^{-1}(t) [\^A, \^B] \^U(t) = [\^A, \^B]_\mathrm{H}.
 \end{aligned}
 $$
+ただし, 演算子 $\^A_1,…$ の関数 $f(\^A_1,…)$ について, $f(\^A_1,…)_\mathrm{H} := \^U^{-1}(t) f(\^A_1,…) \^U(t)$ とした.
 
 ### 正準量子化
 
 古典力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子力学における交換関係 $\displaystyle -\frac{i}{ℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \mapsto -\frac{i}{ℏ}[\^A,\^B]_\mathrm{H}.
+\{A,B\}_\mathrm{P} \mapsto -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
 $$
 
-正準変数 $(q_i, p^i)$ に対し, 演算子 $(\^q_i, \^p^i)$ が**正準交換関係**と呼ばれる以下の対応を満たす:
+時間に依存しない物理量 $A(q_i,p^i)$ の時間発展を正準量子化して,
+$$
+\dv{A}{t} = \{A, H\}_\mathrm{P}
+\quad \overset{\text{正準量子化}}{⟶} \quad
+\dv{\^A_\mathrm{H}}{t} = -\frac{i}{ℏ}[\^A_\mathrm{H},\^H_\mathrm{H}].
+$$
+$$
+∴ iℏ \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H_\mathrm{H}].
+$$
+ここで, 両辺それぞれ計算して,
 $$
 \begin{aligned}
-  \{ q_i, p^j \}_\mathrm{P} &= δ_i^j, & &↔ & - \frac{i}{ℏ} [\^q_i, \^p^j] &= δ_i^j, \\
-  \{ q_i, q_j \}_\mathrm{P} &= 0, & &↔ & - \frac{i}{ℏ} [\^q_i, \^q_j] &= 0, \\
-  \{ p^i, p^j \}_\mathrm{P} &= 0, & &↔ & - \frac{i}{ℏ} [\^p^i, \^p^j] &= 0. \\
+  iℏ \dv{\^A_\mathrm{H}}{t}
+    &= iℏ \dv{}{t} \bqty{\^U^{-1}(t) \^A \^U(t)} \\
+    &= iℏ \dv{\^U^{-1}(t)}{t} \^A \^U(t) + iℏ \^U^{-1}(t) \^A \dv{\^U(t)}{t}, \\
+  [\^A_\mathrm{H},\^H_\mathrm{H}]
+    &= \^U^{-1}(t) \^A \^H \^U(t) + \^U^{-1}(t) \^H \^A \^U(t).
+\end{aligned}
+$$
+辺々比較して,
+$$
+iℏ \dv{\^U(t)}{t} = \^H \^U(t).
+$$
+これは時間発展演算子 $\^U(t)$ に関する微分方程式である. 解は, Hamiltonian が時間に陽に依存しているとき,
+$$
+U(t) = \exp \bqty{- \frac{i}{ℏ} ∫_0^t \dd{t'} \^H(t')},
+$$
+または Hamiltonian が時間に陽に依存しないとき,
+$$
+U(t) = e^{- \frac{i}{ℏ} t \^H}.
+$$
+一般に, 時間変化する $A(q_i,p^i,t)$ に関する時間発展の正準量子化は
+$$
+\begin{aligned}
+  \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
+  \overset{\text{正準量子化}}{⟶} \quad
+  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H_\mathrm{H}] + \pqty{\dv{\^A}{t}}_\mathrm{H}.
+\end{aligned}
+$$
+これは観測量 $A$ の時間発展を表した方程式であり, **Heisenberg の運動方程式**という. また, $\^U(t)$ に関する微分方程式を $|ψ⟩$ に作用させると,
+$$
+\begin{aligned}
+  iℏ \dv{\^U(t)}{t} |ψ⟩ &= \^H \^U(t) |ψ⟩. \\
+  ∴ iℏ \dv{}{t} |ψ(t)⟩ &= \^H |ψ(t)⟩.
+\end{aligned}
+$$
+これは状態 $|ψ(t)⟩$ の時間発展を表した方程式であり, **Schrödinger の運動方程式**という.
+
+正準変数 $(q_i, p^i)$ に対して正準量子化すると, 演算子 $(\^q_i, \^p^i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
+$$
+\begin{aligned}
+  \{ q_i, p^j \}_\mathrm{P} &= δ_i^j, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= δ_i^j, \\
+  ⇔ [{\^q_i}, {\^p^j}] &= iℏ.
+\end{aligned}
+$$
+$$
+\begin{aligned}
+  \{ q_i, q_j \}_\mathrm{P} = \{ p^i, p^j \}_\mathrm{P} &= 0, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^q_j}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p^i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= 0. \\
+  ⇔ [\^q_i, \^q_j] = [\^p^i, \^p^j] &= 0. \\
 \end{aligned}
 $$
 正準変数を変数として持つ物理量 $A = A(q_i, p^i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A = \^A(\^q_i, \^p^i)$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する.

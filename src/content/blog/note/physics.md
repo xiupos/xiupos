@@ -227,7 +227,7 @@ $$
 &=  \lim_{ε → 0}
     \frac1ε
     ∫ \dd{t'} \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} ε δ(t' - t) + \left. \pdv{L}{\.{q_i}_i} \right|_{t = t'} ε \.δ(t' - t)
+      \left. \pdv{L}{q_i} \right|_{t = t'} ε δ(t' - t) + \left. \pdv{L}{\.q_i} \right|_{t = t'} ε \.δ(t' - t)
       + o(ε^2)
     } \\
 &=  ∫ \dd{t} \bqty{

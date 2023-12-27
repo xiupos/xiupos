@@ -696,7 +696,7 @@ $$
 
 古典力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子力学における交換関係 $\displaystyle -\frac{i}{ℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \mapsto -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
+\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
 $$
 
 正準変数 $(q_i, p^i)$ に対して正準量子化すると, 演算子 $(\^q_i, \^p^i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
@@ -725,7 +725,7 @@ S[q(t)] = ∫_{t_A}^{t_B} \dd{t} L(q, \.q, t)
 $$
 で与えられる. このとき, 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
 $$
-K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ = \int_{q_i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
+K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
 $$
 
 位置表示の波動関数に対して以下が成立する:

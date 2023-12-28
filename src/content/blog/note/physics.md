@@ -33,16 +33,27 @@ $$
 - $\displaystyle F[φ(x)] = ∫ \dd{x} g(x) φ(x)$:
 $$
 \begin{aligned}
-  \fdv{}{φ(y)} ∫ \dd{x} g(x) φ(x) =
-  &=  \lim_{h→0} \frac1h \bqty{∫ \dd{x} g(x) (φ(x) + hδ(x-y)) - ∫ \dd{x} g(x) φ(x)} \\
-  &=  \lim_{h→0} \frac1h ∫ \dd{x} g(x) hδ(x-y) \\
-  &=  ∫ \dd{x} g(x) δ(x-y) =  g(y).
+  \fdv{}{φ(y)} ∫ \dd{x} g(x) φ(x)
+    &=  \lim_{h→0} \frac1h \bqty{∫ \dd{x} g(x) (φ(x) + hδ(x-y)) - ∫ \dd{x} g(x) φ(x)} \\
+    &=  \lim_{h→0} \frac1h ∫ \dd{x} g(x) hδ(x-y) \\
+    &=  ∫ \dd{x} g(x) δ(x-y) =  g(y).
 \end{aligned}
 $$
 
 - $F[φ(x)] = φ(x')$:
 $$
 \fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \dd{z} δ(x'-z) φ(z) = δ(x'-y).
+$$
+
+- $\displaystyle F[φ(x)] = ∫ \dd{x} g(φ(x))$:
+$$
+\begin{aligned}
+  \fdv{}{φ(y)} ∫ \dd{x} g(φ(x))
+    &= \lim_{h→0} \frac1h \bqty{∫ \dd{x} g(φ(x) + hδ(x-y)) - ∫ \dd{x} g(φ(x))} \\
+    &= \lim_{h→0} \frac1h \qty{∫ \dd{x} \bqty{h \dv{g(φ(x))}{φ(x)} δ(x-y) + O(h^2)}} \\
+    &= \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
+    &= \dv{g(φ(y))}{φ(y)}.
+\end{aligned}
 $$
 
 ### 汎関数羃級数
@@ -95,8 +106,8 @@ $$
     &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
     &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \dd{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
     &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
-    &=  \lim_{h→0} \frac1h \bqty{h \left.\dv{g(z)}{z}\right|_{z=F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
-    &=  g'(F[φ(x)]) \fdv{F[φ(x)]}{φ(y)}. \qquad \pqty{g'(x):=\dv{g(x)}{x}}
+    &=  \lim_{h→0} \frac1h \bqty{h \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+    &=  \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)}.
 \end{aligned}
 $$
 
@@ -227,11 +238,11 @@ $$
 &=  \lim_{ε → 0}
     \frac1ε
     ∫ \dd{t'} \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} ε δ(t' - t) + \left. \pdv{L}{\.q_i} \right|_{t = t'} ε \.δ(t' - t)
+      \pdv{L}{q_i(t')} ε δ(t' - t) + \pdv{L}{\.q_i(t')} ε \.δ(t' - t)
       + o(ε^2)
     } \\
 &=  ∫ \dd{t} \bqty{
-      \left. \pdv{L}{q_i} \right|_{t = t'} δ(t' - t) + \left. \pdv{L}{\.q_i} \right|_{t = t'} \.δ(t' - t)
+      \pdv{L}{q_i(t')} δ(t' - t) + \pdv{L}{\.q_i(t')} \.δ(t' - t)
     } \\
 &=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}}. \qquad \pqty{∵ ∫ \dd{t'} f(t') \.δ(t' - t) = - \.f(t)}
 \end{aligned}
@@ -703,19 +714,19 @@ $$
 $$
 \begin{aligned}
   \{ q_i, p^j \}_\mathrm{P} &= δ_i^j, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= δ_i^j, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}{}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= δ_i^j, \\
   ⇔ \quad [{\^q_i}, {\^p^j}] &= iℏ δ_i^j.
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \{ q_i, q_j \}_\mathrm{P} = \{ p^i, p^j \}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}_\mathrm{H}, {\^q_j}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p^i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= 0. \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}{}_\mathrm{H}, {\^q_j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p^i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= 0. \\
   ⇔ \quad [\^q_i, \^q_j] = [\^p^i, \^p^j] &= 0. \\
 \end{aligned}
 $$
 
-正準変数を変数として持つ物理量 $A = A(q_i, p^i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A |ψ(t)⟩ = A(\^q_i, \^p^i) |ψ(t)⟩$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する. また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したもの $\^A_B ψ(b,t) = A({\^q_i}_B, {\^p^i}_B) ψ(b,t)$ となるが, 正準変数の演算子が $b$ とそれの微分の関数 $({\^q_i}_B, {\^p^i}_B) = ({q_i}_B(b, \pdv{}{b}), {p^i}_B(b, \pdv{}{b}))$ であるとき, これを Schrödinger 表現という.
+正準変数を変数として持つ物理量 $A = A(q_i, p^i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A |ψ(t)⟩ = A(\^q_i, \^p^i) |ψ(t)⟩$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する. また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したもの $\^A_B ψ(b,t) = A({\^q_i}{}_B, {\^p^i}_B) ψ(b,t)$ となるが, 正準変数の演算子が $b$ とそれの微分の関数 $({\^q_i}{}_B, {\^p^i}_B) = ({q_i}{}_B(b, \pdv{}{b}), {p^i}_B(b, \pdv{}{b}))$ であるとき, これを Schrödinger 表現という.
 
 #### 経路積分量子化
 
@@ -808,7 +819,7 @@ $$
 これに対応する $\^p^i$ の表現を求める. ある定数 $a_i$ に対し, $e^{\frac{i}{ℏ} a_j \^p^j} \^q_i e^{- \frac{i}{ℏ} a_j \^p^j} = \^q_i + a_i$ である. 実際,
 $$
 \begin{aligned}
-  \dv{}{a_j} (e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k})
+  \dv{(e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k})}{a_j}
     &=  \dv{e^{\frac{i}{ℏ} a_k \^p^k}}{a_j} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} + e^{\frac{i}{ℏ} a_k \^p^k} \^q_i \dv{e^{- \frac{i}{ℏ} a_k \^p^k}}{a_j} \\
     &=  \frac{i}{ℏ} \^p^j e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a_k \^p^k} \^q_i \^p^j e^{- \frac{i}{ℏ} a_k \^p^k} \\
     &=  \frac{i}{ℏ} \^p^j e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a_k \^p^k} (i ℏ δ_i^j + \^p^j \^q_i) e^{- \frac{i}{ℏ} a_k \^p^k} \\
@@ -846,7 +857,7 @@ $$
 $$
 ただし固有状態の直交性 $⟨q ∣ q'⟩ = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
 $$
-⟨q| \pqty{1_\mathcal{H} - \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩ = \pqty{1_\mathcal{H} - a_i \pdv{}{q_i}} ψ(q,t). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ(t)⟩ = - \pdv{}{q_i} ψ(q,t).
+⟨q| \pqty{1_{\mathcal{H}} - \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩ = \pqty{1_{\mathcal{H}} - a_i \pdv{}{q_i}} ψ(q,t). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ(t)⟩ = - \pdv{}{q_i} ψ(q,t).
 $$
 $$
 ∴ \^p^i ψ(q,t) = ⟨q| \^p^i |ψ(t)⟩ = - iℏ \pdv{}{q_i} ψ(q,t).
@@ -1253,8 +1264,8 @@ $$
 $$
 \xymatrix{
   F \ar[r]_-{φ_{i,p}} & π^{-1}(p) & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{φ_{j,p}} & T^{*}_pM ⊗ F \ar[r]_-{φ_{i,p}} & T^{*}_pM ⊗ π^{-1}(p) & T^{*}_pM ⊗ F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{φ_{j,p}} \\
-  & \ \ar@{|.>}@/^5pt/[rrr]^{D} &&& \ \\
-  \{p\} \ar[uu]^{ϕ_i} \ar@{=}[r] & \{p\} \ar[uu]^{ϕ} & \{p\} \ar@{=}[l] \ar[uu]_{ϕ_j} & \{p\} \ar@{=}[r] \ar[uu]_{ϕ_i} & \{p\} \ar[uu]_{ϕ} & \{p\} \ar@{=}[l] \ar[uu]_{ϕ_j}
+  & \ \ar@{|.>}@/^8pt/[rrr]^{D} &&& \ \\
+  \{p\} \ar[uu]^{ϕ_i} \ar@{=}[r] & \{p\} \ar[uu]^{ϕ} & \{p\} \ar@{=}[l] \ar[uu]_{ϕ_j} & \{p\} \ar@{=}[r] \ar[uu]_{(d+A_i)ϕ_i} & \{p\} \ar[uu]_{Dϕ} & \{p\} \ar@{=}[l] \ar[uu]_{(d+A_j)ϕ_j}
 }
 $$
 

@@ -12,26 +12,29 @@ math : true
 
 **底空間** base space と呼ばれる空間 $B$ と**全空間** total space と呼ばれる空間 $E$ に対して, **射影** projection と呼ばれる写像 $π : E → B$ があるとき, 三対 $(E, π, B)$ を**束** bundle という. $E \xrightarrow{π} B$, または単に $E$ を束と呼ぶこともある.
 $$
-\xymatrix{
-  E \ar[d]^{π} \\
+\begin{CD}
+  E \\
+  @VVπV \\
   B
-}
+\end{CD}
 $$
 
 任意の $b ∈ B$ について, 射影による逆像 $π^{-1}(b) ∈ E$ を束の $b$ 上の**ファイバー** fibre という. 位相空間 $B$, $E$ を底空間, 全空間に持つ束 $E \xrightarrow{π} B$ に対し, 位相空間 $F$ が任意の $b ∈ B$ 上のファイバーと同相であるとき, $F$ を束のファイバーという. 特に $E = B × F$ であるとき, この束 $E$ は**自明な束** trivial bundle という. このときの射影は $π = \mathrm{prod}_1$.
 $$
-\xymatrix{
-  B × F \ar[d]^{\mathrm{prod}_1} \\
+\begin{CD}
+  B × F \\
+  @VV\mathrm{prod}_1V \\
   B
-}
+\end{CD}
 $$
 
 また, 写像 $σ : B → E$ が $π ∘ σ = 1_B$ を満たすとき, $σ$ を**切断** cross section という. 言い換えると, 切断とは, 任意の底空間上の点 $b ∈ B$ に対して各ファイバー上の 1 点 $σ(b) ∈ π^{-1}(b)$ を決める写像 $σ$ である. 束 $E$ の切断の全体を $Γ(E)$ と表す.
 $$
-\xymatrix{
+\begin{CD}
   E \\
-  B \ar[u]_{σ ∈ Γ(E)}
-}
+  @AAσ ∈ Γ(E)A \\
+  B
+\end{CD}
 $$
 
 ### ファイバー束と構造群
@@ -79,18 +82,20 @@ $$
 
 ベクトル束 $E \xrightarrow{x} M$ に対し, $M$ の余接空間の $k$ 次交代テンソル空間 $Λ^k (T^{*}M) := \bigcup_{p ∈ M} Λ^k (T^{*}_pM)$ を付け加えた $Λ^k (T^{*}M) ⊗ E \xrightarrow{π_1} M$ の切断 $Ω^{k} (M, E) := Γ(Λ^k (T^{*}M) ⊗ E)$ を $E$ に値を取る **$k$-形式** $k$-form の空間という.
 $$
-\xymatrix{
+\begin{CD}
   Λ^k (T^{*}M) ⊗ E \\
-  M \ar[u]_{ϕ ∈ Ω^{k} (M, E)}
-}
+  @AAϕ ∈ Ω^{k} (M, E)A \\
+  M
+\end{CD}
 $$
 
 ベクトル束 $E$ が自明な直線束であるとき単に $Ω^k (M) := Ω^k (M, E) = Γ(Λ^k (T^{*}M))$ と書き, 単に $k$-形式の空間という.
 $$
-\xymatrix{
+\begin{CD}
   Λ^k (T^{*}M) \\
-  M \ar[u]_{ω ∈ Ω^{k} (M)}
-}
+  @AAϕ ∈ Ω^{k} (M)A \\
+  M
+\end{CD}
 $$
 
 #### 全微分 : $Ω^0 (M) → Ω^1 (M)$

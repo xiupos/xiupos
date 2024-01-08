@@ -60,14 +60,16 @@ $$
 $$
 定義式の極限値が存在するとき, $f(z)$ は $z$ で微分可能であるという.
 
-微分の定義式において $Δz = |Δz| e^{iθ}$ とすると,
+$f(z)=u(z)+iv(z)$ が $z=x+iy$ で微分可能である条件は, $u(x,y) := u(x+iy)$, $v(x,y) := v(x+iy)$ として, 以下の方程式が成立することである. これを **Cauchy-Riemann 方程式** Cauchy-Riemann equation という:
 $$
-\dv{f}{z} = \lim_{|Δz|→0} \frac{e^{-iθ}}{|Δz|} \Big[f(z + |Δz| e^{iθ}) - f(z)\Big].
+\pdv{u}{x} = \pdv{v}{y}, \quad \pdv{u}{y} = - \pdv{v}{x}.
 $$
-$f(z)$ が $z$ で微分可能であるための条件は, この値が $θ$ によらないことである. $f(z)=u(z)+iv(z)$ が $z=x+iy$ で微分可能であるとき, $u(x,y) := u(x+iy)$, $v(x,y) := v(x+iy)$ として,
+実際, 微分の定義式において $Δz = |Δz| e^{iθ}$ とすると, $f(z)$ が $z$ で微分可能であるための条件は, この値が $θ$ によらないことである. したがって,
 $$
 \begin{aligned}
   \dv{f}{z}
+    &=  \lim_{|Δz|→0} \frac{e^{-iθ}}{|Δz|}
+        \Big[f(z + |Δz| e^{iθ}) - f(z)\Big] \\
     &=  \lim_{|Δz|→0} \frac{e^{-iθ}}{|Δz|}
         \Big[
               u(x + |Δz| \cos θ, y + |Δz| \sin θ)
@@ -95,14 +97,9 @@ $$
               \pqty{\pdv{u}{y} + \pdv{v}{x}}
             - i \pqty{\pdv{u}{x} - \pdv{v}{y}}
           }
-          e^{-iθ} \sin θ
+          e^{-iθ} \sin θ.
 \end{aligned}
 $$
-したがって, $f(z)=u(z)+iy(z)$ が $z=x+yi$ で微分可能であるための条件は,
-$$
-\pdv{u}{x} = \pdv{v}{y}, \quad \pdv{u}{y} = - \pdv{v}{x}.
-$$
-これを **Cauchy-Riemann 方程式** Cauchy-Riemann equation という.
 
 ### 正則関数と特異点
 
@@ -190,16 +187,32 @@ $z=a$ において正則な関数 $f(z)$ を以下の冪級数に展開するこ
 $$
 \begin{gathered}
   f(z) = ∑_{n=0}^∞ A_n (z-a)^n = A_0 + A_1 (z-a) + A_2 (z-a)^2 + ⋯ \\
-  A_n = \frac1{2πi} ∮_C \dd{z} \frac{f(z)}{(z-a)^{n+1}} = \frac{f^{(n)}(a)}{n!}. \quad (∵\text{Goursat の定理})
+  A_n = \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{(ζ-a)^{n+1}} = \frac{f^{(n)}(a)}{n!}. \quad (∵\text{Goursat の定理})
 \end{gathered}
 $$
-ただし $z=a$ を中心として $f(z)$ が正則である半径 $R$ の円領域 $D$ に対し, $C$ は $z=a$ を囲む $D$ 内の閉曲線. また収束半径は $R$.
+ただし $z=a$ を中心として $f(z)$ が正則である最大の半径 $R$ の円領域 $D$ に対し, $C$ は $z=a$ を囲む $D$ 内の閉曲線. また収束半径は $R$. 実際, Cauchy の積分定理より $C = ∂D$ として十分, Cauchy の積分公式より
+$$
+\begin{aligned}
+  f(z)
+    &=  \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{ζ-z} \\
+    &=  \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{ζ-a} \frac1{\displaystyle 1-\frac{z-a}{ζ-a}} \\
+    &=  \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{ζ-a} ∑_{n=0}^∞ \pqty{\frac{z-a}{ζ-a}}^n \\
+    &=  ∑_{n=0}^∞ (z-a)^n \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{(ζ-a)^{n+1}}.
+\end{aligned}
+$$
+ただし, $|z|<1$ に対し以下が成立することを用いた:
+$$
+\begin{gathered}
+  ∑_{n=0}^{N-1} z^n - z ∑_{n=0}^{N-1} z^n = 1 - z^N. \\
+  ∴ ∑_{n=0}^{N-1} z^n = \frac{1-z^N}{1-z} \quad \xrightarrow{N→∞} \quad ∑_{n=0}^∞ z^n = \frac1{1-z}.
+\end{gathered}
+$$
 
 $z=a$ を極あるいは真性特異点として持つ関数 $f(z)$ を以下の冪級数に展開することができる. これを $z=a$ まわりの **Laurent 級数展開**という:
 $$
 \begin{gathered}
   f(z) = ∑_{n=-∞}^∞ A_n (z-a)^n = ⋯ + \frac{A_{-1}}{z-a} + A_0 + A_1 (z-a) + ⋯, \\
-  A_n = \frac1{2πi} ∮_C \dd{z} \frac{f(z)}{(z-a)^{n+1}}.
+  A_n = \frac1{2πi} ∮_C \dd{ζ} \frac{f(ζ)}{(ζ-a)^{n+1}}.
 \end{gathered}
 $$
 ただし $z=a$ を中心として $f(z)$ が正則である円環領域 $D$ に対し, $C$ は $z=a$ を囲む $D$ 内の閉曲線. $n < 0$ 項を $f(z)$ **主要部**という.
@@ -263,4 +276,26 @@ $$
 
 #### 定積分への応用
 
-### 分岐点を持つ関数
+### 一致の定理と解析接続
+
+2 関数 $f(z)$, $g(z)$ がどちらも領域 $D$ で正則で, $D$ の部分領域 $D_0$ において $f(z) = g(z)$ であるとき, $D$ においても $f(z) = g(z)$ である. これを**一致の定理**という. 実際, $h(z) := f(z) - g(z)$ の Tayler 展開の係数 $\{A_n\}$ を考えると, $D_0$ 内の点まわりでの Tayler 展開では $h(z) = 0$ より $\{A_n = 0\}$. したがって $D_0$ 外の点でも $f(z) = g(z)$ である.
+
+領域 $D_0$ で定義された関数 $f_0(z)$ に対し, $D_0$ を含む領域 $D$ で $f_0(z)$ が正則かつ, 同様に正則な $f(z)$ が $D_0$ で $f_0(z) = f(z)$ であるとき, $f(z)$ を $D$ への $f_0(z)$ の**解析接続** analytic continuation という. $f(z)$ が存在すればただ一つである. 実際, $f_0(z)$ に対し $D_0$ で一致する関数が複数存在する場合も, 一致の定理よりそれらは $D$ において同一の関数である.
+
+#### 解析接続の例
+
+- $\displaystyle \frac1{1-z}$ は $ℂ \setminus \{1\}$ への $\displaystyle ∑_{n=0}^∞ z^n$ の解析接続 ($|z|<0$ において一致).
+
+- $\Re{z}>0$ で定義されるガンマ関数 $\displaystyle Γ(z) := ∫_0^∞ \dd{x} x^{z-1} e^{-x}$ に対し, $\displaystyle \frac{Γ(z+1)}{z}$ は $\Re{z}>-1$ への $Γ(z)$ の解析接続である. 帰納的に解析接続を繰り返すことでガンマ関数の $\Re{z}<0$ への解析接続が得られる. 実際, $\Re{z}>0$ で
+$$
+\begin{aligned}
+  Γ(z+1)
+    &= ∫_0^∞ \dd{x} x^z e^{-x} \\
+    &= \bqty{-x^ze^{-x}}_0^∞ + z ∫_0^∞ \dd{x} x^{z-1} e^{-x} \\
+    &= z Γ(z).
+\end{aligned}
+$$
+
+### リーマン面
+
+ある関数に関し, その点を中心とする閉曲線に沿って一周するとき, 周回の度に値が変わるような特異点を**分岐点**といい, このような関数を**多価関数**という.

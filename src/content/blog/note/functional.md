@@ -15,7 +15,11 @@ math : true
 
 ### 汎関数の考え方
 
-区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, ある関数 $f_N(φ_0,…,φ_N)$ の分割数を極限まで増やしたものと見做すことができる. たとえば $\displaystyle F[φ(x)] = ∫_a^b \dd{x} φ(x)$ では, Riemann 積分の考え方を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} φ_n (x_n - x_{n-1})$ $\overset{N→∞}{⟶} F[φ(x)]$. または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
+区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, $φ_n := φ(x_n)$ として, ある関数 $f_N(φ_0,…,φ_N)$ の分割数を極限まで増やしたものと見做すことができる. たとえば $\displaystyle F[φ(x)] = ∫_a^b \dd{x} φ(x)$ では, Riemann 積分の考え方を用いて,
+$$
+f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} φ_n (x_n - x_{n-1}) (x_n - x_{n-1}) \overset{N→∞}{⟶} ∫_a^b \dd{x} φ(x) = F[φ(x)].
+$$
+または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
 f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N} x_n^2 \Delta{x} \overset{N→∞}{⟶} ∫_a^b \dd{x} x^2 = F[x^2].
 $$
@@ -112,13 +116,13 @@ $$
 1. $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$:
 $$
 \begin{aligned}
-  \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n}
-    &= \lim_{h→0} \frac1h \left[∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
-      &\qquad\qquad\quad - \left.∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
-    &= \lim_{h→0} \frac1h ∫ \dd{z} \fdv{}{z} \pqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
-    &= \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
-    &= n ∫ \dd{y_1} ⋯ ∫ \dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
-    &= n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
+   &\ \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n} \\
+  =&\ \lim_{h→0} \frac1h \left[∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
+    &\qquad\qquad\quad - \left.∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
+  =&\ \lim_{h→0} \frac1h ∫ \dd{z} \fdv{}{z} \pqty{∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
+  =&\ \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \dd{y_1} ⋯ ∫ \dd{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
+  =&\ n ∫ \dd{y_1} ⋯ ∫ \dd{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
+  =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
 \end{aligned}
 $$
 

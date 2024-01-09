@@ -115,6 +115,42 @@ $$
 m\"q + m ω^2 q = 0.
 $$
 
+### Noether の定理
+
+時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. この変換で作用が不変 $δS=0$ とするとき,
+$$
+\begin{aligned}
+  δS[q^i]
+    &=  ∫ \dd{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫ \dd{t} L(q^i(t),\.q^i(t),t) \\
+    &   \quad \pqty{\dd{t'} = \dd{t} \dv{t'}{t} = \dd{t}(1+δ\.t)} \\
+    &=  ∫ \dd{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
+    & \quad \pqty{
+        ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
+      } \\
+    &=  ∫ \dd{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
+    &=  ∫ \dd{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) := q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
+    &=  ∫ \dd{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫ \dd{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫ \dd{t} \bqty{
+        ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i}}
+      } \\
+    &=  ∫ \dd{t} \qty{
+          δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+        + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
+      } \\
+    &=  ∫ \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}}}. \\
+\end{aligned}
+$$
+ここで, 第一項は Euler–Lagrange の運動方程式より $0$, 第二項は積分範囲は任意だから,
+$$
+\begin{gathered}
+  \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}}} = 0. \\
+  ∴ δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}} = \mathrm{const.}
+\end{gathered}
+$$
+
 ### Hamilton の運動方程式
 
 **一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ p_i \.q^i - L$ を定義する. Hamiltonian の全微分は,

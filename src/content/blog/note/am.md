@@ -10,71 +10,71 @@ math : true
 
 ### 最小作用の原理
 
-時間に依存する**一般化座標**と呼ばれるパラメータ $q_i$ に対して, **作用** action と呼ばれる汎関数 $S[q_i]$ が存在し, $q_i$ は物理現象において $S[q_i]$ が最小となるよう変化する. つまり, 停留条件 $δS[q_i] = 0$ を満たす.
+時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 停留条件 $δS[q^i] = 0$ を満たす.
 
 ### Euler–Lagrange の運動方程式
 
-作用は, 座標と時間に関する **Lagrangian** $L(q_i, \.q_i, t)$ を用いて以下のように表される:
+作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて以下のように表される:
 $$
-S[q_i] = ∫ \dd{t} L(q_i, \.q_i, t).
+S[q^i] = ∫ \dd{t} L(q^i, \.q^i, t).
 $$
-$q_i + δq_i$ の変分をとって,
+$q^i + δq^i$ の変分をとって,
 $$
 \begin{aligned}
-δS[q_i]
+δS[q^i]
 =&  ∫ \dd{t} \bqty{
-      L\pqty{q_i + δq_i, \.q_i + \dv{δq_i}{t}, t} - L(q_i, \.q_i, t)
+      L\pqty{q^i + δq^i, \.q^i + \dv{δq^i}{t}, t} - L(q^i, \.q^i, t)
     } \\
 =&  ∫ \dd{t} \bqty{
-      δq_i \pdv{L}{q_i} + \dv{δq_i}{t} \pdv{L}{\.q_i}
+      δq^i \pdv{L}{q^i} + \dv{δq^i}{t} \pdv{L}{\.q^i}
     } \\
 =&  ∫ \dd{t} \bqty{
-      δq_i \pdv{L}{q_i}
-      - δq_i \dv{}{t} \pqty{\pdv{L}{\.q_i}}
-      + \dv{}{t} \pqty{ δq_i \pdv{L}{\.q_i} }
+      δq^i \pdv{L}{q^i}
+      - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
+      + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
     }.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
 $$
-δS[q_i]
-= ∫ \dd{t} δq_i \bqty{
-    \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}}
+δS[q^i]
+= ∫ \dd{t} δq^i \bqty{
+    \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
-したがって, 停留条件 $δS[q_i] = 0$ より,
+したがって, 停留条件 $δS[q^i] = 0$ より,
 **Euler–Lagrange の運動方程式**が得られる:
 $$
-\pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}} = 0.
+\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0.
 $$
 
 または, 作用の汎関数微分は
 $$
 \begin{aligned}
-\fdv{S[q_i(t')]}{q_i(t)}
+\fdv{S[q^i(t')]}{q^i(t)}
 &=  \lim_{ε → 0}
-    \frac{S[q_i(t') + ε δ(t' - t)] - S[q_i(t')]}{ε} \\
+    \frac{S[q^i(t') + ε δ(t' - t)] - S[q^i(t')]}{ε} \\
 &=  \lim_{ε → 0}
     \frac1ε
     ∫ \dd{t'} \bqty{
-      L ( q_i(t') + ε δ(t' - t), \.q_i(t') + ε \.δ(t' - t), t')
-      - L (q_i(t'), \.q_i(t'), t')
+      L ( q^i(t') + ε δ(t' - t), \.q^i(t') + ε \.δ(t' - t), t')
+      - L (q^i(t'), \.q^i(t'), t')
     } \\
 &=  \lim_{ε → 0}
     \frac1ε
     ∫ \dd{t'} \bqty{
-      \pdv{L}{q_i(t')} ε δ(t' - t) + \pdv{L}{\.q_i(t')} ε \.δ(t' - t)
+      \pdv{L}{q^i(t')} ε δ(t' - t) + \pdv{L}{\.q^i(t')} ε \.δ(t' - t)
       + o(ε^2)
     } \\
 &=  ∫ \dd{t} \bqty{
-      \pdv{L}{q_i(t')} δ(t' - t) + \pdv{L}{\.q_i(t')} \.δ(t' - t)
+      \pdv{L}{q^i(t')} δ(t' - t) + \pdv{L}{\.q^i(t')} \.δ(t' - t)
     } \\
-&=  \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}}. \qquad \pqty{∵ ∫ \dd{t'} f(t') \.δ(t' - t) = - \.f(t)}
+&=  \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}. \qquad \pqty{∵ ∫ \dd{t'} f(t') \.δ(t' - t) = - \.f(t)}
 \end{aligned}
 $$
 これを用いると Euler–Lagrange の運動方程式は
 $$
-\fdv{S[q_i(t')]}{q_i(t)} = \pdv{L}{q_i} - \dv{}{t} \pqty{\pdv{L}{\.q_i}} = 0.
+\fdv{S[q^i(t')]}{q^i(t)} = \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0.
 $$
 
 #### 例: 一次元一粒子系
@@ -117,25 +117,25 @@ $$
 
 ### Hamilton の運動方程式
 
-**一般化運動量** $p^i ≡ ∂L / ∂\.q_i$ を用いて, **Hamiltonian** $H(q_i, p^i, t) ≡ p^i \.q_i - L$ を定義する. Hamiltonian の全微分は,
+**一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ p_i \.q^i - L$ を定義する. Hamiltonian の全微分は,
 $$
 \begin{aligned}
-\dd{H} &=  \.q_i \dd{p^i} + p^i \dd{\.q_i} - \dd{L} \\
-    &=  \.q_i \dd{p^i} + p^i \dd{\.q_i}
-        - \pdv{L}{q_i} \dd{q_i} - p^i \dd{\.q_i} - \pdv{L}{t} \dd{t} \\
+\dd{H} &=  \.q^i \dd{p_i} + p_i \dd{\.q^i} - \dd{L} \\
+    &=  \.q^i \dd{p_i} + p_i \dd{\.q^i}
+        - \pdv{L}{q^i} \dd{q^i} - p_i \dd{\.q^i} - \pdv{L}{t} \dd{t} \\
     &   \quad \pqty{
-          ∵ \dd{L} = \pdv{L}{q_i} \dd{q_i} + \pdv{L}{\.q_i} \dd{\.q_i} + \pdv{L}{t} \dd{t}
+          ∵ \dd{L} = \pdv{L}{q^i} \dd{q^i} + \pdv{L}{\.q^i} \dd{\.q^i} + \pdv{L}{t} \dd{t}
         } \\
-    &=  - \pdv{L}{q_i} \dd{q_i} + \.q_i \dd{p^i} - \pdv{L}{t} \dd{t}.
+    &=  - \pdv{L}{q^i} \dd{q^i} + \.q^i \dd{p_i} - \pdv{L}{t} \dd{t}.
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\.p^i = ∂L / ∂q_i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
 \begin{aligned}
-\.p^i = - \pdv{H}{q_i}, && \.q_i = \pdv{H}{p^i}.
+\.p_i = - \pdv{H}{q^i}, && \.q^i = \pdv{H}{p_i}.
 \end{aligned}
 $$
-このとき $p^i$ は $q_i$ に**共役な運動量** conjugate momentum といい, また $(q_i, p^i)$ の組を**正準変数** canonical variables という.
+このとき $p_i$ は $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
 
 また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
@@ -198,49 +198,49 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(p^i, q_i) ↦ (P_j, Q_j) = (P_j(p^i, q_i), Q_j(p^i, q_i))$ に対して Hamiltonian が $H (q_i, p^i) ↦ K (Q_j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (p^i \.q_i - H) = 0$ かつ $δ∫ \dd{t} (P^i \.Q_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(p_i, q^i) ↦ (P_j, q^j) = (P_j(p_i, q^i), q^j(p_i, q^i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (p_i \.q^i - H) = 0$ かつ $δ∫ \dd{t} (p_i \.q^i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
-(p^i \.q_i - H) - (P^i \.Q_i - K) = \dv{W}{t}.
+(p_i \.q^i - H) - (p_i \.q^i - K) = \dv{W}{t}.
 $$
 $$
 ∴
-\dd{W} = p^i \dd{q_i} - P^i \dd{Q_i} + (K - H) \dd{t}.
+\dd{W} = p_i \dd{q^i} - p_i \dd{q^i} + (K - H) \dd{t}.
 $$
-この $W(q_i, Q_i, t)$ を**母関数**といい, 以下を満たす.
+この $W(q^i, q^i, t)$ を**母関数**といい, 以下を満たす.
 $$
 \begin{aligned}
-p^i = \pdv{W}{q_i},
-&& P^i = - \pdv{W}{Q_i},
+p_i = \pdv{W}{q^i},
+&& p_i = - \pdv{W}{q^i},
 && K = H + \pdv{W}{t}.
 \end{aligned}
 $$
 
 ### Poisson 括弧
 
-正準変数 $(q_i, p^i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
+正準変数 $(q^i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \{A, B\}_\mathrm{P}
-≡  \pdv{A}{q_i}\pdv{B}{p^i}
-        - \pdv{B}{q_i}\pdv{A}{p^i}.
+≡  \pdv{A}{q^i}\pdv{B}{p_i}
+        - \pdv{B}{q^i}\pdv{A}{p_i}.
 $$
 例えば,
 $$
 \begin{aligned}
-\{q_i, H\}_\mathrm{P} = \.q_i, && \{p^i, H\}_\mathrm{P} = \.p^i.
+\{q^i, H\}_\mathrm{P} = \.q^i, && \{p_i, H\}_\mathrm{P} = \.p_i.
 \end{aligned}
 $$
 $$
 \begin{aligned}
-\{q_i, q_j\} = \{p^i, p^j\} = 0, && \{q_i, p^j\} = δ_i^j.
+\{q^i, q^j\} = \{p_i, p_j\} = 0, && \{q^i, p_j\} = δ_i^j.
 \end{aligned}
 $$
 
-ある物理量 $A(q_i, p^i, t)$ について, 時間による完全微分は,
+ある物理量 $A(q^i, p_i, t)$ について, 時間による完全微分は,
 $$
 \begin{aligned}
 \dv{A}{t}
-&=  \pdv{A}{q_i} \.q_i + \pdv{A}{p^i} \.p^i + \pdv{A}{t} \\
-&=  \pdv{A}{q_i} \pdv{H}{p^i} + \pdv{A}{p^i} \pdv{H}{q_i} + \pdv{A}{t}.
+&=  \pdv{A}{q^i} \.q^i + \pdv{A}{p_i} \.p_i + \pdv{A}{t} \\
+&=  \pdv{A}{q^i} \pdv{H}{p_i} + \pdv{A}{p_i} \pdv{H}{q^i} + \pdv{A}{t}.
 \end{aligned}
 $$
 Poisson 括弧を用いて書き直すと, 物理量 $A$ の時間発展に関する式が得られる:

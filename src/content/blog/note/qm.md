@@ -126,46 +126,46 @@ $$
 \{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
 $$
 
-正準変数 $(q_i, p^i)$ に対して正準量子化すると, 演算子 $(\^q_i, \^p^i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
+正準変数 $(q^i, p_i)$ に対して正準量子化すると, 演算子 $(\^q^i, \^p_i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
 $$
 \begin{aligned}
-  \{ q_i, p^j \}_\mathrm{P} &= δ_i^j, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}{}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= δ_i^j, \\
-  ⇔ \quad [{\^q_i}, {\^p^j}] &= iℏ δ_i^j.
+  \{ q^i, p_j \}_\mathrm{P} &= δ_i^j, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^p_j}_\mathrm{H}] &= δ_i^j, \\
+  ⇔ \quad [{\^q^i}, {\^p_j}] &= iℏ δ_i^j.
 \end{aligned}
 $$
 $$
 \begin{aligned}
-  \{ q_i, q_j \}_\mathrm{P} = \{ p^i, p^j \}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q_i}{}_\mathrm{H}, {\^q_j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p^i}_\mathrm{H}, {\^p^j}_\mathrm{H}] &= 0. \\
-  ⇔ \quad [\^q_i, \^q_j] = [\^p^i, \^p^j] &= 0. \\
+  \{ q^i, q^j \}_\mathrm{P} = \{ p_i, p_j \}_\mathrm{P} &= 0, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p_i}_\mathrm{H}, {\^p_j}_\mathrm{H}] &= 0. \\
+  ⇔ \quad [\^q^i, \^q^j] = [\^p_i, \^p_j] &= 0. \\
 \end{aligned}
 $$
 
-正準変数を変数として持つ物理量 $A = A(q_i, p^i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A |ψ(t)⟩ = A(\^q_i, \^p^i) |ψ(t)⟩$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する. また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したもの $\^A_B ψ(b,t) = A({\^q_i}{}_B, {\^p^i}_B) ψ(b,t)$ となるが, 正準変数の演算子が $b$ とそれの微分の関数 $({\^q_i}{}_B, {\^p^i}_B) = ({q_i}{}_B(b, \pdv{}{b}), {p^i}_B(b, \pdv{}{b}))$ であるとき, これを Schrödinger 表現という.
+正準変数を変数として持つ物理量 $A = A(q^i, p_i)$ の演算子は, 正準変数の演算子を形式的に代入したもの $\^A |ψ(t)⟩ = A(\^q^i, \^p_i) |ψ(t)⟩$ である. TODO: ただし, $\^A$ が Hermite になるよう適当に正準変数の順序を調整する. また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したもの $\^A_B ψ(b,t) = A({\^q^i}{}_B, {\^p_i}{}_B) ψ(b,t)$ となるが, 正準変数の演算子が $b$ とそれの微分の関数 $({\^q^i}{}_B, {\^p_i}{}_B) = ({q^i}{}_B(b, \pdv{}{b}), {p_i}{}_B(b, \pdv{}{b}))$ であるとき, これを Schrödinger 表現という.
 
 #### 経路積分量子化
 
-時刻 $t_i → t_f$ の運動で粒子が $q_i := q(t_i) → q_f := q (t_f)$ へ移動するときの作用は
+時刻 $t_i → t_f$ の運動で粒子が $q^i := q(t_i) → q_f := q (t_f)$ へ移動するときの作用は
 $$
 S[q(t)] = ∫_{t_A}^{t_B} \dd{t} L(q, \.q, t)
 $$
-で与えられる. このとき, 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
+で与えられる. このとき, 状態 $|q^i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
 $$
-K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
+K(q_f,t_f;q^i,t_i) := ⟨q_f,t_f ∣ q^i,t_i⟩ \overset{\text{要請}}{=} \int_{q^i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
 $$
 
 位置表示の波動関数に対して以下が成立する:
 $$
-ψ(q_f,t_f) = ∫ \dd{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
+ψ(q_f,t_f) = ∫ \dd{{}^D q^i} K(q_f,t_f;q^i,t_i) ψ(q^i,t_i).
 $$
 実際,
 $$
 \begin{aligned}
   ψ(q_f,t_f) &= ⟨q_f,t_f ∣ ψ⟩ \\
-    &= ⟨q_f,t_f| \pqty{∫ \dd{{}^D q_i} |q_i,t_i⟩ ⟨q_i,t_i|} |ψ⟩ \\
-    &= ∫ \dd{{}^D q_i} ⟨q_f,t_f ∣ q_i,t_i⟩ ⟨q_i,t_i ∣ ψ⟩ \\
-    &= ∫ \dd{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
+    &= ⟨q_f,t_f| \pqty{∫ \dd{{}^D q^i} |q^i,t_i⟩ ⟨q^i,t_i|} |ψ⟩ \\
+    &= ∫ \dd{{}^D q^i} ⟨q_f,t_f ∣ q^i,t_i⟩ ⟨q^i,t_i ∣ ψ⟩ \\
+    &= ∫ \dd{{}^D q^i} K(q_f,t_f;q^i,t_i) ψ(q^i,t_i).
 \end{aligned}
 $$
 
@@ -173,7 +173,7 @@ $$
 
 #### 正準量子化
 
-時間に依存しない物理量 $A(q_i,p^i)$ の時間発展を正準量子化して,
+時間に依存しない物理量 $A(q^i,p_i)$ の時間発展を正準量子化して,
 $$
 \dv{A}{t} = \{A, H\}_\mathrm{P}
 \quad \overset{\text{正準量子化}}{⟶} \quad
@@ -198,13 +198,41 @@ iℏ \dv{\^U(t)}{t} = \^H \^U(t).
 $$
 これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表示が得られる: Hamiltonian が時間に陽に依存しないとき, 時間発展演算子は時間に依存せず,
 $$
-\^U(t) = e^{- \frac{i}{ℏ} {t \^H}}.
+\^U(t) = e^{- \frac{i}{ℏ} {t \^H}},
 $$
 または Hamiltonian が時間に陽に依存するとき, 時間発展演算子は時間に依存し,
 $$
-\^U(t, t_0) = T \exp \bqty{- \frac{i}{ℏ} ∫_{t_0}^t \dd{t'} \^H(t')},
+\^U(t, t_0) = \^T \exp \bqty{- \frac{i}{ℏ} ∫_{t_0}^t \dd{t'} \^H(t')}.
 $$
-一般に, 時間変化する $A(q_i,p^i,t)$ に関する時間発展の正準量子化は
+ただし, $T$ は**時間順序積** time ordered product で, Heaviside の階段関数 $θ(t)$ を用いて, 以下で定義される:
+$$
+\begin{aligned}
+  \^T \^A(t_1) \^B(t_2)
+    &= θ(t_1 - t_2) \^A(t_1) \^B(t_2) + θ(t_2 - t_1) \^B(t_2) \^A(t_1) \\
+    &= \begin{cases}
+      \^A(t_1) \^B(t_2), & (t_1 > t_2) \\
+      \^B(t_2) \^A(t_1). & (t_2 > t_1) \\
+    \end{cases}
+\end{aligned}
+$$
+実際, $\^U(t)$ に関する微分方程式を両辺積分して,
+$$
+\begin{aligned}
+  \^U(t,t_0)
+    &= 1 + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \^H(t_1) \^U(t_1, t_0) \\
+    & \quad (\text{$\^U(t_1,t_0)$ を代入}) \\
+    &= 1 + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \dd{t_2} \^H(t_1) \^H(t_2) \^U(t_2, t_0) \\
+    & \quad (\text{繰り返し $\^U(t_j,t_0)$ を代入}) \\
+    &= 1 + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \dd{t_2} \^H(t_1) \^H(t_2) \\
+    & \qquad \qquad + \frac1{iℏ} ∫_{t_0}^t \dd{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \dd{t_2} \frac1{iℏ} ∫_{t_0}^{t_2} \dd{t_3} \^H(t_1) \^H(t_2) \^H(t_3) + ⋯ \\
+    &= ∑_{n=0}^∞ \frac1{(iℏ)^n} ∫_{t_0}^t \dd{t_1} ∫_{t_0}^{t_1} \dd{t_2} ⋯ ∫_{t_0}^{t_{n-1}} \dd{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+    &= T ∑_{n=0}^∞ \frac1{n!} \frac1{(iℏ)^n} ∫_{t_0}^t \dd{t_1} ∫_{t_0}^t \dd{t_2} ⋯ ∫_{t_0}^t \dd{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+    &= T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{iℏ} ∫_{t_0}^t \dd{t} \^H(t)}^n \\
+    &= T \exp \bqty{\frac1{iℏ} ∫_{t_0}^t \dd{t} \^H(t)}.
+\end{aligned}
+$$
+
+一般に, 時間変化する $A(q^i,p_i,t)$ に関する時間発展の正準量子化は
 $$
 \begin{aligned}
   \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
@@ -228,36 +256,36 @@ $$
 
 #### 正準量子化
 
-正準変数の演算子 $(\^q_i, \^p^i)$ について, 位置表示の波動関数に対して位置演算子の Schrödinger 表現は $\^q_i = q_i$ である:
+正準変数の演算子 $(\^q^i, \^p_i)$ について, 位置表示の波動関数に対して位置演算子の Schrödinger 表現は $\^q^i = q^i$ である:
 $$
-\^q_i ψ(q,t) = ⟨q| \^q_i |ψ(t)⟩ = q_i ⟨q ∣ ψ(t)⟩ = q_i ψ(q,t).
+\^q^i ψ(q,t) = ⟨q| \^q^i |ψ(t)⟩ = q^i ⟨q ∣ ψ(t)⟩ = q^i ψ(q,t).
 $$
-これに対応する $\^p^i$ の表現を求める. ある定数 $a_i$ に対し, $e^{\frac{i}{ℏ} a_j \^p^j} \^q_i e^{- \frac{i}{ℏ} a_j \^p^j} = \^q_i + a_i$ である. 実際,
+これに対応する $\^p_i$ の表現を求める. ある定数 $a^i$ に対し, $e^{\frac{i}{ℏ} a^j \^p_j} \^q^i e^{- \frac{i}{ℏ} a^j \^p_j} = \^q^i + a^i$ である. 実際,
 $$
 \begin{aligned}
-  \dv{(e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k})}{a_j}
-    &=  \dv{e^{\frac{i}{ℏ} a_k \^p^k}}{a_j} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} + e^{\frac{i}{ℏ} a_k \^p^k} \^q_i \dv{e^{- \frac{i}{ℏ} a_k \^p^k}}{a_j} \\
-    &=  \frac{i}{ℏ} \^p^j e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a_k \^p^k} \^q_i \^p^j e^{- \frac{i}{ℏ} a_k \^p^k} \\
-    &=  \frac{i}{ℏ} \^p^j e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a_k \^p^k} (i ℏ δ_i^j + \^p^j \^q_i) e^{- \frac{i}{ℏ} a_k \^p^k} \\
-    &\quad (∵ [\^q_i, \^p^j] = \^q_i \^p^j - \^p^j \^q_i = i ℏ δ_i^j) \\
-    &=  \frac{i}{ℏ} \^p^j e^{\frac{i}{ℏ} a_k \^p^k} \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} + δ_i^j - \frac{i}{ℏ} e^{\frac{i}{ℏ} a_k \^p^k} \^p^j \^q_i e^{- \frac{i}{ℏ} a_k \^p^k} \\
-    &\quad (∵ [e^{\frac{i}{ℏ} a_k \^p^k}, \^p^j] = e^{\frac{i}{ℏ} a_k \^p^k} \^p^j - \^p^j e^{\frac{i}{ℏ} a_k \^p^k} = 0) \\
+  \dv{(e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k})}{a^j}
+    &=  \dv{e^{\frac{i}{ℏ} a^k \^p_k}}{a^j} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \dv{e^{- \frac{i}{ℏ} a^k \^p_k}}{a^j} \\
+    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \^p_j e^{- \frac{i}{ℏ} a^k \^p_k} \\
+    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} (i ℏ δ_i^j + \^p_j \^q^i) e^{- \frac{i}{ℏ} a^k \^p_k} \\
+    &\quad (∵ [\^q^i, \^p_j] = \^q^i \^p_j - \^p_j \^q^i = i ℏ δ_i^j) \\
+    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + δ_i^j - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^p_j \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} \\
+    &\quad (∵ [e^{\frac{i}{ℏ} a^k \^p_k}, \^p_j] = e^{\frac{i}{ℏ} a^k \^p_k} \^p_j - \^p_j e^{\frac{i}{ℏ} a^k \^p_k} = 0) \\
     &=  δ_i^j.
 \end{aligned}
 $$
 したがって,
 $$
-\^q_i e^{- \frac{i}{ℏ} a_j \^p^j} |q⟩ = e^{- \frac{i}{ℏ} a_j \^p^j} (\^q_i + a_i) |q⟩ = (q_i + a_i) e^{- \frac{i}{ℏ} a_j \^p^j} |q⟩.
+\^q^i e^{- \frac{i}{ℏ} a^j \^p_j} |q⟩ = e^{- \frac{i}{ℏ} a^j \^p_j} (\^q^i + a^i) |q⟩ = (q^i + a^i) e^{- \frac{i}{ℏ} a^j \^p_j} |q⟩.
 $$
 $$
-∴ e^{- \frac{i}{ℏ} a_i \^p^i} |q⟩ = |q+a⟩.
+∴ e^{- \frac{i}{ℏ} a^i \^p_i} |q⟩ = |q+a⟩.
 $$
-一般の状態ベクトル $|ψ(t)⟩$ に $e^{- \frac{i}{ℏ} a_i \^p^i}$ を作用させることを考える:
+一般の状態ベクトル $|ψ(t)⟩$ に $e^{- \frac{i}{ℏ} a^i \^p_i}$ を作用させることを考える:
 $$
 \begin{aligned}
-  e^{- \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩
-    &= e^{- \frac{i}{ℏ} a_i \^p^i} \pqty{∫ \dd{{}^D q'} |q'⟩ ⟨q'|} |ψ(t)⟩
-    = ∫ \dd{{}^D q'} e^{- \frac{i}{ℏ} a_i \^p^i} |q'⟩ ⟨q' ∣ ψ(t)⟩ \\
+  e^{- \frac{i}{ℏ} a^i \^p_i} |ψ(t)⟩
+    &= e^{- \frac{i}{ℏ} a^i \^p_i} \pqty{∫ \dd{{}^D q'} |q'⟩ ⟨q'|} |ψ(t)⟩
+    = ∫ \dd{{}^D q'} e^{- \frac{i}{ℏ} a^i \^p_i} |q'⟩ ⟨q' ∣ ψ(t)⟩ \\
     &= ∫ \dd{{}^D q'} ψ(q',t) |q'+a⟩ \\
     &= ∫ \dd{{}^D q'} ψ(q'-a,t) |q'⟩.
 \end{aligned}
@@ -265,34 +293,34 @@ $$
 左から $⟨q|$ をかけると,
 $$
 \begin{aligned}
-  ⟨q| e^{- \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩
+  ⟨q| e^{- \frac{i}{ℏ} a^i \^p_i} |ψ(t)⟩
     &= ⟨q| ∫ \dd{{}^D q'} ψ(q'-a,t) |q'⟩ = ∫ \dd{{}^D q'} ψ(q'-a,t) ⟨q ∣ q'⟩ \\
-    &= ∫ \dd{{}^D q'} ψ(q'-a,t) δ^D(q'_i - q_i) \\
+    &= ∫ \dd{{}^D q'} ψ(q'-a,t) δ^D(q'^i - q^i) \\
     &= ψ(q-a,t).
 \end{aligned}
 $$
-ただし固有状態の直交性 $⟨q ∣ q'⟩ = δ^D(q'_i - q_i)$ を用いた. $a$ について1次まで羃展開して,
+ただし固有状態の直交性 $⟨q ∣ q'⟩ = δ^D(q'^i - q^i)$ を用いた. $a$ について1次まで羃展開して,
 $$
-⟨q| \pqty{1_{\mathcal{H}} - \frac{i}{ℏ} a_i \^p^i} |ψ(t)⟩ = \pqty{1_{\mathcal{H}} - a_i \pdv{}{q_i}} ψ(q,t). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p^i |ψ(t)⟩ = - \pdv{}{q_i} ψ(q,t).
+⟨q| \pqty{1_{\mathcal{H}} - \frac{i}{ℏ} a^i \^p_i} |ψ(t)⟩ = \pqty{1_{\mathcal{H}} - a^i \pdv{}{q^i}} ψ(q,t). \quad ∴  - \frac{i}{ℏ} ⟨q| \^p_i |ψ(t)⟩ = - \pdv{}{q^i} ψ(q,t).
 $$
 $$
-∴ \^p^i ψ(q,t) = ⟨q| \^p^i |ψ(t)⟩ = - iℏ \pdv{}{q_i} ψ(q,t).
+∴ \^p_i ψ(q,t) = ⟨q| \^p_i |ψ(t)⟩ = - iℏ \pdv{}{q^i} ψ(q,t).
 $$
-したがって, 位置表示の波動関数に対する運動量演算子の Schrödinger 表現は $\displaystyle \^p^i = - iℏ \pdv{}{q_i}$ である.
+したがって, 位置表示の波動関数に対する運動量演算子の Schrödinger 表現は $\displaystyle \^p_i = - iℏ \pdv{}{q^i}$ である.
 
 固有波動関数 $ψ_p(q,t)$ に対し,
 $$
-- i ℏ \pdv{}{q_i} ψ_p(q,t) = \^p^i ψ_p(q,t) = p^i ψ_p(q,t).
+- i ℏ \pdv{}{q^i} ψ_p(q,t) = \^p_i ψ_p(q,t) = p_i ψ_p(q,t).
 $$
 $$
-∴ ψ_p(q,t) = ⟨q ∣ p⟩ = \frac1{(\sqrt{2π ℏ})^D} e^{\frac{i}{ℏ} q_i p^i}.
+∴ ψ_p(q,t) = ⟨q ∣ p⟩ = \frac1{(\sqrt{2π ℏ})^D} e^{\frac{i}{ℏ} q^i p_i}.
 $$
 ただし, $D$ は一般化座標の次元とし, 固有状態の直交性を満たすよう定数を取った:
 $$
 \begin{aligned}
   ⟨p',t ∣ p,t⟩ &= ⟨p',t| \pqty{∫ \dd{{}^Dq} |q,t⟩ ⟨q,t|} |p,t⟩ = ∫ \dd{{}^D q} ⟨p',t ∣ q,t⟩ ⟨q,t ∣ p,t⟩ \\
-    &= ∫ \dd{{}^D q} ψ_{p',t}^{*}(q) ψ_p(q,t) = ∫ \frac{\dd{{}^D q}}{(2π ℏ)^D} e^{\frac{i}{ℏ} q_i (p^i - {p'}^i)} \\
-    &= δ^D(p^i - {p'}^i).
+    &= ∫ \dd{{}^D q} ψ_{p'}^{*}(q,t) ψ_p(q,t) = ∫ \frac{\dd{{}^D q}}{(2π ℏ)^D} e^{\frac{i}{ℏ} q^i (p_i - {p'}_i)} \\
+    &= δ^D(p_i - {p'}_i).
 \end{aligned}
 $$
 
@@ -300,11 +328,11 @@ $$
 
 #### 正準量子化
 
-Schrödinger 方程式に $\^H = H(\^q_i, \^p^i)$ やその表現を代入したものもまた **Schrödinger 方程式**という:
+Schrödinger 方程式に $\^H = H(\^q^i, \^p_i)$ やその表現を代入したものもまた **Schrödinger 方程式**という:
 $$
 \begin{aligned}
-  iℏ \dv{}{t} |ψ(t)⟩ &= H(\^q_i, \^p^i) |ψ(t)⟩, \\
-  iℏ \dv{}{t} ψ(q, t) &= H\pqty{q_i, - iℏ \pdv{}{q_i}} ψ(q, t).
+  iℏ \dv{}{t} |ψ(t)⟩ &= H(\^q^i, \^p_i) |ψ(t)⟩, \\
+  iℏ \dv{}{t} ψ(q, t) &= H\pqty{q^i, - iℏ \pdv{}{q^i}} ψ(q, t).
 \end{aligned}
 $$
 
@@ -316,7 +344,7 @@ H(q,p) = \frac{p^2}{2m} + V(q).
 $$
 正準量子化して, Hamiltonian の演算子は
 $$
-H(\^q_i, \^p^i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q).
+H(\^q^i, \^p_i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q).
 $$
 したがって Schrödinger 方程式は,
 $$
@@ -325,4 +353,5 @@ $$
 
 ### 参考文献
 
+- 砂川 重信 『量子力学』(岩波書店, 1991)
 - 清水 明 『新版 量子論の基礎 その本質のやさしい理解のために』 (サイエンス社, 2004)

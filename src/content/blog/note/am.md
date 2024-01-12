@@ -140,7 +140,7 @@ $$
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
     &=  ∫ \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\pdv{L}{\.q^i} \.q^i - L}}. \\
+      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}. \\
 \end{aligned}
 $$
 ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
@@ -151,17 +151,6 @@ $$
 $$
 \dv{δX}{t} = 0.
 $$
-
-#### 例: 時間並進に対する不変量
-
-時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
-$$
-\begin{gathered}
-  δX = ε \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.} \\
-  ∴ \pdv{L}{\.q^i} \.q^i - L = \mathrm{const.}
-\end{gathered}
-$$
-この不変量 $\displaystyle H := \pdv{L}{\.q^i} \.q^i - L$ を **Hamiltonian** という.
 
 #### 例: 空間並進に対する不変量
 
@@ -174,20 +163,31 @@ $$
 $$
 この不変量 $\displaystyle p_i := \pdv{L}{\.q^i}$ を**一般化運動量**という.
 
+#### 例: 時間並進に対する不変量
+
+時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+$$
+\begin{gathered}
+  δX = ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
+  ∴ \.q^i \pdv{L}{\.q^i} - L = \mathrm{const.}
+\end{gathered}
+$$
+この不変量 $\displaystyle H := \.q^i \pdv{L}{\.q^i} - L = \.q^i p_i - L$ を **Hamiltonian** という.
+
 #### 例: 空間回転に対する不変量
 
-$D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+TODO: $D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
-δX = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{q}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{q}}}} = \mathrm{const.}
+δX = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{x}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{x}}}} = \mathrm{const.}
 $$
 $$
-∴ \bm{x} × \pdv{L}{\.{\bm{q}}} = \mathrm{const.}
+∴ \bm{x} × \pdv{L}{\.{\bm{x}}} = \mathrm{const.}
 $$
-この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{L}{\.{\bm{q}}}$ を**一般化角運動量**という.
+この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{L}{\.{\bm{x}}} = \bm{x} × \bm{p}$ を角運動量という.
 
 ### Hamilton の運動方程式
 
-**一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ p_i \.q^i - L$ を定義する. Hamiltonian の全微分は,
+**一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ \.q^i p_i - L$ を定義する. Hamiltonian の全微分は,
 $$
 \begin{aligned}
 \dd{H} &=  \.q^i \dd{p_i} + p_i \dd{\.q^i} - \dd{L} \\
@@ -224,7 +224,7 @@ p = \pdv{L}{\.q} = m \.q.
 $$
 したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
 $$
-H(q, p, t) = p \frac{p}{m} - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + V(q).
+H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + V(q).
 $$
 ここで,
 $$
@@ -251,7 +251,7 @@ p = \pdv{L}{\.q} = m \.q.
 $$
 したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
 $$
-H(q, p, t) = p \frac{p}{m} - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac12 m ω^2 q^2.
+H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac12 m ω^2 q^2.
 $$
 ここで,
 $$
@@ -270,7 +270,7 @@ $$
 
 正準変数の変換 $(p_i, q^i) ↦ (P_j, q^j) = (P_j(p_i, q^i), q^j(p_i, q^i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (p_i \.q^i - H) = 0$ かつ $δ∫ \dd{t} (p_i \.q^i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
-(p_i \.q^i - H) - (p_i \.q^i - K) = \dv{W}{t}.
+(\.q^i p_i - H) - (\.q^i p_i - K) = \dv{W}{t}.
 $$
 $$
 ∴
@@ -305,15 +305,16 @@ $$
 \end{aligned}
 $$
 
-ある物理量 $A(q^i, p_i, t)$ について, 時間による完全微分は,
+ある物理量 $A(q^i, p_i, t)$ について, 時間発展に関する式は:
+$$
+\dv{A}{t} = \{A, H\}_\mathrm{P} + \pdv{A}{t}.
+$$
+実際, $A$ の時間による完全微分は,
 $$
 \begin{aligned}
 \dv{A}{t}
 &=  \pdv{A}{q^i} \.q^i + \pdv{A}{p_i} \.p_i + \pdv{A}{t} \\
-&=  \pdv{A}{q^i} \pdv{H}{p_i} + \pdv{A}{p_i} \pdv{H}{q^i} + \pdv{A}{t}.
+&=  \pdv{A}{q^i} \pdv{H}{p_i} - \pdv{A}{p_i} \pdv{H}{q^i} + \pdv{A}{t} \\
+&=  \{A, H\}_\mathrm{P} + \pdv{A}{t}.
 \end{aligned}
-$$
-Poisson 括弧を用いて書き直すと, 物理量 $A$ の時間発展に関する式が得られる:
-$$
-\dv{A}{t} = \{A, H\}_\mathrm{P} + \pdv{A}{t}.
 $$

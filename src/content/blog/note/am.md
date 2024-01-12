@@ -117,7 +117,7 @@ $$
 
 ### Noether の定理
 
-時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. この変換で作用が不変 $δS=0$ とするとき,
+時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき作用は
 $$
 \begin{aligned}
   δS[q^i]
@@ -133,23 +133,57 @@ $$
     &=  ∫ \dd{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &=  ∫ \dd{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &=  ∫ \dd{t} \bqty{
-        ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i}}
+        ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - δ^Lq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       } \\
     &=  ∫ \dd{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
     &=  ∫ \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}}}. \\
+      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\pdv{L}{\.q^i} \.q^i - L}}. \\
 \end{aligned}
 $$
-ここで, 第一項は Euler–Lagrange の運動方程式より $0$, 第二項は積分範囲は任意だから,
+ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
+$$
+δX := δq^i \pdv{L}{\.q^i} + δt \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.}
+$$
+に対し,
+$$
+\dv{δX}{t} = 0.
+$$
+
+#### 例: 時間並進に対する不変量
+
+時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
 \begin{gathered}
-  \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}}} = 0. \\
-  ∴ δq^i \pdv{L}{\.q^i} + δt \pqty{L - \.q^i \pdv{L}{\.q^i}} = \mathrm{const.}
+  δX = ε \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.} \\
+  ∴ \pdv{L}{\.q^i} \.q^i - L = \mathrm{const.}
 \end{gathered}
 $$
+この不変量 $\displaystyle H := \pdv{L}{\.q^i} \.q^i - L$ を **Hamiltonian** という.
+
+#### 例: 空間並進に対する不変量
+
+時間並進 $t↦t'=t, q^i(t)↦q'^i(t')=q^i(t)+ε^i$ に対し, 作用が不変であるとき, 対応する保存量は
+$$
+\begin{gathered}
+  δX = ε^i \pdv{L}{\.q^i} = \mathrm{const.} &
+  ∴ \pdv{L}{\.q^i} = \mathrm{const.}
+\end{gathered}
+$$
+この不変量 $\displaystyle p_i := \pdv{L}{\.q^i}$ を**一般化運動量**という.
+
+#### 例: 空間回転に対する不変量
+
+$D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+$$
+δX = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{q}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{q}}}} = \mathrm{const.}
+$$
+$$
+∴ \bm{x} × \pdv{L}{\.{\bm{q}}} = \mathrm{const.}
+$$
+この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{L}{\.{\bm{q}}}$ を**一般化角運動量**という.
 
 ### Hamilton の運動方程式
 

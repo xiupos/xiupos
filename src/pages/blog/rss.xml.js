@@ -12,13 +12,16 @@ export async function GET(context) {
     title: BLOG_TITLE,
     description: BLOG_DESCRIPTION,
     site: context.site,
-    items: blog.filter((post) => !post.data.draft).map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate,
-      // description: post.data.description,
-      // Compute RSS link from post `slug`
-      // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
-    })),
+    items: blog
+      .filter((post) => !post.data.draft)
+      .sort((a, b) => b.data.pubDate - a.data.pubDate)
+      .map((post) => ({
+        title: post.data.title,
+        pubDate: post.data.pubDate,
+        // description: post.data.description,
+        // Compute RSS link from post `slug`
+        // This example assumes all posts are rendered as `/blog/[slug]` routes
+        link: `/blog/${post.slug}/`,
+      })),
   });
 }

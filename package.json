@@ -7,14 +7,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.4.1",
     "@astrojs/mdx": "^1.0.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "astro": "^3.0.7",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.5",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^3.0.0",

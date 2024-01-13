@@ -6,7 +6,6 @@ import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax/browser';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
-// @ts-ignore
 import rehypeWrapAll from 'rehype-wrap-all';
 
 // https://astro.build/config

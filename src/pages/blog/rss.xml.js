@@ -14,7 +14,7 @@ export async function GET(context) {
     site: context.site,
     items: blog
       .filter((post) => !post.data.draft)
-      .sort((a, b) => b.data.pubDate - a.data.pubDate)
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.pubDate,

@@ -268,21 +268,26 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(p_i, q^i) ↦ (P_j, q^j) = (P_j(p_i, q^i), q^j(p_i, q^i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (p_i \.q^i - H) = 0$ かつ $δ∫ \dd{t} (p_i \.q^i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (\.q^i p_i - H) = 0$ かつ $δ∫ \dd{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
-(\.q^i p_i - H) - (\.q^i p_i - K) = \dv{W}{t}.
+\begin{gathered}
+  (\.q^i p_i - H) - (\.Q^i P_i - K) = \dv{W}{t}. \\
+  ∴\dd{W} = p_i \dd{q^i} - P_i \dd{Q^i} - (H - K) \dd{t}.
+\end{gathered}
 $$
+または, 両辺に $\dd{Q^i P_i}/\dd{t}$ を足して,
 $$
-∴
-\dd{W} = p_i \dd{q^i} - p_i \dd{q^i} + (K - H) \dd{t}.
+\begin{gathered}
+  (\.q^i p_i - H) - (- Q^i \.P_i - K) = \dv{}{t} \pqty{W + Q^i P_i} =: \dv{W'}{t}. \\
+  ∴\dd{W'} = p_i \dd{q^i} + Q^i \dd{P_i} - (H - K) \dd{t}.
+\end{gathered}
 $$
-この $W(q^i, q^i, t)$ を**母関数**といい, 以下を満たす.
+これら $W(q^i, Q^i, t)$, $W'(q^i, P_i, t)$ をどちらも**母関数**といい, 以下を満たす.
 $$
-\begin{aligned}
-p_i = \pdv{W}{q^i},
-&& p_i = - \pdv{W}{q^i},
-&& K = H + \pdv{W}{t}.
-\end{aligned}
+\begin{gathered}
+p_i = \pdv{W}{q^i}, \quad P_i = - \pdv{W}{Q^i}, \quad K = H + \pdv{W}{t}, \\
+p_i = \pdv{W'}{q^i}, \quad Q^i = \pdv{W'}{P_i}, \quad K = H + \pdv{W'}{t}.
+\end{gathered}
 $$
 
 ### Poisson 括弧

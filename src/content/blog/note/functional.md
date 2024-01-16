@@ -34,17 +34,7 @@ $$
 
 3. Fourier 変換 $\displaystyle \mathcal{F}[φ(x)](k) = ∫ \frac{\dd{x}}{\sqrt{2πℏ}} φ(x) e^{-(i/ℏ) kx}$.
 
-4. Fourier 逆変換 $\displaystyle \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\dd{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx}$; 実際
-$$
-\begin{aligned}
-  \mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x)
-    &=  ∫ \frac{\dd{k}}{\sqrt{2πℏ}} \mathcal{F}[φ(\~x)](k) e^{(i/ℏ) kx} \\
-    &=  ∫ \frac{\dd{k}}{\sqrt{2πℏ}} ∫ \frac{\dd{\~x}}{\sqrt{2πℏ}} φ(\~x) e^{-(i/ℏ) k\~x} e^{(i/ℏ) kx} \\
-    &=  ∫ \dd{\~x} φ(\~x) ∫ \frac{\dd{k}}{2πℏ} e^{(i/ℏ)k(x-\~x)} \\
-    &=  ∫ \dd{\~x} φ(\~x) δ(x-\~x) \\
-    &=  φ(x).
-\end{aligned}
-$$
+4. Fourier 逆変換 $\displaystyle \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\dd{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx}$; 実際 $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
 
 ### 汎関数微分
 

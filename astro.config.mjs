@@ -4,9 +4,10 @@ import sitemap from '@astrojs/sitemap';
 
 import remarkMath from 'remark-math';
 import remarkDirective from 'remark-directive';
+import remarkTikzjax from './plugins/remark-tikzjax.js';
 import rehypeMathjax from 'rehype-mathjax/chtml';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 // @ts-ignore
 import rehypeWrapAll from 'rehype-wrap-all';
 
@@ -58,6 +59,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkMath,
       remarkDirective,
+      remarkTikzjax,
     ],
     rehypePlugins: [
       [rehypeMathjax, rehypeMathjaxOptions],

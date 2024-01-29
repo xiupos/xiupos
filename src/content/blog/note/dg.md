@@ -40,20 +40,29 @@ $$
 ### ファイバー束と構造群
 
 全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $π$ が全射である束 $E \xrightarrow{π} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $φ_i : U_i × F → π^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{π} M$ を**ファイバー束** fibre bundle という.
-$$
-\xymatrix{
-  U_i × F \ar[d]^{\mathrm{pr}_1} \ar[r]_-{φ_i}^-{≃} & π^{-1}(U_i) \ar[d]^{π} \ar@{}[r]|*{⊂} & E \ar[d]^{π} \\
-  U_i \ar@{=}[r] & U_i \ar@{}[r]|{⊂} & M
-}
-$$
+```tikzcd
+U_i \times F & \pi^{-1}(U_i) & E \\
+U_i          & U_i           & M
+\ar["\varphi_i", "\simeq"', from=1-1, to=1-2]
+\ar["\pi", from=1-2, to=2-2]
+\ar["\subset"{marking, allow upside down}, draw=none, from=1-2, to=1-3]
+\ar["\subset"{marking, allow upside down}, draw=none, from=2-2, to=2-3]
+\ar["\pi", from=1-3, to=2-3]
+\ar["\pi", from=1-1, to=2-1]
+\ar[from=2-1, to=2-2, equal]
+```
 
 点 $p^i ∈ U_i ⊂ M$ における局所自明化 $φ_i$ を $φ_{i,p} := φ_i(p,\ ) : F → π^{-1}(p)$ とする. 底空間上の点 $p ∈ U_i ∩ U_j ≠ \varnothing$ について, $g_{ij} (p) := φ_{i,p}^{-1} ∘ φ_{j,p} : F → F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p ∈ U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
-$$
-\xymatrix{
-  F \ar[r]_-{φ_{i,p}} & π^{-1}(p) \ar[d]^{π} & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{φ_{j,p}} \\
-  \{p\} \ar@{=}[r] & \{p\} & \{p\} \ar@{=}[l]
-}
-$$
+```tikzcd
+F     & \pi^{-1}(p) & F \\
+\{p\} & \{p\}       & \{p\}
+\ar["\varphi_{i,p}"', from=1-1, to=1-2]
+\ar["\varphi_{j,p}", from=1-3, to=1-2]
+\ar["g_{ij}"', bend right=30, from=1-3, to=1-1]
+\ar["\pi", from=1-2, to=2-2]
+\ar[from=2-1, to=2-2, equal]
+\ar[from=2-3, to=2-2, equal]
+```
 $F$ に左作用する位相群 $G$ を用いて $g_{ij} (p) : U_i ∩ U_j → G$ であるとき, $G$ を**構造群** structure group といい, このときのファイバー束 $E \xrightarrow{π} M$ を $G$**-束** $G$-bundle ともいう.
 
 底空間 $M$とその開被覆 $\{U_i\}$, ファイバー $F$, 構造群 $G$, 変換関数 $g_{ij} (p)$ が与えられたとき, ファイバー束を構成可能である.

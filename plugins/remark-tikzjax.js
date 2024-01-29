@@ -43,7 +43,7 @@ const texTemplate = (type, body) => {
   else return body;
 }
 
-  // @ts-ignore
+// @ts-ignore
 const remarkTikzjax = () => tree => new Promise(async (resolve, reject) => {
   /** @type {Code[]} */
   const instances = [];

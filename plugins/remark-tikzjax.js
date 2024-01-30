@@ -1,14 +1,10 @@
+// wip
 import { visitParents } from "unist-util-visit-parents";
 import nodeTikzjax from 'node-tikzjax';
 
-/**
- * @typedef {import('mdast').Node} Node
- * @typedef {import('mdast').Code} Code
- */
-
 // @ts-ignore
 const tex2svg = nodeTikzjax.default;
-const tex2svgOption = {
+const tex2svgOptions = {
   embedFontCss: true,
   fontCssUrl: 'https://cdn.jsdelivr.net/npm/node-tikzjax@latest/css/fonts.css',
 }
@@ -33,7 +29,7 @@ const texTemplate = (type, body) => {
       \\end{tikzcd}
     \\end{document}
   `;
-  else if (type == "tikzpicture") return `
+  else if (type == "tikzpicture" || type == "tikz") return `
     \\begin{document}
       \\begin{tikzpicture}
         ${body}
@@ -43,15 +39,24 @@ const texTemplate = (type, body) => {
   else return body;
 }
 
+/**
+ * @param {string} type
+ * @param {string} tex
+ * @returns {Promise<string>}
+ */
+const tex2html = async (type, tex) => htmlTemplate(await tex2svg(texTemplate(type, tex), tex2svgOptions));
+
 // @ts-ignore
 const remarkTikzjax = () => tree => new Promise(async (resolve, reject) => {
-  /** @type {Code[]} */
+  // @ts-ignore
   const instances = [];
   visitParents(tree, [
     { type: "code", lang: "tikz" },
+    { type: "code", lang: "tikz-tex" },
     { type: "code", lang: "tikzcd" },
     { type: "code", lang: "tikzpicture" },
   ],
+  // @ts-ignore
   node => {
     // @ts-ignore
     instances.push({node});
@@ -60,7 +65,7 @@ const remarkTikzjax = () => tree => new Promise(async (resolve, reject) => {
   for (const {node} of instances) {
     try {
       node.type = "html";
-      node.value = htmlTemplate(await tex2svg(texTemplate(node.lang, node.value), tex2svgOption));
+      node.value = await tex2html(node.lang, node.value);
     } catch (e) {
       console.log("ERROR", e);
       return reject(e);

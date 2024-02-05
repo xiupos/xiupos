@@ -16,19 +16,19 @@ math : true
 
 作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて以下のように表される:
 $$
-S[q^i] = ∫ \dd{t} L(q^i, \.q^i, t).
+S[q^i] = ∫ \d{t} L(q^i, \.q^i, t).
 $$
 $q^i + δq^i$ の変分をとって,
 $$
 \begin{aligned}
 δS[q^i]
-=&  ∫ \dd{t} \bqty{
+=&  ∫ \d{t} \bqty{
       L\pqty{q^i + δq^i, \.q^i + \dv{δq^i}{t}, t} - L(q^i, \.q^i, t)
     } \\
-=&  ∫ \dd{t} \bqty{
+=&  ∫ \d{t} \bqty{
       δq^i \pdv{L}{q^i} + \dv{δq^i}{t} \pdv{L}{\.q^i}
     } \\
-=&  ∫ \dd{t} \bqty{
+=&  ∫ \d{t} \bqty{
       δq^i \pdv{L}{q^i}
       - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
@@ -38,7 +38,7 @@ $$
 ここで, 発散項は境界条件より消える:
 $$
 δS[q^i]
-= ∫ \dd{t} δq^i \bqty{
+= ∫ \d{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
@@ -56,20 +56,20 @@ $$
     \frac{S[q^i(t') + ε δ(t' - t)] - S[q^i(t')]}{ε} \\
 &=  \lim_{ε → 0}
     \frac1ε
-    ∫ \dd{t'} \bqty{
+    ∫ \d{t'} \bqty{
       L ( q^i(t') + ε δ(t' - t), \.q^i(t') + ε \.δ(t' - t), t')
       - L (q^i(t'), \.q^i(t'), t')
     } \\
 &=  \lim_{ε → 0}
     \frac1ε
-    ∫ \dd{t'} \bqty{
+    ∫ \d{t'} \bqty{
       \pdv{L}{q^i(t')} ε δ(t' - t) + \pdv{L}{\.q^i(t')} ε \.δ(t' - t)
       + o(ε^2)
     } \\
-&=  ∫ \dd{t} \bqty{
+&=  ∫ \d{t} \bqty{
       \pdv{L}{q^i(t')} δ(t' - t) + \pdv{L}{\.q^i(t')} \.δ(t' - t)
     } \\
-&=  \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}. \qquad \pqty{∵ ∫ \dd{t'} f(t') \.δ(t' - t) = - \.f(t)}
+&=  \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}. \qquad \pqty{∵ ∫ \d{t'} f(t') \.δ(t' - t) = - \.f(t)}
 \end{aligned}
 $$
 これを用いると Euler–Lagrange の運動方程式は
@@ -121,26 +121,26 @@ $$
 $$
 \begin{aligned}
   δS[q^i]
-    &=  ∫ \dd{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫ \dd{t} L(q^i(t),\.q^i(t),t) \\
-    &   \quad \pqty{\dd{t'} = \dd{t} \dv{t'}{t} = \dd{t}(1+δ\.t)} \\
-    &=  ∫ \dd{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
+    &=  ∫ \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫ \d{t} L(q^i(t),\.q^i(t),t) \\
+    &   \quad \pqty{\d{t'} = \d{t} \dv{t'}{t} = \d{t}(1+δ\.t)} \\
+    &=  ∫ \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
     & \quad \pqty{
         ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
       } \\
-    &=  ∫ \dd{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
-    &=  ∫ \dd{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫ \d{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
+    &=  ∫ \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) := q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
-    &=  ∫ \dd{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫ \dd{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫ \dd{t} \bqty{
+    &=  ∫ \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫ \d{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫ \d{t} \bqty{
         ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - δ^Lq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       } \\
-    &=  ∫ \dd{t} \qty{
+    &=  ∫ \d{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
-    &=  ∫ \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + ∫ \dd{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}. \\
+    &=  ∫ \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+      + ∫ \d{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}. \\
 \end{aligned}
 $$
 ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
@@ -190,13 +190,13 @@ $$
 **一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ \.q^i p_i - L$ を定義する. Hamiltonian の全微分は,
 $$
 \begin{aligned}
-\dd{H} &=  \.q^i \dd{p_i} + p_i \dd{\.q^i} - \dd{L} \\
-    &=  \.q^i \dd{p_i} + p_i \dd{\.q^i}
-        - \pdv{L}{q^i} \dd{q^i} - p_i \dd{\.q^i} - \pdv{L}{t} \dd{t} \\
+\d{H} &=  \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
+    &=  \.q^i \d{p_i} + p_i \d{\.q^i}
+        - \pdv{L}{q^i} \d{q^i} - p_i \d{\.q^i} - \pdv{L}{t} \d{t} \\
     &   \quad \pqty{
-          ∵ \dd{L} = \pdv{L}{q^i} \dd{q^i} + \pdv{L}{\.q^i} \dd{\.q^i} + \pdv{L}{t} \dd{t}
+          ∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}
         } \\
-    &=  - \pdv{L}{q^i} \dd{q^i} + \.q^i \dd{p_i} - \pdv{L}{t} \dd{t}.
+    &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}.
 \end{aligned}
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
@@ -268,18 +268,18 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \dd{t} (\.q^i p_i - H) = 0$ かつ $δ∫ \dd{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換**という. Hamiltonian の定義から, $δ∫ \d{t} (\.q^i p_i - H) = 0$ かつ $δ∫ \d{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (\.Q^i P_i - K) = \dv{W}{t}. \\
-  ∴\dd{W} = p_i \dd{q^i} - P_i \dd{Q^i} - (H - K) \dd{t}.
+  ∴\d{W} = p_i \d{q^i} - P_i \d{Q^i} - (H - K) \d{t}.
 \end{gathered}
 $$
-または, 両辺に $\dd{Q^i P_i}/\dd{t}$ を足して,
+または, 両辺に $\d{Q^i P_i}/\d{t}$ を足して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (- Q^i \.P_i - K) = \dv{}{t} \pqty{W + Q^i P_i} =: \dv{W'}{t}. \\
-  ∴\dd{W'} = p_i \dd{q^i} + Q^i \dd{P_i} - (H - K) \dd{t}.
+  ∴\d{W'} = p_i \d{q^i} + Q^i \d{P_i} - (H - K) \d{t}.
 \end{gathered}
 $$
 これら $W(q^i, Q^i, t)$, $W'(q^i, P_i, t)$ をどちらも**母関数**といい, 以下を満たす.

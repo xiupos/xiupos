@@ -14,7 +14,7 @@ math : true
 $$
 \begin{gathered}
   f(x) = \frac{a_0}2 + ∑_{n=1}^∞ \pqty{a_n \cos \frac{nπx}L + b_n \sin \frac{nπx}L}, \\
-  a_n = \frac1L ∫_{-L}^L \dd{x} f(x) \cos \frac{nπx}L, \\
-  b_n = \frac1L ∫_{-L}^L \dd{x} f(x) \sin \frac{nπx}L. \\
+  a_n = \frac1L ∫_{-L}^L \d{x} f(x) \cos \frac{nπx}L, \\
+  b_n = \frac1L ∫_{-L}^L \d{x} f(x) \sin \frac{nπx}L. \\
 \end{gathered}
 $$

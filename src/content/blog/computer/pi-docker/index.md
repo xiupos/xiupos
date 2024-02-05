@@ -48,7 +48,7 @@ GPIOを弄るようなハードウェア制御も想定している.
 
 ### 構成イメージ
 
-```
+```plaintext
 +----------Raspberry Pi Zero W-----------+
 | +--Remote--+    +-----Production-----+ |
 | |          |pull|     +-Container-+  | |

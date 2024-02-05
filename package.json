@@ -28,5 +28,8 @@
     "remark-math": "^6.0.0",
     "stylus": "^0.62.0",
     "unist-util-visit-parents": "^6.0.1"
+  },
+  "volta": {
+    "node": "20.11.0"
   }
 }

@@ -145,11 +145,11 @@ $$
 $$
 ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
 $$
-δX := δq^i \pdv{L}{\.q^i} + δt \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.}
+δQ := δq^i \pdv{L}{\.q^i} + δt \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.}
 $$
 に対し,
 $$
-\dv{δX}{t} = 0.
+\dv{δQ}{t} = 0.
 $$
 
 #### 例: 空間並進に対する不変量
@@ -157,7 +157,7 @@ $$
 時間並進 $t↦t'=t, q^i(t)↦q'^i(t')=q^i(t)+ε^i$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
 \begin{gathered}
-  δX = ε^i \pdv{L}{\.q^i} = \mathrm{const.} &
+  δQ = ε^i \pdv{L}{\.q^i} = \mathrm{const.} \\
   ∴ \pdv{L}{\.q^i} = \mathrm{const.}
 \end{gathered}
 $$
@@ -168,7 +168,7 @@ $$
 時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
 \begin{gathered}
-  δX = ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
+  δQ = ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
   ∴ \.q^i \pdv{L}{\.q^i} - L = \mathrm{const.}
 \end{gathered}
 $$
@@ -178,7 +178,7 @@ $$
 
 TODO: $D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
-δX = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{x}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{x}}}} = \mathrm{const.}
+δQ = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{x}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{x}}}} = \mathrm{const.}
 $$
 $$
 ∴ \bm{x} × \pdv{L}{\.{\bm{x}}} = \mathrm{const.}

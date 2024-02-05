@@ -47,7 +47,7 @@ $$
 }
 $$
 
-点 $p^i ∈ U_i ⊂ M$ における局所自明化 $φ_i$ を $φ_{i,p} := φ_i(p,\ ) : F → π^{-1}(p)$ とする. 底空間上の点 $p ∈ U_i ∩ U_j ≠ \varnothing$ について, $g_{ij} (p) := φ_{i,p}^{-1} ∘ φ_{j,p} : F → F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p ∈ U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} = g_{ik}$ を満たす.
+点 $p^i ∈ U_i ⊂ M$ における局所自明化 $φ_i$ を $φ_{i,p} := φ_i(p,\ ) : F → π^{-1}(p)$ とする. 底空間上の点 $p ∈ U_i ∩ U_j ≠ \varnothing$ について, $g_{ij} (p) := φ_{i,p}^{-1} ∘ φ_{j,p} : F → F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p ∈ U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} (p) = g_{ik} (p)$ を満たす.
 $$
 \xymatrix{
   F \ar[r]_-{φ_{i,p}} & π^{-1}(p) \ar[d]^{π} & F \ar@/_18pt/[ll]_{g_{ij}(p)} \ar[l]^-{φ_{j,p}} \\

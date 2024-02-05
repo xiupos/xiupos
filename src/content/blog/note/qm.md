@@ -128,14 +128,14 @@ $$
 $$
 \begin{aligned}
   \{ q^i, p_j \}_\mathrm{P} &= δ_i^j, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^p_j}_\mathrm{H}] &= δ_i^j, \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= δ_i^j, \\
   ⇔ \quad [{\^q^i}, {\^p_j}] &= iℏ δ_i^j.
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \{ q^i, q^j \}_\mathrm{P} = \{ p_i, p_j \}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p_i}_\mathrm{H}, {\^p_j}_\mathrm{H}] &= 0. \\
+  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
   ⇔ \quad [\^q^i, \^q^j] = [\^p_i, \^p_j] &= 0. \\
 \end{aligned}
 $$

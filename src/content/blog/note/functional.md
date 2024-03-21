@@ -42,6 +42,7 @@ $$
 $$
 \fdv{F[φ(x)]}{φ(y)} := \lim_{h→0} \frac{F[φ(x) + hδ(x-y)] - F[φ(x)]}{h}.
 $$
+物理では汎関数微分を変分とも呼び, 誤解が無いとき $\displaystyle \fdv{F[φ]}{φ}$ と略記される.
 
 #### 汎関数微分の計算例
 
@@ -71,6 +72,20 @@ $$
     &= \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
     &= \dv{g(φ(y))}{φ(y)}.
 \end{aligned}
+$$
+
+1. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ'(x))$:
+$$
+\begin{aligned}
+  \fdv{}{φ(y)} ∫ \d{x} g(φ'(x))
+    &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+    &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+    &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
+    &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + O(h^2)}} \quad (∵\text{部分積分}) \\
+    &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + O(h^2)} \\
+    &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}.
+\end{aligned}
+
 $$
 
 ### 汎関数冪級数

@@ -152,6 +152,8 @@ $$
 \dv{δQ}{t} = 0.
 $$
 
+TODO: 汎関数微分を用いた導出
+
 #### 例: 空間並進に対する不変量
 
 時間並進 $t↦t'=t, q^i(t)↦q'^i(t')=q^i(t)+ε^i$ に対し, 作用が不変であるとき, 対応する保存量は
@@ -176,7 +178,7 @@ $$
 
 #### 例: 空間回転に対する不変量
 
-TODO: $D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+$D=3$ とする. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
 δQ = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{x}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{x}}}} = \mathrm{const.}
 $$
@@ -184,6 +186,8 @@ $$
 ∴ \bm{x} × \pdv{L}{\.{\bm{x}}} = \mathrm{const.}
 $$
 この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{L}{\.{\bm{x}}} = \bm{x} × \bm{p}$ を角運動量という.
+
+TODO: 一般の回転変換に対する不変量
 
 ### Hamilton の運動方程式
 
@@ -205,9 +209,10 @@ $$
 \.p_i = - \pdv{H}{q^i}, && \.q^i = \pdv{H}{p_i}.
 \end{aligned}
 $$
-このとき $p_i$ は $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
 
-また, Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
+$p_i$ を $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
+
+Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
 $$

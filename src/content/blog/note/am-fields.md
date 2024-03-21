@@ -62,6 +62,38 @@ $$
 = 0.
 $$
 
+または, Lagrangian 密度を空間全体にわたって積分した
+$$
+L[ϕ^α, \.ϕ^α]
+= ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, ∂_μ ϕ^α)
+= ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α)
+$$
+を Lagrangian $L[ϕ^α, \.ϕ^α]$ と定義すると,
+$$
+\begin{aligned}
+\fdv{L[ϕ^α]}{ϕ^α}
+=&  \fdv{}{ϕ^α} ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
+=&  \pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}, \\
+&\pqty{∵ \text{変分公式 $\displaystyle\fdv{}{φ(y)} ∫ \d{x} g(φ'(x)) = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}$}} \\
+\fdv{L[ϕ^α]}{\.ϕ^α}
+=&  \fdv{}{\.ϕ^α} ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
+=&  \pdv{ℒ}{\.ϕ^α}.
+\end{aligned}
+$$
+より,
+$$
+\begin{aligned}
+\fdv{S[ϕ^α]}{ϕ^α}
+=&  \fdv{L[ϕ^α]}{ϕ^α} - \dv{}{t} \fdv{L[ϕ^α]}{\.ϕ^α} \\
+=&  \pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)} - \pdv{}{t} \pdv{ℒ}{\.ϕ^α} \\
+=&  \pdv{ℒ}{ϕ^α} - ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} }.
+\end{aligned}
+$$
+これを用いると Euler–Lagrange の運動方程式は
+$$
+\fdv{S[ϕ^α]}{ϕ^α} = \fdv{L[ϕ^α]}{ϕ^α} - \pdv{}{t} \fdv{L[ϕ^α]}{\.ϕ^α} = 0.
+$$
+
 #### 例: 実 Klein-Gordon 場
 
 実 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
@@ -193,43 +225,13 @@ $$
 \end{aligned}
 $$
 
-<!--
-#### 例: 時間並進に対する不変量
+TODO: 汎関数微分を用いた導出
 
-時間並進 $t↦x'=t+ε$, $ϕ^α(t)↦ϕ'^α(x')=ϕ^α(t)$ に対し, 作用が不変であるとき, 対応する保存量は
-$$
-\begin{gathered}
-  δX = ε \pqty{\pdv{ℒ}{∂_μϕ^α} ∂_μϕ^α - L} = \mathrm{const.} \\
-  ∴ \pdv{ℒ}{∂_μϕ^α} ∂_μϕ^α - L = \mathrm{const.}
-\end{gathered}
-$$
-この不変量 $\displaystyle H := \pdv{ℒ}{∂_μϕ^α} ∂_μϕ^α - L$ を **Hamiltonian** という.
-
-#### 例: 空間並進に対する不変量
-
-時間並進 $t↦x'=t, ϕ^α(t)↦ϕ'^α(x')=ϕ^α(t)+ε^i$ に対し, 作用が不変であるとき, 対応する保存量は
-$$
-\begin{gathered}
-  δX = ε^i \pdv{ℒ}{∂_μϕ^α} = \mathrm{const.} &
-  ∴ \pdv{ℒ}{∂_μϕ^α} = \mathrm{const.}
-\end{gathered}
-$$
-この不変量 $\displaystyle p_i := \pdv{ℒ}{∂_μϕ^α}$ を**一般化運動量**という.
-
-#### 例: 空間回転に対する不変量
-
-$D=3$ とする. 空間回転 $t↦x'=t, \bm{x}(t) ↦ \bm{x}'(x') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
-$$
-δX = (- \bm{ε} × \bm{x}) ⋅ \pdv{ℒ}{\.{\bm{q}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{ℒ}{\.{\bm{q}}}} = \mathrm{const.}
-$$
-$$
-∴ \bm{x} × \pdv{ℒ}{\.{\bm{q}}} = \mathrm{const.}
-$$
-この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{ℒ}{\.{\bm{q}}}$ を**一般化角運動量**という. -->
+TODO: 例
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $π ≡ ∂ℒ / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $ℋ(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - ℒ$ を定義する. Hamiltonian の定義の変分は,
+**一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂ℒ / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $ℋ(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - ℒ$ を定義する. Hamiltonian 密度の定義の変分は,
 $$
 \begin{aligned}
   δℋ
@@ -238,7 +240,7 @@ $$
   &= - \bqty{\pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}} δϕ^α + \.{ϕ}^α δπ_α + \div \bqty{\pdv{ℒ}{(\grad ϕ^α)} δϕ^α}.
 \end{aligned}
 $$
-また, Hamiltonianの変分は,
+また, Hamiltonian 密度の変分は,
 $$
 \begin{aligned}
   δℋ
@@ -255,7 +257,24 @@ $$
 \end{aligned}
 $$
 TODO: ただし発散項は作用で消えることを用いた.
-このとき $π_α$ は $ϕ^α$ に**共役な運動量** conjugate momentum といい, また $(ϕ^α, π_α)$ の組を**正準変数** canonical variables という.
+
+または, Hamiltonian 密度を空間全体にわたって積分した
+$$
+H[ϕ^α, π_α] = ∫ \d{{}^3 \bm{x}} ℋ(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α)
+$$
+を Hamiltonian $H[ϕ^α, π_α]$ と定義すると,
+$$
+\begin{aligned}
+  \fdv{H}{ϕ^α} &= \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}, \\
+  \fdv{H}{π_α} &= \pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)} \\
+\end{aligned}
+$$
+であるから, これを用いると Hamilton の運動方程式は,
+$$
+\.{ϕ}^α = \fdv{H}{π_α}, \quad \.π_α = - \fdv{H}{ϕ^α}.
+$$
+
+$π_α$ を $ϕ^α$ に**共役な運動量** conjugate momentum といい, また $(ϕ^α, π_α)$ の組を**正準変数** canonical variables という.
 
 ### 参考文献
 

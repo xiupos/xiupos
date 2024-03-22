@@ -74,7 +74,7 @@ $$
 \end{aligned}
 $$
 
-1. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ'(x))$:
+4. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ'(x))$:
 $$
 \begin{aligned}
   \fdv{}{φ(y)} ∫ \d{x} g(φ'(x))
@@ -85,7 +85,6 @@ $$
     &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + O(h^2)} \\
     &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
 \end{aligned}
-
 $$
 
 ### 汎関数冪級数

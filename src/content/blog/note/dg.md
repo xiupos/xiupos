@@ -23,7 +23,7 @@ $$
 $$
 \begin{CD}
   B × F \\
-  @VV\mathrm{prod}_1V \\
+  @VV{\mathrm{prod}_1}V \\
   B
 \end{CD}
 $$
@@ -32,7 +32,7 @@ $$
 $$
 \begin{CD}
   E \\
-  @AAσ ∈ Γ(E)A \\
+  @AA{σ ∈ Γ(E)}A \\
   B
 \end{CD}
 $$
@@ -41,10 +41,11 @@ $$
 
 全空間 $E$, 底空間 $M$, ファイバー $F$ が可微分多様体で, 射影 $π$ が全射である束 $E \xrightarrow{π} M$ について考える. $M$ の開被覆 $\{U_i\}$ に対して, **局所自明化** local trivialization と呼ばれる微分同相写像 $φ_i : U_i × F → π^{-1}(U_i)$ が存在するとき, この束 $E \xrightarrow{π} M$ を**ファイバー束** fibre bundle という.
 $$
-\xymatrix{
-  U_i × F \ar[d]^{\mathrm{pr}_1} \ar[r]_-{φ_i}^-{≃} & π^{-1}(U_i) \ar[d]^{π} \ar@{}[r]|*{⊂} & E \ar[d]^{π} \\
-  U_i \ar@{=}[r] & U_i \ar@{}[r]|{⊂} & M
-}
+\begin{CD}
+  U_i × F @>{≃}>{φ_i}> π^{-1}(U_i) @>{ι}>> E \\
+  @VV{\mathrm{pr}_1}V @VV{π}V @VV{π}V \\
+  U_i @= U_i @>{ι}>> M
+\end{CD}
 $$
 
 点 $p^i ∈ U_i ⊂ M$ における局所自明化 $φ_i$ を $φ_{i,p} := φ_i(p,\ ) : F → π^{-1}(p)$ とする. 底空間上の点 $p ∈ U_i ∩ U_j ≠ \varnothing$ について, $g_{ij} (p) := φ_{i,p}^{-1} ∘ φ_{j,p} : F → F$ あるいは $g_{ij} (p)$ を**変換関数** transition function といい, $p ∈ U_i \cup U_j \cup U_k$ に対してコサイクル条件 $g_{ij} (p) g_{jk} (p) = g_{ik} (p)$ を満たす.

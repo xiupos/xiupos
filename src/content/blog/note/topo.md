@@ -14,7 +14,7 @@ math : true
 
 1. 空集合および台集合は開集合:  $\varnothing, X ∈ \mathscr{U}$.
 2. 開集合の和もまた開集合: $\~{\mathscr{U}} ⊂ \mathscr{U} ⇒ \bigcup_{U ∈ \tilde{\mathscr{U}}} U ∈ \mathscr{U}$.
-3. 有限個の開集合の積もまた開集合: $U_1, \.s, U_n ∈ \mathscr{U} ⇒ \bigcap^n_{i = 1} U_i ∈ \mathscr{U}$.
+3. 有限個の開集合の積もまた開集合: $U_1, …, U_n ∈ \mathscr{U} ⇒ \bigcap^n_{i = 1} U_i ∈ \mathscr{U}$.
 
 位相空間 $X$ の点 $x ∈ X$ について, $x$ を含む開集合を $x$ の**開近傍**といい, $x$ の開近傍を含む任意の集合を $x$ の**近傍**という.
 

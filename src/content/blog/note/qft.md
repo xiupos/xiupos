@@ -10,46 +10,7 @@ math : true
 
 ### 正準量子化
 
-```feynmf
-\begin{fmfgraph*}(240,180)
-  \fmfleftn{2}
-  \fmfrightn{2}
-  \fmf{fermion}{i1,o1}
-  \fmf{fermion}{i2,o2}
-\end{fmfgraph*}
-```
 
-```feynmf
-\begin{fmfgraph*}(400,300)
-  \fmfleftn{4}
-  \fmfrightn{4}
-  \fmf{antifermion}{i1,v1*,v2*,v3*,o1}
-  \fmf{gluon,left=4,label=$g$}{v2*,v4}
-  \fmf{photon,left=2.1,tension=0,labelx=-15,labely=-10,label=$\overline{u},\overline{c},\overline{t}$}{v1*,v3*}
-  \fmf{antifermion}{o2,v4,o3}
-  \fmf{fermion}{i4,o4}
-  \fmfdot{v1*,v2*,v3*,v4}
-  \fmflabel{i4}{$d$}
-  \fmflabel{o4}{$d$}
-  \fmflabel{o2}{$u$}
-  \fmflabel{o3}{$\overline{u}$}
-  \fmflabel{i1}{$\overline{b}$}
-  \fmflabel{o1}{$\overline{s}$}
-\end{fmfgraph*}
-```
-
-```tikz
-\def \n {5}
-\def \radius {3cm}
-\def \margin {8} % margin in angles, depends on the radius
-
-\foreach \s in {1,...,\n}
-{
-  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
-  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
-    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
-}
-```
 
 ### 参考文献
 

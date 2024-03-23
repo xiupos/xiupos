@@ -44,6 +44,12 @@ export default defineConfig({
       [rehypeWrapAll, rehypeWrapAllOptions],
       rehypeHeadingIds,
     ],
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
   },
   image: {
     service: squooshImageService(),

@@ -13,14 +13,14 @@ html
   color-scheme light
   --width 50rem
   --width-responsible calc(var(--width) + 10vw)
-  --width-code var(--width-responsible)
+  --width-code 100%
   --accent #e2890c
   --color #000
   --color-sub #444
-  --color-code #e1e4e8
+  --color-code var(--color)
   --back #fff
-  --back-sub #eee
-  --back-code #222
+  --back-sub #e2e2e2
+  --back-code #f5f5f5
   --filter none
 
   @media (prefers-color-scheme: dark)
@@ -31,7 +31,11 @@ html
     --color-sub #bbb
     --back #333
     --back-sub #444
+    --back-code #222
     --filter invert()
+
+    pre code span
+      color var(--shiki-dark) !important
 
 body
   font-family "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif

@@ -2,35 +2,29 @@
 import { visitParents } from "unist-util-visit-parents";
 
 /**
- * @param {string} body
+ * @param {string} tex
  * @returns {string}
  */
-const htmlTemplate = (body) => `<div class="responsive"><div class="feynmanjs">${body}</div></div>`;
-
-/**
- * @param {string} tex
- * @returns {{ width: number, height: number, diagram: string[] }}
- */
-const tex2object = (tex) => {
+const tex2html = (tex) => {
   const array = tex.match(
     /\\begin\{fmfgraph\*\}\(([0-9]*),([0-9]*)\)([\s\S]*)\\end\{fmfgraph\*\}/m
   );
-  if (array && array[3]) {
-    return {
-      width: Number(array[1]),
-      height: Number(array[2]),
-      diagram: array[3].split("\n").filter(Boolean).map(s=>s.trim()),
-    };
-  } else {
-    return { width: 0, height: 0, diagram: [] };
-  }
+  const width = array ? Number(array[1]) : 0;
+  const height = array ? Number(array[2]) : 0;
+  const diagram = (array && array[3]) ? array[3].split("\n").filter(Boolean).map(s=>s.trim()) : [];
+  const object = {
+    width: width,
+    height: height,
+    diagram: diagram,
+  };
+  return `
+    <div class="responsive">
+      <div class="feynmanjs" style="--fig-width: ${width}px; --fig-height: ${height}px;">
+        ${JSON.stringify(object)}
+      </div>
+    </div>
+  `;
 };
-
-/**
- * @param {{ width: number, height: number, diagram: string[] }} json
- * @returns {string}
- */
-const object2html = (json) => htmlTemplate(JSON.stringify(json));
 
 // @ts-ignore
 const remarkFeynmanJS = () => tree => new Promise(async (resolve, reject) => {
@@ -46,7 +40,7 @@ const remarkFeynmanJS = () => tree => new Promise(async (resolve, reject) => {
   for (const {node} of instances) {
     try {
       node.type = "html";
-      node.value = object2html(tex2object(node.value));
+      node.value = tex2html(node.value);
     } catch (e) {
       console.error("ERROR", e);
       return reject(e);

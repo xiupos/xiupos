@@ -1,5 +1,5 @@
 ---
-title : 場の量子論
+title : 記法テスト
 author : xiupos
 date : \today
 pubDate : 2024-01-06T22:40:00+09:00
@@ -8,16 +8,7 @@ draft : true
 math : true
 ---
 
-### 正準量子化
-
-```feynmf
-\begin{fmfgraph*}(240,180)
-  \fmfleftn{2}
-  \fmfrightn{2}
-  \fmf{fermion}{i1,o1}
-  \fmf{fermion}{i2,o2}
-\end{fmfgraph*}
-```
+## ファインマン・ダイアグラム
 
 ```feynmf
 \begin{fmfgraph*}(400,300)
@@ -38,6 +29,29 @@ math : true
 \end{fmfgraph*}
 ```
 
+````md
+```feynmf
+\begin{fmfgraph*}(400,300)
+  \fmfleftn{4}
+  \fmfrightn{4}
+  \fmf{antifermion}{i1,v1*,v2*,v3*,o1}
+  \fmf{gluon,left=4,label=$g$}{v2*,v4}
+  \fmf{photon,left=2.1,tension=0,labelx=-15,labely=-10,label=$\overline{u},\overline{c},\overline{t}$}{v1*,v3*}
+  \fmf{antifermion}{o2,v4,o3}
+  \fmf{fermion}{i4,o4}
+  \fmfdot{v1*,v2*,v3*,v4}
+  \fmflabel{i4}{$d$}
+  \fmflabel{o4}{$d$}
+  \fmflabel{o2}{$u$}
+  \fmflabel{o3}{$\overline{u}$}
+  \fmflabel{i1}{$\overline{b}$}
+  \fmflabel{o1}{$\overline{s}$}
+\end{fmfgraph*}
+```
+````
+
+## TikZ
+
 ```tikz
 \def \n {5}
 \def \radius {3cm}
@@ -51,9 +65,17 @@ math : true
 }
 ```
 
-### 参考文献
+````md
+```tikz
+\def \n {5}
+\def \radius {3cm}
+\def \margin {8} % margin in angles, depends on the radius
 
-- 桂 太郎 『新版 演習 場の量子論』 (サイエンス社, 2006)
-- 日置 善郎 『場の量子論 -摂動計算の基礎- (第3版)』 (吉岡書店, 2022)
-- 日置 善郎, [場の量子論への第一歩](https://www.phys.chuo-u.ac.jp/labs/inami/seminarfile/2011/Hioki.pdf), 2011.
-
+\foreach \s in {1,...,\n}
+{
+  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
+  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
+    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
+}
+```
+````

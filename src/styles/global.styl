@@ -116,7 +116,7 @@ article
     margin-top calc(var(--headerMargin) + 0.5rem)
     margin-bottom calc(var(--headerMargin) + 0.5rem)
 
-    img, video, svg
+    img, video, > svg
       margin 0 auto
       max-width 100%
       width unset
@@ -126,8 +126,16 @@ article
       &[src^="data:image/svg+xml;base64"]
         filter var(--filter)
 
-    > svg, > .feynmanjs
+    > svg
       filter var(--filter)
+
+    .feynmanjs
+      filter var(--filter)
+
+      .feynmanjs-figure
+        margin 0
+        --scale calc(var(--fig-width) / var(--width-responsible) * 100%)
+        scale var(--scale)
 
       mjx-container
         filter var(--filter)

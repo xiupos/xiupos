@@ -44,9 +44,6 @@ export default defineConfig({
       [rehypeWrapAll, rehypeWrapAllOptions],
       rehypeHeadingIds,
     ],
-    shikiConfig: {
-      theme: 'one-dark-pro',
-    }
   },
   image: {
     service: squooshImageService(),

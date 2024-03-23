@@ -9,15 +9,30 @@
 
 @import url("https://cdn.jsdelivr.net/npm/node-tikzjax@latest/css/fonts.css")
 
-:root
-  color-scheme: dark;
+html
+  color-scheme light
+  --width 50rem
+  --width-responsible calc(var(--width) + 10vw)
+  --width-code var(--width-responsible)
+  --accent #e2890c
+  --color #000
+  --color-sub #444
+  --back #fff
+  --back-sub #eee
+  --back-code #222
+  --filter none
+
+  @media (prefers-color-scheme: dark)
+    color-scheme dark
+    --width-code 100%
+    --accent #e6db74
+    --color #f8f8f8
+    --color-sub #bbb
+    --back #333
+    --back-sub #444
+    --filter invert()
 
 body
-  --accent #e6db74
-  --sub #bbb
-  --width 50rem
-  --back #333
-  --color #f8f8f8
   font-family "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif
   margin 0
   padding 1.5rem 0
@@ -25,7 +40,7 @@ body
   word-wrap break-word
   overflow-wrap break-word
   overflow-x hidden
-  line-height 1.8
+  line-height 2
   color var(--color)
 
 main
@@ -50,6 +65,7 @@ article
   display block
   margin 0 auto
   text-align center
+  font-size 1.1em
 
   > *, pre > code
     width 90%
@@ -75,7 +91,7 @@ article
       overflow-x auto
 
     mjx-xypic
-      filter invert()
+      filter var(--filter)
 
   header
     display flex
@@ -95,7 +111,7 @@ article
     justify-content center
     align-items center
     width 100%
-    max-width calc(var(--width) + 10vw)
+    max-width var(--width-responsible)
     margin-top calc(var(--headerMargin) + 0.5rem)
     margin-bottom calc(var(--headerMargin) + 0.5rem)
 
@@ -103,14 +119,17 @@ article
       margin 0 auto
       max-width 100%
       width unset
-      max-height calc(var(--width) + 10vw)
+      max-height var(--width-responsible)
       height auto
 
       &[src^="data:image/svg+xml;base64"]
-        filter invert()
+        filter var(--filter)
 
-    svg
-        filter invert()
+    > svg, > .feynmanjs
+      filter var(--filter)
+
+      mjx-container
+        filter var(--filter)
 
     table
       display block
@@ -124,7 +143,7 @@ article
       thead
         th
           background var(--back)
-          border-bottom 0.1em solid #888
+          border-bottom 0.1em solid var(--color)
 
           &:first-child
             position sticky
@@ -140,7 +159,7 @@ article
 
           &:nth-child(even)
             td
-              background #2b2b2b
+              background var(--back-sub)
 
         td:first-child
           position sticky
@@ -148,37 +167,38 @@ article
           left 0
           z-index 1
 
-  code-back = #222
-
   p > code
     padding 0.3em 0.5em
-    background-color code-back
+    background-color var(--back-code)
     border-radius 0.3em
     margin 0 0.5em
     overflow-wrap break-word
+    color var(--back)
 
   pre
     padding 1rem 0
     width 100%
-    max-width unset
-    background-color code-back !important
+    max-width var(--width-code)
+    background-color var(--back-code) !important
+    line-height 1.5
 
     > code
       display block
       tab-size 2
       overflow unset
+      color var(--back)
 
       > *
         margin-right 5vw
 
   blockquote
-    border-left .3rem solid var(--sub)
+    border-left .3rem solid var(--color-sub)
     padding .2em 1.6em
     font-style italic
 
   hr
     border unset
-    border-top 1px solid var(--sub)
+    border-top 1px solid var(--color-sub)
 
   .katex-display
     overflow hidden
@@ -192,5 +212,5 @@ article
     background #00000000
 
   ::-webkit-scrollbar-thumb
-    background #ffffff22
+    background-color var(--back-sub)
     border-radius 2px

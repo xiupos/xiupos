@@ -220,7 +220,7 @@ $$
 $$
 これは状態 $|ψ(t)⟩$ の時間発展を表した方程式であり, **Schrödinger 方程式**という. または左から $⟨q|$ を内積させて, Hamiltonian の Schrödinger 表現が得られる:
 $$
-\^H ψ(q, t) = ⟨q| \^H |ψ(t)⟩ = iℏ \dv{}{t} ψ(q, t).
+\^H ψ(q, t) = ⟨q| \^H |ψ(t)⟩ = iℏ \pdv{}{t} ψ(q, t).
 $$
 
 ### 位置演算子と運動量演算子
@@ -299,7 +299,7 @@ Schrödinger 方程式に $\^H = H(\^q^i, \^p_i)$ やその表現を代入した
 $$
 \begin{aligned}
   iℏ \dv{}{t} |ψ(t)⟩ &= H(\^q^i, \^p_i) |ψ(t)⟩, \\
-  iℏ \dv{}{t} ψ(q, t) &= H\pqty{q^i, - iℏ \pdv{}{q^i}} ψ(q, t).
+  iℏ \pdv{}{t} ψ(q, t) &= H\pqty{q^i, - iℏ \pdv{}{q^i}} ψ(q, t).
 \end{aligned}
 $$
 
@@ -315,10 +315,60 @@ H(\^q^i, \^p_i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2}
 $$
 したがって Schrödinger 方程式は,
 $$
-iℏ \dv{}{t} ψ(q, t) = \bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t).
+iℏ \pdv{}{t} ψ(q, t) = \bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t).
 $$
 
-### 
+### 生成・消滅演算子
+
+演算子 $\^a$ とその Hermite 共役 $\^a^†$ が次の交換関係を満たすとき, $\^a$ を**消滅演算子** annihilation operator, $\^a^†$ を**生成演算子** creation operator という:
+$$
+\begin{gathered}
+  [\^a, \^a^†] = 1, \\
+  [\^a, \^a] = [\^a^†, \^a^†] = 0.
+\end{gathered}
+$$
+また, Hermite 演算子 $\^N ≡ \^a^† \^a$ を**数演算子** the number operation という. $\^N$ の固有値 $n$ に属する固有状態を $|n⟩$ とする:
+$$
+\^N|n⟩ = n|n⟩.
+$$
+このとき, $\^a^†|n⟩$ は固有値 $n+1$ に属する固有状態である:
+$$
+\begin{aligned}
+  \^N\^a^†|n⟩
+    &= \^a^†\^a\^a^†|n⟩ \\
+    &= \^a^†(\^a^†\^a + 1)|n⟩ \\
+    &= \^a^†(\^N + 1)|n⟩ \\
+    &= (n + 1)\^a^†|n⟩.
+\end{aligned}
+$$
+したがって $|n+1⟩$ は $\^a^†|n⟩$ を正規化して,
+$$
+\begin{gathered}
+  |n+1⟩ = \frac{\^a^†|n⟩}{\sqrt{⟨n|\^a\^a^†|n⟩}} = \frac{\^a^†|n⟩}{\sqrt{⟨n|(\^N + 1)|n⟩}} = \frac{\^a^†|n⟩}{\sqrt{n+1}}. \\
+  ∴ \^a^†|n⟩ = \sqrt{n+1}|n+1⟩.
+\end{gathered}
+$$
+また, 同様に $\^a|n⟩$ は固有値 $n-1$ に属する固有状態である:
+$$
+\begin{aligned}
+  \^N\^a|n⟩
+    &= \^a^†\^a\^a|n⟩ \\
+    &= (\^a\^a^† - 1)\^a|n⟩ \\
+    &= \^a(\^a^†\^a - 1)|n⟩ \\
+    &= \^a(\^N - 1)|n⟩ \\
+    &= (n - 1)\^a|n⟩.
+\end{aligned}
+$$
+したがって $|n-1⟩$ は $\^a|n⟩$ を正規化して,
+$$
+\begin{gathered}
+  |n-1⟩ = \frac{\^a|n⟩}{\sqrt{⟨n|\^a^†\^a|n⟩}} = \frac{\^a|n⟩}{\sqrt{⟨n|\^N|n⟩}} = \frac{\^a|n⟩}{\sqrt{n}}. \\
+  ∴ \^a|n⟩ = \sqrt{n}|n-1⟩.
+\end{gathered}
+$$
+特に $n=0$ のときの状態 $|0⟩$ を真空状態といい, $\^a|0⟩ = 0$ を満たす.
+
+<!-- TODO: 調和振動子による例 -->
 
 ### 経路積分量子化
 

@@ -124,7 +124,7 @@ $$
   \pdv{ℒ}{ψ^†} &= i ℏ ∂_μ ψ, \\
   ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ^†)} } \\
     &= 0 - \frac{ℏ}{2 m} ∂_i ∂^i ψ \\
-    &= - \frac{ℏ}{2 m} \laplacian ψ,
+    &= - \frac{ℏ}{2 m} ∇^2 ψ,
 \end{aligned}
 $$
 $$
@@ -132,13 +132,13 @@ $$
   \pdv{ℒ}{ψ} &= 0, \\
   ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ)} } \\
     &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∂_i ∂^i ψ^† \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} \laplacian ψ^†.
+    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∇^2 ψ^†.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} \laplacian ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} \laplacian ψ^†.
+  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} ∇^2 ψ^†.
 \end{aligned}
 $$
 
@@ -293,20 +293,20 @@ $$
 $$
 \begin{aligned}
   ℋ &= π_α \.{ϕ}^α - ℒ \\
-    &= π_α π^α - \frac12 π_α π^α + \frac12 (\grad ϕ_α)・(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α \\
-    &= \frac12 π_α π^α + \frac12 (\grad ϕ_α)・(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α.
+    &= π_α π^α - \frac12 π_α π^α + \frac12 (\grad ϕ_α)⋅(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α \\
+    &= \frac12 π_α π^α + \frac12 (\grad ϕ_α)⋅(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α.
 \end{aligned}
 $$
 ここで,
 $$
 \begin{aligned}
   \pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)} &= π^α, \\
-  \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)} &= m^2 ϕ_α - \laplacian ϕ_α.
+  \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)} &= m^2 ϕ_α - ∇^2 ϕ_α.
 \end{aligned}
 $$
 したがって, Hamilton の運動方程式は
 $$
-\.{ϕ}^α = π^α, \quad \.{π}_α = - m^2 ϕ_α + \laplacian ϕ_α.
+\.{ϕ}^α = π^α, \quad \.{π}_α = - m^2 ϕ_α + ∇^2 ϕ_α.
 $$
 
 ### TODO: 他の例
@@ -323,7 +323,7 @@ $$
   \pdv{ℒ}{ψ^†} &= i ℏ ∂_μ ψ, \\
   ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ^†)} } \\
     &= 0 - \frac{ℏ}{2 m} ∂_i ∂^i ψ \\
-    &= - \frac{ℏ}{2 m} \laplacian ψ,
+    &= - \frac{ℏ}{2 m} ∇^2 ψ,
 \end{aligned}
 $$
 $$
@@ -331,13 +331,13 @@ $$
   \pdv{ℒ}{ψ} &= 0, \\
   ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ)} } \\
     &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∂_i ∂^i ψ^† \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} \laplacian ψ^†.
+    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∇^2 ψ^†.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} \laplacian ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} \laplacian ψ^†.
+  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} ∇^2 ψ^†.
 \end{aligned}
 $$
 

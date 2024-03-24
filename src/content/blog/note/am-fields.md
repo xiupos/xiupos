@@ -98,18 +98,18 @@ $$
 
 実 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
 $$
-ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ^α ∂^μ ϕ^α - \frac12 μ^2 {ϕ^α}^2.
+ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{ℒ}{ϕ^α} = - μ^2 ϕ^α, &&
-∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ^α.
+\pdv{ℒ}{ϕ^α} = - m^2 ϕ^α, &&
+∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ^α = □ ϕ^α.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(∂_μ ∂^μ + μ^2) ϕ^α = 0.
+(□ + m^2) ϕ^α = 0.
 $$
 
 #### 例: de Broglie 場
@@ -253,7 +253,7 @@ $$
 $$
 \begin{aligned}
   \.{ϕ}^α &= \bqty{\pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)}}, \\
-  \.π_α &= - \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}.
+  \.π_α &= - \bqty{\pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}}.
 \end{aligned}
 $$
 TODO: ただし発散項は作用で消えることを用いた.
@@ -278,6 +278,95 @@ $$
 $$
 
 $π_α$ を $ϕ^α$ に**共役な運動量** conjugate momentum といい, また $(ϕ^α, π_α)$ の組を**正準変数** canonical variables という.
+
+#### 例: 実 Klein-Gordon 場
+
+実 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
+$$
+ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
+$$
+ここで, 一般化運動量の定義より,
+$$
+π_α = \pdv{ℒ}{\.{ϕ}^α} = \.{ϕ}_α.
+$$
+したがって $\.{ϕ}_α = π_α$ であるから, Hamiltonian 密度より,
+$$
+\begin{aligned}
+  ℋ &= π_α \.{ϕ}^α - ℒ \\
+    &= π_α π^α - \frac12 π_α π^α + \frac12 (\grad ϕ_α)・(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α \\
+    &= \frac12 π_α π^α + \frac12 (\grad ϕ_α)・(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α.
+\end{aligned}
+$$
+ここで,
+$$
+\begin{aligned}
+  \pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)} &= π^α, \\
+  \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)} &= m^2 ϕ_α - \laplacian ϕ_α.
+\end{aligned}
+$$
+したがって, Hamilton の運動方程式は
+$$
+\.{ϕ}^α = π^α, \quad \.{π}_α = - m^2 ϕ_α + \laplacian ϕ_α.
+$$
+
+### TODO: 他の例
+
+<!-- #### 例: de Broglie 場
+
+de Broglie 場 $ψ$ の Lagrangian 密度は,
+$$
+ℒ(ψ, ∂_μ ψ) = i ℏ ψ^† ∂_μ ψ - \frac{ℏ^2}{2m} ∂_i ψ^† ∂^i ψ.
+$$
+ここで, $ψ$ と $ψ^†$ を独立に扱って,
+$$
+\begin{aligned}
+  \pdv{ℒ}{ψ^†} &= i ℏ ∂_μ ψ, \\
+  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ^†)} } \\
+    &= 0 - \frac{ℏ}{2 m} ∂_i ∂^i ψ \\
+    &= - \frac{ℏ}{2 m} \laplacian ψ,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+  \pdv{ℒ}{ψ} &= 0, \\
+  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ)} } \\
+    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∂_i ∂^i ψ^† \\
+    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} \laplacian ψ^†.
+\end{aligned}
+$$
+したがって, Euler–Lagrange の運動方程式より,
+$$
+\begin{aligned}
+  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} \laplacian ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} \laplacian ψ^†.
+\end{aligned}
+$$
+
+#### 例: 電磁場
+
+電磁場 $A_μ$ の Lagrangian 密度は,
+$$
+\begin{aligned}
+ℒ(A_ν, ∂_μ A_ν) = - \frac14 F_{μν} F^{μν} + A_μ j^μ, &&
+F^{μν} := ∂^μ A^ν - ∂^ν A^μ.
+\end{aligned}
+$$
+ここで,
+$$
+\begin{aligned}
+\pdv{ℒ}{A_ν} &= j^μ, \\
+∂_μ \pqty{\pdv{ℒ}{(∂_μ A_ν)}}
+&=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \pqty{ - \frac14 F_{ρσ} F^{ρσ} } } \\
+&=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \bqty{ - \frac12 (
+      ∂_ρ A_σ ∂^ρ A^σ - ∂_ρ A_σ ∂^σ A^ρ
+    ) } } \\
+&=  ∂_μ \bqty{ - (∂^μ A^ν - ∂^ν A^μ) } \\
+&=  - ∂_μ F^{μν}.
+\end{aligned}
+$$
+したがって, Euler–Lagrange の運動方程式より,
+$$
+∂_μ F^{μν} = - j^ν.
+$$ -->
 
 ### 参考文献
 

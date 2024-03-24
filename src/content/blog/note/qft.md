@@ -20,9 +20,13 @@ $$
 $$
 (□ + m^2) ϕ = 0,
 $$
-また一般化運動量 $π ≡ ∂ℒ/∂ϕ$ は
+また, 一般化運動量 $π ≡ ∂ℒ/∂ϕ$ は
 $$
 π = \.{ϕ}.
+$$
+また, Hamiltonian は
+$$
+H[ϕ^α, π_α] = ∫ \d{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ_α|^2 + \frac12 m^2 ϕ^2}.
 $$
 
 実スカラー場 $ϕ(t,\bm{x})$ を 3 次元 Fourier 級数展開して,
@@ -105,6 +109,46 @@ $$
 \end{aligned}
 $$
 
+Hamiltonian を $a(\bm{p})$, $a^*(\bm{p})$ で表記することを考える. $\grad ϕ(x)$ を計算すると,
+$$
+\begin{aligned}
+  \grad ϕ(x)
+    &= \grad ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{i\bm{p} a(\bm{p}) e^{-ipx} - i\bm{p} a^*(\bm{p}) e^{ipx}} \\
+\end{aligned}
+$$
+したがって,
+$$
+\begin{aligned}
+  H[ϕ^α, π_α]
+    &= ∫ \d{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ|^2 + \frac12 m^2 ϕ^2} \\
+    &= \frac12 ∫ \d{{}^3 \bm{x}} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
+    & \qquad\qquad × \Big[\ \ (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a  (\bm{p}') e^{-i(p+p')x} \\
+    & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a^*(\bm{p}') e^{-i(p-p')x} \\
+    & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a  (\bm{p}') e^{ i(p-p')x} \\
+    & \qquad\qquad \quad    + (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a^*(\bm{p}') e^{ i(p+p')x} \Big] \\
+    &= \frac12 \sqrt{(2π)^3} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
+    & \qquad\qquad × \Big[\ \ (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a  (\bm{p}') δ^3(\bm{p}+\bm{p}') e^{-i(p_0+p_0')t} \\
+    & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a^*(\bm{p}') δ^3(\bm{p}-\bm{p}') e^{-i(p_0-p_0')t} \\
+    & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a  (\bm{p}') δ^3(\bm{p}-\bm{p}') e^{ i(p_0-p_0')t} \\
+    & \qquad\qquad \quad    + (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a^*(\bm{p}') δ^3(\bm{p}+\bm{p}') e^{ i(p_0+p_0')t} \Big] \\
+    &= \frac12 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \frac{1}{\sqrt{2p_0}} \\
+    & \qquad\qquad × \Big[\ \ (- p_0^2 + |\bm{p}|^2 + m^2) a  (\bm{p}) a  (-\bm{p}) e^{-2ip_0t} \\
+    & \qquad\qquad \quad    + (+ p_0^2 + |\bm{p}|^2 + m^2) a  (\bm{p}) a^*( \bm{p}) \\
+    & \qquad\qquad \quad    + (+ p_0^2 + |\bm{p}|^2 + m^2) a^*(\bm{p}) a  ( \bm{p}) \\
+    & \qquad\qquad \quad    + (- p_0^2 + |\bm{p}|^2 + m^2) a^*(\bm{p}) a^*(-\bm{p}) e^{ 2ip_0t} \Big] \\
+    & \quad \pqty{p_0^2 = |\bm{p}|^2 + m^2} \\
+    &= \frac12 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \frac{1}{\sqrt{2p_0}}
+       \bqty{2p_0^2 a(\bm{p}) a^*(\bm{p}) + 2p_0^2 a^*(\bm{p}) a(\bm{p})} \\
+    &= \frac12 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} p_0
+       \bqty{a(\bm{p}) a^*(\bm{p}) + a^*(\bm{p}) a(\bm{p})}.
+\end{aligned}
+$$
+または $a(\bm{p})$, $a^*(\bm{p})$ の順序を初めて並び換えて,
+$$
+H[ϕ^α, π_α] = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} p_0 a^*(\bm{p}) a(\bm{p}).
+$$
+
 実スカラー場の正準量子化をする. $ϕ(x)$, $π(x)$ について以下の同時刻交換関係を要請する:
 $$
 \begin{gathered}
@@ -119,7 +163,7 @@ $$
 =&\ \bqty{∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \qty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x})} e^{i(p_0t - \bm{p}⋅\bm{x})}, ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \qty{p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{-i(p_0't - \bm{p}'⋅\bm{x}')}} \\
 =&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \bqty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x}), p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
 =&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
- &\ \qquad \qty{
+ &\ \qquad \quad × \qty{
         p_0 p_0' \bqty{ϕ(t,\bm{x}), ϕ(t,\bm{x}')}
       - i p_0 \bqty{ϕ(t,\bm{x}),π(t,\bm{x}')}
       + i p_0' \bqty{π(t,\bm{x}), ϕ(t,\bm{x}')}

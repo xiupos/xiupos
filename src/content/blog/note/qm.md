@@ -72,9 +72,9 @@ $$
 $$
 ただし, 時間発展演算子は $\^U(t_2, t_1) = \^U^†(t_1, t_2) = \^U^{-1}(t_1, t_2)$ を満たす. 時間発展演算子が時間に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) := \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$. また, 時間発展演算子が時間に依存しない場合でも誤解が無いとき $\^U(t) := \^U(t, 0)$ と略記する.
 
-状態ベクトルのみが時間発展し, 演算子は時間に依存しないとする方法を **Schrödinger 描像**という. 誤解が無いとき Schrödinger 描像の状態ベクトルを $|ψ(t)⟩$, $|ψ(t)⟩_\mathrm{S}$, 演算子を $\^A$, $\^A_\mathrm{S}$, 固有状態を $|a⟩$, $|a⟩_\mathrm{S}$ などと書く.
+状態ベクトルのみが時間発展し, 演算子は時間に依存しないとする方法を **Schrödinger 描像** Schrödinger picture という. 誤解が無いとき Schrödinger 描像の状態ベクトルを $|ψ(t)⟩$, $|ψ(t)⟩_\mathrm{S}$, 演算子を $\^A$, $\^A_\mathrm{S}$, 固有状態を $|a⟩$, $|a⟩_\mathrm{S}$ などと書く.
 
-反対に, 演算子のみが時間発展し, 状態ベクトルは時間に依存しないとする方法を**Heisenberg 描像**という. 誤解が無いとき Heisenberg 描像の状態ベクトルを $|q⟩$, $|ψ⟩$, $|ψ⟩_\mathrm{H}$, 演算子を $\^A(t)$, $\^A_\mathrm{H}(t)$, $\^A_\mathrm{H}$, 固有状態を $|a,t⟩$, $|a,t⟩_\mathrm{H}$ などと書く.
+反対に, 演算子のみが時間発展し, 状態ベクトルは時間に依存しないとする方法を**Heisenberg 描像** Heisenberg picture という. 誤解が無いとき Heisenberg 描像の状態ベクトルを $|q⟩$, $|ψ⟩$, $|ψ⟩_\mathrm{H}$, 演算子を $\^A(t)$, $\^A_\mathrm{H}(t)$, $\^A_\mathrm{H}$, 固有状態を $|a,t⟩$, $|a,t⟩_\mathrm{H}$ などと書く.
 
 どちらの描像でも初期状態 $t = 0$ で一致 $|ψ(0)⟩ = |ψ⟩$, $\^A(0) = \^A$ するとき, 確率振幅および任意の観測量 $A$ の期待値が常に等しいとすると,
 $$
@@ -147,10 +147,10 @@ $$
 $$
 \dv{A}{t} = \{A, H\}_\mathrm{P}
 \quad \overset{\text{正準量子化}}{⟶} \quad
-\dv{\^A_\mathrm{H}}{t} = -\frac{i}{ℏ}[\^A_\mathrm{H},\^H_\mathrm{H}].
+\dv{\^A_\mathrm{H}}{t} = -\frac{i}{ℏ}[\^A_\mathrm{H},\^H].
 $$
 $$
-∴ iℏ \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H_\mathrm{H}].
+∴ iℏ \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H].
 $$
 ここで, 両辺それぞれ計算して,
 $$
@@ -208,7 +208,7 @@ $$
 \begin{aligned}
   \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
   \overset{\text{正準量子化}}{⟶} \quad
-  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H_\mathrm{H}] + \pqty{\dv{\^A}{t}}_\mathrm{H}.
+  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H}.
 \end{aligned}
 $$
 これは観測量 $A$ の時間発展を表した方程式であり, **Heisenberg の運動方程式**という. また, $\^U(t)$ に関する微分方程式を $|ψ⟩$ に作用させると,
@@ -373,6 +373,36 @@ $$
 ただし $|\^an⟩ ≡ \^a|n⟩$. これは $n<0$ に矛盾する. したがって, $n≥0$ である. また, $n$ が正の非整数とすると, 繰り返し $\^a$ を左右することで $n$ を負にすることができてしまうから, $n$ は非整数ではない. したがって, $n = 0,1,2,…$.
 
 <!-- TODO: 調和振動子による例 -->
+
+### 相互作用描像
+
+Hamiltonian $\^H$ を, 相互作用を含まない自由項 $H_0$ と相互作用項 $H_\mathrm{I}$ に分ける:
+$$
+H(t) = H_0 + H_\mathrm{I}(t).
+$$
+このとき, 以下を満たす演算子 $\^A_\mathrm{T}(t)$ と状態ベクトル $|ψ(t)⟩$ は**相互作用描像** Interaction picture と呼ばれる:
+$$
+\begin{gathered}
+  iℏ \dv{\^A_\mathrm{T}}{t} = [\^A_\mathrm{T},\^H_0], \\
+  iℏ \dv{}{t} |ψ(t)⟩_\mathrm{T} = \^H_\mathrm{I} |ψ(t)⟩_\mathrm{T}.
+\end{gathered}
+$$
+第 1 式より, Schrödinger 描像と相互作用描像の演算子の対応が得られる:
+$$
+\^A_\mathrm{T}(t) = e^{i\^H_0(t-t_0)} \^A e^{-i\^H_0(t-t_0)}.
+$$
+また, 期待値がどの描像でも等しいという条件
+$$
+{}_\mathrm{T}⟨ψ(t)| \^A_\mathrm{T}(t) |ψ(t)⟩_\mathrm{T} = {}_\mathrm{T}⟨ψ(t)| e^{i\^H_0(t-t_0)} \^A e^{-i\^H_0(t-t_0)} |ψ(t)⟩_\mathrm{T} = ⟨ψ(t)| \^A |ψ(t)⟩
+$$
+より, Schrödinger 描像と相互作用描像の状態ベクトルの対応が得られる:
+$$
+|ψ(t)⟩ = e^{-i\^H_0(t-t_0)} |ψ(t)⟩_\mathrm{T}.
+$$
+また, 時間発展演算子と同様の議論から,
+$$
+|ψ(t)⟩_\mathrm{T} = T \exp \bqty{- \frac{i}{ℏ} ∫_{t_0}^t \d{t'} \^H_\mathrm{I}(t')} |ψ(t_0)⟩_\mathrm{T}
+$$
 
 ### 経路積分量子化
 

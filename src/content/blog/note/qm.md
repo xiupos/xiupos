@@ -376,26 +376,26 @@ $$
 
 ### 経路積分量子化
 
-時刻 $t_i → t_f$ の運動で粒子が $q^i := q(t_i) → q_f := q (t_f)$ へ移動するときの作用は
+時刻 $t_i → t_f$ の運動で粒子が $q_i := q(t_i) → q_f := q (t_f)$ へ移動するときの作用は
 $$
 S[q(t)] = ∫_{t_A}^{t_B} \d{t} L(q, \.q, t)
 $$
-で与えられる. このとき, 状態 $|q^i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
+で与えられる. このとき, 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
 $$
-K(q_f,t_f;q^i,t_i) := ⟨q_f,t_f ∣ q^i,t_i⟩ \overset{\text{要請}}{=} \int_{q^i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
+K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}[q(t)] e^{\frac{i}{ℏ} S[q(t)]}.
 $$
 
 位置表示の波動関数に対して以下が成立する:
 $$
-ψ(q_f,t_f) = ∫ \d{{}^D q^i} K(q_f,t_f;q^i,t_i) ψ(q^i,t_i).
+ψ(q_f,t_f) = ∫ \d{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
 $$
 実際,
 $$
 \begin{aligned}
   ψ(q_f,t_f) &= ⟨q_f,t_f ∣ ψ⟩ \\
-    &= ⟨q_f,t_f| \pqty{∫ \d{{}^D q^i} |q^i,t_i⟩ ⟨q^i,t_i|} |ψ⟩ \\
-    &= ∫ \d{{}^D q^i} ⟨q_f,t_f ∣ q^i,t_i⟩ ⟨q^i,t_i ∣ ψ⟩ \\
-    &= ∫ \d{{}^D q^i} K(q_f,t_f;q^i,t_i) ψ(q^i,t_i).
+    &= ⟨q_f,t_f| \pqty{∫ \d{{}^D q_i} |q_i,t_i⟩ ⟨q_i,t_i|} |ψ⟩ \\
+    &= ∫ \d{{}^D q_i} ⟨q_f,t_f ∣ q_i,t_i⟩ ⟨q_i,t_i ∣ ψ⟩ \\
+    &= ∫ \d{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
 \end{aligned}
 $$
 

@@ -208,10 +208,11 @@ $$
 \begin{aligned}
   \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
   \overset{\text{正準量子化}}{⟶} \quad
-  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H}.
+  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H} \\
+  ⇔ iℏ \dv{\^A_\mathrm{H}}{t} &= [\^A_\mathrm{H},\^H] + iℏ \pqty{\dv{\^A}{t}}_\mathrm{H} \\
 \end{aligned}
 $$
-これは観測量 $A$ の時間発展を表した方程式であり, **Heisenberg の運動方程式**という. また, $\^U(t)$ に関する微分方程式を $|ψ⟩$ に作用させると,
+これは観測量 $A$ の時間発展を表した方程式であり, **Heisenberg の運動方程式**という. また, $\^U(t)$ に関する微分方程式 $iℏ \d{\^U(t)} / \d{t} = \^H \^U(t)$ を $|ψ⟩$ に作用させると,
 $$
 \begin{aligned}
   iℏ \dv{\^U(t)}{t} |ψ⟩ &= \^H \^U(t) |ψ⟩. \\

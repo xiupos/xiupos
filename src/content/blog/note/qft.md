@@ -125,6 +125,39 @@ N ≡ ∫ \d{{}^3 \bm{p}} a^†(\bm{p}) a(\bm{p})
 $$
 は数演算子である.
 
+また, 場 $ϕ(x)$ を消滅演算子で構成される部分 $ϕ^{(+)}(x)$ と消滅演算子で構成される部分 $ϕ^{(-)}(x)$ に分ける:
+$$
+\begin{gathered}
+  ϕ(x) = ϕ^{(+)}(x) + ϕ^{(-)}(x), \\
+  ϕ^{(+)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a(\bm{p})  e^{-ipx}, \\
+  ϕ^{(-)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a^†(\bm{p}) e^{ipx}.
+\end{gathered}
+$$
+このとき, 場の積は,
+$$
+\begin{aligned}
+  ϕ(x)ϕ(y)
+    &= \qty{ϕ^{(+)}(x) + ϕ^{(-)}(x)}\qty{ϕ^{(+)}(y) + ϕ^{(-)}(y)} \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+      &\qquad × \Big\{\ e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{-ipx} a(\bm{p}) e^{ip'y} a^†(\bm{p}') \\
+      &\qquad \qquad  + e^{ipx} a^†(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{ipx} a^†(\bm{p}) e^{ip'y} a^†(\bm{p}') \Big\}. \\
+\end{aligned}
+$$
+また, これの真空期待値は,
+$$
+\begin{aligned}
+  ⟨0| ϕ(x)ϕ(y) |0⟩
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+      &\qquad × \Big\{\ ⟨0| e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') |0⟩ + ⟨0| e^{-ipx} a(\bm{p}) e^{ip'y} a^†(\bm{p}') |0⟩ \\
+      &\qquad \qquad  + ⟨0| e^{ipx} a^†(\bm{p}) e^{-ip'y} a(\bm{p}') |0⟩ + ⟨0| e^{ipx} a^†(\bm{p}) e^{ip'y} a^†(\bm{p}') |0⟩ \Big\}. \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| a(\bm{p}) a^†(\bm{p}') |0⟩. \\
+    & \quad \pqty{∵ a(\bm{p}) |0⟩ = ⟨0| a^†(\bm{p}) = 0} \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| \qty{a^†(\bm{p}') a(\bm{p}) + δ^3(\bm{p}-\bm{p}')} |0⟩. \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} δ^3(\bm{p}-\bm{p}'). \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}. \\
+\end{aligned}
+$$
+
 ### 正規積
 
 場の積で与えられる量については, 量子化後に生成演算子が消滅演算子の左側に来るよう, 古典論の段階で並び換えておく. この操作を正規順序積と呼ばれる記号 ${:}…{:}$ で表す; 例えば, ${:}a_1 a_2^† a_3 a_4^†{:} = a_2^† a_4^† a_1 a_3$.
@@ -141,23 +174,24 @@ $$
 $$
 ϕ(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}
 $$
-を消滅演算子で構成される部分 $ϕ^{(+)}(x)$ と消滅演算子で構成される部分 $ϕ^{(-)}(x)$ に分ける:
+の場の積は
 $$
-\begin{gathered}
-  ϕ(x) = ϕ^{(+)}(x) + ϕ^{(-)}(x), \\
-  ϕ^{(+)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a(\bm{p})  e^{-ipx}, \\
-  ϕ^{(-)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a^†(\bm{p}) e^{ipx}.
-\end{gathered}
+\begin{aligned}
+  ϕ(x)ϕ(y)
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+      &\qquad × \Big\{\ e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{-ipx} a(\bm{p}) e^{ip'y} a^†(\bm{p}') \\
+      &\qquad \qquad  + e^{ipx} a^†(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{ipx} a^†(\bm{p}) e^{ip'y} a^†(\bm{p}') \Big\}. \\
+\end{aligned}
 $$
-このとき, 場の積に正規積を適用させると,
+これに正規積を適用させると,
 $$
 \begin{aligned}
   {:}ϕ(x)ϕ(y){:}
-    &= {:}\qty{ϕ^{(+)}(x) + ϕ^{(-)}(x)}\qty{ϕ^{(+)}(y) + ϕ^{(-)}(y)}{:} \\
-    &= ϕ^{(+)}(x) ϕ^{(+)}(y) + ϕ^{(-)}(y) ϕ^{(+)}(x) \\
-      &\qquad + ϕ^{(-)}(x) ϕ^{(+)}(y) + ϕ^{(-)}(x) ϕ^{(-)}(y) \\
     &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
-      &\qquad × \Big\{\ e^{-ipx} e^{-ip'y} a(\bm{p}) a(\bm{p}') + e^{ipy} e^{-ip'x} a^†(\bm{p}) a(\bm{p}') \\
+      &\qquad × \Big\{\ {:} e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') {:} + {:} e^{-ipx} a(\bm{p}) e^{ip'y} a^†(\bm{p}') {:} \\
+      &\qquad \qquad  + {:} e^{ipx} a^†(\bm{p}) e^{-ip'y} a(\bm{p}') {:} + {:} e^{ipx} a^†(\bm{p}) e^{ip'y} a^†(\bm{p}') {:} \Big\}. \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+      &\qquad × \Big\{\ e^{-ipx} e^{-ip'y} a(\bm{p}) a(\bm{p}') + e^{ip'y} e^{-ipx} a^†(\bm{p}') a(\bm{p}) \\
       &\qquad \qquad  + e^{ipx} e^{-ip'y} a^†(\bm{p}) a(\bm{p}') + e^{ipx} e^{ip'y} a^†(\bm{p}) a^†(\bm{p}') \Big\}. \\
 \end{aligned}
 $$
@@ -201,6 +235,38 @@ $$
 
 ### 伝播関数
 
+場 $ϕ(x)$ に対し,
+$$
+D_\mathrm{F}(x-y) ≡ ⟨0|Tϕ(x)ϕ(y)|0⟩
+$$
+を **Feynman 伝播関数** Feynman propagator という.
+
+#### 例: 実 Klein-Gordon 場
+
+場の積の真空期待値 $\displaystyle ⟨0| ϕ(x)ϕ(y) |0⟩ = ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}$ より,
+$$
+\begin{aligned}
+  ⟨0| Tϕ(x)ϕ(y) |0⟩
+    &= θ(x^0-y^0) ⟨0| ϕ(x)ϕ(y) |0⟩ + θ(y^0-x^0) ⟨0| ϕ(y)ϕ(x) |0⟩ \\
+    &= θ(x^0-y^0) ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)} + θ(y^0-x^0) ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{ip(x-y)} \\
+    &\quad \pqty{\text{$\displaystyle θ(x^0-y^0) = \frac{i}{2π} ∫_{-∞}^∞ \d{α} \frac{e^{-iα(x^0-y^0)}}{α+iε'}$, $\displaystyle θ(y^0-x^0) = \frac{-i}{2π} ∫_{-∞}^∞ \d{α} \frac{e^{-iα(x^0-y^0)}}{α-iε'}$ を用いて}} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α+iε'} e^{-ip(x-y)} - i ∫ \frac{\d{{}^3 \bm{p} \d{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α-iε'} e^{ip(x-y)} \\
+    &\quad \pqty{\text{$p_0 ≡ \sqrt{|\bm{p}|^2 + m^2}$ に注意し, 第一項 $α↦\~p_0+p_0$, 第二項 $α↦\~p_0-p_0$, $\bm{p}↦-\bm{p}$}} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0-p_0)(x^0-y^0)}}{\~p_0-p_0+iε'} e^{-ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}
+     - i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0+p_0)(x^0-y^0)}}{\~p_0+p_0-iε'} e^{ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \pqty{\frac{1}{\~p_0-p_0+iε'} - \frac{1}{\~p_0+p_0-iε'}} e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-(p_0-iε')^2} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-p_0^2-ip_0ε'} \\
+    &= i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-|\bm{p}|^2 + m^2-iε'} \\
+    &\quad \pqty{\text{ただし $ε≡p_0ε'$ とした. $\~p_0$ を新たに $p_0$ とすれば}} \\
+    &= i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 + m^2-iε}. \\
+\end{aligned}
+$$
+<!-- TODO: 5番目と6番目の等号の $(p_0-iε)/p_0=1$ は妥当か -->
+したがって,
+$$
+D_\mathrm{F}(x-y) = i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 + m^2-iε}
+$$
 
 
 ### 参考文献

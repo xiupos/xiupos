@@ -10,12 +10,26 @@ math : true
 
 ### 正準量子化
 
-場 $ϕ(x)$ と一般化運動量 $π(x)$ について以下の同時刻交換関係を要請する(正準量子化):
+場の解析力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 場の量子論における交換関係 $\displaystyle -i[⋅,⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\begin{gathered}
-{}[ϕ(t,\bm{x}), π(t,\bm{x}')] = iδ^3(\bm{x}-\bm{x}'), \\
-  [ϕ(t,\bm{x}), ϕ(t,\bm{x}')] = [π(t,\bm{x}), π(t,\bm{x}')] = 0.
-\end{gathered}
+\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -i[A_\mathrm{H},B_\mathrm{H}].
+$$
+
+正準変数 $(q^i, p_i)$ に対して正準量子化すると, 演算子 $(q^i, p_i)$ が**正準交換関係**と呼ばれる以下の対応が得られる:
+$$
+\begin{aligned}
+\{ϕ^α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} &= δ^α_β δ^3(\bm{x}-\bm{x}') \\
+  \overset{\text{正準量子化}}{⟶}
+  - i [{ϕ^α}{}_\mathrm{H}(t, \bm{x}), {π_β}{}_\mathrm{H}(t, \bm{x}')] &= δ^α_β δ^3(\bm{x}-\bm{x}'), \\
+  ⇔ \quad [ϕ^α(t, \bm{x}), π_β(t, \bm{x}')] &= i δ^α_β δ^3(\bm{x}-\bm{x}').
+\end{aligned}
+$$
+$$
+\begin{aligned}
+  \{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} &= 0, \\
+  \overset{\text{正準量子化}}{⟶} - i [{ϕ^α}{}_\mathrm{H}(t, \bm{x}), {ϕ^β}{}_\mathrm{H}(t, \bm{x}')] = - i [{π_α}{}_\mathrm{H}(t, \bm{x}), {π_β}{}_\mathrm{H}(t, \bm{x}')] &= 0. \\
+  ⇔ \quad [ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')] = [π_α(t, \bm{x}), π_β(t, \bm{x}')] &= 0. \\
+\end{aligned}
 $$
 
 ### 生成・消滅演算子

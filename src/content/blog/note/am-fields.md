@@ -329,8 +329,8 @@ $$
 $$
 \begin{gathered}
 \{ϕ^α, H\}_\mathrm{P} = \.ϕ^α, \quad \{π_α, H\}_\mathrm{P} = \.π_α, \\
-\{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{y})\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{y})\}_\mathrm{P} = 0, \\
-\{ϕ^α(t, \bm{x}), π_β(t, \bm{y})\}_\mathrm{P} = δ^α_β δ^4(x-y).
+\{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} = 0, \\
+\{ϕ^α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} = δ^α_β δ^3(\bm{x}-\bm{x}').
 \end{gathered}
 $$
 

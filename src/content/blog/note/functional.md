@@ -145,7 +145,7 @@ $$
 \begin{aligned}
   \dv{}{t}F[φ(x, t)]
     &= \lim_{h→0} \frac{F[φ(x, t + h)] - F[φ(x, t)]}{h} \\
-    &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(y, t)}{t}} - F[φ(x, t)]} \\
+    &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(x, t)}{t}} - F[φ(x, t)]} \\
     &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t)} + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} \pdv{φ(y, t)}{t} + O(h^2) - F[φ(x, t)]} \\
     &= ∫ \d{y} \fdv{F[φ(x, t)]}{φ(y, t)} \pdv{φ(y, t)}{t}. \\
 \end{aligned}

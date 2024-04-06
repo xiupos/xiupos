@@ -313,64 +313,40 @@ $$
 \.{ϕ}^α = π^α, \quad \.{π}_α = - m^2 ϕ_α + ∇^2 ϕ_α.
 $$
 
-<!-- TODO: 他の例 -->
+TODO: 他の例
 
-<!-- #### 例: de Broglie 場
+### Poisson 括弧
 
-de Broglie 場 $ψ$ の Lagrangian 密度は,
-$$
-ℒ(ψ, ∂_μ ψ) = i ℏ ψ^† ∂_μ ψ - \frac{ℏ^2}{2m} ∂_i ψ^† ∂^i ψ.
-$$
-ここで, $ψ$ と $ψ^†$ を独立に扱って,
+正準変数 $(ϕ^α, π_α)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \begin{aligned}
-  \pdv{ℒ}{ψ^†} &= i ℏ ∂_μ ψ, \\
-  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ^†)} } \\
-    &= 0 - \frac{ℏ}{2 m} ∂_i ∂^i ψ \\
-    &= - \frac{ℏ}{2 m} ∇^2 ψ,
+  \{A[ϕ^α, π_α], B[ϕ^α, π_α]\}_\mathrm{P}
+    &≡ ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α}\fdv{B}{π_α} - \fdv{B}{ϕ^α}\fdv{A}{π_α}} \\
+    &≡ ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{B[ϕ^α, π_α]}{π_α(t,\bm{x})} - \fdv{B[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{A[ϕ^α, π_α]}{π_α(t,\bm{x})}}.
 \end{aligned}
 $$
+例えば,
 $$
-\begin{aligned}
-  \pdv{ℒ}{ψ} &= 0, \\
-  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ)} } \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∂_i ∂^i ψ^† \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∇^2 ψ^†.
-\end{aligned}
-$$
-したがって, Euler–Lagrange の運動方程式より,
-$$
-\begin{aligned}
-  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} ∇^2 ψ^†.
-\end{aligned}
+\begin{gathered}
+\{ϕ^α, H\}_\mathrm{P} = \.ϕ^α, \quad \{π_α, H\}_\mathrm{P} = \.π_α, \\
+\{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{y})\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{y})\}_\mathrm{P} = 0, \\
+\{ϕ^α(t, \bm{x}), π_β(t, \bm{y})\}_\mathrm{P} = δ^α_β δ^4(x-y).
+\end{gathered}
 $$
 
-#### 例: 電磁場
-
-電磁場 $A_μ$ の Lagrangian 密度は,
+ある物理量 $A[ϕ^α, π_α]$ について, 時間発展に関する式は:
+$$
+\dv{A}{t} = \{A, H\}_\mathrm{P}.
+$$
+実際, $A$ の時間による完全微分は,
 $$
 \begin{aligned}
-ℒ(A_ν, ∂_μ A_ν) = - \frac14 F_{μν} F^{μν} + A_μ j^μ, &&
-F^{μν} := ∂^μ A^ν - ∂^ν A^μ.
+\dv{A}{t}
+&=  ∫ \d{{}^3 \bm{x}} \fdv{A}{ϕ^α} \.ϕ^α + ∫ \d{{}^3 \bm{x}} \fdv{A}{π_α} \.π_α \\
+&=  ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α} \fdv{H}{π_α} - \fdv{H}{ϕ^α} \fdv{A}{π_α}} \\
+&=  \{A, H\}_\mathrm{P}.
 \end{aligned}
 $$
-ここで,
-$$
-\begin{aligned}
-\pdv{ℒ}{A_ν} &= j^μ, \\
-∂_μ \pqty{\pdv{ℒ}{(∂_μ A_ν)}}
-&=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \pqty{ - \frac14 F_{ρσ} F^{ρσ} } } \\
-&=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \bqty{ - \frac12 (
-      ∂_ρ A_σ ∂^ρ A^σ - ∂_ρ A_σ ∂^σ A^ρ
-    ) } } \\
-&=  ∂_μ \bqty{ - (∂^μ A^ν - ∂^ν A^μ) } \\
-&=  - ∂_μ F^{μν}.
-\end{aligned}
-$$
-したがって, Euler–Lagrange の運動方程式より,
-$$
-∂_μ F^{μν} = - j^ν.
-$$ -->
 
 ### 平面波展開
 

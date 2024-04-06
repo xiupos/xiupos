@@ -311,7 +311,7 @@ $$
 $$
 $$
 \begin{aligned}
-\{q^i, q^j\} = \{p_i, p_j\} = 0, && \{q^i, p_j\} = δ_i^j.
+\{q^i, q^j\}_\mathrm{P} = \{p_i, p_j\}_\mathrm{P} = 0, && \{q^i, p_j\}_\mathrm{P} = δ_j^i.
 \end{aligned}
 $$
 

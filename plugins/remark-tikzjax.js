@@ -21,19 +21,9 @@ const htmlTemplate = (body) => `<div class="responsive" style="zoom:1.4;">${body
  * @returns {string}
  */
 const texTemplate = (type, body) => {
-  if (type == "tikzcd") return `
-    \\usetikzlibrary{cd}
+  if (type == "tikz") return `
     \\begin{document}
-      \\begin{tikzcd}
-        ${body}
-      \\end{tikzcd}
-    \\end{document}
-  `;
-  else if (type == "tikzpicture" || type == "tikz") return `
-    \\begin{document}
-      \\begin{tikzpicture}
-        ${body}
-      \\end{tikzpicture}
+      ${body}
     \\end{document}
   `;
   else return body;
@@ -52,9 +42,6 @@ const remarkTikzjax = () => tree => new Promise(async (resolve, reject) => {
   const instances = [];
   visitParents(tree, [
     { type: "code", lang: "tikz" },
-    { type: "code", lang: "tikz-tex" },
-    { type: "code", lang: "tikzcd" },
-    { type: "code", lang: "tikzpicture" },
   ],
   // @ts-ignore
   node => {

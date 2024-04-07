@@ -53,6 +53,7 @@ math : true
 ## TikZ
 
 ```tikz
+\begin{tikzpicture}
 \def \n {5}
 \def \radius {3cm}
 \def \margin {8} % margin in angles, depends on the radius
@@ -63,10 +64,12 @@ math : true
   \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
     arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
 }
+\end{tikzpicture}
 ```
 
 ````md
 ```tikz
+\begin{tikzpicture}
 \def \n {5}
 \def \radius {3cm}
 \def \margin {8} % margin in angles, depends on the radius
@@ -77,5 +80,6 @@ math : true
   \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
     arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
 }
+\end{tikzpicture}
 ```
 ````

@@ -8,7 +8,41 @@ draft : true
 math : true
 ---
 
-## ファインマン・ダイアグラム
+## TikZJax
+
+```tikz
+\begin{tikzpicture}
+\def \n {5}
+\def \radius {3cm}
+\def \margin {8} % margin in angles, depends on the radius
+
+\foreach \s in {1,...,\n}
+{
+  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
+  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
+    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
+}
+\end{tikzpicture}
+```
+
+````md
+```tikz
+\begin{tikzpicture}
+\def \n {5}
+\def \radius {3cm}
+\def \margin {8} % margin in angles, depends on the radius
+
+\foreach \s in {1,...,\n}
+{
+  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
+  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
+    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
+}
+\end{tikzpicture}
+```
+````
+
+## TikZJax + tikz-feynhand
 
 ```tikz
 \begin{tikzpicture}
@@ -68,36 +102,28 @@ math : true
 ```
 ````
 
-## TikZ
+## TikZJax + tikz-cd
 
 ```tikz
-\begin{tikzpicture}
-\def \n {5}
-\def \radius {3cm}
-\def \margin {8} % margin in angles, depends on the radius
-
-\foreach \s in {1,...,\n}
-{
-  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
-  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
-    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
-}
-\end{tikzpicture}
+\begin{tikzcd}[row sep=2.5em]
+A' \arrow[rr,"f'"] \arrow[dr,swap,"a"] \arrow[dd,swap,"g'"] &&
+B' \arrow[dd,swap,"h'" near start] \arrow[dr,"b"] \\
+& A \arrow[rr,crossing over,"f" near start] &&
+B \arrow[dd,"h"] \\
+C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
+& C \arrow[rr,"k"] \arrow[uu,<-,crossing over,"g" near end]&& D
+\end{tikzcd}
 ```
 
 ````md
 ```tikz
-\begin{tikzpicture}
-\def \n {5}
-\def \radius {3cm}
-\def \margin {8} % margin in angles, depends on the radius
-
-\foreach \s in {1,...,\n}
-{
-  \node[draw, circle] at ({360/\n * (\s - 1)}:\radius) {$\s$};
-  \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius)
-    arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
-}
-\end{tikzpicture}
+\begin{tikzcd}[row sep=2.5em]
+A' \arrow[rr,"f'"] \arrow[dr,swap,"a"] \arrow[dd,swap,"g'"] &&
+B' \arrow[dd,swap,"h'" near start] \arrow[dr,"b"] \\
+& A \arrow[rr,crossing over,"f" near start] &&
+B \arrow[dd,"h"] \\
+C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
+& C \arrow[rr,"k"] \arrow[uu,<-,crossing over,"g" near end]&& D
+\end{tikzcd}
 ```
 ````

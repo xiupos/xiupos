@@ -1,6 +1,6 @@
 // wip
 import { visitParents } from "unist-util-visit-parents";
-import nodeTikzjax from 'node-tikzjax';
+import nodeTikzjax from "node-tikzjax";
 
 // @ts-ignore
 const tex2svg = nodeTikzjax.default;

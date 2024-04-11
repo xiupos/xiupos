@@ -50,7 +50,7 @@ $$
 \begin{aligned}
   Na^†(\bm{p})|Ψ_c⟩
     &= ∫\d{{}^3 \bm{p}'} a^†(\bm{p}') a(\bm{p}') a^†(\bm{p}) |Ψ_c⟩ \\
-    &= ∫\d{{}^3 \bm{p}'} a^†(\bm{p}') \qty{a^†(\bm{p}) a(\bm{p}') + δ^†(\bm{p}'-\bm{p})} |Ψ_c⟩ \\
+    &= ∫\d{{}^3 \bm{p}'} a^†(\bm{p}') \big\{ a^†(\bm{p}) a(\bm{p}') + δ^3(\bm{p}'-\bm{p}) \big\} |Ψ_c⟩ \\
     &= a^†(\bm{p}) \pqty{ ∫\d{{}^3 \bm{p}'} a^†(\bm{p}') a(\bm{p}') + 1} |Ψ_c⟩ \\
     &= a^†(\bm{p})(N + 1)|Ψ_c⟩ \\
     &= (c + 1)a^†(\bm{p})|Ψ_c⟩.
@@ -166,7 +166,7 @@ $$
       &\qquad \qquad  + ⟨0| e^{ipx} a^†(\bm{p}) e^{-ip'y} a(\bm{p}') |0⟩ + ⟨0| e^{ipx} a^†(\bm{p}) e^{ip'y} a^†(\bm{p}') |0⟩ \Big\}. \\
     &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| a(\bm{p}) a^†(\bm{p}') |0⟩. \\
     & \quad \pqty{∵ a(\bm{p}) |0⟩ = ⟨0| a^†(\bm{p}) = 0} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| \qty{a^†(\bm{p}') a(\bm{p}) + δ^3(\bm{p}-\bm{p}')} |0⟩. \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| \big\{ a^†(\bm{p}') a(\bm{p}) + δ^3(\bm{p}-\bm{p}') \big\} |0⟩. \\
     &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} δ^3(\bm{p}-\bm{p}'). \\
     &= ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}. \\
 \end{aligned}
@@ -292,9 +292,11 @@ $$
 
 ### Feynman 図形
 
-${ϕ}^4$ モデルを考える.
+${ϕ}^4$ モデルの Lagrangian 密度
 $$
-ℒ = \frac12 ∂_μ ϕ ∂^μ ϕ - \frac12 m^2 {ϕ}^2 - λ{ϕ}^4.
+\begin{gathered}
+  ℒ = \frac12 ∂_μ ϕ ∂^μ ϕ - \frac12 m^2 {ϕ}^2 - λ{ϕ}^4.
+\end{gathered}
 $$
 
 ### 参考文献

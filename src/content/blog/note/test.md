@@ -10,6 +10,8 @@ math : true
 
 ## TikZJax
 
+[TThe TikZ and PGF Packages](https://tikz.dev/)
+
 ```tikz
 \begin{tikzpicture}
 \def \n {5}
@@ -44,6 +46,8 @@ math : true
 
 ## TikZJax + tikz-cd
 
+[tikzcd: Commutative diagrams with TikZ](https://ctan.math.washington.edu/tex-archive/graphics/pgf/contrib/tikz-cd/tikz-cd-doc.pdf)
+
 ```tikz
 \begin{tikzcd}[row sep=2.5em]
 A' \arrow[rr,"f'"] \arrow[dr,swap,"a"] \arrow[dd,swap,"g'"] &&
@@ -69,6 +73,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ````
 
 ## TikZJax + tikz-feynhand
+
+[TikZ-FeynHand: Basic User Guide](https://arxiv.org/pdf/1802.00689.pdf)
 
 ```tikz
 \begin{tikzpicture}

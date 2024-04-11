@@ -10,43 +10,61 @@ math : true
 
 ## ファインマン・ダイアグラム
 
-```feynmf
-\begin{fmfgraph*}(400,300)
-  \fmfleftn{4}
-  \fmfrightn{4}
-  \fmf{antifermion}{i1,v1*,v2*,v3*,o1}
-  \fmf{gluon,left=4,label=$g$}{v2*,v4}
-  \fmf{photon,left=2.1,tension=0,labelx=-15,labely=-10,label=$\overline{u},\overline{c},\overline{t}$}{v1*,v3*}
-  \fmf{antifermion}{o2,v4,o3}
-  \fmf{fermion}{i4,o4}
-  \fmfdot{v1*,v2*,v3*,v4}
-  \fmflabel{i4}{$d$}
-  \fmflabel{o4}{$d$}
-  \fmflabel{o2}{$u$}
-  \fmflabel{o3}{$\overline{u}$}
-  \fmflabel{i1}{$\overline{b}$}
-  \fmflabel{o1}{$\overline{s}$}
-\end{fmfgraph*}
+```tikz
+\begin{tikzpicture}
+  \begin{feynhand}
+    \vertex [particle] (i1) at (-3,4) {$u$};
+    \vertex [particle] (i2) at (-3,3.5) {$d$};
+    \vertex [particle] (i3) at (-3,3) {$d$};
+    \vertex [particle] (f1) at (3,4) {$u$};
+    \vertex [particle] (f2) at (3,3.5) {$d$};
+    \vertex [particle] (f3) at (3,3) {$u$};
+    \vertex (w1) at (0,3);
+    \vertex (w2) at (0,2.5);
+    \vertex (w3) at (0,2);
+    \vertex (w4) at (1.5,1);
+    \vertex [particle] (e) at (3,1.5) {$e^{-}$};
+    \vertex [particle] (an) at (3,0.5) {$\bar{\nu}_{e}$};
+    \propag [fermion] (i1) to (w1);
+    \propag [fermion] (i2) to (w2);
+    \propag [fermion] (i3) to (w3);
+    \propag [fermion] (w1) to (f1);
+    \propag [fermion] (w2) to (f2);
+    \propag [fermion] (w3) to (f3);
+    \propag [charged boson] (w3) to [edge label=$W^{-}$] (w4);
+    \propag [fermion] (w4) to (e);
+    \propag [anti fermion] (w4) to (an);
+  \end{feynhand}
+\end{tikzpicture}
 ```
 
 ````md
-```feynmf
-\begin{fmfgraph*}(400,300)
-  \fmfleftn{4}
-  \fmfrightn{4}
-  \fmf{antifermion}{i1,v1*,v2*,v3*,o1}
-  \fmf{gluon,left=4,label=$g$}{v2*,v4}
-  \fmf{photon,left=2.1,tension=0,labelx=-15,labely=-10,label=$\overline{u},\overline{c},\overline{t}$}{v1*,v3*}
-  \fmf{antifermion}{o2,v4,o3}
-  \fmf{fermion}{i4,o4}
-  \fmfdot{v1*,v2*,v3*,v4}
-  \fmflabel{i4}{$d$}
-  \fmflabel{o4}{$d$}
-  \fmflabel{o2}{$u$}
-  \fmflabel{o3}{$\overline{u}$}
-  \fmflabel{i1}{$\overline{b}$}
-  \fmflabel{o1}{$\overline{s}$}
-\end{fmfgraph*}
+```tikz
+\begin{tikzpicture}
+  \begin{feynhand}
+    \vertex [particle] (i1) at (-3,4) {$u$};
+    \vertex [particle] (i2) at (-3,3.5) {$d$};
+    \vertex [particle] (i3) at (-3,3) {$d$};
+    \vertex [particle] (f1) at (3,4) {$u$};
+    \vertex [particle] (f2) at (3,3.5) {$d$};
+    \vertex [particle] (f3) at (3,3) {$u$};
+    \vertex (w1) at (0,3);
+    \vertex (w2) at (0,2.5);
+    \vertex (w3) at (0,2);
+    \vertex (w4) at (1.5,1);
+    \vertex [particle] (e) at (3,1.5) {$e^{-}$};
+    \vertex [particle] (an) at (3,0.5) {$\bar{\nu}_{e}$};
+    \propag [fermion] (i1) to (w1);
+    \propag [fermion] (i2) to (w2);
+    \propag [fermion] (i3) to (w3);
+    \propag [fermion] (w1) to (f1);
+    \propag [fermion] (w2) to (f2);
+    \propag [fermion] (w3) to (f3);
+    \propag [charged boson] (w3) to [edge label=$W^{-}$] (w4);
+    \propag [fermion] (w4) to (e);
+    \propag [anti fermion] (w4) to (an);
+  \end{feynhand}
+\end{tikzpicture}
 ```
 ````
 

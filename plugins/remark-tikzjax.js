@@ -7,6 +7,11 @@ const tex2svg = nodeTikzjax.default;
 const tex2svgOptions = {
   embedFontCss: true,
   fontCssUrl: 'https://cdn.jsdelivr.net/npm/node-tikzjax@latest/css/fonts.css',
+  showConsole: true,
+  texPackages: {
+    "tikz-cd": "",
+    "tikz-feynhand": ""
+  },
 }
 
 /**

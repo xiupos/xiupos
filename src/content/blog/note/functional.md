@@ -49,43 +49,43 @@ $$
 以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する:
 
 1. $\displaystyle F[φ(x)] = ∫ \d{x} g(x) φ(x)$:
-$$
-\begin{aligned}
-  \fdv{}{φ(y)} ∫ \d{x} g(x) φ(x)
-    &=  \lim_{h→0} \frac1h \bqty{∫ \d{x} g(x) (φ(x) + hδ(x-y)) - ∫ \d{x} g(x) φ(x)} \\
-    &=  \lim_{h→0} \frac1h ∫ \d{x} g(x) hδ(x-y) \\
-    &=  ∫ \d{x} g(x) δ(x-y) =  g(y).
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      \fdv{}{φ(y)} ∫ \d{x} g(x) φ(x)
+        &=  \lim_{h→0} \frac1h \bqty{∫ \d{x} g(x) (φ(x) + hδ(x-y)) - ∫ \d{x} g(x) φ(x)} \\
+        &=  \lim_{h→0} \frac1h ∫ \d{x} g(x) hδ(x-y) \\
+        &=  ∫ \d{x} g(x) δ(x-y) =  g(y).
+    \end{aligned}
+    $$
 
 2. $F[φ(x)] = φ(x')$:
-$$
-\fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \d{z} δ(x'-z) φ(z) = δ(x'-y).
-$$
+    $$
+    \fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \d{z} δ(x'-z) φ(z) = δ(x'-y).
+    $$
 
 3. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ(x))$:
-$$
-\begin{aligned}
-  \fdv{}{φ(y)} ∫ \d{x} g(φ(x))
-    &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g(φ(x) + hδ(x-y)) - ∫ \d{x} g(φ(x))} \\
-    &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(φ(x))}{φ(x)} δ(x-y) + O(h^2)}} \\
-    &= \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
-    &= \dv{g(φ(y))}{φ(y)}.
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      \fdv{}{φ(y)} ∫ \d{x} g(φ(x))
+        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g(φ(x) + hδ(x-y)) - ∫ \d{x} g(φ(x))} \\
+        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(φ(x))}{φ(x)} δ(x-y) + O(h^2)}} \\
+        &= \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
+        &= \dv{g(φ(y))}{φ(y)}.
+    \end{aligned}
+    $$
 
 4. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ'(x))$:
-$$
-\begin{aligned}
-  \fdv{}{φ(y)} ∫ \d{x} g(φ'(x))
-    &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
-    &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
-    &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
-    &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + O(h^2)}} \quad (∵\text{部分積分}) \\
-    &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + O(h^2)} \\
-    &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      \fdv{}{φ(y)} ∫ \d{x} g(φ'(x))
+        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
+        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + O(h^2)}} \quad (∵\text{部分積分}) \\
+        &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + O(h^2)} \\
+        &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
+    \end{aligned}
+    $$
 
 ### 汎関数冪級数
 
@@ -116,40 +116,40 @@ $$
 #### 冪級数を用いた計算例
 
 1. $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$ の汎関数b微分:
-$$
-\begin{aligned}
-   &\ \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n} \\
-  =&\ \lim_{h→0} \frac1h \left[∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
-    &\qquad\qquad\quad - \left.∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
-  =&\ \lim_{h→0} \frac1h ∫ \d{z} \fdv{}{z} \pqty{∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
-  =&\ \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
-  =&\ n ∫ \d{y_1} ⋯ ∫ \d{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
-  =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      &\ \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n} \\
+      =&\ \lim_{h→0} \frac1h \left[∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
+        &\qquad\qquad\quad - \left.∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
+      =&\ \lim_{h→0} \frac1h ∫ \d{z} \fdv{}{z} \pqty{∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
+      =&\ \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
+      =&\ n ∫ \d{y_1} ⋯ ∫ \d{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
+      =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
+    \end{aligned}
+    $$
 
 2. $g(F[φ(x)])$ の汎関数b微分:
-$$
-\begin{aligned}
-  \fdv{g(F[φ(x)])}{φ(y)}
-    &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
-    &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \d{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
-    &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
-    &=  \lim_{h→0} \frac1h \bqty{h \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
-    &=  \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)}.
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      \fdv{g(F[φ(x)])}{φ(y)}
+        &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
+        &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \d{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
+        &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
+        &=  \lim_{h→0} \frac1h \bqty{h \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+        &=  \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)}.
+    \end{aligned}
+    $$
 
 3. $x$ の積分で定義される汎関数 $F[φ(x, t)]$ に対し, 微分 $\displaystyle \dv{}{t}F[φ(x, t)]$:
-$$
-\begin{aligned}
-  \dv{}{t}F[φ(x, t)]
-    &= \lim_{h→0} \frac{F[φ(x, t + h)] - F[φ(x, t)]}{h} \\
-    &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(x, t)}{t}} - F[φ(x, t)]} \\
-    &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t)} + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} \pdv{φ(y, t)}{t} + O(h^2) - F[φ(x, t)]} \\
-    &= ∫ \d{y} \fdv{F[φ(x, t)]}{φ(y, t)} \pdv{φ(y, t)}{t}. \\
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+      \dv{}{t}F[φ(x, t)]
+        &= \lim_{h→0} \frac{F[φ(x, t + h)] - F[φ(x, t)]}{h} \\
+        &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(x, t)}{t}} - F[φ(x, t)]} \\
+        &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t)} + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} \pdv{φ(y, t)}{t} + O(h^2) - F[φ(x, t)]} \\
+        &= ∫ \d{y} \fdv{F[φ(x, t)]}{φ(y, t)} \pdv{φ(y, t)}{t}. \\
+    \end{aligned}
+    $$
 
 ### 汎関数積分
 
@@ -178,48 +178,48 @@ $$
 以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
-$$
-\begin{aligned}
-  I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
-    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
-    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
-    &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{i}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
-\end{aligned}
-$$
-ここで,
-$$
-\begin{aligned}
-  & ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
-    =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
-    =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{i}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{i}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
-    =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{- \frac{i}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
-    &   \quad \pqty{∵ ∫ \d{x} \exp \pqty{-iax^2+ibx} = \sqrt{\frac{π}{ia}} \exp \pqty{\frac{ib^2}{4a}} } \\
-    =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{\frac{i}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
-\end{aligned}
-$$
-より, $k=1,…,N-1$ で順に積分することで,
-$$
-\begin{aligned}
-  I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-    &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
-\end{aligned}
-$$
-ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx}^{N/2}/C$ とすれば,
-$$
-\begin{aligned}
-  I(φ) &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-    &=  \lim_{N→∞} \frac{C}{\sqrt{iπNΔx}} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-    &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
-\end{aligned}
-$$
-また, 正規化条件より定数 $C$ を決定する:
-$$
-∫ \d{φ} I(φ) = ∫ \d{φ} \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}} = C = 1.
-$$
-したがって,
-$$
-I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
-$$
+    $$
+    \begin{aligned}
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{i}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
+    \end{aligned}
+    $$
+    ここで,
+    $$
+    \begin{aligned}
+      & ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
+        =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
+        =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{i}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{i}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{- \frac{i}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
+        &   \quad \pqty{∵ ∫ \d{x} \exp \pqty{-iax^2+ibx} = \sqrt{\frac{π}{ia}} \exp \pqty{\frac{ib^2}{4a}} } \\
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{\frac{i}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
+    \end{aligned}
+    $$
+    より, $k=1,…,N-1$ で順に積分することで,
+    $$
+    \begin{aligned}
+      I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
+    \end{aligned}
+    $$
+    ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx}^{N/2}/C$ とすれば,
+    $$
+    \begin{aligned}
+      I(φ) &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} \frac{C}{\sqrt{iπNΔx}} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+    \end{aligned}
+    $$
+    また, 正規化条件より定数 $C$ を決定する:
+    $$
+    ∫ \d{φ} I(φ) = ∫ \d{φ} \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}} = C = 1.
+    $$
+    したがって,
+    $$
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+    $$
 
 ### 参考文献
 

@@ -8,6 +8,32 @@ draft : true
 math : true
 ---
 
+## Fenced Divs
+
+:::screen
+
+### Schrödinger 方程式
+
+Schrödinger 描像の状態ベクトル $|ψ(t)⟩$ の時間発展を記述する式は,
+$$
+i \hbar \pdv{}{t} |ψ(t)⟩ = H |ψ(t)⟩.
+$$
+
+:::
+
+````md
+:::screen
+
+### Schrödinger 方程式
+
+Schrödinger 描像の状態ベクトル $|ψ(t)⟩$ の時間発展を記述する式は,
+$$
+i \hbar \pdv{}{t} |ψ(t)⟩ = H |ψ(t)⟩.
+$$
+
+:::
+````
+
 ## TikZJax
 
 [TThe TikZ and PGF Packages](https://tikz.dev/)

@@ -31,6 +31,9 @@ devDependencies:
   '@astrojs/markdown-remark':
     specifier: ^5.1.0
     version: 5.1.0
+  hastscript:
+    specifier: ^9.0.0
+    version: 9.0.0
   node-tikzjax:
     specifier: github:xiupos/node-tikzjax
     version: github.com/xiupos/node-tikzjax/ca5e41a6b6a8902cdf47530e4556f00d601728ea
@@ -49,6 +52,9 @@ devDependencies:
   stylus:
     specifier: ^0.63.0
     version: 0.63.0
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
   unist-util-visit-parents:
     specifier: ^6.0.1
     version: 6.0.1
@@ -2711,6 +2717,16 @@ packages:
       hast-util-parse-selector: 4.0.0
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
+
+  /hastscript@9.0.0:
+    resolution: {integrity: sha512-jzaLBGavEDKHrc5EfFImKN7nZKKBdSLIdGvCwDZ9TfzbF2ffXiov8CKE445L2Z1Ek2t/m4SKQ2j6Ipv7NyUolw==}
+    dependencies:
+      '@types/hast': 3.0.4
+      comma-separated-tokens: 2.0.3
+      hast-util-parse-selector: 4.0.0
+      property-information: 6.5.0
+      space-separated-tokens: 2.0.2
+    dev: true
 
   /html-encoding-sniffer@4.0.0:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}

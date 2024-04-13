@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 import remarkMath from 'remark-math';
 import remarkDirective from 'remark-directive';
+import remarkFencedDivs from './plugins/remark-fenced-divs.js';
 import remarkTikzjax from './plugins/remark-tikzjax.js';
 import rehypeMathjax from 'rehype-mathjax/browser';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
@@ -35,6 +36,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkMath,
       remarkDirective,
+      remarkFencedDivs,
       remarkTikzjax,
     ],
     rehypePlugins: [

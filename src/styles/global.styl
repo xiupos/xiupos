@@ -20,7 +20,7 @@ html
   --color-sub #444
   --color-code var(--color)
   --back #fff
-  --back-sub #e2e2e2
+  --back-sub #f0f0f0
   --back-code #f5f5f5
   --filter none
 
@@ -31,7 +31,7 @@ html
     --color #f8f8f8
     --color-sub #bbb
     --back #333
-    --back-sub #444
+    --back-sub #2a2a2a
     --back-code #222
     --filter invert()
 
@@ -76,8 +76,7 @@ article
   > *, pre > code
     width 90%
     max-width var(--width)
-    // margin var(--headerMargin) auto
-    margin var(--headerMargin) auto calc(var(--headerMargin) * 0.15)
+    margin var(--headerMargin) auto
     box-sizing border-box
     color var(--color)
     overflow hidden
@@ -182,6 +181,12 @@ article
           left 0
           z-index 1
 
+  div.screen
+    padding 0 1.2em
+    // border 0.1em solid var(--color-sub)
+    // border-radius 1.2em
+    background var(--back-sub)
+
   p > code
     padding 0.3em 0.5em
     background-color var(--back-code)
@@ -198,6 +203,7 @@ article
     line-height 1.5
 
     > code
+      margin var(--headerMargin) auto calc(var(--headerMargin) * 0.15)
       display block
       tab-size 2
       overflow unset

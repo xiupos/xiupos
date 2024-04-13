@@ -22,6 +22,7 @@ html
   --back #fff
   --back-sub #f0f0f0
   --back-code #f5f5f5
+  --back-thumb #e3e3e3
   --filter none
 
   @media (prefers-color-scheme: dark)
@@ -33,6 +34,7 @@ html
     --back #333
     --back-sub #2a2a2a
     --back-code #222
+    --back-thumb #4a4a4a
     --filter invert()
 
     pre code span
@@ -183,8 +185,6 @@ article
 
   div.screen
     padding 0 1.2em
-    // border 0.1em solid var(--color-sub)
-    // border-radius 1.2em
     background var(--back-sub)
 
   p > code
@@ -233,5 +233,5 @@ article
     background #00000000
 
   ::-webkit-scrollbar-thumb
-    background-color var(--back-sub)
+    background-color var(--back-thumb)
     border-radius 2px

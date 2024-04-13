@@ -112,7 +112,7 @@ $$
 
 :::screen
 
-状態ベクトルのみが時間発展し, 演算子は時間に依存しないとする方法を **Schrödinger 描像** *Schrödinger picture* という. Schrödinger 描像の演算子, 状態ベクトル, 固有状態を以下のように書く.
+状態ベクトルのみが時間発展し, 演算子は時間に依存しないとする方法を **Schrödinger 描像** *Schrödinger picture* という. Schrödinger 描像の演算子, 状態ベクトル, 固有状態を以下のように書く:
 $$
 \begin{aligned}
   \textsf{演算子} \quad &: \quad \^A, && \^A_\mathrm{S}, \\
@@ -125,7 +125,7 @@ $$
 
 :::screen
 
-演算子のみが時間発展し, 状態ベクトルは時間に依存しないとする方法を **Heisenberg 描像** *Heisenberg picture* という. Heisenberg 描像の演算子, 状態ベクトル, 固有状態を以下のように書く.
+演算子のみが時間発展し, 状態ベクトルは時間に依存しないとする方法を **Heisenberg 描像** *Heisenberg picture* という. Heisenberg 描像の演算子, 状態ベクトル, 固有状態を以下のように書く:
 $$
 \begin{aligned}
   \textsf{演算子} \quad &: \quad \^A(t), && \^A_\mathrm{H}(t), \\

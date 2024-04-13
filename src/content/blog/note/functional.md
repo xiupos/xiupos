@@ -115,7 +115,7 @@ $$
 
 #### 冪級数を用いた計算例
 
-1. $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$ の汎関数b微分:
+1. $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$ の汎関数微分:
     $$
     \begin{aligned}
       &\ \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n} \\
@@ -128,7 +128,7 @@ $$
     \end{aligned}
     $$
 
-2. $g(F[φ(x)])$ の汎関数b微分:
+2. $g(F[φ(x)])$ の汎関数微分:
     $$
     \begin{aligned}
       \fdv{g(F[φ(x)])}{φ(y)}

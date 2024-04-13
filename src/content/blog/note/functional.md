@@ -28,13 +28,26 @@ $$
 
 以下は汎関数である:
 
-1. 積分 $\displaystyle I[φ(x)] = ∫ \d{x} φ(x)$.
+1. 積分:
+    $$
+    I[φ(x)] = ∫ \d{x} φ(x).
+    $$
 
-2. 代入 $\displaystyle S[φ(x)](x') = φ(x') = ∫ \d{x} φ(x) δ(x-x')$.
+2. 代入:
+    $$
+    S[φ(x)](x') = φ(x') = ∫ \d{x} φ(x) δ(x-x').
+    $$
 
-3. Fourier 変換 $\displaystyle \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2πℏ}} φ(x) e^{-(i/ℏ) kx}$.
+3. Fourier 変換:
+    $$
+    \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2πℏ}} φ(x) e^{-(i/ℏ) kx}.
+    $$
 
-4. Fourier 逆変換 $\displaystyle \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx}$; 実際 $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
+4. Fourier 逆変換:
+    $$
+    \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx};
+    $$
+    実際, $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
 
 ### 汎関数微分
 

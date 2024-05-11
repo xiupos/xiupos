@@ -1,5 +1,5 @@
 ---
-title : 解析力学
+title : 粒子系の解析力学
 author : xiupos
 date : \today
 pubDate : 2024-01-06T22:40:00+09:00
@@ -10,7 +10,26 @@ math : true
 
 ### 最小作用の原理
 
-時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 停留条件 $δS[q^i] = 0$ を満たす.
+粒子系の古典力学において, 以下を原理として認める.
+
+:::screen
+
+時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 変分法 $q^i(t) ↦ q^i(t) + δq^i(t)$ を用いた以下の条件を満たす:
+$$
+δS[q^i] ≡ S[q^i + δq^i] - S[q^i] = 0
+$$
+この古典的原理を**最小作用の原理**という.
+
+:::
+
+変分法は関数の 1 次の冪級数展開を用いて以下のように書き直される:
+$$
+δS[q^i(t)] = ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t').
+$$
+$δq^i(t)$ は任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
+$$
+\fdv{S[q^i(t)]}{q^i(t')} = 0.
+$$
 
 ### Euler–Lagrange の運動方程式
 
@@ -32,7 +51,11 @@ $$
       δq^i \pdv{L}{q^i}
       - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
-    }.
+    } \\
+=&  ∫ \d{t} δq^i \bqty{
+      \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
+    }
+    + ∫\d{\pqty{ δq^i \pdv{L}{\.q^i} }}
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:
@@ -42,40 +65,55 @@ $$
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
-したがって, 停留条件 $δS[q^i] = 0$ より,
-**Euler–Lagrange の運動方程式**が得られる:
+したがって, 停留条件 $δS[q^i] = 0$ より, 運動方程式が得られる:
+
+:::screen
+
+最小作用の原理を満たすとき, Lagrangian $L(q^i,\.q^i,t)$ は以下の **Euler–Lagrange の運動方程式**を満たす:
 $$
 \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0.
 $$
 
-または, 作用の汎関数微分は
+:::
+
+汎関数微分を用いても同様の結果が得られる. 作用の汎関数微分は
 $$
 \begin{aligned}
-\fdv{S[q^i(t')]}{q^i(t)}
+\fdv{S[q^i(t)]}{q^i(t')}
 &=  \lim_{ε → 0}
-    \frac{S[q^i(t') + ε δ(t' - t)] - S[q^i(t')]}{ε} \\
+    \frac{S[q^i(t) + ε δ(t - t')] - S[q^i(t)]}{ε} \\
 &=  \lim_{ε → 0}
     \frac1ε
-    ∫ \d{t'} \bqty{
-      L ( q^i(t') + ε δ(t' - t), \.q^i(t') + ε \.δ(t' - t), t')
-      - L (q^i(t'), \.q^i(t'), t')
+    \bqty{
+      ∫ \d{t} L ( q^i(t) + ε δ(t - t'), \.q^i(t) + ε \.δ(t - t'), t)
+      - ∫ \d{t} L (q^i(t), \.q^i(t), t)
     } \\
 &=  \lim_{ε → 0}
     \frac1ε
-    ∫ \d{t'} \bqty{
-      \pdv{L}{q^i(t')} ε δ(t' - t) + \pdv{L}{\.q^i(t')} ε \.δ(t' - t)
+    ∫ \d{t} \bqty{
+      \pdv{L}{q^i(t)} ε δ(t - t') + \pdv{L}{\.q^i(t)} ε \.δ(t - t')
       + o(ε^2)
     } \\
 &=  ∫ \d{t} \bqty{
-      \pdv{L}{q^i(t')} δ(t' - t) + \pdv{L}{\.q^i(t')} \.δ(t' - t)
+      \pdv{L}{q^i(t)} δ(t - t') + \pdv{L}{\.q^i(t)} \.δ(t - t')
     } \\
-&=  \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}. \qquad \pqty{∵ ∫ \d{t'} f(t') \.δ(t' - t) = - \.f(t)}
+&=  \pdv{L}{q^i(t')} - \dv{}{t'} \pqty{\pdv{L}{\.q^i(t')}}. \qquad \pqty{∵ ∫ \d{t} f(t) \.δ(t - t') = - \.f(t')}
 \end{aligned}
 $$
-これを用いると Euler–Lagrange の運動方程式は
+また, 作用の変分は以下のようにも計算できる:
 $$
-\fdv{S[q^i(t')]}{q^i(t)} = \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0.
+\begin{aligned}
+  δS[q^i(t)]
+    &= ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t') \\
+    &= ∫\d{t'} δq^i(t') \lim_{ε→0} \frac1ε \bqty{∫\d{t} L(q^i(t')+εδ(t'-t),\.q^i(t')+ε\.δ(t'-t),t') - ∫\d{t} L(q^i(t'),\.q^i(t'),t')} \\
+    &= ∫\d{t'} δq^i(t') \lim_{ε→0} \frac1ε ∫\d{t} \bqty{\pdv{L}{q^i(t)}εδ(t-t') + \pdv{L}{\.q^i(t)}ε\.δ(t-t') + o(ε^2)} \\
+    &= ∫\d{t'} δq^i(t') ∫\d{t} \bqty{\pdv{L}{q^i(t)}δ(t-t') + \pdv{L}{\.q^i(t)}\.δ(t-t')} \\
+    &= ∫\d{t'} δq^i(t') \qty{∫\d{t} \bqty{\pdv{L}{q^i(t)}δ(t-t') - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}δ(t-t')} + ∫_t\d{\bqty{\pdv{L}{\.q^i(t)}δ(t-t')}}} \\
+    &= ∫\d{t'} ∫\d{t} δq^i(t') \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}}δ(t-t') + ∫_t\d{\bqty{∫\d{t'} δq^i(t')\pdv{L}{\.q^i(t)}δ(t-t')}} \\
+    &= ∫\d{t} δq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δq^i(t)\pdv{L}{\.q^i(t)}}}. \\
+\end{aligned}
 $$
+このように汎関数微分でも同様に Euler–Lagrange の運動方程式が得られる.
 
 #### 例: 一次元一粒子系
 
@@ -122,7 +160,7 @@ $$
 \begin{aligned}
   δS[q^i]
     &=  ∫ \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫ \d{t} L(q^i(t),\.q^i(t),t) \\
-    &   \quad \pqty{\d{t'} = \d{t} \dv{t'}{t} = \d{t}(1+δ\.t)} \\
+    &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
     &=  ∫ \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
     & \quad \pqty{
         ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
@@ -140,7 +178,9 @@ $$
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
     &=  ∫ \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + ∫ \d{t} \dv{}{t} \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}. \\
+        + ∫ \d{\pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}} \\
+    &=  ∫ \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+      + ∫ \d{\bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}}. \\
 \end{aligned}
 $$
 ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
@@ -151,8 +191,6 @@ $$
 $$
 \dv{δQ}{t} = 0.
 $$
-
-TODO: 汎関数微分を用いた導出
 
 #### 例: 空間並進に対する不変量
 

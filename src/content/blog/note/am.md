@@ -55,7 +55,7 @@ $$
 =&  ∫ \d{t} δq^i \bqty{
       \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
     }
-    + ∫\d{\pqty{ δq^i \pdv{L}{\.q^i} }}
+    + ∫\d{\pqty{ δq^i \pdv{L}{\.q^i} }}.
 \end{aligned}
 $$
 ここで, 発散項は境界条件より消える:

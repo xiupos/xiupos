@@ -221,7 +221,7 @@ $$
 $I$ 上の関数 $φ(x)$ 上の汎関数 $F[φ(x)]$ の**汎関数積分** *functional integration* は, 以下で定義される:
 $$
 \begin{aligned}
-  ∫ \mathcal{D} [φ(x)] F[φ(x)]
+  ∫ \mathcal{D}φ(x) F[φ(x)]
     &:= \frac1{θ} \pqty{∏_{x} ∫ \d{φ(x)}} F[φ(x)] \\
     &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_0} ⋯ ∫ \d{φ_N} f_N(φ_0,…,φ_N).
 \end{aligned}
@@ -234,7 +234,7 @@ $$
 $\varphi(x)$ の端を固定した汎関数積分も重要である:
 $$
 \begin{aligned}
-  ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]
+  ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]
     &:= \left. \frac1{θ} \pqty{∏_{x∈I} ∫ \d{φ(x)}} F[φ(x)] \right|_{φ_0}^φ \\
     &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} f_N(φ_0,φ_1,…,φ_{N-1},φ).
 \end{aligned}
@@ -248,7 +248,7 @@ $$
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
     $$
     \begin{aligned}
-      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2 Δx}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{i}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
@@ -286,7 +286,7 @@ $$
     $$
     したがって,
     $$
-    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D} [φ(x)] \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
 ### 参考文献

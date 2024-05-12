@@ -14,7 +14,7 @@ math : true
 
 :::screen
 
-時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 変分法 $q^i(t) ↦ q^i(t) + δq^i(t)$ を用いた以下の条件を満たす:
+時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 両端固定の変分法 $q^i(t) ↦ q^i(t) + δq^i(t)$ を用いた以下の条件を満たす:
 $$
 δS[q^i] ≡ S[q^i + δq^i] - S[q^i] = 0
 $$
@@ -58,14 +58,14 @@ $$
     + ∫\d{\pqty{ δq^i \pdv{L}{\.q^i} }}.
 \end{aligned}
 $$
-ここで, 発散項は境界条件より消える:
+ここで, 第2項は両端固定の境界条件より消える:
 $$
 δS[q^i]
 = ∫ \d{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
-したがって, 停留条件 $δS[q^i] = 0$ より, 運動方程式が得られる:
+$δq^i$ は任意だから, 条件 $δS[q^i] = 0$ より, 運動方程式が得られる:
 
 :::screen
 
@@ -183,13 +183,48 @@ $$
       + ∫ \d{\bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}}. \\
 \end{aligned}
 $$
-ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
+ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
 $$
 δQ := δq^i \pdv{L}{\.q^i} + δt \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.}
 $$
 に対し,
 $$
 \dv{δQ}{t} = 0.
+$$
+
+[^noether]: 最小作用の原理の場合と違い, このときの $δq^i$ は両端固定でない. そのため, Euler-Lagrange の運動方程式の際に消えた発散項を, 今回の場合は消すことができない.
+
+同じ結果を汎関数微分を用いて導出する. 同じ時間上での値を比較する Lie 微分 $δ^Lq^i(t) := q'^i(t) - q^i(t)$ に対し, 同じパラメータ(積分変数)での作用の値を比較する変分 $δ^LS[q(t)] := S[q'^i(t)] - S[q^i(t)] = S[q^i(t)+δ^Lq^i(t)] - S[q^i(t)]$ と定義する. 1次で展開して,
+$$
+\begin{aligned}
+  δ^LS[q^i(t)]
+    &= ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δ^Lq^i(t') \\
+    &= ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δ^Lq^i(t)\pdv{L}{\.q^i(t)}}}.
+\end{aligned}
+$$
+また, $δq^i - δ^Lq^i(t) = \.q^i δt$ と同じように, $δS[q^i(t)]$ と $δ^LS[q^i(t)]$ の差を計算すると,
+$$
+\begin{aligned}
+  δS[q^i(t)] - δ^LS[q^i(t)]
+    &= (S[q'^i(t')] - S[q^i(t)]) - (S[q'^i(t)] - S[q^i(t)]) \\
+    &= S[q'^i(t')] - S[q'^i(t)] \\
+    &= ∫\d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫\d{t} L(q'^i(t),\.q'^i(t),t) \\
+    &  \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
+    &= ∫\d{t} (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - ∫\d{t} L(q'^i(t),∂'_tq'^i(t),t) \\
+    &= ∫\d{t} \bqty{δt \pdv{L}{q'^i(t)} \.q'^i + δt \pdv{L}{(∂'_tq'^i(t))} ∂'_t\.q'^i + δt \pdv{L}{t} + δ\.t L(q'^i(t),∂'_tq'^i(t),t+δt)} \\
+    &= ∫\d{t} \bqty{δt \pdv{L}{q^i(t)} \.q^i + δt \pdv{L}{(\.q'^i(t))} \"q'^i + δt \pdv{L}{t} + δ\.t L} \\
+    &= ∫\d{t} \dv{}{t} \pqty{δt L} \\
+    &= ∫\d{\pqty{δt L}}. \\
+\end{aligned}
+$$
+したがって,
+$$
+\begin{aligned}
+  δS[q^i(t)]
+    &= δ^LS[q^i(t)] + ∫\d{\pqty{δt L}} \\
+    &= ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δ^Lq^i(t)\pdv{L}{\.q^i(t)} + δt L}} \\
+    &=  ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫ \d{\bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L}}}. \\
+\end{aligned}
 $$
 
 #### 例: 空間並進に対する不変量

@@ -243,7 +243,7 @@ $$
 
 #### 汎関数積分の計算例
 
-以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D} [φ(x)] F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
+以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
     $$

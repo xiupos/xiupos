@@ -51,12 +51,12 @@ $$
     S[φ(x)](x') = φ(x') = ∫ \d{x} φ(x) δ(x-x').
     $$
 
-3. Fourier 変換:
+3. Fourier 変換
     $$
     \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2πℏ}} φ(x) e^{-(i/ℏ) kx}.
     $$
 
-4. Fourier 逆変換:
+4. Fourier 逆変換
     $$
     \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx};
     $$

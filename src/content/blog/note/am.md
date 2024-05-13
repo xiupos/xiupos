@@ -233,8 +233,8 @@ $$
     &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
     &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t_0) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t_0) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 したがって同様に示された.

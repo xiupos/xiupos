@@ -439,12 +439,17 @@ $$
 
 ### Poisson 括弧
 
+:::screen
+
 正準変数 $(q^i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
 \{A, B\}_\mathrm{P}
 ≡  \pdv{A}{q^i}\pdv{B}{p_i}
         - \pdv{B}{q^i}\pdv{A}{p_i}.
 $$
+
+:::
+
 例えば,
 $$
 \begin{aligned}

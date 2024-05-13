@@ -55,12 +55,12 @@ $$
 
 3. Fourier 変換
     $$
-    \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2πℏ}} φ(x) e^{-(i/ℏ) kx}.
+    \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
     $$
 
 4. Fourier 逆変換
     $$
-    \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2πℏ}} \~φ(k) e^{(i/ℏ) kx};
+    \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
     $$
     実際, $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
 

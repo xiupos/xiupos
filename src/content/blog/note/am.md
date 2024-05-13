@@ -195,38 +195,46 @@ $$
 
 [^noether]: 最小作用の原理の場合と違い, このときの $δq^i$ は両端固定でない. そのため, Euler-Lagrange の運動方程式の際に消えた発散項を, 今回の場合は消すことができない.
 
-同じ結果を汎関数微分を用いて導出する. 同じ時間上での値を比較する Lie 微分 $δ^Lq^i(t) := q'^i(t) - q^i(t)$ に対し, 同じパラメータ(積分変数)での作用の値を比較する変分 $δ^LS[q(t)] := S[q'^i(t)] - S[q^i(t)] = S[q^i(t)+δ^Lq^i(t)] - S[q^i(t)]$ と定義する. 1次で展開して,
+同じ結果を汎関数微分を用いて導出する. 以下, 作用の積分変数 $t$ を添字で書く. つまり, $S_t[q^i]:=S[q^i(t)]$. 変分 $δS_t[q^i]$ を1次で展開すると,
+$$
+δS_t[q^i] = ∫_{t_1}^{t_2} \d{t_0} \fdv{S_t[q^i]}{q^i(t_0)} δ^Lq^i(t_0) + ∫_{t_1}^{t_2} \d{t_0} \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} δt(t_0).
+$$
+ここで, それぞれの汎関数微分を計算して,
+$$
+\fdv{S_t[q^i]}{q^i(t_0)} = ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2},
+$$
 $$
 \begin{aligned}
-  δ^LS[q^i(t)]
-    &= ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δ^Lq^i(t') \\
-    &= ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δ^Lq^i(t)\pdv{L}{\.q^i(t)}}}.
+  \fdv{S_{τ(t)}[q^i]}{τ(t_0)}
+    &= \lim_{h→0} \frac{S_{τ(t)+hδ(t-t_0)}[q^i] - S_{τ(t)}[q^i]}h \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{(τ(t)+hδ(t-t_0))} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
+    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
+    &\qquad\qquad\quad + ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0)) \dv{δ(t-t_0)}{τ(t)} \\
+    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} ∑_i \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
+    &\qquad\qquad\quad + \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)} + O(h^2) \right\} \\
+    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \qty{∑_i \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
+    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \dv{}{τ(t)} \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)} \\
+    &= \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)}_{τ(t)=τ(t_1)}^{τ(t)=τ(t_2)} \\
 \end{aligned}
 $$
-また, $δq^i - δ^Lq^i(t) = \.q^i δt$ と同じように, $δS[q^i(t)]$ と $δ^LS[q^i(t)]$ の差を計算すると,
+$$
+∴ \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} = \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2}. \\
+$$
+これらを変分の式に代入すると,
 $$
 \begin{aligned}
-  δS[q^i(t)] - δ^LS[q^i(t)]
-    &= (S[q'^i(t')] - S[q^i(t)]) - (S[q'^i(t)] - S[q^i(t)]) \\
-    &= S[q'^i(t')] - S[q'^i(t)] \\
-    &= ∫\d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫\d{t} L(q'^i(t),\.q'^i(t),t) \\
-    &  \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
-    &= ∫\d{t} (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - ∫\d{t} L(q'^i(t),∂'_tq'^i(t),t) \\
-    &= ∫\d{t} \bqty{δt \pdv{L}{q'^i(t)} \.q'^i + δt \pdv{L}{(∂'_tq'^i(t))} ∂'_t\.q'^i + δt \pdv{L}{t} + δ\.t L(q'^i(t),∂'_tq'^i(t),t+δt)} \\
-    &= ∫\d{t} \bqty{δt \pdv{L}{q^i(t)} \.q^i + δt \pdv{L}{(\.q'^i(t))} \"q'^i + δt \pdv{L}{t} + δ\.t L} \\
-    &= ∫\d{t} \dv{}{t} \pqty{δt L} \\
-    &= ∫\d{\pqty{δt L}}. \\
+  δS_t[q^i]
+    &= ∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
+    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q(t),\.q(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q(t),\.q(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t_0) \pdv{L}{\.q^i(t)} + δt(t) L(q(t),\.q(t),t)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t_0) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q(t),\.q(t),t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
-したがって,
-$$
-\begin{aligned}
-  δS[q^i(t)]
-    &= δ^LS[q^i(t)] + ∫\d{\pqty{δt L}} \\
-    &= ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δ^Lq^i(t)\pdv{L}{\.q^i(t)} + δt L}} \\
-    &=  ∫\d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫ \d{\bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L}}}. \\
-\end{aligned}
-$$
+したがって同様に示された.
 
 #### 例: 空間並進に対する不変量
 

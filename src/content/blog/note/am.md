@@ -288,12 +288,22 @@ $$
     &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}.
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる:
+
+:::screen
+
+最小作用の原理を満たすとき, Hamiltonian は以下の **Hamilton の運動方程式**あるいは**正準方程式** canonical equation を満たす:
 $$
 \.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}.
 $$
 
-$p_i$ を $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
+:::
+
+:::screen
+
+$p_i ≡ ∂L / ∂\.q^i$ を $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
+
+:::
 
 Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
 $$

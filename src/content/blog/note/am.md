@@ -14,21 +14,21 @@ math : true
 
 :::screen
 
-時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, 両端固定の変分法 $q^i(t) ↦ q^i(t) + δq^i(t)$ を用いた以下の条件を満たす:
+時間に依存する**一般化座標**と呼ばれるパラメータ $q^i$ に対して, **作用** action と呼ばれる汎関数 $S[q^i]$ が存在し, $q^i$ は物理現象において $S[q^i]$ が最小となるよう変化する. つまり, $q^i(t) ↦ q^i(t) + δq^i(t)$ (ただし両端固定 $δq^i(t_1)=δq^i(t_2)=0$) となる変換に対し, 作用が停留値を取る:
 $$
-δS[q^i] ≡ S[q^i + δq^i] - S[q^i] = 0
+δS[q^i] ≡ S[q^i + δq^i] - S[q^i] = 0.
 $$
 この古典的原理を**最小作用の原理**という.
 
 :::
 
-変分法は関数の 1 次の冪級数展開を用いて以下のように書き直される:
+上の変分法は関数の 1 次の冪級数展開を用いて以下のように書き直される:
 $$
-δS[q^i(t)] = ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t').
+δS[q^i(t)] = ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t').
 $$
-$δq^i(t)$ は任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
+$δq^i(t)$ は $t_1<t<t_2$ で任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
 $$
-\fdv{S[q^i(t)]}{q^i(t')} = 0.
+\fdv{S[q^i(t)]}{q^i(t')} = 0. \quad (t_1<t<t_2)
 $$
 
 ### Euler–Lagrange の運動方程式
@@ -37,31 +37,31 @@ $$
 $$
 S[q^i] = ∫ \d{t} L(q^i, \.q^i, t).
 $$
-$q^i + δq^i$ の変分をとって,
+$q^i + δq^i$ の変分は,
 $$
 \begin{aligned}
 δS[q^i]
-=&  ∫ \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \d{t} \bqty{
       L\pqty{q^i + δq^i, \.q^i + \dv{δq^i}{t}, t} - L(q^i, \.q^i, t)
     } \\
-=&  ∫ \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \d{t} \bqty{
       δq^i \pdv{L}{q^i} + \dv{δq^i}{t} \pdv{L}{\.q^i}
     } \\
-=&  ∫ \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \d{t} \bqty{
       δq^i \pdv{L}{q^i}
       - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
     } \\
-=&  ∫ \d{t} δq^i \bqty{
+=&  ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
       \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
     }
-    + ∫\d{\pqty{ δq^i \pdv{L}{\.q^i} }}.
+    + \bqty{ δq^i \pdv{L}{\.q^i}}_{t=t_1}^{t=t_2}.
 \end{aligned}
 $$
-ここで, 第2項は両端固定の境界条件より消える:
+ここで, 第2項は両端固定の境界条件 $δq^i(t_1)=δq^i(t_2)=0$ より消える:
 $$
 δS[q^i]
-= ∫ \d{t} δq^i \bqty{
+= ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
@@ -76,7 +76,7 @@ $$
 
 :::
 
-汎関数微分を用いても同様の結果が得られる. 作用の汎関数微分は
+汎関数微分を用いても同様の結果が得られる. $t_1<t<t_2$ における作用の汎関数微分は
 $$
 \begin{aligned}
 \fdv{S[q^i(t)]}{q^i(t')}
@@ -85,35 +85,36 @@ $$
 &=  \lim_{ε → 0}
     \frac1ε
     \bqty{
-      ∫ \d{t} L ( q^i(t) + ε δ(t - t'), \.q^i(t) + ε \.δ(t - t'), t)
-      - ∫ \d{t} L (q^i(t), \.q^i(t), t)
+      ∫_{t_1}^{t_2} \d{t} L ( q^i(t) + ε δ(t - t'), \.q^i(t) + ε \.δ(t - t'), t)
+      - ∫_{t_1}^{t_2} \d{t} L (q^i(t), \.q^i(t), t)
     } \\
 &=  \lim_{ε → 0}
     \frac1ε
-    ∫ \d{t} \bqty{
+    ∫_{t_1}^{t_2} \d{t} \bqty{
       \pdv{L}{q^i(t)} ε δ(t - t') + \pdv{L}{\.q^i(t)} ε \.δ(t - t')
       + o(ε^2)
     } \\
-&=  ∫ \d{t} \bqty{
+&=  ∫_{t_1}^{t_2} \d{t} \bqty{
       \pdv{L}{q^i(t)} δ(t - t') + \pdv{L}{\.q^i(t)} \.δ(t - t')
     } \\
-&=  \pdv{L}{q^i(t')} - \dv{}{t'} \pqty{\pdv{L}{\.q^i(t')}}. \qquad \pqty{∵ ∫ \d{t} f(t) \.δ(t - t') = - \.f(t')}
+&=  ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
-また, 作用の変分は以下のようにも計算できる:
+したがって, $t_1<t'<t_2$ において,
+$$
+\fdv{S[q^i(t)]}{q^i(t')} = \pdv{L}{q^i(t')} - \dv{}{t'} \pqty{\pdv{L}{\.q^i(t')}}.
+$$
+または, 作用の変分を計算して,
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫\d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t') \\
-    &= ∫\d{t'} δq^i(t') \lim_{ε→0} \frac1ε \bqty{∫\d{t} L(q^i(t')+εδ(t'-t),\.q^i(t')+ε\.δ(t'-t),t') - ∫\d{t} L(q^i(t'),\.q^i(t'),t')} \\
-    &= ∫\d{t'} δq^i(t') \lim_{ε→0} \frac1ε ∫\d{t} \bqty{\pdv{L}{q^i(t)}εδ(t-t') + \pdv{L}{\.q^i(t)}ε\.δ(t-t') + o(ε^2)} \\
-    &= ∫\d{t'} δq^i(t') ∫\d{t} \bqty{\pdv{L}{q^i(t)}δ(t-t') + \pdv{L}{\.q^i(t)}\.δ(t-t')} \\
-    &= ∫\d{t'} δq^i(t') \qty{∫\d{t} \bqty{\pdv{L}{q^i(t)}δ(t-t') - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}δ(t-t')} + ∫_t\d{\bqty{\pdv{L}{\.q^i(t)}δ(t-t')}}} \\
-    &= ∫\d{t'} ∫\d{t} δq^i(t') \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}}δ(t-t') + ∫_t\d{\bqty{∫\d{t'} δq^i(t')\pdv{L}{\.q^i(t)}δ(t-t')}} \\
-    &= ∫\d{t} δq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t}\pqty{\pdv{L}{\.q^i(t)}}} + ∫\d{\pqty{δq^i(t)\pdv{L}{\.q^i(t)}}}. \\
+    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t') \\
+    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^i(t') \\
+    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^i(t') \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^i(t') \pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
-このように汎関数微分でも同様に Euler–Lagrange の運動方程式が得られる.
+このように汎関数微分を用いても同様に Euler–Lagrange の運動方程式が得られる.
 
 #### 例: 一次元一粒子系
 
@@ -155,35 +156,35 @@ $$
 
 ### Noether の定理
 
-時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき作用は
+時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき $t_1<t<t_2$ の作用は
 $$
 \begin{aligned}
   δS[q^i]
-    &=  ∫ \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫ \d{t} L(q^i(t),\.q^i(t),t) \\
+    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫_{t_1}^{t_2} \d{t} L(q^i(t),\.q^i(t),t) \\
     &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
-    &=  ∫ \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
     & \quad \pqty{
         ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
       } \\
-    &=  ∫ \d{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
-    &=  ∫ \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) := q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
-    &=  ∫ \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫ \d{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫ \d{t} \bqty{
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{
         ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - δ^Lq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       } \\
-    &=  ∫ \d{t} \qty{
+    &=  ∫_{t_1}^{t_2} \d{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
-    &=  ∫ \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-        + ∫ \d{\pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}} \\
-    &=  ∫ \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + ∫ \d{\bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}}. \\
+    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+        + \bqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}_{t=t_1}^{t=t_2} \\
+    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+      + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
-ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
+ここで, 第一項は Euler–Lagrange の運動方程式より消えて, 第二項の積分範囲は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
 $$
 δQ := δq^i \pdv{L}{\.q^i} + δt \pqty{\pdv{L}{\.q^i} \.q^i - L} = \mathrm{const.}
 $$

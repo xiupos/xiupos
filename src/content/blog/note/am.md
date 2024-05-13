@@ -334,18 +334,20 @@ $$
     &= ∫_{t_1}^{t_2}\d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
     &\quad + \bqty{∫_{t_1}^{t_2}\d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
-    &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2}. \\
+    &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2}\d{t} \bqty{δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2} \\
+    &\quad \pqty{δp_i(t) ≡ δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)}} \\
+    &= ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 ここで, 第2項は両端固定の境界条件 $δq^j(t_1)=δq^j(t_2)=0$ より消える:
 $$
-δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
+δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
 $$
-$δq^j(t)$ は任意であるから, $t_1<t<t_2$ で正準方程式が必要:
+$δq^j(t)$, $δ\.q^j(t)$ は任意であるから, $t_1<t<t_2$ で正準方程式が得られる:
 $$
 \.p_i(t) = - \pdv{H}{q^i(t)}, \quad \.q^i(t) = \pdv{H}{p_i(t)}.
 $$
-TODO: 十分性
 
 #### 例: 一次元一粒子系
 

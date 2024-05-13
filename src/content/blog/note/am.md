@@ -22,13 +22,13 @@ $$
 
 :::
 
-上の変分法は関数の 1 次の冪級数展開を用いて以下のように書き直される:
+上の変分は汎関数の 1 次の冪級数展開を用いて以下のように書き直される:
 $$
-δS[q^i(t)] = ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t').
+δS[q^i(t)] = ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t').
 $$
 $δq^i(t)$ は $t_1<t<t_2$ で任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
 $$
-\fdv{S[q^i(t)]}{q^i(t')} = 0. \quad (t_1<t<t_2)
+\fdv{S[q^i(t)]}{q^j(t')} = 0. \quad (t_1<t'<t_2)
 $$
 
 ### Euler–Lagrange の運動方程式
@@ -79,25 +79,25 @@ $$
 汎関数微分を用いても同様の結果が得られる. $t_1<t<t_2$ における作用の汎関数微分は
 $$
 \begin{aligned}
-\fdv{S[q^i(t)]}{q^i(t')}
-&=  \lim_{ε → 0}
-    \frac{S[q^i(t) + ε δ(t - t')] - S[q^i(t)]}{ε} \\
-&=  \lim_{ε → 0}
-    \frac1ε
+\fdv{S[q^i(t)]}{q^j(t')}
+&=  \lim_{h → 0}
+    \frac{S[q^i(t) + h δ^i_j δ(t - t')] - S[q^i(t)]}{h} \\
+&=  \lim_{h → 0}
+    \frac1h
     \bqty{
-      ∫_{t_1}^{t_2} \d{t} L ( q^i(t) + ε δ(t - t'), \.q^i(t) + ε \.δ(t - t'), t)
+      ∫_{t_1}^{t_2} \d{t} L ( q^i(t) + h δ^i_j δ(t - t'), \.q^i(t) + h δ^i_j \.δ(t - t'), t)
       - ∫_{t_1}^{t_2} \d{t} L (q^i(t), \.q^i(t), t)
     } \\
-&=  \lim_{ε → 0}
-    \frac1ε
+&=  \lim_{h → 0}
+    \frac1h
     ∫_{t_1}^{t_2} \d{t} \bqty{
-      \pdv{L}{q^i(t)} ε δ(t - t') + \pdv{L}{\.q^i(t)} ε \.δ(t - t')
+      \pdv{L}{q^i(t)} h δ^i_j δ(t - t') + \pdv{L}{\.q^i(t)} h δ^i_j \.δ(t - t')
       + o(ε^2)
     } \\
 &=  ∫_{t_1}^{t_2} \d{t} \bqty{
-      \pdv{L}{q^i(t)} δ(t - t') + \pdv{L}{\.q^i(t)} \.δ(t - t')
+      \pdv{L}{q^j(t)} δ(t - t') + \pdv{L}{\.q^j(t)} \.δ(t - t')
     } \\
-&=  ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
+&=  ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 したがって, $t_1<t'<t_2$ において,
@@ -108,10 +108,10 @@ $$
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^i(t')} δq^i(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^i(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^i(t') \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^i(t') \pdv{L}{\.q^i(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)}}_{t=t_1}^{t=t_2}. \\
+    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
+    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δq^j(t) \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}} + \bqty{δq^j(t) \pdv{L}{\.q^j(t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 このように汎関数微分を用いても同様に Euler–Lagrange の運動方程式が得られる.
@@ -215,9 +215,9 @@ $$
     &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
     &\qquad\qquad\quad + ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0)) \dv{δ(t-t_0)}{τ(t)} \\
     &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} ∑_i \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
     &\qquad\qquad\quad + \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)} + O(h^2) \right\} \\
-    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \qty{∑_i \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
+    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \qty{\bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
     &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \dv{}{τ(t)} \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)} \\
     &= \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)}_{τ(t)=τ(t_1)}^{τ(t)=τ(t_2)} \\
 \end{aligned}
@@ -230,11 +230,11 @@ $$
 \begin{aligned}
   δS_t[q^i]
     &= ∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
-    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q(t),\.q(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q(t),\.q(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t_0) \pdv{L}{\.q^i(t)} + δt(t) L(q(t),\.q(t),t)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t_0) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q(t),\.q(t),t)}}_{t=t_1}^{t=t_2}. \\
+    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t_0) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t_0) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 したがって同様に示された.
@@ -290,9 +290,7 @@ $$
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
-\begin{aligned}
-\.p_i = - \pdv{H}{q^i}, && \.q^i = \pdv{H}{p_i}.
-\end{aligned}
+\.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}.
 $$
 
 $p_i$ を $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
@@ -302,7 +300,52 @@ $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
 $$
 
-TODO: 汎関数微分による導出
+同じ結果を汎関数微分を用いて導出する. 作用を Hamiltonian $\displaystyle H\pqty{q^i,\pdv{L}{\.q^i},t} = \.q^i\pdv{L}{\.q^i} - L$ で書き直すと,
+$$
+S[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}.
+$$
+これの汎関数微分は,
+$$
+\begin{aligned}
+  \fdv{S[q^i(t)]}{q^j(t')}
+    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),\pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))},t}}\right. \\
+    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
+    &\quad \pqty{\begin{aligned}
+      p_i(t) ≡ \pdv{L}{\.q^i(t)}, \quad
+      \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))}
+        &= \pdv{L}{\.q^i(t)} + \pdv{}{\.q^{k}(t)}\pqty{\pdv{L}{\.q^{i}(t)}} hδ^k_j\.δ(t-t') \\
+        &= p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')
+    \end{aligned}} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pqty{p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t'),t}}\right. \\
+    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
+    &= \lim_{h→0} \frac1h ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + p_j(t) h\.δ(t-t') - \pdv{H}{q^j(t)} hδ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + O(h^2)} \\
+    &= ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') + p_j(t) \.δ(t-t') - \pdv{H}{q^j(t)} δ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') } \\
+    &= ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2}.
+\end{aligned}
+$$
+したがって, 作用の変分は,
+$$
+\begin{aligned}
+  δS[q^i(t)]
+    &= ∫_{t_1}^{t_2}\d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{t_1}^{t_2}\d{t'} δq^j(t') ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + ∫_{t_1}^{t_2} \d{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2}\d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + \bqty{∫_{t_1}^{t_2}\d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
+    &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2}. \\
+\end{aligned}
+$$
+ここで, 第2項は両端固定の境界条件 $δq^j(t_1)=δq^j(t_2)=0$ より消える:
+$$
+δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
+$$
+$δq^j(t)$ は任意であるから, $t_1<t<t_2$ で正準方程式が必要:
+$$
+\.p_i(t) = - \pdv{H}{q^i(t)}, \quad \.q^i(t) = \pdv{H}{p_i(t)}.
+$$
+TODO: 十分性
 
 #### 例: 一次元一粒子系
 

@@ -526,6 +526,29 @@ $$
 
 <!-- TODO: 調和振動子による例 -->
 
+### 不確定性原理
+
+物理量の分散
+$$
+(ΔA)^2 := \Big⟨(A-⟨A⟩)^2\Big⟩
+$$
+に対し, 以下の関係が成立する:
+$$
+(ΔA)^2 (ΔB)^2 \geq \frac14 \abs{\big⟨[A,B]\big⟩}^2.
+$$
+実際,
+$$
+\begin{aligned}
+  (ΔA)^2 (ΔB)^2
+    &= \Big⟨(A-⟨A⟩)^2\Big⟩ \Big⟨(B-⟨B⟩)^2\Big⟩ \\
+    &≥ \abs{\Big⟨(A-⟨A⟩)(B-⟨B⟩)\Big⟩}^2 \\
+    &≥ \abs{\Im{\Big⟨(A-⟨A⟩)(B-⟨B⟩)\Big⟩}}^2 \\
+    &≥ \frac14\abs{\Big⟨(A-⟨A⟩)(B-⟨B⟩)\Big⟩ - \Big⟨(B-⟨B⟩)(A-⟨A⟩)\Big⟩}^2 \\
+    &= \frac14\abs{\Big⟨[A-⟨A⟩,B-⟨B⟩]\Big⟩}^2 \\
+    &= \frac14\abs{\Big⟨[A,B]\Big⟩}^2. \\
+\end{aligned}
+$$
+
 ### 相互作用描像
 
 :::screen

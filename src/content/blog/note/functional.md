@@ -320,53 +320,53 @@ $$
 
 以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
-1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2}$:  
+1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2}$:  
     $F[φ(x)]$ の離散表現は,
     $$
-    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
+    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × a \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
     $$
     ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
     $$
     \begin{aligned}
-      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{iα}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{iα}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × a \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{ia}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{ia}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
     \end{aligned}
     $$
     ここで $φ_{N-k}$ の積分について考えると,
     $$
     \begin{aligned}
-      & ∫ \d{φ_{N-k}} \exp \qty{\frac{iα}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
-        =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{iα}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
-        =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{iα}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{iα}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{iα}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
-        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{α}} \exp \bqty{- \frac{iα}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{iα}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
+      & ∫ \d{φ_{N-k}} \exp \qty{\frac{ia}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
+        =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{ia}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
+        =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{ia}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{ia}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{ia}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{a}} \exp \bqty{- \frac{ia}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{ia}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
         &   \quad \pqty{∵ ∫ \d{x} \exp \pqty{-iax^2+ibx} = \sqrt{\frac{π}{ia}} \exp \pqty{\frac{ib^2}{4a}} } \\
-        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{α}} \exp \bqty{\frac{iα}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{a}} \exp \bqty{\frac{ia}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
     \end{aligned}
     $$
     より, $k=1,…,N-1$ で順に積分することで,
     $$
     \begin{aligned}
-      I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{\frac{iπΔx}{α}}}^{N-1} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{α}}^{(N-1)/2} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2}.
+      I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{\frac{iπΔx}{a}}}^{N-1} \exp \bqty{\frac{ia}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{a}}^{(N-1)/2} \exp \bqty{\frac{ia}{NΔx} \pqty{φ - φ_0}^2}.
     \end{aligned}
     $$
-    ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx/α}^{N/2}/C$ とすれば,
+    ここで, 定数 $C$ を用いて $\displaystyle θ(N) = \frac1C\pqty{\frac{iπΔx}{a}}^{N/2}$ とすれば,
     $$
     \begin{aligned}
-      I(φ) &=  \lim_{N→∞} C \pqty{\frac{α}{iπΔx}}^{N/2} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{α}}^{(N-1)/2} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  \lim_{N→∞} C \sqrt{\frac{α}{iπNΔx}} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  C \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
+      I(φ) &=  \lim_{N→∞} C \pqty{\frac{a}{iπΔx}}^{N/2} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{a}}^{(N-1)/2} \exp \bqty{\frac{ia}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} C \sqrt{\frac{a}{iπNΔx}} \exp \bqty{\frac{ia}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  C \sqrt{\frac{a}{iπ(b-a)}} \exp \bqty{ia \frac{(φ - φ_0)^2}{b-a}}.
     \end{aligned}
     $$
     また, 正規化条件より定数 $C$ を決定する:
     $$
-    ∫ \d{φ} I(φ) = C ∫ \d{φ} \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}} = C = 1.
+    ∫ \d{φ} I(φ) = C ∫ \d{φ} \sqrt{\frac{a}{iπ(b-a)}} \exp \bqty{ia \frac{(φ - φ_0)^2}{b-a}} = C = 1.
     $$
     したがって,
     $$
-    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{a}{iπ(b-a)}} \exp \bqty{ia \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
 ### 参考文献

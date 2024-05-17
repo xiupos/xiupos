@@ -31,14 +31,14 @@ math : true
 例として関数 $φ:[a,b]→ℝ$ の汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, 関数値を $φ_n := φ(x_n)$ として, 汎関数 $F[φ(x)]$ はある関数 $f_N(φ_0,…,φ_N)$ の分割数 $N$ を極限まで増やしたものと見做すことができる. たとえば積分 $\displaystyle F[φ(x)] = ∫_a^b \d{x} φ(x)$ では, 分割幅を $Δx_n := x_n - x_{n-1}$ として, Riemann 積分の考え方を用いれば[^riemann],
 $$
 \begin{gathered}
-  f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx_n φ(x_n) \\
+  f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx_n × φ(x_n) \\
   \overset{N→∞}{⟶} \quad F[φ(x)] =  ∫_a^b \d{x} φ(x).
 \end{gathered}
 $$
 または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, 分割幅 $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
 \begin{gathered}
-  f_N(x_0^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} \times x_n^2 \\
+  f_N(x_0^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} × x_n^2 \\
   \overset{N→∞}{⟶} \quad F[x^2] = ∫_a^b \d{x} x^2.
 \end{gathered}
 $$
@@ -53,7 +53,7 @@ $$
 1. 積分
     $$
     \begin{gathered}
-      i_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx g(φ_n) \\
+      i_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × g(φ_n) \\
       \overset{N→∞}{⟶} \quad I[φ(x)] = ∫ \d{x} g(φ(x)).
     \end{gathered}
     $$
@@ -61,7 +61,7 @@ $$
 2. 代入
     $$
     \begin{gathered}
-      s(φ_0,…,φ_N;x_m=x') = ∑_{n=1}^N Δx φ_n \frac{δ_{nm}}{Δx} = φ_m \\
+      s(φ_0,…,φ_N;x_m=x') = ∑_{n=1}^N Δx × φ_n \frac{δ_{nm}}{Δx} = φ_m \\
       \overset{N→∞}{⟶} \quad S[φ(x)](x') = ∫ \d{x} φ(x) δ(x-x') = φ(x').
     \end{gathered}
     $$
@@ -70,7 +70,7 @@ $$
 3. Fourier 変換
     $$
     \begin{gathered}
-      f_N(φ_0,…,φ_N;k_m) = ∑_{n=1}^N \frac{Δx}{\sqrt{2π}} φ_n e^{-ik_mx_n} \\
+      f_N(φ_0,…,φ_N;k_m) = ∑_{n=1}^N \frac{Δx}{\sqrt{2π}} × φ_n e^{-ik_mx_n} \\
       \overset{N→∞}{⟶} \quad \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
     \end{gathered}
     $$
@@ -78,7 +78,7 @@ $$
 4. Fourier 逆変換
     $$
     \begin{gathered}
-      f^{``-1"}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} \~φ_m e^{ik_mx_n} \\
+      f^{``-1"}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
       \overset{N→∞}{⟶} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
     \end{gathered}
     $$
@@ -94,7 +94,7 @@ $$
     ただし, $x_n = x(t_n)$. 例えば $\displaystyle F_x[φ] := ∫\d{x} φ(x)$ に対して,
     $$
     \begin{gathered}
-    g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx φ_n = ∑_{n=1}^N Δt  \frac{Δx}{Δt} φ(x_n) \\
+    g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × φ_n = ∑_{n=1}^N Δt × \frac{Δx}{Δt} φ(x_n) \\
     \overset{N→∞}{⟶} \quad G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
     \end{gathered}
     $$
@@ -137,7 +137,7 @@ $$
     $$
     離散表現では, $y=x_m$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g(x_n) φ_n = g(x_m).
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g(x_n) φ_n = g(x_m).
     $$
 
 2. $F[φ(x)] = φ(x')$:
@@ -146,7 +146,7 @@ $$
     $$
     離散表現では, $y=x_m$, $x'=x_k$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx φ_n \frac{δ_{nk}}{Δx} = \frac{δ_{mk}}{Δx}.
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × φ_n \frac{δ_{nk}}{Δx} = \frac{δ_{mk}}{Δx}.
     $$
 
 3. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ(x))$:
@@ -161,7 +161,7 @@ $$
     $$
     離散表現では, $y=x_m$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g(φ_n) = \dv{g(φ_m)}{φ_m}.
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g(φ_n) = \dv{g(φ_m)}{φ_m}.
     $$
 
 4. $\displaystyle F[φ(x)] = ∫ \d{x} g\pqty{φ'(x)}$:
@@ -179,7 +179,7 @@ $$
     離散表現では, $y=x_m$ として,
     $$
     \begin{aligned}
-      \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
+      \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
         &= - \frac{\displaystyle g'\pqty{\frac{φ_{m+1}-φ_{m}}{Δx}} - g'\pqty{\frac{φ_m-φ_{m-1}}{Δx}}}{Δx}.
     \end{aligned}
     $$
@@ -320,16 +320,16 @@ $$
 
 以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
-1. $\displaystyle F[φ(x)] = \exp \bqty{iα ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2}$:  
+1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2}$:  
     $F[φ(x)]$ の離散表現は,
     $$
-    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{iα ∑_{n=1}^N Δx × \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
+    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
     $$
     ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
     $$
     \begin{aligned}
-      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{iα ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{iα ∑_{n=1}^N Δx × \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{iα}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{iα}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
     \end{aligned}
@@ -366,7 +366,7 @@ $$
     $$
     したがって,
     $$
-    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
 ### 参考文献

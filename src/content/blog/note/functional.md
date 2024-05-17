@@ -22,22 +22,29 @@ math : true
     F_{x+ε(x)}[φ] ≠ F_x[φ+φ'ε].
     $$
 
-以下では物理学において頻出する汎関数の基本的な計算方法についてまとめる. 数学的な厳密性は一切考慮していない. 高校微積分程度の理解を目指している[^iiwake].
+以下では物理学において頻出する汎関数の基本的な計算方法についてまとめる. 数学的な厳密性は一切考慮していない. 高校微積分程度の理解を目指している[^iiwake]. また, 独自の解釈も多く含んでいるので参考程度に読んでほしい.
 
 [^iiwake]: それすら怪しいかもしれない. 気付いたことがあれば随時更新する.
 
 ### 汎関数の考え方
 
-区間 $I∈[a,b]$ で実数に値を取る関数 $φ(x)$ に対し, 汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, 関数値 $φ_n := φ(x_n)$ として, $F[φ(x)]$ はある関数 $f_N(φ_0,…,φ_N)$ の分割数を極限まで増やしたものと見做すことができる. たとえば積分 $\displaystyle F[φ(x)] = ∫_a^b \d{x} φ(x)$ では, Riemann 積分の考え方を用いて[^riemann],
+例として関数 $φ:[a,b]→ℝ$ の汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, 関数値を $φ_n := φ(x_n)$ として, 汎関数 $F[φ(x)]$ はある関数 $f_N(φ_0,…,φ_N)$ の分割数 $N$ を極限まで増やしたものと見做すことができる. たとえば積分 $\displaystyle F[φ(x)] = ∫_a^b \d{x} φ(x)$ では, 分割幅を $Δx_n := x_n - x_{n-1}$ として, Riemann 積分の考え方を用いれば[^riemann],
 $$
-f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} (x_n - x_{n-1}) × φ_n \quad \overset{N→∞}{⟶} \quad ∫_a^b \d{x} φ(x) = F[φ(x)].
+\begin{gathered}
+  f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx_n φ(x_n) \\
+  \overset{N→∞}{⟶} \quad F[φ(x)] =  ∫_a^b \d{x} φ(x).
+\end{gathered}
 $$
 または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, 分割幅 $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
-f_N(x_1^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} \times x_n^2 \overset{N→∞}{⟶} ∫_a^b \d{x} x^2 = F[x^2].
+\begin{gathered}
+  f_N(x_0^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} \times x_n^2 \\
+  \overset{N→∞}{⟶} \quad F[x^2] = ∫_a^b \d{x} x^2.
+\end{gathered}
 $$
+このような汎関数の離散的な表現を考えることも, 汎関数の計算に役立つ.
 
-[^riemann]: Riemann 和を用いるならば $φ_n = φ(x_n)$ ではなく, 代表点 $x_{n-1}≤ξ_n≤x_n$ を用いて $φ_n := φ(ξ_n)$ とするべきである. しかし, ここでは計算を主目的としているので, 細かいことは気にしない.
+[^riemann]: これは Riemann 積分ではなく「区分求積法」である. Riemann 和を用いるならば $φ_n = φ(x_n)$ ではなく, 代表点 $x_{n-1}≤ξ_n≤x_n$ を用いて $φ_n := φ(ξ_n)$ とするべき. しかし, ここでは計算を主目的としているので, 細かいことは気にしない.
 
 #### 汎関数の例
 
@@ -45,32 +52,51 @@ $$
 
 1. 積分
     $$
-    I[φ(x)] = ∫ \d{x} φ(x).
+    \begin{gathered}
+      i_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx g(φ_n) \\
+      \overset{N→∞}{⟶} \quad I[φ(x)] = ∫ \d{x} g(φ(x)).
+    \end{gathered}
     $$
 
 2. 代入
     $$
-    S[φ(x)](x') = φ(x') = ∫ \d{x} φ(x) δ(x-x').
+    \begin{gathered}
+      s(φ_0,…,φ_N;x_m=x') = ∑_{n=1}^N Δx φ_n \frac{δ_{nm}}{Δx} = φ_m \\
+      \overset{N→∞}{⟶} \quad S[φ(x)](x') = ∫ \d{x} φ(x) δ(x-x') = φ(x').
+    \end{gathered}
     $$
+    汎関数中のデルタ関数 $δ(x-x')$ は, 離散表現の $\displaystyle \frac{δ_{nm}}{Δx}$ に対応している.
 
 3. Fourier 変換
     $$
-    \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
+    \begin{gathered}
+      f_N(φ_0,…,φ_N;k_m) = ∑_{n=1}^N \frac{Δx}{\sqrt{2π}} φ_n e^{-ik_mx_n} \\
+      \overset{N→∞}{⟶} \quad \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
+    \end{gathered}
     $$
 
 4. Fourier 逆変換
     $$
-    \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
+    \begin{gathered}
+      f^{``-1"}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} \~φ_m e^{ik_mx_n} \\
+      \overset{N→∞}{⟶} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
+    \end{gathered}
     $$
     実際, $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
 
 5. 汎関数のダミー変数を関数にしたもの
     $$
-    G_t[x] := F_{x(t)}[φ];
+    \begin{gathered}
+      g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) \\
+      \overset{N→∞}{⟶} \quad G_t[x] := F_{x(t)}[φ].
+    \end{gathered}
     $$
-    例えば, $\displaystyle F_x[φ] := ∫\d{x} φ(x)$ に対して,
+    ただし, $x_n = x(t_n)$. 例えば $\displaystyle F_x[φ] := ∫\d{x} φ(x)$ に対して,
     $$
-    G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
+    \begin{gathered}
+    g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx φ_n = ∑_{n=1}^N Δt  \frac{Δx}{Δt} φ(x_n) \\
+    \overset{N→∞}{⟶} \quad G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
+    \end{gathered}
     $$
 
 ### 汎関数微分
@@ -86,6 +112,16 @@ $$
 
 物理では汎関数微分を変分とも呼び, 単に $\displaystyle \fdv{F[φ]}{φ}$ とも略記される.
 
+汎関数微分の離散的な表現は, $y=x_m$ として, 定義から
+$$
+\begin{aligned}
+  \quad&\ \lim_{h→0} \frac{\displaystyle f_N\pqty{φ_1+h\frac{δ_{1m}}{Δx},…,φ_N+h\frac{δ_{Nm}}{Δx}} - f_N(φ_1,…,φ_N)}{h} \\
+  =&\ \frac1{Δx} \lim_{h→0} \frac{f_N(φ_1,…,φ_m+h/Δx,…,φ_N) - f_N(φ_1,…,φ_N)}{h/Δx} \\
+  =&\ \frac1{Δx} \pdv{f_N}{φ_m}.
+\end{aligned}
+$$
+したがって, 汎関数微分演算子 $\displaystyle \fdv{}{φ(y)}$ に対応する離散表現は $\displaystyle \frac1{Δx} \pdv{}{φ_m}$ である.
+
 #### 汎関数微分の計算例
 
 以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する:
@@ -96,13 +132,21 @@ $$
       \fdv{}{φ(y)} ∫ \d{x} g(x) φ(x)
         &=  \lim_{h→0} \frac1h \bqty{∫ \d{x} g(x) (φ(x) + hδ(x-y)) - ∫ \d{x} g(x) φ(x)} \\
         &=  \lim_{h→0} \frac1h ∫ \d{x} g(x) hδ(x-y) \\
-        &=  ∫ \d{x} g(x) δ(x-y) =  g(y).
+        &=  ∫ \d{x} g(x) δ(x-y) = g(y).
     \end{aligned}
+    $$
+    離散表現では, $y=x_m$ として,
+    $$
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g(x_n) φ_n = g(x_m).
     $$
 
 2. $F[φ(x)] = φ(x')$:
     $$
-    \fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \d{z} δ(x'-z) φ(z) = δ(x'-y).
+    \fdv{φ(x')}{φ(y)} = \fdv{}{φ(y)} ∫ \d{z} φ(z) δ(x'-z) = δ(x'-y).
+    $$
+    離散表現では, $y=x_m$, $x'=x_k$ として,
+    $$
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx φ_n \frac{δ_{nk}}{Δx} = \frac{δ_{mk}}{Δx}.
     $$
 
 3. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ(x))$:
@@ -115,11 +159,15 @@ $$
         &= \dv{g(φ(y))}{φ(y)}.
     \end{aligned}
     $$
+    離散表現では, $y=x_m$ として,
+    $$
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g(φ_n) = \dv{g(φ_m)}{φ_m}.
+    $$
 
-4. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ'(x))$:
+4. $\displaystyle F[φ(x)] = ∫ \d{x} g\pqty{φ'(x)}$:
     $$
     \begin{aligned}
-      \fdv{}{φ(y)} ∫ \d{x} g(φ'(x))
+      \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ'(x)}
         &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
         &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
         &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
@@ -128,50 +176,60 @@ $$
         &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
     \end{aligned}
     $$
+    離散表現では, $y=x_m$ として,
+    $$
+    \begin{aligned}
+      \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
+        &= - \frac{\displaystyle g'\pqty{\frac{φ_{m+1}-φ_{m}}{Δx}} - g'\pqty{\frac{φ_m-φ_{m-1}}{Δx}}}{Δx}.
+    \end{aligned}
+    $$
 
 ### 汎関数冪級数
 
 :::screen
 
-連続な汎関数は Tayler 級数に相当する以下の冪級数に展開することができる. これを **Volterra 級数** *Volterra series* という:
+連続な汎関数は Tayler 級数に相当する以下の冪級数に展開することができる. これを **Volterra 級数** *Volterra series* という: 微小な関数 $η(x)$ を用いて,
 $$
 \begin{aligned}
-  F[φ(x)] &= F[0] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} φ(y) + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} φ(y_1) φ(y_2) + ⋯ \\
-  &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n),
+  F[φ(x) + η(x)]
+    &= F[φ(x)] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
+    &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
 \end{aligned}
 $$
 
 :::
 
-または微小な関数 $η(x)$ を用いて,
+汎関数冪級数の離散表現は,
 $$
 \begin{aligned}
-  F[φ(x) + η(x)] &= F[φ(x)] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
-  &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
+  f_N(φ_0+η_0,…,φ_N+η_N)
+    &= f_N(φ_0,…,φ_N) + ∑_{m=0}^N Δx \frac1{Δx}\pdv{f_N}{φ_m} η_m + \frac12 ∑_{{m_1}=0}^N Δx ∑_{{m_2}=0}^N Δx \frac1{(Δx)^2} \frac{∂^2f_N}{∂φ_{m_1}∂φ_{m_2}} η_{m_1} η_{m_2} + ⋯ \\
+    &= ∑_{n=0}^∞ \frac1{n!} ∑_{{m_1}=0}^N Δx ⋯ ∑_{{m_n}=0}^N Δx \frac1{(Δx)^n} \frac{∂^nf_N(φ_0,…,φ_N)}{∂φ_{m_1}⋯∂φ_{m_n}} η_{m_1} ⋯ η_{m_n}.
 \end{aligned}
 $$
+この表現は関数 $f_N(φ_0+η_0,…,φ_N+η_N)$ の $(φ_0,…,φ_N)$ まわりでの Taylor 展開になっている.
 
 $n$ 階汎関数微分 $\displaystyle \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)}$ が $y_1,…,y_n$ について対称であると仮定して, $\displaystyle \fdv{{}^n F}{φ^n}$ と略記する. また,
 $$
-\fdv{{}^n F}{φ^n} * φ^n := ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)
+\fdv{{}^n F}{φ^n} * η^n := ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n)
 $$
 とすると, Volterra 級数は以下のように書き直せる:
 $$
-F[φ(x)] = ∑_{n = 0}^∞ \frac1{n!} \fdv{{}^n F}{φ^n} * φ^n.
+F[φ(x) + η(x)] = ∑_{n = 0}^∞ \frac1{n!} \fdv{{}^n F}{φ^n} * η^n.
 $$
 
 #### 冪級数を用いた計算例
 
-1. $\displaystyle \fdv{{}^n F}{φ^n} * φ^n$ の汎関数微分:
+1. $\displaystyle \fdv{{}^n F}{φ^n} * η^n$ の汎関数微分:
     $$
     \begin{aligned}
-      &\ \fdv{}{φ(y)} \pqty{\fdv{{}^n F}{φ^n} * φ^n} \\
-      =&\ \lim_{h→0} \frac1h \left[∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x) + hδ(x - y)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right. \\
-        &\qquad\qquad\quad - \left.∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)\right] \\
-      =&\ \lim_{h→0} \frac1h ∫ \d{z} \fdv{}{z} \pqty{∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯φ(y_n)} hδ(z - y) \\
-      =&\ \lim_{h→0} \frac1h ∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} φ(y_1)⋯\widehat{φ(y_i)}⋯φ(y_n) hδ(y_i-y) \\
-      =&\ n ∫ \d{y_1} ⋯ ∫ \d{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} φ(y_1)⋯φ(y_{n-1}) \\
-      =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * φ^{n-1}.
+      &\ \fdv{}{η(y)} \pqty{\fdv{{}^n F}{φ^n} * η^n} \\
+      =&\ \lim_{h→0} \frac1h \left[∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} [η(y_1)+hδ(y_1-y)]⋯[η(y_n)+hδ(y_n-y)]\right. \\
+        &\qquad\qquad\quad - \left.∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n)\right] \\
+      =&\ \lim_{h→0} \frac1h \bqty{∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) hδ(y_i-y) + O(h^2)} \\
+      =&\ ∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) δ(y_i-y) \\
+      =&\ n ∫ \d{y_1} ⋯ ∫ \d{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} η(y_1)⋯η(y_{n-1}) \\
+      =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * η^{n-1}.
     \end{aligned}
     $$
 
@@ -182,8 +240,8 @@ $$
         &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
         &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \d{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
         &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
-        &=  \lim_{h→0} \frac1h \bqty{h \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
-        &=  \dv{g(φ(x))}{φ(x)} \fdv{F[φ(x)]}{φ(y)}.
+        &=  \lim_{h→0} \frac1h \bqty{h \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+        &=  \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)}.
     \end{aligned}
     $$
 
@@ -239,21 +297,21 @@ $I$ 上の関数 $φ(x)$ 上の汎関数 $F[φ(x)]$ の**汎関数積分** *func
 $$
 \begin{aligned}
   ∫ \mathcal{D}φ(x) F[φ(x)]
-    &:= \frac1{θ} \pqty{∏_{x} ∫_I \d{φ(x)}} F[φ(x)] \\
-    &:= \lim_{N→∞} \frac1{θ(N)} ∫_I \d{φ_0} ⋯ ∫_I \d{φ_N} f_N(φ_0,…,φ_N).
+    &:= \frac1{θ} \pqty{∏_{x∈I} ∫ \d{φ(x)}} F[φ(x)] \\
+    &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_0} ⋯ ∫ \d{φ_N} f_N(φ_0,…,φ_N).
 \end{aligned}
 $$
 
 :::
 
-ただし, $θ$ は有限値に収束させるための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は[汎関数の考え方](#汎関数の考え方)のものと同じで, 例えば $F[φ(x)] = ∫_I\d{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, 分割幅 $Δx=(x_N-x_0)/N$, 各点 $x_n=x_0+nΔx$, 各関数値 $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx × g(φ_n)$ $\overset{N→∞}{⟶} F[φ(x)]$ である. 単に $∫ \mathcal{D} φ F[φ]$ とも略記される.
+ただし, $θ$ は有限値に収束させるための正規化因子である. また, $f_N(φ_0,…,φ_N)$ は $F[φ(x)]$ の離散表現で, 例えば $F[φ(x)] = ∫_I\d{x}g(φ(x))$ であるとき, 積分範囲 $I = [x_0, x_N]$ の $N$ 等分割 $x_0,…,x_N$, 分割幅 $Δx=(x_N-x_0)/N$, 各点 $x_n=x_0+nΔx$, 各関数値 $φ_n:=φ(x_n)$ を用いて, $f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx × g(φ_n)$ $\overset{N→∞}{⟶} F[φ(x)]$ である. 単に $∫ \mathcal{D} φ F[φ]$ とも略記される.
 
 $\varphi(x)$ の端を固定した汎関数積分も重要である:
 $$
 \begin{aligned}
   ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]
-    &:= \left. \frac1{θ} \pqty{∏_{x∈I} ∫_I \d{φ(x)}} F[φ(x)] \right|_{φ_0}^φ \\
-    &:= \lim_{N→∞} \frac1{θ(N)} ∫_I \d{φ_1} ⋯ ∫_I \d{φ_{N-1}} f_N(φ_0,φ_1,…,φ_{N-1},φ).
+    &:= \left. \frac1{θ} \pqty{∏_{x∈I} ∫ \d{φ(x)}} F[φ(x)] \right|_{φ_0}^φ \\
+    &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} f_N(φ_0,φ_1,…,φ_{N-1},φ).
 \end{aligned}
 $$
 これは, 端点を固定した経路について経路上各点について積分した積になっていることから, **経路積分**とも呼ばれる.
@@ -262,48 +320,53 @@ $$
 
 以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
-1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2}$:
+1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2}$:  
+    $F[φ(x)]$ の離散表現は,
+    $$
+    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
+    $$
+    ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
     $$
     \begin{aligned}
-      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \quad \pqty{Δx := \frac{b-a}{N}} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{i}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{i}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} α \pqty{\dv{\varphi(x)}{x}}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × α \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{iα}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{iα}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
     \end{aligned}
     $$
-    ここで,
+    ここで $φ_{N-k}$ の積分について考えると,
     $$
     \begin{aligned}
-      & ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
-        =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{i}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
-        =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{i}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{i}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
-        =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{- \frac{i}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{i}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
+      & ∫ \d{φ_{N-k}} \exp \qty{\frac{iα}{Δx} \bqty{\frac1k (φ - φ_{N-k})^2 + (φ_{N-k} - φ_{N-(k+1)})^2}} \\
+        =&  ∫ \d{φ_{N-k}} \exp \qty{\frac{iα}{Δx} \bqty{\frac{k+1}k φ_{N-k}^2 - 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}}  \\
+        =&  ∫ \d{φ_{N-k}} \exp \bqty{\frac{iα}{Δx} \frac{k+1}k φ_{N-k}^2 - \frac{iα}{Δx} 2 \pqty{\frac1k φ + φ_{N-(k+1)}} φ_{N-k} + \frac{iα}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}}  \\
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{α}} \exp \bqty{- \frac{iα}{Δx} \frac{k}{k+1} (φ + φ_{N-(k+1)})^2 + \frac{iα}{Δx} \pqty{\frac1k φ^2 + φ_{N-(k+1)}^2}} \\
         &   \quad \pqty{∵ ∫ \d{x} \exp \pqty{-iax^2+ibx} = \sqrt{\frac{π}{ia}} \exp \pqty{\frac{ib^2}{4a}} } \\
-        =&  \sqrt{\frac{k}{k+1}} \sqrt{iπΔx} \exp \bqty{\frac{i}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
+        =&  \sqrt{\frac{k}{k+1}} \sqrt{\frac{iπΔx}{α}} \exp \bqty{\frac{iα}{Δx} \frac1{k+1} \pqty{φ - φ_{N-(k+1)}}^2}
     \end{aligned}
     $$
     より, $k=1,…,N-1$ で順に積分することで,
     $$
     \begin{aligned}
-      I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{iπΔx}}^{N-1} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2}.
+      I(φ) &=  \lim_{N→∞} \frac1{θ(N)} \sqrt{\frac12} \sqrt{\frac23} ⋯ \sqrt{\frac{N-1}{N}} \pqty{\sqrt{\frac{iπΔx}{α}}}^{N-1} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{α}}^{(N-1)/2} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2}.
     \end{aligned}
     $$
-    ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx}^{N/2}/C$ とすれば,
+    ここで, 定数 $C$ を用いて $θ(N) = \pqty{iπΔx/α}^{N/2}/C$ とすれば,
     $$
     \begin{aligned}
-      I(φ) &=  \lim_{N→∞} \frac{C}{\pqty{iπΔx}^{N/2}} \frac1{\sqrt{N}} \pqty{iπΔx}^{(N-1)/2} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  \lim_{N→∞} \frac{C}{\sqrt{iπNΔx}} \exp \bqty{\frac{i}{NΔx} \pqty{φ - φ_0}^2} \\
-        &=  \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+      I(φ) &=  \lim_{N→∞} C \pqty{\frac{α}{iπΔx}}^{N/2} \frac1{\sqrt{N}} \pqty{\frac{iπΔx}{α}}^{(N-1)/2} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  \lim_{N→∞} C \sqrt{\frac{α}{iπNΔx}} \exp \bqty{\frac{iα}{NΔx} \pqty{φ - φ_0}^2} \\
+        &=  C \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
     \end{aligned}
     $$
     また, 正規化条件より定数 $C$ を決定する:
     $$
-    ∫ \d{φ} I(φ) = ∫ \d{φ} \frac{C}{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}} = C = 1.
+    ∫ \d{φ} I(φ) = C ∫ \d{φ} \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}} = C = 1.
     $$
     したがって,
     $$
-    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \frac1{\sqrt{iπ(b-a)}} \exp \bqty{i \frac{(φ - φ_0)^2}{b-a}}.
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{α}{iπ(b-a)}} \exp \bqty{iα \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
 ### 参考文献

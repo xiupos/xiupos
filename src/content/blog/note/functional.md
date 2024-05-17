@@ -320,7 +320,7 @@ $$
 
 以下の汎関数 $F[φ(x)]$ について汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$ を計算する. ただし, $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する:
 
-1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2}$:  
+1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} a \qty{φ'(x)}^2}$:  
     $F[φ(x)]$ の離散表現は,
     $$
     f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × a \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
@@ -328,7 +328,7 @@ $$
     ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
     $$
     \begin{aligned}
-      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2} \\
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \qty{φ'(x)}^2} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × a \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{ia}{Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
         &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{ia}{Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
@@ -366,7 +366,7 @@ $$
     $$
     したがって,
     $$
-    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \pqty{\dv{\varphi(x)}{x}}^2} = \sqrt{\frac{a}{iπ(b-a)}} \exp \bqty{ia \frac{(φ - φ_0)^2}{b-a}}.
+    I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} a \qty{φ'(x)}^2} = \sqrt{\frac{a}{iπ(b-a)}} \exp \bqty{ia \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
 ### 参考文献

@@ -108,7 +108,7 @@ $$
 
 :::
 
-時間発展演算子が時間に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) := \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$. また, 時間発展演算子が時間に依存しない場合でも誤解が無いとき $\^U(t) := \^U(t, 0)$ と略記する.
+時間発展演算子が時間に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) := \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$. また, 時間発展演算子が時間に依存する場合でも, 誤解が無いとき $\^U(t) := \^U(t, 0)$ と略記する.
 
 :::screen
 
@@ -197,7 +197,7 @@ $$
 $$
 \begin{aligned}
   \{ q^i, q^j \}_\mathrm{P} = \{ p_i, p_j \}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = - \frac{i}{ℏ} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
+  \overset{\text{正準量子化}}{⟶} \frac1{iℏ} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = \frac1{iℏ} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
 \end{aligned}
 $$
 したがって, 演算子 $(\^q^i, \^p_i)$ の交換関係が得られる:
@@ -239,7 +239,7 @@ $$
 \begin{aligned}
   \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
   \overset{\text{正準量子化}}{⟶} \quad
-  \dv{\^A_\mathrm{H}}{t} &= -\frac{i}{ℏ}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H} \\
+  \dv{\^A_\mathrm{H}}{t} &= \frac1{iℏ}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H} \\
   ⇔ iℏ \dv{\^A_\mathrm{H}}{t} &= [\^A_\mathrm{H},\^H] + iℏ \pqty{\dv{\^A}{t}}_\mathrm{H} \\
 \end{aligned}
 $$
@@ -258,7 +258,7 @@ $$
 $$
 iℏ \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H].
 $$
-ここで, 両辺それぞれ計算して,
+この運動方程式を用いて, 時間発展演算子 $\^U(t)$ の具体的な表式を求める. 両辺それぞれ計算して,
 $$
 \begin{aligned}
   iℏ \dv{\^A_\mathrm{H}}{t}
@@ -272,7 +272,7 @@ $$
 $$
 iℏ \dv{\^U(t)}{t} = \^H \^U(t).
 $$
-これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表示が得られる:
+これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表式が得られる:
 
 :::screen
 
@@ -450,6 +450,8 @@ $$
 $$
 :::
 
+TODO: 定常状態の Schrödinger 方程式
+
 #### 例: 一次元一粒子系
 
 一次元一粒子系の Hamiltonian は
@@ -594,12 +596,13 @@ $$
 
 :::screen
 
-状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化**という:
+状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化** *Path integral formulation* という:
 $$
 \begin{gathered}
   K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}q \ e^{\frac{i}{ℏ} S[q(t)]}.
 \end{gathered}
 $$
+また, この $K(q_f,t_f;q_i,t_i)$ を**時間発展 Green 関数**という.
 
 :::
 
@@ -617,7 +620,26 @@ $$
 \end{aligned}
 $$
 
+#### 例: 一次元自由一粒子系
+
+一次元自由一粒子系の Lagrangian は
+$$
+L(q,\.q,t) = \frac{m}{2} \.q^2.
+$$
+このときの時間発展 Green 関数を求めると,
+$$
+\begin{aligned}
+  K(q_f,t_f;q_i,t_i)
+    &= ∫\mathcal{D}q \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} \frac{m}{2} \.q^2} \\
+    &= \sqrt{\frac{m}{2πiℏ(t_f-t_i)}} \exp\bqty{\frac{im(q_f-q_i)^2}{2ℏ(t_f-t_i)}}. \\
+\end{aligned}
+$$
+したがって, 一般の位置表示の波動関数 $ψ(q,t)$ は,
+$$
+ψ(q,t) = \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{im(q-q_0)^2}{2ℏ(t-t_0)}} × ψ(q_0,t_0).
+$$
+
 ### 参考文献
 
-- 砂川 重信 『量子力学』(岩波書店, 1991)
 - 清水 明 『新版 量子論の基礎 その本質のやさしい理解のために』 (サイエンス社, 2004)
+- 杉田 勝実, 岡本 良夫, 関根 松夫 『経路積分と量子電磁力学』(森北出版, 1998)

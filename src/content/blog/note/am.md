@@ -443,9 +443,7 @@ $$
 
 正準変数 $(q^i, p_i)$ に対し, **Poisson 括弧** Poisson braket は以下で定義される演算である:
 $$
-\{A, B\}_\mathrm{P}
-≡  \pdv{A}{q^i}\pdv{B}{p_i}
-        - \pdv{B}{q^i}\pdv{A}{p_i}.
+\{A, B\}_\mathrm{P} ≡ \pdv{A}{q^i}\pdv{B}{p_i} - \pdv{B}{q^i}\pdv{A}{p_i}.
 $$
 
 :::
@@ -453,7 +451,7 @@ $$
 例えば,
 $$
 \begin{aligned}
-\{q^i, H\}_\mathrm{P} = \.q^i, && \{p_i, H\}_\mathrm{P} = \.p_i.
+\{q^i, H\}_\mathrm{P} = \dv{q^i}{t}, && \{p_i, H\}_\mathrm{P} = \dv{p_i}{t}.
 \end{aligned}
 $$
 $$
@@ -475,3 +473,5 @@ $$
 &=  \{A, H\}_\mathrm{P} + \pdv{A}{t}.
 \end{aligned}
 $$
+
+TODO: Hamilton 形式による Noether の定理

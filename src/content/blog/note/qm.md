@@ -602,7 +602,7 @@ $$
   K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}q \ e^{\frac{i}{ℏ} S[q(t)]}.
 \end{gathered}
 $$
-また, この $K(q_f,t_f;q_i,t_i)$ を**時間発展 Green 関数**という.
+また, この $K(q_f,t_f;q_i,t_i)$ を**Green 関数**, または**伝播関数**という.
 
 :::
 
@@ -626,7 +626,7 @@ $$
 $$
 L(q,\.q,t) = \frac{m}{2} \.q^2.
 $$
-このときの時間発展 Green 関数を求めると,
+このときの伝播関数を求めると,
 $$
 \begin{aligned}
   K(q_f,t_f;q_i,t_i)
@@ -636,7 +636,7 @@ $$
 $$
 したがって, 一般の位置表示の波動関数 $ψ(q,t)$ は,
 $$
-ψ(q,t) = \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{im(q-q_0)^2}{2ℏ(t-t_0)}} × ψ(q_0,t_0).
+ψ(q,t) = \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{i}{ℏ} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
 $$
 
 ### 参考文献

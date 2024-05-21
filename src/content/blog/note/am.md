@@ -108,9 +108,9 @@ $$
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{-∞}^{∞} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{-∞}^{∞} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
+    &= ∫_{-∞}^{∞} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{-∞}^{∞} \d{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2} \d{t} δq^j(t) \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}} + \bqty{δq^j(t) \pdv{L}{\.q^j(t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
@@ -253,10 +253,10 @@ $$
 $$
 \begin{aligned}
   δS_t[q^i]
-    &= ∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
-    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{-∞}^{∞} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
+    &\quad\quad+ ∫_{-∞}^{∞} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{-∞}^{∞} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{-∞}^{∞} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &\quad\quad+ \bqty{∫_{-∞}^{∞} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
@@ -362,11 +362,11 @@ $$
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫_{t_1}^{t_2}\d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2}\d{t'} δq^j(t') ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + ∫_{t_1}^{t_2} \d{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2}\d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + \bqty{∫_{t_1}^{t_2}\d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{-∞}^{∞}\d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{-∞}^{∞}\d{t'} δq^j(t') ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + ∫_{-∞}^{∞} \d{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{-∞}^{∞}\d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + \bqty{∫_{-∞}^{∞}\d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
     &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2} \\
     &= ∫_{t_1}^{t_2}\d{t} \bqty{δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2} \\

@@ -35,7 +35,7 @@ $$
 
 作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて以下のように表される:
 $$
-S[q^i] = ∫ \d{t} L(q^i, \.q^i, t).
+S[q^i] = ∫_{t_1}^{t_2} \d{t} L(q^i, \.q^i, t).
 $$
 $q^i + δq^i$ の変分は,
 $$
@@ -130,9 +130,17 @@ $$
 \end{aligned}
 $$
 したがって,
-Euler–Lagrange の運動方程式より,
+Euler–Lagrange の運動方程式は,
 $$
 m\"q + \pdv{V}{q} = 0.
+$$
+ポテンシャルが無い $V=0$ ときの作用の表式を求める. 運動方程式を解いて,
+$$
+\.q(t) = \frac{q(t_2)-q(t_1)}{t_2-t_1}.
+$$
+したがって, 作用は,
+$$
+S[q] = ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}.
 $$
 
 #### 例: 調和振動子
@@ -152,6 +160,22 @@ $$
 Euler–Lagrange の運動方程式より,
 $$
 m\"q + m ω^2 q = 0.
+$$
+作用の表式を求める. 運動方程式を解いて,
+$$
+\begin{aligned}
+  q(t) &= \frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}, \\
+  \.q(t) &= ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}. \\
+\end{aligned}
+$$
+したがって, 作用は,
+$$
+\begin{aligned}
+  S[q]
+    &= ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \bqty{\qty{ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}}^2 - ω^2 \qty{\frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}}^2} \\
+    &= ∫_{t_1}^{t_2} \d{t} \frac{mω^2}{2} \frac{q_1^2 \cos 2ω(t-t_2) + q_2^2 \cos 2ω(t-t_1) - 2q_1q_2\cos(2t-t_1-t_2)}{\sin^2 ω(t_2-t_1)} \\
+    &= \frac{mω}{2 \sin ω(t_2-t_1)} \bqty{(q_1^2+q_2^2) \cos ω(t_2-t_1) - 2q_1q_2}. \\
+\end{aligned}
 $$
 
 ### Noether の定理

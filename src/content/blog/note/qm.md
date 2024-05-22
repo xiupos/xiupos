@@ -599,7 +599,7 @@ $$
 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化** *Path integral formulation* という:
 $$
 \begin{gathered}
-  K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}q \ e^{\frac{i}{ℏ} S[q(t)]}.
+  K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{ℏ} S[q(t)]}.
 \end{gathered}
 $$
 また, この $K(q_f,t_f;q_i,t_i)$ を**Green 関数**, または**伝播関数**という.
@@ -645,26 +645,65 @@ $$
 
 $t_f>t_m>t_i$ ($m=1,…,n$) に対し
 $$
-⟨q_f,t_f| T[\^q(t_1)⋯\^q(t_n)] |q_i,t_i⟩ = ∫_{q_i}^{q_f} \mathcal{D}q q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}
+⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩ = ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}
 $$
-を $n$ 点 Green 関数という.
+を **$n$ 点 Green 関数**という. ただし $T$ は時間順序積.
 
 :::
 
 実際, $t_f>t_{σ_1}>⋯>t_{σ_n}>t_i$ を満たす適当な置換 $σ = \pmqty{1&⋯&n\\σ_1&⋯&σ_n}$ を用いると,
 $$
 \begin{aligned}
-   &\ ⟨q_f,t_f| T[\^q(t_1)⋯\^q(t_n)] |q_i,t_i⟩ \\
+   &\ ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩ \\
   =&\ ⟨q_f,t_f| \^q(t_{σ_1})⋯\^q(t_{σ_n}) |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| \^q(t_{σ_1}) \pqty{ ∫\d{q_{σ_1}} |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} ⋯ \^q(t_{σ_n}) \pqty{∫\d{q_{σ_n}}|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} |q_i,t_i⟩ \\
-  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} ⟨q_f,t_f| \^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯\^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
-  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} q_{σ_1}⋯q_{σ_n} ⟨q_f,t_f∣q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯ |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
-  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} q_{σ_1}⋯q_{σ_n} \pqty{∫_{q_{σ_1}}^{q_f} \mathcal{D}q' \ e^{\frac{i}{ℏ} S[q'(t)]}} \pqty{∫_{q_{σ_2}}^{q_{σ_1}} \mathcal{D}q'' \ e^{\frac{i}{ℏ} S[q''(t)]}} ⋯ \pqty{∫_{q_i}^{q_{σ_n}} \mathcal{D}q''' \ e^{\frac{i}{ℏ} S[q'''(t)]}} \\
-  =&\ ∫_{q_{σ_1}}^{q_f} \mathcal{D}q' \pqty{∫\d{q_{σ_1}} ∫_{q_{σ_1}}^{q_f} \mathcal{D}q''} ⋯ \pqty{∫\d{q_{σ_n}} ∫_{q_i}^{q_{σ_n}} \mathcal{D}q'''} q_{σ_1}⋯q_{σ_n} e^{\frac{i}{ℏ} (S[q'(t)]+S[q''(t)]+⋯+S[q'''(t)])} \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}q \ q(t_{σ_1})⋯q(t_{σ_n}) e^{\frac{i}{ℏ} S[q(t)]}. \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}q \ q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}. \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_1}) \pqty{ ∫\d{{}^D q_{σ_1}} |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} ⋯ \^q(t_{σ_n}) \pqty{∫\d{{}^D q_{σ_n}}|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} |q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} ⟨q_f,t_f| \^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯\^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} q_{σ_1}⋯q_{σ_n} ⟨q_f,t_f∣q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯ |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} q_{σ_1}⋯q_{σ_n} \pqty{∫_{q_{σ_1}}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{ℏ} S_{t∈[t_{σ_1},t_f]}[q]}} \pqty{∫_{q_{σ_2}}^{q_{σ_1}} \mathcal{D}^Dq \ e^{\frac{i}{ℏ} S_{t∈[t_{σ_2},t_{σ_1}]}[q]}} ⋯ \pqty{∫_{q_i}^{q_{σ_n}} \mathcal{D}^Dq \ e^{\frac{i}{ℏ} S_{t∈[t_i,t_{σ_n}]}[q]}} \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_{σ_1})⋯q(t_{σ_n}) e^{\frac{i}{ℏ} S[q(t)]}. \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}. \\
 \end{aligned}
 $$
+
+$n$ 点 Green 関数は次に定義される生成汎関数から得ることができる.
+
+:::screen
+
+$$
+\begin{aligned}
+  Z[J(t)]
+    &:= ⟨q_f,t_f| T\exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} J(t)\^q(t)} |q_i,t_i⟩ \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{ℏ} S[q(t)]} \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} \qty{L(q(t),\.q(t),t) + J(t)q(t)}} \\
+\end{aligned}
+$$
+で定義される汎関数 $Z[J(t)]$ を**生成汎関数**という. この生成汎関数を $n$ 回汎関数積分すると $n$ 点 Green 関数が得られる:
+$$
+(-i)^n ℏ^n \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} = ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩.
+$$
+
+:::
+
+実際, 生成汎関数の汎関数積分表示は
+$$
+\begin{aligned}
+   &\ ⟨q_f,t_f| T\exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} J(t)\^q(t)} |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac{i^n}{ℏ^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) \^q(t_1)⋯\^q(t_n)} |q_i,t_i⟩ \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{ℏ^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n)|q_i,t_i⟩  \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{ℏ^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \bqty{∑_{n=0}^∞ \frac1{n!} \frac{i^n}{ℏ^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) q(t_1)⋯q(t_n)} e^{\frac{i}{ℏ} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{ℏ} S[q(t)]}. \\
+\end{aligned}
+$$
+また, 式変形の途中から,
+$$
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \bqty{\frac{i^n}{ℏ^n} ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n)|q_i,t_i⟩} J(t_1)⋯J(t_n).
+$$
+これを, $Z[J(t)]$ の $J=0$ まわりの汎関数冪展開
+$$
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} J(t_1)⋯J(t_n).
+$$
+と比較すると $n$ 点 Green 関数との関係式が得られる.
 
 ### 参考文献
 

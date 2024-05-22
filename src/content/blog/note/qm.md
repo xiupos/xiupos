@@ -620,6 +620,8 @@ $$
 \end{aligned}
 $$
 
+TODO: Green 関数としての性質
+
 #### 例: 一次元自由一粒子系
 
 一次元自由一粒子系の Lagrangian は

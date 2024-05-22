@@ -697,11 +697,11 @@ $$
   =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{ℏ} S[q(t)]}. \\
 \end{aligned}
 $$
-また, 式変形の途中から,
+また, 式変形の途中
 $$
 Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \bqty{\frac{i^n}{ℏ^n} ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n)|q_i,t_i⟩} J(t_1)⋯J(t_n).
 $$
-これを, $Z[J(t)]$ の $J=0$ まわりの汎関数冪展開
+を $Z[J(t)]$ の $J=0$ まわりの汎関数冪展開
 $$
 Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} J(t_1)⋯J(t_n).
 $$

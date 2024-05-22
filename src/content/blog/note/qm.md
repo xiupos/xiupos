@@ -526,7 +526,7 @@ n = ⟨n|\^N|n⟩ = ⟨n|\^a^†\^a|n⟩ = ⟨\^an∣\^an⟩ ≥ 0.
 $$
 ただし $|\^an⟩ ≡ \^a|n⟩$. これは $n<0$ に矛盾する. したがって, $n≥0$ である. また, $n$ が正の非整数とすると, 繰り返し $\^a$ を左右することで $n$ を負にすることができてしまうから, $n$ は非整数ではない. したがって, $n = 0,1,2,…$.
 
-<!-- TODO: 調和振動子による例 -->
+TODO: 調和振動子による例
 
 ### 不確定性原理
 
@@ -599,7 +599,7 @@ $$
 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化** *Path integral formulation* という:
 $$
 \begin{gathered}
-  K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} \int_{q_i}^{q_f} \mathcal{D}q \ e^{\frac{i}{ℏ} S[q(t)]}.
+  K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}q \ e^{\frac{i}{ℏ} S[q(t)]}.
 \end{gathered}
 $$
 また, この $K(q_f,t_f;q_i,t_i)$ を**Green 関数**, または**伝播関数**という.
@@ -637,6 +637,33 @@ $$
 したがって, 一般の位置表示の波動関数 $ψ(q,t)$ は,
 $$
 ψ(q,t) = \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{i}{ℏ} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
+$$
+
+### $n$ 点 Green 関数と生成汎関数
+
+:::screen
+
+$t_f>t_m>t_i$ ($m=1,…,n$) に対し
+$$
+⟨q_f,t_f| T[\^q(t_1)⋯\^q(t_n)] |q_i,t_i⟩ = ∫_{q_i}^{q_f} \mathcal{D}q q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}
+$$
+を $n$ 点 Green 関数という.
+
+:::
+
+実際, $t_f>t_{σ_1}>⋯>t_{σ_n}>t_i$ を満たす適当な置換 $σ = \pmqty{1&⋯&n\\σ_1&⋯&σ_n}$ を用いると,
+$$
+\begin{aligned}
+   &\ ⟨q_f,t_f| T[\^q(t_1)⋯\^q(t_n)] |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_1})⋯\^q(t_{σ_n}) |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_1}) \pqty{ ∫\d{q_{σ_1}} |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} ⋯ \^q(t_{σ_n}) \pqty{∫\d{q_{σ_n}}|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} |q_i,t_i⟩ \\
+  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} ⟨q_f,t_f| \^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯\^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
+  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} q_{σ_1}⋯q_{σ_n} ⟨q_f,t_f∣q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯ |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}∣q_i,t_i⟩ \\
+  =&\ ∫\d{q_{σ_1}}⋯∫\d{q_{σ_n}} q_{σ_1}⋯q_{σ_n} \pqty{∫_{q_{σ_1}}^{q_f} \mathcal{D}q' \ e^{\frac{i}{ℏ} S[q'(t)]}} \pqty{∫_{q_{σ_2}}^{q_{σ_1}} \mathcal{D}q'' \ e^{\frac{i}{ℏ} S[q''(t)]}} ⋯ \pqty{∫_{q_i}^{q_{σ_n}} \mathcal{D}q''' \ e^{\frac{i}{ℏ} S[q'''(t)]}} \\
+  =&\ ∫_{q_{σ_1}}^{q_f} \mathcal{D}q' \pqty{∫\d{q_{σ_1}} ∫_{q_{σ_1}}^{q_f} \mathcal{D}q''} ⋯ \pqty{∫\d{q_{σ_n}} ∫_{q_i}^{q_{σ_n}} \mathcal{D}q'''} q_{σ_1}⋯q_{σ_n} e^{\frac{i}{ℏ} (S[q'(t)]+S[q''(t)]+⋯+S[q'''(t)])} \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}q \ q(t_{σ_1})⋯q(t_{σ_n}) e^{\frac{i}{ℏ} S[q(t)]}. \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}q \ q(t_1)⋯q(t_n) e^{\frac{i}{ℏ} S[q(t)]}. \\
+\end{aligned}
 $$
 
 ### 参考文献

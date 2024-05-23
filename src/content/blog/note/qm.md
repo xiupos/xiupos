@@ -608,19 +608,17 @@ $$
 
 位置表示の波動関数に対して以下が成立する:
 $$
-ψ(q_f,t_f) = ∫ \d{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
+ψ(q,t) = ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
 $$
 実際,
 $$
 \begin{aligned}
-  ψ(q_f,t_f) &= ⟨q_f,t_f ∣ ψ⟩ \\
-    &= ⟨q_f,t_f| \pqty{∫ \d{{}^D q_i} |q_i,t_i⟩ ⟨q_i,t_i|} |ψ⟩ \\
-    &= ∫ \d{{}^D q_i} ⟨q_f,t_f ∣ q_i,t_i⟩ ⟨q_i,t_i ∣ ψ⟩ \\
-    &= ∫ \d{{}^D q_i} K(q_f,t_f;q_i,t_i) ψ(q_i,t_i).
+  ψ(q,t) &= ⟨q,t ∣ ψ⟩ \\
+    &= ⟨q,t| \pqty{∫ \d{{}^D q_0} |q_0,t_0⟩ ⟨q_0,t_0|} |ψ⟩ \\
+    &= ∫ \d{{}^D q_0} ⟨q,t∣q_0,t_0⟩ ⟨q_0,t_0∣ψ⟩ \\
+    &= ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
 \end{aligned}
 $$
-
-TODO: Green 関数としての性質
 
 #### 例: 一次元自由一粒子系
 
@@ -632,7 +630,7 @@ $$
 $$
 \begin{aligned}
   K(q_f,t_f;q_i,t_i)
-    &= ∫\mathcal{D}q \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} \frac{m}{2} \.q^2} \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}q \ \exp\bqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t} \frac{m}{2} \.q^2} \\
     &= \sqrt{\frac{m}{2πiℏ(t_f-t_i)}} \exp\bqty{\frac{im(q_f-q_i)^2}{2ℏ(t_f-t_i)}}. \\
 \end{aligned}
 $$

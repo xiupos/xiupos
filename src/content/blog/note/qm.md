@@ -638,7 +638,7 @@ $$
 $$
 したがって, 一般の位置表示の波動関数 $ψ(q,t)$ は,
 $$
-ψ(q,t) = \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{i}{ℏ} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
+ψ(q,t) = ∫\d{q_0} \sqrt{\frac{m}{2πiℏ(t-t_0)}} \exp\bqty{\frac{i}{ℏ} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
 $$
 
 ### $n$ 点 Green 関数と生成汎関数

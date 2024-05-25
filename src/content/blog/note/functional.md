@@ -171,10 +171,15 @@ $$
         &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
         &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
         &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
-        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + O(h^2)}} \quad (∵\text{部分積分}) \\
-        &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + O(h^2)} \\
-        &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
+        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + h \dv{}{t} \pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)} + O(h^2)}} \quad (∵\text{部分積分}) \\
+        &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + h ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} + O(h^2)} \\
+        &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} \\
+        &= - \dv{}{y} \dv{g(φ'(y))}{φ'(y)} + ∫ \d{\pqty{\dv{g(φ'(x))}{φ'(x)} δ(x-y)}}.
     \end{aligned}
+    $$
+    特に $y$ が積分範囲の内部にあるとき, 発散項を消すことができて,
+    $$
+    \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ'(x)} = - \dv{}{y} \dv{g(φ'(y))}{φ'(y)}.
     $$
     離散表現では, $y=x_m$ として,
     $$
@@ -182,6 +187,16 @@ $$
       \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
         &= - \frac{\displaystyle g'\pqty{\frac{φ_{m+1}-φ_{m}}{Δx}} - g'\pqty{\frac{φ_m-φ_{m-1}}{Δx}}}{Δx}.
     \end{aligned}
+    $$
+
+5. $\displaystyle F[φ(x)] = ∫ \d{x} g\pqty{φ(x),φ'(x)}$:  
+    上の例を繰り返し使うことで,
+    $$
+    \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ(x),φ'(x)} = \pdv{g}{φ(y)} - \dv{}{y} \pdv{g}{φ'(y)} + ∫ \d{\pqty{\pdv{g}{φ'(x)} δ(x-y)}},
+    $$
+    あるいは, $y$ が積分範囲の内部にあるとき,
+    $$
+    \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ(x),φ'(x)} = \pdv{g}{φ(y)} - \dv{}{y} \pdv{g}{φ'(y)}.
     $$
 
 ### 汎関数冪級数

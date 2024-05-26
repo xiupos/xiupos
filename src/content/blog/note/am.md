@@ -279,7 +279,7 @@ $$
 時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
 $$
 \begin{gathered}
-  δQ = ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
+  δQ = - ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
   ∴ \.q^i \pdv{L}{\.q^i} - L = \mathrm{const.}
 \end{gathered}
 $$
@@ -297,6 +297,34 @@ $$
 この不変量 $\displaystyle \bm{l} := \bm{x} × \pdv{L}{\.{\bm{x}}} = \bm{x} × \bm{p}$ を角運動量という.
 
 TODO: 一般の回転変換に対する不変量
+
+### 一般化運動量と Hamiltonian
+
+:::screen
+
+Lagrangian $L$ が与えられたとき, **一般化運動量**は
+$$
+p_i ≡ \pdv{L}{\.q^i},
+$$
+**Hamiltonian** は
+$$
+H(q^i, p_i, t) ≡ \.q^i p_i - L
+$$
+で定義される.
+
+:::
+
+一般化運動量と Hamiltonian は作用を直接偏微分することで得ることもできる:
+$$
+p_i(t_2) = \pdv{S}{q^i(t_2)}, \quad H(q^i(t_2), p_i(t_2), t_2) = - \pdv{S}{t_2}.
+$$
+ただし作用は $S[q]=∫_{t_1}^{t_2}L(q^i,\.q^i,t)$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+$$
+δS[q^i] = \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2} = \bqty{δq^i p_i - δt H}_{t=t_1}^{t=t_2}.
+$$
+このとき, $q^i(t_2)$ による偏微分は $δq^i(t_2)$ のみを変化させたときの $δS$ に, $t_2$ による偏微分は $δt_2$ のみを変化させたときの $δS$ に注目すればよい.
+
+TODO: 厳密な説明
 
 ### Hamilton の運動方程式
 

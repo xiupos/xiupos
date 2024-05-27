@@ -16,7 +16,9 @@ math : true
 
 :::
 
-状態ベクトル $|ψ⟩$ に定数 $c ∈ ℂ$ をかけた $c |ψ⟩$ は同じ状態を表し, 断わり無いとき状態ベクトル $|ψ⟩$ は正規化されているとする: $⟨ψ ∣ ψ⟩ = 1$. または, 正規化されていない状態ベクトル $|ψ'⟩$ に対し, $|ψ⟩ = |ψ'⟩ / \sqrt{⟨ψ' ∣ ψ'⟩}$ は正規化された状態ベクトルである. $\{e^{i θ} |ψ⟩\}_{θ ∈ ℝ}$ を**射線** ray といい, 同じ状態を表す状態ベクトルである.
+状態ベクトル $|ψ⟩$ に定数 $c ∈ ℂ$ をかけた $c |ψ⟩$ は同じ状態を表し, 可能な限り[^norm]状態ベクトル $|ψ⟩$ は正規化されているとする: $⟨ψ ∣ ψ⟩ = 1$. または, 正規化されていない状態ベクトル $|ψ'⟩$ に対し, $|ψ⟩ = |ψ'⟩ / \sqrt{⟨ψ' ∣ ψ'⟩}$ は正規化された状態ベクトルである. $\{e^{i θ} |ψ⟩\}_{θ ∈ ℝ}$ を**射線** ray といい, 同じ状態を表す状態ベクトルである.
+
+[^norm]: ノルム $|⟨ψ∣ψ⟩|^2$ が有限値に収束するときに限る. 例えば後述の位置の固有状態 $|x⟩$ のノルムは発散する: $⟨x∣x⟩=δ(x-x)=δ(0)$.
 
 :::screen
 
@@ -24,7 +26,7 @@ math : true
 
 :::
 
-演算子 $\^V : \mathcal{H} → \mathcal{H}$ の作用によって状態 $|ψ⟩$ が $|ψ'⟩ = \^V |ψ⟩$ になるとき, $\^{V}$ の作用によって状態が $|ψ⟩$ から $|φ⟩$ に遷移する遷移振幅は $⟨φ ∣ ψ'⟩ = ⟨φ|\^V|ψ⟩$ である.
+演算子 $\^V:\mathcal{H}→\mathcal{H}$ の作用によって状態 $|ψ⟩$ が $|ψ'⟩ = \^V |ψ⟩$ になるとき, $\^{V}$ の作用によって状態が $|ψ⟩$ から $|φ⟩$ に遷移する遷移振幅は $⟨φ ∣ ψ'⟩ = ⟨φ|\^V|ψ⟩$ である.
 
 :::screen
 
@@ -45,6 +47,21 @@ $$
 \end{aligned}
 $$
 物理量 $A$ と対応する演算子 $\^A$ を単に $A$ と書くこともある.
+
+固有状態はそれぞれ直交している:
+$$
+\begin{aligned}
+  \textsf{連続値} \quad &:& ⟨a∣b⟩ &= δ^D(a-b), \\
+  \textsf{離散値} \quad &:& ⟨m∣n⟩ &= δ_{mn}. \\
+\end{aligned}
+$$
+また, 固有状態は完全系をなす:
+$$
+\begin{aligned}
+  \textsf{連続値} \quad &:& ∫\d{a}|a⟩⟨a| &= 1, \\
+  \textsf{離散値} \quad &:& ∑_n|n⟩⟨n| &= 1. \\
+\end{aligned}
+$$
 
 ### 波動関数
 
@@ -69,7 +86,11 @@ $$
 
 :::screen
 
-観測量 $B$ について, 任意の状態ベクトル $|ψ⟩$ に対し $⟨a| \^B |ψ⟩ = \^B_A ⟨a ∣ ψ⟩ = \^B_A ψ(a)$ を満たす $\^B_A : ℂ → ℂ$ が存在するとき, 観測量 $A$ に対して $\^B |ψ⟩ ↔ \^B_A ψ(a)$ の対応がある.
+観測量 $B$ について, 任意の状態ベクトル $|ψ⟩$ に対し
+$$
+⟨a| \^B |ψ⟩ = \^B_A ⟨a ∣ ψ⟩ = \^B_A ψ(a)
+$$
+を満たす $\^B_A : ℂ → ℂ$ が存在するとき, 観測量 $A$ に対して $\^B |ψ⟩ ↔ \^B_A ψ(a)$ の対応がある.
 
 :::
 
@@ -180,9 +201,9 @@ $$
 
 :::screen
 
-古典力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子力学における交換関係 $\displaystyle -\frac{i}{ℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
+古典力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子力学における交換関係 $\displaystyle \frac1{iℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -\frac{i}{ℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
+\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -\frac1{iℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
 $$
 
 :::
@@ -191,7 +212,7 @@ $$
 $$
 \begin{aligned}
   \{ q^i, p_j \}_\mathrm{P} &= δ_i^j, \\
-  \overset{\text{正準量子化}}{⟶} - \frac{i}{ℏ} [{\^q^i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= δ_i^j, \\
+  \overset{\text{正準量子化}}{⟶} \frac1{iℏ} [{\^q^i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= δ_i^j, \\
 \end{aligned}
 $$
 $$
@@ -301,18 +322,18 @@ $$
 実際, $\^U(t)$ に関する微分方程式を両辺積分して,
 $$
 \begin{aligned}
-  \^U(t,t_0)
-    &= 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) \^U(t_1, t_0) \\
-    & \quad (\text{$\^U(t_1,t_0)$ を代入}) \\
-    &= 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \^U(t_2, t_0) \\
-    & \quad (\text{繰り返し $\^U(t_j,t_0)$ を代入}) \\
-    &= 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \\
-    & \qquad \qquad + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \frac1{iℏ} ∫_{t_0}^{t_2} \d{t_3} \^H(t_1) \^H(t_2) \^H(t_3) + ⋯ \\
-    &= ∑_{n=0}^∞ \frac1{(iℏ)^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^{t_1} \d{t_2} ⋯ ∫_{t_0}^{t_{n-1}} \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
-    & \quad (\text{$t>t_1>…>t_{n-1}$ であることに注意して, 時間順序積を作用させる}) \\
-    &= T ∑_{n=0}^∞ \frac1{n!} \frac1{(iℏ)^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^t \d{t_2} ⋯ ∫_{t_0}^t \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
-    &= T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{iℏ} ∫_{t_0}^t \d{t} \^H(t)}^n \\
-    &= T \exp \bqty{\frac1{iℏ} ∫_{t_0}^t \d{t} \^H(t)}.
+   &\ \^U(t,t_0) \\
+  =&\ 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) \^U(t_1, t_0) \\
+   &\ \quad (\text{$\^U(t_1,t_0)$ を代入}) \\
+  =&\ 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \^U(t_2, t_0) \\
+   &\ \quad (\text{繰り返し $\^U(t_j,t_0)$ を代入}) \\
+  =&\ 1 + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \\
+   &\ \qquad \qquad + \frac1{iℏ} ∫_{t_0}^t \d{t_1} \frac1{iℏ} ∫_{t_0}^{t_1} \d{t_2} \frac1{iℏ} ∫_{t_0}^{t_2} \d{t_3} \^H(t_1) \^H(t_2) \^H(t_3) + ⋯ \\
+  =&\ ∑_{n=0}^∞ \frac1{(iℏ)^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^{t_1} \d{t_2} ⋯ ∫_{t_0}^{t_{n-1}} \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+   &\ \quad (\text{$t>t_1>…>t_{n-1}$ であることに注意して, 時間順序積を作用させる}) \\
+  =&\ T ∑_{n=0}^∞ \frac1{n!} \frac1{(iℏ)^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^t \d{t_2} ⋯ ∫_{t_0}^t \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+  =&\ T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{iℏ} ∫_{t_0}^t \d{t} \^H(t)}^n \\
+  =&\ T \exp \bqty{\frac1{iℏ} ∫_{t_0}^t \d{t} \^H(t)}.
 \end{aligned}
 $$
 
@@ -369,14 +390,14 @@ $$
 これに対応する $\^p_i$ の表現を求める. ある定数 $a^i$ に対し, $e^{\frac{i}{ℏ} a^j \^p_j} \^q^i e^{- \frac{i}{ℏ} a^j \^p_j} = \^q^i + a^i$ である. 実際,
 $$
 \begin{aligned}
-  \dv{(e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k})}{a^j}
-    &=  \dv{e^{\frac{i}{ℏ} a^k \^p_k}}{a^j} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \dv{e^{- \frac{i}{ℏ} a^k \^p_k}}{a^j} \\
-    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \^p_j e^{- \frac{i}{ℏ} a^k \^p_k} \\
-    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} (i ℏ δ_i^j + \^p_j \^q^i) e^{- \frac{i}{ℏ} a^k \^p_k} \\
-    &\quad (∵ [\^q^i, \^p_j] = \^q^i \^p_j - \^p_j \^q^i = i ℏ δ_i^j) \\
-    &=  \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + δ_i^j - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^p_j \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} \\
-    &\quad (∵ [e^{\frac{i}{ℏ} a^k \^p_k}, \^p_j] = e^{\frac{i}{ℏ} a^k \^p_k} \^p_j - \^p_j e^{\frac{i}{ℏ} a^k \^p_k} = 0) \\
-    &=  δ_i^j.
+   &\ \dv{(e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k})}{a^j} \\
+  =&\ \dv{e^{\frac{i}{ℏ} a^k \^p_k}}{a^j} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \dv{e^{- \frac{i}{ℏ} a^k \^p_k}}{a^j} \\
+  =&\ \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^q^i \^p_j e^{- \frac{i}{ℏ} a^k \^p_k} \\
+  =&\ \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} (i ℏ δ_i^j + \^p_j \^q^i) e^{- \frac{i}{ℏ} a^k \^p_k} \\
+   &\ \quad (∵ [\^q^i, \^p_j] = \^q^i \^p_j - \^p_j \^q^i = i ℏ δ_i^j) \\
+  =&\ \frac{i}{ℏ} \^p_j e^{\frac{i}{ℏ} a^k \^p_k} \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} + δ_i^j - \frac{i}{ℏ} e^{\frac{i}{ℏ} a^k \^p_k} \^p_j \^q^i e^{- \frac{i}{ℏ} a^k \^p_k} \\
+   &\ \quad (∵ [e^{\frac{i}{ℏ} a^k \^p_k}, \^p_j] = e^{\frac{i}{ℏ} a^k \^p_k} \^p_j - \^p_j e^{\frac{i}{ℏ} a^k \^p_k} = 0) \\
+  =&\ δ_i^j.
 \end{aligned}
 $$
 したがって,
@@ -602,7 +623,10 @@ $$
   K(q_f,t_f;q_i,t_i) := ⟨q_f,t_f ∣ q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{ℏ} S[q(t)]}.
 \end{gathered}
 $$
-また, この $K(q_f,t_f;q_i,t_i)$ を**Green 関数**, または**伝播関数**という.
+また, この $K(q_f,t_f;q_i,t_i)$ を**伝播関数**という. また, **Green 関数**とも言い, 以下を満たす:
+$$
+\pqty{iℏ\pdv{}{t}+H(q^i,p_i,t)}K(q,t;q_0,t_0) = x
+$$
 
 :::
 

@@ -302,33 +302,51 @@ TODO: 一般の回転変換に対する不変量
 
 :::screen
 
-Lagrangian $L$ が与えられたとき, **一般化運動量**は
+Lagrangian $L$ が与えられたとき, $q^i$ に対して
 $$
-p_i ≡ \pdv{L}{\.q^i},
+p_i ≡ \pdv{L}{\.q^i}
 $$
-**Hamiltonian** は
+を**一般化運動量**, または $q^i$ に**共役な運動量** *conjugate momentum* といい, また $(q^i, p_i)$ の組を**正準変数** *canonical variables* という.
+
+Lagrangian $L$ と正準変数の組 $(q^i, p_i)$ が与えられたとき,
 $$
 H(q^i, p_i, t) ≡ \.q^i p_i - L
 $$
-で定義される.
+を **Hamiltonian** という.
 
 :::
 
-一般化運動量と Hamiltonian は作用を直接偏微分することで得ることもできる:
+一般化運動量と Hamiltonian は作用を端点で偏微分することで得ることもできる:
 $$
-p_i(t_2) = \pdv{S}{q^i(t_2)}, \quad H(q^i(t_2), p_i(t_2), t_2) = - \pdv{S}{t_2}.
+p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}.
 $$
-ただし作用は $S[q]=∫_{t_1}^{t_2}L(q^i,\.q^i,t)$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+ただし作用は $S[q]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
 $$
-δS[q^i] = \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2} = \bqty{δq^i p_i - δt H}_{t=t_1}^{t=t_2}.
+δS[q^i] = \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t'=t_0}^{t'=t} = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}.
 $$
-このとき, $q^i(t_2)$ による偏微分は $δq^i(t_2)$ のみを変化させたときの $δS$ に, $t_2$ による偏微分は $δt_2$ のみを変化させたときの $δS$ に注目すればよい.
+始点での変位を $δt(t_0)=δq^i(t_0)=0$ とすれば,
+$$
+δS[q^i] = δq^i p_i - δt H.
+$$
+この変分は経路の途中 $t'∈(t_0,t)$ によらない形になっているから, 一点 $t$ での変位から全微分が得られる:
+$$
+\d{S} = \d{q^i} p_i - \d{t} H.
+$$
 
-TODO: 厳密な説明
+この作用の偏微分を組み合わせることで以下の方程式が得られる:
+
+:::screen
+
+最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation* を満たす:
+$$
+H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0.
+$$
+
+:::
 
 ### Hamilton の運動方程式
 
-**一般化運動量** $p_i ≡ ∂L / ∂\.q^i$ を用いて, **Hamiltonian** $H(q^i, p_i, t) ≡ \.q^i p_i - L$ を定義する. Hamiltonian の全微分は,
+Hamiltonian の全微分 $H(q^i, p_i, t) ≡ \.q^i p_i - L$ は,
 $$
 \begin{aligned}
 \d{H} &=  \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
@@ -348,12 +366,6 @@ $$
 $$
 \.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}.
 $$
-
-:::
-
-:::screen
-
-$p_i ≡ ∂L / ∂\.q^i$ を $q^i$ に**共役な運動量** conjugate momentum といい, また $(q^i, p_i)$ の組を**正準変数** canonical variables という.
 
 :::
 

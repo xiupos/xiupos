@@ -341,6 +341,37 @@ $$
 
 #### 汎関数積分の計算例
 
+<!-- 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
+    $F[φ(x)]$ の離散表現は,
+    $$
+    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × \frac{A}2 φ_n^2}_{φ_0=φ_0}^{φ_N=φ}.
+    $$
+    ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
+    $$
+    \begin{aligned}
+      I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ(x)}^2} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × \frac{A}2 φ_n^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} \exp \bqty{i Δx × \frac{A}2 φ^2} ∏_{n=1}^{N-1} ∫ \d{φ_n} \exp \bqty{i \frac{AΔx}2 φ_n^2} \\
+        &   \quad \pqty{∫ \d{x} \exp \pqty{-iax^2} = \sqrt{\frac{π}{ia}}} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} \pqty{\frac{2πi}{AΔx}}^{(N-1)/2} \exp \bqty{i \frac{AΔx}2 φ^2}. \\
+    \end{aligned}
+    $$
+    ここで, 定数 $C$ を用いて $\displaystyle θ(N) = \frac1C\pqty{\frac{2πi}{AΔx}}^{N/2}$ とすれば,
+    $$
+    \begin{aligned}
+      I(φ) &= \lim_{N→∞} C \pqty{\frac{AΔx}{2πi}}^{N/2} \pqty{\frac{2πi}{AΔx}}^{(N-1)/2} \exp \bqty{i \frac{AΔx}2 φ^2} \\
+        &= \lim_{N→∞} C \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2}. \\
+    \end{aligned}
+    $$
+    正規化条件より定数 $C$ を決定すると,
+    $$
+    1 = ∫ \d{φ} I(φ) = \lim_{N→∞} C ∫ \d{φ} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = C..
+    $$
+    したがって,
+    $$
+    I(φ) = \lim_{N→∞} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = \lim_{N→∞} \sqrt{\frac{A(b-a)}{2πiN}} \exp \bqty{i \frac{A(b-a)}{2N} φ^2}.
+    $$ -->
+
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
     $F[φ(x)]$ の離散表現は,
     $$
@@ -381,16 +412,16 @@ $$
         &=  C \sqrt{\frac{A}{2πi(b-a)}} \exp \bqty{i \frac{A}2 \frac{(φ - φ_0)^2}{b-a}}.
     \end{aligned}
     $$
-    また, 正規化条件より定数 $C$ を決定する:
+    正規化条件より定数 $C$ を決定すると,
     $$
-    ∫ \d{φ} I(φ) = C ∫ \d{φ} \sqrt{\frac{A}{2πi(b-a)}} \exp \bqty{i \frac{A}2 \frac{(φ - φ_0)^2}{b-a}} = C = 1.
+    1 = ∫ \d{φ} I(φ) = C ∫ \d{φ} \sqrt{\frac{A}{2πi(b-a)}} \exp \bqty{i \frac{A}2 \frac{(φ - φ_0)^2}{b-a}} = C.
     $$
     したがって,
     $$
     I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2} = \sqrt{\frac{A}{2πi(b-a)}} \exp \bqty{i \frac{A}2 \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
-2. 汎関数積分の連結:  
+1. 汎関数積分の連結:  
     $x_3>x_2>x_1$ に対し, $x∈[x_3,x_1]$ の関数上で定義される汎関数 $F[φ(x)]$ について,
     $$
     ∫_{φ_1}^{φ_2} \mathcal{D}φ(x) ∫\d{φ_2} ∫_{φ_2}^{φ_3} \mathcal{D}φ(x) F[φ(x)] = ∫_{φ_1}^{φ_3} \mathcal{D}φ(x) F[φ(x)].

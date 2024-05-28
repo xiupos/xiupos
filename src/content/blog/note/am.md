@@ -1,5 +1,5 @@
 ---
-title : 粒子系の解析力学
+title : 粒子系の解析力学ノート
 author : xiupos
 date : \today
 pubDate : 2024-01-06T22:40:00+09:00

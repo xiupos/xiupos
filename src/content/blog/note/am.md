@@ -309,6 +309,8 @@ $$
 $$
 この不変量 $\displaystyle \bm{l} ≡ \bm{x} × \pdv{L}{\.{\bm{x}}} = \bm{x} × \bm{p}$ は角運動量と呼ばれる.
 
+<!-- TODO: 一般の Galilei 群に対する不変量 -->
+
 ### 一般化運動量と Hamiltonian
 
 :::screen

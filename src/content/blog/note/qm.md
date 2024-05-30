@@ -769,15 +769,19 @@ $$
 $$
 \pqty{\frac{H(\bm{x},\bm{p})}{c}}^2 = \bm{p}^2 + (mc)^2
 $$
-の量子化を考える. 位置表示の波動関数に Hamiltonian 演算子を二回作用させると,
+の量子化を考える. 状態ベクトル $|ψ(t)⟩$ に Hamiltonian 演算子を二回作用させると,
 $$
-\frac{{\^H}^2}{c^2} ψ(\bm{x},t) = \frac1{c^2} \pqty{iℏ\pdv{}{t}} \pqty{iℏ\pdv{}{t}} ψ(\bm{x},t) = - \pqty{\frac{ℏ}{c}}^2 \pdv{{}^2}{t^2} ψ(\bm{x},t).
+\frac{{\^H}^2}{c^2} |ψ(t)⟩ = \frac1{c^2} \pqty{iℏ\dv{}{t}} \pqty{iℏ\dv{}{t}} |ψ(t)⟩ = - \pqty{\frac{ℏ}{c}}^2 \dv{{}^2}{t^2} |ψ(t)⟩.
 $$
 また, 古典的な関係式より,
 $$
-\frac{{\^H}^2}{c^2} ψ(\bm{x},t) = \pqty{\frac{H\pqty{\bm{x},-iℏ\grad}}{c^2}}^2 ψ(\bm{x},t) = \bqty{- \pqty{\frac{ℏ}{c}}^2 \laplacian + (mc)^2} ψ(\bm{x},t).
+\frac{{\^H}^2}{c^2} |ψ(t)⟩ = \pqty{\frac{H\pqty{\^{\bm{x}},\^{\bm{p}}}}{c^2}}^2 |ψ(t)⟩ = \bqty{{\^{\bm{p}}}^2 + (mc)^2} |ψ(t)⟩.
 $$
 したがって,
+$$
+\bqty{{\^{\bm{p}}}^2 + (mc)^2} |ψ(t)⟩ = - \pqty{\frac{ℏ}{c}}^2 \dv{{}^2}{t^2} |ψ(t)⟩.
+$$
+特に, 位置 $\bm{x}$ 表示の波動関数については,
 $$
 \bqty{- \pqty{\frac{ℏ}{c}}^2 \laplacian + (mc)^2} ψ(\bm{x},t) = - \pqty{\frac{ℏ}{c}}^2 \pdv{{}^2}{t^2} ψ(\bm{x},t).
 $$
@@ -785,6 +789,7 @@ $$
 $$
 \bqty{∂^μ∂_μ + \pqty{\frac{mc}{ℏ}}^2} ψ(x) = 0.
 $$
+これは相対論的な一粒子の位置表示の波動関数が満たすべき方程式である:
 
 :::screen
 

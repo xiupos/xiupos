@@ -471,7 +471,7 @@ $$
 Schrödinger の運動方程式に $\^H = H(\^q^i, \^p_i)$ やその表現を代入したものもまた **Schrödinger 方程式**という: 位置 $q$ 表示では,
 $$
 \begin{aligned}
-  iℏ \pdv{}{t} ψ(q, t) &= H\pqty{q^i, - iℏ \pdv{}{q^i}} ψ(q, t).
+  H\pqty{q^i, - iℏ \pdv{}{q^i}} ψ(q, t) &= iℏ \pdv{}{t} ψ(q, t).
 \end{aligned}
 $$
 :::
@@ -490,7 +490,7 @@ H(\^q^i, \^p_i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2}
 $$
 したがって Schrödinger 方程式は,
 $$
-iℏ \pdv{}{t} ψ(q, t) = \bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t).
+\bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t) = iℏ \pdv{}{t} ψ(q, t).
 $$
 
 ### 生成・消滅演算子
@@ -737,6 +737,40 @@ $$
 Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} J(t_1)⋯J(t_n)
 $$
 と比較すると $n$ 点 Green 関数との関係式が得られる.
+
+### 相対論的方程式
+
+相対論的な一粒子 $(\bm{x},\bm{p})$ の Hamiltonian の関係式
+$$
+\pqty{\frac{H}{c}}^2 = \bm{p}^2 + (mc)^2
+$$
+の量子化を考える. 位置表示の波動関数に Hamiltonian 演算子を二回作用させると,
+$$
+\frac{{\^H}^2}{c^2} ψ(\bm{x},t) = \frac1{c^2} \pqty{iℏ\pdv{}{t}} \pqty{iℏ\pdv{}{t}} ψ(\bm{x},t) = - \pqty{\frac{ℏ}{c}}^2 \pdv{{}^2}{t^2} ψ(\bm{x},t).
+$$
+また, 古典的な関係式より,
+$$
+\frac{{\^H}^2}{c^2} ψ(\bm{x},t) = \pqty{\frac{H\pqty{\bm{x},-iℏ\grad}}{c^2}}^2 ψ(\bm{x},t) = \bqty{- \pqty{\frac{ℏ}{c}}^2 \laplacian + (mc)^2} ψ(\bm{x},t).
+$$
+したがって,
+$$
+\bqty{- \pqty{\frac{ℏ}{c}}^2 \laplacian + (mc)^2} ψ(\bm{x},t) = - \pqty{\frac{ℏ}{c}}^2 \pdv{{}^2}{t^2} ψ(\bm{x},t).
+$$
+あるいは $x=(x^μ)=(t,\bm{x})$, $(∂^μ) = (c^{-1} ∂_t,\grad)$ として,
+$$
+\bqty{∂^μ∂_μ + \pqty{\frac{mc}{ℏ}}^2} ψ(x) = 0.
+$$
+
+:::screen
+
+相対論的な一粒子の位置表示の波動関数 $ψ(x)$ は次の Klein-Gordon 方程式を満たす:
+$$
+\bqty{∂^μ∂_μ + \pqty{\frac{mc}{ℏ}}^2} ψ(x) = 0.
+$$
+
+:::
+
+TODO: Dirac 方程式
 
 ### 参考文献
 

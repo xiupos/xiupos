@@ -738,11 +738,36 @@ Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \
 $$
 と比較すると $n$ 点 Green 関数との関係式が得られる.
 
+### 非相対論的方程式
+
+非相対論的な一粒子 $(\bm{x},\bm{p})$ の Hamiltonian
+$$
+H(\bm{x},\bm{p},t) = \frac{\bm{p}^2}{2m} + V(\bm{x},t)
+$$
+の量子化を考える. このときの Schrödinger 方程式は,
+$$
+\pqty{\frac{{\^{\bm{p}}}^2}{2m} + V(\^{\bm{x}},t)} |ψ(t)⟩ = iℏ \dv{}{t} |ψ(t)⟩,
+$$
+あるいは位置 $\bm{x}$ 表示の Schrödinger 方程式は,
+$$
+\pqty{-\frac{ℏ^2}{2m} \grad + V(\bm{x},t)} ψ(\bm{x},t) = iℏ \pdv{}{t} ψ(\bm{x},t).
+$$
+一般に Schrödinger 方程式というとき, この方程式を指すことが多い.
+
+:::screen
+
+非相対論的な一粒子の位置表示の波動関数 $ψ(\bm{x},t)$ は次の **Schrödinger 方程式**を満たす:
+$$
+\pqty{-\frac{ℏ^2}{2m} \grad + V(\bm{x},t)} ψ(\bm{x},t) = iℏ \pdv{}{t} ψ(\bm{x},t).
+$$
+
+:::
+
 ### 相対論的方程式
 
 相対論的な一粒子 $(\bm{x},\bm{p})$ の Hamiltonian の関係式
 $$
-\pqty{\frac{H}{c}}^2 = \bm{p}^2 + (mc)^2
+\pqty{\frac{H(\bm{x},\bm{p})}{c}}^2 = \bm{p}^2 + (mc)^2
 $$
 の量子化を考える. 位置表示の波動関数に Hamiltonian 演算子を二回作用させると,
 $$
@@ -763,7 +788,7 @@ $$
 
 :::screen
 
-相対論的な一粒子の位置表示の波動関数 $ψ(x)$ は次の Klein-Gordon 方程式を満たす:
+相対論的な一粒子の位置表示の波動関数 $ψ(x)$ は次の **Klein-Gordon 方程式**を満たす:
 $$
 \bqty{∂^μ∂_μ + \pqty{\frac{mc}{ℏ}}^2} ψ(x) = 0.
 $$

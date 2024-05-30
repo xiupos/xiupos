@@ -827,14 +827,14 @@ $$
 これは $d^2$ 本の連立方程式である. さて, これらを量子化すると,
 $$
 \begin{gathered}
-  \pqty{-iℏ\bm{α}⋅\bm{p} + βmc} |ψ(t)⟩ = iℏ\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
+  \pqty{\bm{α}⋅\bm{p} + βmc} |ψ(t)⟩ = iℏ\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
   \pqty{-iℏ\bm{α}⋅\grad + βmc} ψ(x,t) = iℏ\frac{∂}{c∂t} ψ(x,t).
 \end{gathered}
 $$
 または $γ^μ$ を使って,
 $$
 \begin{gathered}
-  \pqty{-iℏ\bm{γ}⋅\bm{p} + mc} |ψ(t)⟩ = iℏγ^0\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
+  \pqty{\bm{γ}⋅\bm{p} + mc} |ψ(t)⟩ = iℏγ^0\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
   \pqty{-iℏ\bm{γ}⋅\grad + mc} ψ(x,t) = iℏγ^0\frac{∂}{c∂t} ψ(x,t).
 \end{gathered}
 $$

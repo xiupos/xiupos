@@ -341,7 +341,7 @@ $$
 
 #### 汎関数積分の計算例
 
-<!-- 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
+1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
     $F[φ(x)]$ の離散表現は,
     $$
     f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × \frac{A}2 φ_n^2}_{φ_0=φ_0}^{φ_N=φ}.
@@ -365,12 +365,12 @@ $$
     $$
     正規化条件より定数 $C$ を決定すると,
     $$
-    1 = ∫ \d{φ} I(φ) = \lim_{N→∞} C ∫ \d{φ} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = C..
+    1 = ∫ \d{φ} I(φ) = \lim_{N→∞} C ∫ \d{φ} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = C.
     $$
     したがって,
     $$
     I(φ) = \lim_{N→∞} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = \lim_{N→∞} \sqrt{\frac{A(b-a)}{2πiN}} \exp \bqty{i \frac{A(b-a)}{2N} φ^2}.
-    $$ -->
+    $$
 
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
     $F[φ(x)]$ の離散表現は,

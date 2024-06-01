@@ -129,10 +129,10 @@ $$
 1. $\displaystyle F[φ(x)] = ∫ \d{x} g(x) φ(x)$:
     $$
     \begin{aligned}
-      \fdv{}{φ(y)} ∫ \d{x} g(x) φ(x)
-        &=  \lim_{h→0} \frac1h \bqty{∫ \d{x} g(x) (φ(x) + hδ(x-y)) - ∫ \d{x} g(x) φ(x)} \\
-        &=  \lim_{h→0} \frac1h ∫ \d{x} g(x) hδ(x-y) \\
-        &=  ∫ \d{x} g(x) δ(x-y) = g(y).
+       &\ \fdv{}{φ(y)} ∫ \d{x} g(x) φ(x) \\
+      =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g(x) (φ(x) + hδ(x-y)) - ∫ \d{x} g(x) φ(x)} \\
+      =&\ \lim_{h→0} \frac1h ∫ \d{x} g(x) hδ(x-y) \\
+      =&\ ∫ \d{x} g(x) δ(x-y) = g(y).
     \end{aligned}
     $$
     離散表現では, $y=x_m$ として,
@@ -152,11 +152,11 @@ $$
 3. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ(x))$:
     $$
     \begin{aligned}
-      \fdv{}{φ(y)} ∫ \d{x} g(φ(x))
-        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g(φ(x) + hδ(x-y)) - ∫ \d{x} g(φ(x))} \\
-        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(φ(x))}{φ(x)} δ(x-y) + O(h^2)}} \\
-        &= \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
-        &= \dv{g(φ(y))}{φ(y)}.
+       &\ \fdv{}{φ(y)} ∫ \d{x} g(φ(x)) \\
+      =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g(φ(x) + hδ(x-y)) - ∫ \d{x} g(φ(x))} \\
+      =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(φ(x))}{φ(x)} δ(x-y) + O(h^2)}} \\
+      =&\ \lim_{h→0} \frac1h \bqty{h \dv{g(φ(y))}{φ(y)} + O(h^2)} \\
+      =&\ \dv{g(φ(y))}{φ(y)}.
     \end{aligned}
     $$
     離散表現では, $y=x_m$ として,
@@ -167,14 +167,14 @@ $$
 4. $\displaystyle F[φ(x)] = ∫ \d{x} g\pqty{φ'(x)}$:
     $$
     \begin{aligned}
-      \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ'(x)}
-        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
-        &= \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
-        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
-        &= \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + h \dv{}{t} \pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)} + O(h^2)}} \quad (∵\text{部分積分}) \\
-        &= \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + h ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} + O(h^2)} \\
-        &= - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} \\
-        &= - \dv{}{y} \dv{g(φ'(y))}{φ'(y)} + ∫ \d{\pqty{\dv{g(φ'(x))}{φ'(x)} δ(x-y)}}.
+       &\ \fdv{}{φ(y)} ∫ \d{x} g\pqty{φ'(x)} \\
+      =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+      =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
+      =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
+      =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + h \dv{}{t} \pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)} + O(h^2)}} \quad (∵\text{部分積分}) \\
+      =&\ \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + h ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} + O(h^2)} \\
+      =&\ - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} \\
+      =&\ - \dv{}{y} \dv{g(φ'(y))}{φ'(y)} + ∫ \d{\pqty{\dv{g(φ'(x))}{φ'(x)} δ(x-y)}}.
     \end{aligned}
     $$
     特に $y$ が積分範囲の内部にあるとき, 発散項を消すことができて,
@@ -260,35 +260,35 @@ $$
 2. $g(F[φ(x)])$ の汎関数微分:
     $$
     \begin{aligned}
-      \fdv{g(F[φ(x)])}{φ(y)}
-        &=  \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
-        &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \d{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
-        &=  \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
-        &=  \lim_{h→0} \frac1h \bqty{h \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
-        &=  \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)}.
+       &\ \fdv{g(F[φ(x)])}{φ(y)} \\
+      =&\ \lim_{h→0} \frac1h \bqty{g(F[φ(x) + hδ(x-y)]) - g(F[φ(x)])} \\
+      =&\ \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + ∫ \d{z} \fdv{F[φ(x)]}{φ(z)} hδ(z-y) + O(h^2)} - g(F[φ(x)])} \\
+      =&\ \lim_{h→0} \frac1h \bqty{g \pqty{F[φ(x)] + h \fdv{F[φ(x)]}{φ(y)} + O(h^2)} - g(F[φ(x)])} \\
+      =&\ \lim_{h→0} \frac1h \bqty{h \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)} + O(h^2)} \\
+      =&\ \dv{g(F[φ(x)])}{F[φ(x)]} \fdv{F[φ(x)]}{φ(y)}.
     \end{aligned}
     $$
 
 3. $x$ の積分で定義される汎関数 $F[φ(x, t)]$ に対し, 微分 $\displaystyle \dv{}{t}F[φ(x, t)]$:
     $$
     \begin{aligned}
-      \dv{}{t}F[φ(x, t)]
-        &= \lim_{h→0} \frac{F[φ(x, t + h)] - F[φ(x, t)]}{h} \\
-        &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(x, t)}{t} + O(h^2)} - F[φ(x, t)]} \\
-        &= \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t)} + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} \pdv{φ(y, t)}{t} + O(h^2) - F[φ(x, t)]} \\
-        &= ∫ \d{y} \fdv{F[φ(x, t)]}{φ(y, t)} \pdv{φ(y, t)}{t}. \\
+       &\ \dv{}{t}F[φ(x, t)] \\
+      =&\ \lim_{h→0} \frac{F[φ(x, t + h)] - F[φ(x, t)]}{h} \\
+      =&\ \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t) + h \pdv{φ(x, t)}{t} + O(h^2)} - F[φ(x, t)]} \\
+      =&\ \lim_{h→0} \frac1h \qty{F\bqty{φ(x, t)} + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} \pdv{φ(y, t)}{t} + O(h^2) - F[φ(x, t)]} \\
+      =&\ ∫ \d{y} \fdv{F[φ(x, t)]}{φ(y, t)} \pdv{φ(y, t)}{t}. \\
     \end{aligned}
     $$
 
 4. 微小変換 $x(t)↦x'(t)=x(t)+δx(t)$ に対し $φ(x(t))↦φ'(x'(t))=φ(x(t))+δφ(x(t))$ と変換されるとき, 汎関数 $F_{x'(t)}[φ']$ を 1 次まで展開することを考える. 汎関数 $F_{x(t)}[φ']$ をパラメータ $x(t)$ に関する汎関数 $G_t[x]:=F_{x(t)}[φ']$ と見れば $δx(t)$ の 1次で展開することができ,
     $$
     \begin{aligned}
-      F_{x'(t)}[φ']
-        &= F_{x(t)+δx(t)}[φ'] \\
-        & \pqty{= G_t[x+δx] = G_t[x] + ∫\d{x_0} \fdv{G_t[x]}{x(t_0)} δx(t_0)} \\
-        &= F_{x(t)}\bqty{φ'} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ'}}{x(t_0)} δx(t_0) \\
-        &= F_{x(t)}\bqty{φ+δ^Lφ} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ+δ^Lφ}}{x(t_0)} δx(t_0) \\
-        &= F_{x(t)}\bqty{φ+δ^Lφ} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ}}{x(t_0)} δx(t_0). \\
+       &\ F_{x'(t)}[φ'] \\
+      =&\ F_{x(t)+δx(t)}[φ'] \\
+       &\ \pqty{= G_t[x+δx] = G_t[x] + ∫\d{x_0} \fdv{G_t[x]}{x(t_0)} δx(t_0)} \\
+      =&\ F_{x(t)}\bqty{φ'} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ'}}{x(t_0)} δx(t_0) \\
+      =&\ F_{x(t)}\bqty{φ+δ^Lφ} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ+δ^Lφ}}{x(t_0)} δx(t_0) \\
+      =&\ F_{x(t)}\bqty{φ+δ^Lφ} + ∫\d{t_0} \fdv{F_{x(t)}\bqty{φ}}{x(t_0)} δx(t_0). \\
     \end{aligned}
     $$
     ただし, $δ^Lφ(x(t))$ は Lie 微分である:
@@ -298,10 +298,10 @@ $$
     次に $F_{x(t)}[φ']$ を 1 次で展開して,
     $$
     \begin{aligned}
-      F_{x(t)}[φ+δ^Lφ]
-        &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δ^Lφ(x(t_0)) \\
-        &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) - ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{x(t_0)} δx(t_0) \\
-        &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) - ∫\d{t_0} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{t_0} δx(t_0). \\
+       &\ F_{x(t)}[φ+δ^Lφ] \\
+      =&\ F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δ^Lφ(x(t_0)) \\
+      =&\ F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) - ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{x(t_0)} δx(t_0) \\
+      =&\ F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) - ∫\d{t_0} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{t_0} δx(t_0). \\
     \end{aligned}
     $$
     これを前の式に代入すれば, $F_{x'(t)}[φ']$ の 1 次の展開が得られる:

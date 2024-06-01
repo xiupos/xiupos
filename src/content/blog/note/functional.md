@@ -171,7 +171,8 @@ $$
       =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{\qty{φ(x) + hδ(x-y)}}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
       =&\ \lim_{h→0} \frac1h \bqty{∫ \d{x} g\pqty{\dv{φ(x)}{x} + h\dv{δ(x-y)}{x}} - ∫ \d{x} g\pqty{\dv{φ(x)}{x}}} \\
       =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{h \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} \dv{δ(x-y)}{x} + O(h^2)}} \\
-      =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + h \dv{}{t} \pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)} + O(h^2)}} \quad (∵\text{部分積分}) \\
+      =&\ \lim_{h→0} \frac1h \qty{∫ \d{x} \bqty{- h \dv{}{x} \dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y) + h \dv{}{t} \pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)} + O(h^2)}} \\
+       &\ (∵\text{部分積分}) \\
       =&\ \lim_{h→0} \frac1h \bqty{- h \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + h ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} + O(h^2)} \\
       =&\ - \dv{}{y} \dv{g(\d{φ(y)}/\d{y})}{(\d{φ(y)}/\d{y})} + ∫ \d{\pqty{\dv{g(\d{φ(x)}/\d{x})}{(\d{φ(x)}/\d{x})} δ(x-y)}} \\
       =&\ - \dv{}{y} \dv{g(φ'(y))}{φ'(y)} + ∫ \d{\pqty{\dv{g(φ'(x))}{φ'(x)} δ(x-y)}}.
@@ -207,7 +208,8 @@ $$
 $$
 \begin{aligned}
   F[φ(x) + η(x)]
-    &= F[φ(x)] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
+    &= F[φ(x)] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) \\
+    &  \qquad\qquad\quad + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
     &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
 \end{aligned}
 $$
@@ -226,9 +228,9 @@ $$
 汎関数冪級数の離散表現は,
 $$
 \begin{aligned}
-  f_N(φ_0+η_0,…,φ_N+η_N)
-    &= f_N(φ_0,…,φ_N) + ∑_{m=0}^N Δx \frac1{Δx}\pdv{f_N}{φ_m} η_m + \frac12 ∑_{{m_1}=0}^N Δx ∑_{{m_2}=0}^N Δx \frac1{(Δx)^2} \frac{∂^2f_N}{∂φ_{m_1}∂φ_{m_2}} η_{m_1} η_{m_2} + ⋯ \\
-    &= ∑_{n=0}^∞ \frac1{n!} ∑_{{m_1}=0}^N Δx ⋯ ∑_{{m_n}=0}^N Δx \frac1{(Δx)^n} \frac{∂^nf_N(φ_0,…,φ_N)}{∂φ_{m_1}⋯∂φ_{m_n}} η_{m_1} ⋯ η_{m_n}.
+   &\ f_N(φ_0+η_0,…,φ_N+η_N) \\
+  =&\ f_N(φ_0,…,φ_N) + ∑_{m=0}^N Δx \frac1{Δx}\pdv{f_N}{φ_m} η_m + \frac12 ∑_{{m_1}=0}^N Δx ∑_{{m_2}=0}^N Δx \frac1{(Δx)^2} \frac{∂^2f_N}{∂φ_{m_1}∂φ_{m_2}} η_{m_1} η_{m_2} + ⋯ \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} ∑_{{m_1}=0}^N Δx ⋯ ∑_{{m_n}=0}^N Δx \frac1{(Δx)^n} \frac{∂^nf_N(φ_0,…,φ_N)}{∂φ_{m_1}⋯∂φ_{m_n}} η_{m_1} ⋯ η_{m_n}.
 \end{aligned}
 $$
 この表現は関数 $f_N(φ_0+η_0,…,φ_N+η_N)$ の $(φ_0,…,φ_N)$ まわりでの Taylor 展開になっている.
@@ -309,7 +311,8 @@ $$
     \begin{aligned}
       F_{x'(t)}[φ']
         &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δ^Lφ(x(t_0)) + ∫\d{t_0} \fdv{F_{x(t)}[φ]}{x(t_0)} δx(t_0) \\
-        &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) + ∫\d{t_0} \bqty{\fdv{F_{x(t)}[φ]}{x(t_0)} - \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{t_0}} δx(t_0). \\
+        &= F_{x(t)}[φ] + ∫\d{x(t_0)} \fdv{F_{x(t)}[φ]}{φ(x(t_0))} δφ(x(t_0)) \\
+        &  \qquad\qquad + ∫\d{t_0} \bqty{\fdv{F_{x(t)}[φ]}{x(t_0)} - \fdv{F_{x(t)}[φ]}{φ(x(t_0))} \dv{φ(x(t_0))}{t_0}} δx(t_0). \\
     \end{aligned}
     $$
 
@@ -438,7 +441,10 @@ $$
 
     特に, 指数法則 $F_{x∈A}[φ]F_{x∈B}[φ]=F_{x∈A∪B}[φ]$ を満たす汎関数 (例えば $F_{x∈[a,b]}[φ] = \exp \bqty{∫_a^b \d{x} φ(x)}$) に対しては,
     $$
-    ∫\d{φ_2} g(φ_2) \pqty{∫_{φ_1}^{φ_2} \mathcal{D}φ(x) F_{x∈[x_1,x_2]}[φ]} \pqty{∫_{φ_2}^{φ_3} \mathcal{D}φ(x) F_{x∈[x_2,x_3]}[φ]} = ∫_{φ_1}^{φ_3} \mathcal{D}φ(x) F_{x∈[x_1,x_3]}[φ] g(φ(x_2)).
+    \begin{aligned}
+       &\ ∫\d{φ_2} g(φ_2) \pqty{∫_{φ_1}^{φ_2} \mathcal{D}φ(x) F_{x∈[x_1,x_2]}[φ]} \pqty{∫_{φ_2}^{φ_3} \mathcal{D}φ(x) F_{x∈[x_2,x_3]}[φ]} \\
+      =&\ ∫_{φ_1}^{φ_3} \mathcal{D}φ(x) F_{x∈[x_1,x_3]}[φ] g(φ(x_2)).
+    \end{aligned}
     $$
     実際,
     $$

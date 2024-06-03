@@ -79,7 +79,7 @@ $$
 4. Fourier 逆変換
     $$
     \begin{gathered}
-      f^{``-1"}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
+      f^{\text{``$\scriptstyle-1$''}}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
       \overset{N→∞}{⟶} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
     \end{gathered}
     $$

@@ -1,23 +1,28 @@
 ---
-import BaseHead from '@components/BaseHead.astro';
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import Math from '@components/Math.astro';
-import FeynmanJS from '@components/FeynmanJS.astro';
-import FormattedDate from '@components/FormattedDate.astro';
-import { BLOG_TITLE, SITE_AUTHOR, HEADER_LINKS } from '../consts';
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Math from "@components/Math.astro";
+import FeynmanJS from "@components/FeynmanJS.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { BLOG_TITLE, SITE_AUTHOR, HEADER_LINKS } from "../consts";
 
 /**
  * @typedef {import('astro:content').CollectionEntry<'blog'>['data']} Props
  */
 
 /** @type {Props} */
-const { title, pubDate, lang, draft } = Astro.props;
+const { title, pubDate, lang, draft, pdf } = Astro.props;
 ---
 
 <html lang={lang}>
   <head>
-    <BaseHead title={title + ' - ' + BLOG_TITLE} author={SITE_AUTHOR} description='' noindex={draft} />
+    <BaseHead
+      title={title + " - " + BLOG_TITLE}
+      author={SITE_AUTHOR}
+      description=""
+      noindex={draft}
+    />
     <style lang="stylus">
       article
         padding-bottom 1rem
@@ -34,7 +39,17 @@ const { title, pubDate, lang, draft } = Astro.props;
       <article>
         <header>
           <h1 class="title">{title}</h1>
-          <FormattedDate date={pubDate} />
+          <div class="monospace">
+            <FormattedDate date={pubDate} />{
+              () => {
+                if (pdf !== "")
+                  return (
+                    <span>;</span>
+                    <a href={pdf} target="_blank">pdf</a>
+                  );
+              }
+            }
+          </div>
         </header>
         <slot />
       </article>

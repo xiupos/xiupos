@@ -11,6 +11,7 @@ const blog = defineCollection({
       .transform((val) => new Date(val)),
     lang: z.string().default('en'),
     draft: z.boolean().default(false),
+    pdf: z.string().default(''),
   }),
 });
 

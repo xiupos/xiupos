@@ -56,6 +56,13 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
           :global(time)
             flex 0 0 8em
             color var(--color-sub)
+
+          a span
+            background var(--back-code)
+            color var(--color-sub)
+            padding .1em .4em
+            border-radius .3em
+            white-space nowrap
     </style>
   </head>
   <body>
@@ -67,7 +74,16 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
             posts.sort(sortByDate).map((post) => (
               <li>
                 <FormattedDate date={post.pubDate} />
-                <a href={post.link}>{post.title}</a>
+                <a href={post.link}>
+                  {post.title}
+                  // hostname of the article
+                  {!post.link.indexOf("http") &&
+                  new URL(post.link).hostname !== "xiupos.net" ? (
+                    <span class="monospace">{new URL(post.link).hostname}</span>
+                  ) : (
+                    ""
+                  )}
+                </a>
               </li>
             ))
           }

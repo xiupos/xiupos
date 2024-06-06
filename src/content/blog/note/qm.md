@@ -883,7 +883,10 @@ $$
 
 相対論的な一 Fermi 粒子の位置表示の波動関数 $ψ(x)$ は次の **Dirac 方程式**を満たす:
 $$
-\pqty{iγ^μ∂_μ - \frac{mc}{ℏ}} ψ(x,t) = 0.
+\begin{gathered}
+  \pqty{-iℏ\bm{α}⋅\grad + βmc} ψ(x,t) = iℏ\frac{∂}{c∂t} ψ(x,t), \\
+  \pqty{iγ^μ∂_μ - \frac{mc}{ℏ}} ψ(x,t) = 0.
+\end{gathered}
 $$
 
 :::

@@ -386,7 +386,13 @@ $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
 $$
 
-同じ結果を汎関数微分を用いて導出しよう. 作用を Hamiltonian $\displaystyle H\pqty{q^i,\pdv{L}{\.q^i},t} = \.q^i\pdv{L}{\.q^i} - L$ で書き直すと,
+$q^i$ と $p_i$ の独立性を陽に表した作用
+$$
+S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
+$$
+も用いられる.
+
+同じ結論を Lagrange 形式のときと同じ変分を計算することで得ることもできる. 作用を Hamiltonian $\displaystyle H\pqty{q^i,\pdv{L}{\.q^i},t} = \.q^i\pdv{L}{\.q^i} - L$ で書き直すと,
 $$
 S[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}.
 $$
@@ -431,12 +437,6 @@ $$
 δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
 $$
 また, $δq^j(t)$, $δ\.q^j(t)$ は任意であるから, $δq^j(t)$ と $δp_j(t)$ を独立に取ることができる. したがって, 条件 $δS[q^i] = 0$ より, $t_1<t<t_2$ で正準方程式が得られる.
-
-$q^i$ と $p_i$ の独立性を陽に表した作用
-$$
-S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
-$$
-も用いられる.
 
 #### 例: 一次元一粒子系
 

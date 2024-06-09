@@ -765,7 +765,7 @@ $$
 
 :::
 
-時間 $t$ における粒子の $\bm{x}$ への存在確率密度を
+時間 $t$ にいて粒子が $\bm{x}$ に見い出される確率密度を
 $$
 ρ(\bm{x},t) = |ψ(\bm{x},t)|^2
 $$
@@ -775,7 +775,7 @@ $$
 $$
 を満たす. ただし
 $$
-\bm{j} ≡ \frac{ℏ}{2im} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}
+\bm{j}(\bm{x},t) ≡ \frac{ℏ}{2im} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}
 $$
 は確率流密度と呼ばれる. 実際,
 $$
@@ -891,6 +891,60 @@ $$
 $$
 
 :::
+
+時間 $t$ にいて粒子が $\bm{x}$ に見い出される確率密度を
+$$
+ρ(\bm{x},t) = ψ^†(\bm{x},t) ψ(\bm{x},t)
+$$
+とすると, 粒子の確率は連続方程式
+$$
+\frac{∂ρ}{c∂t} + \div\bm{j} = 0
+$$
+を満たす. ただし
+$$
+\bm{j}(\bm{x},t) ≡ ψ^†(\bm{x},t)\bm{α}ψ(\bm{x},t)
+$$
+は確率流密度と呼ばれる. あるいは, $γ$ 行列を用いると, Dirac 共役 $\overline{ψ}≡ψ^†γ^0$ を用いて,
+$$
+ρ(\bm{x},t)=\overline{ψ}(\bm{x},t)ψ(\bm{x},t)
+$$
+とすると, 粒子の確率は連続方程式
+$$
+\frac{∂ρ}{c∂t} + \div\bm{j} = 0
+$$
+を満たす. ただし
+$$
+\bm{j}(\bm{x},t) ≡ ψ^†(\bm{x},t)\bm{γ}ψ(\bm{x},t)
+$$
+は確率流密度と呼ばれる. または四元確率流密度
+$$
+j^μ(x) ≡ ψ^†(x)γ^μψ(x)
+$$
+を定義すると, 連続方程式は
+$$
+∂_μ j^μ(x) ≡ 0
+$$
+と簡単になる. 実際,
+$$
+\begin{aligned}
+  \frac{∂ρ}{c∂t}
+    &= \frac{∂}{c∂t} (ψ^† ψ) \\
+    &= \frac1{iℏ} \bqty{ψ^† \pqty{iℏ\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^† \pqty{-iℏ\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
+    &= \frac1{iℏ} \bqty{ψ^† \pqty{-iℏ\bm{α}⋅\overrightarrow{\grad} + βmc} ψ - ψ^† \pqty{iℏ\bm{α}⋅\overleftarrow{\grad} + βmc} ψ} \\
+    &= - \bqty{ψ^† \bm{α}⋅\overrightarrow{\grad} ψ + ψ^† \bm{α}⋅\overleftarrow{\grad} ψ} \\
+    &= - \grad⋅\pqty{ψ^† \bm{α} ψ}, \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+  \frac{∂ρ}{c∂t}
+    &= \frac{∂}{c∂t} (\overline{ψ}ψ) = \frac{∂}{c∂t} (ψ^†γ^0ψ) \\
+    &= \frac1{iℏ} \bqty{ψ^† \pqty{iℏγ^0\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^† \pqty{-iℏγ^0\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
+    &= \frac1{iℏ} \bqty{ψ^† \pqty{-iℏ\bm{γ}⋅\overrightarrow{\grad} + mc} ψ - ψ^† \pqty{iℏ\bm{γ}⋅\overleftarrow{\grad} + mc} ψ} \\
+    &= - \bqty{ψ^† \bm{γ}⋅\overrightarrow{\grad} ψ + ψ^† \bm{γ}⋅\overleftarrow{\grad} ψ} \\
+    &= - \grad⋅\pqty{ψ^† \bm{γ} ψ}. \\
+\end{aligned}
+$$
 
 ### 参考文献
 

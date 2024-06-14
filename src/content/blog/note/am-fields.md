@@ -191,18 +191,18 @@ $$
 
 Dirac 場 $ψ$ の Lagrangian 密度は,
 $$
-ℒ(A_ν, ∂_μ A_ν) = \overline{ψ} iγ^μ∂_μ ψ - m \overline{ψ}ψ.
+ℒ(A_ν, ∂_μ A_ν) = \overline{ψ} i\/∂ ψ - m \overline{ψ}ψ.
 $$
-ただし $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψγ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は成分を複数持つ列ベクトルで, 例えば4成分である. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
+ただし $\/∂≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ∂_μ$ $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψγ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は成分を複数持つ列ベクトルで, 例えば4成分である. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
 $$
 \begin{gathered}
-  \pdv{ℒ}{\overline{ψ}} = iγ^μ∂_μ ψ - m ψ = (iγ^μ∂_μ - m) ψ, \quad \pdv{ℒ}{(∂_μ\overline{ψ})} = 0, \\
+  \pdv{ℒ}{\overline{ψ}} = i\/∂ ψ - m ψ = (i\/∂ - m) ψ, \quad \pdv{ℒ}{(∂_μ\overline{ψ})} = 0, \\
   \pdv{ℒ}{ψ} = - m\overline{ψ}, \quad \pdv{ℒ}{(∂_μψ)} = \overline{ψ} iγ^μ. \\
 \end{gathered}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(iγ^μ∂_μ - m) ψ = 0, \quad \overline{ψ} (iγ^μ\overleftarrow{∂_μ} - m) = 0.
+(i\/∂ - m) ψ = 0, \quad \overline{ψ} (i\overleftarrow{\/∂} - m) = 0.
 $$
 
 ### Noether の定理

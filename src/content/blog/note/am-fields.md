@@ -420,7 +420,8 @@ $$
 \begin{aligned}
   π(x)
     &= \pdv{}{t} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{-ip_0 a(\bm{p}) e^{-ipx} + ip_0 a^*(\bm{p}) e^{ipx}}.
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{-ip_0 a(\bm{p}) e^{-ipx} + ip_0 a^*(\bm{p}) e^{ipx}} \\
+    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}.
 \end{aligned}
 $$
 $ϕ(x)$ の展開と比較して,
@@ -474,7 +475,19 @@ $$
        \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 \end{aligned}
 $$
-ただし $[a(\bm{p}), a^*(\bm{p})] ≡ a(\bm{p}) a^*(\bm{p}) - a^*(\bm{p}) a(\bm{p})$ とした. 式変形で $a(\bm{p})$, $a^*(\bm{p})$ の順序を並び換えしていないことに注意.
+ただし $[a(\bm{p}), a^*(\bm{p})] ≡ a(\bm{p}) a^*(\bm{p}) - a^*(\bm{p}) a(\bm{p})$ とした. 式変形で $a(\bm{p})$, $a^*(\bm{p})$ の順序を並び換えしていないことに注意. また Hamiltonian は正準エネルギー運動量テンソルの ${T^0}_0$ を全空間で積分したもの
+$$
+H = ∫ \d{{}^3 \bm{x}} {T^0}_0
+$$
+である. 同様に, 運動量は
+$$
+\bm{P}[ϕ, π] ≡ ∫ \d{{}^3 \bm{x}} ({T^0}_i) = - ∫ \d{{}^3 \bm{x}} π \grad ϕ = ∫ \d{{}^3 \bm{p}} \bm{p} \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+$$
+したがって, 4元運動量テンソルは
+$$
+P_μ = ∫ \d{{}^3 \bm{p}} p_μ \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+$$
+
 まとめると,
 $$
 \begin{aligned}

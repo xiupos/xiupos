@@ -205,14 +205,14 @@ $$
 
 :::screen
 
-古典力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子力学における交換関係 $\displaystyle \frac1{iℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
+古典論における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子論における交換関係 $\displaystyle \frac1{iℏ}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} \frac1{iℏ}[\^A_\mathrm{H},\^B_\mathrm{H}].
+\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} \frac1{iℏ}[\^A_\mathrm{H}(t),\^B_\mathrm{H}(t)].
 $$
 
 :::
 
-正準変数 $(q^i, p_i)$ に対して正準量子化すると,
+一粒子の正準変数 $(q^i, p_i)$ に対して正準量子化すると,
 $$
 \begin{aligned}
   \{ q^i, p_j \}_\mathrm{P} &= δ_j^i, \\
@@ -229,7 +229,7 @@ $$
 
 :::screen
 
-正準変数の演算子 $(\^q^i, \^p_i)$ は**正準交換関係**をと呼ばれる以下の交換関係を満たす:
+一粒子の正準変数の演算子 $(\^q^i, \^p_i)$ は**正準交換関係**をと呼ばれる以下の交換関係を満たす:
 $$
 \begin{gathered}
   {[}{\^q^i}, {\^p_j}{]} = iℏ δ_i^j, \\
@@ -392,6 +392,7 @@ $$
 $$
 \^q^i ψ(q,t) = ⟨q| \^q^i |ψ(t)⟩ = q^i ⟨q ∣ ψ(t)⟩ = q^i ψ(q,t).
 $$
+
 これに対応する $\^p_i$ の表現を求める. ある定数 $a^i$ に対し, $e^{\frac{i}{ℏ} a^j \^p_j} \^q^i e^{- \frac{i}{ℏ} a^j \^p_j} = \^q^i + a^i$ である. 実際,
 $$
 \begin{aligned}
@@ -486,11 +487,26 @@ H(q,p) = \frac{p^2}{2m} + V(q).
 $$
 正準量子化して, Hamiltonian の演算子は
 $$
-H(\^q^i, \^p_i) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q).
+H(\^q, \^p) = \frac{\^p^2}{2m} + V(\^q) = - \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q).
 $$
 したがって Schrödinger 方程式は,
 $$
 \bqty{- \frac{ℏ^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t) = iℏ \pdv{}{t} ψ(q, t).
+$$
+
+#### 例: 三次元一粒子系
+
+三次元一粒子系の Hamiltonian は
+$$
+H(\bm{x},\bm{p}) = \frac{\bm{p}^2}{2m} + V(\bm{x}).
+$$
+正準量子化して, Hamiltonian の演算子は
+$$
+H(\^{\bm{x}}, \^{\bm{p}}) = \frac{\^{\bm{p}}^2}{2m} + V(\^{\bm{x}}) = - \frac{ℏ^2}{2m} \laplacian + V(\bm{x}).
+$$
+したがって Schrödinger 方程式は,
+$$
+\bqty{- \frac{ℏ^2}{2m} \laplacian + V(\bm{x})} ψ(\bm{x}, t) = iℏ \pdv{}{t} ψ(\bm{x}, t).
 $$
 
 ### 生成・消滅演算子

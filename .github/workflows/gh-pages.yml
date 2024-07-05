@@ -9,6 +9,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: https://xiupos.net/
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
@@ -28,7 +31,6 @@ jobs:
           version: 8
 
       - name: Install dependencies
-        # run: pnpm i --frozen-lockfile
         run: pnpm i
 
       - name: Build

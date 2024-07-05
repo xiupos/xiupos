@@ -1,5 +1,5 @@
 ---
-title : 粒子系の量子力学
+title : 粒子系の量子論ノート
 author : xiupos
 date : \today
 pubDate : 2024-01-06T22:40:00+09:00

@@ -7,13 +7,13 @@ lang : ja
 math : true
 ---
 
-粒子系[^particles]の古典論の基本事項をまとめる.
+粒子系[^particles]の古典論の基本事項を体系的にまとめる.
 
 [^particles]: ここでの「粒子系」は「(一般的な意味での)場でない」程度の意味である. 厳密には粒子系も時間 $ℝ$ から空間 $ℝ^D$ への場 $q=(q^i):ℝ→ℝ^D$ である.
 
 ### 最小作用の原理
 
-粒子系の古典力学において, 以下を原理として認める.
+粒子系の古典論において, 以下を原理として認め.
 
 :::screen
 
@@ -24,15 +24,6 @@ $$
 この古典的原理を**最小作用の原理**という.
 
 :::
-
-上の変分は 1 次の冪展開を用いて以下のように書き直される:
-$$
-δS[q^i] = ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i]}{q^j(t')} δq^j(t').
-$$
-$δq^i(t')$ は $t_1<t'<t_2$ で任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
-$$
-\fdv{S[q^i(t)]}{q^j(t')} = 0. \quad (t_1<t'<t_2)
-$$
 
 ### Euler–Lagrange の運動方程式
 
@@ -78,46 +69,6 @@ $$
 $$
 
 :::
-
-汎関数微分を用いても同様の結果が得られる. $t_1<t<t_2$ における作用の汎関数微分は
-$$
-\begin{aligned}
-\fdv{S[q^i(t)]}{q^j(t')}
-&=  \lim_{h → 0}
-    \frac{S[q^i(t) + h δ^i_j δ(t - t')] - S[q^i(t)]}{h} \\
-&=  \lim_{h → 0}
-    \frac1h
-    \bqty{
-      ∫_{t_1}^{t_2} \d{t} L ( q^i(t) + h δ^i_j δ(t - t'), \.q^i(t) + h δ^i_j \.δ(t - t'), t)
-      - ∫_{t_1}^{t_2} \d{t} L (q^i(t), \.q^i(t), t)
-    } \\
-&=  \lim_{h → 0}
-    \frac1h
-    ∫_{t_1}^{t_2} \d{t} \bqty{
-      \pdv{L}{q^i(t)} h δ^i_j δ(t - t') + \pdv{L}{\.q^i(t)} h δ^i_j \.δ(t - t')
-      + o(ε^2)
-    } \\
-&=  ∫_{t_1}^{t_2} \d{t} \bqty{
-      \pdv{L}{q^j(t)} δ(t - t') + \pdv{L}{\.q^j(t)} \.δ(t - t')
-    } \\
-&=  ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
-\end{aligned}
-$$
-したがって, $t_1<t'<t_2$ において,
-$$
-\fdv{S[q^i(t)]}{q^i(t')} = \pdv{L}{q^i(t')} - \dv{}{t'} \pqty{\pdv{L}{\.q^i(t')}}.
-$$
-または, 作用の変分を計算して,
-$$
-\begin{aligned}
-  δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δq^j(t) \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}} + \bqty{δq^j(t) \pdv{L}{\.q^j(t)}}_{t=t_1}^{t=t_2}. \\
-\end{aligned}
-$$
-このように汎関数微分を用いても同様に Euler–Lagrange の運動方程式が得られる.
 
 #### 例: 一次元一粒子系
 
@@ -183,6 +134,8 @@ $$
 
 ### Noether の定理
 
+時間と座標の変換に対し作用が不変であるとき, 系には対応する不変量が存在することが知られている. この定理は Noether の定理と呼ばれている.
+
 時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき $t_1<t<t_2$ の作用は
 $$
 \begin{aligned}
@@ -197,10 +150,6 @@ $$
     &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) ≡ q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
     &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{
-        ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - δ^Lq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
-      } \\
     &=  ∫_{t_1}^{t_2} \d{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
@@ -211,7 +160,7 @@ $$
       + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
-ここで, 第一項は Euler–Lagrange の運動方程式より消えて, 第二項の $t_1$, $t_2$ は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
+ここで, 最後の式の第一項は Euler–Lagrange の運動方程式より消え, 第二項の $t_1$, $t_2$ は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
 
 [^noether]: 最小作用の原理の場合と違い, このときの $δq^i$ は両端固定でない. そのため, Euler-Lagrange の運動方程式の際に消えた発散項を, 今回の場合は消すことができない.
 
@@ -219,94 +168,43 @@ $$
 
 時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとき, 作用が不変であるならば, 量
 $$
-δQ ≡ δq^i \pdv{L}{\.q^i} - δt \pqty{\pdv{L}{\.q^i} \.q^i - L}
+δQ ≡ δq^i p_i - δt H ≡ δq^i \pdv{L}{\.q^i} - δt \pqty{\pdv{L}{\.q^i} \.q^i - L}
 $$
 は保存する(**Noether の定理** *Noether's theorem*):
 $$
 \dv{δQ}{t} = 0.
 $$
+ここで,
+$$
+p_i ≡ \pdv{L}{\.q^i}, \quad H ≡ \.q^i \pdv{L}{\.q^i} - L = \.q^i p_i - L
+$$
+はそれぞれ一般化運動量, Hamiltonian と呼ばれる(後述).
 
 :::
 
-同じ結果を汎関数微分を用いて導出しよう. 以下, 混乱を防ぐために作用の積分変数を添字で書く. つまり, $S_t[q^i]≡S[q^i(t)]$ である. 変分 $δS_t[q^i]$ を1次で展開すると[^noether_functional],
-$$
-δS_t[q^i] = ∫_{t_1}^{t_2} \d{t_0} \fdv{S_t[q^i]}{q^i(t_0)} δ^Lq^i(t_0) + ∫_{t_1}^{t_2} \d{t_0} \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} δt(t_0).
-$$
-それぞれの汎関数微分を計算すると,
-$$
-\fdv{S_t[q^i]}{q^i(t_0)} = ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2},
-$$
-$$
-\begin{aligned}
-  \fdv{S_{τ(t)}[q^i]}{τ(t_0)}
-    &= \lim_{h→0} \frac{S_{τ(t)+hδ(t-t_0)}[q^i] - S_{τ(t)}[q^i]}h \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{(τ(t)+hδ(t-t_0))} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
-    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
-    &\qquad\qquad\quad + ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0)) \dv{δ(t-t_0)}{τ(t)} \\
-    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
-    &\qquad\qquad\quad + \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)} + O(h^2) \right\} \\
-    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \qty{\bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
-    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \dv{}{τ(t)} \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)} \\
-    &= \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)}_{τ(t)=τ(t_1)}^{τ(t)=τ(t_2)} \\
-\end{aligned}
-$$
-$$
-∴ \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} = \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2}. \\
-$$
-これらを変分の式に代入すると,
-$$
-\begin{aligned}
-  δS_t[q^i]
-    &= ∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
-    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
-\end{aligned}
-$$
-したがって同様に示された.
-
-[^noether_functional]: 積分変数を任意の関数 $τ(t)$ にしたときの作用 $S_{τ(t)}[q^i]$ は
-    $$
-    δS_τ(t)[q^i] = ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t_0)} \fdv{S_{τ(t)}[q^i]}{q^i(τ(t_0))} δ^Lq^i(τ(t_0)) + ∫_{t_1}^{t_2} \d{t_0} \fdv{S_{τ(t)}[q^i]}{τ(t_0)} δτ(t_0).
-    $$
-    で与えられる. このとき $τ(t)=t$, $δτ(t) = δt(t)$ とすれば文中の式が得られる.
-
 #### 例: 空間並進に対する不変量
 
-時間並進 $t↦t'=t, q^i(t)↦q'^i(t')=q^i(t)+ε^i$ に対し, 作用が不変であるとき, 対応する保存量は
+時間並進 $t↦t'=t, q^i(t)↦q'^i(t')=q^i(t)+ε^i$ に対し, 作用が不変であるとき, 一般化運動量は保存する:
 $$
-\begin{gathered}
-  δQ = ε^i \pdv{L}{\.q^i} = \mathrm{const.} \\
-  ∴ \pdv{L}{\.q^i} = \mathrm{const.}
-\end{gathered}
+δQ = ε^i p_i = \mathrm{const.} \quad ∴ p_i = \mathrm{const.}
 $$
-この不変量 $\displaystyle p_i ≡ \pdv{L}{\.q^i}$ は一般化運動量と呼ばれる.
 
 #### 例: 時間並進に対する不変量
 
-時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+時間並進 $t↦t'=t+ε$, $q^i(t)↦q'^i(t')=q^i(t)$ に対し, 作用が不変であるとき, Hamiltonian は保存する:
 $$
-\begin{gathered}
-  δQ = - ε \pqty{\.q^i \pdv{L}{\.q^i} - L} = \mathrm{const.} \\
-  ∴ \.q^i \pdv{L}{\.q^i} - L = \mathrm{const.}
-\end{gathered}
+δQ = - ε H = \mathrm{const.} \quad ∴ H = \mathrm{const.}
 $$
-この不変量 $\displaystyle H ≡ \.q^i \pdv{L}{\.q^i} - L = \.q^i p_i - L$ は Hamiltonian と呼ばれる.
 
 #### 例: 空間回転に対する不変量
 
-3 次元空間での一粒子 $q=\bm{x}$ を考える. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は
+3 次元空間での一粒子 $q=\bm{x}$ を考える. 空間回転 $t↦t'=t, \bm{x}(t) ↦ \bm{x}'(t') = R(\bm{ε}) \bm{x}(t) = \bm{x}(t) - \bm{ε} × \bm{x}(t)$ に対し, 作用が不変であるとき, 対応する保存量は角運動量と呼ばれる:
 $$
-δQ = (- \bm{ε} × \bm{x}) ⋅ \pdv{L}{\.{\bm{x}}} = - \bm{ε} ⋅ \pqty{\bm{x} × \pdv{L}{\.{\bm{x}}}} = \mathrm{const.}
+δQ = (- \bm{ε} × \bm{x}) ⋅ \bm{p} = - \bm{ε} ⋅ \pqty{\bm{x} × \bm{p}} = \mathrm{const.}
 $$
 $$
-∴ \bm{x} × \pdv{L}{\.{\bm{x}}} = \mathrm{const.}
+∴ \bm{L} ≡ \bm{x} × \bm{p} = \mathrm{const.}
 $$
-この不変量 $\displaystyle \bm{l} ≡ \bm{x} × \pdv{L}{\.{\bm{x}}} = \bm{x} × \bm{p}$ は角運動量と呼ばれる.
 
 <!-- TODO: 一般の Galilei 群に対する不変量 -->
 
@@ -332,15 +230,15 @@ $$
 $$
 p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}.
 $$
-ただし作用は $S[q]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+ただし作用は $S[q^i]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
 $$
-δS[q^i] = \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t'=t_0}^{t'=t} = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}.
+δS[q^i] = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}.
 $$
 始点での変位を $δt(t_0)=δq^i(t_0)=0$ とすれば,
 $$
 δS[q^i] = δq^i p_i - δt H.
 $$
-この変分は経路の途中 $t'∈(t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分が得られる:
+この変分は経路の始点と途中 $t'∈[t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分が得られる:
 $$
 \d{S} = \d{q^i} p_i - \d{t} H.
 $$
@@ -391,52 +289,6 @@ $$
 S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
 $$
 も用いられる.
-
-同じ結論を Lagrange 形式のときと同じ変分を計算することで得ることもできる. 作用を Hamiltonian $\displaystyle H\pqty{q^i,\pdv{L}{\.q^i},t} = \.q^i\pdv{L}{\.q^i} - L$ で書き直すと,
-$$
-S[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}.
-$$
-これを汎関数微分して,
-$$
-\begin{aligned}
-  \fdv{S[q^i(t)]}{q^j(t')}
-    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),\pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))},t}}\right. \\
-    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
-    &\quad \pqty{\begin{aligned}
-      p_i(t) ≡ \pdv{L}{\.q^i(t)}, \quad
-      \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))}
-        &= \pdv{L}{\.q^i(t)} + \pdv{}{\.q^{k}(t)}\pqty{\pdv{L}{\.q^{i}(t)}} hδ^k_j\.δ(t-t') \\
-        &= p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')
-    \end{aligned}} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pqty{p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t'),t}}\right. \\
-    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
-    &= \lim_{h→0} \frac1h ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + p_j(t) h\.δ(t-t') - \pdv{H}{q^j(t)} hδ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + O(h^2)} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') + p_j(t) \.δ(t-t') - \pdv{H}{q^j(t)} δ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') } \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2}.
-\end{aligned}
-$$
-したがって, 作用の変分は,
-$$
-\begin{aligned}
-  δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} δq^j(t') ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + ∫_{t_1}^{t_2}  \d{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
-    &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2} \\
-    &\quad \pqty{δp_i(t) ≡ δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)}} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2}. \\
-\end{aligned}
-$$
-ここで, 第2項は両端固定の境界条件 $δq^j(t_1)=δq^j(t_2)=0$ より消える:
-$$
-δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
-$$
-また, $δq^j(t)$, $δ\.q^j(t)$ は任意であるから, $δq^j(t)$ と $δp_j(t)$ を独立に取ることができる. したがって, 条件 $δS[q^i] = 0$ より, $t_1<t<t_2$ で正準方程式が得られる.
 
 #### 例: 一次元一粒子系
 

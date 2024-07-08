@@ -236,6 +236,8 @@ $$
 
 ### Hamilton–Jacobi 方程式
 
+前節で導入された Hamiltonian は, 系に関して Lagrangian と同程度の情報を持つ. 以降, Hamiltonian の性質について詳しくみていく.
+
 :::screen
 
 Lagrangian $L$ が与えられたとき, $q^i$ に対して
@@ -310,9 +312,9 @@ $$
 \pdv{H}{t} = -\pdv{L}{t} = 0.
 $$
 
-$q^i$ と $p_i$ の独立性を陽に表した作用
+$q^i(t)$ と $p_i(t)$ を独立にした作用
 $$
-S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
+S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
 $$
 も用いられる.
 
@@ -372,7 +374,14 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. Hamiltonian の定義から, $δS[q^i,p_i] = δ∫\d{t} (\.q^i p_i - H) = 0$ かつ $δS'[Q^i,P_i] = δ∫\d{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. いずれの表示でも最小作用の原理を満たすとき, Hamiltonian の定義から,
+$$
+\begin{aligned}
+  δS[q^i,p_i] &= δ∫\d{t} (\.q^i p_i - H) = 0, \\
+  δS'[Q^i,P_i] &= δ∫\d{t} (\.Q^i P_i - K) = 0.
+\end{aligned}
+$$
+したがって, ある関数 $W$ が存在して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (\.Q^i P_i - K) = \dv{W}{t}. \\
@@ -407,14 +416,12 @@ $$
 
 正準変数自身は以下を満たす:
 $$
-\begin{aligned}
-\{q^i, q^j\}_\mathrm{P} = \{p_i, p_j\}_\mathrm{P} = 0, && \{q^i, p_j\}_\mathrm{P} = δ_j^i.
-\end{aligned}
+\{q^i, p_j\}_\mathrm{P} = δ_j^i, \quad \{q^i, q^j\}_\mathrm{P} = \{p_i, p_j\}_\mathrm{P} = 0.
 $$
 また, Hamilton の運動方程式は以下のように書き換えられる:
 $$
 \begin{aligned}
-\{q^i, H\}_\mathrm{P} = \dv{q^i}{t}, && \{p_i, H\}_\mathrm{P} = \dv{p_i}{t}.
+\dv{q^i}{t} = \{q^i, H\}_\mathrm{P}, && \dv{p_i}{t} = \{p_i, H\}_\mathrm{P}.
 \end{aligned}
 $$
 より一般に, 正準変数と時間に関する物理量 $A(q^i, p_i, t)$ について, 時間微分に関して以下が成立する:
@@ -430,6 +437,7 @@ $$
 &=  \{A, H\}_\mathrm{P} + \pdv{A}{t}.
 \end{aligned}
 $$
+この式は, 物理量 $A$ の全時間発展が Hamiltonian $H$ によって記述されることを意味している.
 
 <!-- TODO: Hamilton 形式による Noether の定理 -->
 

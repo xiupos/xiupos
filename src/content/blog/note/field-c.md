@@ -301,26 +301,26 @@ $$
 \end{aligned}
 $$
 
-TODO: 例
+<!-- TODO: 例 -->
 
 ### Hamiltonの運動方程式
 
 **一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂\mathcal{L} / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $\mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - \mathcal{L}$ を定義する. Hamiltonian 密度の定義の変分は,
 $$
 \begin{aligned}
-  δ\mathcal{H}
-  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - δ\mathcal{L} \\
-  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} δϕ^α + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} δϕ^α} + π_α δ\.{ϕ^α} \\
-  &= - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} δϕ^α + \.{ϕ}^α δπ_α + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} δϕ^α}.
+  \d{\mathcal{H}}
+  &= \.{ϕ}^α \d{π_α} + π_α \d{\.{ϕ}^α} - \d{\mathcal{L}} \\
+  &= \.{ϕ}^α \d{π_α} + π_α \d{\.{ϕ}^α} - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} \d{ϕ^α} + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} \d{ϕ^α}} + π_α \d{\.{ϕ^α}} \\
+  &= - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} \d{ϕ^α} + \.{ϕ}^α \d{π_α} + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} \d{ϕ^α}}.
 \end{aligned}
 $$
 また, Hamiltonian 密度の変分は,
 $$
 \begin{aligned}
-  δ\mathcal{H}
-  &= \pdv{\mathcal{H}}{ϕ^α} δϕ^α + \pdv{\mathcal{H}}{(\grad ϕ^α)} ⋅ δ(\grad ϕ^α) + \pdv{\mathcal{H}}{π_α} δπ_α + \pdv{\mathcal{H}}{(\grad π_α)} ⋅ δ(\grad π_α) \\
-  &= \pdv{\mathcal{H}}{ϕ^α} δϕ^α + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α + \pdv{\mathcal{H}}{π_α} δπ_α + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} δπ_α} - \div \pdv{\mathcal{H}}{(\grad π_α)} δπ_α \\
-  &= \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}} δϕ^α + \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}} δπ_α + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} δπ_α}
+  \d{\mathcal{H}}
+  &= \pdv{\mathcal{H}}{ϕ^α} \d{ϕ^α} + \pdv{\mathcal{H}}{(\grad ϕ^α)} ⋅ \grad \d{ϕ^α} + \pdv{\mathcal{H}}{π_α} \d{π_α} + \pdv{\mathcal{H}}{(\grad π_α)} ⋅ \grad \d{π_α} \\
+  &= \pdv{\mathcal{H}}{ϕ^α} \d{ϕ^α} + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α}} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α} + \pdv{\mathcal{H}}{π_α} \d{π_α} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} \d{π_α}} - \div \pdv{\mathcal{H}}{(\grad π_α)} \d{π_α} \\
+  &= \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}} \d{ϕ^α} + \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}} \d{π_α} + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α}} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} \d{π_α}}
 \end{aligned}
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \.π_α = - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
@@ -383,7 +383,7 @@ $$
 \.{ϕ}^α = π^α, \quad \.{π}_α = - m^2 ϕ_α + ∇^2 ϕ_α.
 $$
 
-TODO: 他の例
+<!-- TODO: 他の例 -->
 
 ### Poisson 括弧
 

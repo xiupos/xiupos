@@ -18,7 +18,7 @@ math : true
 
 :::screen
 
-座標 $x = (x^μ) = (t, \bm{x})$ に依存する場 $ϕ^α(x)$ に対して, **作用** action と呼ばれる汎関数 $S[ϕ^α]$ が存在し, 物理現象において作用 $S[ϕ^α]$ が最小となるような場が選ばれる. つまり, $ϕ^α(x) ↦ ϕ^α(x) + δϕ^α(x)$ (ただし境界固定 $x∈∂M ⇒ δϕ^α(x)=0$, $M$ は考えている空間) となる変換に対し, 作用が停留値を取る:
+座標 $x = (x^μ) = (t, \bm{x})$ に依存する場 $ϕ^α(x)$ に対して, **作用** action と呼ばれる汎関数 $S[ϕ^α]$ が存在し, 物理現象において作用 $S[ϕ^α]$ が最小となるような場が選ばれる. つまり, $ϕ^α(x) ↦ ϕ^α(x) + δϕ^α(x)$ (ただし境界固定 $x∈∂Ω ⇒ δϕ^α(x)=0$, $Ω$ は考えている空間) となる変換に対し, 作用が停留値を取る:
 $$
 δS[ϕ^α] ≡ S[ϕ^α + δϕ^α] - S[ϕ^α] = 0.
 $$
@@ -34,71 +34,75 @@ $$
 
 :::screen
 
-作用は, スカラー場 $ϕ^α$ に関する **Lagrangian 密度** *Lagrangian density* $ℒ(ϕ^α, ∂_μ ϕ^α)$ を用いて以下のように表される:
+作用は, スカラー場 $ϕ^α$ に関する **Lagrangian 密度** *Lagrangian density* $\mathcal{L}(ϕ^α, ∂_μ ϕ^α)$ を用いて以下のように表される:
 $$
-S[ϕ^α] = ∫_M \d{{}^4 x}  ℒ(ϕ^α, ∂_μ {ϕ^α}).
+S[ϕ^α] = ∫_Ω \d{{}^4 x}  \mathcal{L}(ϕ^α, ∂_μ {ϕ^α}).
 $$
 
 :::
 
-$ϕ^α + δϕ^α$ の変分をとって,
+最小作用の原理に対し, この Lagrangian 密度が満たすべき条件を求めよう. $ϕ^α ↦ ϕ^α + δϕ^α$ の変換に対し,
 $$
 \begin{aligned}
 δS[ϕ^α]
-=&  ∫_M \d{{}^4 x}  \bqty{
-      ℒ(ϕ^α + δϕ^α, ∂_μ ϕ^α + ∂_μ δϕ^α)
-      - ℒ(ϕ^α, ∂_μ ϕ^α)
+=&  ∫_Ω \d{{}^4 x}  \bqty{
+      \mathcal{L}(ϕ^α + δϕ^α, ∂_μ ϕ^α + ∂_μ δϕ^α)
+      - \mathcal{L}(ϕ^α, ∂_μ ϕ^α)
     } \\
-=&  ∫_M \d{{}^4 x}  \bqty{
-      δϕ^α \pdv{ℒ}{ϕ^α}
-      + δ∂_μ ϕ^α \pdv{ℒ}{(∂_μ ϕ^α)}
+=&  ∫_Ω \d{{}^4 x}  \bqty{
+      δϕ^α \pdv{\mathcal{L}}{ϕ^α}
+      + δ∂_μ ϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}
       + o\pqty{\sqrt{
         δϕ^{α*} δϕ^α + δ∂_μϕ^{α*} δ∂^μϕ^α
       }}
     } \\
-=&  ∫_M \d{{}^4 x}  \bqty{
-      δϕ^α \pdv{ℒ}{ϕ^α}
-      + ∂_μ δϕ^α \pdv{ℒ}{(∂_μ ϕ^α)}
+=&  ∫_Ω \d{{}^4 x}  \bqty{
+      δϕ^α \pdv{\mathcal{L}}{ϕ^α}
+      + ∂_μ δϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}
     }
     \quad (∵ δ∂_μ ϕ^α = ∂_μ δϕ^α) \\
-=&  ∫_M \d{{}^4 x}  \bqty{
-      δϕ^α \pdv{ℒ}{ϕ^α}
-      - δϕ^α ∂_μ \pqty{\pdv{ℒ}{(∂_μ ϕ^α)}}
+=&  ∫_Ω \d{{}^4 x}  \bqty{
+      δϕ^α \pdv{\mathcal{L}}{ϕ^α}
+      - δϕ^α ∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ ϕ^α)}}
     }
-    + ∫_{∂M} \d{\pqty{δϕ^α \pdv{ℒ}{(∂_μ ϕ^α)}}}.
+    + ∫_{∂Ω} \d{\pqty{δϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}}}.
 \end{aligned}
 $$
-ここで, 発散項は境界条件 $x∈∂M ⇒ δϕ^α(x)=0$ より消える:
+ここで, 第2項は境界条件 $x∈∂Ω ⇒ δϕ^α(x)=0$ より消える:
 $$
 δS[ϕ^α]
-= ∫ \d{{}^4 x}  δϕ^α \bqty{
-    \pdv{ℒ}{ϕ^α}
-    - ∂_μ \pqty{\pdv{ℒ}{(∂_μ ϕ^α)}}
+= ∫ \d{{}^4 x} δϕ^α \bqty{
+    \pdv{\mathcal{L}}{ϕ^α}
+    - ∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ ϕ^α)}}
   }.
 $$
-したがって, 停留条件 $δS[ϕ^α] = 0$ より,
-**Euler–Lagrange の運動方程式**が得られる:
+$δϕ^α(x)$ は $x∈Ω∖∂Ω$ で任意だから, 原理 $δS[ϕ^α]=0$ より, 次の運動方程式が得られる:
+
+:::screen
+
+最小作用の原理を満たすとき, Lagrangian 密度 $\mathcal{L}(ϕ^α, ∂_μ {ϕ^α})$ は以下の **Euler–Lagrange の運動方程式**を満たす:
 $$
-\pdv{ℒ}{ϕ^α} - ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} }
-= 0.
+\pdv{\mathcal{L}}{ϕ^α} - ∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ ϕ^α)}} = 0.
 $$
 
-汎関数で Lagrangian を定義することで, 粒子系と似た形で議論することもできる. Lagrangian 密度を空間全体にわたって積分した
+:::
+
+汎関数で Lagrangian を定義することで, 粒子系の場合と似た形で議論することもできる. Lagrangian 密度を空間全体にわたって積分した
 $$
 L[ϕ^α, \.ϕ^α]
-= ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, ∂_μ ϕ^α)
-= ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α)
+= ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, ∂_μ ϕ^α)
+= ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α)
 $$
 を Lagrangian $L[ϕ^α, \.ϕ^α]$ と定義すると,
 $$
 \begin{aligned}
 \fdv{L[ϕ^α, \.ϕ^α]}{ϕ^α}
-=&  \fdv{}{ϕ^α} ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
-=&  \pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}, \\
+=&  \fdv{}{ϕ^α} ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
+=&  \pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}, \\
 &\pqty{∵ \text{変分公式 $\displaystyle\fdv{}{φ(y)} ∫ \d{x} g(φ'(x)) = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}$}} \\
 \fdv{L[ϕ^α, \.ϕ^α]}{\.ϕ^α}
-=&  \fdv{}{\.ϕ^α} ∫ \d{{}^3 \bm{x}} ℒ(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
-=&  \pdv{ℒ}{\.ϕ^α}.
+=&  \fdv{}{\.ϕ^α} ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
+=&  \pdv{\mathcal{L}}{\.ϕ^α}.
 \end{aligned}
 $$
 より,
@@ -106,8 +110,8 @@ $$
 \begin{aligned}
 \fdv{S[ϕ^α]}{ϕ^α}
 =&  \fdv{L}{ϕ^α} - \dv{}{t} \fdv{L}{\.ϕ^α} \\
-=&  \pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)} - \pdv{}{t} \pdv{ℒ}{\.ϕ^α} \\
-=&  \pdv{ℒ}{ϕ^α} - ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} }.
+=&  \pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)} - \pdv{}{t} \pdv{\mathcal{L}}{\.ϕ^α} \\
+=&  \pdv{\mathcal{L}}{ϕ^α} - ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} }.
 \end{aligned}
 $$
 これを用いると Euler–Lagrange の運動方程式は
@@ -115,17 +119,17 @@ $$
 \fdv{S[ϕ^α]}{ϕ^α} = \fdv{L}{ϕ^α} - \pdv{}{t} \fdv{L}{\.ϕ^α} = 0.
 $$
 
-TODO: 変分を用いた汎関数形式の導出
+<!-- TODO: 変分を用いた汎関数形式の導出 -->
 
 #### 例: 実 Klein-Gordon 場
 
 実 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
 $$
-ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
+\mathcal{L}(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
 $$
 ここで,
 $$
-\pdv{ℒ}{ϕ^α} = - m^2 ϕ_α, \quad ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ_α = □ ϕ_α.
+\pdv{\mathcal{L}}{ϕ^α} = - m^2 ϕ_α, \quad ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ_α = □ ϕ_α.
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
@@ -137,13 +141,13 @@ $$
 
 複素 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
 $$
-ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α^* ∂^μ ϕ^α - \frac12 m^2 ϕ_α^* ϕ^α.
+\mathcal{L}(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α^* ∂^μ ϕ^α - \frac12 m^2 ϕ_α^* ϕ^α.
 $$
 ここで, $ϕ^α$ と ${ϕ^α}^*$ を独立に扱って,
 $$
 \begin{gathered}
-\pdv{ℒ}{{ϕ^α}^*} = - m^2 ϕ_α, & ∂_μ \pqty{ \pdv{ℒ}{(∂_μ {ϕ^α}^*)} } = ∂_μ ∂^μ ϕ_α ≡ □ ϕ_α, \\
-\pdv{ℒ}{ϕ^α} = - m^2 ϕ_α^*, & ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ_α^* ≡ □ ϕ_α^*, \\
+\pdv{\mathcal{L}}{{ϕ^α}^*} = - \frac12 m^2 ϕ_α, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ {ϕ^α}^*)} } = \frac12 ∂_μ ∂^μ ϕ_α ≡ \frac12 □ ϕ_α, \\
+\pdv{\mathcal{L}}{ϕ^α} = - \frac12 m^2 ϕ_α^*, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = \frac12 ∂_μ ∂^μ ϕ_α^* ≡ \frac12 □ ϕ_α^*, \\
 \end{gathered}
 $$
 したがって, Euler–Lagrange の運動方程式より,
@@ -155,29 +159,29 @@ $$
 
 de Broglie 場 $ψ$ の Lagrangian 密度は,
 $$
-ℒ(ψ, ∂_μ ψ) = i ℏ ψ^† ∂_μ ψ - \frac{ℏ^2}{2m} ∂_i ψ^† ∂^i ψ.
+\mathcal{L}(ψ, ∂_μ ψ) = i ℏ ψ^* \.ψ - \frac{ℏ^2}{2m} \grad ψ^* ⋅ \grad ψ.
 $$
-ここで, $ψ$ と $ψ^†$ を独立に扱って,
+ここで, $ψ$ と $ψ^*$ を独立に扱って,
 $$
 \begin{aligned}
-  \pdv{ℒ}{ψ^†} &= i ℏ ∂_μ ψ, \\
-  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ^†)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ^†)} } \\
-    &= 0 - \frac{ℏ}{2 m} ∂_i ∂^i ψ \\
+  \pdv{\mathcal{L}}{ψ^*} &= i ℏ \.ψ, \\
+  ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ψ^*)} } &= ∂_0 \pqty{ \pdv{\mathcal{L}}{\.ψ^*} } + \div \pqty{ \pdv{\mathcal{L}}{(\grad ψ^*)} } \\
+    &= 0 - \frac{ℏ}{2 m} \div \grad ψ \\
     &= - \frac{ℏ}{2 m} ∇^2 ψ,
 \end{aligned}
 $$
 $$
 \begin{aligned}
-  \pdv{ℒ}{ψ} &= 0, \\
-  ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } &= ∂_μ \pqty{ \pdv{ℒ}{(∂_μ ψ)} } + ∂_i \pqty{ \pdv{ℒ}{(∂_i ψ)} } \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∂_i ∂^i ψ^† \\
-    &= i ℏ ∂_i ψ^† - \frac{ℏ}{2 m} ∇^2 ψ^†.
+  \pdv{\mathcal{L}}{ψ} &= 0, \\
+  ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ψ)} } &= ∂_0 \pqty{ \pdv{\mathcal{L}}{\.ψ} } + \div \pqty{ \pdv{\mathcal{L}}{(\grad ψ)} } \\
+    &= i ℏ \.ψ^* - \frac{ℏ}{2 m} \div \grad ψ^* \\
+    &= i ℏ \.ψ^* - \frac{ℏ}{2 m} ∇^2 ψ^*.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i ℏ ∂_μ ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ ∂_μ ψ^† &= - \frac{ℏ}{2 m} ∇^2 ψ^†.
+  i ℏ \.ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ \.ψ^* &= - \frac{ℏ}{2 m} ∇^2 ψ^*.
 \end{aligned}
 $$
 これは **de Broglie 方程式**と呼ばれ, 非相対論的量子力学における波動関数の Schrödinger 方程式と関係がある.
@@ -187,15 +191,15 @@ $$
 電磁場 $A_μ$ の Lagrangian 密度は,
 $$
 \begin{aligned}
-ℒ(A_ν, ∂_μ A_ν) = - \frac14 F_{μν} F^{μν} + A_μ j^μ, &&
+\mathcal{L}(A_ν, ∂_μ A_ν) = - \frac14 F_{μν} F^{μν} + A_μ j^μ, &&
 F^{μν} := ∂^μ A^ν - ∂^ν A^μ.
 \end{aligned}
 $$
 ここで,
 $$
 \begin{aligned}
-\pdv{ℒ}{A_ν} &= j^μ, \\
-∂_μ \pqty{\pdv{ℒ}{(∂_μ A_ν)}}
+\pdv{\mathcal{L}}{A_ν} &= j^μ, \\
+∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ A_ν)}}
 &=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \pqty{ - \frac14 F_{ρσ} F^{ρσ} } } \\
 &=  ∂_μ \qty{ \pdv{}{(∂_μ A_ν)} \bqty{ - \frac12 (
       ∂_ρ A_σ ∂^ρ A^σ - ∂_ρ A_σ ∂^σ A^ρ
@@ -208,36 +212,37 @@ $$
 $$
 ∂_μ F^{μν} = - j^ν.
 $$
-これは古典電磁気学の基本方程式の一部として知られている.
+これは古典電磁気学の基本方程式である Maxwell 方程式の一部として知られている.
 
 #### 例: Dirac 場
 
 Dirac 場 $ψ$ の Lagrangian 密度は,
 $$
-ℒ(A_ν, ∂_μ A_ν) = \overline{ψ} i\/∂ ψ - m \overline{ψ}ψ.
+\mathcal{L}(A_ν, ∂_μ A_ν) = \overline{ψ} i\slashed{∂} ψ - m \overline{ψ}ψ.
 $$
-ただし $\/∂≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψγ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は Dirac スピノルと呼ばれる列ベクトルで, 例えば4成分である: $ψ = (ψ_1, ψ_2, ψ_3, ψ_4)^{\mathsf{T}}$. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
+ただし $\slashed{∂}≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψ^†γ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は Dirac スピノルと呼ばれる列ベクトルで, 例えば4成分である: $ψ = (ψ_1, ψ_2, ψ_3, ψ_4)^{\mathsf{T}}$. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
 $$
 \begin{gathered}
-  \pdv{ℒ}{\overline{ψ}} = i\/∂ ψ - m ψ = (i\/∂ - m) ψ, \quad \pdv{ℒ}{(∂_μ\overline{ψ})} = 0, \\
-  \pdv{ℒ}{ψ} = - m\overline{ψ}, \quad \pdv{ℒ}{(∂_μψ)} = \overline{ψ} iγ^μ. \\
+  \pdv{\mathcal{L}}{\overline{ψ}} = i\slashed{∂} ψ - m ψ = (i\slashed{∂} - m) ψ, \quad \pdv{\mathcal{L}}{(∂_μ\overline{ψ})} = 0, \\
+  \pdv{\mathcal{L}}{ψ} = - m\overline{ψ}, \quad \pdv{\mathcal{L}}{(∂_μψ)} = \overline{ψ} iγ^μ. \\
 \end{gathered}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(i\/∂ - m) ψ = 0, \quad \overline{ψ} (i\overleftarrow{\/∂} + m) = 0.
+(i\slashed{∂} - m) ψ = 0, \quad \overline{ψ} (i\overleftarrow{\slashed{∂}} + m) = 0.
 $$
 
 ### Noether の定理
 
-座標の微小変換 $x↦x'=x+δx$ に対し, 座標が $ϕ^α(x)↦ϕ'^α(x)=ϕ^α(x)+δϕ^α(x)$ と変換されるとする. このとき作用は
+粒子系の場合と同様, 座標と場の連続変換に対し作用が不変であるとき, 系には対応する不変量が存在することが知られている. この定理は Noether の定理と呼ばれている.
+
+座標の微小変換 $x↦x'=x+δx$ に対し, 場が $ϕ^α(x)↦ϕ'^α(x)=ϕ^α(x)+δϕ^α(x)$ と変換されるとする. このとき空間 $Ω$ における作用は
 $$
 \begin{aligned}
   δS[ϕ^α]
-    &=  ∫ \d{{}^4 x'} ℒ(ϕ'^α(x'),∂'_μϕ'^α(x')) - ∫ \d{{}^4 x} ℒ(ϕ^α(x),∂_μϕ^α(x)) \\
-
-&   \quad \pqty{\d{{}^4 x'} = \d{{}^4 x} \abs{\pdv{x'^μ}{x^ν}} = \d{{}^4 x} \det(δ_ν^μ+∂_νδx^μ) = \d{{}^4 x} (1+∂_μδx^μ)} \\
-    &=  ∫ \d{{}^4 x} \Big[ (1+∂_μδx^μ) ℒ(ϕ'^α(x'),∂'_μϕ'^α(x')) - ℒ(ϕ^α(x),∂_μϕ^α(x)) \Big] \\
+    &=  ∫_{Ω'} \d{{}^4 x'} \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - ∫_Ω \d{{}^4 x} \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \\
+    & \quad \pqty{\d{{}^4 x'} = \d{{}^4 x} \abs{\pdv{x'^μ}{x^ν}} = \d{{}^4 x} \det(δ_ν^μ+∂_νδx^μ) = \d{{}^4 x} (1+∂_μδx^μ)} \\
+    &=  ∫_Ω \d{{}^4 x} \Big[ (1+∂_μδx^μ) \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \Big] \\
     & \quad \left(
         \begin{aligned}
           ∂'_μϕ'^α(x') &= \pdv{x^ν}{x'^μ} ∂_ν(ϕ^α(x)+δϕ^α(x)) \\
@@ -245,35 +250,42 @@ $$
                        &= ∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α
         \end{aligned}
       \right) \\
-    &=  ∫ \d{{}^4 x} \Big[ ∂_μδx^μ ℒ + ℒ(ϕ^α+δϕ^α,∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) - ℒ(ϕ^α,∂_μϕ^α) \Big] \\
-    &=  ∫ \d{{}^4 x} \bqty{∂_μδx^μ ℒ + δϕ^α \pdv{ℒ}{ϕ^α} + (∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) \pdv{ℒ}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \d{{}^4 x} \Big[ ∂_μδx^μ \mathcal{L} + \mathcal{L}(ϕ^α+δϕ^α,∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) - \mathcal{L}(ϕ^α,∂_μϕ^α) \Big] \\
+    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δϕ^α \pdv{\mathcal{L}}{ϕ^α} + (∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lϕ^α(t) := ϕ'^α(t) - ϕ^α(t) = δϕ^α - δx^μ∂_μϕ^α$}} \\
-    &=  ∫ \d{{}^4 x} \bqty{∂_μδx^μ ℒ + (δ^Lϕ^α + δx^μ∂_μϕ^α) \pdv{ℒ}{ϕ^α} + (∂_μδ^Lϕ^α + δx^ν∂_μ∂_νϕ^α) \pdv{ℒ}{(∂_μϕ^α)}} \\
-    &=  ∫ \d{{}^4 x} \bqty{∂_μδx^μ ℒ + δ^Lϕ^α \pdv{ℒ}{ϕ^α} + δx^μ∂_μϕ^α \pdv{ℒ}{ϕ^α} + ∂_μδ^Lϕ^α \pdv{ℒ}{(∂_μϕ^α)} + δx^ν∂_μ∂_νϕ^α \pdv{ℒ}{(∂_μϕ^α)}} \\
-    &=  ∫ \d{{}^4 x} \qty{
-        ∂_μ \pqty{δx^μ ℒ} + δ^Lϕ^α \pdv{ℒ}{ϕ^α} + ∂_μ\bqty{δ^Lϕ^α \pdv{ℒ}{(∂_μϕ^α)}} - δ^Lϕ^α ∂_μ\pqty{\pdv{ℒ}{(∂_μϕ^α)}}
+    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + (δ^Lϕ^α + δx^μ∂_μϕ^α) \pdv{\mathcal{L}}{ϕ^α} + (∂_μδ^Lϕ^α + δx^ν∂_μ∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δ^Lϕ^α \pdv{\mathcal{L}}{ϕ^α} + δx^μ∂_μϕ^α \pdv{\mathcal{L}}{ϕ^α} + ∂_μδ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} + δx^ν∂_μ∂_νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \d{{}^4 x} \qty{
+        ∂_μ \pqty{δx^μ \mathcal{L}} + δ^Lϕ^α \pdv{\mathcal{L}}{ϕ^α} + ∂_μ\bqty{δ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)}} - δ^Lϕ^α ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}
       } \\
-    &=  ∫ \d{{}^4 x} \qty{
-          δ^Lϕ^α \bqty{\pdv{ℒ}{ϕ^α} - ∂_μ\pqty{\pdv{ℒ}{(∂_μϕ^α)}}}
-        + ∂_μ\bqty{δ^Lϕ^α \pdv{ℒ}{(∂_μϕ^α)} + δx^μ ℒ}
+    &=  ∫_Ω \d{{}^4 x} \qty{
+          δ^Lϕ^α \bqty{\pdv{\mathcal{L}}{ϕ^α} - ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}}
+        + ∂_μ\bqty{δ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} + δx^μ \mathcal{L}}
       } \\
-    &=  ∫ \d{{}^4 x} δ^Lϕ^α \bqty{\pdv{ℒ}{ϕ^α} - ∂_μ\pqty{\pdv{ℒ}{(∂_μϕ^α)}}}
-      + ∫ \d{{}^4 x} ∂_μ\bqty{δϕ^α \pdv{ℒ}{(∂_μϕ^α)} - δx_ν \pqty{∂^νϕ^α \pdv{ℒ}{(∂_μϕ^α)} - g^{μν} ℒ}}. \\
+    &=  ∫_Ω \d{{}^4 x} δ^Lϕ^α \bqty{\pdv{\mathcal{L}}{ϕ^α} - ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}}
+      + ∫_{∂Ω} \d{\bqty{δϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - δx_ν \pqty{∂^νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - g^{μν} \mathcal{L}}}}. \\
 \end{aligned}
 $$
-ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存則が得られる:
+ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲 $∂Ω$ は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存則が得られる:
+
+:::screen
+
+座標の微小変換 $x↦x'=x+δx$ に対し, 場が $ϕ^α(x)↦ϕ'^α(x)=ϕ^α(x)+δϕ^α(x)$ と変換されるとき, 作用が不変であるならば,
 $$
-∂_μδJ^μ = 0,
+∂_μδJ^μ = 0
 $$
-ただし,
+が成立する(**Noether の定理** *Noether's theorem*). ただし,
 $$
-δJ^μ := δϕ^α \pdv{ℒ}{(∂_μϕ^α)} - δx_ν T^{μν}
+δJ^μ := δϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - δx_ν T^{μν}
 $$
 は**保存流**と呼ばれ,
 $$
-T^{μν} := ∂^νϕ^α \pdv{ℒ}{(∂_μϕ^α)} - g^{μν} ℒ
+T^{μν} := ∂^νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - g^{μν} \mathcal{L}
 $$
 は**正準エネルギー運動量テンソル**と呼ばれる.
+
+:::
+
 実際, 変換の**生成子**と呼ばれる
 $$
 δQ(t) := ∫ \d{^3 \bm{x}} δJ^0(x)
@@ -293,29 +305,29 @@ TODO: 例
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂ℒ / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $ℋ(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - ℒ$ を定義する. Hamiltonian 密度の定義の変分は,
+**一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂\mathcal{L} / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $\mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - \mathcal{L}$ を定義する. Hamiltonian 密度の定義の変分は,
 $$
 \begin{aligned}
-  δℋ
-  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - δℒ \\
-  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - \bqty{\pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}} δϕ^α + \div \bqty{\pdv{ℒ}{(\grad ϕ^α)} δϕ^α} + π_α δ\.{ϕ^α} \\
-  &= - \bqty{\pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}} δϕ^α + \.{ϕ}^α δπ_α + \div \bqty{\pdv{ℒ}{(\grad ϕ^α)} δϕ^α}.
+  δ\mathcal{H}
+  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - δ\mathcal{L} \\
+  &= \.{ϕ}^α δπ_α + π_α δ\.{ϕ}^α - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} δϕ^α + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} δϕ^α} + π_α δ\.{ϕ^α} \\
+  &= - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} δϕ^α + \.{ϕ}^α δπ_α + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} δϕ^α}.
 \end{aligned}
 $$
 また, Hamiltonian 密度の変分は,
 $$
 \begin{aligned}
-  δℋ
-  &= \pdv{ℋ}{ϕ^α} δϕ^α + \pdv{ℋ}{(\grad ϕ^α)} ⋅ δ(\grad ϕ^α) + \pdv{ℋ}{π_α} δπ_α + \pdv{ℋ}{(\grad π_α)} ⋅ δ(\grad π_α) \\
-  &= \pdv{ℋ}{ϕ^α} δϕ^α + \div \bqty{\pdv{ℋ}{(\grad ϕ^α)} δϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)} δϕ^α + \pdv{ℋ}{π_α} δπ_α + \div \bqty{\pdv{ℋ}{(\grad π_α)} δπ_α} - \div \pdv{ℋ}{(\grad π_α)} δπ_α \\
-  &= \bqty{\pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}} δϕ^α + \bqty{\pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)}} δπ_α + \div \bqty{\pdv{ℋ}{(\grad ϕ^α)} δϕ^α} + \div \bqty{\pdv{ℋ}{(\grad π_α)} δπ_α}
+  δ\mathcal{H}
+  &= \pdv{\mathcal{H}}{ϕ^α} δϕ^α + \pdv{\mathcal{H}}{(\grad ϕ^α)} ⋅ δ(\grad ϕ^α) + \pdv{\mathcal{H}}{π_α} δπ_α + \pdv{\mathcal{H}}{(\grad π_α)} ⋅ δ(\grad π_α) \\
+  &= \pdv{\mathcal{H}}{ϕ^α} δϕ^α + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α + \pdv{\mathcal{H}}{π_α} δπ_α + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} δπ_α} - \div \pdv{\mathcal{H}}{(\grad π_α)} δπ_α \\
+  &= \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}} δϕ^α + \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}} δπ_α + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} δϕ^α} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} δπ_α}
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \.π_α = - \bqty{\pdv{ℒ}{ϕ^α} - \div \pdv{ℒ}{(\grad ϕ^α)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
+ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \.π_α = - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
 $$
 \begin{aligned}
-  \.{ϕ}^α &= \bqty{\pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)}}, \\
-  \.π_α &= - \bqty{\pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}}.
+  \.{ϕ}^α &= \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}}, \\
+  \.π_α &= - \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}}.
 \end{aligned}
 $$
 TODO: ただし発散項は作用で消えることを用いた.
@@ -323,15 +335,15 @@ TODO: ただし発散項は作用で消えることを用いた.
 または, Hamiltonian 密度を空間全体にわたって積分した
 $$
 \begin{aligned}
-  H[ϕ^α, π_α] &≡ ∫ \d{{}^3 \bm{x}} ℋ(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) \\
+  H[ϕ^α, π_α] &≡ ∫ \d{{}^3 \bm{x}} \mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) \\
   &= ∫ \d{{}^3 \bm{x}} π_α \.{ϕ}^α - L[ϕ^α, \.{ϕ}^α]
 \end{aligned}
 $$
 を Hamiltonian $H[ϕ^α, π_α]$ と定義すると,
 $$
 \begin{aligned}
-  \fdv{H[ϕ^α, π_α]}{ϕ^α} &= \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)}, \\
-  \fdv{H[ϕ^α, π_α]}{π_α} &= \pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)} \\
+  \fdv{H[ϕ^α, π_α]}{ϕ^α} &= \pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}, \\
+  \fdv{H[ϕ^α, π_α]}{π_α} &= \pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)} \\
 \end{aligned}
 $$
 であるから, これを用いると Hamilton の運動方程式は,
@@ -345,16 +357,16 @@ $π_α$ を $ϕ^α$ に**共役な運動量** conjugate momentum といい, ま�
 
 実 Klein-Gordon 場 $ϕ^α$ の Lagrangian 密度は,
 $$
-ℒ(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
+\mathcal{L}(ϕ^α, ∂_μ ϕ^α) = \frac12 ∂_μ ϕ_α ∂^μ ϕ^α - \frac12 m^2 ϕ_α ϕ^α.
 $$
 ここで, 一般化運動量の定義より,
 $$
-π_α = \pdv{ℒ}{\.{ϕ}^α} = \.{ϕ}_α.
+π_α = \pdv{\mathcal{L}}{\.{ϕ}^α} = \.{ϕ}_α.
 $$
 したがって $\.{ϕ}_α = π_α$ であるから, Hamiltonian 密度より,
 $$
 \begin{aligned}
-  ℋ &= π_α \.{ϕ}^α - ℒ \\
+  \mathcal{H} &= π_α \.{ϕ}^α - \mathcal{L} \\
     &= π_α π^α - \frac12 π_α π^α + \frac12 (\grad ϕ_α)⋅(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α \\
     &= \frac12 π_α π^α + \frac12 (\grad ϕ_α)⋅(\grad ϕ^α) + \frac12 m^2 ϕ_α ϕ^α.
 \end{aligned}
@@ -362,8 +374,8 @@ $$
 ここで,
 $$
 \begin{aligned}
-  \pdv{ℋ}{π_α} - \div \pdv{ℋ}{(\grad π_α)} &= π^α, \\
-  \pdv{ℋ}{ϕ^α} - \div \pdv{ℋ}{(\grad ϕ^α)} &= m^2 ϕ_α - ∇^2 ϕ_α.
+  \pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)} &= π^α, \\
+  \pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)} &= m^2 ϕ_α - ∇^2 ϕ_α.
 \end{aligned}
 $$
 したがって, Hamilton の運動方程式は
@@ -412,13 +424,13 @@ $$
 
 実 Klein-Gordon 場の Lagrangian 密度は
 $$
-ℒ(ϕ, ∂_μ ϕ) = \frac12 ∂_μ ϕ ∂^μ ϕ - \frac12 m^2 {ϕ}^2,
+\mathcal{L}(ϕ, ∂_μ ϕ) = \frac12 ∂_μ ϕ ∂^μ ϕ - \frac12 m^2 {ϕ}^2,
 $$
 運動方程式は
 $$
 (□ + m^2) ϕ = 0,
 $$
-一般化運動量 $π ≡ ∂ℒ/∂ϕ$ は
+一般化運動量 $π ≡ ∂\mathcal{L}/∂ϕ$ は
 $$
 π = \.{ϕ},
 $$

@@ -305,51 +305,43 @@ $$
 
 ### Hamiltonの運動方程式
 
-**一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂\mathcal{L} / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $\mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - \mathcal{L}$ を定義する. Hamiltonian 密度の定義の変分は,
-$$
-\begin{aligned}
-  \d{\mathcal{H}}
-  &= \.{ϕ}^α \d{π_α} + π_α \d{\.{ϕ}^α} - \d{\mathcal{L}} \\
-  &= \.{ϕ}^α \d{π_α} + π_α \d{\.{ϕ}^α} - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} \d{ϕ^α} + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} \d{ϕ^α}} + π_α \d{\.{ϕ^α}} \\
-  &= - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}} \d{ϕ^α} + \.{ϕ}^α \d{π_α} + \div \bqty{\pdv{\mathcal{L}}{(\grad ϕ^α)} \d{ϕ^α}}.
-\end{aligned}
-$$
-また, Hamiltonian 密度の変分は,
-$$
-\begin{aligned}
-  \d{\mathcal{H}}
-  &= \pdv{\mathcal{H}}{ϕ^α} \d{ϕ^α} + \pdv{\mathcal{H}}{(\grad ϕ^α)} ⋅ \grad \d{ϕ^α} + \pdv{\mathcal{H}}{π_α} \d{π_α} + \pdv{\mathcal{H}}{(\grad π_α)} ⋅ \grad \d{π_α} \\
-  &= \pdv{\mathcal{H}}{ϕ^α} \d{ϕ^α} + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α}} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α} + \pdv{\mathcal{H}}{π_α} \d{π_α} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} \d{π_α}} - \div \pdv{\mathcal{H}}{(\grad π_α)} \d{π_α} \\
-  &= \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}} \d{ϕ^α} + \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}} \d{π_α} + \div \bqty{\pdv{\mathcal{H}}{(\grad ϕ^α)} \d{ϕ^α}} + \div \bqty{\pdv{\mathcal{H}}{(\grad π_α)} \d{π_α}}
-\end{aligned}
-$$
-ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \.π_α = - \bqty{\pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}}$ であることを用いると, **Hamilton の運動方程式**あるいは**正準方程式** canonical equation が得られる:
-$$
-\begin{aligned}
-  \.{ϕ}^α &= \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}}, \\
-  \.π_α &= - \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}}.
-\end{aligned}
-$$
-TODO: ただし発散項は作用で消えることを用いた.
-
-または, Hamiltonian 密度を空間全体にわたって積分した
+**一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂\mathcal{L} / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $\mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - \mathcal{L}$ を定義する. Hamiltonian 密度を空間全体にわたって積分した
 $$
 \begin{aligned}
   H[ϕ^α, π_α] &≡ ∫ \d{{}^3 \bm{x}} \mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) \\
   &= ∫ \d{{}^3 \bm{x}} π_α \.{ϕ}^α - L[ϕ^α, \.{ϕ}^α]
 \end{aligned}
 $$
-を Hamiltonian $H[ϕ^α, π_α]$ と定義すると,
+を Hamiltonian $H[ϕ^α, π_α]$ と定義すると, 定義の変分は
 $$
 \begin{aligned}
-  \fdv{H[ϕ^α, π_α]}{ϕ^α} &= \pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}, \\
-  \fdv{H[ϕ^α, π_α]}{π_α} &= \pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)} \\
+  δH
+    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α - δL[ϕ^α, \.{ϕ}^α] \\
+    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α - ∫ \d{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α - ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α \\
+    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α. \\
 \end{aligned}
 $$
-であるから, これを用いると Hamilton の運動方程式は,
+また, Hamiltonian の変分は,
 $$
-\.{ϕ}^α = \fdv{H}{π_α}, \quad \.π_α = - \fdv{H}{ϕ^α}.
+δH = ∫ \d{{}^3 \bm{x}} \fdv{H}{{ϕ}^α} δ{ϕ}^α + ∫ \d{{}^3 \bm{x}} \fdv{H}{π_α} δπ_α.
 $$
+ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \fdv{L}{{ϕ}^α} = \pdv{}{t}\fdv{L}{\.{ϕ}^α} = \.{π}_α$ であることを用いると, Hamiltonian に関する運動方程式が得られる:
+
+:::screen
+
+最小作用の原理を満たすとき, Hamiltonian は以下の **Hamilton の運動方程式**あるいは**正準方程式** canonical equation を満たす:
+$$
+\.π_α = - \fdv{H}{ϕ^α}, \quad \.{ϕ}^α = \fdv{H}{π_α},
+$$
+または汎関数微分を計算して,
+$$
+\begin{aligned}
+  \.π_α &= - \bqty{\pdv{\mathcal{H}}{ϕ^α} - \div \pdv{\mathcal{H}}{(\grad ϕ^α)}}, \\
+  \.{ϕ}^α &= \bqty{\pdv{\mathcal{H}}{π_α} - \div \pdv{\mathcal{H}}{(\grad π_α)}}. \\
+\end{aligned}
+$$
+
+:::
 
 $π_α$ を $ϕ^α$ に**共役な運動量** conjugate momentum といい, また $(ϕ^α, π_α)$ の組を**正準変数** canonical variables という.
 

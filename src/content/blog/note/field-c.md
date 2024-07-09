@@ -97,11 +97,9 @@ $$
 $$
 \begin{aligned}
 \fdv{L[ϕ^α, \.ϕ^α]}{ϕ^α}
-=&  \fdv{}{ϕ^α} ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
 =&  \pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}, \\
 &\pqty{∵ \text{変分公式 $\displaystyle\fdv{}{φ(y)} ∫ \d{x} g(φ'(x)) = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}$}} \\
 \fdv{L[ϕ^α, \.ϕ^α]}{\.ϕ^α}
-=&  \fdv{}{\.ϕ^α} ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α) \\
 =&  \pdv{\mathcal{L}}{\.ϕ^α}.
 \end{aligned}
 $$

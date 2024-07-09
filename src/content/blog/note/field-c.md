@@ -300,6 +300,7 @@ $$
     \quad \xrightarrow{\text{境界条件}} \quad 0.
 \end{aligned}
 $$
+したがって, $δQ$ が保存することがわかる.
 
 <!-- TODO: 例 -->
 

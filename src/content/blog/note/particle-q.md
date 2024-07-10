@@ -670,7 +670,22 @@ $$
 \end{aligned}
 $$
 
-TODO: Green 関数であることの証明
+<!-- TODO: Green 関数であることの証明 -->
+
+経路積分量子化は古典極限を取ることで最小作用の原理を与える. つまり, $ℏ→0$ の古典極限で $|K(q_f,t_f;q_i,t_i)|^2=1$ となる経路 $q(t)$ は, $q'=q+δq$ として鞍点法を用いると,
+$$
+\begin{aligned}
+  K(q_f,t_f;q_i,t_i)
+    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq' \ e^{\frac{i}{ℏ} S[q'(t)]} \\
+    &\quad \pqty{\text{$q'=q+δq$ のとき $\displaystyle S[q'] = S[q] + ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')$}} \\
+    &= e^{\frac{i}{ℏ} S[q(t)]} ∫_{q_i}^{q_f} \mathcal{D}^Dδq \ \exp\pqty{\frac{i}{ℏ} ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')}. \\
+\end{aligned}
+$$
+したがって, $ℏ→0$ の極限で $|K(q_f,t_f;q_i,t_i)|^2=1$ となる条件は
+$$
+\fdv{S[q^i(t)]}{q^j(t')} = 0 \quad (t_1<t'<t_2)
+$$
+となる. これは最小作用の原理に他ならない.
 
 #### 例: 一次元自由一粒子系
 

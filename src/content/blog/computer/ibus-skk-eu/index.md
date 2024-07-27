@@ -16,5 +16,5 @@ ibus-skk で日本語配列以外を使うには, /usr/share/ibus/component/skk.
 gsettings set org.gnome.desktop.input-sources show-all-sources true
 
 # ibus-skk のキー配列を EurKEY に
-sudo sed -ie s/jp/eu/g /usr/share/ibus/component/skk.xml
+sudo sed -ie s/ja/eu/g /usr/share/ibus/component/skk.xml
 ```

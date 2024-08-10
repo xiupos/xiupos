@@ -14,7 +14,7 @@ math : true
 
 場の解析力学における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 場の量子論における交換関係 $\displaystyle -i[⋅,⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} -i[A_\mathrm{H},B_\mathrm{H}].
+\{A,B\}_\mathrm{P} \quad \xmapsto{\text{要請}} \quad -i[A_\mathrm{H},B_\mathrm{H}].
 $$
 
 :::
@@ -23,7 +23,7 @@ $$
 $$
 \begin{aligned}
 \{ϕ^α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} &= δ^α_β δ^3(\bm{x}-\bm{x}'), \\
-  \overset{\text{正準量子化}}{⟶}
+  \xrightarrow{\text{正準量子化}} \quad
   - i [{ϕ^α}{}_\mathrm{H}(t, \bm{x}), {π_β}{}_\mathrm{H}(t, \bm{x}')] &= δ^α_β δ^3(\bm{x}-\bm{x}'), \\
   ⇔ \quad [ϕ^α(t, \bm{x}), π_β(t, \bm{x}')] &= i δ^α_β δ^3(\bm{x}-\bm{x}').
 \end{aligned}
@@ -31,7 +31,7 @@ $$
 $$
 \begin{aligned}
   \{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} - i [{ϕ^α}{}_\mathrm{H}(t, \bm{x}), {ϕ^β}{}_\mathrm{H}(t, \bm{x}')] = - i [{π_α}{}_\mathrm{H}(t, \bm{x}), {π_β}{}_\mathrm{H}(t, \bm{x}')] &= 0, \\
+  \xrightarrow{\text{正準量子化}} \quad - i [{ϕ^α}{}_\mathrm{H}(t, \bm{x}), {ϕ^β}{}_\mathrm{H}(t, \bm{x}')] = - i [{π_α}{}_\mathrm{H}(t, \bm{x}), {π_β}{}_\mathrm{H}(t, \bm{x}')] &= 0, \\
   ⇔ \quad [ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')] = [π_α(t, \bm{x}), π_β(t, \bm{x}')] &= 0. \\
 \end{aligned}
 $$

@@ -33,14 +33,14 @@ pdf : /pdf/note/functional.pdf
 $$
 \begin{gathered}
   f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx_n × φ(x_n) \\
-  \overset{N→∞}{⟶} \quad F[φ(x)] =  ∫_a^b \d{x} φ(x).
+  \xrightarrow{N→∞} \quad F[φ(x)] =  ∫_a^b \d{x} φ(x).
 \end{gathered}
 $$
 または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, 分割幅 $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
 \begin{gathered}
   f_N(x_0^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} × x_n^2 \\
-  \overset{N→∞}{⟶} \quad F[x^2] = ∫_a^b \d{x} x^2.
+  \xrightarrow{N→∞} \quad F[x^2] = ∫_a^b \d{x} x^2.
 \end{gathered}
 $$
 このような汎関数の離散的な表現を考えることも重要である. 特に, 汎関数積分の計算においては離散表現が必須である.
@@ -55,7 +55,7 @@ $$
     $$
     \begin{gathered}
       i_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × g(φ_n) \\
-      \overset{N→∞}{⟶} \quad I[φ(x)] = ∫ \d{x} g(φ(x)).
+      \xrightarrow{N→∞} \quad I[φ(x)] = ∫ \d{x} g(φ(x)).
     \end{gathered}
     $$
 
@@ -63,7 +63,7 @@ $$
     $$
     \begin{gathered}
       s(φ_0,…,φ_N;x_m=x') = ∑_{n=1}^N Δx × φ_n \frac{δ_{nm}}{Δx} = φ_m \\
-      \overset{N→∞}{⟶} \quad S[φ(x)](x') = ∫ \d{x} φ(x) δ(x-x') = φ(x').
+      \xrightarrow{N→∞} \quad S[φ(x)](x') = ∫ \d{x} φ(x) δ(x-x') = φ(x').
     \end{gathered}
     $$
     汎関数中のデルタ関数 $δ(x-x')$ は, 離散表現の $\displaystyle \frac{δ_{nm}}{Δx}$ に対応している.
@@ -72,7 +72,7 @@ $$
     $$
     \begin{gathered}
       f_N(φ_0,…,φ_N;k_m) = ∑_{n=1}^N \frac{Δx}{\sqrt{2π}} × φ_n e^{-ik_mx_n} \\
-      \overset{N→∞}{⟶} \quad \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
+      \xrightarrow{N→∞} \quad \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
     \end{gathered}
     $$
 
@@ -80,7 +80,7 @@ $$
     $$
     \begin{gathered}
       f^{\text{``$\scriptstyle-1$''}}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
-      \overset{N→∞}{⟶} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
+      \xrightarrow{N→∞} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
     \end{gathered}
     $$
     実際, $\mathcal{F}^{-1}[\mathcal{F}[φ(\~x)](k)](x) = φ(x)$.
@@ -89,14 +89,14 @@ $$
     $$
     \begin{gathered}
       g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) \\
-      \overset{N→∞}{⟶} \quad G_t[x] := F_{x(t)}[φ].
+      \xrightarrow{N→∞} \quad G_t[x] := F_{x(t)}[φ].
     \end{gathered}
     $$
     ただし, $x_n = x(t_n)$. 例えば $\displaystyle F_x[φ] := ∫\d{x} φ(x)$ に対して,
     $$
     \begin{gathered}
     g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × φ_n = ∑_{n=1}^N Δt × \frac{Δx}{Δt} φ(x_n) \\
-    \overset{N→∞}{⟶} \quad G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
+    \xrightarrow{N→∞} \quad G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
     \end{gathered}
     $$
 

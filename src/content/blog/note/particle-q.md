@@ -207,7 +207,7 @@ $$
 
 古典論における Poisson 括弧 $\{⋅,⋅\}_\mathrm{P}$ に対し, 量子論における交換関係 $\displaystyle \frac1{i{\hbar}}[\^⋅,\^⋅]_\mathrm{H}$ が対応するという要請を**正準量子化**という:
 $$
-\{A,B\}_\mathrm{P} \overset{\text{要請}}{\mapsto} \frac1{i{\hbar}}[\^A_\mathrm{H}(t),\^B_\mathrm{H}(t)].
+\{A,B\}_\mathrm{P} \quad \xmapsto{\text{要請}} \quad \frac1{i{\hbar}}[\^A_\mathrm{H}(t),\^B_\mathrm{H}(t)].
 $$
 
 :::
@@ -216,13 +216,13 @@ $$
 $$
 \begin{aligned}
   \{ q^i, p_j \}_\mathrm{P} &= δ_j^i, \\
-  \overset{\text{正準量子化}}{⟶} \frac1{i{\hbar}} [{\^q^i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= δ_j^i, \\
+  \xrightarrow{\text{正準量子化}} \quad \frac1{i{\hbar}} [{\^q^i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= δ_j^i, \\
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \{ q^i, q^j \}_\mathrm{P} = \{ p_i, p_j \}_\mathrm{P} &= 0, \\
-  \overset{\text{正準量子化}}{⟶} \frac1{i{\hbar}} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = \frac1{i{\hbar}} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
+  \xrightarrow{\text{正準量子化}} \quad \frac1{i{\hbar}} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = \frac1{i{\hbar}} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
 \end{aligned}
 $$
 したがって, 演算子 $(\^q^i, \^p_i)$ の交換関係が得られる:
@@ -242,7 +242,7 @@ $$
 正準変数を変数として持つ物理量 $A = A(q^i, p_i)$ に対応する演算子は, 正準変数の演算子を形式的に代入したものである:
 $$
 A = A(q^i, p_i)
-\quad \overset{\text{正準量子化}}{⟶} \quad
+\quad \xrightarrow{\text{正準量子化}} \quad
 \^A |ψ(t)⟩ = A(\^q^i, \^p_i) |ψ(t)⟩.
 $$
 TODO: ただし, $\^A$ が Hermite になるよう量子化前に正準変数の順序を調整する.
@@ -250,7 +250,7 @@ TODO: ただし, $\^A$ が Hermite になるよう量子化前に正準変数の
 また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したものとなる:
 $$
 A = A(q^i, p_i)
-\quad \overset{\text{正準量子化}}{⟶} \quad
+\quad \xrightarrow{\text{正準量子化}} \quad
 \^A_B ψ(b,t) = A({\^q^i}{}_B, {\^p_i}{}_B) ψ(b,t).
 $$
 特に, 正準変数の演算子が $b$ とそれの微分の関数 $({\^q^i}{}_B, {\^p_i}{}_B) = ({q^i}{}_B(b, \pdv{}{b}), {p_i}{}_B(b, \pdv{}{b}))$ であるとき, これを Schrödinger 表現という.
@@ -263,7 +263,7 @@ $$
 $$
 \begin{aligned}
   \dv{A}{t} &= \{A, H\}_\mathrm{P} + \pdv{A}{t} \\
-  \overset{\text{正準量子化}}{⟶} \quad
+  \xrightarrow{\text{正準量子化}} \quad
   \dv{\^A_\mathrm{H}}{t} &= \frac1{i{\hbar}}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H}. \\
 \end{aligned}
 $$

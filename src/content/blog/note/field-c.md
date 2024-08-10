@@ -157,29 +157,29 @@ $$
 
 de Broglie 場 $ψ$ の Lagrangian 密度は,
 $$
-\mathcal{L}(ψ, ∂_μ ψ) = i ℏ ψ^* \.ψ - \frac{ℏ^2}{2m} \grad ψ^* ⋅ \grad ψ.
+\mathcal{L}(ψ, ∂_μ ψ) = i {\hbar} ψ^* \.ψ - \frac{{\hbar}^2}{2m} \grad ψ^* ⋅ \grad ψ.
 $$
 ここで, $ψ$ と $ψ^*$ を独立に扱って,
 $$
 \begin{aligned}
-  \pdv{\mathcal{L}}{ψ^*} &= i ℏ \.ψ, \\
+  \pdv{\mathcal{L}}{ψ^*} &= i {\hbar} \.ψ, \\
   ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ψ^*)} } &= ∂_0 \pqty{ \pdv{\mathcal{L}}{\.ψ^*} } + \div \pqty{ \pdv{\mathcal{L}}{(\grad ψ^*)} } \\
-    &= 0 - \frac{ℏ}{2 m} \div \grad ψ \\
-    &= - \frac{ℏ}{2 m} ∇^2 ψ,
+    &= 0 - \frac{{\hbar}}{2 m} \div \grad ψ \\
+    &= - \frac{{\hbar}}{2 m} ∇^2 ψ,
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \pdv{\mathcal{L}}{ψ} &= 0, \\
   ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ψ)} } &= ∂_0 \pqty{ \pdv{\mathcal{L}}{\.ψ} } + \div \pqty{ \pdv{\mathcal{L}}{(\grad ψ)} } \\
-    &= i ℏ \.ψ^* - \frac{ℏ}{2 m} \div \grad ψ^* \\
-    &= i ℏ \.ψ^* - \frac{ℏ}{2 m} ∇^2 ψ^*.
+    &= i {\hbar} \.ψ^* - \frac{{\hbar}}{2 m} \div \grad ψ^* \\
+    &= i {\hbar} \.ψ^* - \frac{{\hbar}}{2 m} ∇^2 ψ^*.
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
 \begin{aligned}
-  i ℏ \.ψ &= - \frac{ℏ}{2 m} ∇^2 ψ, & - i ℏ \.ψ^* &= - \frac{ℏ}{2 m} ∇^2 ψ^*.
+  i {\hbar} \.ψ &= - \frac{{\hbar}}{2 m} ∇^2 ψ, & - i {\hbar} \.ψ^* &= - \frac{{\hbar}}{2 m} ∇^2 ψ^*.
 \end{aligned}
 $$
 これは **de Broglie 方程式**と呼ばれ, 非相対論的量子力学における波動関数の Schrödinger 方程式と関係がある.

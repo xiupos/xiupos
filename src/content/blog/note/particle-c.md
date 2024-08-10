@@ -5,6 +5,7 @@ date : \today
 pubDate : 2024-05-28T18:25:00+09:00
 lang : ja
 math : true
+pdf : /pdf/note/particle-c.pdf
 ---
 
 粒子系[^particles]の古典論の基本事項を体系的にまとめる.

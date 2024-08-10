@@ -122,13 +122,13 @@ $$
 $$
 |ψ(t)⟩ = \^U(t, t_0) |ψ(t_0)⟩.
 $$
-ただし, $\^U(t_2, t_1) = \^U^†(t_1, t_2) = \^U^{-1}(t_1, t_2)$ を満たす.
+ただし, $\^U(t_2, t_1) = \^U^{\dagger}(t_1, t_2) = \^U^{-1}(t_1, t_2)$ を満たす.
 
 :::
 
 unitary 演算子である必要性は正規化条件からわかる:
 $$
-1 = ⟨ψ(t)⟩|ψ(t)⟩ = ⟨ψ(t_0)⟩| \^U^†(t, t_0) \^U(t, t_0) |ψ(t_0)⟩ = ⟨ψ(t_0)⟩|ψ(t_0)⟩.
+1 = ⟨ψ(t)⟩|ψ(t)⟩ = ⟨ψ(t_0)⟩| \^U^{\dagger}(t, t_0) \^U(t, t_0) |ψ(t_0)⟩ = ⟨ψ(t_0)⟩|ψ(t_0)⟩.
 $$
 
 時間発展演算子が時間に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) ≡ \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$. また, 時間発展演算子が時間に依存する場合でも, 誤解が無いとき $\^U(t) ≡ \^U(t, 0)$ と略記する.
@@ -513,44 +513,44 @@ $$
 
 :::screen
 
-演算子 $\^a$ とその Hermite 共役 $\^a^†$ が次の交換関係を満たすとき, $\^a$ を**消滅演算子** annihilation operator, $\^a^†$ を**生成演算子** creation operator という:
+演算子 $\^a$ とその Hermite 共役 $\^a^{\dagger}$ が次の交換関係を満たすとき, $\^a$ を**消滅演算子** annihilation operator, $\^a^{\dagger}$ を**生成演算子** creation operator という:
 $$
 \begin{gathered}
-{}[\^a, \^a^†] = 1, \\
-  [\^a, \^a] = [\^a^†, \^a^†] = 0.
+{}[\^a, \^a^{\dagger}] = 1, \\
+  [\^a, \^a] = [\^a^{\dagger}, \^a^{\dagger}] = 0.
 \end{gathered}
 $$
-また, Hermite 演算子 $\^N ≡ \^a^† \^a$ を**数演算子** the number operation といい, $\^N$ の固有値 $n$ に属する固有状態を $|n⟩$ とする:
+また, Hermite 演算子 $\^N ≡ \^a^{\dagger} \^a$ を**数演算子** the number operation といい, $\^N$ の固有値 $n$ に属する固有状態を $|n⟩$ とする:
 $$
 \^N|n⟩ = n|n⟩.
 $$
 
 :::
 
-$\^a^†|n⟩$ は固有値 $n+1$ に属する固有状態である:
+$\^a^{\dagger}|n⟩$ は固有値 $n+1$ に属する固有状態である:
 $$
 \begin{aligned}
-  \^N\^a^†|n⟩
-    &= \^a^†\^a\^a^†|n⟩ \\
-    &= \^a^†(\^a^†\^a + 1)|n⟩ \\
-    &= \^a^†(\^N + 1)|n⟩ \\
-    &= (n + 1)\^a^†|n⟩.
+  \^N\^a^{\dagger}|n⟩
+    &= \^a^{\dagger}\^a\^a^{\dagger}|n⟩ \\
+    &= \^a^{\dagger}(\^a^{\dagger}\^a + 1)|n⟩ \\
+    &= \^a^{\dagger}(\^N + 1)|n⟩ \\
+    &= (n + 1)\^a^{\dagger}|n⟩.
 \end{aligned}
 $$
-したがって $|n+1⟩$ は $\^a^†|n⟩$ を正規化して,
+したがって $|n+1⟩$ は $\^a^{\dagger}|n⟩$ を正規化して,
 $$
 \begin{gathered}
-  |n+1⟩ = \frac{\^a^†|n⟩}{\sqrt{⟨n|\^a\^a^†|n⟩}} = \frac{\^a^†|n⟩}{\sqrt{⟨n|(\^N + 1)|n⟩}} = \frac{\^a^†|n⟩}{\sqrt{n+1}}. \\
-  ∴ \^a^†|n⟩ = \sqrt{n+1}|n+1⟩.
+  |n+1⟩ = \frac{\^a^{\dagger}|n⟩}{\sqrt{⟨n|\^a\^a^{\dagger}|n⟩}} = \frac{\^a^{\dagger}|n⟩}{\sqrt{⟨n|(\^N + 1)|n⟩}} = \frac{\^a^{\dagger}|n⟩}{\sqrt{n+1}}. \\
+  ∴ \^a^{\dagger}|n⟩ = \sqrt{n+1}|n+1⟩.
 \end{gathered}
 $$
 また, 同様に $\^a|n⟩$ は固有値 $n-1$ に属する固有状態である:
 $$
 \begin{aligned}
   \^N\^a|n⟩
-    &= \^a^†\^a\^a|n⟩ \\
-    &= (\^a\^a^† - 1)\^a|n⟩ \\
-    &= \^a(\^a^†\^a - 1)|n⟩ \\
+    &= \^a^{\dagger}\^a\^a|n⟩ \\
+    &= (\^a\^a^{\dagger} - 1)\^a|n⟩ \\
+    &= \^a(\^a^{\dagger}\^a - 1)|n⟩ \\
     &= \^a(\^N - 1)|n⟩ \\
     &= (n - 1)\^a|n⟩.
 \end{aligned}
@@ -558,17 +558,17 @@ $$
 したがって $|n-1⟩$ は $\^a|n⟩$ を正規化して,
 $$
 \begin{gathered}
-  |n-1⟩ = \frac{\^a|n⟩}{\sqrt{⟨n|\^a^†\^a|n⟩}} = \frac{\^a|n⟩}{\sqrt{⟨n|\^N|n⟩}} = \frac{\^a|n⟩}{\sqrt{n}}. \\
+  |n-1⟩ = \frac{\^a|n⟩}{\sqrt{⟨n|\^a^{\dagger}\^a|n⟩}} = \frac{\^a|n⟩}{\sqrt{⟨n|\^N|n⟩}} = \frac{\^a|n⟩}{\sqrt{n}}. \\
   ∴ \^a|n⟩ = \sqrt{n}|n-1⟩.
 \end{gathered}
 $$
 特に $n=0$ のときの状態 $|0⟩$ を真空状態といい, $\^a|0⟩ = 0$ を満たす:
 $$
-⟨0|\^a^†\^a|0⟩ = ⟨0|\^N|0⟩ = 0.
+⟨0|\^a^{\dagger}\^a|0⟩ = ⟨0|\^N|0⟩ = 0.
 $$
 $n<0$ は許されない: ある固有値 $n<0$ に属する固有状態 $|n⟩$ に対し,
 $$
-n = ⟨n|\^N|n⟩ = ⟨n|\^a^†\^a|n⟩ = ⟨n'|n'⟩ ≥ 0.
+n = ⟨n|\^N|n⟩ = ⟨n|\^a^{\dagger}\^a|n⟩ = ⟨n'|n'⟩ ≥ 0.
 $$
 ただし $|n'⟩ ≡ \^a|n⟩$. これは $n<0$ に矛盾する. したがって, $n≥0$ である. また, $n$ が正の非整数とすると, 繰り返し $\^a$ を左右することで $n$ を負にすることができてしまうから, $n$ は非整数ではない. したがって, $n$ は 0 以上の整数である: $n = 0,1,2,…$.
 
@@ -933,7 +933,7 @@ $$
 
 時間 $t$ にいて粒子が $\bm{x}$ に見い出される確率密度を
 $$
-ρ(\bm{x},t) = ψ^†(\bm{x},t) ψ(\bm{x},t)
+ρ(\bm{x},t) = ψ^{\dagger}(\bm{x},t) ψ(\bm{x},t)
 $$
 とすると, 粒子の確率は連続方程式
 $$
@@ -941,7 +941,7 @@ $$
 $$
 を満たす. ただし
 $$
-\bm{j}(\bm{x},t) ≡ ψ^†(\bm{x},t)\bm{α}ψ(\bm{x},t)
+\bm{j}(\bm{x},t) ≡ ψ^{\dagger}(\bm{x},t)\bm{α}ψ(\bm{x},t)
 $$
 は確率流密度と呼ばれる. あるいは, $γ$ 行列を用いると, 連続方程式は
 $$
@@ -951,24 +951,24 @@ $$
 $$
 \begin{aligned}
   \frac{∂ρ}{c∂t}
-    &= \frac{∂}{c∂t} (ψ^† ψ) \\
-    &= \frac1{i{\hbar}} \bqty{ψ^† \pqty{i{\hbar}\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^† \pqty{-i{\hbar}\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
-    &= \frac1{i{\hbar}} \bqty{ψ^† \pqty{-i{\hbar}\bm{α}⋅\overrightarrow{\grad} + βmc} ψ - ψ^† \pqty{i{\hbar}\bm{α}⋅\overleftarrow{\grad} + βmc} ψ} \\
-    &= - \bqty{ψ^† \bm{α}⋅\overrightarrow{\grad} ψ + ψ^† \bm{α}⋅\overleftarrow{\grad} ψ} \\
-    &= - \grad⋅\pqty{ψ^† \bm{α} ψ}, \\
+    &= \frac{∂}{c∂t} (ψ^{\dagger} ψ) \\
+    &= \frac1{i{\hbar}} \bqty{ψ^{\dagger} \pqty{i{\hbar}\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^{\dagger} \pqty{-i{\hbar}\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
+    &= \frac1{i{\hbar}} \bqty{ψ^{\dagger} \pqty{-i{\hbar}\bm{α}⋅\overrightarrow{\grad} + βmc} ψ - ψ^{\dagger} \pqty{i{\hbar}\bm{α}⋅\overleftarrow{\grad} + βmc} ψ} \\
+    &= - \bqty{ψ^{\dagger} \bm{α}⋅\overrightarrow{\grad} ψ + ψ^{\dagger} \bm{α}⋅\overleftarrow{\grad} ψ} \\
+    &= - \grad⋅\pqty{ψ^{\dagger} \bm{α} ψ}, \\
 \end{aligned}
 $$
 $$
 \begin{aligned}
   \frac{∂ρ}{c∂t}
-    &= \frac{∂}{c∂t} (\overline{ψ}ψ) ≡ \frac{∂}{c∂t} (ψ^†γ^0ψ) \\
-    &= \frac1{i{\hbar}} \bqty{ψ^† \pqty{i{\hbar}γ^0\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^† \pqty{-i{\hbar}γ^0\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
-    &= \frac1{i{\hbar}} \bqty{ψ^† \pqty{-i{\hbar}\bm{γ}⋅\overrightarrow{\grad} + mc} ψ - ψ^† \pqty{i{\hbar}\bm{γ}⋅\overleftarrow{\grad} + mc} ψ} \\
-    &= - \bqty{ψ^† \bm{γ}⋅\overrightarrow{\grad} ψ + ψ^† \bm{γ}⋅\overleftarrow{\grad} ψ} \\
-    &= - \grad⋅\pqty{ψ^† \bm{γ} ψ}. \\
+    &= \frac{∂}{c∂t} (\overline{ψ}ψ) ≡ \frac{∂}{c∂t} (ψ^{\dagger}γ^0ψ) \\
+    &= \frac1{i{\hbar}} \bqty{ψ^{\dagger} \pqty{i{\hbar}γ^0\overrightarrow{\frac{∂}{c∂t}}} ψ - ψ^{\dagger} \pqty{-i{\hbar}γ^0\overleftarrow{\frac{∂}{c∂t}}} ψ} \\
+    &= \frac1{i{\hbar}} \bqty{ψ^{\dagger} \pqty{-i{\hbar}\bm{γ}⋅\overrightarrow{\grad} + mc} ψ - ψ^{\dagger} \pqty{i{\hbar}\bm{γ}⋅\overleftarrow{\grad} + mc} ψ} \\
+    &= - \bqty{ψ^{\dagger} \bm{γ}⋅\overrightarrow{\grad} ψ + ψ^{\dagger} \bm{γ}⋅\overleftarrow{\grad} ψ} \\
+    &= - \grad⋅\pqty{ψ^{\dagger} \bm{γ} ψ}. \\
 \end{aligned}
 $$
-ここで $\overline{ψ}≡ψ^†γ^0$ は Dirac 共役と呼ばれる.
+ここで $\overline{ψ}≡ψ^{\dagger}γ^0$ は Dirac 共役と呼ばれる.
 
 ### 場の量子論との関係
 
@@ -978,9 +978,9 @@ $$
 $$
 を満たすような演算子 $\^ψ(\bm{x},t)$ を**場の演算子**という. つまり,
 $$
-|\bm{x},t⟩ = {\^ψ}^†(\bm{x},t)|0⟩.
+|\bm{x},t⟩ = {\^ψ}^{\dagger}(\bm{x},t)|0⟩.
 $$
-ここで, $|0⟩$ は**真空状態**と呼ばれる状態で, ${\^ψ}^†(\bm{x},t)$ を真空状態に作用させることで $(\bm{x},t)$ に1粒子が観測される状態になる. この場の演算子 $\^ψ(\bm{x},t)$ はある古典場 $ψ(\bm{x},t)$ を力学変数として量子化した結果に得られるものである.
+ここで, $|0⟩$ は**真空状態**と呼ばれる状態で, ${\^ψ}^{\dagger}(\bm{x},t)$ を真空状態に作用させることで $(\bm{x},t)$ に1粒子が観測される状態になる. この場の演算子 $\^ψ(\bm{x},t)$ はある古典場 $ψ(\bm{x},t)$ を力学変数として量子化した結果に得られるものである.
 
 場の演算子 $\^ψ(\bm{x},t)$ は波動関数 $Ψ(\bm{x},t)$ と同じ Schrödinger 方程式を満たす. 実際, Schrödinger 方程式に代入すると,
 $$

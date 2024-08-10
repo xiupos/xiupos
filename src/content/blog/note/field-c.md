@@ -218,7 +218,7 @@ Dirac 場 $ψ$ の Lagrangian 密度は,
 $$
 \mathcal{L}(A_ν, ∂_μ A_ν) = \overline{ψ} i\slashed{∂} ψ - m \overline{ψ}ψ.
 $$
-ただし $\slashed{∂}≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψ^†γ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は Dirac スピノルと呼ばれる列ベクトルで, 例えば4成分である: $ψ = (ψ_1, ψ_2, ψ_3, ψ_4)^{\mathsf{T}}$. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
+ただし $\slashed{∂}≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψ^{\dagger}γ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は Dirac スピノルと呼ばれる列ベクトルで, 例えば4成分である: $ψ = (ψ_1, ψ_2, ψ_3, ψ_4)^{\mathsf{T}}$. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
 $$
 \begin{gathered}
   \pdv{\mathcal{L}}{\overline{ψ}} = i\slashed{∂} ψ - m ψ = (i\slashed{∂} - m) ψ, \quad \pdv{\mathcal{L}}{(∂_μ\overline{ψ})} = 0, \\

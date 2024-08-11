@@ -1,9 +1,9 @@
 ---
-title : 記法テスト
+title : Syntax test
 author : xiupos
 date : \today
 pubDate : 2024-01-06T22:40:00+09:00
-lang : ja
+lang : en
 draft : true
 math : true
 ---
@@ -12,9 +12,9 @@ math : true
 
 :::screen
 
-### Schrödinger 方程式
+### Schroedinger eq.
 
-Schrödinger 描像の状態ベクトル $|ψ(t)⟩$ の時間発展を記述する式は,
+The equation that describes the time evolution of state vector $|ψ(t)⟩$ in the Schroedinger picture is
 $$
 i \hbar \pdv{}{t} |ψ(t)⟩ = H |ψ(t)⟩.
 $$
@@ -24,11 +24,11 @@ $$
 ````md
 :::screen
 
-### Schrödinger 方程式
+### Schroedinger eq.
 
-Schrödinger 描像の状態ベクトル $|ψ(t)⟩$ の時間発展を記述する式は,
+The equation that describes the time evolution of state vector $|\psi(t)\rangle$ in the Schroedinger picture is
 $$
-i \hbar \pdv{}{t} |ψ(t)⟩ = H |ψ(t)⟩.
+i \hbar \pdv{}{t} |\psi(t)\rangle = H |\psi(t)\rangle.
 $$
 
 :::

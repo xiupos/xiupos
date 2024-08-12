@@ -257,7 +257,7 @@ A = A(q^i, p_i)
 \quad \xrightarrow{\text{正準量子化}} \quad
 \^A |ψ(t)⟩ = A(\^q^i, \^p_i) |ψ(t)⟩.
 $$
-TODO: ただし, $\^A$ が Hermite になるよう量子化前に正準変数の順序を調整する.
+TODO: ただし, $\^A$ が Hermite になるよう量子化前に正準変数の順序を調整する(Weyl 順序).
 
 また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したものとなる:
 $$
@@ -647,6 +647,55 @@ $$
 
 ### 経路積分表示
 
+時刻 $t_i$ に座標 $q_i$ で粒子が観測された状態に対し, 時刻 $t_f$ に座標 $q_f$ で粒子が観測される確率振幅は
+$$
+⟨q_f,t_f|q_i,t_i⟩ \quad \pqty{= ⟨q_f|\^U(t_f,t_i)|q_i⟩ = ⟨q_f|T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \d{t} \^H(t)}|q_i⟩}
+$$
+で与えられる. 時間 $t_i$, $t_f$ 間を $N$ 分割する:
+$$
+Δt = \frac{t_f-t_i}{N}, \quad t_j = t_i + nΔt, \quad q_j = q(t_j). \quad t_0=t_i, \quad \ t_N=t_f.
+$$
+完全系 $∫\d{q_j}|q_j⟩⟨q_j| = 1$ を順に挟めば,
+$$
+\begin{aligned}
+  ⟨q_f,t_f|q_i,t_i⟩
+    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} ⟨q_f,t_f|q_{N-1},t_{N-1}⟩⟨q_{N-1},t_{N-1}|⋯|q_1,t_1⟩⟨q_1,t_1|q_i,t_i⟩ \\
+    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨q_{j+1},t_{j+1}|q_j,t_j⟩} \\
+\end{aligned}
+$$
+ここで, $Δt$ が十分に小さいとすると,
+$$
+⟨q_{j+1},t_{j+1}|q_j,t_j⟩ = ⟨q_{j+1}|\exp \bqty{-\frac{i}{{\hbar}} Δt \^H(t_j)}|q_j⟩
+$$
+ここで, $\^H(t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であって,
+$$
+⟨q_{j+1}|\^H(t_j)|q_j⟩ = ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}
+$$
+を満たす. これを用いると,
+$$
+\begin{aligned}
+  ⟨q_{j+1},t_{j+1}|q_j,t_j⟩
+    &= ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} \exp \bqty{-\frac{i}{{\hbar}} Δt H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
+\end{aligned}
+$$
+したがって,
+$$
+\begin{aligned}
+  ⟨q_f,t_f|q_i,t_i⟩
+    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \qty{∏_{j=0}^{N-1} ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}} \\
+    &= ∫\frac{\d{{}^Dp_0}}{(2π\hbar)^D} ∏_{j=1}^{N-1} ∫\frac{\d{{}^Dq_j}\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}. \\
+\end{aligned}
+$$
+あるいは $N→∞$ の極限で
+$$
+\begin{aligned}
+  ⟨q_f,t_f|q_i,t_i⟩
+    &= ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ \exp \frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \bqty{\.q^i p_i - H(q^i,p_i,t)} \\
+    &≡ ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ e^{\frac{i}{\hbar} S[q^i,p_i]}.
+\end{aligned}
+$$
+
 <!-- TODO: 位相空間の経路積分量子化 -->
 
 ### 経路積分量子化
@@ -662,7 +711,7 @@ $$
 状態 $|q_i,t_i⟩$ から状態 $|q_f,t_f⟩$ への確率振幅は以下であるという要請を**経路積分量子化** *Path integral formulation* という:
 $$
 \begin{gathered}
-  K(q_f,t_f;q_i,t_i) ≡ ⟨q_f,t_f | q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S[q(t)]}.
+  K(q_f,t_f;q_i,t_i) ≡ ⟨q_f,t_f|q_i,t_i⟩ \overset{\text{要請}}{=} ∫_{q_i}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S[q(t)]}.
 \end{gathered}
 $$
 また, この $K(q_f,t_f;q_i,t_i)$ を**伝播関数**という. これは **Green 関数**とも呼ばれ, 以下を満たす:

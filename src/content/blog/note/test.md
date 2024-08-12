@@ -8,6 +8,14 @@ draft : true
 math : true
 ---
 
+## Proof
+
+:::proof
+
+test
+
+:::
+
 ## Fenced Divs
 
 :::screen

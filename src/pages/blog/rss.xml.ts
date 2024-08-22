@@ -1,22 +1,16 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
-import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts.js';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
+import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../consts.ts";
 import OtherPosts from "../../other-posts.json";
 
-/**
- * @param {any} context
- * @returns {Promise<Response>}
- */
-export async function GET(context) {
-  /**
-   * @param {any} a
-   * @param {any} b
-   * @returns {number}
-   */
-  const sortByDate = (a, b) => b.pubDate.valueOf() - a.pubDate.valueOf();
+export async function GET(context: any): Promise<Response> {
+  const sortByDate = (a: any, b: any): number =>
+    b.pubDate.valueOf() - a.pubDate.valueOf();
 
   const BlogPosts = await Promise.all(
-    (await getCollection("blog"))
+    (
+      await getCollection("blog")
+    )
       .filter((post) => !post.data.draft)
       .map(async (post) => ({
         title: post.data.title,

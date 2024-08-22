@@ -1,11 +1,15 @@
 // wip
+import type { RemarkPlugin } from '@astrojs/markdown-remark';
 import { h } from 'hastscript';
 import { visit } from 'unist-util-visit';
 
 // @ts-ignore
-const remarkFencedDivs = () => tree => visit(tree, (node) => {
+const remarkFencedDivs: RemarkPlugin<any[]> = () => tree => visit(tree, (node) => {
+  // @ts-ignore
   if (node.type === 'containerDirective') {
+    // @ts-ignore
     if (node.name === 'screen') {
+      // @ts-ignore
       const data = node.data || (node.data = {});
       const tagName = 'div';
 

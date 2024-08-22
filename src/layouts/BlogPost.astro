@@ -23,13 +23,15 @@ const { title, pubDate, lang, draft, pdf } = Astro.props;
       description=""
       noindex={draft}
     />
-    <style lang="stylus">
-      article
-        padding-bottom 1rem
+    <style lang="scss">
+      article {
+        padding-bottom: 1rem;
 
-        .title
-          font-size 2em
-          margin 0.25em 0 0
+        .title {
+          font-size: 2em;
+          margin: 0.25em 0 0;
+        }
+      }
     </style>
   </head>
 

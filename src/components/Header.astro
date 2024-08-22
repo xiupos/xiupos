@@ -16,22 +16,26 @@ const { links } = Astro.props;
   </nav>
 </header>
 
-<style lang="stylus">
-  header
-    font-size 1.2rem
-    margin 0em 0 2rem
+<style lang="scss">
+  header {
+    font-size: 1.2rem;
+    margin: 0em 0 2rem;
 
-    nav
-      display flex
-      justify-content center
-      gap 2rem
-      flex-wrap wrap
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
 
-      a
-        margin 0
+      a {
+        margin: 0;
         display: inline-block;
-        color inherit
+        color: inherit;
 
-        &:hover
-          color var(--accent)
+        &:hover {
+          color: var(--accent);
+        }
+      }
+    }
+  }
 </style>

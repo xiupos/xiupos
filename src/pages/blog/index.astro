@@ -43,27 +43,31 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
       author={SITE_AUTHOR}
       description={BLOG_DESCRIPTION}
     />
-    <style lang="stylus">
-      ul
-        box-sizing border-box
-        padding 0
-        list-style-type none
+    <style lang="scss">
+      ul {
+        box-sizing: border-box;
+        padding: 0;
+        list-style-type: none;
 
-        li
-          display flex
-          margin-bottom .3em
+        li {
+          display: flex;
+          margin-bottom: .3em;
 
-          :global(time)
-            flex 0 0 8em
-            color var(--color-sub)
+          :global(time) {
+            flex: 0 0 8em;
+            color: var(--color-sub);
+          }
 
-          a span
-            background var(--back-code)
-            color var(--color-sub)
-            padding .1em .4em
-            border-radius .3em
-            white-space nowrap
-            font-size 0.8em
+          a span {
+            background: var(--back-code);
+            color: var(--color-sub);
+            padding :.1em .4em;
+            border-radius: .3em;
+            white-space: nowrap;
+            font-size: 0.8em;
+          }
+        }
+      }
     </style>
   </head>
   <body>

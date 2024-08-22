@@ -17,19 +17,22 @@ const { links } = Astro.props;
   }
 </div>
 
-<style lang="stylus">
-  .social
-    display flex
-    justify-content center
-    align-items center
-    align-content center
-    gap 0.7em
-    margin 0 auto 1.5rem
-    font-size 1.7em
+<style lang="scss">
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.7em;
+    margin: 0 auto 1.5rem;
+    font-size: 1.7em;
 
-    a
-      color inherit
+    a {
+      color: inherit;
 
-      &:hover
-        color var(--accent)
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
 </style>

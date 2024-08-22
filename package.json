@@ -26,8 +26,8 @@
     "rehype-wrap-all": "^1.1.0",
     "remark-directive": "^3.0.0",
     "remark-math": "^6.0.0",
+    "sass": "^1.77.8",
     "sharp": "^0.33.5",
-    "stylus": "^0.63.0",
     "unist-util-visit": "^5.0.0",
     "unist-util-visit-parents": "^6.0.1"
   },

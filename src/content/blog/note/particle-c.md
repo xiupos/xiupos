@@ -102,6 +102,27 @@ $$
 
 これにより, 変分条件 $δS[q^i]=0$ を満たす $q^i(t)$ を求める問題は, Euler–Lagrange 方程式という微分方程式を解く問題と等価であることがわかった.
 
+ところで, Lagrangian は一意ではない. Lagrangian $L(q,\.q,t)$ に対し, 位置と時間の関数 $f(q,t)$ の時間に関する完全微分 $\d{f(q,t)}/\d{t}$ を加えた量
+$$
+\begin{aligned}
+  \~L(q,\.q,t)
+    &:= L(q,\.q,t) + \dv{f(q,t)}{t} \\
+    &= L(q,\.q,t) + \.q^j \pdv{f(q,t)}{q^j} + \pdv{f(q,t)}{t}
+\end{aligned}
+$$
+は同じ形の Euler–Lagrange の運動方程式を与える. 実際,
+$$
+\begin{gathered}
+  \pdv{\~L}{q^i} = \pdv{L}{q^i} + \.q^j \frac{∂^2f}{∂q^i∂q^j} + \frac{∂^2f}{∂q^i∂t}, \\
+  \dv{}{t} \pqty{\pdv{\~L}{\.q^i}} = \dv{}{t} \pqty{\pdv{L}{\.q^i} + \pdv{f}{q^i}} = \dv{}{t} \pqty{\pdv{L}{\.q^i}} + \.q^j \frac{∂^2f}{∂q^j∂q^i} + \frac{∂^2f}{∂t∂q^i}
+\end{gathered}
+$$
+であるから, 辺々引いて,
+$$
+\pdv{\~L}{q^i} - \dv{}{t} \pqty{\pdv{\~L}{\.q^i}} = \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
+$$
+となり, $L$ について Euler–Lagrange 方程式が成立するなら, $\~L$ についても成立する.
+
 #### 例: 一次元一粒子系
 
 一次元一粒子系の Lagrangian は

@@ -320,13 +320,11 @@ $$
 Lagrangian の場合と同様に, 最小作用の原理に対し Hamiltonian が満たす条件を求めよう. Hamiltonian $H(q^i, p_i, t) ≡ \.q^i p_i - L$ の全微分は,
 $$
 \begin{aligned}
-\d{H} &=  \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
-    &=  \.q^i \d{p_i} + p_i \d{\.q^i}
-        - \pdv{L}{q^i} \d{q^i} - p_i \d{\.q^i} - \pdv{L}{t} \d{t} \\
-    &   \quad \pqty{
-          ∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}
-        } \\
-    &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}
+\d{H}
+  &= \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
+  &= \.q^i \d{p_i} + p_i \d{\.q^i} - \pdv{L}{q^i} \d{q^i} - p_i \d{\.q^i} - \pdv{L}{t} \d{t} \\
+  &  \quad \pqty{∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}} \\
+  &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}
 \end{aligned}
 $$
 である. ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる.

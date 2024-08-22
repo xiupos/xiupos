@@ -50,18 +50,19 @@ $$
 
 ### Euler–Lagrange の運動方程式
 
-系の作用を直接求めることは難しく, これから定義する Lagrangian を用いるのが便利である:
+系の作用を直接求めることは難しく, これから定義する Lagrangian を用いるのが便利である.
 
 :::screen
 
-作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて以下のように表される:
+作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて,
 $$
 S[q^i] = ∫_{t_1}^{t_2} \d{t} L(q^i, \.q^i, t).
 $$
+と表される.
 
 :::
 
-最小作用の原理に対し, この Lagrangian が満たすべき条件を求めよう. $q^i ↦ q^i + δq^i$ の変換に対し,
+最小作用の原理に対し, この Lagrangian が満たすべき条件を求めよう. $q^i ↦ q^i + δq^i$ の変換に対し, 作用の変化 $δS[q^i]=S[q^i+δq^i]-S[q^i]$ を計算すると,
 $$
 \begin{aligned}
 δS[q^i]
@@ -79,24 +80,25 @@ $$
 =&  ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
       \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
     }
-    + \bqty{ δq^i \pdv{L}{\.q^i}}_{t=t_1}^{t=t_2}.
+    + \bqty{ δq^i \pdv{L}{\.q^i}}_{t=t_1}^{t=t_2}
 \end{aligned}
 $$
-ここで, 第2項は両端固定の境界条件 $δq^i(t_1)=δq^i(t_2)=0$ より消える:
+となる. ここで, 第2項は両端固定の境界条件 $δq^i(t_1)=δq^i(t_2)=0$ より消すことができて,
 $$
 δS[q^i]
 = ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
-  }.
+  }
 $$
-$δq^i(t)$ は $t_1<t<t_2$ で任意だから, 原理 $δS[q^i] = 0$ より, 次の運動方程式が得られる:
+となる. $δq^i(t)$ は $t_1<t<t_2$ で任意だから, 原理 $δS[q^i] = 0$ より, 次の運動方程式が得られる.
 
 :::screen
 
-最小作用の原理を満たすとき, Lagrangian $L(q^i,\.q^i,t)$ は以下の **Euler–Lagrange の運動方程式**を満たす:
+最小作用の原理を満たすとき, Lagrangian $L(q^i,\.q^i,t)$ は **Euler–Lagrange の運動方程式**
 $$
-\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0.
+\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}} = 0
 $$
+を満たす.
 
 :::
 
@@ -135,19 +137,19 @@ $$
 $$
 であるから, Euler–Lagrange の運動方程式は,
 $$
-m\"q + \pdv{V}{q} = 0.
+m\"q + \pdv{V}{q} = 0
 $$
-これは Newton の運動方程式として知られており, Lagrangian 決定の任意性を除けば, 最小作用の原理は物理原理として well-defined であることがわかる.
+と求まる. これは Newton の運動方程式として知られており, Lagrangian 決定の任意性を除けば, 最小作用の原理は物理原理として well-defined であることがわかる.
 
 ポテンシャルが無い ($V=0$) ときの作用の表式を求める. 運動方程式 $m\"q = 0$ を解いて,
 $$
-\.q(t) = \frac{q(t_2)-q(t_1)}{t_2-t_1}.
+\.q(t) = \frac{q(t_2)-q(t_1)}{t_2-t_1}
 $$
-したがって, 作用は
+が得られる. したがって, 作用は
 $$
 S[q] = ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}
 $$
-と求められる.
+と求まる.
 
 #### 例: 調和振動子
 
@@ -161,17 +163,18 @@ $$
 $$
 であるから, Euler–Lagrange の運動方程式は
 $$
-m\"q + m ω^2 q = 0.
+m\"q + m ω^2 q = 0
 $$
+と求まる.
 
 作用の表式を求める. 運動方程式を解いて,
 $$
 \begin{aligned}
   q(t) &= \frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}, \\
-  \.q(t) &= ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}. \\
+  \.q(t) &= ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)} \\
 \end{aligned}
 $$
-ただし, $q_1 ≡ q(t_1)$, $q_2 ≡ q(t_2)$ とした. したがって, 作用は,
+が得られる. ただし, $q_1 ≡ q(t_1)$, $q_2 ≡ q(t_2)$ とした. したがって, 作用は,
 $$
 \begin{aligned}
   S[q]
@@ -180,13 +183,13 @@ $$
     &= \frac{mω}{2 \sin ω(t_2-t_1)} \bqty{(q_1^2+q_2^2) \cos ω(t_2-t_1) - 2q_1q_2} \\
 \end{aligned}
 $$
-と求められる.
+と求まる.
 
 ### Noether の定理
 
 Lagrangian は運動方程式を与えるだけでなく, 系の対称性に関する情報も持っている. 時間と座標の連続変換に対し作用が不変であるとき, 系には対応する不変量が存在することが知られている. この定理は Noether の定理と呼ばれている.
 
-時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき $t_1<t<t_2$ の作用は
+時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$ と変換されるとする. このとき $t_1<t<t_2$ の作用の変化 $δS[q^i(t)]=S[q'^i(t')]-S[q^i(t)]$ を計算すると,
 $$
 \begin{aligned}
   δS[q^i]
@@ -207,10 +210,10 @@ $$
     &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \bqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}_{t=t_1}^{t=t_2} \\
     &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
-      + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2}. \\
+      + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2} \\
 \end{aligned}
 $$
-ここで, 最後の式の第一項は Euler–Lagrange の運動方程式より消え, 第二項の $t_1$, $t_2$ は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる:
+となる. ここで, 最後の式の第一項は Euler–Lagrange の運動方程式より消え, 第二項の $t_1$, $t_2$ は任意である[^noether]. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量が得られる.
 
 [^noether]: 最小作用の原理の場合と違い, このときの $δq^i$ は両端固定でない. そのため, Euler-Lagrange の運動方程式の際に消えた発散項を, 今回の場合は消すことができない.
 
@@ -260,7 +263,9 @@ $$
 
 ### Hamilton–Jacobi 方程式
 
-前節で導入された Hamiltonian は, 系に関して Lagrangian と同程度の情報を持つ. 以降, Hamiltonian の性質について詳しくみていく.
+前節で導入された Hamiltonian は, Lagrangian を Legendre 変換したものであり, 系に関して Lagrangian と同程度の情報を持つ. 以降, Hamiltonian の性質について詳しくみていく[^form].
+
+[^form]: Lagrangian を用いた議論を「Lagrange 形式」, Hamiltonian を用いた議論を「Hamilton 形式」と呼ぶことがある.
 
 :::screen
 
@@ -280,31 +285,33 @@ $$
 
 :::
 
-一般化運動量と Hamiltonian は作用を端点で偏微分することで得ることもできる:
+一般化運動量と Hamiltonian は作用を端点で偏微分して
 $$
-p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}.
+p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}
 $$
-ただし作用は $S[q^i]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+と得ることもできる. ただし作用は $S[q^i]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
 $$
-δS[q^i] = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}.
+δS[q^i] = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}
 $$
-始点での変位を $δt(t_0)=δq^i(t_0)=0$ とすれば,
+である. このときの始点での変位を $δt(t_0)=δq^i(t_0)=0$ とすれば,
 $$
-δS[q^i] = δq^i p_i - δt H.
+δS[q^i] = δq^i p_i - δt H
 $$
-この変分は経路の始点と途中 $t'∈[t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分が得られる:
+となる. この変分は経路の始点と途中 $t'∈[t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分
 $$
-\d{S} = \d{q^i} p_i - \d{t} H.
+\d{S} = \d{q^i} p_i - \d{t} H
 $$
+が得られる.
 
-これらの性質を組み合わせることで以下の方程式が得られる:
+これらの性質を組み合わせることで以下の方程式が得られる.
 
 :::screen
 
-最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation* を満たす:
+最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation*
 $$
 H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0.
 $$
+を満たす.
 
 :::
 
@@ -319,93 +326,93 @@ $$
     &   \quad \pqty{
           ∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}
         } \\
-    &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}.
+    &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}
 \end{aligned}
 $$
-ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる:
+である. ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる.
 
 :::screen
 
-最小作用の原理を満たすとき, Hamiltonian は以下の **Hamilton の運動方程式**あるいは**正準方程式** canonical equation を満たす:
+最小作用の原理を満たすとき, Hamiltonian は以下の **Hamilton の運動方程式**あるいは**正準方程式** canonical equation
 $$
 \.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}.
 $$
+を満たす.
 
 :::
 
-Lagrangian が時間に陽に依存しないとき, Hamiltonian は保存する:
+Lagrangian が時間に陽に依存しないとき, Hamiltonian
 $$
-\pdv{H}{t} = -\pdv{L}{t} = 0.
+\pdv{H}{t} = -\pdv{L}{t} = 0
 $$
+は保存する. 時間並進に対して作用が不変であるから, 前述の Noether の定理の結果とも一致する.
 
 $q^i(t)$ と $p_i(t)$ を独立にした作用
 $$
-S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
+S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
 $$
-も用いられる.
+も用いられる. このときの最小作用の原理は
+$$
+δS[q^i, p_i] = S[q^i+δq^i, p_i+δp_i] - S[q^i, p_i] = 0
+$$
+で表される.
 
 #### 例: 一次元一粒子系
 
 一次元一粒子系の Lagrangian は,
 $$
-L(q, \.q, t) = \frac12 m \.q^2 - V(q).
+L(q, \.q, t) = \frac12 m \.q^2 - V(q)
 $$
-ここで, 一般化運動量の定義より,
+であった. 一般化運動量の定義より,
 $$
-p = \pdv{L}{\.q} = m \.q.
+p = \pdv{L}{\.q} = m \.q
 $$
-したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
+である. したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
 $$
-H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + V(q).
+H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + V(q)
 $$
-ここで,
+と求まる. ここで,
 $$
-\begin{aligned}
-\pdv{H}{q} &= \dv{V}{q}, & \pdv{H}{p} &= \frac{p}{m}.
-\end{aligned}
+\pdv{H}{q} = \dv{V}{q}, \quad \pdv{H}{p} = \frac{p}{m}
 $$
-したがって, Hamilton の運動方程式は,
+であるから, Hamilton の運動方程式は,
 $$
-\begin{aligned}
-\.p &= - \dv{V}{q}, & \.q &= \frac{p}{m}.
-\end{aligned}
+\.p = - \dv{V}{q}, \quad \.q = \frac{p}{m}
 $$
+と得られる.
 
 #### 例: 調和振動子
 
 調和振動子の Lagrangian は,
 $$
-L(q, \.q, t) = \frac12 m \.q^2 - \frac12 m ω^2 q^2.
+L(q, \.q, t) = \frac12 m \.q^2 - \frac12 m ω^2 q^2
 $$
-ここで, 一般化運動量の定義より,
+であった. 一般化運動量の定義より,
 $$
-p = \pdv{L}{\.q} = m \.q.
+p = \pdv{L}{\.q} = m \.q
 $$
-したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
+である. したがって $\.q = p / m$ であるから, Hamiltonian の定義より,
 $$
-H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac12 m ω^2 q^2.
+H(q, p, t) = \frac{p}{m} p - L\pqty{q, \frac{p}{m}, t} = \frac{p^2}{2m} + \frac12 m ω^2 q^2
 $$
-ここで,
+と求まる. ここで,
 $$
-\begin{aligned}
-\pdv{H}{q} &= m ω^2 q, & \pdv{H}{p} &= \frac{p}{m}.
-\end{aligned}
+\pdv{H}{q} = m ω^2 q, \quad \pdv{H}{p} = \frac{p}{m}
 $$
-したがって, Hamilton の運動方程式は,
+であるから, Hamilton の運動方程式は,
 $$
-\begin{aligned}
-\.p &= - m ω^2 q, & \.q &= \frac{p}{m}.
-\end{aligned}
+\.p = - m ω^2 q, \quad \.q = \frac{p}{m}
 $$
+と得られる.
 
 ### 正準変換
 
 正準変数の変換 $(q^i, p_i) ↦ (q'^j, p'_j) = (q'^j(q^i, p_i), p'_j(q^i, p_i))$ に対して Hamiltonian が $H(q^i,p_i,t) ↦ H'(q'^j,p'_j,t)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. いずれの表示でも最小作用の原理を満たすとき, Hamiltonian の定義から,
 $$
-\begin{aligned}
-  δS[q^i,p_i] &= δ∫\d{t} (\.q^i p_i - H) = 0, \\
-  δS'[q'^i,p'_i] &= δ∫\d{t} (\.q'^i p'_i - H') = 0.
-\end{aligned}
+\begin{gathered}
+  δS[q^i,p_i] = δ∫\d{t} (\.q^i p_i - H) = 0, \\
+  δS'[q'^i,p'_i] = δ∫\d{t} (\.q'^i p'_i - H') = 0.
+\end{gathered}
 $$
 したがって, ある関数 $W$ が存在して,
 $$

@@ -64,3 +64,7 @@ $$
     &= \pmqty{1 \\ t \\ \bm{x}} + \pmqty{0 \\ s \\ \bm{a} + \bm{v}t + (R-1)\bm{x}}
 \end{aligned}
 $$
+
+- Kelly, J. (2023). All About the Galilean Group SGal (3). *arXiv preprint [arXiv:2312.07555](https://arxiv.org/abs/2312.07555)*.
+
+- Florian, S. (2005). Mechanics: From Newton's Laws to Deterministic Chaos. Springer.

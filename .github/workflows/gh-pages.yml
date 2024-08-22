@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: https://xiupos.net/
@@ -26,15 +26,15 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: 8
+          bun-version: latest
 
       - name: Install dependencies
-        run: pnpm i
+        run: bun install
 
       - name: Build
-        run: pnpm build
+        run: bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

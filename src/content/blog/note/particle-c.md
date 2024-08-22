@@ -270,11 +270,13 @@ p_i ≡ \pdv{L}{\.q^i}
 $$
 を**一般化運動量**, または $q^i$ に**共役な運動量** *conjugate momentum* といい, 一般化座標とそれに共役な運動量の組 $(q^i, p_i)$ を**正準変数** *canonical variables* という.
 
-Lagrangian $L$ と正準変数 $(q^i, p_i)$ が与えられたとき,
+Lagrangian $L$ と正準変数 $(q^i, p_i)$ が与えられたとき[^p],
 $$
 H(q^i, p_i, t) ≡ \.q^i p_i - L
 $$
 を **Hamiltonian** という.
+
+[^p]: たとえば $p_i = ∂L(q^i,\.q^i,t)/∂\.q^i$ を逆に解いて $p_i = \.q_i=(q_i,p_i,t)$ が得られたとき.
 
 :::
 

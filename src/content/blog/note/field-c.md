@@ -402,10 +402,10 @@ $$
 実際, $A$ の時間による完全微分は,
 $$
 \begin{aligned}
-\dv{A}{t}
-&=  ∫ \d{{}^3 \bm{x}} \fdv{A}{ϕ^α} \.ϕ^α + ∫ \d{{}^3 \bm{x}} \fdv{A}{π_α} \.π_α \\
-&=  ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α} \fdv{H}{π_α} - \fdv{H}{ϕ^α} \fdv{A}{π_α}} \\
-&=  \{A, H\}_\mathrm{P}.
+  \dv{A}{t}
+    &=  ∫ \d{{}^3 \bm{x}} \fdv{A}{ϕ^α} \.ϕ^α + ∫ \d{{}^3 \bm{x}} \fdv{A}{π_α} \.π_α \\
+    &=  ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α} \fdv{H}{π_α} - \fdv{H}{ϕ^α} \fdv{A}{π_α}} \\
+    &=  \{A, H\}_\mathrm{P}.
 \end{aligned}
 $$
 
@@ -432,22 +432,22 @@ $$
 
 さて, 実 Klein-Gordon 場 $ϕ(t,\bm{x})$ を 3 次元 Fourier 級数展開して,
 $$
-ϕ(t,\bm{x}) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i \bm{p}⋅\bm{x}}.
+ϕ(t,\bm{x}) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i \bm{p}⋅\bm{x}}
 $$
-ただし, $q(t, \bm{p})$ は展開係数. これを運動方程式 $(□ + m^2)ϕ = 0$ に代入すると,
+が得られる. ただし, $q(t, \bm{p})$ は展開係数である. これを運動方程式 $(□ + m^2)ϕ = 0$ に代入すると,
 $$
 \begin{aligned}
- &\ (□ + m^2) ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-=&\ \pdv{{}^2}{t^2} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} - ∇^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + m^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-=&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \"q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} |\bm{p}|^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} m^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-=&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{\"q + (\bm{p}^2 + m^2) q} e^{i\bm{p}⋅\bm{x}} = 0.
+   &\ (□ + m^2) ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ \pdv{{}^2}{t^2} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} - ∇^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + m^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \"q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} |\bm{p}|^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} m^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{\"q + (\bm{p}^2 + m^2) q} e^{i\bm{p}⋅\bm{x}} = 0
 \end{aligned}
 $$
-したがって, $p_0 ≡ \sqrt{|\bm{p}|^2 + m^2} > 0$ として $\"q(t, \bm{p}) + (p_0)^2 q(t, \bm{p}) = 0$ だから, $q(t, \bm{p})$ の一般解は
+となる. ここで $p_0 ≡ \sqrt{|\bm{p}|^2 + m^2} > 0$ とすれば $\"q(t, \bm{p}) + (p_0)^2 q(t, \bm{p}) = 0$ だから, $q(t, \bm{p})$ の一般解は
 $$
-q(t, \bm{p}) = q_1(\bm{p}) e^{-ip_0t} + q_2(\bm{p}) e^{ip_0t}.
+q(t, \bm{p}) = q_1(\bm{p}) e^{-ip_0t} + q_2(\bm{p}) e^{ip_0t}
 $$
-$ϕ(t,\bm{x})$ の展開を $q_1(\bm{p})$, $q_2(\bm{p})$ で書き直して,
+である. $ϕ(t,\bm{x})$ の展開を $q_1(\bm{p})$, $q_2(\bm{p})$ で書き直して,
 $$
 \begin{aligned}
   ϕ(t,\bm{x})
@@ -458,14 +458,14 @@ $$
     \quad (px ≡ p_μx^μ = p_0t - \bm{p}⋅\bm{x})
 \end{aligned}
 $$
-ここで, $ϕ(x)$ が実スカラー場であることから $ϕ(x) = ϕ^*(x)$.
+ここで, $ϕ(x)$ が実スカラー場であることから $ϕ(x) = ϕ^*(x)$ である. 場の展開の複素共役は
 $$
 \begin{aligned}
   ϕ^*(x)
     &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1^*(\bm{p}) e^{ipx} + q_2^*(-\bm{p}) e^{-ipx}}
 \end{aligned}
 $$
-であるから,
+であるから, 比較すれば
 $$
 \begin{aligned}
   \frac{a(\bm{p})}{\sqrt{2p_0}} ≡ \frac{q_1(\bm{p}) + q_2^*(-\bm{p})}{2}, \quad

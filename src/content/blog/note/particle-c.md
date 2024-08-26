@@ -309,7 +309,7 @@ $$
 
 最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation*
 $$
-H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0.
+H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0
 $$
 を満たす.
 
@@ -333,7 +333,7 @@ $$
 
 最小作用の原理を満たすとき, Hamiltonian は以下の **Hamilton の運動方程式**あるいは**正準方程式** canonical equation
 $$
-\.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}.
+\.p_i = - \pdv{H}{q^i}, \quad \.q^i = \pdv{H}{p_i}
 $$
 を満たす.
 

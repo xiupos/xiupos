@@ -1,0 +1,11 @@
+.cm-line {
+  line-height: 2;
+}
+
+.cm-line .math {
+  font-size: 1.2em;
+}
+
+.math-block {
+  font-size: 1.2em;
+}

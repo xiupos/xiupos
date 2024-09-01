@@ -147,28 +147,6 @@ article {
       width: unset;
       max-height: var(--width-responsible);
       height: auto;
-
-      &[src^="data:image/svg+xml;base64"] {
-        filter: var(--filter);
-      }
-    }
-
-    > svg {
-      filter: var(--filter);
-    }
-
-    .feynmanjs {
-      filter: var(--filter);
-
-      .feynmanjs-figure {
-        margin: 0;
-        --scale: calc(var(--fig-width) / var(--width-responsible) * 100%);
-        scale: var(--scale);
-      }
-
-      mjx-container {
-        filter: var(--filter);
-      }
     }
 
     table {

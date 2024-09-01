@@ -47,7 +47,16 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
     for (const { node } of instances) {
       try {
         node.type = "html";
-        node.value = await tex2html(node.lang, node.value);
+        let svg = await tex2html(node.lang, node.value);
+
+        // for dark mode;
+        svg = svg
+          // .replaceAll(/stroke="none"/g, `storoke="var(--color)"`)
+          .replaceAll(/("#000"|"black")/g, `"currentColor"`)
+          .replaceAll(/stroke="currentColor"/g, `stroke="currentColor" fill="currentColor"`)
+          .replaceAll(/("#fff"|"white")/g, `"var(--back)"`);
+
+        node.value = svg;
       } catch (e) {
         console.log("ERROR", e);
         return reject(e);

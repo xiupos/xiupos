@@ -1,11 +1,11 @@
 ---
-title : Syntax test
-author : xiupos
-date : \today
-pubDate : 2024-01-06T22:40:00+09:00
-lang : en
-draft : true
-math : true
+title: Syntax test
+author: xiupos
+date: \today
+pubDate: 2024-01-06T22:40:00+09:00
+lang: en
+draft: true
+math: true
 ---
 
 ## Proof

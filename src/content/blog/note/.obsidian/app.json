@@ -3,5 +3,7 @@
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
   "spellcheck": false,
-  "showRibbon": false
+  "showRibbon": false,
+  "tabSize": 4,
+  "useTab": false
 }

@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ad7ce90762d3e214",
+            "id": "8a45b950273a4db2",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,21 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "8a45b950273a4db2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "harmonic.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "harmonic.md",
+                "file": "particle-q.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "harmonic.md",
+                "file": "particle-q.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "harmonic.md"
+                "file": "particle-q.md"
               }
             }
           }
@@ -161,19 +148,19 @@
   },
   "active": "8a45b950273a4db2",
   "lastOpenFiles": [
-    "test.md",
+    "module.md",
+    "category.md",
     "topology.md",
-    "harmonic.md",
-    "Untitled 1.md",
     "Untitled.md",
+    "harmonic.md",
+    "test.md",
+    "Untitled 1.md",
     "particle-c.md",
     "Pasted image 20240904225652.png",
-    "module.md",
     "lie.md",
     "la.md",
     "algebra.md",
     "particle-q.md",
-    "category.md",
     "dg.md",
     "green-function.md",
     "gr.md",

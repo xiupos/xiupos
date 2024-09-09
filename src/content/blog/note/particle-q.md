@@ -715,28 +715,43 @@ $$
 $$
 また, この $K(q_f,t_f;q_i,t_i)$ を**伝播関数**という. これは **Green 関数**とも呼ばれ, 以下を満たす:
 $$
-\pqty{H(q^i,p_i,t)-i{\hbar}\pdv{}{t}} K(q,t;q_0,t_0) = -i{\hbar}δ^D(q-q_0)δ(t-t_0).
+\qty[H\qty(q^i,-i{\hbar}∂_i,t)-i{\hbar}\pdv{}{t}] K(q,t;q_0,t_0) = -i{\hbar}δ^D(q-q_0)δ(t-t_0).
 $$
 
 :::
 
-位置表示の波動関数に対して以下が成立する:
+位置表示の波動関数に対して
 $$
 ψ(q,t) = ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
 $$
-実際,
+が成立する. 実際, 時刻 $t_0$ における完全性を使えば,
 $$
 \begin{aligned}
   ψ(q,t) &= ⟨q,t | ψ⟩ \\
     &= ⟨q,t| \pqty{∫ \d{{}^D q_0} |q_0,t_0⟩ ⟨q_0,t_0|} |ψ⟩ \\
     &= ∫ \d{{}^D q_0} ⟨q,t|q_0,t_0⟩ ⟨q_0,t_0|ψ⟩ \\
-    &= ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
+    &= ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0)
 \end{aligned}
 $$
+となる. また, これを用いると波動関数が Schrödinger 方程式を満たすことがわかる. つまり,
+$$
+\begin{aligned}
+     &\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ψ(q,t) \\
+    =&\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ∫ \d{{}^D q_0} ∫_{q_0}^q \mathcal{D}^Dq'\ e^{\frac{i}{{\hbar}} S[q'(t)]} ψ(q_0,t_0) \\
+     & \qty(q'(t)≡q(t)+δq(t),\ \text{$q(t)$ : 古典軌道},\ δS[q]≡S[q+δq]-S[q]) \\
+    =&\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ∫ \d{{}^D q_0} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \d{{}^D q_0} \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \d{{}^D q_0} \qty[H\qty(q^i,\pdv{S}{q^i},t)+\pdv{S}{t}] e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ 0 \quad \qty(∵ \text{古典軌道に対する Hamilton–Jacobi 方程式})
+\end{aligned}
+$$
+であるから, <!-- TODO: 後ろから2番目の等号は成立するのか -->
+$$
+H\qty(q^i,-i{\hbar}\pdv{}{q^i},t) ψ(q,t) = i{\hbar}\pdv{}{t} ψ(q,t)
+$$
+である. 正準量子化の仮定を使っていないことに注意. 以上のことから, 伝播関数が Schrödinger 方程式の Green 関数になることがわかる.
 
-<!-- TODO: Green 関数であることの証明 -->
-
-経路積分量子化は古典極限を取ることで最小作用の原理を与える. $q'=q+δq$ として鞍点法を用いると,
+また, 経路積分量子化は古典極限を取ることで最小作用の原理を与える. $q'=q+δq$ として鞍点法を用いると,
 $$
 \begin{aligned}
   K(q_f,t_f;q_i,t_i)
@@ -776,28 +791,28 @@ $$
 
 :::screen
 
-$t_f>t_m>t_i$ ($m=1,…,n$) に対し
+$t_i<t_m<t_f$ ($m=1,…,n$) に対し
 $$
-⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩ = ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{{\hbar}} S[q(t)]}
+⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1) |q_i,t_i⟩ = ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]}
 $$
 を **$n$ 点 Green 関数**という. ただし $T$ は時間順序積.
 
 :::
 
-実際, $t_f>t_{σ_1}>⋯>t_{σ_n}>t_i$ を満たす適当な置換 $σ = \pmqty{1&⋯&n\\σ_1&⋯&σ_n}$ を用いると,
+実際, $t_i<t_{σ_1}<⋯<t_{σ_n}<t_f$ を満たす適当な置換 $σ = \pmqty{1&⋯&n\\σ_1&⋯&σ_n}$ を用いると,
 $$
 \begin{aligned}
-   &\ ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| \^q(t_{σ_1})⋯\^q(t_{σ_n}) |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| \^q(t_{σ_1}) \pqty{ ∫\d{{}^D q_{σ_1}} |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} ⋯ \^q(t_{σ_n}) \pqty{∫\d{{}^D q_{σ_n}}|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} |q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} ⟨q_f,t_f| \^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯\^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} q_{σ_1}⋯q_{σ_n} ⟨q_f,t_f|q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}| ⋯ |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_1}}⋯∫\d{{}^D q_{σ_n}} q_{σ_1}⋯q_{σ_n} \pqty{∫_{q_{σ_1}}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_{σ_1},t_f]}[q]}} \pqty{∫_{q_{σ_2}}^{q_{σ_1}} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_{σ_2},t_{σ_1}]}[q]}} ⋯ \pqty{∫_{q_i}^{q_{σ_n}} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_i,t_{σ_n}]}[q]}} \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_{σ_1})⋯q(t_{σ_n}) e^{\frac{i}{{\hbar}} S[q(t)]}. \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{{\hbar}} S[q(t)]}. \\
+   &\ ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1) |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_n})⋯\^q(t_{σ_1}) |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_n}) \pqty{ ∫\d{{}^D q_{σ_n}} |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} ⋯ \^q(t_{σ_1}) \pqty{∫\d{{}^D q_{σ_1}}|q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} |q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} ⟨q_f,t_f| \^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯\^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} ⟨q_f,t_f|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯ |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
+  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} \pqty{∫_{q_{σ_n}}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_{σ_n},t_f]}[q]}} ⋯ \pqty{∫_{q_i}^{q_{σ_1}} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_i,t_{σ_1}]}[q]}} \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_{σ_n})⋯q(t_{σ_1}) e^{\frac{i}{{\hbar}} S[q(t)]} \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]} \\
 \end{aligned}
 $$
-これは置換 $σ$ に依らず成立する.
+となる. 最初と最後は $σ$ を含まないから, これは置換 $σ$ に依らず成立する.
 
 $n$ 点 Green 関数は次に定義される生成汎関数から機能的に得ることができる:
 
@@ -813,31 +828,31 @@ $$
 $$
 で定義される汎関数 $Z[J(t)]$ を**生成汎関数**という. この生成汎関数を $n$ 回汎関数微分すると $n$ 点 Green 関数が得られる:
 $$
-(-i)^n {\hbar}^n \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} = ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n) |q_i,t_i⟩.
+(-i)^n {\hbar}^n \left. \frac{δ^n Z[J(t)]}{δJ(t_n)⋯δJ(t_1)} \right|_{J=0} = ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1) |q_i,t_i⟩.
 $$
 
 :::
 
-実際, 生成汎関数の汎関数積分表示は
+定義中の2つ目の等号は,
 $$
 \begin{aligned}
    &\ ⟨q_f,t_f| T\exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)\^q(t)} |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) \^q(t_1)⋯\^q(t_n)} |q_i,t_i⟩ \\
-  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n)|q_i,t_i⟩  \\
-  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_1)⋯q(t_n) e^{\frac{i}{{\hbar}} S[q(t)]}  \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \bqty{∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} J(t_1)⋯J(t_n) q(t_1)⋯q(t_n)} e^{\frac{i}{{\hbar}} S[q(t)]}  \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]}. \\
+  =&\ ⟨q_f,t_f| T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) \^q(t_n)⋯\^q(t_1)} |q_i,t_i⟩ \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩  \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \bqty{∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) q(t_n)⋯q(t_1)} e^{\frac{i}{{\hbar}} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]} \\
 \end{aligned}
 $$
-また, 式変形の途中
+より成立する. また, この式変形の途中
 $$
-Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \bqty{\frac{i^n}{{\hbar}^n} ⟨q_f,t_f| T\^q(t_1)⋯\^q(t_n)|q_i,t_i⟩} J(t_1)⋯J(t_n)
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} \bqty{\frac{i^n}{{\hbar}^n} ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩} J(t_n)⋯J(t_1)
 $$
 を $Z[J(t)]$ の $J=0$ まわりの汎関数冪展開
 $$
-Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_1} ⋯ ∫_{t_i}^{t_f} \d{t_n} \left. \frac{δ^n Z[J(t)]}{δJ(t_1)⋯δJ(t_n)} \right|_{J=0} J(t_1)⋯J(t_n)
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} \left. \frac{δ^n Z[J(t)]}{δJ(t_n)⋯δJ(t_1)} \right|_{J=0} J(t_n)⋯J(t_1)
 $$
-と比較すると $n$ 点 Green 関数との関係式が得られる.
+と比較すると, $J(t)$ は任意だから, $n$ 点 Green 関数との関係式が得られる.
 
 ### 非相対論的方程式
 

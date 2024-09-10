@@ -745,7 +745,7 @@ $$
     =&\ 0 \quad \qty(∵ \text{古典軌道に対する Hamilton–Jacobi 方程式})
 \end{aligned}
 $$
-であるから, <!-- TODO: 後ろから2番目の等号は成立するのか -->
+であるから, <!-- TODO: この計算は正確か？ -->
 $$
 H\qty(q^i,-i{\hbar}\pdv{}{q^i},t) ψ(q,t) = i{\hbar}\pdv{}{t} ψ(q,t)
 $$

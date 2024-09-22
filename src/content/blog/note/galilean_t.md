@@ -7,7 +7,7 @@ lang : ja
 math : true
 draft: true
 ---
-
+Newton 力学とは, 運動方程式
 Newton 力学とは, 運動方程式
 $$
 \bm{F} = m \"{\bm{x}}
@@ -50,7 +50,7 @@ $$
 $$
 となり, 逆行列は
 $$
-\pmqty{1 & 0 & 0 \\ s & λ & 0 \\ \bm{a} & \bm{v} & R}^{-1} = \pmqty{1 & 0 & 0 \\ -λs & λ & 0 \\ -R^{\top}(\bm{a}-\bm{v}λs) & -λR^{\top}\bm{v} & R^{\top}}
+\pmqty{1 & 0 & 0 \\ s & λ & 0 \\ \bm{a} & \bm{v} & R}^{-1} = \pmqty{1 & 0 & 0 \\ -λs & λ & 0 \\ -R^{\top}\pqty{\bm{a}-\bm{v}λs} & -λR^{\top}\bm{v} & R^{\top}}
 $$
 で与えられる. これらの行列から明らかなように, Galilei 変換は群の公理を満たし, 変換の全体を Galilei 群という. 特に $λ=1$, $\det R=1$ である変換は恒等変換と連結であり, この変換を固有順時 Galilei 変換という. 以下ではこの場合のみを考える.
 
@@ -61,7 +61,7 @@ TODO: 生成子の話
 $$
 \begin{aligned}
   \pmqty{1 \\ t \\ \bm{x}} \longmapsto \pmqty{1 \\ t' \\ \bm{x}'} &= \pmqty{1 \\ t \\ \bm{x}} + \pmqty{0 & 0 & 0 \\ s & 0 & 0 \\ \bm{a} & \bm{v} & R-1} \pmqty{1 \\ t \\ \bm{x}} \\
-    &= \pmqty{1 \\ t \\ \bm{x}} + \pmqty{0 \\ s \\ \bm{a} + \bm{v}t + (R-1)\bm{x}}
+    &= \pmqty{1 \\ t \\ \bm{x}} + \pmqty{0 \\ s \\ \bm{a} + \bm{v}t + \pqty{R-1}\bm{x}}
 \end{aligned}
 $$
 

@@ -470,6 +470,14 @@ $$
 $$
 この式は, 物理量 $A$ の全時間発展が Hamiltonian $H$ によって記述されることを意味している.
 
+また, Poisson 括弧は以下の性質を満たす:
+
+1. **双線型性**: $\{aX+bY, Z\}_{\mathrm{P}} = a\{X,Z\}_{\mathrm{P}} + b\{Y,Z\}_{\mathrm{P}}$, $\{X, aY+bZ\}_{\mathrm{P}} = a\{X,Y\}_{\mathrm{P}} + b\{X,Z\}_{\mathrm{P}}$,
+2. **交代性**: $\{X,Y\}_{\mathrm{P}} = - \{Y,X\}_{\mathrm{P}}$,
+3. **Jacobi 律**: $\{X,\{Y,Z\}_{\mathrm{P}}\}_{\mathrm{P}} + \{Y,\{Z,X\}_{\mathrm{P}}\}_{\mathrm{P}} + \{Z,\{X,Y\}_{\mathrm{P}}\}_{\mathrm{P}} = 0$.
+
+したがって, Poisson 括弧は Lie 代数の括弧積である.
+
 <!-- TODO: Hamilton 形式による Noether の定理 -->
 
 ### 参考文献

@@ -160,9 +160,10 @@ article {
       }
 
       thead {
+        border-bottom: 0.1em solid var(--color);
+
         th {
           background: var(--back);
-          border-bottom: 0.1em solid var(--color);
 
           &:first-child {
             position: sticky;
@@ -176,13 +177,13 @@ article {
       tbody {
         tr {
           &:nth-child(odd) {
-            td {
+            th, td {
               background: var(--back);
             }
           }
 
           &:nth-child(even) {
-            td {
+            th, td {
               background: var(--back-sub);
             }
           }

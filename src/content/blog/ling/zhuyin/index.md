@@ -12,7 +12,7 @@ lang : ja
     <thead>
       <tr>
         <th colspan="2"></th>
-        <th>両唇</th>
+        <th>唇</th>
         <th>歯茎</th>
         <th>そり舌</th>
         <th>歯茎硬口蓋</th>

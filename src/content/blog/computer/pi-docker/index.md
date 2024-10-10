@@ -308,7 +308,7 @@ git push pi master # デプロイ
 
 接続はこんな感じ.
 
-img "https://blog.alexellis.io/content/images/2016/08/Screen-Shot-2016-08-20-at-09-40-46-1.png" ""
+![](https://blog.alexellis.io/content/images/2016/08/Screen-Shot-2016-08-20-at-09-40-46-1.png)
 
 画像の引用元: [Get Started with Docker 1.12 on Raspberry Pi](https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/)
 

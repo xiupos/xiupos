@@ -7,7 +7,7 @@ lang : ja
 math : true
 ---
 
-この記事は, [解析力学](/blog/note/particle-c/)において「変分」を用いて導出される諸々を, [汎関数計算](/blog/note/functional/)を用いて書き直す試みである. 正確性は保証しない.
+[解析力学](/blog/note/particle-c/)において「変分」を用いて導出される諸々を, [汎関数計算](/blog/note/functional/)を用いて書き直してみたい. 飽くまで試みなので正確性は保証されない.
 
 ### 最小作用の原理
 

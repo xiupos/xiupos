@@ -2,13 +2,12 @@
 title : 粒子系の量子論ノート
 author : xiupos
 date : \today
-pubDate : 2024-01-06T22:40:00+09:00
+pubDate : 2024-10-30T15:22:00+09:00
 lang : ja
-draft : true
 math : true
 ---
 
-粒子系[^particles]の量子論の基本事項を体系的にまとめる.
+粒子系[^particles]の量子論の基本事項を体系的にまとめる. 自分用のノートなので, 正確性は保証されない. また, 線型代数や関数解析で扱われるような数学的な事項には踏み込まず, 定義等も省略する.
 
 [^particles]: [古典論](./field-c.md)同様, ここでの「粒子系」は「(一般的な意味での)場でない」程度の意味である.
 
@@ -34,7 +33,7 @@ math : true
 
 :::
 
-演算子 $\^V:\mathcal{H}→\mathcal{H}$ の作用によって状態 $|ψ⟩$ が $|ψ'⟩ = \^V |ψ⟩$ になるとき, $\^{V}$ の作用によって状態が $|ψ⟩$ から $|φ⟩$ に遷移する遷移振幅は $⟨φ | ψ'⟩ = ⟨φ|\^V|ψ⟩$ である.
+例えば, 演算子 $\^V:\mathcal{H}→\mathcal{H}$ で表現される効果によって状態 $|ψ⟩$ が $|ψ'⟩ = \^V |ψ⟩$ になるとき, $\^{V}$ の作用によって状態が $|ψ⟩$ から $|φ⟩$ に遷移する遷移振幅は $⟨φ | ψ'⟩ = ⟨φ|\^V|ψ⟩$ である.
 
 量子論における物理量は演算子で表される. 状態がその演算子によって変わらないとき(固有状態)に, 古典論的な物理量は係数(固有値)として現れる.
 
@@ -46,17 +45,17 @@ math : true
 
 状態 $|ψ⟩$ で観測量 $\^A$ の固有値 $a$ が観測される確率は
 $$
-|⟨a | ψ⟩|^2 = ⟨ψ | a⟩ ⟨a | ψ⟩ = ⟨ψ | a⟩ ⟨a | a⟩ ⟨a | ψ⟩ = ||a⟩ ⟨a | ψ⟩ |^2.
+|⟨a | ψ⟩|^2 \quad (= ⟨ψ | a⟩ ⟨a | ψ⟩ = ⟨ψ | a⟩ ⟨a | a⟩ ⟨a | ψ⟩ = ||a⟩ ⟨a | ψ⟩ |^2)
 $$
-また, 状態 $|ψ⟩$ に対する物理量 $A$ の期待値は
+と書ける. また, 状態 $|ψ⟩$ に対する物理量 $A$ の期待値は
 $$
 \begin{aligned}
   ⟨A⟩ &≡ ∫ \d{a} a |⟨a | ψ⟩|^2 = ∫ \d{a} a ⟨ψ | a⟩ ⟨a | ψ⟩ \\
     &= ∫ \d{a} ⟨ψ| \^A  |a⟩ ⟨a | ψ⟩ = ⟨ψ| \^A \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ \\
-    &= ⟨ψ| \^A |ψ⟩.
+    &= ⟨ψ| \^A |ψ⟩
 \end{aligned}
 $$
-物理量 $A$ と対応する演算子 $\^A$ を単に $A$ と書くこともある.
+である. 物理量 $A$ と対応する演算子 $\^A$ を区別せず, どちらも $A$ と書くこともあるが, この記事では一貫して区別することにする.
 
 Hilbert 空間の性質から, 固有状態はそれぞれ直交している:
 $$
@@ -81,15 +80,14 @@ $$
 
 :::
 
-物理量 $a$ が観測される確率は$|⟨a | ψ⟩|^2 = |ψ(a)|^2$ であり, 正規化条件は
+物理量 $a$ が観測される確率は $|⟨a | ψ⟩|^2 = |ψ(a)|^2$ であり, 正規化条件は
 $$
-\begin{aligned}
-  1 &= ⟨ψ | ψ⟩ = ⟨ψ| \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ \\
-  &= ∫ \d{a} ⟨ψ | a⟩ ⟨a | ψ⟩ \\
-  &= ∫ \d{a} ψ^{*}(a) ψ(a) = ∫ \d{a} |ψ(a)|^2.
-\end{aligned}
+\begin{gathered}
+  ⟨ψ | ψ⟩ = ⟨ψ| \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \d{a} ⟨ψ | a⟩ ⟨a | ψ⟩ = ∫ \d{a} ψ^{*}(a) ψ(a) = ∫ \d{a} |ψ(a)|^2, \\
+  ∴ ∫ \d{a} |ψ(a)|^2 = 1
+\end{gathered}
 $$
-また, 波動関数は状態ベクトルを固有状態によって展開したときの係数である:
+である. また, 波動関数は状態ベクトルを固有状態によって展開したときの係数である:
 $$
 |ψ⟩ = \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \d{a} |a⟩ ⟨a | ψ⟩ = ∫ \d{a} ψ(a) |a⟩.
 $$
@@ -100,11 +98,11 @@ $$
 $$
 ⟨a| \^B |ψ⟩ = \^B_A ⟨a | ψ⟩ = \^B_A ψ(a)
 $$
-を満たす波動関数に対する演算子 $\^B_A : ℂ → ℂ$ が存在するとき, 観測量 $A$ に対して $\^B |ψ⟩ ↔ \^B_A ψ(a)$ の対応がある.
+を満たす波動関数に対する演算子 $\^B_A : ℂ → ℂ$ が存在するとき, 観測量 $A$ に対して $\^B |ψ⟩ ↔ \^B_A ψ(a)$ の対応がある. 誤解が無いとき, 区別せず $\^B_A$ も $\^B$ と書く.
 
 :::
 
-誤解が無いとき, 区別せず $\^B_A$ を同じ $\^B$ と書く. $B = b$ に属する固有状態 $|b⟩$ に対して $ψ_b(a) ≡ ⟨a | b⟩$ とすれば, $b$ は $\^B_A$ の固有値, $ψ_b(a)$ はそれに属する固有波動関数である:
+$B = b$ に属する固有状態 $|b⟩$ に対して $ψ_b(a) ≡ ⟨a | b⟩$ とすれば, $b$ は $\^B_A$ の固有値, $ψ_b(a)$ はそれに属する固有波動関数である.
 $$
 \^B_A ψ_b(a) = ⟨a| \^B |b⟩ = b ⟨a | b⟩ = b ψ_b(a).
 $$
@@ -114,13 +112,14 @@ $$
   ⟨B⟩ &= ⟨ψ| \^B |ψ⟩ = ⟨ψ| \pqty{∫ \d{a} |a⟩ ⟨a|} \^B |ψ⟩ \\
     &= ∫ \d{a} ⟨ψ | a⟩ ⟨a| \^B |ψ⟩ \\
     &= ∫ \d{a} ⟨ψ | a⟩ \^B_A ⟨a | ψ⟩ \\
-    &= ∫ \d{a} ψ^{*}(a) \^B_A ψ(a).
+    &= ∫ \d{a} ψ^{*}(a) \^B_A ψ(a)
 \end{aligned}
 $$
-また, 途中式より, $\^B$ を $\^B_A$ を用いて表示することができる. これを **$\^B$ の $A$-表示**という:
+と積分の形で書ける. また, 途中式より, $\^B$ を $\^B_A$ を用いて
 $$
 \^B = ∫ \d{a} |a⟩ \^B_A ⟨a|.
 $$
+と表示することができる. これを **$\^B$ の $A$-表示**という.
 
 ### 時間発展と描像
 
@@ -138,10 +137,10 @@ $$
 
 時間発展演算子が unitary 演算子である必要性は, 正規化条件から得られる:
 $$
-1 = ⟨ψ(t)⟩|ψ(t)⟩ = ⟨ψ(t_0)⟩| \^U^{\dagger}(t, t_0) \^U(t, t_0) |ψ(t_0)⟩ = ⟨ψ(t_0)⟩|ψ(t_0)⟩.
+1 = ⟨ψ(t)|ψ(t)⟩ = ⟨ψ(t_0)| \^U^{\dagger}(t, t_0) \^U(t, t_0) |ψ(t_0)⟩ = ⟨ψ(t_0)⟩|ψ(t_0)⟩.
 $$
 
-時間発展演算子が時間に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) ≡ \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$. また, 時間発展演算子が時間に依存する場合でも, 誤解が無いとき $\^U(t) ≡ \^U(t, 0)$ と略記する.
+時間発展演算子が時間間隔のみに依存し, 時間の始点と終点に依存しないとき, 時刻の基準を $t = 0$ として $\^U(t) ≡ \^U(t, 0)$ と略記する. 例えば $\^U(t_2 - t_1) = \^U(t_2, t_1) = \^U(t_2, 0) \^U^{-1}(t_1, 0)$ と書く. また, 時間発展演算子が時間に依存する場合でも, 誤解が無いとき $\^U(t) ≡ \^U(t, 0)$ と略記することにする.
 
 :::screen
 
@@ -171,22 +170,23 @@ $$
 
 :::
 
-どちらの描像でも初期状態 $t = 0$ で一致 $|ψ(0)⟩ = |ψ⟩$, $\^A(0) = \^A$ するとき, 正規化条件, 確率振幅および任意の観測量 $A$ の期待値が常に等しいとすると,
+どちらの描像でも初期状態 $t = 0$ で一致 $|ψ(0)⟩=|ψ⟩$, $\^A=\^A(0)$ するとして, 正規化条件, 確率振幅および任意の観測量 $A$ の期待値が常に等しいとすると, 両者の描像の関係
 $$
 \begin{aligned}
   \^A(t) &= \^U^{-1}(t) \^A \^U(t), \\
   |ψ⟩ &= \^U^{-1}(t) |ψ(t)⟩, \\
-  |a,t⟩ &= \^U^{-1}(t) |a⟩. \\
+  |a,t⟩ &= \^U^{-1}(t) |a⟩ \\
 \end{aligned}
 $$
-実際,
+が得られる. 実際,
 $$
 \begin{gathered}
   ⟨ψ | ψ⟩ = ⟨ψ| \^U^{-1}(t) \^U(t) |ψ⟩ = ⟨ψ(t) | ψ(t)⟩, \\
   ψ(a,t) = ⟨a,t | ψ⟩ = ⟨a| \^U(t) |ψ⟩ = ⟨a | ψ(t)⟩, \\
-  ⟨A⟩ = ⟨ψ(t)| \^A |ψ(t)⟩ = ⟨ψ| \^U^{-1}(t) \^A \^U(t) |ψ⟩ = ⟨ψ| \^A(t) |ψ⟩. \\
+  ⟨A⟩ = ⟨ψ(t)| \^A |ψ(t)⟩ = ⟨ψ| \^U^{-1}(t) \^A \^U(t) |ψ⟩ = ⟨ψ| \^A(t) |ψ⟩ \\
 \end{gathered}
 $$
+である.
 
 観測量の固有値は描像に依らない. 実際, 観測量 $A$ に対し,
 $$
@@ -197,6 +197,7 @@ $$
   ⇔ \^A |a⟩ &= a |a⟩ \\
 \end{aligned}
 $$
+である.
 
 また交換子 $[\^A, \^B] ≡ \^A \^B - \^B \^A$ の時間変化は
 $$
@@ -206,13 +207,14 @@ $$
     &= \^U^{-1}(t) \^A \^U(t) \^U^{-1}(t) \^B \^U(t) - \^U^{-1}(t) \^B \^U(t) \^U^{-1}(t) \^A \^U(t) \\
     &= \^U^{-1}(t) \^A \^B \^U(t) - \^U^{-1}(t) \^B \^A \^U(t) \\
     &= \^U^{-1}(t) (\^A \^B - \^B \^A) \^U(t) \\
-    &= \^U^{-1}(t) [\^A, \^B] \^U(t). \quad (=: [\^A, \^B]_\mathrm{H})
+    &= \^U^{-1}(t) [\^A, \^B] \^U(t) \quad (≡ [\^A, \^B]_\mathrm{H})
 \end{aligned}
 $$
-
-時間発展演算子の表式は量子化と呼ばれる要請によってはじめて得られる.
+となる.
 
 ### 正準量子化
+
+ここまでは表記法の約束であり, これだけでは物理的な予測をすることができない. 「量子化」と呼ばれる要請をすることで初めて物理系の記述ができるようになる.
 
 :::screen
 
@@ -236,7 +238,7 @@ $$
   \xrightarrow{\text{正準量子化}} \quad \frac1{i{\hbar}} [{\^q^i}{}_\mathrm{H}, {\^q^j}{}_\mathrm{H}] = \frac1{i{\hbar}} [{\^p_i}{}_\mathrm{H}, {\^p_j}{}_\mathrm{H}] &= 0. \\
 \end{aligned}
 $$
-したがって, 演算子 $(\^q^i, \^p_i)$ の交換関係が得られる:
+したがって, 次の演算子 $(\^q^i, \^p_i)$ の交換関係が得られる.
 
 :::screen
 
@@ -258,7 +260,7 @@ A = A(q^i, p_i)
 $$
 TODO: ただし, $\^A$ が Hermite になるよう量子化前に正準変数の順序を調整する(Weyl 順序).
 
-また, $B$ 表示した波動関数に対する演算子 $\^A_B$ について, 同様に正準変数の演算子を代入したものとなる:
+また, $\^A$ を $B$ 表示した波動関数に対する演算子 $\^A_B$ は, 同様に正準変数の演算子を代入したものとなる.
 $$
 A = A(q^i, p_i)
 \quad \xrightarrow{\text{正準量子化}} \quad
@@ -278,7 +280,7 @@ $$
   \dv{\^A_\mathrm{H}}{t} &= \frac1{i{\hbar}}[\^A_\mathrm{H},\^H] + \pqty{\dv{\^A}{t}}_\mathrm{H}. \\
 \end{aligned}
 $$
-これは観測量 $A$ の時間発展を表した方程式である:
+これは観測量 $A$ の時間発展を表した方程式である.
 
 :::screen
 
@@ -289,53 +291,55 @@ $$
 
 :::
 
-特に, 時間に依存しない物理量 $A(q^i,p_i)$ の Heisenberg の運動方程式は,
+特に, 時間に依存しない物理量 $A(q^i,p_i)$ の Heisenberg の運動方程式は
 $$
-i{\hbar} \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H].
+i{\hbar} \dv{\^A_\mathrm{H}}{t} = [\^A_\mathrm{H},\^H]
 $$
-この運動方程式を用いて, 時間発展演算子 $\^U(t)$ の具体的な表式を求める. 両辺それぞれ計算して,
+となる. この運動方程式を用いて, 時間発展演算子 $\^U(t)$ の具体的な表式を求めよう. 両辺それぞれ計算して,
 $$
 \begin{aligned}
   i{\hbar} \dv{\^A_\mathrm{H}}{t}
     &= i{\hbar} \dv{}{t} \bqty{\^U^{-1}(t) \^A \^U(t)} \\
     &= i{\hbar} \dv{\^U^{-1}(t)}{t} \^A \^U(t) + i{\hbar} \^U^{-1}(t) \^A \dv{\^U(t)}{t}, \\
   [\^A_\mathrm{H},\^H_\mathrm{H}]
-    &= \^U^{-1}(t) \^A \^H \^U(t) + \^U^{-1}(t) \^H \^A \^U(t).
+    &= \^U^{-1}(t) \^A \^H \^U(t) + \^U^{-1}(t) \^H \^A \^U(t)
 \end{aligned}
 $$
-辺々比較して,
+となるから, 辺々比較して,
 $$
-i{\hbar} \dv{\^U(t)}{t} = \^H \^U(t).
+i{\hbar} \dv{\^U(t)}{t} = \^H \^U(t)
 $$
-これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表式が得られる:
+が得られる. これは時間発展演算子 $\^U(t)$ に関する微分方程式であり, これを解くことで $\^U(t)$ の表式が得られる.
 
 :::screen
 
-Hamiltonian が時間に陽に依存しないとき, 時間発展演算子は初期時間に依存せず,
+Hamiltonian が時間に陽に依存しないとき, 時間発展演算子は時間間隔のみに依存して,
 $$
-\^U(t-t_0) = e^{- \frac{i}{{\hbar}} {(t-t_0) \^H}},
+\^U(t-t_0) = e^{- \frac{i}{{\hbar}} {(t-t_0) \^H}}
 $$
-または Hamiltonian が時間に陽に依存するとき, 時間発展演算子は初期時間に依存し,
+と書ける.
+
+Hamiltonian が時間に陽に依存するとき, 時間発展演算子は時間の始点と終点に依存し,
 $$
 \^U(t, t_0) = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \d{t'} \^H(t')}.
 $$
 
 :::
 
-ただし, $T$ は**時間順序積** time ordered product で, 演算子の積を時間の順序関係に応じて並び替える: Heaviside の階段関数 $θ(t)$ を用いて,
+ただし, $T$ は**時間順序積** time ordered product と呼ばれ, 演算子の積を時間の順序関係に応じて並び替える: Heaviside の階段関数 $θ(t)$ を用いて,
 $$
 \begin{aligned}
   T \^A(t_1) \^B(t_2)
-    &= θ(t_1 - t_2) \^A(t_1) \^B(t_2) + θ(t_2 - t_1) \^B(t_2) \^A(t_1) \\
+    &≡ θ(t_1 - t_2) \^A(t_1) \^B(t_2) + θ(t_2 - t_1) \^B(t_2) \^A(t_1) \\
     &= \begin{cases}
       \^A(t_1) \^B(t_2), & (t_1 > t_2) \\
       \^B(t_2) \^A(t_1). & (t_2 > t_1) \\
     \end{cases}
 \end{aligned}
 $$
-つまり, 先に右に作用する演算子ほど「若い」ように並び換える.
+と定義される. つまり, 右に先に作用する演算子ほど「若い」ように並び換える.
 
-実際, $\^U(t)$ に関する微分方程式を両辺積分して,
+Hamiltonian が時間に陽に依存しないときの時間発展演算子の標識は明らかである. Hamiltonian が時間に陽に依存するときは, $\^U(t)$ に関する微分方程式を両辺積分して,
 $$
 \begin{aligned}
    &\ \^U(t,t_0) \\
@@ -349,9 +353,10 @@ $$
    &\ \quad (\text{$t>t_1>…>t_{n-1}$ であることに注意して, 時間順序積を作用させる}) \\
   =&\ T ∑_{n=0}^∞ \frac1{n!} \frac1{(i{\hbar})^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^t \d{t_2} ⋯ ∫_{t_0}^t \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
   =&\ T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \d{t} \^H(t)}^n \\
-  =&\ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \d{t} \^H(t)}.
+  =&\ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \d{t} \^H(t)}
 \end{aligned}
 $$
+と得られる.
 
 $\^U(t)$ に関する微分方程式 $i{\hbar} \d{\^U(t)} / \d{t} = \^H \^U(t)$ を $|ψ⟩$ に作用させると,
 $$
@@ -360,14 +365,15 @@ $$
   ∴ \quad i{\hbar} \dv{}{t} |ψ(t)⟩ &= \^H |ψ(t)⟩.
 \end{aligned}
 $$
-これは状態 $|ψ(t)⟩$ の時間発展を表した方程式である:
+これは状態 $|ψ(t)⟩$ の時間発展を表した方程式である.
 
 :::screen
 
-状態 $|ψ(t)⟩$ 時間発展は以下であり, これを **Schrödinger の運動方程式** *Schrödinger equation* という:
+状態 $|ψ(t)⟩$ 時間発展は
 $$
-i{\hbar} \dv{}{t} |ψ(t)⟩ = \^H |ψ(t)⟩.
+i{\hbar} \dv{}{t} |ψ(t)⟩ = \^H |ψ(t)⟩
 $$
+であり, これを **Schrödinger の運動方程式** *Schrödinger equation* という:
 
 :::
 
@@ -379,10 +385,11 @@ $$
 
 :::screen
 
-位置 $q$ 表示の波動関数 $ψ(q, t)$ に対して, Hamiltonian $\^H$ の Schrödinger 表現は,
+位置 $q$ 表示の波動関数 $ψ(q, t)$ に対して, Hamiltonian $\^H$ の Schrödinger 表現は
 $$
-\^H ψ(q, t) = i{\hbar} \pdv{}{t} ψ(q, t).
+\^H ψ(q, t) = i{\hbar} \pdv{}{t} ψ(q, t)
 $$
+である.
 
 :::
 
@@ -394,17 +401,23 @@ $$
 
 位置 $q$ 表示の波動関数 $ψ(q, t)$ に対して, 位置演算子 $\^q$ の Schrödinger 表現は,
 $$
-\^q^i ψ(q, t) = q^i ψ(q, t).
+\^q^i ψ(q, t) = q^i ψ(q, t)
 $$
+である.
 
 :::
 
-実際,
+実際, $⟨q| \^q^i = q^i ⟨q |$ に注意すれば
 $$
-\^q^i ψ(q,t) = ⟨q| \^q^i |ψ(t)⟩ = q^i ⟨q | ψ(t)⟩ = q^i ψ(q,t).
+\^q^i ψ(q,t) = ⟨q| \^q^i |ψ(t)⟩ = q^i ⟨q | ψ(t)⟩ = q^i ψ(q,t)
 $$
+となる.
 
-これに対応する $\^p_i$ の表現を求める. ある定数 $a^i$ に対し, $e^{\frac{i}{{\hbar}} a^j \^p_j} \^q^i e^{- \frac{i}{{\hbar}} a^j \^p_j} = \^q^i + a^i$ である. 実際,
+これに対応する $\^p_i$ の表現を求める. ある定数 $a^i$ に対し,
+$$
+e^{\frac{i}{{\hbar}} a^j \^p_j} \^q^i e^{- \frac{i}{{\hbar}} a^j \^p_j} = \^q^i + a^i
+$$
+である. 実際, 交換関係に注意すれば
 $$
 \begin{aligned}
    &\ \dv{(e^{\frac{i}{{\hbar}} a^k \^p_k} \^q^i e^{- \frac{i}{{\hbar}} a^k \^p_k})}{a^j} \\
@@ -414,60 +427,59 @@ $$
    &\ \quad (∵ [\^q^i, \^p_j] = \^q^i \^p_j - \^p_j \^q^i = i {\hbar} δ_i^j) \\
   =&\ \frac{i}{{\hbar}} \^p_j e^{\frac{i}{{\hbar}} a^k \^p_k} \^q^i e^{- \frac{i}{{\hbar}} a^k \^p_k} + δ_i^j - \frac{i}{{\hbar}} e^{\frac{i}{{\hbar}} a^k \^p_k} \^p_j \^q^i e^{- \frac{i}{{\hbar}} a^k \^p_k} \\
    &\ \quad (∵ [e^{\frac{i}{{\hbar}} a^k \^p_k}, \^p_j] = e^{\frac{i}{{\hbar}} a^k \^p_k} \^p_j - \^p_j e^{\frac{i}{{\hbar}} a^k \^p_k} = 0) \\
-  =&\ δ_i^j.
+  =&\ δ_i^j
 \end{aligned}
 $$
-したがって,
+となる. したがって,
 $$
-\^q^i e^{- \frac{i}{{\hbar}} a^j \^p_j} |q⟩ = e^{- \frac{i}{{\hbar}} a^j \^p_j} (\^q^i + a^i) |q⟩ = (q^i + a^i) e^{- \frac{i}{{\hbar}} a^j \^p_j} |q⟩.
+\begin{gathered}
+  \^q^i e^{- \frac{i}{{\hbar}} a^j \^p_j} |q⟩ = e^{- \frac{i}{{\hbar}} a^j \^p_j} (\^q^i + a^i) |q⟩ = (q^i + a^i) e^{- \frac{i}{{\hbar}} a^j \^p_j} |q⟩, \\
+  ∴ e^{- \frac{i}{{\hbar}} a^i \^p_i} |q⟩ = |q+a⟩
+\end{gathered}
 $$
-$$
-∴ e^{- \frac{i}{{\hbar}} a^i \^p_i} |q⟩ = |q+a⟩.
-$$
-一般の状態ベクトル $|ψ(t)⟩$ に $e^{- \frac{i}{{\hbar}} a^i \^p_i}$ を作用させることを考える:
+である. 一般の状態ベクトル $|ψ(t)⟩$ に $e^{- \frac{i}{{\hbar}} a^i \^p_i}$ を作用させると,
 $$
 \begin{aligned}
   e^{- \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩
     &= e^{- \frac{i}{{\hbar}} a^i \^p_i} \pqty{∫ \d{{}^D q'} |q'⟩ ⟨q'|} |ψ(t)⟩
     = ∫ \d{{}^D q'} e^{- \frac{i}{{\hbar}} a^i \^p_i} |q'⟩ ⟨q' | ψ(t)⟩ \\
     &= ∫ \d{{}^D q'} ψ(q',t) |q'+a⟩ \\
-    &= ∫ \d{{}^D q'} ψ(q'-a,t) |q'⟩.
+    &= ∫ \d{{}^D q'} ψ(q'-a,t) |q'⟩
 \end{aligned}
 $$
-左から $⟨q|$ をかけると,
+となるから, 左から $⟨q|$ をかけると,
 $$
 \begin{aligned}
   ⟨q| e^{- \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩
     &= ⟨q| ∫ \d{{}^D q'} ψ(q'-a,t) |q'⟩ = ∫ \d{{}^D q'} ψ(q'-a,t) ⟨q | q'⟩ \\
     &= ∫ \d{{}^D q'} ψ(q'-a,t) δ^D(q - q') \\
-    &= ψ(q-a,t).
+    &= ψ(q-a,t)
 \end{aligned}
 $$
-ただし固有状態の直交性 $⟨q | q'⟩ = δ^D(q - q')$ を用いた. $a$ について1次まで羃展開して,
+となる. ただし固有状態の直交性 $⟨q | q'⟩ = δ^D(q - q')$ を用いた. $a$ について1次まで羃展開すれば
 $$
-⟨q| \pqty{1 - \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩ = \pqty{1 - a^i \pdv{}{q^i}} ψ(q,t). \quad ∴  - \frac{i}{{\hbar}} ⟨q| \^p_i |ψ(t)⟩ = - \pdv{}{q^i} ψ(q,t).
+\begin{gathered}
+  ⟨q| \pqty{1 - \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩ = \pqty{1 - a^i \pdv{}{q^i}} ψ(q,t), \quad ∴  - \frac{i}{{\hbar}} ⟨q| \^p_i |ψ(t)⟩ = - \pdv{}{q^i} ψ(q,t), \\
+  ∴ \^p_i ψ(q,t) = ⟨q| \^p_i |ψ(t)⟩ = - i{\hbar} \pdv{}{q^i} ψ(q,t)
+\end{gathered}
 $$
-$$
-∴ \^p_i ψ(q,t) = ⟨q| \^p_i |ψ(t)⟩ = - i{\hbar} \pdv{}{q^i} ψ(q,t).
-$$
+が得られる.
 
 :::screen
 
 位置 $q$ 表示の波動関数 $ψ(q, t)$ に対して, 運動量演算子 $\^p$ の Schrödinger 表現は,
 $$
-\^p_i ψ(q, t) = - i{\hbar} \pdv{}{q^i} ψ(q, t).
+\^p_i ψ(q, t) = - i{\hbar} \pdv{}{q^i} ψ(q, t)
 $$
+である.
 
 :::
 
 運動量 $p$ の固有波動関数 $ψ_p(q,t)$ に対し,
 $$
-- i {\hbar} \pdv{}{q^i} ψ_p(q,t) = \^p_i ψ_p(q,t) = p_i ψ_p(q,t).
+- i {\hbar} \pdv{}{q^i} ψ_p(q,t) = \^p_i ψ_p(q,t) = p_i ψ_p(q,t), \quad ∴ ψ_p(q,t) = ⟨q | p⟩ = \frac1{\sqrt{(2π {\hbar})^D}} e^{\frac{i}{{\hbar}} q^i p_i}
 $$
-$$
-∴ ψ_p(q,t) = ⟨q | p⟩ = \frac1{(\sqrt{2π {\hbar}})^D} e^{\frac{i}{{\hbar}} q^i p_i}.
-$$
-ただし, $D$ は座標 $q$ の次元とし, 固有状態の直交性を満たすよう定数を決めた:
+である. ただし, $D$ は座標 $q$ の次元とし, 固有状態の直交性を満たすよう定数を決めた:
 $$
 \begin{aligned}
   ⟨p',t | p,t⟩ &= ⟨p',t| \pqty{∫ \d{{}^Dq} |q,t⟩ ⟨q,t|} |p,t⟩ = ∫ \d{{}^D q} ⟨p',t | q,t⟩ ⟨q,t | p,t⟩ \\
@@ -482,10 +494,10 @@ $$
 
 Schrödinger の運動方程式に $\^H = H(\^q^i, \^p_i)$ やその表現を代入したものもまた **Schrödinger 方程式**という: 位置 $q$ 表示では,
 $$
-\begin{aligned}
-  H\pqty{q^i, - i{\hbar} \pdv{}{q^i}} ψ(q, t) &= i{\hbar} \pdv{}{t} ψ(q, t).
-\end{aligned}
+H\pqty{q^i, - i{\hbar} \pdv{}{q^i}} ψ(q, t) = i{\hbar} \pdv{}{t} ψ(q, t)
 $$
+である.
+
 :::
 
 <!-- TODO: 定常状態の Schrödinger 方程式 -->
@@ -494,44 +506,48 @@ $$
 
 一次元一粒子系の Hamiltonian は
 $$
-H(q,p) = \frac{p^2}{2m} + V(q).
+H(q,p) = \frac{p^2}{2m} + V(q)
 $$
-正準量子化して, Hamiltonian の演算子は
+であるから, 正準量子化して, Hamiltonian の演算子は
 $$
-H(\^q, \^p) = \frac{\^p^2}{2m} + V(\^q) = - \frac{{\hbar}^2}{2m} \pdv{{}^2}{q^2} + V(q).
+H(\^q, \^p) = \frac{\^p^2}{2m} + V(\^q) = - \frac{{\hbar}^2}{2m} \pdv{{}^2}{q^2} + V(q)
 $$
-したがって Schrödinger 方程式は,
+である. したがって Schrödinger 方程式は,
 $$
-\bqty{- \frac{{\hbar}^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t) = i{\hbar} \pdv{}{t} ψ(q, t).
+\bqty{- \frac{{\hbar}^2}{2m} \pdv{{}^2}{q^2} + V(q)} ψ(q, t) = i{\hbar} \pdv{}{t} ψ(q, t)
 $$
+と求まる.
 
 #### 例: 三次元一粒子系
 
 三次元一粒子系の Hamiltonian は
 $$
-H(\bm{x},\bm{p}) = \frac{\bm{p}^2}{2m} + V(\bm{x}).
+H(\bm{x},\bm{p}) = \frac{\bm{p}^2}{2m} + V(\bm{x})
 $$
-正準量子化して, Hamiltonian の演算子は
+であるから, 正準量子化して, Hamiltonian の演算子は
 $$
-H(\^{\bm{x}}, \^{\bm{p}}) = \frac{\^{\bm{p}}^2}{2m} + V(\^{\bm{x}}) = - \frac{{\hbar}^2}{2m} \laplacian + V(\bm{x}).
+H(\^{\bm{x}}, \^{\bm{p}}) = \frac{\^{\bm{p}}^2}{2m} + V(\^{\bm{x}}) = - \frac{{\hbar}^2}{2m} \laplacian + V(\bm{x})
 $$
-したがって Schrödinger 方程式は,
+である. したがって Schrödinger 方程式は,
 $$
-\bqty{- \frac{{\hbar}^2}{2m} \laplacian + V(\bm{x})} ψ(\bm{x}, t) = i{\hbar} \pdv{}{t} ψ(\bm{x}, t).
+\bqty{- \frac{{\hbar}^2}{2m} \laplacian + V(\bm{x})} ψ(\bm{x}, t) = i{\hbar} \pdv{}{t} ψ(\bm{x}, t)
 $$
+と求まる.
 
 ### 生成・消滅演算子
 
 :::screen
 
-演算子 $\^a$ とその Hermite 共役 $\^a^{\dagger}$ が次の交換関係を満たすとき, $\^a$ を**消滅演算子** annihilation operator, $\^a^{\dagger}$ を**生成演算子** creation operator という:
+演算子 $\^a$ とその Hermite 共役 $\^a^{\dagger}$ が交換関係
 $$
 \begin{gathered}
 {}[\^a, \^a^{\dagger}] = 1, \\
-  [\^a, \^a] = [\^a^{\dagger}, \^a^{\dagger}] = 0.
+  [\^a, \^a] = [\^a^{\dagger}, \^a^{\dagger}] = 0
 \end{gathered}
 $$
-また, Hermite 演算子 $\^N ≡ \^a^{\dagger} \^a$ を**数演算子** the number operation といい, $\^N$ の固有値 $n$ に属する固有状態を $|n⟩$ とする:
+を満たすとき, $\^a$ を**消滅演算子** annihilation operator, $\^a^{\dagger}$ を**生成演算子** creation operator という.
+
+また, Hermite 演算子 $\^N ≡ \^a^{\dagger} \^a$ を**数演算子** the number operation といい, $\^N$ の固有値 $n$ に属する固有状態を $|n⟩$ とする.
 $$
 \^N|n⟩ = n|n⟩.
 $$
@@ -552,10 +568,10 @@ $$
 $$
 \begin{gathered}
   |n+1⟩ = \frac{\^a^{\dagger}|n⟩}{\sqrt{⟨n|\^a\^a^{\dagger}|n⟩}} = \frac{\^a^{\dagger}|n⟩}{\sqrt{⟨n|(\^N + 1)|n⟩}} = \frac{\^a^{\dagger}|n⟩}{\sqrt{n+1}}. \\
-  ∴ \^a^{\dagger}|n⟩ = \sqrt{n+1}|n+1⟩.
+  ∴ \^a^{\dagger}|n⟩ = \sqrt{n+1}|n+1⟩
 \end{gathered}
 $$
-また, 同様に $\^a|n⟩$ は固有値 $n-1$ に属する固有状態である:
+である. また, 同様に $\^a|n⟩$ は固有値 $n-1$ に属する固有状態である:
 $$
 \begin{aligned}
   \^N\^a|n⟩
@@ -570,18 +586,18 @@ $$
 $$
 \begin{gathered}
   |n-1⟩ = \frac{\^a|n⟩}{\sqrt{⟨n|\^a^{\dagger}\^a|n⟩}} = \frac{\^a|n⟩}{\sqrt{⟨n|\^N|n⟩}} = \frac{\^a|n⟩}{\sqrt{n}}. \\
-  ∴ \^a|n⟩ = \sqrt{n}|n-1⟩.
+  ∴ \^a|n⟩ = \sqrt{n}|n-1⟩
 \end{gathered}
 $$
-特に $n=0$ のときの状態 $|0⟩$ を真空状態といい, $\^a|0⟩ = 0$ を満たす:
+である. 特に $n=0$ のときの状態 $|0⟩$ を真空状態といい, $\^a|0⟩ = 0$ を満たす:
 $$
 ⟨0|\^a^{\dagger}\^a|0⟩ = ⟨0|\^N|0⟩ = 0.
 $$
-$n<0$ は許されない: ある固有値 $n<0$ に属する固有状態 $|n⟩$ に対し,
+$n<0$ は許されない. 実際, 内積の半正定値性から
 $$
-n = ⟨n|\^N|n⟩ = ⟨n|\^a^{\dagger}\^a|n⟩ = ⟨n'|n'⟩ ≥ 0.
+n = ⟨n|\^N|n⟩ = ⟨n|\^a^{\dagger}\^a|n⟩ = ⟨n'|n'⟩ ≥ 0
 $$
-ただし $|n'⟩ ≡ \^a|n⟩$. これは $n<0$ に矛盾する. したがって, $n≥0$ である. また, $n$ が正の非整数とすると, 繰り返し $\^a$ を左右することで $n$ を負にすることができてしまうから, $n$ は非整数ではない. したがって, $n$ は 0 以上の整数である: $n = 0,1,2,…$.
+である. ただし $|n'⟩ ≡ \^a|n⟩$ とした. また, $n$ が正の非整数とすると, 繰り返し $\^a$ を左右することで $n$ を負にすることができてしまうから, $n$ は非整数ではない. したがって, $n$ は 0 以上の整数である: $n = 0,1,2,…$.
 
 TODO: 調和振動子による例
 
@@ -609,6 +625,8 @@ $$
 \end{aligned}
 $$
 
+TODO: 詳しい説明と位置・運動量の不確定関係
+
 ### 相互作用描像
 
 :::screen
@@ -627,22 +645,23 @@ $$
 
 :::
 
-第 1 式より, Schrödinger 描像と相互作用描像の演算子の対応が得られる:
+第 1 式より, Schrödinger 描像と相互作用描像の演算子の対応
 $$
-\^A_\mathrm{T}(t) = e^{\frac{i}{{\hbar}}(t-t_0)\^H_0} \^A e^{-\frac{i}{{\hbar}}\^H_0(t-t_0)}.
+\^A_\mathrm{T}(t) = e^{\frac{i}{{\hbar}}\^H_0(t-t_0)} \^A e^{-\frac{i}{{\hbar}}\^H_0(t-t_0)}
 $$
-また, 期待値がどの描像でも等しいという条件
+が得られる. また, 期待値がどの描像でも等しいという条件
 $$
 {}_\mathrm{T}⟨ψ(t)| \^A_\mathrm{T}(t) |ψ(t)⟩_\mathrm{T} = {}_\mathrm{T}⟨ψ(t)| e^{i\^H_0(t-t_0)} \^A e^{-i\^H_0(t-t_0)} |ψ(t)⟩_\mathrm{T} = ⟨ψ(t)| \^A |ψ(t)⟩
 $$
-より, Schrödinger 描像と相互作用描像の状態ベクトルの対応が得られる:
+より, Schrödinger 描像と相互作用描像の状態ベクトルの対応
 $$
 |ψ(t)⟩ = e^{-i\^H_0(t-t_0)} |ψ(t)⟩_\mathrm{T}.
 $$
-また, 時間発展演算子と同様の議論から,
+が得られる. 更に, 時間発展演算子と同様の議論から,
 $$
 |ψ(t)⟩_\mathrm{T} = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \d{t'} \^H_\mathrm{I}(t')} |ψ(t_0)⟩_\mathrm{T}
 $$
+であることがわかる.
 
 ### 経路積分表示
 
@@ -650,11 +669,11 @@ $$
 $$
 ⟨q_f,t_f|q_i,t_i⟩ \quad \pqty{= ⟨q_f|\^U(t_f,t_i)|q_i⟩ = ⟨q_f|T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \d{t} \^H(t)}|q_i⟩}
 $$
-で与えられる. 時間 $t_i$, $t_f$ 間を $N$ 分割する:
+で与えられる. 時間 $t_i$, $t_f$ 間を $N$ 分割
 $$
 Δt = \frac{t_f-t_i}{N}, \quad t_j = t_i + nΔt, \quad q_j = q(t_j). \quad t_0=t_i, \quad \ t_N=t_f.
 $$
-完全系 $∫\d{q_j}|q_j⟩⟨q_j| = 1$ を順に挟めば,
+して, 完全系 $∫\d{q_j}|q_j⟩⟨q_j| = 1$ を順に挟めば,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
@@ -662,15 +681,15 @@ $$
     &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨q_{j+1},t_{j+1}|q_j,t_j⟩} \\
 \end{aligned}
 $$
-ここで, $Δt$ が十分に小さいとすると,
+となる. ここで, $Δt$ が十分に小さいとすると,
 $$
 ⟨q_{j+1},t_{j+1}|q_j,t_j⟩ = ⟨q_{j+1}|\exp \bqty{-\frac{i}{{\hbar}} Δt \^H(t_j)}|q_j⟩
 $$
-ここで, $\^H(t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であって,
+であり, また $\^H(t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であって,
 $$
 ⟨q_{j+1}|\^H(t_j)|q_j⟩ = ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}
 $$
-を満たす. これを用いると,
+を満たすから, これを用いると,
 $$
 \begin{aligned}
   ⟨q_{j+1},t_{j+1}|q_j,t_j⟩
@@ -678,24 +697,25 @@ $$
     &= ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
 \end{aligned}
 $$
-したがって,
+と求まる. したがって,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
     &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \qty{∏_{j=0}^{N-1} ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}} \\
-    &= ∫\frac{\d{{}^Dp_0}}{(2π\hbar)^D} ∏_{j=1}^{N-1} ∫\frac{\d{{}^Dq_j}\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}. \\
+    &= ∫\frac{\d{{}^Dp_0}}{(2π\hbar)^D} ∏_{j=1}^{N-1} ∫\frac{\d{{}^Dq_j}\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
 \end{aligned}
 $$
-あるいは $N→∞$ の極限で
+となる. あるいは $N→∞$ の極限で, 汎関数積分を用いれば,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
     &= ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ \exp \frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \bqty{\.q^i p_i - H(q^i,p_i,t)} \\
-    &≡ ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ e^{\frac{i}{\hbar} S[q^i,p_i]}.
+    &≡ ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ e^{\frac{i}{\hbar} S[q^i,p_i]}
 \end{aligned}
 $$
+と書ける.
 
-<!-- TODO: 位相空間の経路積分量子化 -->
+TODO: 位相空間の経路積分量子化
 
 ### 経路積分量子化
 
@@ -715,7 +735,7 @@ $$
 $$
 また, この $K(q_f,t_f;q_i,t_i)$ を**伝播関数**という. これは **Green 関数**とも呼ばれ, 以下を満たす:
 $$
-\qty[H\qty(q^i,-i{\hbar}∂_i,t)-i{\hbar}\pdv{}{t}] K(q,t;q_0,t_0) = -i{\hbar}δ^D(q-q_0)δ(t-t_0).
+\bqty{H\pqty{q^i,-i{\hbar}∂_i,t}-i{\hbar}\pdv{}{t}} K(q,t;q_0,t_0) = -i{\hbar}δ^D(q-q_0)δ(t-t_0).
 $$
 
 :::
@@ -736,18 +756,18 @@ $$
 となる. また, これを用いると波動関数が Schrödinger 方程式を満たすことがわかる. つまり,
 $$
 \begin{aligned}
-     &\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ψ(q,t) \\
-    =&\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ∫ \d{{}^D q_0} ∫_{q_0}^q \mathcal{D}^Dq'\ e^{\frac{i}{{\hbar}} S[q'(t)]} ψ(q_0,t_0) \\
-     & \qty(q'(t)≡q(t)+δq(t),\ \text{$q(t)$ : 古典軌道},\ δS[q]≡S[q+δq]-S[q]) \\
-    =&\ \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] ∫ \d{{}^D q_0} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
-    =&\ ∫ \d{{}^D q_0} \qty[H\qty(q^i,-i{\hbar}\pdv{}{q^i},t)-i{\hbar}\pdv{}{t}] e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
-    =&\ ∫ \d{{}^D q_0} \qty[H\qty(q^i,\pdv{S}{q^i},t)+\pdv{S}{t}] e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
-    =&\ 0 \quad \qty(∵ \text{古典軌道に対する Hamilton–Jacobi 方程式})
+     &\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ψ(q,t) \\
+    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \d{{}^D q_0} ∫_{q_0}^q \mathcal{D}^Dq'\ e^{\frac{i}{{\hbar}} S[q'(t)]} ψ(q_0,t_0) \\
+     & \pqty{q'(t)≡q(t)+δq(t),\ \text{$q(t)$ : 古典軌道},\ δS[q]≡S[q+δq]-S[q]} \\
+    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \d{{}^D q_0} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \d{{}^D q_0} \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \d{{}^D q_0} \bqty{H\pqty{q^i,\pdv{S}{q^i},t}+\pdv{S}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ 0 \quad \pqty{∵ \text{古典軌道に対する Hamilton–Jacobi 方程式}}
 \end{aligned}
 $$
-であるから, <!-- TODO: この計算は正確か？ -->
+であるから, TODO: この計算は正確か？
 $$
-H\qty(q^i,-i{\hbar}\pdv{}{q^i},t) ψ(q,t) = i{\hbar}\pdv{}{t} ψ(q,t)
+H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t} ψ(q,t) = i{\hbar}\pdv{}{t} ψ(q,t)
 $$
 である. 正準量子化の仮定を使っていないことに注意. 以上のことから, 伝播関数が Schrödinger 方程式の Green 関数になることがわかる.
 
@@ -757,10 +777,10 @@ $$
   K(q_f,t_f;q_i,t_i)
     &= ∫_{q_i}^{q_f} \mathcal{D}^Dq' \ e^{\frac{i}{{\hbar}} S[q'(t)]} \\
     &\quad \pqty{\text{$q'=q+δq$ のとき $\displaystyle S[q'] = S[q] + ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')$}} \\
-    &= e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_i}^{q_f} \mathcal{D}^Dδq \ \exp\pqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')}. \\
+    &= e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_i}^{q_f} \mathcal{D}^Dδq \ \exp\pqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')} \\
 \end{aligned}
 $$
-したがって, ${\hbar}→0$ の極限で $|K(q_f,t_f;q_i,t_i)|^2=1$ となる条件は
+であるから, ${\hbar}→0$ の極限で $|K(q_f,t_f;q_i,t_i)|^2=1$ となる条件は
 $$
 \fdv{S[q^i(t)]}{q^j(t')} = 0 \quad (t_1<t'<t_2)
 $$
@@ -785,7 +805,7 @@ $$
 ψ(q,t) = ∫\d{q_0} \sqrt{\frac{m}{2πi{\hbar}(t-t_0)}} \exp\bqty{\frac{i}{{\hbar}} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
 $$
 
-<!-- TODO: 調和振動子 -->
+TODO: 調和振動子の例
 
 ### $n$ 点 Green 関数と生成汎関数
 
@@ -814,7 +834,7 @@ $$
 $$
 となる. 最初と最後は $σ$ を含まないから, これは置換 $σ$ に依らず成立する.
 
-$n$ 点 Green 関数は次に定義される生成汎関数から機能的に得ることができる:
+$n$ 点 Green 関数は次に定義される生成汎関数から機能的に得ることができる.
 
 :::screen
 
@@ -866,9 +886,9 @@ $$
 $$
 あるいは位置 $\bm{x}$ 表示の Schrödinger 方程式は,
 $$
-\pqty{-\frac{{\hbar}^2}{2m} \laplacian + V(\bm{x},t)} ψ(\bm{x},t) = i{\hbar} \pdv{}{t} ψ(\bm{x},t).
+\pqty{-\frac{{\hbar}^2}{2m} \laplacian + V(\bm{x},t)} ψ(\bm{x},t) = i{\hbar} \pdv{}{t} ψ(\bm{x},t)
 $$
-一般に Schrödinger 方程式というとき, この方程式を指すことが多い.
+である. 一般に Schrödinger 方程式というとき, この方程式を指すことが多い.
 
 :::screen
 
@@ -889,7 +909,7 @@ $$
 $$
 を満たす. ただし
 $$
-\bm{j}(\bm{x},t) ≡ \frac{{\hbar}}{2im} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}
+\bm{j}(\bm{x},t) ≡ - \frac{i{\hbar}}{2m} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}
 $$
 は確率流密度と呼ばれる. 実際,
 $$
@@ -898,9 +918,9 @@ $$
     &= \pdv{}{t} (ψ^* ψ) \\
     &= \frac1{i{\hbar}} \pqty{ψ^* i{\hbar}\pdv{}{t} ψ + ψ i{\hbar}\pdv{}{t} ψ^*} \\
     &= \frac1{i{\hbar}} \bqty{ψ^* \pqty{-\frac{{\hbar}^2}{2m} \laplacian + V(\bm{x},t)} ψ - ψ \pqty{-\frac{{\hbar}^2}{2m} \laplacian + V(\bm{x},t)} ψ^*} \\
-    &= - \frac{{\hbar}}{2im} \pqty{ψ^* \laplacian ψ - ψ \laplacian ψ^*} \\
-    &= - \frac{{\hbar}}{2im} \bqty{\div (ψ^* \grad ψ) - \grad ψ^* \grad ψ - \div (ψ \grad ψ^*) + \grad ψ \grad ψ^*} \\
-    &= - \div \bqty{\frac{{\hbar}}{2im} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}} \\
+    &= \frac{i{\hbar}}{2m} \pqty{ψ^* \laplacian ψ - ψ \laplacian ψ^*} \\
+    &= \frac{i{\hbar}}{2m} \bqty{\div (ψ^* \grad ψ) - \grad ψ^* \grad ψ - \div (ψ \grad ψ^*) + \grad ψ \grad ψ^*} \\
+    &= - \div \bqty{- \frac{i{\hbar}}{2m} \pqty{ψ^* \grad ψ - ψ \grad ψ^*}} \\
     &= - \div \bm{j}. \\
 \end{aligned}
 $$

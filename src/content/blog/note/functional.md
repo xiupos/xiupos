@@ -375,6 +375,7 @@ $$
     $$
     I(φ) = \lim_{N→∞} \sqrt{\frac{AΔx}{2πi}} \exp \bqty{i \frac{AΔx}2 φ^2} = \lim_{N→∞} \sqrt{\frac{A(b-a)}{2πiN}} \exp \bqty{i \frac{A(b-a)}{2N} φ^2}.
     $$
+    TODO: この計算は正確か?
 
 1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
     $F[φ(x)]$ の離散表現は,

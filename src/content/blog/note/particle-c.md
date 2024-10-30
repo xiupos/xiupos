@@ -261,7 +261,7 @@ $$
 ∴ \bm{L} ≡ \bm{x} × \bm{p} = \mathrm{const.}
 $$
 
-<!-- TODO: 一般の Galilei 群に対する不変量 -->
+TODO: 一般の Galilei 群に対する不変量
 
 ### Hamilton–Jacobi 方程式
 
@@ -304,6 +304,7 @@ $$
 \d{S} = \d{q^i} p_i - \d{t} H
 $$
 が得られる.
+TODO: この議論は正確か?
 
 これらの性質を組み合わせることで以下の方程式が得られる.
 
@@ -480,7 +481,7 @@ $$
 
 したがって, Poisson 括弧は Lie 代数の括弧積である.
 
-<!-- TODO: Hamilton 形式による Noether の定理 -->
+TODO: Hamilton 形式による Noether の定理
 
 ### 参考文献
 

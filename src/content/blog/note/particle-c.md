@@ -481,7 +481,39 @@ $$
 
 したがって, Poisson 括弧は Lie 代数の括弧積である.
 
-TODO: Hamilton 形式による Noether の定理
+### Hamilton 形式での Noether の定理
+
+Hamilton 形式での作用
+$$
+S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
+$$
+に対し, Noether の定理を求めてみよう. Lagrange 形式で求めたのと同じ保存量が得られることが期待される.
+
+時間の微小変換 $t↦t'=t+δt$ に対し, 座標が $q^i(t)↦q'^i(t')=q^i(t)+δq^i(t)$, 運動量が $p_i(t)↦p'_i(t')=p_i(t)+δp_i(t)$ と変換されるとする. このとき $t_1<t<t_2$ の作用の変化 $δS[q^i(t),p_i(t)]=S[q'^i(t'),p'_i(t')]-S[q^i(t)p_i(t)]$ を計算すると,
+$$
+\begin{aligned}
+  δS[q^i,p_i]
+    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \d{t'} \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - ∫_{t_1}^{t_2} \d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \\
+    &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ (1+δ\.t) \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
+    & \quad \pqty{
+        ∂'_tq'(t') = \.q^i+δ\.q^i-\.q^iδ\.t
+      } \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ (1+δ\.t) \bqty{(\.q^i+δ\.q^i-\.q^iδ\.t) p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ \dv{}{t} (δq^i p_i) - δq^i \.p_i + \.q^i δp_i - δq^i \pdv{H}{q^i} - δp_i \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
+    &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) = δq^i-\.q^iδt$, $δ^Lp_i(t) = δp_i-\.p_iδt$}} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ \dv{}{t} (δq^i p_i) - δ^Lq^i \.p_i + \.q^i δ^Lp_i - (δ^Lq^i+\.q^iδt) \pdv{H}{q^i} - (δ^Lp_i+\.p_iδt) \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}} + \dv{}{t} (δq^i p_i - δt H) } \\
+    &=  ∫_{t_1}^{t_2} \d{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}}} + \bqty{δq^i p_i - δt H}_{t=t_1}^{t=t_2} \\
+\end{aligned}
+$$
+となる. ここで, 最後の式の第一項は Hamilton の運動方程式より消え, 第二項の $t_1$, $t_2$ は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量
+$$
+δQ ≡ δq^i p_i - δt H
+$$
+が得られる. これは Lagrange 形式で求めたものと同じである.
+
+TODO: $δp_i$ が陽に含まれないのはなぜか
 
 ### 参考文献
 

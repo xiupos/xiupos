@@ -4,6 +4,7 @@ author : xiupos
 date : \today
 pubDate : 2024-10-30T15:22:00+09:00
 lang : ja
+draft : true
 math : true
 ---
 

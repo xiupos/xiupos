@@ -4,6 +4,7 @@ author : xiupos
 date : \today
 pubDate : 2024-05-28T18:25:00+09:00
 lang : ja
+draft : true
 math : true
 pdf : /pdf/note/particle-c.pdf
 ---

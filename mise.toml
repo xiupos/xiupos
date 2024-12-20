@@ -1,0 +1,6 @@
+[tools]
+bun = "latest"
+
+[tasks]
+build = "bun run build"
+dev = "bun run dev"

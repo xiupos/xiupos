@@ -2,10 +2,9 @@
 title : Weyl 変換と Weyl 順序
 author : xiupos
 date : \today
-pubDate : 2024-01-06T22:40:00+09:00
+pubDate : 2024-12-26T11:40:00+09:00
 lang : ja
 math : true
-draft : true
 ---
 
 正準量子化では, 古典的 Hamiltonian $H(x,p,t)$ に対して正準変数 $(x,p)$ を演算子 $(\^x,\^p)$ に置き換えて, Hermite 演算子 $H(\^x,\^p,t)$ がつくられる. 例えば調和振動子の Hamiltonian

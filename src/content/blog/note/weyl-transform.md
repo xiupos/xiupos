@@ -352,7 +352,7 @@ $$
 $$
 ⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = ⟨x_{j+1}|\exp \bqty{-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)}|x_j⟩
 $$
-となる. ここで, $H(\^x,\^p,t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
+となる. ここで, $H(\^x,\^p,t_j)$ が Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
 $$
 ⟨x_{j+1}|H(\^x,\^p,t_j)|x_j⟩ = ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}
 $$

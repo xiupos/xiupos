@@ -188,8 +188,8 @@ $$
 $$
 \begin{aligned}
   \left\langle x-\frac{y}{2} \middle| e^{β\^p} \middle| x+\frac{y}{2} \right\rangle
-    &= ∑_{n=0}^∞ \frac1{n!} β^n \left\langle x-\frac{y}{2} \middle| \^p^n \middle| x+\frac{y}{2} \right\rangle \\
-    &= ∑_{n=0}^∞ \frac{δ^{(n)}(y)}{n!} (i\hbarβ)^n \\
+    &= ∑_n \frac1{n!} β^n \left\langle x-\frac{y}{2} \middle| \^p^n \middle| x+\frac{y}{2} \right\rangle \\
+    &= ∑_n \frac{δ^{(n)}(y)}{n!} (i\hbarβ)^n \\
     &= δ(y + i\hbarβ)
 \end{aligned}
 $$
@@ -258,3 +258,43 @@ $$
 がわかる.
 
 [^comm]: Weyl 変換 $W$ と偏微分 $\pdv{{}^n}{α^n}$, $\pdv{{}^m}{β^m}$ の可換性は, 数学的には非自明かもしれない.
+
+ところで, 母関数を単項式の Weyl 順序で
+$$
+\exp(α\^x+β\^p) = ∑_{k,l} \frac1{k!l!} α^k β^l \{\^x^k\^p^l\}_{\mathrm{W}}
+$$
+と展開できる. これと羃展開 $\exp(α\^x+β\^p) = ∑_n (α\^x+β\^p)^n / n!$ を比較すれば,
+$$
+(α\^x+β\^p)^n = ∑_{k=0}^n \frac{n!}{k!(n-k)!} α^k β^{n-k} \{\^x^k\^p^{n-k}\}_{\mathrm{W}}
+$$
+と書くことができる. Weyl 順序を得るには, 定義式よりこちらの方が便利である. 例えば, $\^x$ と $\^p$ の次数の計が $n=2$ のときは
+$$
+(α\^x+β\^p)^2 = α^2 \^x^2 + αβ (\^x\^p + \^p\^x) + β^2 \^p^2
+$$
+より
+$$
+\begin{gathered}
+  \{\^x^2\^p^0\}_{\mathrm{W}} = \^x^2, \quad \{\^x^0\^p^2\}_{\mathrm{W}} = \^x^2, \\
+  \{\^x^1\^p^1\}_{\mathrm{W}} = \frac{\^x \^p + \^p \^x}2
+\end{gathered}
+$$
+となる. $n=3$ のときは
+$$
+(α\^x+β\^p)^3 = α^3 \^x^3 + α^2 β (\^x^2\^p + \^x\^p\^x + \^p\^x^2) + α β^2 (\^x\^p^2 + \^p\^x\^p + \^p^2\^x) + β^3 \^p^3
+$$
+より
+$$
+\begin{aligned}
+  \{\^x^3\^p^0\}_{\mathrm{W}} &= \^x^3, & \{\^x^2\^p^1\}_{\mathrm{W}} &= \frac{\^x^2\^p + \^x\^p\^x + \^p\^x^2}3, \\
+  \{\^x^0\^p^3\}_{\mathrm{W}} &= \^p^3, & \{\^x^1\^p^2\}_{\mathrm{W}} &= \frac{\^x\^p^2 + \^p\^x\^p + \^p^2\^x}3
+\end{aligned}
+$$
+となる. より高次な場合も同様に計算できる. これによって, これまでに出した例では
+$$
+\begin{aligned}
+  H(x,p) &= xp & &⟼& \{H(\^x,\^p)\}_{\mathrm{W}} &= \frac{\^x\^p+\^p\^x}{2}, \\
+  H(x,p) &= x^2p & &⟼& \{H(\^x,\^p)\}_{\mathrm{W}} &= \frac{\^x^2\^p + \^x\^p\^x + \^p\^x^2}3, \\
+  H(x,p) &= x^2p^2 & &⟼& \{H(\^x,\^p)\}_{\mathrm{W}} &= \frac{\^x^2\^p^2 + \^x\^p\^x\^p + \^p\^x^2\^p + \^x\^p^2\^x + \^p\^x\^p\^x + \^p^2\^x^2}6, \\
+\end{aligned}
+$$
+となることが, 単純な計算によってわかる.

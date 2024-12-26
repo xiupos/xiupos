@@ -21,7 +21,7 @@ $$
 $$
 H_1(x,p) = xp \quad ⟼ \quad H_1(\^x,\^p) = \^x\^p
 $$
-となるが, これは Hermite ではないから Hamiltonian 演算子として不適である. Hermite にするためには古典論の時点で並び換える必要があり, 例えば
+となるが, これは Hermite ではないから Hamiltonian 演算子として不適である. Hermite にするためには古典論の時点で並び替える必要があり, 例えば
 $$
 H_2(x,p) = \frac{xp+px}{2} \quad ⟼ \quad H_2(\^x,\^p) = \frac{\^x\^p+\^p\^x}{2}
 $$
@@ -144,13 +144,13 @@ $$
   W[\^x^2\^p] = x^2p + i\hbar x
 \end{aligned}
 $$
-となって元には戻らない. そもそも $\^x^2\^p$ は Hermite ではないのだ. 並び換えて Hermite にしたものを試してみよう. 同様の計算によって
+となって元には戻らない. そもそも $\^x^2\^p$ は Hermite ではないのだ. 並び替えて Hermite にしたものを試してみよう. 同様の計算によって
 $$
 W[\^x\^p\^x] = x^2p, \quad W\bqty{\frac{\^x^2\^p + \^p\^x^2}{2}} = x^2p
 $$
 などが確かめられる. 異なる2つの並びが, どちらも Weyl 順序になった. 交換関係 $[\^x,\^p] = \^x\^p-\^p\^x = i\hbar$ を使えば, これらが同じ演算子であることが容易にわかる.
 
-では, Hermite であれば Weyl 順序なのだろうか. 実は Hermite な順序でも Weyl 順序になるとは限らない. 更に高次な例 $H(x,p)=x^2p^2$ を考えてみよう. Hermite に並び換えたものを計算すると,
+では, Hermite であれば Weyl 順序なのだろうか. 実は Hermite な順序でも Weyl 順序になるとは限らない. 更に高次な例 $H(x,p)=x^2p^2$ を考えてみよう. Hermite に並び替えたものを計算すると,
 $$
 \begin{gathered}
   W\bqty{\^x\^p^2\^x} = x^2p^2 + \frac{\hbar^2}2, \\
@@ -213,11 +213,11 @@ $$
 
 ### Weyl 順序
 
-母関数 $\exp(α\^x+β\^p)$ が Weyl 変換で $\exp(αx+βp)$ に戻ることを使うと, 任意の Hamiltonian 演算子を Weyl 順序に並び換えることができる.
+母関数 $\exp(α\^x+β\^p)$ が Weyl 変換で $\exp(αx+βp)$ に戻ることを使うと, 任意の Hamiltonian 演算子を Weyl 順序に並び替えることができる.
 
 :::screen
 
-Weyl 順序とは, 正準変数の単項式 $\^x^m\^p^n$ を一意に並び変える操作であって,
+Weyl 順序とは, 正準変数の単項式 $\^x^m\^p^n$ を一意に並び替える操作であって,
 $$
 \{\^x^n\^p^m\}_{\mathrm{W}} ≡ \left. \pdv{{}^n}{α^n} \pdv{{}^m}{β^m} \exp(α\^x + β\^p) \right|_{α=β=0}
 $$
@@ -304,7 +304,92 @@ $$
   H(x,p) &= x^2p^2 & &⟼& \{H(\^x,\^p)\}_{\mathrm{W}} &= \frac{\^x^2\^p^2 + \^x\^p\^x\^p + \^p\^x^2\^p + \^x\^p^2\^x + \^p\^x\^p\^x + \^p^2\^x^2}6 \\
 \end{aligned}
 $$
-となることが, 単純な計算によってわかる. 実は, $\^x^n$ と $\^p^m$ を考えられる全ての並び換えを足して, その組合せの数 ${}_{n+m}C_m = \pmqty{n+m \\ m}$ で割れば得られるため, 慣れればすぐに Weyl 順序 $\{\^x^n\^p^m\}_{\mathrm{W}}$ を求めることができる.
+となることが, 単純な計算によってわかる. 実は, $\^x^n$ と $\^p^m$ を考えられる全ての並び替えを足して, その組合せの数 ${}_{n+m}C_m = \pmqty{n+m \\ m}$ で割れば得られるため, 慣れればすぐに Weyl 順序 $\{\^x^n\^p^m\}_{\mathrm{W}}$ を求めることができる.
+
+### 応用: 位相空間での経路積分表示
+
+Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. 定義式で $q↦-q'$ と変数変換して
+$$
+H_{\mathrm{W}} (x,p,t) = ∫\d{y'}\ e^{-ipy'/\hbar} \left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle
+$$
+と書けば, Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることがわかりやすい. したがって, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換してあげれば
+$$
+\left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle = \frac1{2π\hbar} ∫\d{p}\ e^{ipy/\hbar} H_{\mathrm{W}} (x,p,t)
+$$
+となる. ここで, 変数を $\displaystyle (x,y)↦(x_i,x_f)=\pqty{x-\frac{y}2, x+\frac{y}2}$ で置き換えれば,
+$$
+⟨x_f|H(\^x,\^p,t)|x_i⟩ = ∫\frac{\d{p}}{2π\hbar} e^{ip(x_f-x_i)/\hbar} H_{\mathrm{W}} \pqty{\frac{x_f + x_i}{2}, p, t}
+$$
+となって, 応用しやすい形になる[^p].
+
+[^p]: 運動量の固有ケットによる表示に対しても同様に
+    $$
+    ⟨p_f|H(\^x,\^p,t)|p_i⟩ = ∫\frac{\d{x}}{2π\hbar} e^{-i(p_f-p_i)x/\hbar} H_{\mathrm{W}} \pqty{x, \frac{p_f + p_i}{2}, t}
+    $$
+    が得られる.
+
+いよいよ Weyl 順序の応用を考える. 時刻 $t_i$ に位置 $x_i$ で粒子が観測された状態 $|q_i,t_i⟩$ に対し, 時刻 $t_f$ に座標 $x_f$ で粒子が観測される状態 $|q_f,t_f⟩$ への確率振幅(遷移振幅)は
+$$
+⟨q_f,t_f|q_i,t_i⟩ = ⟨q_f|\^U(t_f,t_i)|q_i⟩
+$$
+で与えられる. ただし, $\^U(t_f,t_i)$ は時間発展演算子であって, よく知られているように系の Hamiltonian 演算子 $H(\^x,\^p,t)$ を使って
+$$
+\^U(t_f,t_i) ≡ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \d{t} H(\^x,\^p,t)}
+$$
+と書かれる[^T]. この確率振幅に対し, 時間 $t_i$, $t_f$ 間を $N$ 分割
+$$
+Δt ≡ \frac{t_f-t_i}{N}, \quad t_j ≡ t_i + nΔt, \quad q_j ≡ q(t_j). \quad t_0 ≡ t_i, \quad \ t_N ≡ t_f
+$$
+して, 完全系 $∫\d{q_j}|q_j,t_j⟩⟨q_j,t_j| = 1$ を順に挟めば,
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} ⟨x_f,t_f|x_{N-1},t_{N-1}⟩⟨x_{N-1},t_{N-1}|⋯|x_1,t_1⟩⟨x_1,t_1|x_i,t_i⟩ \\
+    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
+\end{aligned}
+$$
+となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨q_{j+1}|\^U(t_{j+1},t_j)|q_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の積にすることができて,
+$$
+⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = ⟨x_{j+1}|\exp \bqty{-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)}|x_j⟩
+$$
+となる. ここで, $H(\^x,\^p,t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
+$$
+⟨x_{j+1}|H(\^x,\^p,t_j)|x_j⟩ = ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}
+$$
+を満たすから, それぞれの確率振幅は
+$$
+\begin{aligned}
+  ⟨x_{j+1},t_{j+1}|x_j,t_j⟩
+    &= ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} \exp \bqty{-\frac{i}{{\hbar}} Δt H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{p_j\frac{x_{j+1}-x_j}{Δt} - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+\end{aligned}
+$$
+と求まる. 結局, $|q_i,t_i⟩$ から $|q_f,t_f⟩$ への遷移振幅は
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
+    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+\end{aligned}
+$$
+と書ける. [汎関数積分の計算法](./functional.md)を思い出せば, $N→∞$ の極限で
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= ∫_{x_i}^{x_f} \mathcal{D}x ∫ \mathcal{D}p \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \Big[ \.x p - H(x,p,t) \Big] } \\
+    &≡ ∫_{x_i}^{x_f} \mathcal{D}x ∫ \mathcal{D}p \ \exp \pqty{\frac{i}{\hbar} S[x,p]}
+\end{aligned}
+$$
+と簡潔な形に書くこともできる. これらは**位相空間での経路積分表示**と呼ばれており, 正準量子化法から導かれたにも関わらず c-数のみの積分で構成されていることが特徴である.
+
+[^T]: $T$ は時間順序積であって, 演算子の積を時間の順序関係に応じて
+    $$
+    T \^A(t_1) \^B(t_2) = \begin{cases}
+      \^A(t_1) \^B(t_2), & (t_1 > t_2) \\
+      \^B(t_2) \^A(t_1). & (t_2 > t_1) \\
+    \end{cases}
+    $$
+    と並び替える.
 
 ### 参考文献
 

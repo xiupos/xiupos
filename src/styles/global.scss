@@ -244,6 +244,14 @@ article {
     border-top: 1px solid var(--color-sub);
   }
 
+  .footnotes::before {
+    content: '';
+    display: block;
+    width: var(--width);
+    margin-top: var(--headerMargin);
+    border-top: 1px solid var(--color-sub);
+  }
+
   .katex-display {
     overflow: hidden;
     overflow-x: auto;

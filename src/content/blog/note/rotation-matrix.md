@@ -35,6 +35,6 @@ $$
 $$
 
 $$
-\bm{x}' = \qty(1-\frac{i}2ϵ^{k\ell}M_{k\ell}) \bm{x}
+\bm{x}' = \pqty{1-\frac{i}2ϵ^{k\ell}M_{k\ell}} \bm{x}
 $$
 

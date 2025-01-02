@@ -31,7 +31,7 @@ $$
     ∫_{(x_\mathrm{A},φ_0)}^{(x_\mathrm{B},φ)} \mathfrak{D}φ \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
     $$
 
-- 九後 汰一郎 (1989).『ゲージ場の量子論 1』:
+- 九後 汰一郎 (1989).『ゲージ場の量子論 I, II』:
     $$
     ∫_{φ(x_\mathrm{A})=φ_0}^{φ(x_\mathrm{B})=φ} \mathcal{D}[φ(x)] \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
     $$

@@ -43,7 +43,7 @@ $$
 
 また, 以下は経路積分の範囲 $(φ_0, φ)$ を省略している:
 
-- M. E. Peskin, and D. V. Schroeder (1995). _An Introduction to Quantum Field Theory_ や, f. H. Rider (1996). _Quantum Field Theory_, 2nd edn など多数:
+- M. E. Peskin, and D. V. Schroeder (1995). _An Introduction to Quantum Field Theory_ や, L. H. Rider (1996). _Quantum Field Theory_, 2nd edn など多数:
     $$
     ∫ \mathcal{D}φ \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} f(φ(x))}
     $$

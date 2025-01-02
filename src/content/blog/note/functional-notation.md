@@ -1,14 +1,61 @@
 ---
-title : 汎関数積分の記法
+title : 汎関数積分の記法揺れ
 author : xiupos
 date : \today
-pubDate : 2024-01-06T22:40:00+09:00
+pubDate : 2025-01-02T21:22:00+09:00
 lang : ja
 math : true
-draft : true
 ---
 
-汎関数積分(経路積分)の表記法は
 
-### 九後汰一郎『ゲージ場の量子論 1』
+[汎関数積分](/blog/note/functional/#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)の記法は文献によって若干の揺れがある. 例として, 汎関数積分
+$$
+∫_{φ_0}^φ \mathcal{D}φ(x) \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+$$
+に対して, 有名な教科書による記法を挙げよう[^int]:
 
+[^int]: 積分 $∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))$ に関しても教科書ごとに若干の揺れがあるが, ここでは記法を統一した.
+
+- R. P. Feynman and A. R. Hibbs (1965). _Quantum Mechanics and Path Integrals_:
+    $$
+    ∫_{\mathrm{A}}^{\mathrm{B}} \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))} \mathcal{D}φ(x)
+    $$
+
+- J. J. Sakurai, and J. Napolitano (2021). _Modern Quantum Mechanics_, 3rd edn:
+    $$
+    ∫_{φ_0}^φ \mathcal{D}[φ(x)] \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+- 杉田 勝実, 岡本 良夫, 関根 松夫 (1998).『経路積分と量子電磁力学』:
+    $$
+    ∫_{(x_\mathrm{A},φ_0)}^{(x_\mathrm{B},φ)} \mathfrak{D}φ \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+- 九後 汰一郎 (1989).『ゲージ場の量子論 1』:
+    $$
+    ∫_{φ(x_\mathrm{A})=φ_0}^{φ(x_\mathrm{B})=φ} \mathcal{D}[φ(x)] \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+- J. Polchinski (1998). _String Theory_:
+    $$
+    ∫ [dφ]_{φ_0,x_\mathrm{A}}^{φ,x_\mathrm{B}} \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+また, 以下は汎関数積分の範囲 $(φ_0, φ)$ を省略している:
+
+- M. E. Peskin, and D. V. Schroeder (1995). _An Introduction to Quantum Field Theory_ や, L. H. Rider (1996). _Quantum Field Theory_, 2nd edn など多数:
+    $$
+    ∫ \mathcal{D}φ \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+- V. P. Nair (2005). _Quantum Field Theory: A Moderun Perspective_ や, M. Dine (2007). _Supersymmetry and String Theory: Beyond the Standard Model_ など多数:
+    $$
+    ∫ [dφ] \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))}
+    $$
+
+こう並べてみると, 次のような違いに気付く.
+
+1.  汎関数積分の範囲 $(φ_0, φ)$ の明記の仕方は大きく揺れる.
+1.  大文字を使う $\mathcal{D}[φ(x)]$, $\mathcal{D}φ$ 派と, 小文字を角括弧で挟む $[dφ]$ 派がいる.
+
+当然であるが, これらの違いは汎関数積分の本質に全く影響しない. それぞれの執筆者の趣味趣向を感じられて楽しい, 程度の気付きである.

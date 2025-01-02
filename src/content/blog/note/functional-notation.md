@@ -14,7 +14,7 @@ $$
 $$
 に対して, 有名な教科書による記法を挙げよう[^int]:
 
-[^int]: 積分 $∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))$ に関しても教科書ごとに若干の揺れがあるが, ここでは記法を統一した.
+[^int]: 通常の積分 $∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} L(φ(x))$ に関しても教科書ごとに若干の揺れがあるが, ここでは記法を統一した.
 
 - R. P. Feynman and A. R. Hibbs (1965). _Quantum Mechanics and Path Integrals_:
     $$

@@ -281,7 +281,7 @@ $$
 より
 $$
 \begin{gathered}
-  \{\^x^2\^p^0\}_{\mathrm{W}} = \^x^2, \quad \{\^x^0\^p^2\}_{\mathrm{W}} = \^x^2, \\
+  \{\^x^2\^p^0\}_{\mathrm{W}} = \^x^2, \quad \{\^x^0\^p^2\}_{\mathrm{W}} = \^p^2, \\
   \{\^x^1\^p^1\}_{\mathrm{W}} = \frac{\^x \^p + \^p \^x}2
 \end{gathered}
 $$

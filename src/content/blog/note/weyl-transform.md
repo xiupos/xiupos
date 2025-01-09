@@ -39,7 +39,7 @@ Weyl 変換とは, q-数 $(\^x,\^p)$ の関数を c-数 $(x,p)$ の関数へ変�
 $$
 \begin{gathered}
   H(\^x,\^p,t) \quad \xmapsto{W} \quad H_{\mathrm{W}} (x,p,t) \qq{or} W[H(\^x,\^p,t)], \\
-  H_{\mathrm{W}} (x,p,t) ≡ ∫\d{y}\ e^{ipy/\hbar} \left\langle x-\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x+\frac{y}{2} \right\rangle
+  H_{\mathrm{W}} (x,p,t) ≡ ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle
 \end{gathered}
 $$
 で定義される[^var]. 運動量の固有ケットを用いて
@@ -56,14 +56,14 @@ $$
 $$
 \begin{aligned}
   H_{\mathrm{W}} (x,p,t)
-    &≡ ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{ipy/\hbar} \left\langle x-\frac{y}{2} \middle| p_1 \middle\rangle \middle\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \middle\rangle \middle\langle p_2 \middle| x+\frac{y}{2} \right\rangle \\
-    &= ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{ipy/\hbar} \frac{e^{ip_1(x-y/2)/\hbar}}{\sqrt{2π\hbar}} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ \frac{e^{-ip_2(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \\
-    &= ∫\d{p_1} ∫\d{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ ∫\frac{\d{y}}{2π\hbar} e^{i[p-(p_1+p_2)/2]y/\hbar} \\
+    &≡ ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| p_1 \middle\rangle \middle\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \middle\rangle \middle\langle p_2 \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \frac{e^{ip_1(x+y/2)/\hbar}}{\sqrt{2π\hbar}} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ \frac{e^{-ip_2(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
+    &= ∫\d{p_1} ∫\d{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ ∫\frac{\d{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar} \\
 \end{aligned}
 $$
 となって, 最後の $y$ 積分はよく知られているようにデルタ関数の積分表示
 $$
-δ\pqty{p-\frac{p_1+p_2}2} = ∫\frac{\d{y}}{2π\hbar} e^{i[p-(p_1+p_2)/2]y/\hbar}
+δ\pqty{p-\frac{p_1+p_2}2} = ∫\frac{\d{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar}
 $$
 だから,
 $$
@@ -87,48 +87,48 @@ $$
 $$
 \begin{aligned}
   W[\^x\^p]
-    &= ∫\d{y}\ e^{ipy/\hbar} \left\langle x-\frac{y}{2} \middle| \^x \^p \middle| x+\frac{y}{2} \right\rangle \\
-    &= ∫\d{y}\ e^{ipy/\hbar} \pqty{x-\frac{y}{2}} \left\langle x-\frac{y}{2} \middle| \^p \middle| x+\frac{y}{2} \right\rangle \\
+    &= ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \^x \^p \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\d{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
 \end{aligned}
 $$
 となる. ここで, 最後の期待値は完全性 $∫\d{p}|p⟩⟨p|=1$ を挟めば
 $$
 \begin{aligned}
-  \left\langle x-\frac{y}{2} \middle| \^p \middle| x+\frac{y}{2} \right\rangle
-    &= ∫\d{p'}\ \left\langle x-\frac{y}{2} \middle| \^p \middle| p' \middle\rangle \middle\langle p' \middle| x+\frac{y}{2} \right\rangle \\
-    &= ∫\d{p'}\ p' \frac{e^{ip'(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \frac{e^{-ip'(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \\
-    &= ∫\frac{\d{p'}}{2π\hbar} p' e^{-ip'y\hbar} \\
-    &= i\hbar \dv{}{y} \pqty{∫\frac{\d{p'}}{2π\hbar} e^{-ip'y/\hbar}} \\
-    &= i\hbar δ'(y) \\
+  \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle
+    &= ∫\d{p'}\ \left\langle x+\frac{y}{2} \middle| \^p \middle| p' \middle\rangle \middle\langle p' \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\d{p'}\ p' \frac{e^{ip'(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \frac{e^{-ip'(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
+    &= ∫\frac{\d{p'}}{2π\hbar} p' e^{ip'y\hbar} \\
+    &= -i\hbar \dv{}{y} \pqty{∫\frac{\d{p'}}{2π\hbar} e^{ip'y/\hbar}} \\
+    &= -i\hbar δ'(y) \\
 \end{aligned}
 $$
 と簡単になる. より一般に
 $$
-\left\langle x-\frac{y}{2} \middle| \^p^n \middle| x+\frac{y}{2} \right\rangle = (i\hbar)^n δ^{(n)}(y)
+\left\langle x+\frac{y}{2} \middle| \^p^n \middle| x-\frac{y}{2} \right\rangle = (-i\hbar)^n δ^{(n)}(y)
 $$
 となることが同様に示せる. これを使えば, Weyl 変換は
 $$
 \begin{aligned}
   W[\^x\^p]
-    &= i\hbar ∫\d{y}\ e^{ipy/\hbar} \pqty{x-\frac{y}{2}} δ'(y) \\
-    &= - i\hbar \left. \dv{}{y} \bqty{e^{ipy/\hbar} \pqty{x-\frac{y}{2}}} \right|_{y=0} \\
-    &= - i\hbar \left. e^{ipy/\hbar} \bqty{\frac{ip}{\hbar} \pqty{x-\frac{y}{2}} - \frac12} \right|_{y=0} \\
-    &= px + i\hbar \\
+    &= - i\hbar ∫\d{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} δ'(y) \\
+    &= i\hbar \left. \dv{}{y} \bqty{e^{-ipy/\hbar} \pqty{x+\frac{y}{2}}} \right|_{y=0} \\
+    &= i\hbar \left. e^{-ipy/\hbar} \bqty{\frac{-ip}{\hbar} \pqty{x-\frac{y}{2}} + \frac12} \right|_{y=0} \\
+    &= px + \frac{i\hbar}2 \\
 \end{aligned}
 $$
 となるから, まとめると
 $$
-W[\^x\^p] = xp + i\hbar
+W[\^x\^p] = xp + \frac{i\hbar}2
 $$
 である. つまり, $H_1(x,p)$ の正準変換を置き換えて $H_1(\^x,\^p)$ を作ったはずが, Weyl 変換で古典的 Hamiltonian に戻すと余分な「お釣り」$+ i\hbar$ が出てきてしまう. 対して, Hermite 化した $\displaystyle \frac{\^x\^p+\^p\^x}2$ の Weyl 変換は
 $$
 \begin{aligned}
   W\bqty{\frac{\^x\^p+\^p\^x}2}
-    &= ∫\d{y}\ e^{ipy/\hbar} \left\langle x-\frac{y}{2} \middle| \frac{\^x\^p+\^p\^x}2 \middle| x+\frac{y}{2} \right\rangle \\
-    &= \frac12 ∫\d{y}\ e^{ipy/\hbar} \bqty{\pqty{x-\frac{y}{2}} + \pqty{x+\frac{y}{2}}} \left\langle x-\frac{y}{2} \middle| \^p \middle| x+\frac{y}{2} \right\rangle \\
-    &= i\hbar ∫\d{y}\ e^{ipy/\hbar} x δ'(y) \\
-    &= - i\hbar \left. \dv{}{y} \pqty{e^{ipy/\hbar} x} \right|_{y=0} \\
-    &= - i\hbar \left. e^{ipy/\hbar} \pqty{\frac{ip}{\hbar} x} \right|_{y=0} \\
+    &= ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \frac{\^x\^p+\^p\^x}2 \middle| x-\frac{y}{2} \right\rangle \\
+    &= \frac12 ∫\d{y}\ e^{-ipy/\hbar} \bqty{\pqty{x+\frac{y}{2}} + \pqty{x-\frac{y}{2}}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
+    &= - i\hbar ∫\d{y}\ e^{-ipy/\hbar} x δ'(y) \\
+    &= i\hbar \left. \dv{}{y} \pqty{e^{-ipy/\hbar} x} \right|_{y=0} \\
+    &= i\hbar \left. e^{-ipy/\hbar} \pqty{\frac{-ip}{\hbar} x} \right|_{y=0} \\
     &= px \\
 \end{aligned}
 $$
@@ -179,24 +179,24 @@ $$
 \begin{aligned}
   W\bqty{e^{α\^x+β\^p}}
     &= W\bqty{e^{-i\hbar αβ/2}e^{α\^x}e^{β\^p}} \\
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{ipy/\hbar} \left\langle x-\frac{y}{2} \middle| e^{α\^x}e^{β\^p} \middle| x+\frac{y}{2} \right\rangle \\
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{ipy/\hbar} e^{α(x-y/2)} \left\langle x-\frac{y}{2} \middle| e^{β\^p} \middle| x+\frac{y}{2} \right\rangle \\
+    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| e^{α\^x}e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
+    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} \left\langle x+\frac{y}{2} \middle| e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
 \end{aligned}
 $$
 となる. ここで, 最後の期待値は
 $$
 \begin{aligned}
-  \left\langle x-\frac{y}{2} \middle| e^{β\^p} \middle| x+\frac{y}{2} \right\rangle
-    &= ∑_n \frac1{n!} β^n \left\langle x-\frac{y}{2} \middle| \^p^n \middle| x+\frac{y}{2} \right\rangle \\
-    &= ∑_n \frac{δ^{(n)}(y)}{n!} (i\hbarβ)^n \\
-    &= δ(y + i\hbarβ)
+  \left\langle x+\frac{y}{2} \middle| e^{β\^p} \middle| x-\frac{y}{2} \right\rangle
+    &= ∑_n \frac1{n!} β^n \left\langle x+\frac{y}{2} \middle| \^p^n \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∑_n \frac{δ^{(n)}(y)}{n!} (-i\hbarβ)^n \\
+    &= δ(y - i\hbarβ)
 \end{aligned}
 $$
 と簡単になる. ただし, 2行目が3行目の式の $y$ まわりの Taylor 展開であることに注意. これを使うと, Weyl 変換は
 $$
 \begin{aligned}
   W\bqty{e^{α\^x+β\^p}}
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{ipy/\hbar} e^{α(x-y/2)} δ(y + i\hbarβ) \\
+    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} δ(y - i\hbarβ) \\
     &= e^{-i\hbar αβ/2} e^{βp} e^{αx} e^{i\hbar αβ/2} \\
     &= e^{αx+βp} \\
 \end{aligned}
@@ -308,15 +308,11 @@ $$
 
 ### 応用: 位相空間での経路積分表示
 
-Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. 定義式で $q↦-q'$ と変数変換して
-$$
-H_{\mathrm{W}} (x,p,t) = ∫\d{y'}\ e^{-ipy'/\hbar} \left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle
-$$
-と書けば, Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることがわかりやすい. したがって, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換してあげれば
+Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることに気付けば, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換して
 $$
 \left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle = \frac1{2π\hbar} ∫\d{p}\ e^{ipy/\hbar} H_{\mathrm{W}} (x,p,t)
 $$
-となる. ここで, 変数を $\displaystyle (x,y)↦(x_i,x_f)=\pqty{x-\frac{y}2, x+\frac{y}2}$ で置き換えれば,
+となることがわかる. ここで, 変数を $\displaystyle (x,y)↦(x_i,x_f)=\pqty{x-\frac{y}2, x+\frac{y}2}$ で置き換えれば,
 $$
 ⟨x_f|H(\^x,\^p,t)|x_i⟩ = ∫\frac{\d{p}}{2π\hbar} e^{ip(x_f-x_i)/\hbar} H_{\mathrm{W}} \pqty{\frac{x_f + x_i}{2}, p, t}
 $$

@@ -120,7 +120,7 @@ $$
 $$
 W[\^x\^p] = xp + \frac{i\hbar}2
 $$
-である. つまり, $H_1(x,p)$ の正準変換を置き換えて $H_1(\^x,\^p)$ を作ったはずが, Weyl 変換で古典的 Hamiltonian に戻すと余分な「お釣り」$+ i\hbar$ が出てきてしまう. 対して, Hermite 化した $\displaystyle \frac{\^x\^p+\^p\^x}2$ の Weyl 変換は
+である. つまり, $H_1(x,p)$ の正準変換を置き換えて $H_1(\^x,\^p)$ を作ったはずが, Weyl 変換で古典的 Hamiltonian に戻すと余分な「お釣り」$+ i\hbar/2$ が出てきてしまう. 対して, Hermite 化した $\displaystyle \frac{\^x\^p+\^p\^x}2$ の Weyl 変換は
 $$
 \begin{aligned}
   W\bqty{\frac{\^x\^p+\^p\^x}2}

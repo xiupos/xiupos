@@ -42,7 +42,7 @@ $$
   H_{\mathrm{W}} (x,p,t) ≡ ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle
 \end{gathered}
 $$
-で定義される[^var]. 運動量の固有ケットを用いて
+で定義される[^var][^wigner]. 運動量の固有ケットを用いて
 $$
 H_{\mathrm{W}} (x,p,t) = ∫\d{q}\ e^{iqx/\hbar} \left\langle p+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| p-\frac{q}{2} \right\rangle
 $$
@@ -51,6 +51,8 @@ $$
 :::
 
 [^var]: 関数の引数を明示して $W[H(\^x,\^p,t)](x,p,t)$ と書くべきだが, q-数 $(\^x,\^p)$ と c-数 $(x,p)$ の文字の対応は自明だから, 一方しか書かないことが多い.
+
+[^wigner]: この変換を Wigner 変換と呼び, 逆変換を Weyl 変換とする文献もある. むしろそっちが一般的?
 
 最後の運動量の固有ケットによる表示を導こう. 位置の固有ケットによる定義に完全性 $∫\d{p}|p⟩⟨p|=1$ を挟んで, $⟨x|p⟩ = e^{ipx/\hbar}/\sqrt{2π\hbar}$ に注意すると,
 $$
@@ -306,7 +308,7 @@ $$
 $$
 となることが, 単純な計算によってわかる. 実は, $\^x^n$ と $\^p^m$ を考えられる全ての並び替えを足して, その組合せの数 ${}_{n+m}C_m = \pmqty{n+m \\ m}$ で割れば得られるため, 慣れればすぐに Weyl 順序 $\{\^x^n\^p^m\}_{\mathrm{W}}$ を求めることができる.
 
-### 応用: 位相空間での経路積分表示
+### 応用1: 位相空間での経路積分表示
 
 Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることに気付けば, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換して
 $$

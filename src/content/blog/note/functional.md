@@ -355,8 +355,11 @@ $$
 
 #### 汎関数積分の計算例
 
-1. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の汎関数積分 $\displaystyle I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]$, ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化:  
-    $F[φ(x)]$ の離散表現は,
+1. 自由粒子型:
+    $$
+    I(φ) = ∫_{φ_0}^φ \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2},
+    $$
+    ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の離散表現は,
     $$
     f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i \sum_{n=1}^N Δx × \frac{A}2 \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
     $$

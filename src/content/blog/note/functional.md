@@ -123,6 +123,16 @@ $$
 $$
 したがって, 汎関数微分演算子 $\displaystyle \fdv{}{φ(y)}$ に対応する離散表現は $\displaystyle \frac1{Δx} \pdv{}{φ_m}$ である.
 
+汎関数微分は線形性
+$$
+\fdv{}{φ(y)} \Big\{ aF[φ(x)] + bG[φ(x)] \Big\} = a \fdv{F[φ(x)]}{φ(y)} + b \fdv{G[φ(x)]}{φ(y)}
+$$
+や Leibniz 則
+$$
+\fdv{}{φ(y)} \Big\{ F[φ(x)] G[φ(x)] \Big\} = \fdv{F[φ(x)]}{φ(y)} G[φ(x)] + F[φ(x)] \fdv{G[φ(x)]}{φ(y)}
+$$
+を満たす.
+
 #### 汎関数微分の計算例
 
 以下の汎関数 $F[φ(x)]$ について汎関数微分 $\displaystyle \fdv{F[φ(x)]}{φ(y)}$ を計算する:
@@ -470,17 +480,17 @@ $$
 
 :::screen
 
-汎関数 $F[φ(x)]$ に対する汎関数 Fourier 変換は
+汎関数 $F[φ(x)]$ に対する汎関数 Fourier 変換 $\mathscr{F}$ は
 $$
-\mathcal{F}\{F[φ(x)]\}[ξ(x)] = ∫\mathcal{D}φ(x) F[φ(x)] \exp\bqty{-i∫\d{x} φ(x) ξ(x)},
+\mathscr{F}\{F[φ(x)]\}[ξ(x)] = ∫\mathcal{D}φ(x) F[φ(x)] \exp\bqty{-i∫\d{x} φ(x) ξ(x)},
 $$
-また, $\~F[ξ(x)]$ に対する逆変換は
+また, $\~F[ξ(x)]$ に対する逆変換 $\mathscr{F}^{-1}$ は
 $$
-\mathcal{F}^{-1}\{\~F[ξ(x)]\}[φ(x)] = ∫\mathcal{D}ξ(x) \~F[ξ(x)] \exp\bqty{i∫\d{x} φ(x) ξ(x)}
+\mathscr{F}^{-1}\{\~F[ξ(x)]\}[φ(x)] = ∫\mathcal{D}ξ(x) \~F[ξ(x)] \exp\bqty{i∫\d{x} φ(x) ξ(x)}
 $$
 で定義され,
 $$
-\mathcal{F}^{-1}\{\mathcal{F}\{F[\~φ(x)]\}[ξ(x)]\}[φ(x)] = F[φ(x)]
+\mathscr{F}^{-1}\{\mathcal{F}\{F[\~φ(x)]\}[ξ(x)]\}[φ(x)] = F[φ(x)]
 $$
 を満たす.
 
@@ -503,13 +513,32 @@ $$
 汎関数デルタ関数 $Δ[φ(x)]$ を用いれば, 容易に逆変換であることがわかる:
 $$
 \begin{aligned}
-  &\quad \mathcal{F}^{-1}\{\mathcal{F}\{F[\~φ(x)]\}[ξ(x)]\}[φ(x)] \\
+  &\quad \mathscr{F}^{-1}\{\mathscr{F}\{F[\~φ(x)]\}[ξ(x)]\}[φ(x)] \\
   &= ∫\mathcal{D}ξ(x) \mathcal{F}\{F[\~φ(x)]\}[ξ(x)] \exp\bqty{i∫\d{x} φ(x) ξ(x)} \\
   &= ∫\mathcal{D}\~φ(x) F[\~φ(x)] ∫\mathcal{D}ξ(x) \exp\qty{i∫\d{x} \Big[φ(x) - \~φ(x)\Big] ξ(x)} \\
   &= ∫\mathcal{D}\~φ(x) F[\~φ(x)] Δ[φ(x) - \~φ(x)] \\
   &= F[φ(x)].
 \end{aligned}
 $$
+
+#### 汎関数 Fourier 変換の計算例
+
+規格化は都合の良いように取る.
+
+1. $1$ (恒等的に1である汎関数) の汎関数 Fourier 変換:  
+    $$
+    \mathscr{F}\{1\}[ξ(x)] = ∫\mathcal{D}φ(x) \exp\bqty{-i∫\d{x} φ(x) ξ(x)} = Δ[ξ(x)].
+    $$
+
+1. デルタ汎関数 $Δ[φ(x)]$ の汎関数 Fourier 変換:  
+    $$
+    \begin{aligned}
+      \mathscr{F}\{Δ[φ(x)]\}[ξ(x)]
+        &= ∫\mathcal{D}φ(x) Δ[φ(x)] \exp\bqty{-i∫\d{x} φ(x) ξ(x)} \\
+        &= \exp\bqty{-i∫\d{x} 0 × ξ(x)} \\
+        &= 1 \\
+    \end{aligned}
+    $$
 
 ### 参考文献
 

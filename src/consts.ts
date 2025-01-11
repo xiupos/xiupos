@@ -25,7 +25,7 @@ export const HEADER_LINKS = [
  * @type {{ link: string, icon: string }[]}
  */
 export const SOCIAL_LINKS = [
+  { link: 'https://keybase.io/xiupos', icon: 'keybase' },
   { link: 'https://github.com/xiupos', icon: 'github' },
-  { link: 'https://twitter.com/xiupos', icon: 'twitter' },
   { link: 'https://mk.xiupos.net/@xiupos', icon: 'activitypub' },
 ];

@@ -327,6 +327,34 @@ $$
     \end{aligned}
     $$
 
+5. 一般の汎関数微分:  
+    $$
+    \begin{aligned}
+      (DF)[φ(x)][η(x)]
+        &:= \left. \dv{F[φ(x)+λη(x)]}{λ} \right|_{λ=0} \\
+        &= \lim_{h→0} \frac{F[φ(x)+hη(x)]-F[φ(x)]}{h}. \\
+    \end{aligned}
+    $$
+    先に定義した汎関数微分は
+    $$
+    \fdv{F[φ(x)]}{φ(y)} = (DF)[φ(x)][δ(x-y)]
+    $$
+    と書ける. また, $F[φ(x)+hη(x)]$ を冪展開すると
+    $$
+    F[φ(x)+hη(x)] = F[φ(x)] + h ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) + O(h^2)
+    $$
+    だから, 定義式に代入すれば, 一般の汎関数微分の表示が得られる[^direct]:
+    $$
+    (DF)[φ(x)][η(x)] = ∫ \d{x} \fdv{F[φ(x)]}{φ(x)} η(x) = \fdv{{} F}{φ} * η.
+    $$
+    また, この表示を汎関数冪級数に代入すれば, 一般の汎関数微分に関する冪級数展開が得られる:
+    $$
+    F[φ(x) + η(x)]
+    = \sum_{n = 0}^∞ \frac1{n!} (D^nF)[φ(x)]\underbrace{[η(x)] \cdots [η(x)]}_n.
+    $$
+
+[^direct]: $δF[φ(x)]/δφ(y)$ が $y$ に対してだけデルタ関数を足した微分であったことを思い出せば, $(DF)[φ(x)][η(x)]$ は $η(x)$ で特徴付けられる方向に沿った微分と考えることができる. これはちょうど偏微分 $∂f(\bm{x})/∂x_i$ と方向微分 $\bm{v} \cdot ∇f(\bm{x})$ の関係に対応している.
+
 ### 汎関数積分
 
 :::screen
@@ -441,7 +469,7 @@ $$
 1. デルタ汎関数 $Δ[φ(x)]$:  
     汎関数積分で
     $$
-    Δ[φ(x)] ≡ ∫\mathcal{D}ξ(x) \exp\bqty{i∫\d{x} φ(x) ξ(x)}
+    Δ[φ(x)] := ∫\mathcal{D}ξ(x) \exp\bqty{i∫\d{x} φ(x) ξ(x)}
     $$
     と定義される. 離散表現は
     $$
@@ -485,11 +513,11 @@ $$
 
 汎関数 $F[φ(x)]$ に対する汎関数 Fourier 変換 $\mathscr{F}$ は
 $$
-\mathscr{F}\{F[φ(x)]\}[ξ(x)] = ∫\mathcal{D}φ(x) F[φ(x)] \exp\bqty{-i∫\d{x} φ(x) ξ(x)},
+\mathscr{F}\{F[φ(x)]\}[ξ(x)] := ∫\mathcal{D}φ(x) F[φ(x)] \exp\bqty{-i∫\d{x} φ(x) ξ(x)},
 $$
 また, $\~F[ξ(x)]$ に対する逆変換 $\mathscr{F}^{-1}$ は
 $$
-\mathscr{F}^{-1}\{\~F[ξ(x)]\}[φ(x)] = ∫\mathcal{D}ξ(x) \~F[ξ(x)] \exp\bqty{i∫\d{x} φ(x) ξ(x)}
+\mathscr{F}^{-1}\{\~F[ξ(x)]\}[φ(x)] := ∫\mathcal{D}ξ(x) \~F[ξ(x)] \exp\bqty{i∫\d{x} φ(x) ξ(x)}
 $$
 で定義され,
 $$
@@ -526,7 +554,7 @@ $$
 
 #### 汎関数 Fourier 変換の計算例
 
-規格化は都合の良いように取る.
+規格化定数は都合の良いように取る.
 
 1. $1$ (恒等的に1である汎関数) の汎関数 Fourier 変換:  
     $$
@@ -545,4 +573,4 @@ $$
 
 ### 参考文献
 
-- Stevens, C. F. *The Six Core Theories of Modern Physics* (United Kingdom, MIT Press, 1995)
+- Stevens, C. F. *The Six Core Theories of Modern Physics* (United Kingdom, MIT Press, 1995)

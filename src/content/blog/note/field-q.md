@@ -318,15 +318,15 @@ $$
   =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \pqty{\frac{1}{\~p_0-p_0+iε'} - \frac{1}{\~p_0+p_0-iε'}} e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
    &\ \quad \pqty{\text{$\displaystyle \frac{p_0-iε}{p_0}=1$ として通分}} \\
   =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-(p_0-iε')^2} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-p_0^2-ip_0ε'} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-|\bm{p}|^2 + m^2-iε'} \\
+  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-p_0^2+ip_0ε'} \\
+  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-|\bm{p}|^2 - m^2+iε'} \\
    &\ \quad \pqty{\text{$ε≡p_0ε'$ として, $\~p_0$ を新たに $p_0$ とすれば}} \\
-  =&\ i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 + m^2-iε}. \\
+  =&\ i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}. \\
 \end{aligned}
 $$
 ただし, このときの $p_0$ は $p_0=\sqrt{|\bm{p}|^2 + m^2}$ とは異なることに注意. したがって,
 $$
-Δ_\mathrm{F}(x-y) = i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 + m^2-iε}.
+Δ_\mathrm{F}(x-y) = i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}.
 $$
 
 ### Feynman 図形

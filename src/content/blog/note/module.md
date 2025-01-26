@@ -46,7 +46,7 @@ $$
 $$
 \begin{CD}
 M @>{f}>> M' \\
-@| \circlearrowleft & @| \\
+@| \circlearrowleft @| \\
 M @<<{f'}< M'
 \end{CD}
 $$

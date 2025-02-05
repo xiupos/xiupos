@@ -10,6 +10,7 @@ import rehypeMathjax from 'rehype-mathjax/browser';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 // @ts-ignore
 import rehypeWrapAll from 'rehype-wrap-all';
+import { typst } from 'astro-typst';
 
 /**
  * options for rehypeWrapAll
@@ -24,7 +25,7 @@ const rehypeWrapAllOptions = [
 // https://astro.build/config
 export default defineConfig({
   site: 'https://xiupos.net',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), typst()],
   vite: {
     resolve: {
       alias: {

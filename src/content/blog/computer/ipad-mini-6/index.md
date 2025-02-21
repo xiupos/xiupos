@@ -1,20 +1,17 @@
 ---
-title: "iPad mini 6"
-pubDate: 2024-07-20T00:00:00+09:00
-draft: true
+title: "Apple iPad mini 6"
+pubDate: 2025-01-21T00:00:00+09:00
 lang: ja
 ---
 
-iPad mini 6 を買った. とても気に入ったので色々と思う.
+昨年の7月に Apple の iPad mini 6 を買った. 近所の中古PCショップで6万4千円. 同サイズ帯のタブレットとしては高いが, iPhone を買うよりは断然安い.
 
-## 背景
+![Apple iPad mini 6 の背面](image.jpg)
 
-執筆時点では, 以下の構成で暮らしていた:
+当初は電子書籍リーダーとして小型タブレットを検討していたが, 長期的なOSアップデートを期待して, 一念発起して Apple 製品にした. 大学経由の電子書籍やレビューなどを気軽に読むようになったため, 結果的には元を取れていると思う.
 
-- PC: Lenovo ThinkPad X13 gen 2; Manjaro Linux
-- Tablet: Lenovo Xiaoxin Pad Pro 2021; Android 11
-- Phone: Xiaomi Redmi Note Pro 5G; Xiami HyperOS (Android 13)
+特にペンの使い勝手が良い. 上の写真にあるペンは純正ではない格安ペンで, 筆圧感知やファンクションボタンが無い. それでも本体横に磁気でくっ付ければ充電されるし, ペンの精度は Android タブレットの比じゃないため, 十分に便利である[^pen].
 
-これに加えて, 今回 iPad mini 6 を購入した:
+[^pen]: 純正ペンは, それだけで安い Android タブレットが買えるほどの値段であって, それを持ち歩く度胸は私には無い.
 
-- Tablet: iPad mini 6; iPadOS 17
+ただ, 半年ほど使っているが, まだ Linux ラップトップや Android スマホとの連携の最適解を見付けられていない. Apple 製品の「囲い込み」を常々感じている.

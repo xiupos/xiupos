@@ -346,11 +346,11 @@ $$
     &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
 \end{aligned}
 $$
-となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨x_{j+1}|\^U(t_{j+1},t_j)|x_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の積にすることができて,
+となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨x_{j+1}|\^U(t_{j+1},t_j)|x_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の1次までの近似で
 $$
-⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = ⟨x_{j+1}|\exp \bqty{-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)}|x_j⟩
+⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = ⟨x_{j+1}|\bqty{1-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)}|x_j⟩
 $$
-となる. ここで, $H(\^x,\^p,t_j)$ が Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
+とできる. ここで, $H(\^x,\^p,t_j)$ が Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
 $$
 ⟨x_{j+1}|H(\^x,\^p,t_j)|x_j⟩ = ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}
 $$
@@ -358,7 +358,7 @@ $$
 $$
 \begin{aligned}
   ⟨x_{j+1},t_{j+1}|x_j,t_j⟩
-    &= ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} \exp \bqty{-\frac{i}{{\hbar}} Δt H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} \bqty{1-\frac{i}{{\hbar}} Δt H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}} \\
     &= ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{p_j\frac{x_{j+1}-x_j}{Δt} - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$

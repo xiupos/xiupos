@@ -221,7 +221,7 @@ article {
     line-height: 1.5;
 
     > code {
-      margin: var(--headerMargin) auto calc(var(--headerMargin) * 0.15);
+      margin: calc(var(--headerMargin) * 0.2) auto;
       display: block;
       tab-size: 2;
       overflow: unset;

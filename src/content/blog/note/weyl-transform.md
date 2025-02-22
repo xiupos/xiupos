@@ -308,7 +308,7 @@ $$
 $$
 となることが, 単純な計算によってわかる. 実は, $\^x^n$ と $\^p^m$ を考えられる全ての並び替えを足して, その組合せの数 ${}_{n+m}C_m = \pmqty{n+m \\ m}$ で割れば得られるため, 慣れればすぐに Weyl 順序 $\{\^x^n\^p^m\}_{\mathrm{W}}$ を求めることができる.
 
-### 応用1: 位相空間での経路積分表示
+### 応用1: 経路積分表示
 
 Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることに気付けば, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換して
 $$
@@ -379,6 +379,48 @@ $$
 \end{aligned}
 $$
 と簡潔な形に書くこともできる. これらは**位相空間での経路積分表示**と呼ばれており, 正準量子化法から導かれたにも関わらず c-数のみの積分で構成されていることが特徴である.
+
+さらに $p$ 積分を実行しよう. 今, Hamitonian が非相対論的
+$$
+H = \frac{p^2}{2m} + V(x)
+$$
+であるとすれば, 指数関数の肩の被積分関数は
+$$
+\.x p - H(x,p,t) = \.x p - \frac{p^2}{2m} - V(x) = - \frac{(p-m\.x)^2}{2m} + \frac{m}2 \.x^2 - V(x)
+$$
+と平方完成できて, 求める遷移振幅は
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \\
+    &\qquad × \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m} + \frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
+\end{aligned}
+$$
+となる. $p$ に関する積分は単純な Fresnel 積分になって,
+$$
+\begin{aligned}
+   &\ \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
+  =&\ ∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
+  =&\ ∏_{j=0}^{N-1} \frac1{2π\hbar} \sqrt{\frac{2πm\hbar}{iΔt}} = \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \\
+\end{aligned}
+$$
+と計算できるから, 結局
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} ∏_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
+\end{aligned}
+$$
+となる. あるいは $N→∞$ の極限で, 汎関数積分
+$$
+\begin{aligned}
+  ⟨x_f,t_f|x_i,t_i⟩
+    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \Big[ \frac{m}2 \.x^2 - V(x) \Big] } \\
+    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \bqty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} L(x,\.x) } \\
+    &≡ ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \pqty{\frac{i}{\hbar} S[x]}
+\end{aligned}
+$$
+と書ける. これらは**配位空間での経路積分表示**と呼ばれている.
 
 [^T]: $T$ は時間順序積であって, 演算子の積を時間の順序関係に応じて
     $$

@@ -18,8 +18,8 @@ import { typst } from 'astro-typst';
  */
 const rehypeWrapAllOptions = [
   {selector: 'table', wrapper: 'div.responsive'},
-  {selector: 'img', wrapper: 'div.responsive'},
-  {selector: 'video', wrapper: 'div.responsive'},
+  // {selector: 'img', wrapper: 'div.responsive'},
+  // {selector: 'video', wrapper: 'div.responsive'},
 ];
 
 // https://astro.build/config

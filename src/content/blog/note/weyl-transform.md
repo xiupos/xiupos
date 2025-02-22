@@ -189,8 +189,8 @@ $$
 $$
 \begin{aligned}
   \left\langle x+\frac{y}{2} \middle| e^{β\^p} \middle| x-\frac{y}{2} \right\rangle
-    &= ∑_n \frac1{n!} β^n \left\langle x+\frac{y}{2} \middle| \^p^n \middle| x-\frac{y}{2} \right\rangle \\
-    &= ∑_n \frac{δ^{(n)}(y)}{n!} (-i\hbarβ)^n \\
+    &= \sum_n \frac1{n!} β^n \left\langle x+\frac{y}{2} \middle| \^p^n \middle| x-\frac{y}{2} \right\rangle \\
+    &= \sum_n \frac{δ^{(n)}(y)}{n!} (-i\hbarβ)^n \\
     &= δ(y - i\hbarβ)
 \end{aligned}
 $$
@@ -250,11 +250,11 @@ W[\{\^x^n\^p^m\}_{\mathrm{W}}] = x^np^m
 $$
 となる. また, 古典的 Hamiltonian $H(x,p,t)$ は, 時間 $t$ の関数 $H_{nm}(t)$ を係数とした正準変数の単項式 $x^np^m$ の線形結合
 $$
-H(x,p,t) = ∑_{n,m} H_{nm}(t) x^n p^m
+H(x,p,t) = \sum_{n,m} H_{nm}(t) x^n p^m
 $$
 で展開できる. これを量子化した $H(\^x,\^p,t)$ には, 各項の $\^x^n\^p^m$ の順序の任意性があるのは前述の通りだが, Weyl 順序を取った
 $$
-\{H(\^x,\^p,t)\}_{\mathrm{W}} = ∑_{n,m} H_{nm}(t) \{\^x^n\^p^m\}_{\mathrm{W}}
+\{H(\^x,\^p,t)\}_{\mathrm{W}} = \sum_{n,m} H_{nm}(t) \{\^x^n\^p^m\}_{\mathrm{W}}
 $$
 は順序に関して一意である. Weyl 変換の線形性から, 直ちに
 $$
@@ -270,11 +270,11 @@ $$
 
 ところで, 生成関数 $\exp(α\^x+β\^p)$ は単項式の Weyl 順序で
 $$
-\exp(α\^x+β\^p) = ∑_{k,l} \frac1{k!l!} α^k β^l \{\^x^k\^p^l\}_{\mathrm{W}}
+\exp(α\^x+β\^p) = \sum_{k,l} \frac1{k!l!} α^k β^l \{\^x^k\^p^l\}_{\mathrm{W}}
 $$
-と展開できる. これと羃展開 $\exp(α\^x+β\^p) = ∑_n (α\^x+β\^p)^n / n!$ を比較すれば,
+と展開できる. これと羃展開 $\exp(α\^x+β\^p) = \sum_n (α\^x+β\^p)^n / n!$ を比較すれば,
 $$
-(α\^x+β\^p)^n = ∑_{k=0}^n \frac{n!}{k!(n-k)!} α^k β^{n-k} \{\^x^k\^p^{n-k}\}_{\mathrm{W}}
+(α\^x+β\^p)^n = \sum_{k=0}^n \frac{n!}{k!(n-k)!} α^k β^{n-k} \{\^x^k\^p^{n-k}\}_{\mathrm{W}}
 $$
 となることがすぐにわかる. Weyl 順序を得るには, 定義式よりこちらの方が便利である. 例えば, $\^x$ と $\^p$ の次数の計が $n=2$ のときは
 $$
@@ -367,7 +367,7 @@ $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
     &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{\prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
-    &= ∫\frac{\d{p_0}}{2π\hbar} \prod_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+    &= ∫\frac{\d{p_0}}{2π\hbar} \prod_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} \sum_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
 と書ける. [汎関数積分の計算法](/blog/note/functional/#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
@@ -393,13 +393,13 @@ $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
     &= ∫\frac{\d{p_0}}{2π\hbar} \prod_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \\
-    &\qquad × \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m} + \frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
+    &\qquad × \exp \qty{\frac{i}{{\hbar}} \sum_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m} + \frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
 \end{aligned}
 $$
 となる. $p$ に関する積分は単純な Fresnel 積分になって,
 $$
 \begin{aligned}
-   &\ \pqty{\prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
+   &\ \pqty{\prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} \sum_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
   =&\ \prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
   =&\ \prod_{j=0}^{N-1} \frac1{2π\hbar} \sqrt{\frac{2πm\hbar}{iΔt}} = \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \\
 \end{aligned}
@@ -408,7 +408,7 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \prod_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}}, \\
+    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \prod_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} \sum_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}}, \\
 \end{aligned}
 $$
 あるいは $N→∞$ の極限で, 汎関数積分

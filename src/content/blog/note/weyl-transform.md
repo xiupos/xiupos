@@ -343,7 +343,7 @@ $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
     &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} ⟨x_f,t_f|x_{N-1},t_{N-1}⟩⟨x_{N-1},t_{N-1}|⋯|x_1,t_1⟩⟨x_1,t_1|x_i,t_i⟩ \\
-    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
+    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{\prod_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
 \end{aligned}
 $$
 となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨x_{j+1}|\^U(t_{j+1},t_j)|x_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の1次までの近似で
@@ -366,8 +366,8 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
-    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{\prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
+    &= ∫\frac{\d{p_0}}{2π\hbar} \prod_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
 と書ける. [汎関数積分の計算法](/blog/note/functional/#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
@@ -392,23 +392,23 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \\
+    &= ∫\frac{\d{p_0}}{2π\hbar} \prod_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \\
     &\qquad × \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m} + \frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
 \end{aligned}
 $$
 となる. $p$ に関する積分は単純な Fresnel 積分になって,
 $$
 \begin{aligned}
-   &\ \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
-  =&\ ∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
-  =&\ ∏_{j=0}^{N-1} \frac1{2π\hbar} \sqrt{\frac{2πm\hbar}{iΔt}} = \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \\
+   &\ \pqty{\prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
+  =&\ \prod_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
+  =&\ \prod_{j=0}^{N-1} \frac1{2π\hbar} \sqrt{\frac{2πm\hbar}{iΔt}} = \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \\
 \end{aligned}
 $$
 と計算できるから, 結局
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} ∏_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
+    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \prod_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
 \end{aligned}
 $$
 となる. あるいは $N→∞$ の極限で, 汎関数積分

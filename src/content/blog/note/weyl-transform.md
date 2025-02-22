@@ -408,10 +408,10 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \prod_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
+    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \prod_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}}, \\
 \end{aligned}
 $$
-となる. あるいは $N→∞$ の極限で, 汎関数積分
+あるいは $N→∞$ の極限で, 汎関数積分
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩

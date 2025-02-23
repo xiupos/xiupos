@@ -32,7 +32,7 @@ $$
 
 - 九後 汰一郎 (1989).『ゲージ場の量子論 I, II』:
     $$
-    ∫_{φ(x_\mathrm{A})=φ_0}^{φ(x_\mathrm{B})=φ} \mathcal{D}[φ(x)] \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} f(φ(x))}
+    ∫_{φ(x_\mathrm{A})=φ_0}^{φ(x_\mathrm{B})=φ} \mathcal{D}φ \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \d{x} f(φ(x))}
     $$
 
 - J. Polchinski (1998). _String Theory_:

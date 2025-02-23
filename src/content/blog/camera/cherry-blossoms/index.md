@@ -19,10 +19,10 @@ lang : ja
 
 ![Fujifilm X-E1 + Nikon NIKKOR-S･C Auto 50mm f/1.4](./_2.jpg)
 
-![Fujifilm X-E1 + Nikon Ai NIKKOR 20mm f/3.5](./_3.jpg)
-
 本当は桜並木とか全体も撮っていたが, ピントがずれまくりだった.
 あゝ難しい難しい.
 けど, ピントが合った写真があると結構感動.
 マニュアルレンズでないとわからない感動...?
 もっと写真を撮らなくては.
+
+![Fujifilm X-E1 + Nikon Ai NIKKOR 20mm f/3.5](./_3.jpg)

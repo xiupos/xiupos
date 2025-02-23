@@ -2,7 +2,6 @@
 import BaseHead from "@components/BaseHead.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import FeynmanJS from "@components/FeynmanJS.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { BLOG_TITLE, SITE_AUTHOR, HEADER_LINKS } from "../consts";
 
@@ -63,6 +62,5 @@ const { title, pubDate, lang, draft, pdf } = Astro.props;
       </article>
     </main>
     <Footer />
-    <FeynmanJS />
   </body>
 </html>

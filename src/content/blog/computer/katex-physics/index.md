@@ -39,7 +39,7 @@ MathJax v3 の physics パッケージでは以下のように表示される:
 \braket{\psi}
 ```
 $$
-\braket{\psi}
+\braket{\psi}{\psi}
 $$
 
 KaTeX のマクロで多重定義ができれば解決できるが,

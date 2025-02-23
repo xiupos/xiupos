@@ -43,7 +43,7 @@ $\TeX$ 数式を使えるようになったことに調子乗っていたら,
 
 Wikipediaの内容を踏襲しつつ,
 慣れている形に改変する.
-私は訓練データ全体を行列とは見ない派($\sum$ でまとめたい派)である.
+私は訓練データ全体を行列とは見ない派($∑$ でまとめたい派)である.
 
 ### モデルの概要
 
@@ -84,7 +84,7 @@ $\{x_k, y_k\}$ $(k \in \mathbb{Z}, 0 \leq k \leq n-1)$ は
 
 $$
 E = \frac{1}{2}
-\sum^{n-1}_{k=0}
+∑^{n-1}_{k=0}
 \left(
   y_k - \hat{y}_k
 \right)^2.
@@ -101,7 +101,7 @@ $\mathbf{B}$ のアダマール積.
 $$
 \begin{aligned}
   \frac{\partial E}{\partial \mathbf{w}^{(1)}} &=
-    - \sum^{n-1}_{k=0}
+    - ∑^{n-1}_{k=0}
     \left(
       \left(
         y_k - \hat{y}_k
@@ -114,7 +114,7 @@ $$
     \right)x_k,
   \\
   \frac{\partial E}{\partial \mathbf{b}^{(1)}} &=
-    - \sum^{n-1}_{k=0}
+    - ∑^{n-1}_{k=0}
     \left(
       \left(
         y_k - \hat{y}_k
@@ -127,7 +127,7 @@ $$
     \right),
   \\
   \frac{\partial E}{\partial \mathbf{w}^{(2)}} &=
-    - \sum^{n-1}_{k=0}
+    - ∑^{n-1}_{k=0}
     \left(
       y_k - \hat{y}_k
     \right)
@@ -136,7 +136,7 @@ $$
     \right)^\mathsf{T},
   \\
   \frac{\partial E}{\partial b^{(2)}} &=
-    - \sum^{n-1}_{k=0}
+    - ∑^{n-1}_{k=0}
     \left(
       y_k - \hat{y}_k
     \right).

@@ -1,9 +1,6 @@
 // Source Code Pro by Adobe
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&text=,-.0123456789;abcdefghijklmnopqrstuvwxyz©&display=swap");
 
-// KaTeX
-@import url("https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css");
-
 // Fork Awesome
 @import url("https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css");
 
@@ -103,18 +100,11 @@ article {
     }
   }
 
-  mjx-container[jax="CHTML"] {
-    font-size: 1.2em;
-
-    &[display="true"] {
-      margin: var(--headerMargin) auto !important;
-      overflow: hidden;
-      overflow-x: auto;
-    }
-
-    mjx-xypic {
-      filter: var(--filter);
-    }
+  // katex
+  .katex-display {
+    margin: var(--headerMargin) auto !important;
+    overflow: hidden;
+    overflow-x: auto;
   }
 
   header {
@@ -250,11 +240,6 @@ article {
     width: var(--width);
     margin-top: var(--headerMargin);
     border-top: 1px solid var(--color-sub);
-  }
-
-  .katex-display {
-    overflow: hidden;
-    overflow-x: auto;
   }
 
   ::-webkit-scrollbar {

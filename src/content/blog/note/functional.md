@@ -32,14 +32,14 @@ pdf : /pdf/note/functional.pdf
 例として関数 $φ:[a,b]→ℝ$ の汎関数 $F[φ(x)]$ を考える. $I$ の分割 $a = x_0 < ⋯ < x_N = b$ に対し, 関数値を $φ_n := φ(x_n)$ として, 汎関数 $F[φ(x)]$ はある関数 $f_N(φ_0,…,φ_N)$ の分割数 $N$ を極限まで増やしたものと見做すことができる. たとえば積分 $\displaystyle F[φ(x)] = ∫_a^b \d{x} φ(x)$ では, 分割幅を $Δx_n := x_n - x_{n-1}$ として, Riemann 積分の考え方を用いれば[^riemann],
 $$
 \begin{gathered}
-  f_N(φ_0,…,φ_N) = \sum_{n=1}^{N} Δx_n × φ(x_n) \\
+  f_N(φ_0,…,φ_N) = ∑_{n=1}^{N} Δx_n × φ(x_n) \\
   \xrightarrow{N→∞} \quad F[φ(x)] =  ∫_a^b \d{x} φ(x).
 \end{gathered}
 $$
 または, 等間隔な分割 $\displaystyle x_n := a + \frac{n(b-a)}{N}$, 分割幅 $\displaystyle Δx := \frac{b-a}{N}$ に対し, 例えば $φ(x) := x^2$ とすると,
 $$
 \begin{gathered}
-  f_N(x_0^2,…,x_N^2) = \sum_{n=1}^{N} \Delta{x} × x_n^2 \\
+  f_N(x_0^2,…,x_N^2) = ∑_{n=1}^{N} \Delta{x} × x_n^2 \\
   \xrightarrow{N→∞} \quad F[x^2] = ∫_a^b \d{x} x^2.
 \end{gathered}
 $$
@@ -54,7 +54,7 @@ $$
 1. 積分
     $$
     \begin{gathered}
-      i_N(φ_0,…,φ_N) = \sum_{n=1}^N Δx × g(φ_n) \\
+      i_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × g(φ_n) \\
       \xrightarrow{N→∞} \quad I[φ(x)] = ∫ \d{x} g(φ(x)).
     \end{gathered}
     $$
@@ -62,7 +62,7 @@ $$
 2. 代入
     $$
     \begin{gathered}
-      s(φ_0,…,φ_N;x_m=x') = \sum_{n=1}^N Δx × φ_n \frac{δ_{nm}}{Δx} = φ_m \\
+      s(φ_0,…,φ_N;x_m=x') = ∑_{n=1}^N Δx × φ_n \frac{δ_{nm}}{Δx} = φ_m \\
       \xrightarrow{N→∞} \quad S[φ(x)](x') = ∫ \d{x} φ(x) δ(x-x') = φ(x').
     \end{gathered}
     $$
@@ -71,7 +71,7 @@ $$
 3. Fourier 変換
     $$
     \begin{gathered}
-      f_N(φ_0,…,φ_N;k_m) = \sum_{n=1}^N \frac{Δx}{\sqrt{2π}} × φ_n e^{-ik_mx_n} \\
+      f_N(φ_0,…,φ_N;k_m) = ∑_{n=1}^N \frac{Δx}{\sqrt{2π}} × φ_n e^{-ik_mx_n} \\
       \xrightarrow{N→∞} \quad \mathcal{F}[φ(x)](k) = ∫ \frac{\d{x}}{\sqrt{2π}} φ(x) e^{-ikx}.
     \end{gathered}
     $$
@@ -79,7 +79,7 @@ $$
 4. Fourier 逆変換
     $$
     \begin{gathered}
-      f^{\text{``$\scriptstyle-1$''}}_N(\~φ_0,…,\~φ_N;x_n) = \sum_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
+      f^{\text{``$\scriptstyle-1$''}}_N(\~φ_0,…,\~φ_N;x_n) = ∑_{m=1}^N \frac{Δk}{\sqrt{2π}} × \~φ_m e^{ik_mx_n} \\
       \xrightarrow{N→∞} \quad \mathcal{F}^{-1}[\~φ(k)](x) = ∫ \frac{\d{k}}{\sqrt{2π}} \~φ(k) e^{ikx};
     \end{gathered}
     $$
@@ -95,7 +95,7 @@ $$
     ただし, $x_n = x(t_n)$. 例えば $\displaystyle F_x[φ] := ∫\d{x} φ(x)$ に対して,
     $$
     \begin{gathered}
-    g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = \sum_{n=1}^N Δx × φ_n = \sum_{n=1}^N Δt × \frac{Δx}{Δt} φ(x_n) \\
+    g_N(x_0,…,x_N) = f_N(φ_0,…,φ_N) = ∑_{n=1}^N Δx × φ_n = ∑_{n=1}^N Δt × \frac{Δx}{Δt} φ(x_n) \\
     \xrightarrow{N→∞} \quad G_t[x] = F_{x(t)}[φ] = ∫\d{x(t)} φ(x(t)) = ∫\d{t} \dv{x}{t} φ(x(t)).
     \end{gathered}
     $$
@@ -148,7 +148,7 @@ $$
     $$
     離散表現では, $y=x_m$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} \sum_{n=1}^N Δx × g(x_n) φ_n = g(x_m).
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g(x_n) φ_n = g(x_m).
     $$
 
 2. $F[φ(x)] = φ(x')$:
@@ -157,7 +157,7 @@ $$
     $$
     離散表現では, $y=x_m$, $x'=x_k$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} \sum_{n=1}^N Δx × φ_n \frac{δ_{nk}}{Δx} = \frac{δ_{mk}}{Δx}.
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × φ_n \frac{δ_{nk}}{Δx} = \frac{δ_{mk}}{Δx}.
     $$
 
 3. $\displaystyle F[φ(x)] = ∫ \d{x} g(φ(x))$:
@@ -172,7 +172,7 @@ $$
     $$
     離散表現では, $y=x_m$ として,
     $$
-    \frac1{Δx} \pdv{}{φ_m} \sum_{n=1}^N Δx × g(φ_n) = \dv{g(φ_m)}{φ_m}.
+    \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g(φ_n) = \dv{g(φ_m)}{φ_m}.
     $$
 
 4. $\displaystyle F[φ(x)] = ∫ \d{x} g\pqty{φ'(x)}$:
@@ -196,7 +196,7 @@ $$
     離散表現では, $y=x_m$ として,
     $$
     \begin{aligned}
-      \frac1{Δx} \pdv{}{φ_m} \sum_{n=1}^N Δx × g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
+      \frac1{Δx} \pdv{}{φ_m} ∑_{n=1}^N Δx × g\pqty{\frac{φ_n-φ_{n-1}}{Δx}}
         &= - \frac{\displaystyle g'\pqty{\frac{φ_{m+1}-φ_{m}}{Δx}} - g'\pqty{\frac{φ_m-φ_{m-1}}{Δx}}}{Δx}.
     \end{aligned}
     $$
@@ -221,7 +221,7 @@ $$
   F[φ(x) + η(x)]
     &= F[φ(x)] + ∫ \d{y} \fdv{F[φ(x)]}{φ(y)} η(y) \\
     &  \qquad\qquad\quad + \frac12 ∫ \d{y_1} ∫ \d{y_2} \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} η(y_1) η(y_2) + ⋯ \\
-    &= \sum_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
+    &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n).
 \end{aligned}
 $$
 
@@ -232,7 +232,7 @@ $$
 \begin{aligned}
   F[φ(x)]
     &= F[0] + ∫ \d{y} \left. \fdv{F[φ(x)]}{φ(y)} \right|_{φ=0} φ(y) + \frac12 ∫ \d{y_1} ∫ \d{y_2} \left. \frac{δ^2F[φ(x)]}{δφ(y_1) δφ(y_2)} \right|_{φ=0} φ(y_1) φ(y_2) + ⋯ \\
-    &= \sum_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \left. \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} \right|_{φ=0} φ(y_1)⋯φ(y_n).
+    &= ∑_{n = 0}^∞ \frac1{n!} ∫ \d{y_1} ⋯ ∫ \d{y_n} \left. \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} \right|_{φ=0} φ(y_1)⋯φ(y_n).
 \end{aligned}
 $$
 
@@ -240,8 +240,8 @@ $$
 $$
 \begin{aligned}
    &\ f_N(φ_0+η_0,…,φ_N+η_N) \\
-  =&\ f_N(φ_0,…,φ_N) + \sum_{m=0}^N Δx \frac1{Δx}\pdv{f_N}{φ_m} η_m + \frac12 \sum_{{m_1}=0}^N Δx \sum_{{m_2}=0}^N Δx \frac1{(Δx)^2} \frac{∂^2f_N}{∂φ_{m_1}∂φ_{m_2}} η_{m_1} η_{m_2} + ⋯ \\
-  =&\ \sum_{n=0}^∞ \frac1{n!} \sum_{{m_1}=0}^N Δx ⋯ \sum_{{m_n}=0}^N Δx \frac1{(Δx)^n} \frac{∂^nf_N(φ_0,…,φ_N)}{∂φ_{m_1}⋯∂φ_{m_n}} η_{m_1} ⋯ η_{m_n}.
+  =&\ f_N(φ_0,…,φ_N) + ∑_{m=0}^N Δx \frac1{Δx}\pdv{f_N}{φ_m} η_m + \frac12 ∑_{{m_1}=0}^N Δx ∑_{{m_2}=0}^N Δx \frac1{(Δx)^2} \frac{∂^2f_N}{∂φ_{m_1}∂φ_{m_2}} η_{m_1} η_{m_2} + ⋯ \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} ∑_{{m_1}=0}^N Δx ⋯ ∑_{{m_n}=0}^N Δx \frac1{(Δx)^n} \frac{∂^nf_N(φ_0,…,φ_N)}{∂φ_{m_1}⋯∂φ_{m_n}} η_{m_1} ⋯ η_{m_n}.
 \end{aligned}
 $$
 この表現は関数 $f_N(φ_0+η_0,…,φ_N+η_N)$ の $(φ_0,…,φ_N)$ まわりでの Taylor 展開になっている.
@@ -252,7 +252,7 @@ $$
 $$
 とすると, Volterra 級数は以下のように書き直せる:
 $$
-F[φ(x) + η(x)] = \sum_{n = 0}^∞ \frac1{n!} \fdv{{}^n F}{φ^n} * η^n.
+F[φ(x) + η(x)] = ∑_{n = 0}^∞ \frac1{n!} \fdv{{}^n F}{φ^n} * η^n.
 $$
 
 #### 冪級数を用いた計算例
@@ -263,8 +263,8 @@ $$
       &\ \fdv{}{η(y)} \pqty{\fdv{{}^n F}{φ^n} * η^n} \\
       =&\ \lim_{h→0} \frac1h \left[∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} [η(y_1)+hδ(y_1-y)]⋯[η(y_n)+hδ(y_n-y)]\right. \\
         &\qquad\qquad\quad - \left.∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯η(y_n)\right] \\
-      =&\ \lim_{h→0} \frac1h \bqty{\sum_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) hδ(y_i-y) + O(h^2)} \\
-      =&\ \sum_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) δ(y_i-y) \\
+      =&\ \lim_{h→0} \frac1h \bqty{∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) hδ(y_i-y) + O(h^2)} \\
+      =&\ ∑_{i=0}^n ∫ \d{y_1} ⋯ ∫ \d{y_n} \frac{δ^n F[φ(x)]}{δφ(y_1)⋯δφ(y_n)} η(y_1)⋯\widehat{η(y_i)}⋯η(y_n) δ(y_i-y) \\
       =&\ n ∫ \d{y_1} ⋯ ∫ \d{y_{n-1}} \frac{δ^n F[φ(x)]}{δφ(y)δφ(y_1)⋯δφ(y_{n-1})} η(y_1)⋯η(y_{n-1}) \\
       =&\ n \fdv{}{φ(y)} \pqty{\fdv{{}^{n-1} F}{φ^{n-1}}} * η^{n-1} \quad \pqty{\text{$\displaystyle =: n \fdv{{}^{n} F}{φ^{n}} * η^{n-1}$ とも書く}}.
     \end{aligned}
@@ -350,7 +350,7 @@ $$
     また, この表示を汎関数冪級数に代入すれば, 一般の汎関数微分に関する冪級数展開が得られる:
     $$
     F[φ(x) + η(x)]
-    = \sum_{n = 0}^∞ \frac1{n!} (D^nF)[φ(x)]\underbrace{[η(x)] \cdots [η(x)]}_n.
+    = ∑_{n = 0}^∞ \frac1{n!} (D^nF)[φ(x)]\underbrace{[η(x)] \cdots [η(x)]}_n.
     $$
 
 [^direct]: $δF[φ(x)]/δφ(y)$ が $y$ の寄与に対してだけデルタ関数を足した微分であったことを思い出せば, $(DF)[φ(x)][η(x)]$ は $η(x)$ で特徴付けられる方向に沿った微分と考えることができる. これはちょうど偏微分 $∂f(\bm{x})/∂x_i$ と方向微分 $\bm{v} \cdot ∇f(\bm{x})$ の関係に対応している.
@@ -363,7 +363,7 @@ $x∈[a,b]$ の関数上で定義される $F[φ(x)]$ の**汎関数積分** *fu
 $$
 \begin{aligned}
   ∫ \mathcal{D}φ(x) F[φ(x)]
-    &:= \frac1{θ} \pqty{\prod_{x∈[a,b]} ∫ \d{φ(x)}} F[φ(x)] \\
+    &:= \frac1{θ} \pqty{∏_{x∈[a,b]} ∫ \d{φ(x)}} F[φ(x)] \\
     &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_0} ⋯ ∫ \d{φ_N} f_N(φ_0,…,φ_N).
 \end{aligned}
 $$
@@ -375,7 +375,7 @@ $\varphi(x)$ の端を固定した汎関数積分も重要である:
 $$
 \begin{aligned}
   ∫_{φ_0}^φ \mathcal{D}φ(x) F[φ(x)]
-    &:= \left. \frac1{θ} \pqty{\prod_{x∈(a,b)} ∫ \d{φ(x)}} F[φ(x)] \right|_{φ(a)=φ_0}^{φ(b)=φ} \\
+    &:= \left. \frac1{θ} \pqty{∏_{x∈(a,b)} ∫ \d{φ(x)}} F[φ(x)] \right|_{φ(a)=φ_0}^{φ(b)=φ} \\
     &:= \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} f_N(φ_0,φ_1,…,φ_{N-1},φ).
 \end{aligned}
 $$
@@ -389,15 +389,15 @@ $$
     $$
     ただし $\displaystyle ∫ \d{φ} I(φ) = 1$ として正規化する. $\displaystyle F[φ(x)] = \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2}$ の離散表現は,
     $$
-    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i \sum_{n=1}^N Δx × \frac{A}2 \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
+    f_N(φ_0,φ_1,…,φ_{N-1},φ) = \exp \bqty{i ∑_{n=1}^N Δx × \frac{A}2 \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ}.
     $$
     ただし, 分割幅を $Δx := (b-a)/N$ とした. したがって $F[φ(x)]$ の汎関数積分は,
     $$
     \begin{aligned}
       I(φ) &= ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i \sum_{n=1}^N Δx × \frac{A}2 \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{iA}{2Δx} \sum_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
-        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{iA}{2Δx} \bqty{(φ - φ_{N-1})^2 + \sum_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{i ∑_{n=1}^N Δx × \frac{A}2 \pqty{\frac{φ_n - φ_{n-1}}{Δx}}^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \bqty{\frac{iA}{2Δx} ∑_{n=1}^N (φ_n - φ_{n-1})^2}_{φ_0=φ_0}^{φ_N=φ} \\
+        &=  \lim_{N→∞} \frac1{θ(N)} ∫ \d{φ_1} ⋯ ∫ \d{φ_{N-1}} \exp \qty{\frac{iA}{2Δx} \bqty{(φ - φ_{N-1})^2 + ∑_{k=1}^{N-1} (φ_{N-k} - φ_{N-(k+1)})^2}}_{φ_0=φ_0}.
     \end{aligned}
     $$
     ここで $φ_{N-k}$ の積分について考えると,
@@ -444,8 +444,8 @@ $$
     $$
     \begin{aligned}
        &\ ∫_{φ_1}^{φ_2} \mathcal{D}φ(x) ∫\d{φ_2} ∫_{φ_2}^{φ_3} \mathcal{D}φ(x) g(φ_2) F[φ(x)] \\
-      =&\ \frac1θ \pqty{\prod_{x∈(t_1,t_2)} ∫\d{φ(x)}} ∫\d{φ(x_2)} \pqty{\prod_{x∈(t_2,t_3)} ∫\d{φ(x)}} F[φ(x)] \\
-      =&\ \frac1θ \pqty{\prod_{x∈(t_1,t_3)} ∫\d{φ(x)}} F[φ(x)] \quad \pqty{∵(t_1,t_2)∪\{t_2\}∪(t_2,t_3) = (t_1,t_3)} \\
+      =&\ \frac1θ \pqty{∏_{x∈(t_1,t_2)} ∫\d{φ(x)}} ∫\d{φ(x_2)} \pqty{∏_{x∈(t_2,t_3)} ∫\d{φ(x)}} F[φ(x)] \\
+      =&\ \frac1θ \pqty{∏_{x∈(t_1,t_3)} ∫\d{φ(x)}} F[φ(x)] \quad \pqty{∵(t_1,t_2)∪\{t_2\}∪(t_2,t_3) = (t_1,t_3)} \\
       =&\ ∫_{φ_1}^{φ_3} \mathcal{D}φ(x) F[φ(x)]. \\
     \end{aligned}
     $$
@@ -475,19 +475,19 @@ $$
     $$
     \begin{aligned}
     δ_N(\{φ_n\})
-      &≡ \frac1{θ(N)} \pqty{\prod_n ∫\d{ξ_n}} \exp\bqty{i \sum_n Δx × φ_n ξ_n} \\
-      &= \frac1{θ(N)} \prod_n ∫\d{ξ_n} \exp \Big( i Δx × φ_n ξ_n \Big) \\
-      &= \frac1{θ(N)} \prod_n 2π δ(φ_n Δx) \\
-      &= \frac1{θ(N)} \pqty{\frac{2π}{Δx}}^N \prod_n δ(φ_n) \\
+      &≡ \frac1{θ(N)} \pqty{∏_n ∫\d{ξ_n}} \exp\bqty{i ∑_n Δx × φ_n ξ_n} \\
+      &= \frac1{θ(N)} ∏_n ∫\d{ξ_n} \exp \Big( i Δx × φ_n ξ_n \Big) \\
+      &= \frac1{θ(N)} ∏_n 2π δ(φ_n Δx) \\
+      &= \frac1{θ(N)} \pqty{\frac{2π}{Δx}}^N ∏_n δ(φ_n) \\
     \end{aligned}
     $$
     となって, 正規化因子を $θ(N) = \pqty{2π/Δx}^{N}$ と置けば
     $$
-    δ_N(\{φ_n\}) = \prod_n δ(φ_n)
+    δ_N(\{φ_n\}) = ∏_n δ(φ_n)
     $$
     であるから, $N→∞$ の極限で, デルタ汎関数は
     $$
-    Δ[φ(x)] = \prod_x δ(φ(x))
+    Δ[φ(x)] = ∏_x δ(φ(x))
     $$
     と書ける. さて, 汎関数デルタ関数は,
     $$
@@ -500,8 +500,8 @@ $$
     $$
     \begin{aligned}
        &\ ∫\mathcal{D}φ(x) F[φ(x)] Δ[φ(x) - \~φ(x)] \\
-      =&\ \frac1{θ} \pqty{\prod_{x} ∫ \d{φ(x)}} F[φ(x)] \pqty{\prod_x δ(φ(x) - \~φ(x))} \\
-      =&\ \frac1{θ} \pqty{\prod_{x} ∫ \d{φ(x)} δ(φ(x) - \~φ(x))} F[φ(x)] \\
+      =&\ \frac1{θ} \pqty{∏_{x} ∫ \d{φ(x)}} F[φ(x)] \pqty{∏_x δ(φ(x) - \~φ(x))} \\
+      =&\ \frac1{θ} \pqty{∏_{x} ∫ \d{φ(x)} δ(φ(x) - \~φ(x))} F[φ(x)] \\
       =&\ F[\~φ(x)] \\
     \end{aligned}
     $$
@@ -531,13 +531,13 @@ $$
 $$
 \begin{aligned}
   \~g_N(\{\sqrt{Δx}ξ_n\})
-    &= \pqty{\prod_n ∫\frac{\sqrt{Δx}\d{φ_n}}{\sqrt{2π}}} g_N(\{\sqrt{Δx}φ_n\}) \exp\bqty{-i\sum_n\sqrt{Δx}φ_n × \sqrt{Δx}ξ_n} \\
-    &= \pqty{\frac{Δx}{2π}}^{N/2} \pqty{\prod_n ∫\d{φ_n}} g_N(\{\sqrt{Δx}φ_n\}) \exp\bqty{-i\sum_n Δx × φ_nξ_n} \\
+    &= \pqty{∏_n ∫\frac{\sqrt{Δx}\d{φ_n}}{\sqrt{2π}}} g_N(\{\sqrt{Δx}φ_n\}) \exp\bqty{-i∑_n\sqrt{Δx}φ_n × \sqrt{Δx}ξ_n} \\
+    &= \pqty{\frac{Δx}{2π}}^{N/2} \pqty{∏_n ∫\d{φ_n}} g_N(\{\sqrt{Δx}φ_n\}) \exp\bqty{-i∑_n Δx × φ_nξ_n} \\
 \end{aligned}
 $$
 となるから, 結局 $f_N$ と $\~f_N$ の関係は
 $$
-\~f_N(\{ξ_n\}) = \pqty{\frac{Δx}{2π}}^{N/2} \pqty{\prod_n ∫\d{φ_n}} f_N(\{φ_n\}) \exp\bqty{-i\sum_n Δx × φ_nξ_n}
+\~f_N(\{ξ_n\}) = \pqty{\frac{Δx}{2π}}^{N/2} \pqty{∏_n ∫\d{φ_n}} f_N(\{φ_n\}) \exp\bqty{-i∑_n Δx × φ_nξ_n}
 $$
 となって, $N→∞$ の極限で汎関数 Fourier 変換が得られる. 逆変換も同様.
 

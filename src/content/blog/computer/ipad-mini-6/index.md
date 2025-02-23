@@ -1,6 +1,6 @@
 ---
 title: "Apple iPad mini 6"
-pubDate: 2025-02-21T00:00:00+09:00
+pubDate: 2025-02-21T12:00:00+09:00
 lang: ja
 ---
 

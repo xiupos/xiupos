@@ -16,11 +16,13 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.3.0",
+    "astro-icon": "^1.1.5",
     "astro-typst": "^0.7.0-beta.1",
     "typescript": "^5.7.3"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^6.1.0",
+    "@iconify-json/simple-icons": "^1.2.28",
     "hastscript": "^9.0.0",
     "node-tikzjax": "github:xiupos/node-tikzjax",
     "rehype-katex": "^7.0.1",

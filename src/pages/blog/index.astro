@@ -32,7 +32,7 @@ const posts = [
   })),
 ];
 
-const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
+const rssLink = [{ link: "/blog/rss.xml", icon: "simple-icons:rss" }];
 ---
 
 <!doctype html>
@@ -51,7 +51,7 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
 
         li {
           display: flex;
-          margin-bottom: .3em;
+          margin-bottom: 0.3em;
 
           :global(time) {
             flex: 0 0 8em;
@@ -61,8 +61,8 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "rss" }];
           a span {
             background: var(--back-code);
             color: var(--color-sub);
-            padding :.1em .4em;
-            border-radius: .3em;
+            padding: 0.1em 0.4em;
+            border-radius: 0.3em;
             white-space: nowrap;
             font-size: 0.8em;
           }

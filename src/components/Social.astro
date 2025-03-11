@@ -1,8 +1,10 @@
 ---
+import { Icon } from "astro-icon/components";
+
 export interface Props {
   links: {
-    link: string,
-    icon: string,
+    link: string;
+    icon: string;
   }[];
 }
 
@@ -12,7 +14,9 @@ const { links } = Astro.props;
 <div class="social">
   {
     links.map((link) => (
-      <a href={link.link}><i class={'fa fa-' + link.icon} aria-hidden="true"></i></a>
+      <a href={link.link}>
+        <Icon name={link.icon} />
+      </a>
     ))
   }
 </div>

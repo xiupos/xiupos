@@ -12,6 +12,8 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeWrapAll from "rehype-wrap-all";
 import { typst } from "astro-typst";
 
+import icon from "astro-icon";
+
 /**
  * options for rehypeWrapAll
  * - add wrappers for responsive design
@@ -141,7 +143,7 @@ const katexMacros = {
 // https://astro.build/config
 export default defineConfig({
   site: "https://xiupos.net",
-  integrations: [mdx(), sitemap(), typst()],
+  integrations: [mdx(), sitemap(), typst(), icon()],
   vite: {
     resolve: {
       alias: {

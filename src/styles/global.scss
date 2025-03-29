@@ -220,6 +220,10 @@ article {
     border-top: 1px solid var(--color-sub);
   }
 
+  #footnote-label {
+    display: none;
+  }
+
   .footnotes::before {
     content: '';
     display: block;

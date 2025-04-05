@@ -6,6 +6,7 @@ pubDate : 2024-05-28T18:25:00+09:00
 lang : ja
 math : true
 draft: true
+preamble: "!preamble"
 ---
 
 Newton 力学とは, 運動方程式

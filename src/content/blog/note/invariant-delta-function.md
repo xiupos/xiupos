@@ -6,6 +6,7 @@ pubDate : 2024-01-06T22:40:00+09:00
 lang : ja
 draft : true
 math : true
+preamble: "!preamble"
 ---
 
 Minkowski 計量は $\operatorname{diag}(+---)$ とする.

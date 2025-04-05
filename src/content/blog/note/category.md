@@ -6,6 +6,7 @@ pubDate : 2024-04-07T22:40:00+09:00
 lang : ja
 draft : true
 math : true
+preamble: "!preamble"
 ---
 
 ### 圏論

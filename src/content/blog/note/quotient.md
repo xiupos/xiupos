@@ -6,6 +6,7 @@ pubDate : 2024-07-22T09:00:00+09:00
 lang : ja
 # draft : true
 math : true
+preamble: "!preamble"
 ---
 
 恥ずかしながら, 商の微分公式をよく忘れる:

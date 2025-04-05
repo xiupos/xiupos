@@ -6,6 +6,7 @@ pubDate : 2024-05-28T18:25:00+09:00
 lang : ja
 math : true
 draft : true
+preamble: "!preamble"
 ---
 
 解析力学の基本事項をまとめる. 積極的に汎関数の計算も用いる.

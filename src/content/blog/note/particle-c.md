@@ -1,12 +1,13 @@
 ---
-title : 粒子系の古典論ノート
-author : xiupos
-date : \today
-pubDate : 2024-05-28T18:25:00+09:00
-lang : ja
-draft : true
-math : true
-pdf : /pdf/note/particle-c.pdf
+title: 粒子系の古典論ノート
+author: xiupos
+date: \today
+pubDate: 2024-05-28T18:25:00+09:00
+lang: ja
+draft: true
+math: true
+pdf: /pdf/note/particle-c.pdf
+preamble: "!preamble"
 ---
 
 粒子系[^particles]の古典論の基本事項を体系的にまとめる. 自分用のノートなので, 正確性は保証されない[^excuse].

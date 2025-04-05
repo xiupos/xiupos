@@ -5,6 +5,7 @@ date : \today
 pubDate : 2024-12-26T11:40:00+09:00
 lang : ja
 math : true
+preamble: "!preamble"
 ---
 
 正準量子化では, 古典的 Hamiltonian $H(x,p,t)$ に対して正準変数 $(x,p)$ を演算子 $(\^x,\^p)$ に置き換えて, Hermite 演算子 $H(\^x,\^p,t)$ がつくられる. 例えば, 調和振動子の Hamiltonian

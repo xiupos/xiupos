@@ -23,4 +23,4 @@ pnpm-debug.log*
 # Obsidian
 
 src/content/blog/note/.obsidian
-src/content/blog/note/00*.md
+src/content/blog/note/!*.md

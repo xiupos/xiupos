@@ -144,6 +144,10 @@ const katexMacros = {
 export default defineConfig({
   site: "https://xiupos.net",
   integrations: [mdx(), sitemap(), typst(), icon()],
+  trailingSlash: "never",
+  build: {
+    format: "file",
+  },
   vite: {
     resolve: {
       alias: {
@@ -170,5 +174,4 @@ export default defineConfig({
       },
     },
   },
-  trailingSlash: "never",
 });

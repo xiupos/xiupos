@@ -6,7 +6,7 @@ pubDate : 2024-01-06T22:40:00+09:00
 lang : ja
 draft : true
 math : true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 場[^particles]の古典論の基本事項を体系的にまとめる.
@@ -27,7 +27,7 @@ $$
 
 :::
 
-[粒子系](/blog/note/particle-c/)の場合と同様, 系に対し適当な作用 $S[ϕ^α]$, あるいは次節の Lagrangian 密度を決定するのが, 物理学の本質と言えよう.
+[粒子系](./particle-c)の場合と同様, 系に対し適当な作用 $S[ϕ^α]$, あるいは次節の Lagrangian 密度を決定するのが, 物理学の本質と言えよう.
 
 ### Euler–Lagrange の運動方程式
 

@@ -6,7 +6,7 @@ pubDate: 2024-01-06T22:40:00+09:00
 lang: ja
 draft: true
 math: true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 ### 環上の加群
@@ -22,7 +22,7 @@ $R$ 上の右加群または右 $R$-加群も同様に定義される. Abel 群�
 $$
 n \cdot g := \underbrace{g+g+\cdots+g}_n, \quad (-1) \cdot g:=-g, \quad 0 \cdot g:=0
 $$
-と定義すれば, 加法 $+$ と写像 $\cdot : \mathbb{Z}×G→G$ について $G$ は左 $\mathbb{Z}$ の定義を満たす.
+と定義すれば, 加法 $+$ と写像 $\cdot : \mathbb{Z}×G→G$ について $G$ は左 $\mathbb{Z}$-加群の定義を満たす.
 
 ### 部分加群と剰余類
 
@@ -35,7 +35,7 @@ $$
   x(m+N):=xm+N
 \end{gathered}
 $$
-と定義すると, $M/N$ は $R$-加群となる. これを**商加群** *quotient $R$-module* という. また, 商加群 $M/N$ の元(左剰余類)を $[m]:=m+N$ と書く. これはちょうど, $m,n∈M$ に対して同値関係を $m∼n:⇔m-n∈N$ と定義したときの同値類 $[m]=\{m∈M \mid m∼n\}$ に等しい.
+と定義すると, $M/N$ は $R$-加群となる. これを**商加群** *quotient $R$-module* という. また, 商加群 $M/N$ の元(左剰余類)を $[m]:=m+N$ と書く. これはちょうど, $m,n∈M$ に対して同値関係を $m∼n:⇔m-n∈N$ と定義したときの同値類 $[m]=\{n∈M \mid m∼n\}$ に等しい.
 
 ### $R$-準同型
 

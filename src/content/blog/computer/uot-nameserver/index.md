@@ -10,7 +10,7 @@ toc : true
 lang : ja
 ---
 
-先日構築した[Ubuntu on Termux](/blog/computer/uot/)で,
+先日構築した[Ubuntu on Termux](/blog/computer/uot)で,
 ``apt``コマンドの利用リポジトリのサーバを国内のものに変更しようとした際に手こずったのでメモ.
 
 通常, Ubuntu用のミラーサーバを設定するとき, [ここにあるようなミラーサーバ](https://launchpad.net/ubuntu/+archivemirrors)の中から選択し, ``/etc/apt/sources.list``を編集することで設定をする.   

@@ -5,7 +5,7 @@ date : \today
 pubDate : 2024-12-26T11:40:00+09:00
 lang : ja
 math : true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 正準量子化では, 古典的 Hamiltonian $H(x,p,t)$ に対して正準変数 $(x,p)$ を演算子 $(\^x,\^p)$ に置き換えて, Hermite 演算子 $H(\^x,\^p,t)$ がつくられる. 例えば, 調和振動子の Hamiltonian
@@ -371,7 +371,7 @@ $$
     &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
-と書ける. [汎関数積分の計算法](/blog/note/functional/#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
+と書ける. [汎関数積分の計算法](./functional#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩

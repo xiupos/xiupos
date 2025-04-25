@@ -6,7 +6,7 @@ pubDate : 2024-05-28T18:25:00+09:00
 lang : ja
 math : true
 draft: true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 Newton 力学とは, 運動方程式
@@ -41,19 +41,19 @@ $$
 $$
 t \longmapsto t'=t+s, \quad \bm{x} \longmapsto \bm{x}'=R\bm{x}+\bm{v}t+\bm{a}
 $$
-と書ける. または, 行列を用いて
+と書ける.  行列を用いて
 $$
 \pmqty{1 \\ t \\ \bm{x}} \longmapsto \pmqty{1 \\ t' \\ \bm{x}'} = \pmqty{1 & 0 & 0 \\ s & λ & 0 \\ \bm{a} & \bm{v} & R} \pmqty{1 \\ t \\ \bm{x}}
 $$
-と簡単に書ける. $\det R ≠ 0$ であることから, この係数の行列は
+と簡単に書くこともできる. $\det R = ± 1 ≠ 0$ であることから, この係数の行列は正則
 $$
 \det \pmqty{1 & 0 & 0 \\ s & λ & 0 \\ \bm{a} & \bm{v} & R} ≠ 0
 $$
-となり, 逆行列は
+であり, 逆行列は
 $$
 \pmqty{1 & 0 & 0 \\ s & λ & 0 \\ \bm{a} & \bm{v} & R}^{-1} = \pmqty{1 & 0 & 0 \\ -λs & λ & 0 \\ -R^{\top}\pqty{\bm{a}-\bm{v}λs} & -λR^{\top}\bm{v} & R^{\top}}
 $$
-で与えられる. これらの行列から明らかなように, Galilei 変換は群の公理を満たし, 変換の全体を Galilei 群という. 特に $λ=1$, $\det R=1$ である変換は恒等変換と連結であり, この変換を固有順時 Galilei 変換という. 以下ではこの場合のみを考える.
+で与えられる. これらの行列からわかるように, Galilei 変換は群の公理を満たし, 変換の全体は Galilei 群と呼ばれる. 特に $λ=1$, $\det R=1$ である変換は恒等変換と連結であり, この変換を固有順時 Galilei 変換という. 以下ではこの場合のみを考える.
 
 ところで, Galilei 変換に対して作用が不変なとき, 保存量は何になるだろうか. 微小 Galilei 変換を調べよう.
 

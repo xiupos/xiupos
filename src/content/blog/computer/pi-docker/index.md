@@ -143,7 +143,7 @@ pihub delete repo_name
 日本語情報は既に大量にあるので,
 ここでは簡単に.
 
-[公式サイト](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit)より
+[公式サイト](https://www.raspberrypi.org/software/operating-systems#raspberry-pi-os-32-bit)より
 Raspberry Pi OSのイメージをダウンロードして解凍.
 Zeroなのでlite版で十分.
 

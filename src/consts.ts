@@ -18,7 +18,7 @@ export const BLOG_DESCRIPTION = "This is xiupoy blog.";
  */
 export const HEADER_LINKS = [
   { name: "xiupos.net", link: "/" },
-  { name: "blog", link: "/blog/" },
+  { name: "blog", link: "/blog" },
 ];
 
 /**

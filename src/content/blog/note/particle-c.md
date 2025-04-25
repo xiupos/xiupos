@@ -7,7 +7,7 @@ lang: ja
 draft: true
 math: true
 pdf: /pdf/note/particle-c.pdf
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 粒子系[^particles]の古典論の基本事項を体系的にまとめる. 自分用のノートなので, 正確性は保証されない[^excuse].

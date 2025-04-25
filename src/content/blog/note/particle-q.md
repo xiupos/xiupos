@@ -6,7 +6,7 @@ pubDate : 2024-10-30T15:22:00+09:00
 lang : ja
 draft : true
 math : true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 粒子系[^particles]の量子論の基本事項を体系的にまとめる. 自分用のノートなので, 正確性は保証されない[^excuse]. また, 線型代数や関数解析で扱われるような数学的な事項には踏み込まず, 定義等も省略する.

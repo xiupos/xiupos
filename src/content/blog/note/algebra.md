@@ -6,7 +6,7 @@ pubDate : 2024-01-06T22:40:00+09:00
 lang : ja
 draft : true
 math : true
-preamble: "!preamble"
+preamble: "_preamble"
 ---
 
 ### 群
@@ -18,7 +18,15 @@ preamble: "!preamble"
 3. **逆元の存在** *inverse*: ${}^∃x'∈G$, $μ(x,x')=μ(x',x)=e$,
 4. **可換律** *commutativity*: $μ(x,y)=μ(y,x)$.
 
-組 $(G,μ)$ あるいは単に $G$ について, 条件1を満たすものを**半群** *semi-group*, 条件1,2を満たすものを**モノイド** *monoid*, 条件1,2,3を満たすものを**群** *group*, 条件1,2,3,4を満たすものを**可換群** *commutative group* あるいは **Abel 群** *abelian group*, **加法群** _addictive group_, 加群[^addictive-group]などという. $μ(x, y) =: x ⋅ y =: xy$, $e =: 1$, $x' =: x^{-1}$ などと表記される. また, Abel 群において, $μ(x,y)=:x+y$, $e=:0$, $x'=:-x$ などと表記されることも多い.
+組 $(G,μ)$ あるいは単に $G$ について, 条件1を満たすものを**半群** *semi-group*, 条件1,2を満たすものを**モノイド** *monoid*, 条件1,2,3を満たすものを**群** *group*, 条件1,2,3,4を満たすものを**可換群** *commutative group* あるいは **Abel 群** *abelian group*, **加法群** _addictive group_, 加群[^addictive-group]などという. 
+$$
+μ(x, y) =: x ⋅ y =: xy, \quad e =: 1, \quad x' =: x^{-1}
+$$
+などと表記される. Abel 群においては特に,
+$$
+μ(x,y)=:x+y, \quad e=:0, \quad x'=:-x
+$$
+などと表記されることがある.
 
 [^addictive-group]: Abel 群は整数環 $\mathbb{Z}$ 上の加群でもあるため, この呼び方は一概に間違っているとは言えない.
 
@@ -31,7 +39,7 @@ preamble: "!preamble"
 
 群 $G$ が有限集合であるとき, $G$ を**有限群** *finite group* という. このとき, $G$ の濃度を $G$ の**位数** *order* といい, $|G|$ と書く. 群 $G$ が有限群でないとき, $G$ を**無限群** *infinite group* という.
 
-群 $G$ の元 $g$ に対して, $g^n = e$ となる $n ∈ ℕ$ が存在するとき, $g$ は有限位数であるという. また, これを満たす最小の $n$ を $g$ の位数といい, $\operatorname*{ord}(g)$ と書く. 位数 $n$ の $g$ の羃乗で作られる群を**巡回群**という.
+群 $G$ の元 $g$ に対して, $g^n := \underbrace{g \cdots g}_n = e$ となる $n ∈ ℕ$ が存在するとき, $g$ は有限位数であるという. また, これを満たす最小の $n$ を $g$ の位数といい, $\operatorname*{ord}(g)$ と書く. 位数 $n$ の $g$ の羃乗で作られる群を**巡回群**という.
 
 集合 $X$ から $X$ への全単射の全体は, 写像の合成に関して群をなし, これを $X$ の**自己同型群**といい, $\operatorname*{Aut}(X)$ と書く.
 

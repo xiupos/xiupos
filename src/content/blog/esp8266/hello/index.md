@@ -10,7 +10,7 @@ toc : true
 lang : ja
 ---
 
-[LチカをしたESP-WROOM-02](/blog/esp8266/blink/)だが,
+[LチカをしたESP-WROOM-02](/blog/esp8266/blink)だが,
 やっぱりESP8266の威力を体験するためにはWi-Fi関連を使わねばならない.
 そこで, (マイコンでは珍しく)`Hello, world!`をする.
 

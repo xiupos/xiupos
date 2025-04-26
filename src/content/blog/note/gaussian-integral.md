@@ -2,7 +2,7 @@
 title: 色々な Gauss 積分
 author: xiupos
 date: \today
-pubDate: 2024-07-22T09:00:00+09:00
+pubDate: 2025-04-27T09:00:00+09:00
 lang: ja
 math: true
 draft: true
@@ -48,7 +48,7 @@ $$
     ∵ $\mathbb{C}$ 平面上 $-R→R→R-β→-R-β→-R$ なる平行四辺形の経路で $e^{-\frac12 az^2}$ を複素積分し, 極限 $R→0$.
 
 - $\displaystyle ∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}. \quad (α,χ_0∈\mathbb{C},\ \operatorname{Re} α > 0)$  
-    ∵ $e^{-\frac12a(x-β)^2}$ に対する Gauss 積分を $a → \operatorname{Re} α > 0$ に解析接続.
+    ∵ $e^{-\frac12a(x-β)^2}$ に対する Gauss 積分で $a$ を $\operatorname{Re} α > 0$ に解析接続.
 
 - $\displaystyle ∫\d{x}\ e^{-\frac12αx^2 + βx + γ} = \sqrt{\frac{2π}{α}} e^{\frac{β^2}{2α} + γ}. \quad (α,β,γ∈\mathbb{C},\ \operatorname{Re} α > 0)$  
     ∵ 平方完成 $-\frac12αx^2 + βx + γ = -\frac12 α\pqty{x - \frac{β}{α}}^2 + \frac{β^2}{2α} + γ$ して積分.
@@ -59,16 +59,18 @@ $$
 - $\displaystyle ∫\d{x}\ e^{\frac{i}2 a(x-x_0)^2} = \sqrt{\frac{2πi}{a}}. \quad (a≠0)$[^fresnel]  
     ∵ 変数変換 $y=x-x_0$ をした後, $\mathbb{C}$ 平面上 $-R→R→Re^{iπ/4}→-Re^{iπ/4}→-R$ なる扇形を2つ貼り合わせたような経路で $e^{\frac{i}2 az^2}$ を複素積分し, 極限 $R→0$.
 
-[^fresnel]: 「Fresnel 積分」と呼ばれ, Gauss 積分と区別されることがあるが, ここでは Gauss 積分に含めることにする.
+[^fresnel]: この積分は「Fresnel 積分」と呼ばれ, Gauss 積分と区別されることがあるが, ここでは Gauss 積分に含めることにする.
 
 公式がたくさんあるように思えるが, 実際の計算ではとにかく平方完成して
 $$
 ∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}
 $$
-の形に持っていくだけでよい. 成立しないのは
-1. $\operatorname{Re} α <0$,
-2. $\operatorname{Re} α = 0$ かつ $\operatorname{Im}χ≠0$
-のときであるから, そのときだけ注意すればよい. たぶん.
+の形に持っていくだけでよい. $α$ が複素数の範囲 $\operatorname{Im} α ≠ 0$ で積分が収束しないのは以下のときである:
+
+1. $\operatorname{Re} α < 0$,
+2. $\operatorname{Re} α = 0$ かつ $\operatorname{Im} χ_0 ≠ 0$.
+
+これらの状況になったときは, それまでの計算を見直そう.
 
 #### 応用
 
@@ -77,7 +79,6 @@ $$
     $$
     ∫\d{x}\ ρ(x) = \frac1{\sqrt{2πσ^2}} ∫\d{x}\ e^{-\frac12\frac{(x-x_0)^2}{σ^2}} = \frac1{\sqrt{2πσ^2}} × \sqrt{2πσ^2} = 1.
     $$
-    したがって正規分布が確率の公理を満たしていることが確認された.
 
 2. 正規分布 $\mathcal{N}(x_0,σ^2)$ の Fourier 変換:  
     確率密度関数 $\displaystyle ρ(x) = \frac1{\sqrt{2πσ^2}} e^{-\frac12 \frac{(x-x_0)^2}{σ^2}}$ を Fourier 変換して,
@@ -86,17 +87,11 @@ $$
     $$
     ここで, 指数関数の肩を平方完成すると,
     $$
-    \begin{aligned}
-    -\frac12 \frac{(x-x_0)^2}{σ^2} -ikx
-        &= -\frac12 \frac1{σ^2} (x - 2x_0x + x_0^2 + i2σ^2kx) \\
-        &= -\frac12 \frac1{σ^2} [x + i2(σ^2k + ix_0)x + x_0^2] \\
-        &= -\frac12 \frac1{σ^2} [x + i(σ^2k + ix_0)] - \frac1{2} \frac1{σ^2} (σ^2k + ix_0)^2 - \frac1{2} \frac1{σ^2} x_0^2 \\
-        &= -\frac12 \frac1{σ^2} [x + i(σ^2k + ix_0)] - \frac1{2} \frac{k^2}{1/σ^2} - ikx_0
-    \end{aligned}
+    -\frac12 \frac{(x-x_0)^2}{σ^2} -ikx = -\frac12 \frac1{σ^2} [x + i(σ^2k + ix_0)] - \frac1{2} \frac{k^2}{1/σ^2} - ikx_0
     $$
     となるから, Gauss 積分を実行して
     $$
-    \mathcal{F}[ρ(x)](k) = \frac1{\sqrt{2πσ^2}} × \sqrt{2πσ^2} × \frac1{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2} - ikx_0} = \frac1{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2}} e^{- ikx_0}
+    \mathcal{F}[ρ(x)](k) = \frac1{\sqrt{2πσ^2}} × \sqrt{2πσ^2} × \frac1{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2} - ikx_0} = \frac{e^{- ikx_0}}{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2}}
     $$
     となる. 正規分布の Fourier 変換も Gauss 型の関数になっている.
 
@@ -109,3 +104,24 @@ $$
 
 ## 多変数 Gauss 積分
 
+最も簡単な多変数への拡張は, $N$ 変数 $\bm{x}=(x^1,\ldots,x^N)^⊤$ に対して
+$$
+∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ \bm{x}} = (2π)^{N/2}
+$$
+である. ただし $\bm{x}^⊤ \bm{x} = |\bm{x}|^2 = (x^1)^2 + \cdots + (x^N)^2$ である. 実際, $e^{-\frac12 \bm{x}^{\top} \bm{x}} = e^{-\frac12 \sum_{j=1}^N x_j^2} = \prod_{j=1}^N e^{-\frac12 (x^j)^2}$ であるから,
+$$
+∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^{\top} \bm{x}} = ∫\d{^N \bm{x}}\ \prod_{j=1}^N e^{-\frac12 (x^j)^2} = \prod_{j=1}^N ∫\d{x_j}\ e^{-\frac12 (x^j)^2} = \prod_{j=1}^N \sqrt{2π} = (2π)^{N/2}
+$$
+となる.
+
+指数関数の肩を二次形式に拡張しよう. 正定値の対称行列 $A$ に対して,
+$$
+∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ A \bm{x}} = \sqrt{\frac{(2π)^N}{
+\det A}}
+$$
+が成立する. 実際, $A$ を対角化 $P^{-1}AP = \operatorname{diag}(λ_1,\cdots,λ_N)$ して $\dim{P}=1$ となるような直交行列 $P$ が存在し, 変数変換 $\bm{y}=P^{-1}\bm{x}$, $\d{{}^N \bm{y}}=\d{{}^N \bm{x}}$ すると, 指数関数が $e^{-\frac12 \bm{x}^⊤ A \bm{x}} = e^{-\frac12 \bm{y}^⊤ P^{-1}AP \bm{y}} = e^{-\frac12 \sum_{j=1}^N λ_j (y^j)^2} = \prod_{j=1}^N e^{-\frac12 λ_j (y^j)^2}$ となるから,
+$$
+∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ A \bm{x}} = ∫\d{^N \bm{y}}\ \prod_{j=1}^N e^{-\frac12 λ_j (y^j)^2} = \prod_{j=1}^N ∫\d{y_j}\ e^{-\frac12 λ_j (y^j)^2} = \prod_{j=1}^N \sqrt{\frac{2π}{λ_j}} = \sqrt{\frac{(2π)^N}{
+\det A}}
+$$
+となる.

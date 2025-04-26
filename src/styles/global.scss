@@ -87,6 +87,10 @@ article {
   }
 
   // katex
+  .katex {
+    zoom: 0.9;
+  }
+
   .katex-display {
     margin: var(--headerMargin) auto !important;
     overflow: hidden;

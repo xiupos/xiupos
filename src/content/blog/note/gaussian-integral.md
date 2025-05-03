@@ -13,9 +13,9 @@ preamble: _preamble
 
 最も簡単な形の Gauss 積分は
 $$
-∫ \d{x}\ e^{- \frac12 x^2} = \sqrt{2π}.
+∫ \d{x}\ e^{- \frac12 x^2} = \sqrt{2π}
 $$
-である[^interval]. 実際, $I = ∫ \d{x}\ e^{-x^2}$ とすれば,
+である[^interval]. 実際, $I = ∫ \d{x}\ e^{-\frac12x^2}$ とすれば,
 $$
 I^2 = ∫ \d{x} ∫ \d{y}\ e^{- \frac12 (x^2 + y^2)} = ∫_0^{2π} \d{θ} ∫_0^∞\d{r}\ re^{- \frac12 r^2} = 2π \bqty{-e^{- \frac12 r^2}}_0^∞ = 2π
 $$
@@ -44,7 +44,7 @@ $$
 
 また, 係数が複素数であるときにも, いくつかの場合で同様の公式が成立する:
 
-- $\displaystyle ∫\d{x}\ e^{-\frac12a(x-χ_0)^2} = \sqrt{\frac{2π}{a}}. \quad$ $(a>0,\ χ_0∈\mathbb{C})$    
+- $\displaystyle ∫\d{x}\ e^{-\frac12a(x-χ_0)^2} = \sqrt{\frac{2π}{a}}. \quad$ $(a>0,\ χ_0∈\mathbb{C})$  
     ∵ $\mathbb{C}$ 平面上 $-R→R→R-β→-R-β→-R$ なる平行四辺形の経路で $e^{-\frac12 az^2}$ を複素積分し, 極限 $R→0$.
 
 - $\displaystyle ∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}. \quad (α,χ_0∈\mathbb{C},\ \operatorname{Re} α > 0)$  
@@ -61,16 +61,23 @@ $$
 
 [^fresnel]: この積分は「Fresnel 積分」と呼ばれ, Gauss 積分と区別されることがあるが, ここでは Gauss 積分に含めることにする.
 
-公式がたくさんあるように思えるが, 実際の計算ではとにかく平方完成して
+公式がたくさんあるように思えるが, 実際の計算ではとにかく平方完成して次の形に持っていくだけでよい:
+
+:::screen
+
+1変数の Gauss 積分は
+
 $$
 ∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}
 $$
-の形に持っていくだけでよい. $α$ が複素数の範囲 $\operatorname{Im} α ≠ 0$ で積分が収束しないのは以下のときである:
+である. ただし, $α$ が複素数の範囲 $\operatorname{Im} α ≠ 0$ で積分が収束しないのは以下のときである:
 
 1. $\operatorname{Re} α < 0$,
 2. $\operatorname{Re} α = 0$ かつ $\operatorname{Im} χ_0 ≠ 0$.
 
-これらの状況になったときは, それまでの計算を見直そう.
+:::
+
+収束しないときは, それまでの計算を見直すべきだろう.
 
 #### 応用
 
@@ -98,7 +105,7 @@ $$
  3. ガンマ関数の $1/2$ での値:  
     ガンマ関数の定義式 $\displaystyle Γ(z) = ∫_0^∞ \d{t}\ t^{z-1} e^{-t}$ に $z=1/2$ を代入して,
     $$
-    Γ\pqty{\frac12} = ∫_0^∞ \d{t}\ t^{-\frac12} e^{-t} = \sqrt{2} ∫_0^∞ \d{s}\ e^{-\frac12s^2} = \frac1{\sqrt{2}} ∫ \d{s}\ e^{-s^2} = \sqrt{π}.
+    Γ\pqty{\frac12} = ∫_0^∞ \d{t}\ t^{-\frac12} e^{-t} = \sqrt{2} ∫_0^∞ \d{s}\ e^{-\frac12s^2} = \frac1{\sqrt{2}} ∫ \d{s}\ e^{-\frac12s^2} = \sqrt{π}.
     $$
     ただし, 2つ目のイコールで $s = \sqrt{2} t^{\frac12}$, $\d{s} = \frac1{\sqrt{2}} t^{-\frac12} \d{t}$ と変数変換した. 反対に $Γ(1/2) = \sqrt{π}$ を既知として Gauss 積分を証明することもできる.
 

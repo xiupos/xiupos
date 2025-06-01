@@ -68,67 +68,86 @@ $$
 1変数の Gauss 積分は
 
 $$
-∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}
+∫\d{x}\ e^{-\frac12α(x-χ_0)^2} = \sqrt{\frac{2π}{α}}, \quad (α≠0)
 $$
-である. ただし, $α$ が複素数の範囲 $\operatorname{Im} α ≠ 0$ で積分が収束しないのは以下のときである:
-
-1. $\operatorname{Re} α < 0$,
-2. $\operatorname{Re} α = 0$ かつ $\operatorname{Im} χ_0 ≠ 0$.
+である.
 
 :::
 
-収束しないときは, それまでの計算を見直すべきだろう.
+ただし, 以下の場合には左辺の積分が収束しないことに注意:
 
-#### 応用
+1. $\operatorname{Re} α < 0$,
+2. $α$ が純虚数かつ $\operatorname{Im} χ_0 ≠ 0$.
 
-1. 平均 $x_0$, 分散 $σ^2$ の正規分布 $\mathcal{N}(x_0,σ^2)$ の実軸上での積分:  
-    確率密度関数 $\displaystyle ρ(x) = \frac1{\sqrt{2πσ^2}} e^{-\frac12 \frac{(x-x_0)^2}{σ^2}}$ を実軸上で積分して,
-    $$
-    ∫\d{x}\ ρ(x) = \frac1{\sqrt{2πσ^2}} ∫\d{x}\ e^{-\frac12\frac{(x-x_0)^2}{σ^2}} = \frac1{\sqrt{2πσ^2}} × \sqrt{2πσ^2} = 1.
-    $$
-
-2. 正規分布 $\mathcal{N}(x_0,σ^2)$ の Fourier 変換:  
-    確率密度関数 $\displaystyle ρ(x) = \frac1{\sqrt{2πσ^2}} e^{-\frac12 \frac{(x-x_0)^2}{σ^2}}$ を Fourier 変換して,
-    $$
-    \mathcal{F}[ρ(x)](k) ≡ ∫ \frac{\d{x}}{\sqrt{2π}} ρ(x) e^{-ikx} = \frac1{\sqrt{2πσ^2}} ∫ \frac{\d{x}}{\sqrt{2π}} e^{-\frac12 \frac{(x-x_0)^2}{σ^2} -ikx}.
-    $$
-    ここで, 指数関数の肩を平方完成すると,
-    $$
-    -\frac12 \frac{(x-x_0)^2}{σ^2} -ikx = -\frac12 \frac1{σ^2} [x + i(σ^2k + ix_0)] - \frac1{2} \frac{k^2}{1/σ^2} - ikx_0
-    $$
-    となるから, Gauss 積分を実行して
-    $$
-    \mathcal{F}[ρ(x)](k) = \frac1{\sqrt{2πσ^2}} × \sqrt{2πσ^2} × \frac1{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2} - ikx_0} = \frac{e^{- ikx_0}}{\sqrt{2π}} e^{- \frac1{2} \frac{k^2}{1/σ^2}}
-    $$
-    となる. 正規分布の Fourier 変換も Gauss 型の関数になっている.
-
- 3. ガンマ関数の $1/2$ での値:  
-    ガンマ関数の定義式 $\displaystyle Γ(z) = ∫_0^∞ \d{t}\ t^{z-1} e^{-t}$ に $z=1/2$ を代入して,
-    $$
-    Γ\pqty{\frac12} = ∫_0^∞ \d{t}\ t^{-\frac12} e^{-t} = \sqrt{2} ∫_0^∞ \d{s}\ e^{-\frac12s^2} = \frac1{\sqrt{2}} ∫ \d{s}\ e^{-\frac12s^2} = \sqrt{π}.
-    $$
-    ただし, 2つ目のイコールで $s = \sqrt{2} t^{\frac12}$, $\d{s} = \frac1{\sqrt{2}} t^{-\frac12} \d{t}$ と変数変換した. 反対に $Γ(1/2) = \sqrt{π}$ を既知として Gauss 積分を証明することもできる.
+しかし, 右辺の平方根に注目することで $α≠0$ の複素数全体に解析接続することができるから, 物理での実用上はそこまで神経質にならなくてよい, かもしれない.
 
 ## 多変数 Gauss 積分
 
-最も簡単な多変数への拡張は, $N$ 変数 $\bm{x}=(x^1,\ldots,x^N)^⊤$ に対して
+最も簡単な多変数への拡張は, $N$ 変数 $\bm{x}=(x_1,\ldots,x_N)^⊤$ に対して
 $$
-∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ \bm{x}} = (2π)^{N/2}
+∫\d{^N x}\ e^{-\frac12 |\bm{x}|^2} = \sqrt{(2π)^N}
 $$
-である. ただし $\bm{x}^⊤ \bm{x} = |\bm{x}|^2 = (x^1)^2 + \cdots + (x^N)^2$ である. 実際, $e^{-\frac12 \bm{x}^{\top} \bm{x}} = e^{-\frac12 \sum_{j=1}^N x_j^2} = \prod_{j=1}^N e^{-\frac12 (x^j)^2}$ であるから,
+である. ただし $|\bm{x}|^2 = x_1^2 + \cdots + x_N^2$ である. 実際, $e^{-\frac12 |\bm{x}|^2} = e^{-\frac12 \sum_{j=1}^N x_j^2} = \prod_{j=1}^N e^{-\frac12 x_j^2}$ であるから, 各 $x_j$ の1変数 Gauss 積分に帰着して,
 $$
-∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^{\top} \bm{x}} = ∫\d{^N \bm{x}}\ \prod_{j=1}^N e^{-\frac12 (x^j)^2} = \prod_{j=1}^N ∫\d{x_j}\ e^{-\frac12 (x^j)^2} = \prod_{j=1}^N \sqrt{2π} = (2π)^{N/2}
+∫\d{^N x}\ e^{-\frac12 |\bm{x}|^2} = \prod_{j=1}^N ∫\d{x_j}\ e^{-\frac12 x_j^2} = \prod_{j=1}^N \sqrt{2π} = \sqrt{(2π)^N}
 $$
-となる.
+となる. 
 
-指数関数の肩を二次形式に拡張しよう. 正定値の対称行列 $A$ に対して,
+1変数の場合と同様に, より一般の場合での公式を求めてみよう[^conv].
+
+[^conv]: 解析接続することを前提とし, 積分の収束条件にはそこまで神経質にならないことにする.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12  \sum_{j=1}^N α_j (x_j-χ_{0j})^2} = \sqrt{\frac{(2π)^N}{\prod_{j=1}^N α_j}}. \quad$ ($α_j≠0$)  
+  ∵ 各 $x_j$ について1変数 Gauss 積分. 積分の収束性について気にする場合は, 指数の肩の $α_j$, $χ_{0j}$ についてそれぞれ1変数 Gauss 積分と同様の条件を課せば良い.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12 (\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0)} = \sqrt{\frac{(2π)^N}{\det A}}. \quad$ ($A$ : $N×N$ 実対称行列)  
+  ∵ 行列式が正の直交行列 $O$ で $A$ を対角化 $O^{-1}AO = \operatorname{diag}(λ_1,\cdots,λ_N)$ して変数変換 $(\bm{y}-\bm{y}_0)=O^⊤ (\bm{x}-\bm{x}_0)$, $\d{{}^N y}=\d{{}^N x}$ すると, 指数の肩が $(\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0) = (\bm{y}-\bm{y}_0)^⊤ O^⊤AO (\bm{y}—\bm{y}_0) = \sum_{j=1}^N λ_j (y_j-y_{0j})^2$ と簡単になるから, $\prod_{j=1}^N λ_j = \det A$ に注意して積分. 積分が収束するのは $A$ が正定値であるとき.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12 (\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0)} = \sqrt{\frac{(2π)^N}{\det A}}. \quad$ ($A$ : $N×N$ 実行列で対角化可能)  
+  ∵ $A$ を対称行列 $A_{\mathrm{sym}} ≡ (A+A^⊤)/2$ と反対称行列 $A_{\mathrm{anti}} ≡ (A-A^⊤)/2$ に分解 $A = A_{\mathrm{sym}} + A_{\mathrm{anti}}$  すると, 指数の肩の $A_{\mathrm{anti}}$ に関する項は $∑_{i,j} (A_{\mathrm{anti}})_{ij} (x_i-x_{0i}) (x_j-x_{0j}) = - ∑_{i,j} (A_{\mathrm{anti}})_{ij} (x_j-x_{0j}) (x_i-x_{0i})$ となって消える. また $\dim A_{\mathrm{anti}} = 0$ より $\dim A = \dim A_{\mathrm{sym}}$ となるから, $A_{\mathrm{anti}}$ を無視して積分. 積分が収束するのは $A$ が正定値であるとき.
+
+- $\displaystyle ∫\d{^N x}\ e^{\frac{i}2 (\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0)} = \sqrt{\frac{(2πi)^N}{\det A}}. \quad$ ($A$ : $N×N$ 実行列で対角化可能)  
+  ∵ 上と同様に $A$ を対角化して積分.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12 (\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0)} = \sqrt{\frac{(2π)^N}{\det A}}. \quad$ ($A$ : $N×N$ 複素行列で対角化可能)  
+  ∵ 同様に $A$ を対称行列と思ってよい. 行列を実部と虚部に分解 $A = A_{\mathrm{R}} + iA_{\mathrm{I}}$ し, $A_{\mathrm{R}}$ を実下三角行列 $C$ で Cholesky 分解 $A_{\mathrm{R}} = CC^⊤$ して変数変換 $(\bm{y}-\bm{y}_0) = C^⊤ (\bm{x}-\bm{x}_0)$, $\d{{}^N y} = \d{{}^N x}\sqrt{\det{A_{\mathrm{R}}}}$ すれば $(\bm{x}-\bm{x}_0)^⊤A(\bm{x}-\bm{x}_0) = (\bm{y}-\bm{y}_0)^⊤(\bm{y}-\bm{y}_0) + i(\bm{y}-\bm{y}_0)^⊤\~A_{\mathrm{I}}(\bm{y}-\bm{y}_0)$ . ここで $\~A_{\mathrm{I}}≡CA_{\mathrm{I}}C^⊤$ は実対称行列であるから, 対角化 $O^{-1}\~A_{\mathrm{I}}O = \operatorname{diag}(λ_1,\cdots,λ_N)$ して変数変換 $(\bm{u}-\bm{u}_0) = O^⊤(\bm{y}-\bm{y}_0)$, $\d{{}^N u}=\d{{}^N y}$ して結局 $\bm{x}^⊤A\bm{x} = ∑_j (1+iλ_j)(u_j-u_{0j})^2$. 最後に $\det{A} = \det{A_{\mathrm{R}}} ∑_j (1+iλ_j)$ に注意[^cholesky]して積分. Cholesky 分解できるのは $A$ が正定値であるとき.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12 \bm{x}^⊤ A \bm{x} + \bm{J}^⊤ \bm{x}} = \sqrt{\frac{(2π)^N}{\det A}} e^{\frac12 \bm{J}^⊤ A^{-1} \bm{J}}. \quad$ ($A$ : $N×N$ 行列で対角化可能)  
+  ∵ 平方完成 $-\frac12 \bm{x}^⊤ A \bm{x} + \bm{J}^⊤ \bm{x} = -\frac12 (\bm{x}-A^{-1}\bm{J})^⊤ A (\bm{x}-A^{-1}\bm{J}) + \frac12 \bm{J}^⊤ A^{-1} \bm{J}$ して積分.
+
+- $\displaystyle ∫\d{^N x}\ e^{-\frac12 \bm{x}^⊤ A \bm{x} + i\bm{J}^⊤ \bm{x}} = \sqrt{\frac{(2π)^N}{\det A}} e^{- \frac12 \bm{J}^⊤ A^{-1} \bm{J}}. \quad$ ($A$ : $N×N$ 行列で対角化可能)
+
+[^cholesky]: $Λ=\operatorname{diag}(λ_1,\cdots,λ_N)$ とすれば, $A = (CO)(1+iΛ)(CO)^⊤$ となるから, $\det{A} = (\det{C})^2 \det(1+iΛ) = \det{A_{\mathrm{R}}} ∑_j (1+iλ_j)$.
+
+1変数の場合と同様に, 実計算では次の公式を使えばよい:
+
+:::screen
+
+多変数の Gauss 積分は
 $$
-∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ A \bm{x}} = \sqrt{\frac{(2π)^N}{
-\det A}}
+\displaystyle ∫\d{^N x}\ e^{-\frac12 (\bm{x}-\bm{x}_0)^⊤ A (\bm{x}-\bm{x}_0)} = \sqrt{\frac{(2π)^N}{\det A}}, \quad (\det{A}≠0)
 $$
-が成立する. 実際, $A$ を対角化 $P^{-1}AP = \operatorname{diag}(λ_1,\cdots,λ_N)$ して $\dim{P}=1$ となるような直交行列 $P$ が存在し, 変数変換 $\bm{y}=P^{-1}\bm{x}$, $\d{{}^N \bm{y}}=\d{{}^N \bm{x}}$ すると, 指数関数が $e^{-\frac12 \bm{x}^⊤ A \bm{x}} = e^{-\frac12 \bm{y}^⊤ P^{-1}AP \bm{y}} = e^{-\frac12 \sum_{j=1}^N λ_j (y^j)^2} = \prod_{j=1}^N e^{-\frac12 λ_j (y^j)^2}$ となるから,
+である.
+
+:::
+
+$A$ が正定値であったり, 全ての成分が純虚数であるときには左辺の積分は収束するが, そうでない時は解析接続されていると考えることにする. また $A$ が対角化できなくとも, 対角化可能な行列は稠密であって, 任意の行列は対角化可能な行列によって任意の精度で近似できるから, この公式はかなり一般的に成り立つと信じることができる.
+
+## 汎関数 Gauss 積分
+
+$Δt≡1/N$ として,
 $$
-∫\d{^N \bm{x}}\ e^{-\frac12 \bm{x}^⊤ A \bm{x}} = ∫\d{^N \bm{y}}\ \prod_{j=1}^N e^{-\frac12 λ_j (y^j)^2} = \prod_{j=1}^N ∫\d{y_j}\ e^{-\frac12 λ_j (y^j)^2} = \prod_{j=1}^N \sqrt{\frac{2π}{λ_j}} = \sqrt{\frac{(2π)^N}{
-\det A}}
+∫\d{^N x}\ e^{-\frac12 Δt |\bm{x}|^2} = \pqty{\frac{2π}{Δt}}^{N/2},
 $$
-となる.
+または書き直して
+$$
+\frac1{(2π/Δt)^{N/2}} ∫\d{x_1} \cdots ∫\d{x_N} e^{-\frac12 Δt |\bm{x}|^2} = 1
+$$
+である. 
+$$
+∫ \mathcal{D}x(t)\ e^{-∫ \d{t} \frac12 [x(t)]^2} = 1
+$$
+## 参考文献
+
+- 柏 太郎. 『経路積分 －例題と演習－』(裳華房, 2015)
+- 中原 幹夫. 『理論物理学のための幾何学とトポロジー1, 2 (原著第2版)』(日本評論社, 2018)

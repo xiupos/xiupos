@@ -169,7 +169,7 @@ $$
     ∵ 演算子 $\^A$ の表現 $\^A x(t) = ∫\d{t'} A(t,t') x(t')$ を使えば前述の積分と同じ. 演算子 $\^A$ の行列式は表現 $\operatorname*{Det} \^A ≡ \det A$ で定義される.
 
 - $\displaystyle ∫ \mathcal{D}x(t)\ e^{-\frac12 ∫ \d{t} x(t)\^Ax(t) + ∫\d{t} J(x)x(t)} = \sqrt{\frac1{\operatorname*{Det}{\^A}}} e^{-\frac12 ∫\d{t} ∫\d{t'} J(t)G(t,t')J(t')},\quad$ ($\^A$ : 演算子)  
-    ∵ 同様に表現に変えれば明らか. ただし右辺の $G(t,t')$ は $\^A$ の Green 関数で $\^A G(t,t') = δ(t-t')$ を満たす. $\^A = \^A_{\mathrm{hermite}} + \^A_{\mathrm{anti}}$ とHermite 演算子[^hermite_op] $\^A_{\mathrm{hermite}}$ と反 Hermite 演算子 $\^A_{\mathrm{anti}}$ に分解して, 平方完成によって多変数の場合と同様に示すこともできる.
+    ∵ 同様に表現に変えれば明らか. ただし右辺の $G(t,t')$ は $\^A$ の Green 関数で $\^A G(t,t') = δ(t-t')$ を満たす. $\^A = \^A_{\mathrm{hermite}} + \^A_{\mathrm{anti}}$ のように Hermite 演算子[^hermite_op] $\^A_{\mathrm{hermite}}$ と反 Hermite 演算子 $\^A_{\mathrm{anti}}$ に分解して, 平方完成によって多変数の場合と同様に示すこともできる.
 
 [^hermite_op]: ここで言う Hermite 演算子とは, 内積 $⟨x,y⟩≡∫\d{t}x(t)y(t)$ に関する Hermite 演算子 $∫\d{t}x(t)\^Ay(t) = ∫\d{t}\^Ax(t)y(t)$ である.
 
@@ -186,6 +186,14 @@ $$
 :::
 
 ここまでくると収束条件はかなり複雑なものである.
+
+## 複素 Gauss 積分
+
+$$
+∫\d{{}^2 z} e^{-\frac12 |z|^2} = 2π
+$$
+
+
 
 ## 参考文献
 

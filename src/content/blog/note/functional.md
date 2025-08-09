@@ -5,7 +5,6 @@ date : \today
 pubDate : 2024-01-06T22:40:00+09:00
 lang : ja
 math : true
-pdf : /pdf/note/functional.pdf
 preamble: "_preamble"
 ---
 
@@ -438,7 +437,7 @@ $$
     I(φ) = ∫_{φ(a)=φ_0}^{φ(b)=φ} \mathcal{D}φ(x) \exp \bqty{i ∫_a^b \d{x} \frac{A}2 \qty{φ'(x)}^2} = \sqrt{\frac{A}{2πi(b-a)}} \exp \bqty{i \frac{A}2 \frac{(φ - φ_0)^2}{b-a}}.
     $$
 
-1. 汎関数積分の連結:  
+2. 汎関数積分の連結:  
     $x_3>x_2>x_1$ に対し, $x∈[x_3,x_1]$ の関数上で定義される汎関数 $F[φ(x)]$ について,
     $$
     ∫_{φ_1}^{φ_2} \mathcal{D}φ(x) ∫\d{φ_2} ∫_{φ_2}^{φ_3} \mathcal{D}φ(x) F[φ(x)] = ∫_{φ_1}^{φ_3} \mathcal{D}φ(x) F[φ(x)].
@@ -469,7 +468,7 @@ $$
     \end{aligned}
     $$
 
-1. デルタ汎関数 $Δ[φ(x)]$:  
+3. デルタ汎関数 $Δ[φ(x)]$:  
     汎関数積分で
     $$
     Δ[φ(x)] := ∫\mathcal{D}ξ(x) \exp\bqty{i∫\d{x} φ(x) ξ(x)}
@@ -564,7 +563,7 @@ $$
     \mathscr{F}\{1\}[ξ(x)] = ∫\mathcal{D}φ(x) \exp\bqty{-i∫\d{x} φ(x) ξ(x)} = Δ[ξ(x)].
     $$
 
-1. デルタ汎関数 $Δ[φ(x)]$ の汎関数 Fourier 変換:  
+2. デルタ汎関数 $Δ[φ(x)]$ の汎関数 Fourier 変換:  
     $$
     \begin{aligned}
       \mathscr{F}\{Δ[φ(x)]\}[ξ(x)]

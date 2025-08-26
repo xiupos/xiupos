@@ -81,13 +81,13 @@ const rssLink = [{ link: "/blog/rss.xml", icon: "simple-icons:rss" }];
                 <FormattedDate date={post.pubDate} />
                 <a href={post.link}>
                   {post.title}
-                  {!post.link.indexOf("http") &&
-                  new URL(post.link).hostname !== "xiupos.net" ? (
-                    // hostname of the article
-                    <span class="monospace">{new URL(post.link).hostname}</span>
-                  ) : (
-                    ""
-                  )}
+                  {post.link.indexOf("http") === 0 &&
+                    new URL(post.link).hostname !== "xiupos.net" && (
+                      // hostname of the article
+                      <span class="monospace">
+                        {new URL(post.link).hostname}
+                      </span>
+                    )}
                 </a>
               </li>
             ))

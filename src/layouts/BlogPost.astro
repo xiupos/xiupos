@@ -13,7 +13,7 @@ import "katex/dist/katex.min.css";
  */
 
 /** @type {Props} */
-const { title, pubDate, lang, draft, pdf } = Astro.props;
+const { title, pubDate, lang, draft } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -48,11 +48,6 @@ const { title, pubDate, lang, draft, pdf } = Astro.props;
                 if (draft === true)
                   return (
                     <span>; draft</span>
-                  );
-                if (pdf !== "")
-                  return (
-                    <span>;</span>
-                    <a href={pdf} target="_blank">pdf</a>
                   );
               }
             }

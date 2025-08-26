@@ -1,0 +1,100 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import Social from "@components/Social.astro";
+import {
+  BLOG_TITLE,
+  SITE_AUTHOR,
+  BLOG_DESCRIPTION,
+  HEADER_LINKS,
+} from "../../consts";
+import { getCollection } from "astro:content";
+import OtherPosts from "../../other-posts.json";
+
+const sortByDate = (a: any, b: any) =>
+  b.pubDate.valueOf() - a.pubDate.valueOf();
+
+const BlogPosts = (await getCollection("blog")).map((post) => ({
+  title: (post.data.draft ? "[draft] " : "") + post.data.title,
+  pubDate: post.data.pubDate,
+  link: `/blog/${post.slug}`,
+}));
+
+const posts = [
+  ...BlogPosts,
+  ...OtherPosts.map((post) => ({
+    ...post,
+    pubDate: new Date(post.pubDate),
+  })),
+];
+
+const rssLink = [{ link: "/blog/rss.xml", icon: "simple-icons:rss" }];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={BLOG_TITLE}
+      author={SITE_AUTHOR}
+      description={BLOG_DESCRIPTION}
+      noindex={true}
+    />
+    <style lang="scss">
+      ul {
+        box-sizing: border-box;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          display: flex;
+          margin-bottom: 0.3em;
+
+          :global(time) {
+            flex: 0 0 8em;
+            color: var(--color-sub);
+          }
+
+          a span {
+            background: var(--back-code);
+            color: var(--color-sub);
+            padding: 0.1em 0.4em;
+            border-radius: 0.3em;
+            white-space: nowrap;
+            font-size: 0.8em;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header links={HEADER_LINKS} />
+    <main>
+      <article>
+        <ul>
+          {
+            posts.sort(sortByDate).map((post) => (
+              <li>
+                <FormattedDate date={post.pubDate} />
+                <a href={post.link}>
+                  {post.title}
+                  {post.link.indexOf("http") === 0 &&
+                    new URL(post.link).hostname !== "xiupos.net" && (
+                      // hostname of the article
+                      <span class="monospace">
+                        {new URL(post.link).hostname}
+                      </span>
+                    )}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </main>
+    <Social links={rssLink} />
+    <Footer />
+  </body>
+</html>

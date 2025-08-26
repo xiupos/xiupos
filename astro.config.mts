@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
-import remarkTikzjax from "./plugins/remark-tikzjax.ts";
 import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
@@ -160,7 +159,6 @@ export default defineConfig({
       remarkMath,
       remarkDirective,
       remarkFencedDivs,
-      remarkTikzjax,
     ],
     rehypePlugins: [
       [rehypeKatex, { macros: katexMacros }],

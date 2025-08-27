@@ -89,7 +89,8 @@ article {
   }
 
   .katex-display {
-    margin: var(--headerMargin) auto !important;
+    margin: calc(var(--headerMargin) - 0.2em) auto !important;
+    // margin: var(--headerMargin) auto !important;
     overflow: hidden;
     overflow-x: auto;
 

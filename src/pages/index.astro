@@ -20,51 +20,24 @@ import {Content as IndexContent} from '@components/IndexContent.mdx';
     <BaseHead title={SITE_TITLE} author={SITE_AUTHOR} description={SITE_DESCRIPTION} />
     <style lang="scss">
       // Noto Sans by Google
-      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&text=',.HIXimopuς&display=swap");
-
       main {
         margin-bottom: 3rem;
 
-        div.hi {
+        div.hero {
           display: flex;
           flex-wrap: wrap;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           align-content: center;
-          gap: 1em;
-          margin: 5rem 5rem 4rem;
-          font-size: 1.5em;
-          height: 30rem;
-          min-height: 18rem;
-          max-height: 50vh;
+          margin: 2rem 1rem 1rem;
 
           img {
-            width: 8em;
-
-            &:active {
-              animation: jump 0.1s cubic-bezier(.4,.9,.6,.1);
-            }
-
-            @keyframes jump {
-              0%, 100% {
-                transform: translateY(0);
-              }
-              50% {
-                transform: translateY(-0.35em);
-              }
-            }
-          }
-
-          h1 {
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 900;
-            margin: 0;
-            text-align: center;
-            line-height: 1.2;
-
-            span {
-              color: var(--accent);
-            }
+            max-height: 60vh;
+            min-height: 30rem;
+            max-width: 40rem;
+            width: 100%;
+            object-fit: contain;
           }
         }
       }
@@ -79,9 +52,9 @@ import {Content as IndexContent} from '@components/IndexContent.mdx';
   <body>
     <Header links={HEADER_LINKS} />
     <main>
-      <div class="hi">
-        <img src="/images/avatar.png" alt="avatar" />
-        <h1>Hi, I&#39;m <span>Xiupoς</span></h1>
+      <div class="hero">
+        <img src="/images/city.jpg" alt="hero" />
+        <p class="monospace">sapporo, hokkaido; jul 30, 2025</p>
       </div>
       <Social links={SOCIAL_LINKS} />
       <article>

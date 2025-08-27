@@ -92,6 +92,10 @@ article {
     margin: var(--headerMargin) auto !important;
     overflow: hidden;
     overflow-x: auto;
+
+    .katex {
+      padding: 0.2rem 0;
+    }
   }
 
   header {

@@ -142,7 +142,16 @@ const katexMacros = {
 // https://astro.build/config
 export default defineConfig({
   site: "https://xiupos.net",
-  integrations: [mdx(), sitemap(), typst(), icon()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    typst({
+      target: () => {
+        return "html";
+      },
+    }),
+    icon(),
+  ],
   trailingSlash: "never",
   build: {
     format: "file",
@@ -154,12 +163,9 @@ export default defineConfig({
       },
     },
   },
+  output: 'static',
   markdown: {
-    remarkPlugins: [
-      remarkMath,
-      remarkDirective,
-      remarkFencedDivs,
-    ],
+    remarkPlugins: [remarkMath, remarkDirective, remarkFencedDivs],
     rehypePlugins: [
       [rehypeKatex, { macros: katexMacros }],
       [rehypeWrapAll, rehypeWrapAllOptions],

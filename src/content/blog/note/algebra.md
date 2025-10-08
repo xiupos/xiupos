@@ -65,7 +65,7 @@ $$
 $$
 \begin{CD}
 G @>{f}>> G' \\
-@| \circlearrowleft & @| \\
+@| \circlearrowleft @| \\
 G @<<{f'}< G'
 \end{CD}
 $$
@@ -136,7 +136,7 @@ $$
 $$
 \begin{CD}
 R @>{f}>> R' \\
-@| \circlearrowleft & @| \\
+@| \circlearrowleft @| \\
 R @<<{f'}< R'
 \end{CD}
 $$
@@ -149,9 +149,9 @@ $$
 $k$-代数 $R$, $S$ 間の環準同型 $f:R→S$ に対して, 環の図式
 $$
 \begin{CD}
-k @>>> Z(R) @>{ι}>> R \\
-@| & \circlearrowleft & @VV{f}V \\
-k @>>> Z(S) @>{ι}>> S
+k @>>> Z(R) @>\iota>> R \\
+@| @. @VVfV \\
+k @>>> Z(S) @>\iota>> S
 \end{CD}
 $$
 が可換であるとき, $f$ を **$k$-代数準同型** *$k$-algebra homomorphism* という. ただし, $ι$ は包含写像.

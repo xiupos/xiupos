@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
-import rehypeKatex from "rehype-katex";
+import rehypeMathML from "@daiji256/rehype-mathml";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
@@ -21,9 +21,10 @@ const rehypeWrapAllOptions = [
   { selector: "table", wrapper: "div.responsive" },
   // {selector: 'img', wrapper: 'div.responsive'},
   // {selector: 'video', wrapper: 'div.responsive'},
+  { selector: 'math[display="block"]', wrapper: "div.math-wrapper" },
 ];
 
-const katexMacros = {
+const mathMacros = {
   "\\quantity": "{\\left\\{ #1 \\right\\}}",
   "\\qty": "{\\left\\{ #1 \\right\\}}",
   "\\pqty": "{\\left( #1 \\right)}",
@@ -130,7 +131,7 @@ const katexMacros = {
     "{\\left\\langle{ #1 }\\right\\vert{ #2 }\\left\\vert{#3}\\right\\rangle}",
   "\\mel":
     "{\\left\\langle{ #1 }\\right\\vert{ #2 }\\left\\vert{#3}\\right\\rangle}",
-  "\\slashed": "{\\displaystyle{\\not} { #1 }}",
+  "\\slashed": "{{{ #1 } \\!\\!\\! / }}",
   "\\ce": "{\\mathrm{ #1 }}",
   "\\si": "{\\textrm{ #1 }}",
   "\\SI": "{{ #1 } \\textrm{ #2 }}",
@@ -163,11 +164,11 @@ export default defineConfig({
       },
     },
   },
-  output: 'static',
+  output: "static",
   markdown: {
     remarkPlugins: [remarkMath, remarkDirective, remarkFencedDivs],
     rehypePlugins: [
-      [rehypeKatex, { macros: katexMacros }],
+      [rehypeMathML, { macros: mathMacros }],
       [rehypeWrapAll, rehypeWrapAllOptions],
       rehypeHeadingIds,
     ],

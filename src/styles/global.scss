@@ -83,18 +83,19 @@ article {
     }
   }
 
-  // katex
-  .katex {
-    zoom: 0.9;
+  // math
+  math {
+    font-family: NewComputerModernMath !important;
+    zoom: 1.1;
   }
 
-  .katex-display {
+  .math-wrapper {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     // margin: var(--headerMargin) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
-    .katex {
+    math {
       padding: 0.2em 0;
     }
   }

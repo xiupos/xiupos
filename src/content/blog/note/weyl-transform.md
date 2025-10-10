@@ -98,7 +98,7 @@ $$
 $$
 \begin{aligned}
   \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle
-    &= ∫\d{p'}\ \left\langle x+\frac{y}{2} \middle| \^p \middle| p' \middle\rangle \middle\langle p' \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\d{p'}\ \left\langle x+\frac{y}{2} \middle| \^p \middle| p' \right\rangle \left\langle p' \middle| x-\frac{y}{2} \right\rangle \\
     &= ∫\d{p'}\ p' \frac{e^{ip'(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \frac{e^{-ip'(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
     &= ∫\frac{\d{p'}}{2π\hbar} p' e^{ip'y\hbar} \\
     &= -i\hbar \dv{}{y} \pqty{∫\frac{\d{p'}}{2π\hbar} e^{ip'y/\hbar}} \\

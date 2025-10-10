@@ -59,7 +59,7 @@ $$
 $$
 \begin{aligned}
   H_{\mathrm{W}} (x,p,t)
-    &≡ ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| p_1 \middle\rangle \middle\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \middle\rangle \middle\langle p_2 \middle| x-\frac{y}{2} \right\rangle \\
+    &≡ ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| p_1 \right\rangle \left\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \right\rangle \left\langle p_2 \middle| x-\frac{y}{2} \right\rangle \\
     &= ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \frac{e^{ip_1(x+y/2)/\hbar}}{\sqrt{2π\hbar}} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ \frac{e^{-ip_2(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
     &= ∫\d{p_1} ∫\d{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ ∫\frac{\d{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar} \\
 \end{aligned}

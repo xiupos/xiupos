@@ -43,7 +43,7 @@ const { title, pubDate, lang, draft } = Astro.props;
         <header>
           <h1 class="title">{title}</h1>
           <div class="monospace">
-            <FormattedDate date={pubDate} />{draft && <span>; draft</span>}
+            <FormattedDate date={pubDate} />{draft && "; draft"}
           </div>
         </header>
         <slot />

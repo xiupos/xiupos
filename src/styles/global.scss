@@ -1,5 +1,6 @@
 // Source Code Pro by Adobe
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
+@import url("/plugins/mathyml/src/mathyml.css");
 
 html {
   color-scheme: light dark;
@@ -83,6 +84,10 @@ article {
     }
   }
 
+  header + h2[id=""] {
+    display: none;
+  }
+
   // math
   math {
     font-family: NewComputerModernMath !important;
@@ -96,6 +101,7 @@ article {
     overflow-x: auto;
 
     math {
+      display: block math;
       padding: 0.2em 0;
     }
   }

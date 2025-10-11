@@ -12,6 +12,7 @@ import {
 } from '../consts';
 
 import {Content as IndexContent} from '@content/index.mdx';
+import FormattedDate from '@components/FormattedDate.astro';
 ---
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ import {Content as IndexContent} from '@content/index.mdx';
     <main>
       <div class="hero">
         <img src="/images/city.jpg" alt="hero" />
-        <p class="monospace">sapporo, hokkaido (jul 30, 2025)</p>
+        <p class="monospace">sapporo, hokkaido (<FormattedDate date={new Date("2025-07-30")} />)</p>
       </div>
       <Social links={SOCIAL_LINKS} />
       <article>

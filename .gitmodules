@@ -1,0 +1,3 @@
+[submodule "plugins/mathyml"]
+	path = plugins/mathyml
+	url = https://codeberg.org/akida/mathyml.git

@@ -32,9 +32,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     typst({
-      target: () => {
-        return "html";
-      },
+      target: () => "html",
     }),
     icon(),
   ],
@@ -46,6 +44,7 @@ export default defineConfig({
     resolve: {
       alias: {
         "@components": "/src/components",
+        "@content": "/src/content",
       },
     },
   },

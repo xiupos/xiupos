@@ -4,7 +4,9 @@ directory for details. The font can be obtained from several TeX distributions
 or package managers. Corresponding text founts are NewCM10-Regular.otf or NewCM10-Book.otf.
 
 The OTF fonts have been obtained from http://mirrors.ctan.org/fonts/ and converted
-to woff.
+to woff by fred-wang/MathFonts.
+
+For more information, see https://github.com/fred-wang/MathFonts.
 */
 
 @namespace url('http://www.w3.org/1999/xhtml');

@@ -1,6 +1,11 @@
 // Source Code Pro by Adobe
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
-@import url("/plugins/mathyml/src/mathyml.css");
+
+// math styles for Temml
+@import "/node_modules/temml/dist/Temml-Local.css";
+
+// math styles for mathyml (Typst to MathML converter)
+@import "/plugins/mathyml/src/mathyml.css", "mathyml-patch.scss";
 
 html {
   color-scheme: light dark;
@@ -96,13 +101,14 @@ article {
 
   .math-wrapper {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
-    // margin: var(--headerMargin) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
     math {
+      display: block; // some browsers don't support "math"
       display: block math;
       padding: 0.2em 0;
+      width: 100%;
     }
   }
 

@@ -153,22 +153,32 @@ $$
 
 より一般の場合も, 同様に離散表現を考えることで構成できる.
 
-- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} ∫ \dd{t'} \{x(t)-x_0(t)\}A(t,t')\{x(t')-x_0(t')\}} = \sqrt{\frac1{\det{A}}}$.  
+- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} ∫ \dd{t'} \{x(t)-x_0(t)\}A(t,t')\{x(t')-x_0(t')\}}$ $\displaystyle = \sqrt{\frac1{\det{A}}}$.  
     ∵ 離散表現は多変数 Gauss 積分
     $$
     \frac1{(2π/Δt)^{N/2}} ∫\dd{x_1} \cdots ∫\dd{x_N} e^{-\frac12 ∑_i Δt ∑_j Δt (x_i-x_{0i}) \frac{A_{ij}}{Δt} (x_j-x_{0j})} = \sqrt{\frac1{\det A}}
     $$
     である. 公式右辺の「行列式」 $\det A$ は形式的に定義されるもので, 離散表現における行式 $\det (A_{ij})$ の極限 $N→∞$ を取ったもの. 例えばデルタ関数 $δ(t,t')=δ(t-t')$ の行列式は $\det δ = \det (δ_{ij}) = 1$.
 
-- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫\dd{t} ∫\dd{t'} x(t)A(t,t')x(t') + ∫\dd{t} J(x)x(t)} = \sqrt{\frac1{\det{A}}} e^{-\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')}$.  
-    ∵ 同様に離散表現を考えれば明らか. ただし右辺の $G(t,t')$ は $∫\dd{t'} A(t,t')G(t',t'') = δ(t-t'')$ を満たし, 離散表現は $A_{ij}$ の逆行列 $G_{ij} = (A^{-1})_{ij}$.
+- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫\dd{t} ∫\dd{t'} x(t)A(t,t')x(t') + ∫\dd{t} J(x)x(t)}$ $\displaystyle = \sqrt{\frac1{\det{A}}} e^{\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')}$.  
+    ∵ 平方完成[^square]をして積分. ただし $G(t,t')$ は $∫\dd{t'} A(t,t')G(t',t'') = δ(t-t'')$ を満たし, 離散表現は $A_{ij}$ の逆行列 $G_{ij} = (A^{-1})_{ij}$.
+
+[^square]: この場合の平方完成は
+    $$
+    \begin{aligned}
+    & -\frac12 ∫\dd{t} ∫\dd{t'} x(t)A(t,t')x(t') + ∫\dd{t} J(x)x(t) \\
+    &= -\frac12 ∫\dd{t} ∫\dd{t'} \qty{x(t) - ∫\dd{t''}G(t,t'')J(t'')}A(t,t')\qty{x(t') - ∫\dd{t''}G(t',t'')J(t'')} \\
+    & \quad +\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')
+    \end{aligned}
+    $$
+    である.
 
 また, 指数の肩の "行列" $A(t,t')$ を演算子 $\^A$ に変えることもできる. むしろ, こちらの方が実用的である.
 
-- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} \{x(t)-x_0(t)\}\^A\{x(t)-x_0(t)\}} = \sqrt{\frac1{\operatorname*{Det}{\^A}}}.\quad$  ($\^A$ : 演算子)  
+- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} \{x(t)-x_0(t)\}\^A\{x(t)-x_0(t)\}}$ $\displaystyle = \sqrt{\frac1{\operatorname*{Det}{\^A}}}.\quad$  ($\^A$ : 演算子)  
     ∵ 演算子 $\^A$ の表現 $\^A x(t) = ∫\dd{t'} A(t,t') x(t')$ を使えば前述の積分と同じ. 演算子 $\^A$ の行列式は表現 $\operatorname*{Det} \^A ≡ \det A$ で定義される.
 
-- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} x(t)\^Ax(t) + ∫\dd{t} J(x)x(t)} = \sqrt{\frac1{\operatorname*{Det}{\^A}}} e^{-\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')},\quad$ ($\^A$ : 演算子)  
+- $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫ \dd{t} x(t)\^Ax(t) + ∫\dd{t} J(x)x(t)}$ $\displaystyle = \sqrt{\frac1{\operatorname*{Det}{\^A}}} e^{\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')},\quad$ ($\^A$ : 演算子)  
     ∵ 同様に表現に変えれば明らか. ただし右辺の $G(t,t')$ は $\^A$ の Green 関数で $\^A G(t,t') = δ(t-t')$ を満たす. $\^A = \^A_{\mathrm{hermite}} + \^A_{\mathrm{anti}}$ のように Hermite 演算子[^hermite_op] $\^A_{\mathrm{hermite}}$ と反 Hermite 演算子 $\^A_{\mathrm{anti}}$ に分解して, 平方完成によって多変数の場合と同様に示すこともできる.
 
 [^hermite_op]: ここで言う Hermite 演算子とは, 内積 $⟨x,y⟩≡∫\dd{t}x(t)y(t)$ に関する Hermite 演算子 $∫\dd{t}x(t)\^Ay(t) = ∫\dd{t}\^Ax(t)y(t)$ である.

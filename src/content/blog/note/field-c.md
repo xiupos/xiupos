@@ -37,7 +37,7 @@ $$
 
 作用は, スカラー場 $ϕ^α$ に関する **Lagrangian 密度** *Lagrangian density* $\mathcal{L}(ϕ^α, ∂_μ ϕ^α)$ を用いて以下のように表される:
 $$
-S[ϕ^α] = ∫_Ω \d{{}^4 x}  \mathcal{L}(ϕ^α, ∂_μ {ϕ^α}).
+S[ϕ^α] = ∫_Ω \dd{{}^4 x}  \mathcal{L}(ϕ^α, ∂_μ {ϕ^α}).
 $$
 
 :::
@@ -46,33 +46,33 @@ $$
 $$
 \begin{aligned}
 δS[ϕ^α]
-=&  ∫_Ω \d{{}^4 x}  \bqty{
+=&  ∫_Ω \dd{{}^4 x}  \bqty{
       \mathcal{L}(ϕ^α + δϕ^α, ∂_μ ϕ^α + ∂_μ δϕ^α)
       - \mathcal{L}(ϕ^α, ∂_μ ϕ^α)
     } \\
-=&  ∫_Ω \d{{}^4 x}  \bqty{
+=&  ∫_Ω \dd{{}^4 x}  \bqty{
       δϕ^α \pdv{\mathcal{L}}{ϕ^α}
       + δ∂_μ ϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}
       + o\pqty{\sqrt{
         δϕ^{α*} δϕ^α + δ∂_μϕ^{α*} δ∂^μϕ^α
       }}
     } \\
-=&  ∫_Ω \d{{}^4 x}  \bqty{
+=&  ∫_Ω \dd{{}^4 x}  \bqty{
       δϕ^α \pdv{\mathcal{L}}{ϕ^α}
       + ∂_μ δϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}
     }
     \quad (∵ δ∂_μ ϕ^α = ∂_μ δϕ^α) \\
-=&  ∫_Ω \d{{}^4 x}  \bqty{
+=&  ∫_Ω \dd{{}^4 x}  \bqty{
       δϕ^α \pdv{\mathcal{L}}{ϕ^α}
       - δϕ^α ∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ ϕ^α)}}
     }
-    + ∫_{∂Ω} \d{\pqty{δϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}}}.
+    + ∫_{∂Ω} \dd{\pqty{δϕ^α \pdv{\mathcal{L}}{(∂_μ ϕ^α)}}}.
 \end{aligned}
 $$
 ここで, 第2項は境界条件 $x∈∂Ω ⇒ δϕ^α(x)=0$ より消える:
 $$
 δS[ϕ^α]
-= ∫ \d{{}^4 x} δϕ^α \bqty{
+= ∫ \dd{{}^4 x} δϕ^α \bqty{
     \pdv{\mathcal{L}}{ϕ^α}
     - ∂_μ \pqty{\pdv{\mathcal{L}}{(∂_μ ϕ^α)}}
   }.
@@ -91,15 +91,15 @@ $$
 汎関数で Lagrangian を定義することで, 粒子系の場合と似た形で議論することもできる. Lagrangian 密度を空間全体にわたって積分した
 $$
 L[ϕ^α, \.ϕ^α]
-= ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, ∂_μ ϕ^α)
-= ∫ \d{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α)
+= ∫ \dd{{}^3 \bm{x}} \mathcal{L}(ϕ^α, ∂_μ ϕ^α)
+= ∫ \dd{{}^3 \bm{x}} \mathcal{L}(ϕ^α, \grad ϕ^α, \.ϕ^α)
 $$
 を Lagrangian $L[ϕ^α, \.ϕ^α]$ と定義すると,
 $$
 \begin{aligned}
 \fdv{L[ϕ^α, \.ϕ^α]}{ϕ^α}
 =&  \pdv{\mathcal{L}}{ϕ^α} - \div \pdv{\mathcal{L}}{(\grad ϕ^α)}, \\
-&\pqty{∵ \text{変分公式 $\displaystyle\fdv{}{φ(y)} ∫ \d{x} g(φ'(x)) = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}$}} \\
+&\pqty{∵ \text{変分公式 $\displaystyle\fdv{}{φ(y)} ∫ \dd{x} g(φ'(x)) = - \dv{}{y} \dv{g(φ'(y))}{(φ'(y))}$}} \\
 \fdv{L[ϕ^α, \.ϕ^α]}{\.ϕ^α}
 =&  \pdv{\mathcal{L}}{\.ϕ^α}.
 \end{aligned}
@@ -239,9 +239,9 @@ $$
 $$
 \begin{aligned}
   δS[ϕ^α]
-    &=  ∫_{Ω'} \d{{}^4 x'} \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - ∫_Ω \d{{}^4 x} \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \\
-    & \quad \pqty{\d{{}^4 x'} = \d{{}^4 x} \abs{\pdv{x'^μ}{x^ν}} = \d{{}^4 x} \det(δ_ν^μ+∂_νδx^μ) = \d{{}^4 x} (1+∂_μδx^μ)} \\
-    &=  ∫_Ω \d{{}^4 x} \Big[ (1+∂_μδx^μ) \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \Big] \\
+    &=  ∫_{Ω'} \dd{{}^4 x'} \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - ∫_Ω \dd{{}^4 x} \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \\
+    & \quad \pqty{\dd{{}^4 x'} = \dd{{}^4 x} \abs{\pdv{x'^μ}{x^ν}} = \dd{{}^4 x} \det(δ_ν^μ+∂_νδx^μ) = \dd{{}^4 x} (1+∂_μδx^μ)} \\
+    &=  ∫_Ω \dd{{}^4 x} \Big[ (1+∂_μδx^μ) \mathcal{L}(ϕ'^α(x'),∂'_μϕ'^α(x')) - \mathcal{L}(ϕ^α(x),∂_μϕ^α(x)) \Big] \\
     & \quad \left(
         \begin{aligned}
           ∂'_μϕ'^α(x') &= \pdv{x^ν}{x'^μ} ∂_ν(ϕ^α(x)+δϕ^α(x)) \\
@@ -249,20 +249,20 @@ $$
                        &= ∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α
         \end{aligned}
       \right) \\
-    &=  ∫_Ω \d{{}^4 x} \Big[ ∂_μδx^μ \mathcal{L} + \mathcal{L}(ϕ^α+δϕ^α,∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) - \mathcal{L}(ϕ^α,∂_μϕ^α) \Big] \\
-    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δϕ^α \pdv{\mathcal{L}}{ϕ^α} + (∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \dd{{}^4 x} \Big[ ∂_μδx^μ \mathcal{L} + \mathcal{L}(ϕ^α+δϕ^α,∂_μϕ^α+∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) - \mathcal{L}(ϕ^α,∂_μϕ^α) \Big] \\
+    &=  ∫_Ω \dd{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δϕ^α \pdv{\mathcal{L}}{ϕ^α} + (∂_μδϕ^α-∂_μδx^ν∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lϕ^α(t) := ϕ'^α(t) - ϕ^α(t) = δϕ^α - δx^μ∂_μϕ^α$}} \\
-    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + (δ^Lϕ^α + δx^μ∂_μϕ^α) \pdv{\mathcal{L}}{ϕ^α} + (∂_μδ^Lϕ^α + δx^ν∂_μ∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
-    &=  ∫_Ω \d{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δ^Lϕ^α \pdv{\mathcal{L}}{ϕ^α} + δx^μ∂_μϕ^α \pdv{\mathcal{L}}{ϕ^α} + ∂_μδ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} + δx^ν∂_μ∂_νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
-    &=  ∫_Ω \d{{}^4 x} \qty{
+    &=  ∫_Ω \dd{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + (δ^Lϕ^α + δx^μ∂_μϕ^α) \pdv{\mathcal{L}}{ϕ^α} + (∂_μδ^Lϕ^α + δx^ν∂_μ∂_νϕ^α) \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \dd{{}^4 x} \bqty{∂_μδx^μ \mathcal{L} + δ^Lϕ^α \pdv{\mathcal{L}}{ϕ^α} + δx^μ∂_μϕ^α \pdv{\mathcal{L}}{ϕ^α} + ∂_μδ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} + δx^ν∂_μ∂_νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)}} \\
+    &=  ∫_Ω \dd{{}^4 x} \qty{
         ∂_μ \pqty{δx^μ \mathcal{L}} + δ^Lϕ^α \pdv{\mathcal{L}}{ϕ^α} + ∂_μ\bqty{δ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)}} - δ^Lϕ^α ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}
       } \\
-    &=  ∫_Ω \d{{}^4 x} \qty{
+    &=  ∫_Ω \dd{{}^4 x} \qty{
           δ^Lϕ^α \bqty{\pdv{\mathcal{L}}{ϕ^α} - ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}}
         + ∂_μ\bqty{δ^Lϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} + δx^μ \mathcal{L}}
       } \\
-    &=  ∫_Ω \d{{}^4 x} δ^Lϕ^α \bqty{\pdv{\mathcal{L}}{ϕ^α} - ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}}
-      + ∫_{∂Ω} \d{\bqty{δϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - δx_ν \pqty{∂^νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - g^{μν} \mathcal{L}}}}. \\
+    &=  ∫_Ω \dd{{}^4 x} δ^Lϕ^α \bqty{\pdv{\mathcal{L}}{ϕ^α} - ∂_μ\pqty{\pdv{\mathcal{L}}{(∂_μϕ^α)}}}
+      + ∫_{∂Ω} \dd{\bqty{δϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - δx_ν \pqty{∂^νϕ^α \pdv{\mathcal{L}}{(∂_μϕ^α)} - g^{μν} \mathcal{L}}}}. \\
 \end{aligned}
 $$
 ここで, 第一項は Euler–Lagrange の運動方程式より無視でき, 第二項の積分範囲 $∂Ω$ は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存則が得られる:
@@ -287,15 +287,15 @@ $$
 
 実際, 変換の**生成子**と呼ばれる
 $$
-δQ(t) := ∫ \d{^3 \bm{x}} δJ^0(x)
+δQ(t) := ∫ \dd{^3 \bm{x}} δJ^0(x)
 $$
 を時間微分すると,
 $$
 \begin{aligned}
   \dv{δQ}{t}
-    &=  ∫ \d{^3 \bm{x}} ∂_0δJ^0 = ∫ \d{^3 \bm{x}} (∂_μδJ^μ - ∂_iδJ^i) \\
-    &=  - ∫ \d{^3 \bm{x}} ∂_iδJ^i = - ∫ \d{V} \div (δ\bm{J}) \\
-    &=  - ∫ \d{\bm{S}} ⋅ (δ\bm{J})
+    &=  ∫ \dd{^3 \bm{x}} ∂_0δJ^0 = ∫ \dd{^3 \bm{x}} (∂_μδJ^μ - ∂_iδJ^i) \\
+    &=  - ∫ \dd{^3 \bm{x}} ∂_iδJ^i = - ∫ \dd{V} \div (δ\bm{J}) \\
+    &=  - ∫ \dd{\bm{S}} ⋅ (δ\bm{J})
     \quad \xrightarrow{\text{境界条件}} \quad 0.
 \end{aligned}
 $$
@@ -308,22 +308,22 @@ $$
 **一般化運動量** $π_α ≡ δL / δ\.{ϕ}^α = ∂\mathcal{L} / ∂\.{ϕ}^α$ を用いて, **Hamiltonian 密度** $\mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) ≡ π_α \.{ϕ}^α - \mathcal{L}$ を定義する. Hamiltonian 密度を空間全体にわたって積分した
 $$
 \begin{aligned}
-  H[ϕ^α, π_α] &≡ ∫ \d{{}^3 \bm{x}} \mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) \\
-  &= ∫ \d{{}^3 \bm{x}} π_α \.{ϕ}^α - L[ϕ^α, \.{ϕ}^α]
+  H[ϕ^α, π_α] &≡ ∫ \dd{{}^3 \bm{x}} \mathcal{H}(ϕ^α, ∇ ϕ^α, π_α, ∇ π_α) \\
+  &= ∫ \dd{{}^3 \bm{x}} π_α \.{ϕ}^α - L[ϕ^α, \.{ϕ}^α]
 \end{aligned}
 $$
 を Hamiltonian $H[ϕ^α, π_α]$ と定義すると, 定義の変分は
 $$
 \begin{aligned}
   δH
-    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α - δL[ϕ^α, \.{ϕ}^α] \\
-    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α - ∫ \d{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α - ∫ \d{{}^3 \bm{x}} π_α δ\.{ϕ}^α \\
-    &= ∫ \d{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \d{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α. \\
+    &= ∫ \dd{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \dd{{}^3 \bm{x}} π_α δ\.{ϕ}^α - δL[ϕ^α, \.{ϕ}^α] \\
+    &= ∫ \dd{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \dd{{}^3 \bm{x}} π_α δ\.{ϕ}^α - ∫ \dd{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α - ∫ \dd{{}^3 \bm{x}} π_α δ\.{ϕ}^α \\
+    &= ∫ \dd{{}^3 \bm{x}} \.{ϕ}^α δπ_α + ∫ \dd{{}^3 \bm{x}} \fdv{L}{{ϕ}^α} δ{ϕ}^α. \\
 \end{aligned}
 $$
 また, Hamiltonian の変分は,
 $$
-δH = ∫ \d{{}^3 \bm{x}} \fdv{H}{{ϕ}^α} δ{ϕ}^α + ∫ \d{{}^3 \bm{x}} \fdv{H}{π_α} δπ_α.
+δH = ∫ \dd{{}^3 \bm{x}} \fdv{H}{{ϕ}^α} δ{ϕ}^α + ∫ \dd{{}^3 \bm{x}} \fdv{H}{π_α} δπ_α.
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\displaystyle \fdv{L}{{ϕ}^α} = \pdv{}{t}\fdv{L}{\.{ϕ}^α} = \.{π}_α$ であることを用いると, Hamiltonian に関する運動方程式が得られる:
 
@@ -383,8 +383,8 @@ $$
 $$
 \begin{aligned}
   \{A[ϕ^α, π_α], B[ϕ^α, π_α]\}_\mathrm{P}
-    &≡ ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α}\fdv{B}{π_α} - \fdv{B}{ϕ^α}\fdv{A}{π_α}} \\
-    &≡ ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{B[ϕ^α, π_α]}{π_α(t,\bm{x})} - \fdv{B[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{A[ϕ^α, π_α]}{π_α(t,\bm{x})}}.
+    &≡ ∫ \dd{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α}\fdv{B}{π_α} - \fdv{B}{ϕ^α}\fdv{A}{π_α}} \\
+    &≡ ∫ \dd{{}^3 \bm{x}} \pqty{\fdv{A[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{B[ϕ^α, π_α]}{π_α(t,\bm{x})} - \fdv{B[ϕ^α, π_α]}{ϕ^α(t,\bm{x})}\fdv{A[ϕ^α, π_α]}{π_α(t,\bm{x})}}.
 \end{aligned}
 $$
 例えば,
@@ -404,8 +404,8 @@ $$
 $$
 \begin{aligned}
   \dv{A}{t}
-    &=  ∫ \d{{}^3 \bm{x}} \fdv{A}{ϕ^α} \.ϕ^α + ∫ \d{{}^3 \bm{x}} \fdv{A}{π_α} \.π_α \\
-    &=  ∫ \d{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α} \fdv{H}{π_α} - \fdv{H}{ϕ^α} \fdv{A}{π_α}} \\
+    &=  ∫ \dd{{}^3 \bm{x}} \fdv{A}{ϕ^α} \.ϕ^α + ∫ \dd{{}^3 \bm{x}} \fdv{A}{π_α} \.π_α \\
+    &=  ∫ \dd{{}^3 \bm{x}} \pqty{\fdv{A}{ϕ^α} \fdv{H}{π_α} - \fdv{H}{ϕ^α} \fdv{A}{π_α}} \\
     &=  \{A, H\}_\mathrm{P}.
 \end{aligned}
 $$
@@ -428,20 +428,20 @@ $$
 $$
 Hamiltonian は
 $$
-H[ϕ, π] = ∫ \d{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ|^2 + \frac12 m^2 ϕ^2}.
+H[ϕ, π] = ∫ \dd{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ|^2 + \frac12 m^2 ϕ^2}.
 $$
 
 さて, 実 Klein-Gordon 場 $ϕ(t,\bm{x})$ を 3 次元 Fourier 級数展開して,
 $$
-ϕ(t,\bm{x}) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i \bm{p}⋅\bm{x}}
+ϕ(t,\bm{x}) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i \bm{p}⋅\bm{x}}
 $$
 が得られる. ただし, $q(t, \bm{p})$ は展開係数である. これを運動方程式 $(□ + m^2)ϕ = 0$ に代入すると,
 $$
 \begin{aligned}
-   &\ (□ + m^2) ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-  =&\ \pdv{{}^2}{t^2} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} - ∇^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + m^2 ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-  =&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \"q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} |\bm{p}|^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} m^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
-  =&\ ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{\"q + (\bm{p}^2 + m^2) q} e^{i\bm{p}⋅\bm{x}} = 0
+   &\ (□ + m^2) ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ \pdv{{}^2}{t^2} ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} - ∇^2 ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + m^2 ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \"q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} |\bm{p}|^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} m^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+  =&\ ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{\"q + (\bm{p}^2 + m^2) q} e^{i\bm{p}⋅\bm{x}} = 0
 \end{aligned}
 $$
 となる. ここで $p_0 ≡ \sqrt{|\bm{p}|^2 + m^2} > 0$ とすれば $\"q(t, \bm{p}) + (p_0)^2 q(t, \bm{p}) = 0$ だから, $q(t, \bm{p})$ の一般解は
@@ -452,10 +452,10 @@ $$
 $$
 \begin{aligned}
   ϕ(t,\bm{x})
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i p_0t} + q_2(\bm{p}) e^{i p_0t}} e^{i \bm{p}⋅\bm{x}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i (p_0t - \bm{p}⋅\bm{x})} + q_2(\bm{p}) e^{i (p_0t + \bm{p}⋅\bm{x})}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i (p_0t - \bm{p}⋅\bm{x})} + q_2(-\bm{p}) e^{i (p_0t - \bm{p}⋅\bm{x})}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-ipx} + q_2(-\bm{p}) e^{ipx}}.
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i p_0t} + q_2(\bm{p}) e^{i p_0t}} e^{i \bm{p}⋅\bm{x}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i (p_0t - \bm{p}⋅\bm{x})} + q_2(\bm{p}) e^{i (p_0t + \bm{p}⋅\bm{x})}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-i (p_0t - \bm{p}⋅\bm{x})} + q_2(-\bm{p}) e^{i (p_0t - \bm{p}⋅\bm{x})}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1(\bm{p}) e^{-ipx} + q_2(-\bm{p}) e^{ipx}}.
     \quad (px ≡ p_μx^μ = p_0t - \bm{p}⋅\bm{x})
 \end{aligned}
 $$
@@ -463,7 +463,7 @@ $$
 $$
 \begin{aligned}
   ϕ^*(x)
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1^*(\bm{p}) e^{ipx} + q_2^*(-\bm{p}) e^{-ipx}}
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{q_1^*(\bm{p}) e^{ipx} + q_2^*(-\bm{p}) e^{-ipx}}
 \end{aligned}
 $$
 であるから, 比較すれば
@@ -475,90 +475,90 @@ $$
 $$
 とすれば, 実スカラー場 $ϕ(x)$ は $a(\bm{p})$, $a^*(\bm{p})$ によって以下のように展開できる:
 $$
-ϕ(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}.
+ϕ(x) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}.
 $$
 また, 一般化運動量 $π(x) = \.ϕ(x)$ は,
 $$
 \begin{aligned}
   π(x)
-    &= \pdv{}{t} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{-ip_0 a(\bm{p}) e^{-ipx} + ip_0 a^*(\bm{p}) e^{ipx}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}.
+    &= \pdv{}{t} ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{-ip_0 a(\bm{p}) e^{-ipx} + ip_0 a^*(\bm{p}) e^{ipx}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}.
 \end{aligned}
 $$
 $ϕ(x)$ の展開と比較して,
 $$
 \begin{aligned}
   p_0 ϕ(x) + i π(x)
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} 2p_0 a(\bm{p}) e^{-ipx} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \sqrt{2p_0} a(\bm{p}) e^{-ip_0t} e^{i\bm{p}⋅\bm{x}}. \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} 2p_0 a(\bm{p}) e^{-ipx} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \sqrt{2p_0} a(\bm{p}) e^{-ip_0t} e^{i\bm{p}⋅\bm{x}}. \\
 \end{aligned}
 $$
 $$
-∴ \sqrt{2p_0} a(\bm{p}) e^{-ip_0t} = ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3}} \bqty{p_0 ϕ(x) + i π(x)} e^{-i\bm{p}⋅\bm{x}}
+∴ \sqrt{2p_0} a(\bm{p}) e^{-ip_0t} = ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3}} \bqty{p_0 ϕ(x) + i π(x)} e^{-i\bm{p}⋅\bm{x}}
 $$
 したがって $a(\bm{p})$ の表式が得られる:
 $$
-a(\bm{p}) = ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}.
+a(\bm{p}) = ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}.
 $$
 Hamiltonian を $a(\bm{p})$, $a^*(\bm{p})$ で表記することを考える. $\grad ϕ(x)$ を計算すると,
 $$
 \begin{aligned}
   \grad ϕ(x)
-    &= \grad ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} i\bm{p} \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}} \\
+    &= \grad ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} i\bm{p} \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}} \\
 \end{aligned}
 $$
 したがって,
 $$
 \begin{aligned}
-  H &= ∫ \d{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ|^2 + \frac12 m^2 ϕ^2} \\
-    &= \frac12 ∫ \d{{}^3 \bm{x}} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
+  H &= ∫ \dd{{}^3 \bm{x}} \bqty{\frac12 π^2 + \frac12 |\grad ϕ|^2 + \frac12 m^2 ϕ^2} \\
+    &= \frac12 ∫ \dd{{}^3 \bm{x}} ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
     & \qquad\qquad × \Big[\ \ (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a  (\bm{p}') e^{-i(p+p')x} \\
     & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a^*(\bm{p}') e^{-i(p-p')x} \\
     & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a  (\bm{p}') e^{ i(p-p')x} \\
     & \qquad\qquad \quad    + (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a^*(\bm{p}') e^{ i(p+p')x} \Big] \\
-    &= \frac12 \sqrt{(2π)^3} ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= \frac12 \sqrt{(2π)^3} ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p'}}}{\sqrt{(2π)^3 2p_0'}} \\
     & \qquad\qquad × \Big[\ \ (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a  (\bm{p}') δ^3(\bm{p}+\bm{p}') e^{-i(p_0+p_0')t} \\
     & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a  (\bm{p}) a^*(\bm{p}') δ^3(\bm{p}-\bm{p}') e^{-i(p_0-p_0')t} \\
     & \qquad\qquad \quad    + (+ p_0p_0' + \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a  (\bm{p}') δ^3(\bm{p}-\bm{p}') e^{ i(p_0-p_0')t} \\
     & \qquad\qquad \quad    + (- p_0p_0' - \bm{p}⋅\bm{p}' + m^2) a^*(\bm{p}) a^*(\bm{p}') δ^3(\bm{p}+\bm{p}') e^{ i(p_0+p_0')t} \Big] \\
-    &= \frac12 ∫ \frac{\d{{}^3 \bm{p}}}{2p_0} \\
+    &= \frac12 ∫ \frac{\dd{{}^3 \bm{p}}}{2p_0} \\
     & \qquad\qquad × \Big[\ \ (- p_0^2 + |\bm{p}|^2 + m^2) a  (\bm{p}) a  (-\bm{p}) e^{-2ip_0t} \\
     & \qquad\qquad \quad    + (+ p_0^2 + |\bm{p}|^2 + m^2) a  (\bm{p}) a^*( \bm{p}) \\
     & \qquad\qquad \quad    + (+ p_0^2 + |\bm{p}|^2 + m^2) a^*(\bm{p}) a  ( \bm{p}) \\
     & \qquad\qquad \quad    + (- p_0^2 + |\bm{p}|^2 + m^2) a^*(\bm{p}) a^*(-\bm{p}) e^{ 2ip_0t} \Big] \\
     & \quad \pqty{\text{$p_0^2 = |\bm{p}|^2 + m^2$ に注意する}} \\
-    &= \frac12 ∫ \frac{\d{{}^3 \bm{p}}}{2p_0}
+    &= \frac12 ∫ \frac{\dd{{}^3 \bm{p}}}{2p_0}
        \bqty{2p_0^2 a(\bm{p}) a^*(\bm{p}) + 2p_0^2 a^*(\bm{p}) a(\bm{p})} \\
-    &= \frac12 ∫ \d{{}^3 \bm{p}} p_0
+    &= \frac12 ∫ \dd{{}^3 \bm{p}} p_0
        \qty{a(\bm{p}) a^*(\bm{p}) + a^*(\bm{p}) a(\bm{p})} \\
-    &= ∫ \d{{}^3 \bm{p}} p_0
+    &= ∫ \dd{{}^3 \bm{p}} p_0
        \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 \end{aligned}
 $$
 ただし $[a(\bm{p}), a^*(\bm{p})] ≡ a(\bm{p}) a^*(\bm{p}) - a^*(\bm{p}) a(\bm{p})$ とした. 式変形で $a(\bm{p})$, $a^*(\bm{p})$ の順序を並び換えしていないことに注意. また Hamiltonian は正準エネルギー運動量テンソルの ${T^0}_0$ を全空間で積分したもの
 $$
-H[ϕ, π] = ∫ \d{{}^3 \bm{x}} {T^0}_0 = ∫ \d{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}
+H[ϕ, π] = ∫ \dd{{}^3 \bm{x}} {T^0}_0 = ∫ \dd{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}
 $$
 であり, 場の全エネルギーである. 同様に, 全運動量は
 $$
-\bm{P}[ϕ, π] ≡ ∫ \d{{}^3 \bm{x}} ({T^0}_i) = - ∫ \d{{}^3 \bm{x}} π \grad ϕ = ∫ \d{{}^3 \bm{p}} \bm{p} \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+\bm{P}[ϕ, π] ≡ ∫ \dd{{}^3 \bm{x}} ({T^0}_i) = - ∫ \dd{{}^3 \bm{x}} π \grad ϕ = ∫ \dd{{}^3 \bm{p}} \bm{p} \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 $$
 したがって, 4元全運動量ベクトルは
 $$
-P_μ[ϕ, π] = ∫ \d{{}^3 \bm{p}} p_μ \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+P_μ[ϕ, π] = ∫ \dd{{}^3 \bm{p}} p_μ \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 $$
 
 まとめると,
 $$
 \begin{aligned}
-  ϕ(x) &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}, \\
-  π(x) &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}, \\
-  a(\bm{p}) &= ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}, \\
-  a^{*}(\bm{p}) &= ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) - i π(x)} e^{-ipx}, \\
-  H[ϕ, π] &= ∫ \d{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}, \\
-  P_μ[ϕ, π] &= ∫ \d{{}^3 \bm{p}} p_μ \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+  ϕ(x) &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}, \\
+  π(x) &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}, \\
+  a(\bm{p}) &= ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}, \\
+  a^{*}(\bm{p}) &= ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) - i π(x)} e^{-ipx}, \\
+  H[ϕ, π] &= ∫ \dd{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}, \\
+  P_μ[ϕ, π] &= ∫ \dd{{}^3 \bm{p}} p_μ \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 \end{aligned}
 $$
 

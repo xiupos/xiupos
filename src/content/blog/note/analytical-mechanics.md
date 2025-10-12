@@ -27,7 +27,7 @@ $$
 
 上の変分は 1 次の冪展開を用いて以下のように書き直される:
 $$
-δS[X^α] = ∫_V \d{{}^D X^α} \fdv{S[X^α]}{X^α(ξ^i)} δX^α(ξ^i).
+δS[X^α] = ∫_V \dd{{}^D X^α} \fdv{S[X^α]}{X^α(ξ^i)} δX^α(ξ^i).
 $$
 ただし 積分範囲 $V$ は力学変数 $X^α$ のであり, $D$ はその次元である. $δX^α(ξ^i)$ は $\{ξ^i\} ∈ V - ∂V$ で任意だから, 最小作用の原理は汎関数微分を用いた以下の停留条件と等価である:
 $$
@@ -38,24 +38,24 @@ $$
 
 作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて以下のように表される:
 $$
-S[q^i] = ∫_{t_1}^{t_2} \d{t} L(q^i, \.q^i, t).
+S[q^i] = ∫_{t_1}^{t_2} \dd{t} L(q^i, \.q^i, t).
 $$
 最小作用の原理に対し, この Lagrangian が満たすべき条件を求めよう. $q^i ↦ q^i + δq^i$ の変化に対し,
 $$
 \begin{aligned}
 δS[q^i]
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       L\pqty{q^i + δq^i, \.q^i + \dv{δq^i}{t}, t} - L(q^i, \.q^i, t)
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       δq^i \pdv{L}{q^i} + \dv{δq^i}{t} \pdv{L}{\.q^i}
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       δq^i \pdv{L}{q^i}
       - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} δq^i \bqty{
       \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
     }
     + \bqty{ δq^i \pdv{L}{\.q^i}}_{t=t_1}^{t=t_2}.
@@ -64,7 +64,7 @@ $$
 ここで, 第2項は両端固定の境界条件 $δq^i(t_1)=δq^i(t_2)=0$ より消える:
 $$
 δS[q^i]
-= ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
+= ∫_{t_1}^{t_2} \dd{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }.
 $$
@@ -88,19 +88,19 @@ $$
 &=  \lim_{h → 0}
     \frac1h
     \bqty{
-      ∫_{t_1}^{t_2} \d{t} L ( q^i(t) + h δ^i_j δ(t - t'), \.q^i(t) + h δ^i_j \.δ(t - t'), t)
-      - ∫_{t_1}^{t_2} \d{t} L (q^i(t), \.q^i(t), t)
+      ∫_{t_1}^{t_2} \dd{t} L ( q^i(t) + h δ^i_j δ(t - t'), \.q^i(t) + h δ^i_j \.δ(t - t'), t)
+      - ∫_{t_1}^{t_2} \dd{t} L (q^i(t), \.q^i(t), t)
     } \\
 &=  \lim_{h → 0}
     \frac1h
-    ∫_{t_1}^{t_2} \d{t} \bqty{
+    ∫_{t_1}^{t_2} \dd{t} \bqty{
       \pdv{L}{q^i(t)} h δ^i_j δ(t - t') + \pdv{L}{\.q^i(t)} h δ^i_j \.δ(t - t')
       + o(ε^2)
     } \\
-&=  ∫_{t_1}^{t_2} \d{t} \bqty{
+&=  ∫_{t_1}^{t_2} \dd{t} \bqty{
       \pdv{L}{q^j(t)} δ(t - t') + \pdv{L}{\.q^j(t)} \.δ(t - t')
     } \\
-&=  ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
+&=  ∫_{t_1}^{t_2} \dd{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 したがって, $t_1<t'<t_2$ において,
@@ -111,10 +111,10 @@ $$
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2} \d{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δq^j(t) \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}} + \bqty{δq^j(t) \pdv{L}{\.q^j(t)}}_{t=t_1}^{t=t_2}. \\
+    &= ∫_{t_1}^{t_2} \dd{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{t_1}^{t_2} \dd{t'} \qty{∫_{t_1}^{t_2} \dd{t} \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{\pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2}} δq^j(t') \\
+    &= ∫_{t_1}^{t_2} \dd{t'} ∫_{t_1}^{t_2} \dd{t} δq^j(t') \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}}δ(t - t') + \bqty{∫_{t_1}^{t_2} \dd{t'} δq^j(t') \pdv{L}{\.q^j(t)}δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \dd{t} δq^j(t) \bqty{\pdv{L}{q^j(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^j(t)}}} + \bqty{δq^j(t) \pdv{L}{\.q^j(t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 このように汎関数微分を用いても同様に Euler–Lagrange の運動方程式が得られる.
@@ -143,7 +143,7 @@ $$
 $$
 したがって, 作用は,
 $$
-S[q] = ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}.
+S[q] = ∫_{t_1}^{t_2} \dd{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}.
 $$
 
 #### 例: 調和振動子
@@ -175,8 +175,8 @@ $$
 $$
 \begin{aligned}
   S[q]
-    &= ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \bqty{\qty{ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}}^2 - ω^2 \qty{\frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}}^2} \\
-    &= ∫_{t_1}^{t_2} \d{t} \frac{mω^2}{2} \frac{q_1^2 \cos 2ω(t-t_2) + q_2^2 \cos 2ω(t-t_1) - 2q_1q_2\cos(2t-t_1-t_2)}{\sin^2 ω(t_2-t_1)} \\
+    &= ∫_{t_1}^{t_2} \dd{t} \frac{m}{2} \bqty{\qty{ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}}^2 - ω^2 \qty{\frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}}^2} \\
+    &= ∫_{t_1}^{t_2} \dd{t} \frac{mω^2}{2} \frac{q_1^2 \cos 2ω(t-t_2) + q_2^2 \cos 2ω(t-t_1) - 2q_1q_2\cos(2t-t_1-t_2)}{\sin^2 ω(t_2-t_1)} \\
     &= \frac{mω}{2 \sin ω(t_2-t_1)} \bqty{(q_1^2+q_2^2) \cos ω(t_2-t_1) - 2q_1q_2}. \\
 \end{aligned}
 $$
@@ -187,27 +187,27 @@ $$
 $$
 \begin{aligned}
   δS[q^i]
-    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫_{t_1}^{t_2} \d{t} L(q^i(t),\.q^i(t),t) \\
-    &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
+    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \dd{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫_{t_1}^{t_2} \dd{t} L(q^i(t),\.q^i(t),t) \\
+    &   \quad \pqty{\dd{t'} = \dv{t'}{t} \dd{t} = (1+δ\.t) \dd{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
     & \quad \pqty{
         ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) ≡ q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{δ\.t L + δ^Lq^i \pdv{L}{q^i} + δt \.q^i \pdv{L}{q^i} + ∂_tδ^Lq^i \pdv{L}{\.q^i} + δt \"q^i \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{
         ∂_t \pqty{δt L} + δ^Lq^i \pdv{L}{q^i} + ∂_t\pqty{δ^Lq^i \pdv{L}{\.q^i}} - δ^Lq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} \qty{
+    &=  ∫_{t_1}^{t_2} \dd{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+    &=  ∫_{t_1}^{t_2} \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \bqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}_{t=t_1}^{t=t_2} \\
-    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+    &=  ∫_{t_1}^{t_2} \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
       + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
@@ -230,25 +230,25 @@ $$
 
 同じ結果を汎関数微分を用いて導出しよう. 以下, 混乱を防ぐために作用の積分変数を添字で書く. つまり, $S_t[q^i]≡S[q^i(t)]$ である. 変分 $δS_t[q^i]$ を1次で展開すると[^noether_functional],
 $$
-δS_t[q^i] = ∫_{t_1}^{t_2} \d{t_0} \fdv{S_t[q^i]}{q^i(t_0)} δ^Lq^i(t_0) + ∫_{t_1}^{t_2} \d{t_0} \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} δt(t_0).
+δS_t[q^i] = ∫_{t_1}^{t_2} \dd{t_0} \fdv{S_t[q^i]}{q^i(t_0)} δ^Lq^i(t_0) + ∫_{t_1}^{t_2} \dd{t_0} \left.\fdv{S_{τ(t)}[q^i]}{τ(t_0)}\right|_{τ(t)=t} δt(t_0).
 $$
 それぞれの汎関数微分を計算すると,
 $$
-\fdv{S_t[q^i]}{q^i(t_0)} = ∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2},
+\fdv{S_t[q^i]}{q^i(t_0)} = ∫_{t_1}^{t_2} \dd{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2},
 $$
 $$
 \begin{aligned}
   \fdv{S_{τ(t)}[q^i]}{τ(t_0)}
     &= \lim_{h→0} \frac{S_{τ(t)+hδ(t-t_0)}[q^i] - S_{τ(t)}[q^i]}h \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{(τ(t)+hδ(t-t_0))} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
-    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
-    &\qquad\qquad\quad + ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0)) \dv{δ(t-t_0)}{τ(t)} \\
-    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
-    &\qquad\qquad\quad + \left.∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} h L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)} + O(h^2) \right\} \\
-    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \qty{\bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
-    &= ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t)} \dv{}{τ(t)} \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \dd{(τ(t)+hδ(t-t_0))} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
+    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0))\right. \\
+    &\qquad\qquad\quad + ∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} h L(q^i(τ(t)+hδ(t-t_0)),\.q^i(τ(t)+hδ(t-t_0)),τ(t)+hδ(t-t_0)) \dv{δ(t-t_0)}{τ(t)} \\
+    &\qquad\qquad\quad - \left.∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} L(q^i(τ(t)),\.q^i(τ(t)),τ(t))\right\} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} \bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) hδ(t-t_0) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) hδ(t-t_0) + \pdv{L}{τ(t)} hδ(t-t_0)}\right. \\
+    &\qquad\qquad\quad + \left.∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} h L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)} + O(h^2) \right\} \\
+    &= ∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} \qty{\bqty{\pdv{L}{q^i(τ(t))} \.q^i(τ(t)) + \pdv{L}{\.q^i(τ(t))} \"q^i(τ(t)) + \pdv{L}{τ(t)}} δ(t-t_0) + L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) \dv{δ(t-t_0)}{τ(t)}} \\
+    &= ∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t)} \dv{}{τ(t)} \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)} \\
     &= \bqty{L(q^i(τ(t)),\.q^i(τ(t)),τ(t)) δ(t-t_0)}_{τ(t)=τ(t_1)}^{τ(t)=τ(t_2)} \\
 \end{aligned}
 $$
@@ -259,19 +259,19 @@ $$
 $$
 \begin{aligned}
   δS_t[q^i]
-    &= ∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \d{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
-    &\quad\quad+ ∫_{t_1}^{t_2} \d{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t_0} ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \d{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \d{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
+    &= ∫_{t_1}^{t_2} \dd{t_0} δ^Lq^i(t_0) \qty{∫_{t_1}^{t_2} \dd{t} \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{\pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2}} \\
+    &\quad\quad+ ∫_{t_1}^{t_2} \dd{t_0} δt(t_0) \bqty{L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \dd{t_0} ∫_{t_1}^{t_2} \dd{t} δ^Lq^i(t_0) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}}δ(t - t_0) + \bqty{∫_{t_1}^{t_2} \dd{t_0} δ^Lq^i(t_0) \pdv{L}{\.q^i(t)}δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &\quad\quad+ \bqty{∫_{t_1}^{t_2} \dd{t_0} δt(t_0) L(q^i(t),\.q^i(t),t) δ(t-t_0)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \dd{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δ^Lq^i(t) \pdv{L}{\.q^i(t)} + δt(t) L(q^i(t),\.q^i(t),t)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \dd{t} δ^Lq^i(t) \bqty{\pdv{L}{q^i(t)} - \dv{}{t} \pqty{\pdv{L}{\.q^i(t)}}} + \bqty{δq^i(t) \pdv{L}{\.q^i(t)} - δt \pqty{\.q^i(t) \pdv{L}{\.q^i(t)} - L(q^i(t),\.q^i(t),t)}}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 したがって同様に示された.
 
 [^noether_functional]: 積分変数を任意の関数 $τ(t)$ にしたときの作用 $S_{τ(t)}[q^i]$ は
     $$
-    δS_τ(t)[q^i] = ∫_{τ(t_1)}^{τ(t_2)} \d{τ(t_0)} \fdv{S_{τ(t)}[q^i]}{q^i(τ(t_0))} δ^Lq^i(τ(t_0)) + ∫_{t_1}^{t_2} \d{t_0} \fdv{S_{τ(t)}[q^i]}{τ(t_0)} δτ(t_0).
+    δS_τ(t)[q^i] = ∫_{τ(t_1)}^{τ(t_2)} \dd{τ(t_0)} \fdv{S_{τ(t)}[q^i]}{q^i(τ(t_0))} δ^Lq^i(τ(t_0)) + ∫_{t_1}^{t_2} \dd{t_0} \fdv{S_{τ(t)}[q^i]}{τ(t_0)} δτ(t_0).
     $$
     で与えられる. このとき $τ(t)=t$, $δτ(t) = δt(t)$ とすれば文中の式が得られる.
 
@@ -332,7 +332,7 @@ $$
 $$
 p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}.
 $$
-ただし作用は $S[q]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+ただし作用は $S[q]=∫_{t_0}^{t} \dd{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
 $$
 δS[q^i] = \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t'=t_0}^{t'=t} = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}.
 $$
@@ -342,14 +342,14 @@ $$
 $$
 この変分は経路の途中 $t'∈(t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分が得られる:
 $$
-\d{S} = \d{q^i} p_i - \d{t} H.
+\dd{S} = \dd{q^i} p_i - \dd{t} H.
 $$
 
 これらの性質を組み合わせることで以下の方程式が得られる:
 
 :::screen
 
-最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation* を満たす:
+最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \dd{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation* を満たす:
 $$
 H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0.
 $$
@@ -361,13 +361,13 @@ $$
 Lagrangian の場合と同様に, 最小作用の原理に対し Hamiltonian が満たす条件を求めよう. Hamiltonian $H(q^i, p_i, t) ≡ \.q^i p_i - L$ の全微分は,
 $$
 \begin{aligned}
-\d{H} &=  \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
-    &=  \.q^i \d{p_i} + p_i \d{\.q^i}
-        - \pdv{L}{q^i} \d{q^i} - p_i \d{\.q^i} - \pdv{L}{t} \d{t} \\
+\dd{H} &=  \.q^i \dd{p_i} + p_i \dd{\.q^i} - \dd{L} \\
+    &=  \.q^i \dd{p_i} + p_i \dd{\.q^i}
+        - \pdv{L}{q^i} \dd{q^i} - p_i \dd{\.q^i} - \pdv{L}{t} \dd{t} \\
     &   \quad \pqty{
-          ∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}
+          ∵ \dd{L} = \pdv{L}{q^i} \dd{q^i} + \pdv{L}{\.q^i} \dd{\.q^i} + \pdv{L}{t} \dd{t}
         } \\
-    &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}.
+    &=  - \pdv{L}{q^i} \dd{q^i} + \.q^i \dd{p_i} - \pdv{L}{t} \dd{t}.
 \end{aligned}
 $$
 ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる:
@@ -388,25 +388,25 @@ $$
 
 同じ結果を汎関数微分を用いて導出しよう. 作用を Hamiltonian $\displaystyle H\pqty{q^i,\pdv{L}{\.q^i},t} = \.q^i\pdv{L}{\.q^i} - L$ で書き直すと,
 $$
-S[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}.
+S[q^i(t)] = ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}.
 $$
 これを汎関数微分して,
 $$
 \begin{aligned}
   \fdv{S[q^i(t)]}{q^j(t')}
-    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),\pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))},t}}\right. \\
-    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
+    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\dd{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),\pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))},t}}\right. \\
+    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
     &\quad \pqty{\begin{aligned}
       p_i(t) ≡ \pdv{L}{\.q^i(t)}, \quad
       \pdv{L}{(\.q^i(t)+hδ^i_j\.δ(t-t'))}
         &= \pdv{L}{\.q^i(t)} + \pdv{}{\.q^{k}(t)}\pqty{\pdv{L}{\.q^{i}(t)}} hδ^k_j\.δ(t-t') \\
         &= p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')
     \end{aligned}} \\
-    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\d{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pqty{p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t'),t}}\right. \\
-    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
-    &= \lim_{h→0} \frac1h ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + p_j(t) h\.δ(t-t') - \pdv{H}{q^j(t)} hδ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + O(h^2)} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') + p_j(t) \.δ(t-t') - \pdv{H}{q^j(t)} δ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') } \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &= \lim_{h→0} \frac1h \left\{∫_{t_1}^{t_2}\dd{t} \bqty{(\.q^i(t)+hδ^i_j\.δ(t-t')) \pqty{p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t')} - H\pqty{q^i(t)+hδ^i_jδ(t-t'),p_i(t)+\pdv{p_i}{\.q^{j}(t)} h\.δ(t-t'),t}}\right. \\
+    &\qquad\qquad \left. - ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) \pdv{L}{\.q^i(t)} - H\pqty{q^i(t),\pdv{L}{\.q^i(t)},t}}\right\} \\
+    &= \lim_{h→0} \frac1h ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + p_j(t) h\.δ(t-t') - \pdv{H}{q^j(t)} hδ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} h\.δ(t-t') + O(h^2)} \\
+    &= ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') + p_j(t) \.δ(t-t') - \pdv{H}{q^j(t)} δ(t-t') - \pdv{H}{p_i(t)} \pdv{p_i}{\.q^{j}(t)} \.δ(t-t') } \\
+    &= ∫_{t_1}^{t_2}\dd{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
     &\quad + \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2}.
 \end{aligned}
 $$
@@ -414,27 +414,27 @@ $$
 $$
 \begin{aligned}
   δS[q^i(t)]
-    &= ∫_{t_1}^{t_2} \d{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
-    &= ∫_{t_1}^{t_2} \d{t'} δq^j(t') ∫_{t_1}^{t_2}\d{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + ∫_{t_1}^{t_2}  \d{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2} \d{t'} ∫_{t_1}^{t_2}\d{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
-    &\quad + \bqty{∫_{t_1}^{t_2} \d{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2}\d{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
+    &= ∫_{t_1}^{t_2} \dd{t'} \fdv{S[q^i(t)]}{q^j(t')} δq^j(t') \\
+    &= ∫_{t_1}^{t_2} \dd{t'} δq^j(t') ∫_{t_1}^{t_2}\dd{t} \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + ∫_{t_1}^{t_2}  \dd{t'} δq^j(t') \bqty{\qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2} \dd{t'} ∫_{t_1}^{t_2}\dd{t} δq^j(t') \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} δ(t-t') \\
+    &\quad + \bqty{∫_{t_1}^{t_2} \dd{t'} δq^j(t') \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)} δ(t-t')}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2}\dd{t} δq^j(t) \bqty{- \dv{}{t} \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}}} - \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} \\
     &\quad + \bqty{δq^j(t) \qty{\pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} + p_j(t)}}_{t=t_1}^{t=t_2} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2} \\
+    &= ∫_{t_1}^{t_2}\dd{t} \bqty{δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)} \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2} \\
     &\quad \pqty{δp_i(t) ≡ δ\.q^j(t) \pdv{p_i}{\.q^{j}(t)}} \\
-    &= ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2}. \\
+    &= ∫_{t_1}^{t_2}\dd{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}} + \bqty{δq^j(t) p_j(t)}_{t=t_1}^{t=t_2}. \\
 \end{aligned}
 $$
 ここで, 第2項は両端固定の境界条件 $δq^j(t_1)=δq^j(t_2)=0$ より消える:
 $$
-δS[q^i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
+δS[q^i(t)] = ∫_{t_1}^{t_2}\dd{t} \bqty{δp_i(t) \pqty{\.q^i(t) - \pdv{H}{p_i(t)}} - δq^j(t) \pqty{\.p_j(t) + \pdv{H}{q^j(t)}}}.
 $$
 また, $δq^j(t)$, $δ\.q^j(t)$ は任意であるから, $δq^j(t)$ と $δp_j(t)$ を独立に取ることができる. したがって, 条件 $δS[q^i] = 0$ より, $t_1<t<t_2$ で正準方程式が得られる.
 
 $q^i$ と $p_i$ の独立性を陽に表した作用
 $$
-S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
+S[q^i(t), p_i(t)] = ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}.
 $$
 も用いられる.
 
@@ -494,18 +494,18 @@ $$
 
 ### 正準変換
 
-正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. Hamiltonian の定義から, $δS[q^i,p_i] = δ∫\d{t} (\.q^i p_i - H) = 0$ かつ $δS'[Q^i,P_i] = δ∫\d{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
+正準変数の変換 $(q^i, p_i) ↦ (Q^j, P_j) = (Q^j(q^i, p_i), P_j(q^i, p_i))$ に対して Hamiltonian が $H (q^i, p_i) ↦ K (Q^j, P_j)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. Hamiltonian の定義から, $δS[q^i,p_i] = δ∫\dd{t} (\.q^i p_i - H) = 0$ かつ $δS'[Q^i,P_i] = δ∫\dd{t} (\.Q^i P_i - K) = 0$. したがって, ある関数 $W$ が存在して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (\.Q^i P_i - K) = \dv{W}{t}. \\
-  ∴\d{W} = p_i \d{q^i} - P_i \d{Q^i} - (H - K) \d{t}.
+  ∴\dd{W} = p_i \dd{q^i} - P_i \dd{Q^i} - (H - K) \dd{t}.
 \end{gathered}
 $$
-または, 両辺に $\d{Q^i P_i}/\d{t}$ を足して,
+または, 両辺に $\dd{Q^i P_i}/\dd{t}$ を足して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (- Q^i \.P_i - K) = \dv{}{t} \pqty{W + Q^i P_i} =: \dv{W'}{t}. \\
-  ∴\d{W'} = p_i \d{q^i} + Q^i \d{P_i} - (H - K) \d{t}.
+  ∴\dd{W'} = p_i \dd{q^i} + Q^i \dd{P_i} - (H - K) \dd{t}.
 \end{gathered}
 $$
 これら $W(q^i, Q^i, t)$, $W'(q^i, P_i, t)$ をどちらも**母関数**といい, 以下を満たす.

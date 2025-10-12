@@ -75,7 +75,6 @@
   "\\qin": "{\\quad\\text{in}\\quad}",
   "\\differential": "{\\text{d}}",
   "\\dd": "{\\text{d}}",
-  "\\d": "{\\text{d}}",
   "\\derivative": "{\\frac{\\text{d}{ #1 }}{\\text{d}{ #2 }}}",
   "\\dv": "{\\frac{\\text{d}{ #1 }}{\\text{d}{ #2 }}}",
   "\\partialderivative": "{\\frac{\\partial{ #1 }}{\\partial{ #2 }}}",

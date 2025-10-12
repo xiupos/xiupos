@@ -40,12 +40,12 @@ Weyl 変換とは, q-数 $(\^x,\^p)$ の関数を c-数 $(x,p)$ の関数へ変�
 $$
 \begin{gathered}
   H(\^x,\^p,t) \quad \xmapsto{W} \quad H_{\mathrm{W}} (x,p,t) \qq{or} W[H(\^x,\^p,t)], \\
-  H_{\mathrm{W}} (x,p,t) ≡ ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle
+  H_{\mathrm{W}} (x,p,t) ≡ ∫\dd{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle
 \end{gathered}
 $$
 で定義される[^var][^wigner]. 運動量の固有ケットを用いて
 $$
-H_{\mathrm{W}} (x,p,t) = ∫\d{q}\ e^{iqx/\hbar} \left\langle p+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| p-\frac{q}{2} \right\rangle
+H_{\mathrm{W}} (x,p,t) = ∫\dd{q}\ e^{iqx/\hbar} \left\langle p+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| p-\frac{q}{2} \right\rangle
 $$
 と書くこともできる.
 
@@ -55,29 +55,29 @@ $$
 
 [^wigner]: この変換を Wigner 変換と呼び, 逆変換を Weyl 変換とする文献もある. むしろそっちが一般的? どちらにしろ, 共形場理論における Weyl 変換 $g_{αβ}↦e^{2ω}g_{αβ}$ とは別物であることに注意.
 
-最後の運動量の固有ケットによる表示を導こう. 位置の固有ケットによる定義に完全性 $∫\d{p}|p⟩⟨p|=1$ を挟んで, $⟨x|p⟩ = e^{ipx/\hbar}/\sqrt{2π\hbar}$ に注意すると,
+最後の運動量の固有ケットによる表示を導こう. 位置の固有ケットによる定義に完全性 $∫\dd{p}|p⟩⟨p|=1$ を挟んで, $⟨x|p⟩ = e^{ipx/\hbar}/\sqrt{2π\hbar}$ に注意すると,
 $$
 \begin{aligned}
   H_{\mathrm{W}} (x,p,t)
-    &≡ ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| p_1 \right\rangle \left\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \right\rangle \left\langle p_2 \middle| x-\frac{y}{2} \right\rangle \\
-    &= ∫\d{y} ∫\d{p_1} ∫\d{p_2}\ e^{-ipy/\hbar} \frac{e^{ip_1(x+y/2)/\hbar}}{\sqrt{2π\hbar}} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ \frac{e^{-ip_2(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
-    &= ∫\d{p_1} ∫\d{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ ∫\frac{\d{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar} \\
+    &≡ ∫\dd{y} ∫\dd{p_1} ∫\dd{p_2}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| p_1 \right\rangle \left\langle p_1 \middle| H(\^x,\^p,t) \middle| p_2 \right\rangle \left\langle p_2 \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\dd{y} ∫\dd{p_1} ∫\dd{p_2}\ e^{-ipy/\hbar} \frac{e^{ip_1(x+y/2)/\hbar}}{\sqrt{2π\hbar}} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ \frac{e^{-ip_2(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
+    &= ∫\dd{p_1} ∫\dd{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ ∫\frac{\dd{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar} \\
 \end{aligned}
 $$
 となって, 最後の $y$ 積分はよく知られているようにデルタ関数の積分表示
 $$
-δ\pqty{p-\frac{p_1+p_2}2} = ∫\frac{\d{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar}
+δ\pqty{p-\frac{p_1+p_2}2} = ∫\frac{\dd{y}}{2π\hbar} e^{-i[p-(p_1+p_2)/2]y/\hbar}
 $$
 だから,
 $$
-H_{\mathrm{W}} (x,p,t) = ∫\d{p_1} ∫\d{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ δ\pqty{p-\frac{p_1+p_2}2}
+H_{\mathrm{W}} (x,p,t) = ∫\dd{p_1} ∫\dd{p_2}\ e^{i(p_1-p_2)x/\hbar} ⟨ p_1 | H(\^x,\^p,t) | p_2 ⟩ δ\pqty{p-\frac{p_1+p_2}2}
 $$
 となる. 変数変換 $\displaystyle (p_1,p_2) ↦ (r,q) = \pqty{\frac{p_1+p_2}2,p_1-p_2}$ を実行すれば
 $$
 \begin{aligned}
   H_{\mathrm{W}} (x,p,t)
-    &= ∫\d{q} ∫\d{r}\ e^{iqx/\hbar} \left\langle r+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| r-\frac{q}{2} \right\rangle δ(p-r) \\
-    &= ∫\d{q}\ e^{iqx/\hbar} \left\langle p+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| p-\frac{q}{2} \right\rangle
+    &= ∫\dd{q} ∫\dd{r}\ e^{iqx/\hbar} \left\langle r+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| r-\frac{q}{2} \right\rangle δ(p-r) \\
+    &= ∫\dd{q}\ e^{iqx/\hbar} \left\langle p+\frac{q}{2} \middle| H(\^x,\^p,t) \middle| p-\frac{q}{2} \right\rangle
 \end{aligned}
 $$
 となって, 運動量の固有ケットによる表示が得られた.
@@ -90,18 +90,18 @@ $$
 $$
 \begin{aligned}
   W[\^x\^p]
-    &= ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \^x \^p \middle| x-\frac{y}{2} \right\rangle \\
-    &= ∫\d{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\dd{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \^x \^p \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\dd{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
 \end{aligned}
 $$
-となる. ここで, 最後の期待値は完全性 $∫\d{p}|p⟩⟨p|=1$ を挟めば
+となる. ここで, 最後の期待値は完全性 $∫\dd{p}|p⟩⟨p|=1$ を挟めば
 $$
 \begin{aligned}
   \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle
-    &= ∫\d{p'}\ \left\langle x+\frac{y}{2} \middle| \^p \middle| p' \right\rangle \left\langle p' \middle| x-\frac{y}{2} \right\rangle \\
-    &= ∫\d{p'}\ p' \frac{e^{ip'(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \frac{e^{-ip'(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
-    &= ∫\frac{\d{p'}}{2π\hbar} p' e^{ip'y\hbar} \\
-    &= -i\hbar \dv{}{y} \pqty{∫\frac{\d{p'}}{2π\hbar} e^{ip'y/\hbar}} \\
+    &= ∫\dd{p'}\ \left\langle x+\frac{y}{2} \middle| \^p \middle| p' \right\rangle \left\langle p' \middle| x-\frac{y}{2} \right\rangle \\
+    &= ∫\dd{p'}\ p' \frac{e^{ip'(x+y/2)/\hbar}}{\sqrt{2π\hbar}} \frac{e^{-ip'(x-y/2)/\hbar}}{\sqrt{2π\hbar}} \\
+    &= ∫\frac{\dd{p'}}{2π\hbar} p' e^{ip'y\hbar} \\
+    &= -i\hbar \dv{}{y} \pqty{∫\frac{\dd{p'}}{2π\hbar} e^{ip'y/\hbar}} \\
     &= -i\hbar δ'(y) \\
 \end{aligned}
 $$
@@ -113,7 +113,7 @@ $$
 $$
 \begin{aligned}
   W[\^x\^p]
-    &= - i\hbar ∫\d{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} δ'(y) \\
+    &= - i\hbar ∫\dd{y}\ e^{-ipy/\hbar} \pqty{x+\frac{y}{2}} δ'(y) \\
     &= i\hbar \left. \dv{}{y} \bqty{e^{-ipy/\hbar} \pqty{x+\frac{y}{2}}} \right|_{y=0} \\
     &= i\hbar \left. e^{-ipy/\hbar} \bqty{\frac{-ip}{\hbar} \pqty{x-\frac{y}{2}} + \frac12} \right|_{y=0} \\
     &= px + \frac{i\hbar}2 \\
@@ -127,9 +127,9 @@ $$
 $$
 \begin{aligned}
   W\bqty{\frac{\^x\^p+\^p\^x}2}
-    &= ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \frac{\^x\^p+\^p\^x}2 \middle| x-\frac{y}{2} \right\rangle \\
-    &= \frac12 ∫\d{y}\ e^{-ipy/\hbar} \bqty{\pqty{x+\frac{y}{2}} + \pqty{x-\frac{y}{2}}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
-    &= - i\hbar ∫\d{y}\ e^{-ipy/\hbar} x δ'(y) \\
+    &= ∫\dd{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| \frac{\^x\^p+\^p\^x}2 \middle| x-\frac{y}{2} \right\rangle \\
+    &= \frac12 ∫\dd{y}\ e^{-ipy/\hbar} \bqty{\pqty{x+\frac{y}{2}} + \pqty{x-\frac{y}{2}}} \left\langle x+\frac{y}{2} \middle| \^p \middle| x-\frac{y}{2} \right\rangle \\
+    &= - i\hbar ∫\dd{y}\ e^{-ipy/\hbar} x δ'(y) \\
     &= i\hbar \left. \dv{}{y} \pqty{e^{-ipy/\hbar} x} \right|_{y=0} \\
     &= i\hbar \left. e^{-ipy/\hbar} \pqty{\frac{-ip}{\hbar} x} \right|_{y=0} \\
     &= px \\
@@ -182,8 +182,8 @@ $$
 \begin{aligned}
   W\bqty{e^{α\^x+β\^p}}
     &= W\bqty{e^{-i\hbar αβ/2}e^{α\^x}e^{β\^p}} \\
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| e^{α\^x}e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} \left\langle x+\frac{y}{2} \middle| e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
+    &= e^{-i\hbar αβ/2} ∫\dd{y}\ e^{-ipy/\hbar} \left\langle x+\frac{y}{2} \middle| e^{α\^x}e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
+    &= e^{-i\hbar αβ/2} ∫\dd{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} \left\langle x+\frac{y}{2} \middle| e^{β\^p} \middle| x-\frac{y}{2} \right\rangle \\
 \end{aligned}
 $$
 となる. ここで, 最後の期待値は
@@ -199,7 +199,7 @@ $$
 $$
 \begin{aligned}
   W\bqty{e^{α\^x+β\^p}}
-    &= e^{-i\hbar αβ/2} ∫\d{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} δ(y - i\hbarβ) \\
+    &= e^{-i\hbar αβ/2} ∫\dd{y}\ e^{-ipy/\hbar} e^{α(x+y/2)} δ(y - i\hbarβ) \\
     &= e^{-i\hbar αβ/2} e^{βp} e^{αx} e^{i\hbar αβ/2} \\
     &= e^{αx+βp} \\
 \end{aligned}
@@ -313,17 +313,17 @@ $$
 
 Weyl 順序という当初の目標は達せられた. 最後に, Weyl 順序の有名な応用例を見ていく. その前に, Weyl 変換を応用しやすい形に変形しよう. Weyl 変換が $\left\langle x+\frac{y'}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y'}{2} \right\rangle$ の $y'$ から $p$ への逆 Fourier 変換であることに気付けば, $H_{\mathrm{W}} (x,p,t)$ を $p$ から $y$ へ Fourier 変換して
 $$
-\left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle = \frac1{2π\hbar} ∫\d{p}\ e^{ipy/\hbar} H_{\mathrm{W}} (x,p,t)
+\left\langle x+\frac{y}{2} \middle| H(\^x,\^p,t) \middle| x-\frac{y}{2} \right\rangle = \frac1{2π\hbar} ∫\dd{p}\ e^{ipy/\hbar} H_{\mathrm{W}} (x,p,t)
 $$
 となることがわかる. ここで, 変数を $\displaystyle (x,y)↦(x_i,x_f)=\pqty{x-\frac{y}2, x+\frac{y}2}$ で置き換えれば,
 $$
-⟨x_f|H(\^x,\^p,t)|x_i⟩ = ∫\frac{\d{p}}{2π\hbar} e^{ip(x_f-x_i)/\hbar} H_{\mathrm{W}} \pqty{\frac{x_f + x_i}{2}, p, t}
+⟨x_f|H(\^x,\^p,t)|x_i⟩ = ∫\frac{\dd{p}}{2π\hbar} e^{ip(x_f-x_i)/\hbar} H_{\mathrm{W}} \pqty{\frac{x_f + x_i}{2}, p, t}
 $$
 となって, 応用しやすい形になる[^p].
 
 [^p]: 運動量の固有ケットによる表示に対しても同様に
     $$
-    ⟨p_f|H(\^x,\^p,t)|p_i⟩ = ∫\frac{\d{x}}{2π\hbar} e^{-i(p_f-p_i)x/\hbar} H_{\mathrm{W}} \pqty{x, \frac{p_f + p_i}{2}, t}
+    ⟨p_f|H(\^x,\^p,t)|p_i⟩ = ∫\frac{\dd{x}}{2π\hbar} e^{-i(p_f-p_i)x/\hbar} H_{\mathrm{W}} \pqty{x, \frac{p_f + p_i}{2}, t}
     $$
     が得られる.
 
@@ -333,18 +333,18 @@ $$
 $$
 で与えられる. ただし, $\^U(t_f,t_i)$ は時間発展演算子であって, よく知られているように系の Hamiltonian 演算子 $H(\^x,\^p,t)$ を使って
 $$
-\^U(t_f,t_i) ≡ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \d{t} H(\^x,\^p,t)}
+\^U(t_f,t_i) ≡ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \dd{t} H(\^x,\^p,t)}
 $$
 と書かれる[^T]. この確率振幅に対し, 時間 $t_i$, $t_f$ 間を $N$ 分割
 $$
 Δt ≡ \frac{t_f-t_i}{N}, \quad t_j ≡ t_i + nΔt, \quad x_j ≡ x(t_j). \quad t_0 ≡ t_i, \quad \ t_N ≡ t_f
 $$
-して, 完全系 $∫\d{q_j}|x_j,t_j⟩⟨x_j,t_j| = 1$ を順に挟めば,
+して, 完全系 $∫\dd{q_j}|x_j,t_j⟩⟨x_j,t_j| = 1$ を順に挟めば,
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} ⟨x_f,t_f|x_{N-1},t_{N-1}⟩⟨x_{N-1},t_{N-1}|⋯|x_1,t_1⟩⟨x_1,t_1|x_i,t_i⟩ \\
-    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
+    &= ∫\dd{x_1} ⋯ ∫\dd{x_{N-1}} ⟨x_f,t_f|x_{N-1},t_{N-1}⟩⟨x_{N-1},t_{N-1}|⋯|x_1,t_1⟩⟨x_1,t_1|x_i,t_i⟩ \\
+    &= ∫\dd{x_1} ⋯ ∫\dd{x_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨x_{j+1},t_{j+1}|x_j,t_j⟩} \\
 \end{aligned}
 $$
 となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨x_{j+1}|\^U(t_{j+1},t_j)|x_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の1次までの近似で
@@ -353,29 +353,29 @@ $$
 $$
 とできる. ここで, $H(\^x,\^p,t_j)$ が Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
 $$
-⟨x_{j+1}|H(\^x,\^p,t_j)|x_j⟩ = ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}
+⟨x_{j+1}|H(\^x,\^p,t_j)|x_j⟩ = ∫\frac{\dd{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}
 $$
 を満たすから, それぞれの確率振幅は
 $$
 \begin{aligned}
   ⟨x_{j+1},t_{j+1}|x_j,t_j⟩
-    &= ∫\frac{\d{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} \bqty{1-\frac{i}{{\hbar}} Δt H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}} \\
-    &= ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{p_j\frac{x_{j+1}-x_j}{Δt} - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+    &= ∫\frac{\dd{p_j}}{2π\hbar} e^{ip_j(x_{j+1}-x_j)/\hbar} \bqty{1-\frac{i}{{\hbar}} Δt H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\dd{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{p_j\frac{x_{j+1}-x_j}{Δt} - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
 と求まる. 結局, $|x_i,t_i⟩$ から $|x_f,t_f⟩$ への遷移振幅は
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫\d{x_1} ⋯ ∫\d{x_{N-1}} \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
-    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
+    &= ∫\dd{x_1} ⋯ ∫\dd{x_{N-1}} \pqty{∏_{j=0}^{N-1} ∫\frac{\dd{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}}} \\
+    &= ∫\frac{\dd{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\dd{x_j}\dd{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
 と書ける. [汎関数積分の計算法](./functional#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫_{x_i}^{x_f} \mathcal{D}x ∫ \mathcal{D}p \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \Big[ \.x p - H(x,p,t) \Big] } \\
+    &= ∫_{x_i}^{x_f} \mathcal{D}x ∫ \mathcal{D}p \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \dd{t} \Big[ \.x p - H(x,p,t) \Big] } \\
     &≡ ∫_{x_i}^{x_f} \mathcal{D}x ∫ \mathcal{D}p \ \exp \pqty{\frac{i}{\hbar} S[x,p]}
 \end{aligned}
 $$
@@ -393,15 +393,15 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫\frac{\d{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\d{x_j}\d{p_j}}{2π\hbar} \\
+    &= ∫\frac{\dd{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\dd{x_j}\dd{p_j}}{2π\hbar} \\
     &\qquad × \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m} + \frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}} \\
 \end{aligned}
 $$
 となる. $p$ に関する積分は単純な Fresnel 積分になって,
 $$
 \begin{aligned}
-   &\ \pqty{∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
-  =&\ ∏_{j=0}^{N-1} ∫\frac{\d{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
+   &\ \pqty{∏_{j=0}^{N-1} ∫\frac{\dd{p_j}}{2π\hbar}} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{- \frac{(p_j-m(x_{j+1}-x_j)/Δt)^2}{2m}}} \\
+  =&\ ∏_{j=0}^{N-1} ∫\frac{\dd{p_j}}{2π\hbar} \exp \qty{- i \frac{Δt}{2m{\hbar}} \pqty{p_j-m\frac{x_{j+1}-x_j}{Δt}}^2} \\
   =&\ ∏_{j=0}^{N-1} \frac1{2π\hbar} \sqrt{\frac{2πm\hbar}{iΔt}} = \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} \\
 \end{aligned}
 $$
@@ -409,15 +409,15 @@ $$
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} ∏_{j=1}^{N-1} ∫\d{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}}, \\
+    &= \pqty{\frac{m}{2πi\hbarΔt}}^{N/2} ∏_{j=1}^{N-1} ∫\dd{x_j} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{m}2 \pqty{\frac{x_{j+1}-x_j}{Δt}}^2 - V\pqty{\frac{x_{j+1}+x_j}{2}}}}, \\
 \end{aligned}
 $$
 あるいは $N→∞$ の極限で, 汎関数積分
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩
-    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \Big[ \frac{m}2 \.x^2 - V(x) \Big] } \\
-    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \bqty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} L(x,\.x) } \\
+    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \qty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \dd{t} \Big[ \frac{m}2 \.x^2 - V(x) \Big] } \\
+    &= ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \bqty{\frac{i}{\hbar} ∫_{t_i}^{t_f} \dd{t} L(x,\.x) } \\
     &≡ ∫_{x_i}^{x_f} \mathcal{D}x \ \exp \pqty{\frac{i}{\hbar} S[x]}
 \end{aligned}
 $$

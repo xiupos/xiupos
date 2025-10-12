@@ -59,7 +59,7 @@ $$
 
 作用は, 座標と時間に関する **Lagrangian** $L(q^i, \.q^i, t)$ を用いて,
 $$
-S[q^i] = ∫_{t_1}^{t_2} \d{t} L(q^i, \.q^i, t).
+S[q^i] = ∫_{t_1}^{t_2} \dd{t} L(q^i, \.q^i, t).
 $$
 と表される.
 
@@ -69,18 +69,18 @@ $$
 $$
 \begin{aligned}
 δS[q^i]
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       L\pqty{q^i + δq^i, \.q^i + \dv{δq^i}{t}, t} - L(q^i, \.q^i, t)
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       δq^i \pdv{L}{q^i} + \dv{δq^i}{t} \pdv{L}{\.q^i}
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} \bqty{
       δq^i \pdv{L}{q^i}
       - δq^i \dv{}{t} \pqty{\pdv{L}{\.q^i}}
       + \dv{}{t} \pqty{ δq^i \pdv{L}{\.q^i} }
     } \\
-=&  ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
+=&  ∫_{t_1}^{t_2} \dd{t} δq^i \bqty{
       \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
     }
     + \bqty{ δq^i \pdv{L}{\.q^i}}_{t=t_1}^{t=t_2}
@@ -89,7 +89,7 @@ $$
 となる. ここで, 第2項は両端固定の境界条件 $δq^i(t_1)=δq^i(t_2)=0$ より消すことができて,
 $$
 δS[q^i]
-= ∫_{t_1}^{t_2} \d{t} δq^i \bqty{
+= ∫_{t_1}^{t_2} \dd{t} δq^i \bqty{
     \pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}
   }
 $$
@@ -107,7 +107,7 @@ $$
 
 これにより, 変分条件 $δS[q^i]=0$ を満たす $q^i(t)$ を求める問題は, Euler–Lagrange 方程式という微分方程式を解く問題と等価であることがわかった.
 
-ところで, Lagrangian は一意ではない. Lagrangian $L(q,\.q,t)$ に対し, 位置と時間の関数 $f(q,t)$ の時間に関する完全微分 $\d{f(q,t)}/\d{t}$ を加えた量
+ところで, Lagrangian は一意ではない. Lagrangian $L(q,\.q,t)$ に対し, 位置と時間の関数 $f(q,t)$ の時間に関する完全微分 $\dd{f(q,t)}/\dd{t}$ を加えた量
 $$
 \begin{aligned}
   \~L(q,\.q,t)
@@ -150,7 +150,7 @@ $$
 $$
 が得られる. したがって, 作用は
 $$
-S[q] = ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}
+S[q] = ∫_{t_1}^{t_2} \dd{t} \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{(t_1-t_2)^2} = \frac{m}{2} \frac{(q(t_2)-q(t_1))^2}{t_2-t_1}
 $$
 と求まる.
 
@@ -181,8 +181,8 @@ $$
 $$
 \begin{aligned}
   S[q]
-    &= ∫_{t_1}^{t_2} \d{t} \frac{m}{2} \bqty{\qty{ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}}^2 - ω^2 \qty{\frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}}^2} \\
-    &= ∫_{t_1}^{t_2} \d{t} \frac{mω^2}{2} \frac{q_1^2 \cos 2ω(t-t_2) + q_2^2 \cos 2ω(t-t_1) - 2q_1q_2\cos(2t-t_1-t_2)}{\sin^2 ω(t_2-t_1)} \\
+    &= ∫_{t_1}^{t_2} \dd{t} \frac{m}{2} \bqty{\qty{ω \frac{q_1 \cos ω(t-t_2) - q_2 \cos ω(t-t_1)}{\sin ω(t_1-t_2)}}^2 - ω^2 \qty{\frac{q_1 \sin ω(t-t_2) - q_2 \sin ω(t-t_1)}{\sin ω(t_1-t_2)}}^2} \\
+    &= ∫_{t_1}^{t_2} \dd{t} \frac{mω^2}{2} \frac{q_1^2 \cos 2ω(t-t_2) + q_2^2 \cos 2ω(t-t_1) - 2q_1q_2\cos(2t-t_1-t_2)}{\sin^2 ω(t_2-t_1)} \\
     &= \frac{mω}{2 \sin ω(t_2-t_1)} \bqty{(q_1^2+q_2^2) \cos ω(t_2-t_1) - 2q_1q_2} \\
 \end{aligned}
 $$
@@ -196,23 +196,23 @@ Lagrangian は運動方程式を与えるだけでなく, 系の対称性に関�
 $$
 \begin{aligned}
   δS[q^i]
-    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \d{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫_{t_1}^{t_2} \d{t} L(q^i(t),\.q^i(t),t) \\
-    &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
+    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \dd{t'} L(q'^i(t'),∂'_tq'^i(t'),t') - ∫_{t_1}^{t_2} \dd{t} L(q^i(t),\.q^i(t),t) \\
+    &   \quad \pqty{\dd{t'} = \dv{t'}{t} \dd{t} = (1+δ\.t) \dd{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big[ (1+δ\.t) L(q'^i(t'),∂'_tq'^i(t'),t') - L(q^i(t),\.q^i(t),t) \Big] \\
     & \quad \pqty{
         ∂'_tq'(t') = \dv{t}{t'} ∂_t (q^i(t)+δq^i(t)) = (1-δ\.t)(\.q^i+δ\.q^i) = \.q^i+δ\.q^i-\.q^iδ\.t
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big[ δ\.t L + L(q^i+δq^i,\.q^i+δ\.q^i-\.q^iδ\.t,t+δt) - L(q^i,\.q^i,t) \Big] \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{δ\.t L + δq^i \pdv{L}{q^i} + (δ\.q^i-\.q^iδ\.t) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) ≡ q'^i(t) - q^i(t) = δq^i - \.q^i δt$}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \qty{
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{δ\.t L + (δ^Lq^i + \.q^i δt) \pdv{L}{q^i} + (∂_tδ^Lq^i + \"q^i δt) \pdv{L}{\.q^i} + δt \pdv{L}{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \qty{
           δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \dv{}{t} \pqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+    &=  ∫_{t_1}^{t_2} \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
         + \bqty{δ^Lq^i \pdv{L}{\.q^i} + δt L}_{t=t_1}^{t=t_2} \\
-    &=  ∫_{t_1}^{t_2} \d{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
+    &=  ∫_{t_1}^{t_2} \dd{t} δ^Lq^i \bqty{\pdv{L}{q^i} - \dv{}{t} \pqty{\pdv{L}{\.q^i}}}
       + \bqty{δq^i \pdv{L}{\.q^i} - δt \pqty{\.q^i \pdv{L}{\.q^i} - L}}_{t=t_1}^{t=t_2} \\
 \end{aligned}
 $$
@@ -292,7 +292,7 @@ $$
 $$
 p_i(t) = \pdv{S}{q^i(t)}, \quad H(q^i,p_i,t) = - \pdv{S}{t}
 $$
-と得ることもできる. ただし作用は $S[q^i]=∫_{t_0}^{t} \d{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
+と得ることもできる. ただし作用は $S[q^i]=∫_{t_0}^{t} \dd{t'} L(q^i,\.q^i,t')$ で与えられている. 実際, Norther の定理と同じ状況での変分は
 $$
 δS[q^i] = \bqty{δq^i p_i - δt H}_{t'=t_0}^{t'=t}
 $$
@@ -302,7 +302,7 @@ $$
 $$
 となる. この変分は経路の始点と途中 $t'∈[t_0,t)$ によらない形になっているから, 一点 $t$ での変位から求めたい全微分
 $$
-\d{S} = \d{q^i} p_i - \d{t} H
+\dd{S} = \dd{q^i} p_i - \dd{t} H
 $$
 が得られる.
 TODO: この議論は正確か?
@@ -311,7 +311,7 @@ TODO: この議論は正確か?
 
 :::screen
 
-最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \d{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation*
+最小作用の原理を満たす作用 $S[q^i] = ∫_{t_0}^t \dd{t'} L(q^i,\.q^i,t')$ に対し, 作用の端点 $t$, $q(t)$ での偏微分は **Hamilton–Jacobi 方程式** *Hamilton–Jacobi equation*
 $$
 H\pqty{q^i(t),\pdv{S}{q^i(t)},t}+\pdv{S}{t}=0
 $$
@@ -324,11 +324,11 @@ $$
 Lagrangian の場合と同様に, 最小作用の原理に対し Hamiltonian が満たす条件を求めよう. Hamiltonian $H(q^i, p_i, t) ≡ \.q^i p_i - L$ の全微分は,
 $$
 \begin{aligned}
-\d{H}
-  &= \.q^i \d{p_i} + p_i \d{\.q^i} - \d{L} \\
-  &= \.q^i \d{p_i} + p_i \d{\.q^i} - \pdv{L}{q^i} \d{q^i} - p_i \d{\.q^i} - \pdv{L}{t} \d{t} \\
-  &  \quad \pqty{∵ \d{L} = \pdv{L}{q^i} \d{q^i} + \pdv{L}{\.q^i} \d{\.q^i} + \pdv{L}{t} \d{t}} \\
-  &=  - \pdv{L}{q^i} \d{q^i} + \.q^i \d{p_i} - \pdv{L}{t} \d{t}
+\dd{H}
+  &= \.q^i \dd{p_i} + p_i \dd{\.q^i} - \dd{L} \\
+  &= \.q^i \dd{p_i} + p_i \dd{\.q^i} - \pdv{L}{q^i} \dd{q^i} - p_i \dd{\.q^i} - \pdv{L}{t} \dd{t} \\
+  &  \quad \pqty{∵ \dd{L} = \pdv{L}{q^i} \dd{q^i} + \pdv{L}{\.q^i} \dd{\.q^i} + \pdv{L}{t} \dd{t}} \\
+  &=  - \pdv{L}{q^i} \dd{q^i} + \.q^i \dd{p_i} - \pdv{L}{t} \dd{t}
 \end{aligned}
 $$
 である. ここで, Euler-Lagrangian 方程式が成立するとき $\.p_i = ∂L / ∂q^i$ であることを用いると, Hamiltonian に関する運動方程式が得られる.
@@ -351,7 +351,7 @@ $$
 
 $q^i(t)$ と $p_i(t)$ を独立にした作用
 $$
-S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
+S[q^i, p_i] = ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
 $$
 も用いられる. このときの最小作用の原理は
 $$
@@ -412,22 +412,22 @@ $$
 正準変数の変換 $(q^i, p_i) ↦ (q'^j, p'_j) = (q'^j(q^i, p_i), p'_j(q^i, p_i))$ に対して Hamiltonian が $H(q^i,p_i,t) ↦ H'(q'^j,p'_j,t)$ と変換されるとき, この正準変数の変換を**正準変換** *canonical transformation* という. いずれの表示でも最小作用の原理を満たすとき, Hamiltonian の定義から,
 $$
 \begin{gathered}
-  δS[q^i,p_i] = δ∫\d{t} (\.q^i p_i - H) = 0, \\
-  δS'[q'^i,p'_i] = δ∫\d{t} (\.q'^i p'_i - H') = 0.
+  δS[q^i,p_i] = δ∫\dd{t} (\.q^i p_i - H) = 0, \\
+  δS'[q'^i,p'_i] = δ∫\dd{t} (\.q'^i p'_i - H') = 0.
 \end{gathered}
 $$
 したがって, ある関数 $W$ が存在して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (\.q'^i p'_i - H') = \dv{W}{t}. \\
-  ∴\d{W} = p_i \d{q^i} - p'_i \d{q'^i} - (H - H') \d{t}.
+  ∴\dd{W} = p_i \dd{q^i} - p'_i \dd{q'^i} - (H - H') \dd{t}.
 \end{gathered}
 $$
-または, 両辺に $\d{(q'^i p'_i)}/\d{t}$ を足して,
+または, 両辺に $\dd{(q'^i p'_i)}/\dd{t}$ を足して,
 $$
 \begin{gathered}
   (\.q^i p_i - H) - (- q'^i \.p'_i - H') = \dv{}{t} \pqty{W + q'^i p'_i} =: \dv{W'}{t}. \\
-  ∴\d{W'} = p_i \d{q^i} + q'^i \d{p'_i} - (H - H') \d{t}.
+  ∴\dd{W'} = p_i \dd{q^i} + q'^i \dd{p'_i} - (H - H') \dd{t}.
 \end{gathered}
 $$
 これら $W(q^i, q'^i, t)$, $W'(q^i, p'_i, t)$ をどちらも**母関数**といい, 以下を満たす.
@@ -486,7 +486,7 @@ $$
 
 Hamilton 形式での作用
 $$
-S[q^i, p_i] = ∫_{t_1}^{t_2}\d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
+S[q^i, p_i] = ∫_{t_1}^{t_2}\dd{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}}
 $$
 に対し, Noether の定理を求めてみよう. Lagrange 形式で求めたのと同じ保存量が得られることが期待される.
 
@@ -494,18 +494,18 @@ $$
 $$
 \begin{aligned}
   δS[q^i,p_i]
-    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \d{t'} \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - ∫_{t_1}^{t_2} \d{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \\
-    &   \quad \pqty{\d{t'} = \dv{t'}{t} \d{t} = (1+δ\.t) \d{t}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ (1+δ\.t) \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
+    &=  ∫_{t_1+δt(t_1)}^{t_2+δt(t_2)} \dd{t'} \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - ∫_{t_1}^{t_2} \dd{t} \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \\
+    &   \quad \pqty{\dd{t'} = \dv{t'}{t} \dd{t} = (1+δ\.t) \dd{t}} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big\{ (1+δ\.t) \bqty{∂'_tq'^i(t') p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
     & \quad \pqty{
         ∂'_tq'(t') = \.q^i+δ\.q^i-\.q^iδ\.t
       } \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ (1+δ\.t) \bqty{(\.q^i+δ\.q^i-\.q^iδ\.t) p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ \dv{}{t} (δq^i p_i) - δq^i \.p_i + \.q^i δp_i - δq^i \pdv{H}{q^i} - δp_i \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big\{ (1+δ\.t) \bqty{(\.q^i+δ\.q^i-\.q^iδ\.t) p'_i(t') - H\pqty{q'^i(t'),p'_i(t'),t'}} - \bqty{\.q^i(t) p_i(t) - H\pqty{q^i(t),p_i(t),t}} \Big\} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big\{ \dv{}{t} (δq^i p_i) - δq^i \.p_i + \.q^i δp_i - δq^i \pdv{H}{q^i} - δp_i \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
     &   \quad \pqty{\text{Lie 微分 $δ^Lq^i(t) = δq^i-\.q^iδt$, $δ^Lp_i(t) = δp_i-\.p_iδt$}} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \Big\{ \dv{}{t} (δq^i p_i) - δ^Lq^i \.p_i + \.q^i δ^Lp_i - (δ^Lq^i+\.q^iδt) \pdv{H}{q^i} - (δ^Lp_i+\.p_iδt) \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}} + \dv{}{t} (δq^i p_i - δt H) } \\
-    &=  ∫_{t_1}^{t_2} \d{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}}} + \bqty{δq^i p_i - δt H}_{t=t_1}^{t=t_2} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \Big\{ \dv{}{t} (δq^i p_i) - δ^Lq^i \.p_i + \.q^i δ^Lp_i - (δ^Lq^i+\.q^iδt) \pdv{H}{q^i} - (δ^Lp_i+\.p_iδt) \pdv{H}{p_i} - δt \pdv{H}{t} - δ\.t H \Big\} \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}} + \dv{}{t} (δq^i p_i - δt H) } \\
+    &=  ∫_{t_1}^{t_2} \dd{t} \bqty{ δ^Lp_i \pqty{\.q^i - \pdv{H}{p_i}} - δ^Lq^i \pqty{\.p_i + \pdv{H}{q^i}}} + \bqty{δq^i p_i - δt H}_{t=t_1}^{t=t_2} \\
 \end{aligned}
 $$
 となる. ここで, 最後の式の第一項は Hamilton の運動方程式より消え, 第二項の $t_1$, $t_2$ は任意である. したがって, この変換に対し作用が不変 $δS=0$ であるとすると, 対応する保存量

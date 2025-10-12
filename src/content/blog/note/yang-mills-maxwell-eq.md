@@ -17,7 +17,7 @@ draft: true
 
 簡単のために, 物質場はスカラー場とする. よく知られているように, 自由スカラー場の作用は 
 $$
-S[\phi] = ∫\d{{}^4 x} \pqty{\frac12 ∂_μ \phi^* ∂^μ \phi - \frac12 m^2 |\phi|^2}
+S[\phi] = ∫\dd{{}^4 x} \pqty{\frac12 ∂_μ \phi^* ∂^μ \phi - \frac12 m^2 |\phi|^2}
 $$
 である. ただし, この作用に対し, $U(1)$ ゲージ変換に対する不変性を要請する. つまり, 変換
 $$
@@ -37,7 +37,7 @@ D_μ \phi \mapsto g D_μ \phi
 $$
 と変換することが容易に確かめられる. したがって, 新しい作用
 $$
-S[\phi] = ∫\d{{}^4 x} \pqty{\frac12 D_μ \phi^* D^μ \phi - \frac12 m^2 |\phi|^2}
+S[\phi] = ∫\dd{{}^4 x} \pqty{\frac12 D_μ \phi^* D^μ \phi - \frac12 m^2 |\phi|^2}
 $$
 はゲージ変換で不変である.
 
@@ -47,12 +47,12 @@ F_{μν} = ∂_μ A_ν - ∂_ν A_μ
 $$
 を用いて
 $$
-S_\mathsf{ゲージ場}[A] = ∫\d{{}^4 x} \pqty{- \frac14 F_{μν} F^{μν}}
+S_\mathsf{ゲージ場}[A] = ∫\dd{{}^4 x} \pqty{- \frac14 F_{μν} F^{μν}}
 $$
 と書ける. TODO: ゲージ場の運動項の導出
 結局, 作用全体は
 $$
-S[\phi, A] = ∫\d{{}^4 x} \pqty{\frac12 D_μ \phi^* D^μ \phi - \frac12 m^2 |\phi|^2 - \frac14 F_{μν} F^{μν}}
+S[\phi, A] = ∫\dd{{}^4 x} \pqty{\frac12 D_μ \phi^* D^μ \phi - \frac12 m^2 |\phi|^2 - \frac14 F_{μν} F^{μν}}
 $$
 となる.
 

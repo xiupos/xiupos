@@ -62,7 +62,7 @@ $$
   [a(\bm{p}), a(\bm{p}')] = [a^{\dagger}(\bm{p}), a^{\dagger}(\bm{p}')] = 0.
 \end{gathered}
 $$
-また, Hermite 演算子 $n(\bm{p}) ≡ a^{\dagger}(\bm{p}) a(\bm{p})$ を**数密度演算子**, $N≡∫\d{{}^3 \bm{p}} n(\bm{p}) = ∫\d{{}^3 \bm{p}} a^{\dagger}(\bm{p}) a(\bm{p})$ を**数演算子** the number operation という.
+また, Hermite 演算子 $n(\bm{p}) ≡ a^{\dagger}(\bm{p}) a(\bm{p})$ を**数密度演算子**, $N≡∫\dd{{}^3 \bm{p}} n(\bm{p}) = ∫\dd{{}^3 \bm{p}} a^{\dagger}(\bm{p}) a(\bm{p})$ を**数演算子** the number operation という.
 
 :::
 
@@ -74,9 +74,9 @@ $$
 $$
 \begin{aligned}
   Na^{\dagger}(\bm{p})|Ψ_c⟩
-    &= ∫\d{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') a^{\dagger}(\bm{p}) |Ψ_c⟩ \\
-    &= ∫\d{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') \big\{ a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p}'-\bm{p}) \big\} |Ψ_c⟩ \\
-    &= a^{\dagger}(\bm{p}) \pqty{ ∫\d{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') + 1} |Ψ_c⟩ \\
+    &= ∫\dd{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') a^{\dagger}(\bm{p}) |Ψ_c⟩ \\
+    &= ∫\dd{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') \big\{ a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p}'-\bm{p}) \big\} |Ψ_c⟩ \\
+    &= a^{\dagger}(\bm{p}) \pqty{ ∫\dd{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') + 1} |Ψ_c⟩ \\
     &= a^{\dagger}(\bm{p})(N + 1)|Ψ_c⟩ \\
     &= (c + 1)a^{\dagger}(\bm{p})|Ψ_c⟩.
 \end{aligned}
@@ -92,9 +92,9 @@ $$
 $$
 \begin{aligned}
   Na(\bm{p})|Ψ_c⟩
-    &= ∫\d{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') a(\bm{p})|Ψ_c⟩ \\
-    &= ∫\d{{}^3 \bm{p}'} \qty{a(\bm{p}) a^{\dagger}(\bm{p}')-δ^3(\bm{p}'-\bm{p})} a(\bm{p}')|Ψ_c⟩ \\
-    &= a(\bm{p}) \pqty{ ∫\d{{}^3 \bm{p}'}a^{\dagger}(\bm{p}')a(\bm{p}') - 1} |Ψ_c⟩ \\
+    &= ∫\dd{{}^3 \bm{p}'} a^{\dagger}(\bm{p}') a(\bm{p}') a(\bm{p})|Ψ_c⟩ \\
+    &= ∫\dd{{}^3 \bm{p}'} \qty{a(\bm{p}) a^{\dagger}(\bm{p}')-δ^3(\bm{p}'-\bm{p})} a(\bm{p}')|Ψ_c⟩ \\
+    &= a(\bm{p}) \pqty{ ∫\dd{{}^3 \bm{p}'}a^{\dagger}(\bm{p}')a(\bm{p}') - 1} |Ψ_c⟩ \\
     &= a(\bm{p}) (N - 1) |Ψ_c⟩ \\
     &= (c - 1)a(\bm{p})|Ψ_c⟩.
 \end{aligned}
@@ -108,11 +108,11 @@ $$
 $$
 特に $c=0$ のときの状態 $|Ψ_0⟩≡|0⟩$ を真空状態といい, $a(\bm{p})|0⟩ = 0$ を満たす: $⟨0| a^{\dagger}(\bm{p}) a(\bm{p}) |0⟩ ≥ 0$ かつ
 $$
-∫\d{{}^3 \bm{p}} ⟨0| a^{\dagger}(\bm{p}) a(\bm{p}) |0⟩ = ⟨0| N |0⟩ = 0.
+∫\dd{{}^3 \bm{p}} ⟨0| a^{\dagger}(\bm{p}) a(\bm{p}) |0⟩ = ⟨0| N |0⟩ = 0.
 $$
 $c<0$ は許されない: ある固有値 $c<0$ に属する固有状態 $|Ψ_c⟩$ に対し,
 $$
-c = ⟨Ψ_c|N|Ψ_c⟩ = ∫\d{{}^3 \bm{p}} ⟨Ψ_c|a^{\dagger}(\bm{p})a(\bm{p})|Ψ_c⟩ = ∫\d{{}^3 \bm{p}} ⟨a(\bm{p})Ψ_c|a(\bm{p})Ψ_c⟩ ≥ 0.
+c = ⟨Ψ_c|N|Ψ_c⟩ = ∫\dd{{}^3 \bm{p}} ⟨Ψ_c|a^{\dagger}(\bm{p})a(\bm{p})|Ψ_c⟩ = ∫\dd{{}^3 \bm{p}} ⟨a(\bm{p})Ψ_c|a(\bm{p})Ψ_c⟩ ≥ 0.
 $$
 ただし $|a(\bm{p})Ψ_c⟩ ≡ a(\bm{p})|Ψ_c⟩$. これは $c<0$ に矛盾する. したがって, $c≥0$ である. また, $c$ が正の非整数とすると, 繰り返し $c$ を左右することで $c$ を負にすることができてしまうから, $c$ は非整数ではない. したがって, $c = 0,1,2,…$.
 
@@ -123,34 +123,34 @@ $$
 実 Klein-Gordon 場 $ϕ(x)$ と一般化運動量 $π(x)$ の平面波展開は
 $$
 \begin{aligned}
-  ϕ(x) &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}, \\
-  π(x) &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}. \\
+  ϕ(x) &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}, \\
+  π(x) &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} (-i) p_0 \bqty{a(\bm{p}) e^{-ipx} - a^*(\bm{p}) e^{ipx}}. \\
 \end{aligned}
 $$
 または $a(\bm{p})$, $a^*(\bm{p})$ について解いて,
 $$
 \begin{aligned}
-  a(\bm{p}) &= ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}, \\
-  a^{*}(\bm{p}) &= ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) - i π(x)} e^{-ipx}. \\
+  a(\bm{p}) &= ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) + i π(x)} e^{ipx}, \\
+  a^{*}(\bm{p}) &= ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \bqty{p_0 ϕ(x) - i π(x)} e^{-ipx}. \\
 \end{aligned}
 $$
 これらの量を量子化する. 同時刻交換関係 $[ϕ(t,\bm{x}), π(t,\bm{x}')] = iδ^3(\bm{x}-\bm{x}')$ の下で $[a(\bm{p}), a^{\dagger}(\bm{p})]$ の括弧積を計算すると,
 $$
 \begin{aligned}
  &\ [a(\bm{p}), a^{\dagger}(\bm{p'})] \\
-=&\ \bqty{∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \qty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x})} e^{i(p_0t - \bm{p}⋅\bm{x})}, ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \qty{p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{-i(p_0't - \bm{p}'⋅\bm{x}')}} \\
-=&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \bqty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x}), p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
-=&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
+=&\ \bqty{∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \qty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x})} e^{i(p_0t - \bm{p}⋅\bm{x})}, ∫ \frac{\dd{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \qty{p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{-i(p_0't - \bm{p}'⋅\bm{x}')}} \\
+=&\ ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} \bqty{p_0 ϕ(t,\bm{x}) + i π(t,\bm{x}), p_0' ϕ(t,\bm{x}') - i π(t,\bm{x}')} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
+=&\ ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \\
  &\ \qquad \quad × \qty{
         p_0 p_0' \bqty{ϕ(t,\bm{x}), ϕ(t,\bm{x}')}
       - i p_0 \bqty{ϕ(t,\bm{x}),π(t,\bm{x}')}
       + i p_0' \bqty{π(t,\bm{x}), ϕ(t,\bm{x}')}
       + \bqty{π(t,\bm{x}), π(t,\bm{x}')}
     } \\
-=&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \qty{p_0 δ^3(\bm{x} - \bm{x}') + p_0' δ^3(\bm{x} - \bm{x}')} \\
-=&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} (p_0 + p_0') δ^3(\bm{x} - \bm{x}') \\
-=&\ ∫ \frac{\d{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \frac{1}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x})} (p_0 + p_0') \\
-=&\ \frac{p_0 + p_0'}{\sqrt{4p_0p'_0}} e^{i(p_0 - p_0')t} ∫ \frac{\d{{}^3 \bm{x}}}{(2π)^3} e^{-i(\bm{p} - \bm{p}')⋅\bm{x}}
+=&\ ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} \qty{p_0 δ^3(\bm{x} - \bm{x}') + p_0' δ^3(\bm{x} - \bm{x}')} \\
+=&\ ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{x}'}}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x}')} (p_0 + p_0') δ^3(\bm{x} - \bm{x}') \\
+=&\ ∫ \frac{\dd{{}^3 \bm{x}}}{\sqrt{(2π)^3 2p_0}} \frac{1}{\sqrt{(2π)^3 2p'_0}} e^{i(p_0t - \bm{p}⋅\bm{x})} e^{-i(p_0't - \bm{p}'⋅\bm{x})} (p_0 + p_0') \\
+=&\ \frac{p_0 + p_0'}{\sqrt{4p_0p'_0}} e^{i(p_0 - p_0')t} ∫ \frac{\dd{{}^3 \bm{x}}}{(2π)^3} e^{-i(\bm{p} - \bm{p}')⋅\bm{x}}
 =   \frac{p_0 + p_0'}{\sqrt{4p_0p'_0}} e^{i(p_0 - p_0')t} δ^3(\bm{p} - \bm{p}') \\
 =&\ δ^3(\bm{p} - \bm{p}').
 \end{aligned}
@@ -164,7 +164,7 @@ $$
 $$
 したがって, $a(\bm{p})$, $a^{\dagger}(\bm{p})$ はそれぞれ消滅・生成演算子である. また, Hermite 演算子
 $$
-N ≡ ∫ \d{{}^3 \bm{p}} a^{\dagger}(\bm{p}) a(\bm{p})
+N ≡ ∫ \dd{{}^3 \bm{p}} a^{\dagger}(\bm{p}) a(\bm{p})
 $$
 は数演算子である.
 
@@ -172,8 +172,8 @@ $$
 $$
 \begin{gathered}
   ϕ(x) = ϕ^{(+)}(x) + ϕ^{(-)}(x), \\
-  ϕ^{(+)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a(\bm{p})  e^{-ipx}, \\
-  ϕ^{(-)}(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a^{\dagger}(\bm{p}) e^{ipx}.
+  ϕ^{(+)}(x) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a(\bm{p})  e^{-ipx}, \\
+  ϕ^{(-)}(x) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} a^{\dagger}(\bm{p}) e^{ipx}.
 \end{gathered}
 $$
 このとき, 場の積は,
@@ -181,7 +181,7 @@ $$
 \begin{aligned}
   ϕ(x)ϕ(y)
     &= \qty{ϕ^{(+)}(x) + ϕ^{(-)}(x)}\qty{ϕ^{(+)}(y) + ϕ^{(-)}(y)} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
       &\qquad × \Big\{\ e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{-ipx} a(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') \\
       &\qquad \qquad  + e^{ipx} a^{\dagger}(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{ipx} a^{\dagger}(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') \Big\}. \\
 \end{aligned}
@@ -190,14 +190,14 @@ $$
 $$
 \begin{aligned}
   ⟨0| ϕ(x)ϕ(y) |0⟩
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
       &\qquad × \Big\{\ ⟨0| e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') |0⟩ + ⟨0| e^{-ipx} a(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') |0⟩ \\
       &\qquad \qquad  + ⟨0| e^{ipx} a^{\dagger}(\bm{p}) e^{-ip'y} a(\bm{p}') |0⟩ + ⟨0| e^{ipx} a^{\dagger}(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') |0⟩ \Big\}. \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| a(\bm{p}) a^{\dagger}(\bm{p}') |0⟩. \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| a(\bm{p}) a^{\dagger}(\bm{p}') |0⟩. \\
     & \quad \pqty{∵ a(\bm{p}) |0⟩ = ⟨0| a^{\dagger}(\bm{p}) = 0} \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| \big\{ a^{\dagger}(\bm{p}') a(\bm{p}) + δ^3(\bm{p}-\bm{p}') \big\} |0⟩. \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} δ^3(\bm{p}-\bm{p}'). \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}. \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} ⟨0| \big\{ a^{\dagger}(\bm{p}') a(\bm{p}) + δ^3(\bm{p}-\bm{p}') \big\} |0⟩. \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} e^{-ipx} e^{ip'y} δ^3(\bm{p}-\bm{p}'). \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}. \\
 \end{aligned}
 $$
 あるいは, 場の交換積の真空期待値は,
@@ -205,7 +205,7 @@ $$
 \begin{aligned}
   ⟨0| [ϕ(x), ϕ(y)] |0⟩
     &= ⟨0| ϕ(x)ϕ(y) |0⟩ - ⟨0| ϕ(y)ϕ(x) |0⟩ \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} \pqty{e^{-ip(x-y)} - e^{ip(x-y)}}.
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{(2π)^3 2p_0} \pqty{e^{-ip(x-y)} - e^{ip(x-y)}}.
 \end{aligned}
 $$
 
@@ -227,13 +227,13 @@ $$
 
 実 Klein-Gordon 場
 $$
-ϕ(x) = ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}
+ϕ(x) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} \bqty{a(\bm{p}) e^{-ipx} + a^*(\bm{p}) e^{ipx}}
 $$
 の場の積は
 $$
 \begin{aligned}
   ϕ(x)ϕ(y)
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
       &\qquad × \Big\{\ e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{-ipx} a(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') \\
       &\qquad \qquad  + e^{ipx} a^{\dagger}(\bm{p}) e^{-ip'y} a(\bm{p}') + e^{ipx} a^{\dagger}(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') \Big\}. \\
 \end{aligned}
@@ -242,10 +242,10 @@ $$
 $$
 \begin{aligned}
   {:}ϕ(x)ϕ(y){:}
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
       &\qquad × \Big\{\ {:} e^{-ipx} a(\bm{p}) e^{-ip'y} a(\bm{p}') {:} + {:} e^{-ipx} a(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') {:} \\
       &\qquad \qquad  + {:} e^{ipx} a^{\dagger}(\bm{p}) e^{-ip'y} a(\bm{p}') {:} + {:} e^{ipx} a^{\dagger}(\bm{p}) e^{ip'y} a^{\dagger}(\bm{p}') {:} \Big\}. \\
-    &= ∫ \frac{\d{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\d{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
+    &= ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3 2p_0}} ∫ \frac{\dd{{}^3 \bm{p}'}}{\sqrt{(2π)^3 2p_0'}} \\
       &\qquad × \Big\{\ e^{-ipx} e^{-ip'y} a(\bm{p}) a(\bm{p}') + e^{ip'y} e^{-ipx} a^{\dagger}(\bm{p}') a(\bm{p}) \\
       &\qquad \qquad  + e^{ipx} e^{-ip'y} a^{\dagger}(\bm{p}) a(\bm{p}') + e^{ipx} e^{ip'y} a^{\dagger}(\bm{p}) a^{\dagger}(\bm{p}') \Big\}. \\
 \end{aligned}
@@ -253,39 +253,39 @@ $$
 
 また, 実 Klein-Gordon 場の Hamiltonian を $a(\bm{p})$, $a^*(\bm{p})$ で表示すると,
 $$
-H[ϕ, π] = ∫ \d{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
+H[ϕ, π] = ∫ \dd{{}^3 \bm{p}} p_0 \qty{a^*(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^*(\bm{p})]}.
 $$
 この Hamiltonian を演算子化する: $[a(\bm{p}), a^{\dagger}(\bm{p}')] = δ^3(\bm{p}-\bm{p}')$ に注意して,
 $$
 \begin{aligned}
-  H &= ∫ \d{{}^3 \bm{p}} p_0 \qty{a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^{\dagger}(\bm{p})]} \\
-    &= ∫ \d{{}^3 \bm{p}} p_0 a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 ∫ \d{{}^3 \bm{p}} p_0 δ^3(0).
+  H &= ∫ \dd{{}^3 \bm{p}} p_0 \qty{a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^{\dagger}(\bm{p})]} \\
+    &= ∫ \dd{{}^3 \bm{p}} p_0 a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 ∫ \dd{{}^3 \bm{p}} p_0 δ^3(0).
 \end{aligned}
 $$
-第二項は演算子を含まない無限 c-数であり, 真空状態のエネルギーである: $⟨0|H|0⟩ = \frac12 ∫ \d{{}^3 \bm{p}} p_0 δ^3(0)$. これは正規順序積を用いることで除くことができる: ${:}[a(\bm{p}), a^{\dagger}(\bm{p})]{:} = 0$ に注意して,
+第二項は演算子を含まない無限 c-数であり, 真空状態のエネルギーである: $⟨0|H|0⟩ = \frac12 ∫ \dd{{}^3 \bm{p}} p_0 δ^3(0)$. これは正規順序積を用いることで除くことができる: ${:}[a(\bm{p}), a^{\dagger}(\bm{p})]{:} = 0$ に注意して,
 $$
 \begin{aligned}
-  H &= {:}∫ \d{{}^3 \bm{p}} p_0 \qty{a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^{\dagger}(\bm{p})]}{:} \\
-    &= ∫ \d{{}^3 \bm{p}} p_0 a^{\dagger}(\bm{p}) a(\bm{p}).
+  H &= {:}∫ \dd{{}^3 \bm{p}} p_0 \qty{a^{\dagger}(\bm{p}) a(\bm{p}) + \frac12 [a(\bm{p}), a^{\dagger}(\bm{p})]}{:} \\
+    &= ∫ \dd{{}^3 \bm{p}} p_0 a^{\dagger}(\bm{p}) a(\bm{p}).
 \end{aligned}
 $$
 あるいは同様にして, 4 元全運動量演算子 $P = (H,\bm{P})$ は,
 $$
-P_μ = ∫ \d{{}^3 \bm{p}} p_μ a^{\dagger}(\bm{p}) a(\bm{p}).
+P_μ = ∫ \dd{{}^3 \bm{p}} p_μ a^{\dagger}(\bm{p}) a(\bm{p}).
 $$
 さて, 真空状態は $a(\bm{p})|0⟩ = 0$ を満たすが, 真空状態に 4 元全運動量演算子を作用させると,
 $$
-P_μ|0⟩ = ∫ \d{{}^3 \bm{p}} p_μ a^{\dagger}(\bm{p}) a(\bm{p}) |0⟩ = 0.
+P_μ|0⟩ = ∫ \dd{{}^3 \bm{p}} p_μ a^{\dagger}(\bm{p}) a(\bm{p}) |0⟩ = 0.
 $$
 したがって, 真空状態は系全体のエネルギーと運動量が $0$ である状態である. また, 真空状態に生成演算子 $a^{\dagger}(\bm{p})$ を作用させた状態 $|\bm{p}⟩ = a^{\dagger}(\bm{p})|0⟩$ について, 4 元全運動量演算子を作用させると
 $$
 \begin{aligned}
   P_μ|\bm{p}⟩
     &= P_μ a^{\dagger}(\bm{p})|0⟩ \\
-    &= ∫ \d{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') a(\bm{p}') a^{\dagger}(\bm{p}) |0⟩. \\
-    &= ∫ \d{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') \bqty{a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p} - \bm{p}')} |0⟩. \\
-    &= ∫ \d{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') \bqty{a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p} - \bm{p}')} |0⟩. \\
-    &= ∫ \d{{}^3 \bm{p'}} p_μ' \bqty{a^{\dagger}(\bm{p}) a^{\dagger}(\bm{p}') a(\bm{p}') + a^{\dagger}(\bm{p}') δ^3(\bm{p} - \bm{p}')} |0⟩ \\
+    &= ∫ \dd{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') a(\bm{p}') a^{\dagger}(\bm{p}) |0⟩. \\
+    &= ∫ \dd{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') \bqty{a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p} - \bm{p}')} |0⟩. \\
+    &= ∫ \dd{{}^3 \bm{p'}} p_μ' a^{\dagger}(\bm{p}') \bqty{a^{\dagger}(\bm{p}) a(\bm{p}') + δ^3(\bm{p} - \bm{p}')} |0⟩. \\
+    &= ∫ \dd{{}^3 \bm{p'}} p_μ' \bqty{a^{\dagger}(\bm{p}) a^{\dagger}(\bm{p}') a(\bm{p}') + a^{\dagger}(\bm{p}') δ^3(\bm{p} - \bm{p}')} |0⟩ \\
     &= p_μ a^{\dagger}(\bm{p}) |0⟩ = p_μ |\bm{p}⟩. \\
 \end{aligned}
 $$
@@ -305,29 +305,29 @@ $$
 
 #### 例: 実 Klein-Gordon 場
 
-場の積の真空期待値 $\displaystyle ⟨0| ϕ(x)ϕ(y) |0⟩ = ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}$ より,
+場の積の真空期待値 $\displaystyle ⟨0| ϕ(x)ϕ(y) |0⟩ = ∫ \frac{\dd{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)}$ より,
 $$
 \begin{aligned}
    &\ ⟨0| Tϕ(x)ϕ(y) |0⟩ \\
   =&\ θ(x^0-y^0) ⟨0| ϕ(x)ϕ(y) |0⟩ + θ(y^0-x^0) ⟨0| ϕ(y)ϕ(x) |0⟩ \\
-  =&\ θ(x^0-y^0) ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)} + θ(y^0-x^0) ∫ \frac{\d{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{ip(x-y)} \\
-   &\ \quad \pqty{\text{$\displaystyle θ(x^0-y^0) = \frac{i}{2π} ∫_{-∞}^∞ \d{α} \frac{e^{-iα(x^0-y^0)}}{α+iε'}$, $\displaystyle θ(y^0-x^0) = \frac{-i}{2π} ∫_{-∞}^∞ \d{α} \frac{e^{-iα(x^0-y^0)}}{α-iε'}$ を用いて}} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α+iε'} e^{-ip(x-y)} - i ∫ \frac{\d{{}^3 \bm{p} \d{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α-iε'} e^{ip(x-y)} \\
+  =&\ θ(x^0-y^0) ∫ \frac{\dd{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{-ip(x-y)} + θ(y^0-x^0) ∫ \frac{\dd{{}^3 \bm{p}}}{(2π)^3 2p_0} e^{ip(x-y)} \\
+   &\ \quad \pqty{\text{$\displaystyle θ(x^0-y^0) = \frac{i}{2π} ∫_{-∞}^∞ \dd{α} \frac{e^{-iα(x^0-y^0)}}{α+iε'}$, $\displaystyle θ(y^0-x^0) = \frac{-i}{2π} ∫_{-∞}^∞ \dd{α} \frac{e^{-iα(x^0-y^0)}}{α-iε'}$ を用いて}} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α+iε'} e^{-ip(x-y)} - i ∫ \frac{\dd{{}^3 \bm{p} \dd{α}}}{(2π)^4 2p_0} \frac{e^{-iα(x^0-y^0)}}{α-iε'} e^{ip(x-y)} \\
    &\ \quad \pqty{\text{$p_0 ≡ \sqrt{|\bm{p}|^2 + m^2}$ に注意し, 第一項 $α↦\~p_0+p_0$, 第二項 $α↦\~p_0-p_0$, $\bm{p}↦-\bm{p}$}} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0-p_0)(x^0-y^0)}}{\~p_0-p_0+iε'} e^{-ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}
-    \ - i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0+p_0)(x^0-y^0)}}{\~p_0+p_0-iε'} e^{ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4 2p_0} \pqty{\frac{1}{\~p_0-p_0+iε'} - \frac{1}{\~p_0+p_0-iε'}} e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0-p_0)(x^0-y^0)}}{\~p_0-p_0+iε'} e^{-ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}
+    \ - i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4 2p_0} \frac{e^{-i(\~p_0+p_0)(x^0-y^0)}}{\~p_0+p_0-iε'} e^{ip_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4 2p_0} \pqty{\frac{1}{\~p_0-p_0+iε'} - \frac{1}{\~p_0+p_0-iε'}} e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})} \\
    &\ \quad \pqty{\text{$\displaystyle \frac{p_0-iε}{p_0}=1$ として通分}} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-(p_0-iε')^2} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-p_0^2+ip_0ε'} \\
-  =&\ i ∫ \frac{\d{{}^3 \bm{p} \d{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-|\bm{p}|^2 - m^2+iε'} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-(p_0-iε')^2} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-p_0^2+ip_0ε'} \\
+  =&\ i ∫ \frac{\dd{{}^3 \bm{p} \dd{\~p_0}}}{(2π)^4} \frac{e^{-i\~p_0(x^0-y^0)} e^{i\bm{p}⋅(\bm{x}-\bm{y})}}{\~p_0^2-|\bm{p}|^2 - m^2+iε'} \\
    &\ \quad \pqty{\text{$ε≡p_0ε'$ として, $\~p_0$ を新たに $p_0$ とすれば}} \\
-  =&\ i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}. \\
+  =&\ i ∫ \frac{\dd{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}. \\
 \end{aligned}
 $$
 ただし, このときの $p_0$ は $p_0=\sqrt{|\bm{p}|^2 + m^2}$ とは異なることに注意. したがって,
 $$
-Δ_\mathrm{F}(x-y) = i ∫ \frac{\d{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}.
+Δ_\mathrm{F}(x-y) = i ∫ \frac{\dd{{}^4 p}}{(2π)^4} \frac{e^{-ip(x-y)}}{p^2 - m^2+iε}.
 $$
 
 ### Feynman 図形

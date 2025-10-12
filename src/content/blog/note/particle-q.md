@@ -54,8 +54,8 @@ $$
 と書ける. また, 状態 $|ψ⟩$ に対する物理量 $A$ の期待値は
 $$
 \begin{aligned}
-  ⟨A⟩ &≡ ∫ \d{a} a |⟨a | ψ⟩|^2 = ∫ \d{a} a ⟨ψ | a⟩ ⟨a | ψ⟩ \\
-    &= ∫ \d{a} ⟨ψ| \^A  |a⟩ ⟨a | ψ⟩ = ⟨ψ| \^A \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ \\
+  ⟨A⟩ &≡ ∫ \dd{a} a |⟨a | ψ⟩|^2 = ∫ \dd{a} a ⟨ψ | a⟩ ⟨a | ψ⟩ \\
+    &= ∫ \dd{a} ⟨ψ| \^A  |a⟩ ⟨a | ψ⟩ = ⟨ψ| \^A \pqty{∫ \dd{a} |a⟩ ⟨a|} |ψ⟩ \\
     &= ⟨ψ| \^A |ψ⟩
 \end{aligned}
 $$
@@ -71,7 +71,7 @@ $$
 また, 固有状態は完全系をなす:
 $$
 \begin{aligned}
-  \textsf{連続スペクトル} \quad &:& ∫\d{a}|a⟩⟨a| &= 1, \\
+  \textsf{連続スペクトル} \quad &:& ∫\dd{a}|a⟩⟨a| &= 1, \\
   \textsf{離散スペクトル} \quad &:& ∑_n|n⟩⟨n| &= 1. \\
 \end{aligned}
 $$
@@ -87,13 +87,13 @@ $$
 物理量 $a$ が観測される確率は $|⟨a | ψ⟩|^2 = |ψ(a)|^2$ であり, 正規化条件は
 $$
 \begin{gathered}
-  ⟨ψ | ψ⟩ = ⟨ψ| \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \d{a} ⟨ψ | a⟩ ⟨a | ψ⟩ = ∫ \d{a} ψ^{*}(a) ψ(a) = ∫ \d{a} |ψ(a)|^2, \\
-  ∴ ∫ \d{a} |ψ(a)|^2 = 1
+  ⟨ψ | ψ⟩ = ⟨ψ| \pqty{∫ \dd{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \dd{a} ⟨ψ | a⟩ ⟨a | ψ⟩ = ∫ \dd{a} ψ^{*}(a) ψ(a) = ∫ \dd{a} |ψ(a)|^2, \\
+  ∴ ∫ \dd{a} |ψ(a)|^2 = 1
 \end{gathered}
 $$
 である. また, 波動関数は状態ベクトルを固有状態によって展開したときの係数である:
 $$
-|ψ⟩ = \pqty{∫ \d{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \d{a} |a⟩ ⟨a | ψ⟩ = ∫ \d{a} ψ(a) |a⟩.
+|ψ⟩ = \pqty{∫ \dd{a} |a⟩ ⟨a|} |ψ⟩ = ∫ \dd{a} |a⟩ ⟨a | ψ⟩ = ∫ \dd{a} ψ(a) |a⟩.
 $$
 
 :::screen
@@ -113,15 +113,15 @@ $$
 また, 物理量 $B$ の期待値は,
 $$
 \begin{aligned}
-  ⟨B⟩ &= ⟨ψ| \^B |ψ⟩ = ⟨ψ| \pqty{∫ \d{a} |a⟩ ⟨a|} \^B |ψ⟩ \\
-    &= ∫ \d{a} ⟨ψ | a⟩ ⟨a| \^B |ψ⟩ \\
-    &= ∫ \d{a} ⟨ψ | a⟩ \^B_A ⟨a | ψ⟩ \\
-    &= ∫ \d{a} ψ^{*}(a) \^B_A ψ(a)
+  ⟨B⟩ &= ⟨ψ| \^B |ψ⟩ = ⟨ψ| \pqty{∫ \dd{a} |a⟩ ⟨a|} \^B |ψ⟩ \\
+    &= ∫ \dd{a} ⟨ψ | a⟩ ⟨a| \^B |ψ⟩ \\
+    &= ∫ \dd{a} ⟨ψ | a⟩ \^B_A ⟨a | ψ⟩ \\
+    &= ∫ \dd{a} ψ^{*}(a) \^B_A ψ(a)
 \end{aligned}
 $$
 と積分の形で書ける. また, 途中式より, $\^B$ を $\^B_A$ を用いて
 $$
-\^B = ∫ \d{a} |a⟩ \^B_A ⟨a|.
+\^B = ∫ \dd{a} |a⟩ \^B_A ⟨a|.
 $$
 と表示することができる. これを **$\^B$ の $A$-表示**という.
 
@@ -325,7 +325,7 @@ $$
 
 Hamiltonian が時間に陽に依存するとき, 時間発展演算子は時間の始点と終点に依存し,
 $$
-\^U(t, t_0) = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \d{t'} \^H(t')}.
+\^U(t, t_0) = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \dd{t'} \^H(t')}.
 $$
 
 :::
@@ -347,22 +347,22 @@ Hamiltonian が時間に陽に依存しないときの時間発展演算子の�
 $$
 \begin{aligned}
    &\ \^U(t,t_0) \\
-  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \^H(t_1) \^U(t_1, t_0) \\
+  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \^H(t_1) \^U(t_1, t_0) \\
    &\ \quad (\text{$\^U(t_1,t_0)$ を代入}) \\
-  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \^U(t_2, t_0) \\
+  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \^H(t_1) + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \dd{t_2} \^H(t_1) \^H(t_2) \^U(t_2, t_0) \\
    &\ \quad (\text{繰り返し $\^U(t_j,t_0)$ を代入}) \\
-  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \^H(t_1) + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \d{t_2} \^H(t_1) \^H(t_2) \\
-   &\ \qquad \qquad + \frac1{i{\hbar}} ∫_{t_0}^t \d{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \d{t_2} \frac1{i{\hbar}} ∫_{t_0}^{t_2} \d{t_3} \^H(t_1) \^H(t_2) \^H(t_3) + ⋯ \\
-  =&\ ∑_{n=0}^∞ \frac1{(i{\hbar})^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^{t_1} \d{t_2} ⋯ ∫_{t_0}^{t_{n-1}} \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+  =&\ 1 + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \^H(t_1) + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \dd{t_2} \^H(t_1) \^H(t_2) \\
+   &\ \qquad \qquad + \frac1{i{\hbar}} ∫_{t_0}^t \dd{t_1} \frac1{i{\hbar}} ∫_{t_0}^{t_1} \dd{t_2} \frac1{i{\hbar}} ∫_{t_0}^{t_2} \dd{t_3} \^H(t_1) \^H(t_2) \^H(t_3) + ⋯ \\
+  =&\ ∑_{n=0}^∞ \frac1{(i{\hbar})^n} ∫_{t_0}^t \dd{t_1} ∫_{t_0}^{t_1} \dd{t_2} ⋯ ∫_{t_0}^{t_{n-1}} \dd{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
    &\ \quad (\text{$t>t_1>…>t_{n-1}$ であることに注意して, 時間順序積を作用させる}) \\
-  =&\ T ∑_{n=0}^∞ \frac1{n!} \frac1{(i{\hbar})^n} ∫_{t_0}^t \d{t_1} ∫_{t_0}^t \d{t_2} ⋯ ∫_{t_0}^t \d{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
-  =&\ T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \d{t} \^H(t)}^n \\
-  =&\ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \d{t} \^H(t)}
+  =&\ T ∑_{n=0}^∞ \frac1{n!} \frac1{(i{\hbar})^n} ∫_{t_0}^t \dd{t_1} ∫_{t_0}^t \dd{t_2} ⋯ ∫_{t_0}^t \dd{t_n} \^H(t_1) \^H(t_2) ⋯ \^H(t_n) \\
+  =&\ T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \dd{t} \^H(t)}^n \\
+  =&\ T \exp \bqty{\frac1{i{\hbar}} ∫_{t_0}^t \dd{t} \^H(t)}
 \end{aligned}
 $$
 と得られる.
 
-$\^U(t)$ に関する微分方程式 $i{\hbar} \d{\^U(t)} / \d{t} = \^H \^U(t)$ を $|ψ⟩$ に作用させると,
+$\^U(t)$ に関する微分方程式 $i{\hbar} \dd{\^U(t)} / \dd{t} = \^H \^U(t)$ を $|ψ⟩$ に作用させると,
 $$
 \begin{aligned}
   i{\hbar} \dv{\^U(t)}{t} |ψ⟩ &= \^H \^U(t) |ψ⟩. \\
@@ -445,18 +445,18 @@ $$
 $$
 \begin{aligned}
   e^{- \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩
-    &= e^{- \frac{i}{{\hbar}} a^i \^p_i} \pqty{∫ \d{{}^D q'} |q'⟩ ⟨q'|} |ψ(t)⟩
-    = ∫ \d{{}^D q'} e^{- \frac{i}{{\hbar}} a^i \^p_i} |q'⟩ ⟨q' | ψ(t)⟩ \\
-    &= ∫ \d{{}^D q'} ψ(q',t) |q'+a⟩ \\
-    &= ∫ \d{{}^D q'} ψ(q'-a,t) |q'⟩
+    &= e^{- \frac{i}{{\hbar}} a^i \^p_i} \pqty{∫ \dd{{}^D q'} |q'⟩ ⟨q'|} |ψ(t)⟩
+    = ∫ \dd{{}^D q'} e^{- \frac{i}{{\hbar}} a^i \^p_i} |q'⟩ ⟨q' | ψ(t)⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q',t) |q'+a⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q'-a,t) |q'⟩
 \end{aligned}
 $$
 となるから, 左から $⟨q|$ をかけると,
 $$
 \begin{aligned}
   ⟨q| e^{- \frac{i}{{\hbar}} a^i \^p_i} |ψ(t)⟩
-    &= ⟨q| ∫ \d{{}^D q'} ψ(q'-a,t) |q'⟩ = ∫ \d{{}^D q'} ψ(q'-a,t) ⟨q | q'⟩ \\
-    &= ∫ \d{{}^D q'} ψ(q'-a,t) δ^D(q - q') \\
+    &= ⟨q| ∫ \dd{{}^D q'} ψ(q'-a,t) |q'⟩ = ∫ \dd{{}^D q'} ψ(q'-a,t) ⟨q | q'⟩ \\
+    &= ∫ \dd{{}^D q'} ψ(q'-a,t) δ^D(q - q') \\
     &= ψ(q-a,t)
 \end{aligned}
 $$
@@ -486,8 +486,8 @@ $$
 である. ただし, $D$ は座標 $q$ の次元とし, 固有状態の直交性を満たすよう定数を決めた:
 $$
 \begin{aligned}
-  ⟨p',t | p,t⟩ &= ⟨p',t| \pqty{∫ \d{{}^Dq} |q,t⟩ ⟨q,t|} |p,t⟩ = ∫ \d{{}^D q} ⟨p',t | q,t⟩ ⟨q,t | p,t⟩ \\
-    &= ∫ \d{{}^D q} ψ_{p'}^{*}(q,t) ψ_p(q,t) = ∫ \frac{\d{{}^D q}}{(2π {\hbar})^D} e^{\frac{i}{{\hbar}} q^i (p_i - {p'}_i)} \\
+  ⟨p',t | p,t⟩ &= ⟨p',t| \pqty{∫ \dd{{}^Dq} |q,t⟩ ⟨q,t|} |p,t⟩ = ∫ \dd{{}^D q} ⟨p',t | q,t⟩ ⟨q,t | p,t⟩ \\
+    &= ∫ \dd{{}^D q} ψ_{p'}^{*}(q,t) ψ_p(q,t) = ∫ \frac{\dd{{}^D q}}{(2π {\hbar})^D} e^{\frac{i}{{\hbar}} q^i (p_i - {p'}_i)} \\
     &= δ^D(p_i - {p'}_i).
 \end{aligned}
 $$
@@ -663,7 +663,7 @@ $$
 $$
 が得られる. 更に, 時間発展演算子と同様の議論から,
 $$
-|ψ(t)⟩_\mathrm{T} = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \d{t'} \^H_\mathrm{I}(t')} |ψ(t_0)⟩_\mathrm{T}
+|ψ(t)⟩_\mathrm{T} = T \exp \bqty{- \frac{i}{{\hbar}} ∫_{t_0}^t \dd{t'} \^H_\mathrm{I}(t')} |ψ(t_0)⟩_\mathrm{T}
 $$
 であることがわかる.
 
@@ -671,18 +671,18 @@ $$
 
 時刻 $t_i$ に座標 $q_i$ で粒子が観測された状態に対し, 時刻 $t_f$ に座標 $q_f$ で粒子が観測される確率振幅は
 $$
-⟨q_f,t_f|q_i,t_i⟩ \quad \pqty{= ⟨q_f|\^U(t_f,t_i)|q_i⟩ = ⟨q_f|T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \d{t} \^H(t)}|q_i⟩}
+⟨q_f,t_f|q_i,t_i⟩ \quad \pqty{= ⟨q_f|\^U(t_f,t_i)|q_i⟩ = ⟨q_f|T \exp \bqty{\frac1{i{\hbar}} ∫_{t_i}^{t_f} \dd{t} \^H(t)}|q_i⟩}
 $$
 で与えられる. 時間 $t_i$, $t_f$ 間を $N$ 分割
 $$
 Δt = \frac{t_f-t_i}{N}, \quad t_j = t_i + nΔt, \quad q_j = q(t_j). \quad t_0=t_i, \quad \ t_N=t_f.
 $$
-して, 完全系 $∫\d{q_j}|q_j⟩⟨q_j| = 1$ を順に挟めば,
+して, 完全系 $∫\dd{q_j}|q_j⟩⟨q_j| = 1$ を順に挟めば,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
-    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} ⟨q_f,t_f|q_{N-1},t_{N-1}⟩⟨q_{N-1},t_{N-1}|⋯|q_1,t_1⟩⟨q_1,t_1|q_i,t_i⟩ \\
-    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨q_{j+1},t_{j+1}|q_j,t_j⟩} \\
+    &= ∫\dd{{}^Dq_1} ⋯ ∫\dd{{}^Dq_{N-1}} ⟨q_f,t_f|q_{N-1},t_{N-1}⟩⟨q_{N-1},t_{N-1}|⋯|q_1,t_1⟩⟨q_1,t_1|q_i,t_i⟩ \\
+    &= ∫\dd{{}^Dq_1} ⋯ ∫\dd{{}^Dq_{N-1}} \pqty{∏_{j=0}^{N-1} ⟨q_{j+1},t_{j+1}|q_j,t_j⟩} \\
 \end{aligned}
 $$
 となる. ここで, $Δt$ が十分に小さいとすると,
@@ -691,29 +691,29 @@ $$
 $$
 であり, また $\^H(t_j)=H(\^q,\^p,t_j)$ は Weyl 順序であって,
 $$
-⟨q_{j+1}|\^H(t_j)|q_j⟩ = ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}
+⟨q_{j+1}|\^H(t_j)|q_j⟩ = ∫\frac{\dd{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}
 $$
 を満たすから, これを用いると,
 $$
 \begin{aligned}
   ⟨q_{j+1},t_{j+1}|q_j,t_j⟩
-    &= ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} \exp \bqty{-\frac{i}{{\hbar}} Δt H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
-    &= ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\dd{{}^Dp_j}}{(2π\hbar)^D} e^{i(q_{j+1}-q_j)p_j/\hbar} \exp \bqty{-\frac{i}{{\hbar}} Δt H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
+    &= ∫\frac{\dd{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
 \end{aligned}
 $$
 と求まる. したがって,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
-    &= ∫\d{{}^Dq_1} ⋯ ∫\d{{}^Dq_{N-1}} \qty{∏_{j=0}^{N-1} ∫\frac{\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}} \\
-    &= ∫\frac{\d{{}^Dp_0}}{(2π\hbar)^D} ∏_{j=1}^{N-1} ∫\frac{\d{{}^Dq_j}\d{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
+    &= ∫\dd{{}^Dq_1} ⋯ ∫\dd{{}^Dq_{N-1}} \qty{∏_{j=0}^{N-1} ∫\frac{\dd{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}}} \\
+    &= ∫\frac{\dd{{}^Dp_0}}{(2π\hbar)^D} ∏_{j=1}^{N-1} ∫\frac{\dd{{}^Dq_j}\dd{{}^Dp_j}}{(2π\hbar)^D} \exp \frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{q_{j+1}-q_j}{Δt}p_j - H\pqty{\frac{q_{j+1}+q_j}{2}, p_j,t_j}} \\
 \end{aligned}
 $$
 となる. あるいは $N→∞$ の極限で, 汎関数積分を用いれば,
 $$
 \begin{aligned}
   ⟨q_f,t_f|q_i,t_i⟩
-    &= ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ \exp \frac{i}{\hbar} ∫_{t_i}^{t_f} \d{t} \bqty{\.q^i p_i - H(q^i,p_i,t)} \\
+    &= ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ \exp \frac{i}{\hbar} ∫_{t_i}^{t_f} \dd{t} \bqty{\.q^i p_i - H(q^i,p_i,t)} \\
     &≡ ∫_{q_i,p=-∞}^{q_f,p=+∞} \mathcal{D}^Dq \ \mathcal{D}^Dp \ e^{\frac{i}{\hbar} S[q^i,p_i]}
 \end{aligned}
 $$
@@ -725,7 +725,7 @@ TODO: 位相空間の経路積分量子化
 
 時刻 $t_i$ から $t_f$ の運動で粒子が $q_i ≡ q(t_i)$ から $q_f ≡ q (t_f)$ へ移動するときの作用は
 $$
-S[q(t)] = ∫_{t_i}^{t_f} \d{t} L(q, \.q, t)
+S[q(t)] = ∫_{t_i}^{t_f} \dd{t} L(q, \.q, t)
 $$
 で与えられる. このとき, 汎関数積分を用いた次の量子化が定義される:
 
@@ -746,26 +746,26 @@ $$
 
 位置表示の波動関数に対して
 $$
-ψ(q,t) = ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
+ψ(q,t) = ∫ \dd{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0).
 $$
 が成立する. 実際, 時刻 $t_0$ における完全性を使えば,
 $$
 \begin{aligned}
   ψ(q,t) &= ⟨q,t | ψ⟩ \\
-    &= ⟨q,t| \pqty{∫ \d{{}^D q_0} |q_0,t_0⟩ ⟨q_0,t_0|} |ψ⟩ \\
-    &= ∫ \d{{}^D q_0} ⟨q,t|q_0,t_0⟩ ⟨q_0,t_0|ψ⟩ \\
-    &= ∫ \d{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0)
+    &= ⟨q,t| \pqty{∫ \dd{{}^D q_0} |q_0,t_0⟩ ⟨q_0,t_0|} |ψ⟩ \\
+    &= ∫ \dd{{}^D q_0} ⟨q,t|q_0,t_0⟩ ⟨q_0,t_0|ψ⟩ \\
+    &= ∫ \dd{{}^D q_0} K(q,t;q_0,t_0) ψ(q_0,t_0)
 \end{aligned}
 $$
 となる. また, これを用いると波動関数が Schrödinger 方程式を満たすことがわかる. つまり,
 $$
 \begin{aligned}
      &\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ψ(q,t) \\
-    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \d{{}^D q_0} ∫_{q_0}^q \mathcal{D}^Dq'\ e^{\frac{i}{{\hbar}} S[q'(t)]} ψ(q_0,t_0) \\
+    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \dd{{}^D q_0} ∫_{q_0}^q \mathcal{D}^Dq'\ e^{\frac{i}{{\hbar}} S[q'(t)]} ψ(q_0,t_0) \\
      & \pqty{q'(t)≡q(t)+δq(t),\ \text{$q(t)$ : 古典軌道},\ δS[q]≡S[q+δq]-S[q]} \\
-    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \d{{}^D q_0} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
-    =&\ ∫ \d{{}^D q_0} \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
-    =&\ ∫ \d{{}^D q_0} \bqty{H\pqty{q^i,\pdv{S}{q^i},t}+\pdv{S}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} ∫ \dd{{}^D q_0} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \dd{{}^D q_0} \bqty{H\pqty{q^i,-i{\hbar}\pdv{}{q^i},t}-i{\hbar}\pdv{}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
+    =&\ ∫ \dd{{}^D q_0} \bqty{H\pqty{q^i,\pdv{S}{q^i},t}+\pdv{S}{t}} e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_0}^q \mathcal{D}^Dδq\ e^{\frac{i}{{\hbar}} δS[q(t)]} ψ(q_0,t_0) \\
     =&\ 0 \quad \pqty{∵ \text{古典軌道に対する Hamilton–Jacobi 方程式}}
 \end{aligned}
 $$
@@ -781,8 +781,8 @@ $$
 \begin{aligned}
   K(q_f,t_f;q_i,t_i)
     &= ∫_{q_i}^{q_f} \mathcal{D}^Dq' \ e^{\frac{i}{{\hbar}} S[q'(t)]} \\
-    &\quad \pqty{\text{$q'=q+δq$ のとき $\displaystyle S[q'] = S[q] + ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')$}} \\
-    &= e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_i}^{q_f} \mathcal{D}^Dδq \ \exp\pqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t'} \fdv{S[q(t)]}{q(t')} δq(t')} \\
+    &\quad \pqty{\text{$q'=q+δq$ のとき $\displaystyle S[q'] = S[q] + ∫_{t_i}^{t_f} \dd{t'} \fdv{S[q(t)]}{q(t')} δq(t')$}} \\
+    &= e^{\frac{i}{{\hbar}} S[q(t)]} ∫_{q_i}^{q_f} \mathcal{D}^Dδq \ \exp\pqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t'} \fdv{S[q(t)]}{q(t')} δq(t')} \\
 \end{aligned}
 $$
 であるから, ${\hbar}→0$ の極限で $|K(q_f,t_f;q_i,t_i)|^2=1$ となる条件は
@@ -801,13 +801,13 @@ $$
 $$
 \begin{aligned}
   K(q_f,t_f;q_i,t_i)
-    &= ∫_{q_i}^{q_f} \mathcal{D}q \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} \frac{m}{2} \.q^2} \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}q \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} \frac{m}{2} \.q^2} \\
     &= \sqrt{\frac{m}{2πi{\hbar}(t_f-t_i)}} \exp\bqty{\frac{im(q_f-q_i)^2}{2{\hbar}(t_f-t_i)}}. \\
 \end{aligned}
 $$
 したがって, 一般の位置表示の波動関数 $ψ(q,t)$ は,
 $$
-ψ(q,t) = ∫\d{q_0} \sqrt{\frac{m}{2πi{\hbar}(t-t_0)}} \exp\bqty{\frac{i}{{\hbar}} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
+ψ(q,t) = ∫\dd{q_0} \sqrt{\frac{m}{2πi{\hbar}(t-t_0)}} \exp\bqty{\frac{i}{{\hbar}} \frac{m}{2} \frac{(q-q_0)^2}{t-t_0}} × ψ(q_0,t_0).
 $$
 
 TODO: 調和振動子の例
@@ -829,10 +829,10 @@ $$
 \begin{aligned}
    &\ ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1) |q_i,t_i⟩ \\
   =&\ ⟨q_f,t_f| \^q(t_{σ_n})⋯\^q(t_{σ_1}) |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| \^q(t_{σ_n}) \pqty{ ∫\d{{}^D q_{σ_n}} |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} ⋯ \^q(t_{σ_1}) \pqty{∫\d{{}^D q_{σ_1}}|q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} |q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} ⟨q_f,t_f| \^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯\^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} ⟨q_f,t_f|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯ |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
-  =&\ ∫\d{{}^D q_{σ_n}}⋯∫\d{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} \pqty{∫_{q_{σ_n}}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_{σ_n},t_f]}[q]}} ⋯ \pqty{∫_{q_i}^{q_{σ_1}} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_i,t_{σ_1}]}[q]}} \\
+  =&\ ⟨q_f,t_f| \^q(t_{σ_n}) \pqty{ ∫\dd{{}^D q_{σ_n}} |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}|} ⋯ \^q(t_{σ_1}) \pqty{∫\dd{{}^D q_{σ_1}}|q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|} |q_i,t_i⟩ \\
+  =&\ ∫\dd{{}^D q_{σ_n}}⋯∫\dd{{}^D q_{σ_1}} ⟨q_f,t_f| \^q(t_{σ_n}) |q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯\^q(t_{σ_1}) |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
+  =&\ ∫\dd{{}^D q_{σ_n}}⋯∫\dd{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} ⟨q_f,t_f|q_{σ_n},t_{σ_n}⟩ ⟨q_{σ_n},t_{σ_n}| ⋯ |q_{σ_1},t_{σ_1}⟩ ⟨q_{σ_1},t_{σ_1}|q_i,t_i⟩ \\
+  =&\ ∫\dd{{}^D q_{σ_n}}⋯∫\dd{{}^D q_{σ_1}} q_{σ_n}⋯q_{σ_1} \pqty{∫_{q_{σ_n}}^{q_f} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_{σ_n},t_f]}[q]}} ⋯ \pqty{∫_{q_i}^{q_{σ_1}} \mathcal{D}^Dq \ e^{\frac{i}{{\hbar}} S_{t∈[t_i,t_{σ_1}]}[q]}} \\
   =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_{σ_n})⋯q(t_{σ_1}) e^{\frac{i}{{\hbar}} S[q(t)]} \\
   =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]} \\
 \end{aligned}
@@ -846,9 +846,9 @@ $n$ 点 Green 関数は次に定義される生成汎関数から機能的に得
 $$
 \begin{aligned}
   Z[J(t)]
-    &≡ ⟨q_f,t_f| T\exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)\^q(t)} |q_i,t_i⟩ \\
-    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]} \\
-    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} \qty{L(q(t),\.q(t),t) + J(t)q(t)}} \\
+    &≡ ⟨q_f,t_f| T\exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} J(t)\^q(t)} |q_i,t_i⟩ \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]} \\
+    &= ∫_{q_i}^{q_f} \mathcal{D}^Dq \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} \qty{L(q(t),\.q(t),t) + J(t)q(t)}} \\
 \end{aligned}
 $$
 で定義される汎関数 $Z[J(t)]$ を**生成汎関数**という. この生成汎関数を $n$ 回汎関数微分すると $n$ 点 Green 関数が得られる:
@@ -861,21 +861,21 @@ $$
 定義中の2つ目の等号は,
 $$
 \begin{aligned}
-   &\ ⟨q_f,t_f| T\exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)\^q(t)} |q_i,t_i⟩ \\
-  =&\ ⟨q_f,t_f| T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) \^q(t_n)⋯\^q(t_1)} |q_i,t_i⟩ \\
-  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩  \\
-  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]}  \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \bqty{∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} J(t_n)⋯J(t_1) q(t_n)⋯q(t_1)} e^{\frac{i}{{\hbar}} S[q(t)]}  \\
-  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \d{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]} \\
+   &\ ⟨q_f,t_f| T\exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} J(t)\^q(t)} |q_i,t_i⟩ \\
+  =&\ ⟨q_f,t_f| T ∑_{n=0}^∞ \frac1{n!} \bqty{\frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} J(t_n)⋯J(t_1) \^q(t_n)⋯\^q(t_1)} |q_i,t_i⟩ \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} J(t_n)⋯J(t_1) ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩  \\
+  =&\ ∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} J(t_n)⋯J(t_1) ∫_{q_i}^{q_f} \mathcal{D}^Dq \ q(t_n)⋯q(t_1) e^{\frac{i}{{\hbar}} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \bqty{∑_{n=0}^∞ \frac1{n!} \frac{i^n}{{\hbar}^n} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} J(t_n)⋯J(t_1) q(t_n)⋯q(t_1)} e^{\frac{i}{{\hbar}} S[q(t)]}  \\
+  =&\ ∫_{q_i}^{q_f} \mathcal{D}^Dq \ \exp\bqty{\frac{i}{{\hbar}} ∫_{t_i}^{t_f} \dd{t} J(t)q(t)} e^{\frac{i}{{\hbar}} S[q(t)]} \\
 \end{aligned}
 $$
 より成立する. また, この式変形の途中
 $$
-Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} \bqty{\frac{i^n}{{\hbar}^n} ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩} J(t_n)⋯J(t_1)
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} \bqty{\frac{i^n}{{\hbar}^n} ⟨q_f,t_f| T\^q(t_n)⋯\^q(t_1)|q_i,t_i⟩} J(t_n)⋯J(t_1)
 $$
 を $Z[J(t)]$ の $J=0$ まわりの汎関数冪展開
 $$
-Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \d{t_n} ⋯ ∫_{t_i}^{t_f} \d{t_1} \left. \frac{δ^n Z[J(t)]}{δJ(t_n)⋯δJ(t_1)} \right|_{J=0} J(t_n)⋯J(t_1)
+Z[J(t)] = ∑_{n=0}^∞ \frac1{n!} ∫_{t_i}^{t_f} \dd{t_n} ⋯ ∫_{t_i}^{t_f} \dd{t_1} \left. \frac{δ^n Z[J(t)]}{δJ(t_n)⋯δJ(t_1)} \right|_{J=0} J(t_n)⋯J(t_1)
 $$
 と比較すると, $J(t)$ は任意だから, $n$ 点 Green 関数との関係式が得られる.
 
@@ -939,7 +939,7 @@ $$
 $$
 の量子化を考える. 状態ベクトル $|ϕ(t)⟩$ に Hamiltonian 演算子を二回作用させると,
 $$
-\frac{{\^H}^2}{c^2} |ϕ(t)⟩ = \frac1{c^2} \pqty{i{\hbar}\dv{}{t}} \pqty{i{\hbar}\dv{}{t}} |ϕ(t)⟩ = - {\hbar}^2 \frac{\d{{}^2}}{c^2\d{t^2}} |ϕ(t)⟩.
+\frac{{\^H}^2}{c^2} |ϕ(t)⟩ = \frac1{c^2} \pqty{i{\hbar}\dv{}{t}} \pqty{i{\hbar}\dv{}{t}} |ϕ(t)⟩ = - {\hbar}^2 \frac{\dd{{}^2}}{c^2\dd{t^2}} |ϕ(t)⟩.
 $$
 また, 分散関係より,
 $$
@@ -947,7 +947,7 @@ $$
 $$
 したがって,
 $$
-\bqty{{\^{\bm{p}}}^2 + (mc)^2} |ϕ(t)⟩ = - {\hbar}^2 \frac{\d{{}^2}}{c^2\d{t^2}} |ϕ(t)⟩.
+\bqty{{\^{\bm{p}}}^2 + (mc)^2} |ϕ(t)⟩ = - {\hbar}^2 \frac{\dd{{}^2}}{c^2\dd{t^2}} |ϕ(t)⟩.
 $$
 特に, 位置 $\bm{x}$ 表示の波動関数については,
 $$
@@ -1058,14 +1058,14 @@ $$
 ただし, $βα^i=-α^iβ$ を使った. さて, このときの分散関係式は $d^2$ 本の連立方程式である. これらを量子化すると,
 $$
 \begin{gathered}
-  \pqty{\bm{α}⋅\bm{p} + βmc} |ψ(t)⟩ = i{\hbar}\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
+  \pqty{\bm{α}⋅\bm{p} + βmc} |ψ(t)⟩ = i{\hbar}\frac{\dd{}}{c\dd{t}} |ψ(t)⟩, \\
   \pqty{-i{\hbar}\bm{α}⋅\grad + βmc} ψ(x,t) = i{\hbar}\frac{∂}{c∂t} ψ(x,t).
 \end{gathered}
 $$
 または $γ^μ$ を使って,
 $$
 \begin{gathered}
-  \pqty{\bm{γ}⋅\bm{p} + mc} |ψ(t)⟩ = i{\hbar}γ^0\frac{\d{}}{c\d{t}} |ψ(t)⟩, \\
+  \pqty{\bm{γ}⋅\bm{p} + mc} |ψ(t)⟩ = i{\hbar}γ^0\frac{\dd{}}{c\dd{t}} |ψ(t)⟩, \\
   \pqty{-i{\hbar}\bm{γ}⋅\grad + mc} ψ(x,t) = i{\hbar}γ^0\frac{∂}{c∂t} ψ(x,t).
 \end{gathered}
 $$

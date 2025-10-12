@@ -5,7 +5,7 @@
 @import "/node_modules/temml/dist/Temml-Local.css";
 
 // math styles for mathyml (Typst to MathML converter)
-@import "/plugins/mathyml/src/mathyml.css", "mathyml-patch.scss";
+@import "/plugins/mathyml/src/mathyml.css", "mathyml-patch.css";
 
 html {
   color-scheme: light dark;

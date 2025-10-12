@@ -163,7 +163,7 @@ $$
 - $\displaystyle ∫ \mathcal{D}x(t)\, e^{-\frac12 ∫\dd{t} ∫\dd{t'} x(t)A(t,t')x(t') + ∫\dd{t} J(x)x(t)}$ $\displaystyle = \sqrt{\frac1{\det{A}}} e^{\frac12 ∫\dd{t} ∫\dd{t'} J(t)G(t,t')J(t')}$.  
     ∵ 平方完成[^square]をして積分. ただし $G(t,t')$ は $∫\dd{t'} A(t,t')G(t',t'') = δ(t-t'')$ を満たし, 離散表現は $A_{ij}$ の逆行列 $G_{ij} = (A^{-1})_{ij}$.
 
-[^square]: この場合の平方完成は
+[^square]: ここでの平方完成は
     $$
     \begin{aligned}
     & -\frac12 ∫\dd{t} ∫\dd{t'} x(t)A(t,t')x(t') + ∫\dd{t} J(x)x(t) \\

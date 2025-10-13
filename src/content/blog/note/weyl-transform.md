@@ -349,7 +349,7 @@ $$
 $$
 となる. $N$ が十分大きければ, それぞれの $⟨x_{j+1},t_{j+1}|x_j,t_j⟩=⟨x_{j+1}|\^U(t_{j+1},t_j)|x_j⟩$ の時間発展演算子の積分は時間間隔 $Δt$ の1次までの近似で
 $$
-⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = ⟨x_{j+1}|\bqty{1-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)}|x_j⟩
+⟨x_{j+1},t_{j+1}|x_j,t_j⟩ = \left⟨ x_{j+1} \middle| \bqty{1-\frac{i}{{\hbar}} Δt H(\^x,\^p,t_j)} \middle| x_j \right⟩
 $$
 とできる. ここで, $H(\^x,\^p,t_j)$ が Weyl 順序であれば, 古典的 Hamiltonian $H(x,p,t)$ に対して,
 $$

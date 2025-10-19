@@ -22,13 +22,26 @@ export const HEADER_LINKS = [
 ];
 
 /**
- * @type {{ link: string, icon: string }[]}
+ * @type {{ name: string, link: string, icon: string }[]}
  */
 export const SOCIAL_LINKS = [
-  { link: "https://keybase.io/xiupos", icon: "simple-icons:keybase" },
-  { link: "https://github.com/xiupos", icon: "simple-icons:github" },
-  { link: "https://mk.xiupos.net/@xiupos", icon: "simple-icons:activitypub" },
   {
+    name: "Keybase",
+    link: "https://keybase.io/xiupos",
+    icon: "simple-icons:keybase",
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/xiupos",
+    icon: "simple-icons:github",
+  },
+  {
+    name: "ActivityPub",
+    link: "https://mk.xiupos.net/@xiupos",
+    icon: "simple-icons:activitypub",
+  },
+  {
+    name: "Bluesky",
     link: "https://bsky.app/profile/xiupos.mk.xiupos.net.ap.brid.gy",
     icon: "simple-icons:bluesky",
   },

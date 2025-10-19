@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  links: {name: string, link: string}[];
+  links: { name: string; link: string }[];
 }
 
 const { links } = Astro.props;
@@ -10,7 +10,9 @@ const { links } = Astro.props;
   <nav class="monospace">
     {
       links.map((link) => (
-        <a href={link.link}>{link.name}</a>
+        <>
+          <a href={link.link}>{link.name}</a>{" "}
+        </>
       ))
     }
   </nav>

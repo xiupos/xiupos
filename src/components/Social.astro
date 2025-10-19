@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 
 export interface Props {
   links: {
+    name: string;
     link: string;
     icon: string;
   }[];
@@ -15,7 +16,7 @@ const { links } = Astro.props;
   {
     links.map((link) => (
       <a href={link.link}>
-        <Icon name={link.icon} />
+        <Icon name={link.icon} desc={link.name} />
       </a>
     ))
   }

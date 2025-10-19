@@ -6,7 +6,8 @@ import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
 import rehypeMathML from "@daiji256/rehype-mathml";
-import mathMacros from "./plugins/math-macros.json";
+// @ts-ignore
+import physicsMacros from "katex-physics";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
@@ -24,6 +25,18 @@ const rehypeWrapAllOptions = [
   // {selector: 'video', wrapper: 'div.responsive'},
   { selector: 'math[display="block"]', wrapper: "div.math-wrapper" },
 ];
+
+const mathMacros = {
+  ...physicsMacros,
+  "\\div": "{\\grad\\vdot}",
+  "\\slashed": "{{{ #1 } \\!\\!\\! / }}",
+  "\\ce": "{\\mathrm{ #1 }}",
+  "\\si": "{\\textrm{ #1 }}",
+  "\\SI": "{{ #1 } \\textrm{ #2 }}",
+  "\\micro": "{μ}",
+  "\\ohm": "{Ω}",
+  "\\num": "{ #1 }",
+};
 
 // https://astro.build/config
 export default defineConfig({

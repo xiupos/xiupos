@@ -25,6 +25,7 @@
     "@daiji256/rehype-mathml": "^1.2.1",
     "@iconify-json/simple-icons": "^1.2.54",
     "hastscript": "^9.0.1",
+    "katex-physics": "^1.0.2",
     "rehype-wrap-all": "^1.1.0",
     "remark-directive": "^4.0.0",
     "remark-math": "^6.0.0",

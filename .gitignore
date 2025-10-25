@@ -21,6 +21,9 @@ pnpm-debug.log*
 .DS_Store
 
 # Obsidian
-
 src/content/blog/note/.obsidian
 src/content/blog/note/_*
+
+# bun
+bun.lock
+bun.lockb

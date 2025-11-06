@@ -17,7 +17,7 @@ lang : ja
 ## Web Server
 
 Web Serverで`Hello, world!`する.
-またArduino IDEでお茶を濁する.
+またArduino IDEでお茶を濁す.
 
 ```c
 #include <ESP8266WiFi.h>

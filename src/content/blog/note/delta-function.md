@@ -24,7 +24,7 @@ $$
 $$
 となる. 関数 $f$ は任意だから $\mathcal{F}[δ] = 1$, つまりデルタ関数は恒等的に1を返す関数の Fourier 逆変換 $δ = \mathcal{F}^{-1}[1]$ である. 以上より, 有名な積分による表式
 $$
-δ(x) = ∫ \frac{\dd{k}}{2π} e^{-ikx}
+δ(x) = ∫ \frac{\dd{k}}{2π} e^{ikx}
 $$
 が得られる.
 
@@ -34,23 +34,23 @@ f_{m,s^2}(x) ≡ \frac1{\sqrt{2πs^2}} e^{-(x-m)^2/2s^2}
 $$
 で与えられる. Fourier 変換を実行すると,
 $$
-\mathcal{F}[f_{0,s^2}](k) = \frac1{\sqrt{2πs^2}} ∫ \dd{x}\, e^{- x^2/2s^2 + ikx} = e^{-s^2k^2/2}
+\mathcal{F}[f_{0,s^2}](k) = \frac1{\sqrt{2πs^2}} ∫ \dd{x}\, e^{- x^2/2s^2 - ikx} = e^{-s^2k^2/2}
 $$
 であるから, 逆変換より
 $$
-f_{0,s^2}(x) = ∫ \frac{\dd{k}}{2π} e^{-s^2k^2/2} e^{-ikx}
+f_{0,s^2}(x) = ∫ \frac{\dd{k}}{2π} e^{-s^2k^2/2} e^{ikx}
 $$
 となる. したがって, 分散を $s^2 → +0$ とすると,
 $$
-f_{0,s^2=+0}(x) = ∫ \frac{\dd{k}}{2π} e^{-ikx} = δ(x)
+f_{0,s^2=+0}(x) = ∫ \frac{\dd{k}}{2π} e^{ikx} = δ(x)
 $$
 となって, デルタ関数は分散が $0$ の正規分布の確立密度関数と等しいことが確かめられた.
 
 [^fourier]: ここでの Fourier 変換は
     $$
     \begin{aligned}
-      \mathcal{F}[f](k) &= ∫ \dd{x}\, f(x) e^{ikx}, \\
-      \mathcal{F}^{-1}[\~f](x) &= ∫ \frac{\dd{k}}{2π} \~f(k) e^{-ikx}, \\
+      \mathcal{F}[f](k) &= ∫ \dd{x}\, f(x) e^{-ikx}, \\
+      \mathcal{F}^{-1}[\~f](x) &= ∫ \frac{\dd{k}}{2π} \~f(k) e^{ikx}, \\
     \end{aligned}
     $$
     で定義される.

@@ -34,7 +34,7 @@ f_{m,s^2}(x) ≡ \frac1{\sqrt{2πs^2}} e^{-(x-m)^2/2s^2}
 $$
 で与えられる. Fourier 変換を実行すると,
 $$
-\mathcal{F}[f_{0,s^2}](k) = \frac1{\sqrt{2πs^2}} ∫ \dd{x}\, e^{- x^2/2s^2 - ikx} = e^{-s^2k^2/2}
+\mathcal{F}[f_{m=0,s^2}](k) = \frac1{\sqrt{2πs^2}} ∫ \dd{x}\, e^{- x^2/2s^2 - ikx} = e^{-s^2k^2/2}
 $$
 であるから, 逆変換より
 $$

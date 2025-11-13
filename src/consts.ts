@@ -40,9 +40,4 @@ export const SOCIAL_LINKS = [
     link: "https://mk.xiupos.net/@xiupos",
     icon: "simple-icons:activitypub",
   },
-  {
-    name: "Bluesky",
-    link: "https://bsky.app/profile/xiupos.mk.xiupos.net.ap.brid.gy",
-    icon: "simple-icons:bluesky",
-  },
 ];

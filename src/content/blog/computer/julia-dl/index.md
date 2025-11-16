@@ -41,7 +41,7 @@ $$
 
 ## Juliaの導入
 
-Juliaの詳しいことは[公式ドキュメント](https://docs.julialang.org/en/)を参照されたい. Julia 自体のインストールはバージョン管理の [Juliaup](https://github.com/JuliaLang/juliaup) 経由がいいと聞いた.
+Julia の詳しいことは[公式ドキュメント](https://docs.julialang.org/en/)を参照されたい. Julia 自体のインストールはバージョン管理の [Juliaup](https://github.com/JuliaLang/juliaup) 経由がいいと聞いた.
 
 ```bash
 # arch/manjaro

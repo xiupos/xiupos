@@ -31,7 +31,7 @@ $$
   \pdv{E}{\bm{b}^{(2)}} &= ∑^{N}_{n=1} (\^{\bm{y}}_n - \bm{y}_n) \\
 \end{aligned}
 $$
-となる[^batch]. ただし, ここではスカラー量 $E$ の行列 $\mathbf{A} = (A_{ij})$ による微分は $(∂E/∂\mathbf{A})_{ij} = ∂E/∂A_{ij}$ で定義した. また, Hadamard 積 $⊙$ は $(\mathbf{A} ⊙ \mathbf{B})_{ij} = A_{ij} B_{ij}$ で定義される. この導関数を使って, 誤差逆伝播は次のように行う: あるパラメータ $\mathbf{a}$ に対する伝播は, 学習率を $\alpha$ として,
+となる[^batch]. ただし, ここではスカラー量 $E$ の行列 $\mathbf{A} = (A_{ij})$ による微分は $(∂E/∂\mathbf{A})_{ij} = ∂E/∂A_{ij}$ で定義した. また, Hadamard 積 $⊙$ は要素ごとの積 $(\mathbf{A} ⊙ \mathbf{B})_{ij} = A_{ij} B_{ij}$ で定義される. この導関数を使って, 誤差逆伝播は次のように行う: あるパラメータ $\mathbf{a}$ に対する伝播は, 学習率を $\alpha$ として,
 $$
 \mathbf{a}_\mathrm{new} = \mathbf{a}_\mathrm{old} - α \left. \pdv{E}{\mathbf{a}} \right|_{\mathbf{a}=\mathbf{a}_\mathrm{old}}
 $$

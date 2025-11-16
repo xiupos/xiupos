@@ -25,7 +25,7 @@ $$
 で与えられる. 誤差関数を各パラメータで微分すると,
 $$
 \begin{aligned}
-  \pdv{E}{\mathbf{W}^{(1)}} &= ∑^{N}_{n=1} \bqty{\qty{(\^{\bm{y}}_n - \bm{y}_n)^⊤ \mathbf{W}^{(2)}}^⊤ ⊙ \phi'(\mathbf{W}^{(1)} \bm{x}_n + \bm{b}^{(1)})} \bm{x}^⊤, \\
+  \pdv{E}{\mathbf{W}^{(1)}} &= ∑^{N}_{n=1} \bqty{\qty{(\^{\bm{y}}_n - \bm{y}_n)^⊤ \mathbf{W}^{(2)}}^⊤ ⊙ \phi'(\mathbf{W}^{(1)} \bm{x}_n + \bm{b}^{(1)})} \bm{x}_n^⊤, \\
   \pdv{E}{\bm{b}^{(1)}} &= ∑^{N}_{n=1} \qty{(\^{\bm{y}}_n - \bm{y}_n)^⊤ \mathbf{W}^{(2)}}^⊤ ⊙ \phi'(\mathbf{W}^{(1)} \bm{x}_n + \bm{b}^{(1)}), \\
   \pdv{E}{\mathbf{W}^{(2)}} &= ∑^{N}_{n=1} (\^{\bm{y}}_n - \bm{y}_n) \phi(\mathbf{W}^{(1)} \bm{x}_n + \bm{b}^{(1)})^⊤, \\
   \pdv{E}{\bm{b}^{(2)}} &= ∑^{N}_{n=1} (\^{\bm{y}}_n - \bm{y}_n) \\

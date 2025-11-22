@@ -38,6 +38,6 @@ export const SOCIAL_LINKS = [
   {
     name: "ActivityPub",
     link: "https://mk.xiupos.net/@xiupos",
-    icon: "simple-icons:activitypub",
+    icon: "simple-icons:misskey",
   },
 ];

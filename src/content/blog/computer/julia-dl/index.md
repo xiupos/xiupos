@@ -63,7 +63,14 @@ println("Hello, world!")
 
 ```bash
 julia hello.jl
-# -> Hello, world!
+# Hello, world!
+```
+
+あるいは REPL を起動して,
+
+```julia
+include("hello.jl")
+# Hello, world!
 ```
 
 ## 実装
@@ -73,21 +80,21 @@ julia hello.jl
 ```julia
 using Random
 
-dim_in = 1            # 入力は1次元
-dim_out = 1           # 出力は1次元
-hidden_count = 1024   # 隠れ層のノードは1024個
-learn_rate = 0.005    # 学習率
+dim_in::Int64 = 1            # 入力は1次元
+dim_out::Int64 = 1           # 出力は1次元
+hidden_count::Int64 = 1024   # 隠れ層のノードは1024個
+learn_rate::Float64 = 0.005  # 学習率
 
 # 訓練データは x は -1 ~ 1, y は 2 * x ^ 2 - 1
-train_count = 64      # 訓練データ数
-train_x = reshape(-1:(2 / (train_count - 1)):1, (dim_in, train_count))
-train_y = reshape((@. 2 * train_x ^ 2 - 1), (dim_out, train_count))
+train_count::Int64 = 64      # 訓練データ数
+train_x::Matrix{Float64} = reshape(-1:(2/(train_count-1)):1, (dim_in, train_count))
+train_y::Matrix{Float64} = reshape((@. 2 * train_x^2 - 1), (dim_out, train_count))
 
 # 重みパラメータ. -0.5 〜 0.5 でランダムに初期化. この行列の値を学習する.
-w1 = rand(Float64, (hidden_count, dim_in)) .- 0.5
-w2 = rand(Float64, (dim_out, hidden_count)) .- 0.5
-b1 = rand(Float64, (hidden_count, 1)) .- 0.5
-b2 = rand(Float64, (dim_out, 1)) .- 0.5
+w1::Matrix{Float64} = rand(Float64, (hidden_count, dim_in)) .- 0.5
+w2::Matrix{Float64} = rand(Float64, (dim_out, hidden_count)) .- 0.5
+b1::Matrix{Float64} = rand(Float64, (hidden_count, 1)) .- 0.5
+b2::Matrix{Float64} = rand(Float64, (dim_out, 1)) .- 0.5
 
 # 活性化関数は ReLU
 activation(x) = max(0, x)
@@ -111,27 +118,53 @@ function backward(x, diff)
 end
 
 # メイン処理
-idxes = 1:train_count                 # idxes は 1～64
-for epoc in 1:1000                    # 1000エポック
-  idxes = shuffle(idxes)              # 確率的勾配降下法のため, エポックごとにランダムにシャッフルする
-  error = 0                           # 二乗和誤差
-  for idx in idxes
-    y = forward(train_x[:,idx])       # 順方向で x から y を計算する
-    diff = y - train_y[:,idx]         # 訓練データとの誤差
-    error += only(diff' * diff)       # 二乗和誤差に蓄積
-    backward(train_x[:,idx], diff)    # 誤差を学習
+idxes::UnitRange{Int64} = 1:train_count   # idxes は 1～64
+for epoc in 1:1000                        # 1000エポック
+  global idxes
+  error = 0                               # 二乗和誤差
+  for idx in shuffle(idxes)               # 確率的勾配降下法のため, エポックごとにランダムにシャッフルする
+    y = forward(train_x[:, idx])          # 順方向で x から y を計算する
+    diff = y - train_y[:, idx]            # 訓練データとの誤差
+    error += only(diff' * diff)           # 二乗和誤差に蓄積
+    backward(train_x[:, idx], diff)       # 誤差を学習
   end
-  println(error)                      # エポックごとに二乗和誤差を出力
+  println(error)                          # エポックごとに二乗和誤差を出力
 end
+```
+
+## 速度比較
+
+Wikipedia にある Python コードとの比較をしてみる.
+
+```bash
+time python example.py
+# 2.50 s
+
+time julia example.jl
+# 3.32 s
+```
+
+この結果からは Julia はあまり早いように見えないが, 実際にはコンパイルの時間があるために, 実行自体は Julia の方が早い. 試しに エポック数を 10000 にして実行すると, 10秒弱の差が開いた.
+
+```bash
+time python example.py
+# 23.76 s
+
+time julia example.jl
+# 15.55 s
 ```
 
 ## 感想
 
-何も考えず行列を直接扱うことができるので, かなり書きやすいと感じた. ただ, 動的型付けなのもあり, よく考えて書かないと行列の積などでサイズが合わず苦労する. まあそれは Julia に限った話ではない. むしろ, 前述の数式をかなりそのままコードにすることができ, それが Julia の良さの一つなのだろう[^unicode].
+動的型付けなのもあり, よく考えて書かないと行列の積などでサイズが合わず苦労する. まあそれは Julia に限った話ではない. むしろ, 前述の数式をかなりそのままコードにすることができ, それが Julia の良さの一つなのだろう[^unicode].
 
 [^unicode]: ちなみに, 元記事と対応させるために変数名を揃えたが, Julia では変数名などに Unicode を使うことができる. 例えば `activation(x)` を `φ(x)` など. こう書いてしまえば, ほぼ完全に元の数式のままのコードになる.
 
-ちなみに上記のコードは遅い. 手元の環境では元の Python コードよりも遅かった. [ここら辺](https://docs.julialang.org/en/v1/manual/performance-tips/)を読めば改善するだろうが, 初めて Julia を書いたのでまだよくわからない. これから書く機会は増えるだろうから, ぼちぼち「Julia らしい」コーディングに慣れていきたい.
+[ここら辺](https://docs.julialang.org/en/v1/manual/performance-tips/)を読めばさらに高速化できるだろうが, 初めて Julia を書いたのでまだよくわからない. これから書く機会は増えるだろうから, ぼちぼち「Julia らしい」コーディングに慣れたい.
+
+(追記) アドバイス[^advice]をいただき, 型注釈を加えるなど少しコードを修正した. また, 全体を関数で囲み, REPL 環境で `include` するなどした方が良いらしい. 今回は元の Python コードとの対照を目的としているために global 変数を多用したが, 実用する場面ではそういったことにも気をかけていきたい.
+
+[^advice]: https://mk.xiupos.net/notes/af4tczxby6
 
 ## 参考
 

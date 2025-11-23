@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^6.3.9",
-    "@daiji256/rehype-mathml": "^1.2.1",
     "@iconify-json/simple-icons": "^1.2.59",
     "hastscript": "^9.0.1",
+    "rehype-katex": "^7.0.1",
     "rehype-wrap-all": "^1.1.0",
     "remark-directive": "^4.0.0",
     "remark-math": "^6.0.0",

@@ -1,8 +1,8 @@
 // Source Code Pro by Adobe
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
 
-// math styles for Temml
-@import "/node_modules/temml/dist/Temml-Local.css";
+// math styles for KaTeX
+@import "/node_modules/katex/dist/katex.min.css";
 
 // math styles for mathyml (Typst to MathML converter)
 @import "/plugins/mathyml/src/mathyml.css", "mathyml-patch.css";
@@ -94,17 +94,17 @@ article {
   }
 
   // math
-  math {
-    font-family: NewComputerModernMath !important;
-    zoom: 1.1;
+  math, .katex {
+    font-family: "STIX Two Math" !important;
+    zoom: 0.9;
   }
 
-  .math-wrapper {
+  .math-wrapper, .katex-display {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
-    math {
+    math, .katex {
       display: block; // some browsers don't support "math"
       display: block math;
       padding: 0.2em 0;

@@ -4,6 +4,9 @@
 // Math fonts for MathML
 @import "mathml-fonts.css";
 
+// Math fonts for TikZJax
+@import "/node_modules/node-tikzjax/css/fonts.css";
+
 // Math styles for KaTeX
 @import "/node_modules/katex/dist/katex.min.css";
 

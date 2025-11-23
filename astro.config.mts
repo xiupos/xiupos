@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
 import rehypeKatex from "rehype-katex";
+import remarkTikzjax from "./plugins/remark-tikzjax.ts";
 import mathMacros from "./plugins/math-macros.json";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
@@ -50,7 +51,7 @@ export default defineConfig({
   },
   output: "static",
   markdown: {
-    remarkPlugins: [remarkMath, remarkDirective, remarkFencedDivs],
+    remarkPlugins: [remarkMath, remarkDirective, remarkFencedDivs, remarkTikzjax],
     rehypePlugins: [
       [rehypeKatex, { macros: mathMacros, strict: "error" }],
       [rehypeWrapAll, rehypeWrapAllOptions],

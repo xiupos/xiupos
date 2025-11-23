@@ -1,3 +1,6 @@
 [submodule "plugins/mathyml"]
 	path = plugins/mathyml
 	url = https://codeberg.org/akida/mathyml.git
+[submodule "plugins/stixfonts"]
+	path = plugins/stixfonts
+	url = https://github.com/stipub/stixfonts.git

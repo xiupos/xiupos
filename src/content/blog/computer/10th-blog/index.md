@@ -2,7 +2,7 @@
 title : ブログを始めて10年が経った
 author : xiupos
 date : \today
-pubDate : 2024-11-23T15:00:00+09:00
+pubDate : 2025-11-23T15:00:00+09:00
 lang : ja
 draft : true
 ---

@@ -44,6 +44,7 @@ body {
   color: var(--color);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  text-autospace: normal; // TODO: 検証
 }
 
 main {

@@ -8,7 +8,7 @@ math : true
 preamble: "_preamble"
 ---
 
-[経路積分](./functional#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86) (特に端点を固定した汎関数積分) の記法は文献によって若干の揺れがある. 例として, 経路積分
+[経路積分](./functional.md#汎関数積分) (特に端点を固定した汎関数積分) の記法は文献によって若干の揺れがある. 例として, 経路積分
 $$
 ∫_{φ_0}^φ \mathcal{D}φ(x) \exp \bqty{i ∫_{x_\mathrm{A}}^{x_\mathrm{B}} \dd{x} f(φ(x))}
 $$

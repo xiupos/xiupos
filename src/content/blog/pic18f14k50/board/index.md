@@ -33,7 +33,7 @@ lang : ja
 以下に性能, 機能の比較の表を載せておく.
 が, 16F84Aだけだと比較にならないので, 16F1827も参考までに載せておく.
 尚, 16F1827は16F84Aと基本的なピンの配置が同じため,
-以前作った[16F84Aボード](/blog/pic16f84a/board)に差し替えるだけで使える.
+以前作った[16F84Aボード](../../pic16f84a/board/index.md)に差し替えるだけで使える.
 気が向いたら使う.
 
 |  | [16F84A](http://akizukidenshi.com/catalog/g/gI-00097/) | [16F1827](http://akizukidenshi.com/catalog/g/gI-04430/) | [18F14K50](http://akizukidenshi.com/catalog/g/gI-03031/) |

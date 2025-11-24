@@ -371,7 +371,7 @@ $$
     &= ∫\frac{\dd{p_0}}{2π\hbar} ∏_{j=1}^{N-1} ∫\frac{\dd{x_j}\dd{p_j}}{2π\hbar} \exp \qty{\frac{i}{{\hbar}} ∑_{j=0}^{N-1} Δt \bqty{\frac{x_{j+1}-x_j}{Δt}p_j - H\pqty{\frac{x_{j+1}+x_j}{2}, p_j,t_j}}} \\
 \end{aligned}
 $$
-と書ける. [汎関数積分の計算法](./functional#%E6%B1%8E%E9%96%A2%E6%95%B0%E7%A9%8D%E5%88%86)を思い出せば, $N→∞$ の極限で
+と書ける. [汎関数積分の計算法](./functional.md#汎関数積分)を思い出せば, $N→∞$ の極限で
 $$
 \begin{aligned}
   ⟨x_f,t_f|x_i,t_i⟩

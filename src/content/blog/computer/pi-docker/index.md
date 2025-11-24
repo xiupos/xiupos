@@ -289,7 +289,7 @@ git remote add pi git@raspberrypi.local:hello.git
 git push pi master # デプロイ 初回は時間がかかる
 ```
 
-[http://rasberrypi.local:8080/](http://rasberrypi.local:8080/)にアクセスすると
+[8080ポート](http://rasberrypi.local:8080/)にアクセスすると
 **Hello, world!** が表示される.
 
 ## Lチカ

@@ -14,7 +14,7 @@ lang : ja
 
 ![Fujifilm X-E1 + Nikon NIKKOR-S･C Auto 50mm f/1.4](./_1.jpg)
 
-ついでに, [このあいだ買ったX-E1](/blog/camera/x-e1)の練習をしてきた. マニュアルフォーカス難しい!
+ついでに, [このあいだ買ったX-E1](../x-e1/index.md)の練習をしてきた. マニュアルフォーカス難しい!
 以下, 奇跡的にピントが合った数少ない写真たち.
 
 ![Fujifilm X-E1 + Nikon NIKKOR-S･C Auto 50mm f/1.4](./_2.jpg)

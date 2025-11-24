@@ -1,19 +1,21 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import { typst } from "astro-typst";
+import icon from "astro-icon";
 
 import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
-import rehypeKatex from "rehype-katex";
 import remarkTikzjax from "./plugins/remark-tikzjax.ts";
-import mathMacros from "./plugins/math-macros.json";
+
+import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
-import { typst } from "astro-typst";
+import rehypeRewriteLinks from "./plugins/rehype-rewrite-links.ts";
 
-import icon from "astro-icon";
+import mathMacros from "./plugins/math-macros.json";
 
 /**
  * options for rehypeWrapAll
@@ -51,11 +53,17 @@ export default defineConfig({
   },
   output: "static",
   markdown: {
-    remarkPlugins: [remarkMath, remarkDirective, remarkFencedDivs, remarkTikzjax],
+    remarkPlugins: [
+      remarkMath,
+      remarkDirective,
+      remarkFencedDivs,
+      remarkTikzjax,
+    ],
     rehypePlugins: [
       [rehypeKatex, { macros: mathMacros, strict: "error" }],
       [rehypeWrapAll, rehypeWrapAllOptions],
       rehypeHeadingIds,
+      rehypeRewriteLinks,
     ],
     shikiConfig: {
       themes: {

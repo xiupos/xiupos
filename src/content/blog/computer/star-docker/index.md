@@ -17,7 +17,7 @@ lang : ja
 この機会に久しぶりにプレイを, と思ったら,
 Windows版とMac版しかない.
 だが, よくあることなので怒ったりはしない.
-[VMを起動する手](https://blog.xiupos.net/blog/computer/win10-vm-archlinux/)もあるが,
+[VMを起動する手](../win10-vm-archlinux/index.md)もあるが,
 この程度ならDocker上のWineで動く.
 
 ## プレイ方法

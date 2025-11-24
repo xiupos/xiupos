@@ -6,7 +6,6 @@ pubDate: 2024-09-21T18:25:00+09:00
 lang: ja
 math: true
 draft: true
-preamble: "_preamble"
 ---
 
 座標回転を考える. ある直交座標系 $K$ で粒子の位置が $\bm{x}=(x^i)_{i=1,2,3}$ だったとする.

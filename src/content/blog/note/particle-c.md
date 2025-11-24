@@ -6,7 +6,6 @@ pubDate: 2024-05-28T18:25:00+09:00
 lang: ja
 draft: true
 math: true
-preamble: "_preamble"
 ---
 
 粒子系[^particles]の古典論の基本事項を体系的にまとめる. 自分用のノートなので, 正確性は保証されない[^excuse].

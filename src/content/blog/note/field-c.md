@@ -6,7 +6,6 @@ pubDate : 2024-01-06T22:40:00+09:00
 lang : ja
 draft : true
 math : true
-preamble: "_preamble"
 ---
 
 場[^particles]の古典論の基本事項を体系的にまとめる.

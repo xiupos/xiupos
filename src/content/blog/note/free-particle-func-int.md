@@ -6,7 +6,6 @@ pubDate : 2025-11-05T17:45:00+09:00
 lang : ja
 math : true
 draft: true
-preamble: "_preamble"
 ---
 
 自由粒子の伝播関数

@@ -2,9 +2,10 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../consts.ts";
 import OtherPosts from "../../other-posts.json";
+import type { APIContext } from "astro";
 
-export async function GET(context: any): Promise<Response> {
-  const sortByDate = (a: any, b: any): number =>
+export async function GET(context: APIContext) {
+  const sortByDate = (a: { pubDate: Date }, b: { pubDate: Date }): number =>
     b.pubDate.valueOf() - a.pubDate.valueOf();
 
   const BlogPosts = (
@@ -28,7 +29,7 @@ export async function GET(context: any): Promise<Response> {
   return rss({
     title: BLOG_TITLE,
     description: BLOG_DESCRIPTION,
-    site: context.site,
+    site: context.site || "",
     items: posts.sort(sortByDate),
   });
 }

@@ -1,4 +1,4 @@
-#import "/src/layouts/blog.typ": *
+#import "/src/layouts/template.typ": *
 
 #show: main.with(
   title: "商の微分",

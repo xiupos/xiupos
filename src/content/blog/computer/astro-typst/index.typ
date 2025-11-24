@@ -8,4 +8,14 @@
   draft: true,
 )
 
-Typst は LaTeX に替わる次世代の組版ソフトとして, 徐々に普及してきている.
+#link("https://typst.app/")[Typst] は TeX/LaTeX に替わる次世代の組版ソフトとして, 徐々に普及してきている.
+
+= 導入
+
+#link("https://github.com/OverflowCat/astro-typst")[OverflowCat/astro-typst]
+
+= 数式表示
+
+== 数式フォント問題
+
+= 参考サイト

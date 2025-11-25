@@ -19,3 +19,7 @@
 == 数式フォント問題
 
 = 参考サイト
+
+#link("../../note/quotient.typ")
+
+#link("../../note/ca.md")

@@ -13,7 +13,7 @@ import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
-import rehypeRewriteLinks from "./plugins/rehype-rewrite-links.ts";
+import { rehypeRewriteLinks } from "./plugins/rehype-rewrite-links.ts";
 
 import mathMacros from "./plugins/math-macros.json";
 

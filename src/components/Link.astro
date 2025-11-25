@@ -1,0 +1,24 @@
+---
+import { getEntry } from "astro:content";
+import { updateHref } from "plugins/rehype-rewrite-links";
+const { href, ...props } = Astro.props;
+
+let newHref = href;
+
+// rewrite relative links between md files (only for .typ files)
+try {
+  const { slug } = Astro.params;
+  const currentEntry = await getEntry("blog", slug || "");
+  const currentPath = currentEntry ? currentEntry.id : "";
+
+  if (currentPath.endsWith(".typ")) {
+    newHref = updateHref(href, currentPath);
+  }
+} catch (e) {
+  newHref = href;
+}
+---
+
+<a href={newHref} {...props}>
+  <slot />
+</a>

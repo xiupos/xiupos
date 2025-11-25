@@ -23,8 +23,8 @@ import mathMacros from "./src/math-macros.json";
  */
 const rehypeWrapAllOptions = [
   { selector: "table", wrapper: "div.responsive" },
-  // {selector: 'img', wrapper: 'div.responsive'},
-  // {selector: 'video', wrapper: 'div.responsive'},
+  // { selector: "img", wrapper: "div.responsive" },
+  // { selector: "video", wrapper: "div.responsive" },
   { selector: 'math[display="block"]', wrapper: "div.math-wrapper" },
 ];
 

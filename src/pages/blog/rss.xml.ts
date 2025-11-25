@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../consts.ts";
+import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../site.config.ts";
 import OtherPosts from "../../other-posts.json";
 import type { APIContext } from "astro";
 

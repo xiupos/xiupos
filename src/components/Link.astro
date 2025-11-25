@@ -1,6 +1,6 @@
 ---
 import { getEntry } from "astro:content";
-import { updateHref } from "plugins/rehype-rewrite-links";
+import { updateHref } from "@plugins/rehype-rewrite-links";
 const { href, ...props } = Astro.props;
 
 let newHref = href;

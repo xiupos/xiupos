@@ -6,16 +6,16 @@ import icon from "astro-icon";
 
 import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
-import remarkFencedDivs from "./plugins/remark-fenced-divs.ts";
-import remarkTikzjax from "./plugins/remark-tikzjax.ts";
+import remarkFencedDivs from "./src/plugins/remark-fenced-divs.ts";
+import remarkTikzjax from "./src/plugins/remark-tikzjax.ts";
 
 import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 // @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
-import { rehypeRewriteLinks } from "./plugins/rehype-rewrite-links.ts";
+import { rehypeRewriteLinks } from "./src/plugins/rehype-rewrite-links.ts";
 
-import mathMacros from "./plugins/math-macros.json";
+import mathMacros from "./src/math-macros.json";
 
 /**
  * options for rehypeWrapAll
@@ -48,6 +48,8 @@ export default defineConfig({
       alias: {
         "@components": "/src/components",
         "@content": "/src/content",
+        "@plugins": "/src/plugins",
+        "@assets": "/src/assets",
       },
     },
   },

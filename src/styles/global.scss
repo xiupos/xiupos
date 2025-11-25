@@ -8,7 +8,7 @@
 @use "/node_modules/katex/dist/katex.min.css";
 
 // Math styles for mathyml (Typst to MathML converter)
-@use "/plugins/mathyml/src/mathyml.css";
+@use "@plugins/mathyml/src/mathyml.css";
 @use "mathyml-patch";
 
 // Source Code Pro by Adobe

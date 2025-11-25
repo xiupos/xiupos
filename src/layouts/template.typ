@@ -1,4 +1,4 @@
-#import "/plugins/mathyml/src/lib.typ": *
+#import "/src/plugins/mathyml/src/lib.typ": *
 #import prelude: *
 
 #let main(

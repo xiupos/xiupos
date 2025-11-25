@@ -1,30 +1,30 @@
 @font-face {
     font-family: "STIX Two Text";
-    src: local('STIXTwoText'), url('/plugins/stixfonts/fonts/static_otf_woff2/STIXTwoMath-Regular.woff2');
+    src: local('STIXTwoText'), url('../assets/fonts/stixfonts/fonts/static_otf_woff2/STIXTwoMath-Regular.woff2');
 }
 
 @font-face {
     font-family: "STIX Two Text";
-    src: local('STIXTwoText-Bold'), url('/plugins/stixfonts/fonts/static_otf_woff2/STIXTwoText-Bold.woff2');
+    src: local('STIXTwoText-Bold'), url('../assets/fonts/stixfonts/fonts/static_otf_woff2/STIXTwoText-Bold.woff2');
     font-weight: bold;
 }
 
 @font-face {
     font-family: "STIX Two Text";
-    src: local('STIXTwoText-Italic'), url('/plugins/stixfonts/fonts/static_otf_woff2/STIXTwoText-Italic.woff2');
+    src: local('STIXTwoText-Italic'), url('../assets/fonts/stixfonts/fonts/static_otf_woff2/STIXTwoText-Italic.woff2');
     font-style: italic;
 }
 
 @font-face {
     font-family: "STIX Two Text";
-    src: local('STIXTwoText-BoldItalic'), url('/plugins/stixfonts/fonts/static_otf_woff2/STIXTwoText-BoldItalic.woff2');
+    src: local('STIXTwoText-BoldItalic'), url('../assets/fonts/stixfonts/fonts/static_otf_woff2/STIXTwoText-BoldItalic.woff2');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: "STIX Two Math";
-    src: local('STIXTwoMath-Regular'), url('/plugins/stixfonts/fonts/static_otf_woff2/STIXTwoMath-Regular.woff2');
+    src: local('STIXTwoMath-Regular'), url('../assets/fonts/stixfonts/fonts/static_otf_woff2/STIXTwoMath-Regular.woff2');
 }
 
 mtext {

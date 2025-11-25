@@ -1,4 +1,4 @@
-#import "/src/layouts/template.typ": *
+#import "/src/templates/blog.typ": *
 
 #show: main.with(
   title: "Astroの記事をTypstで書く",

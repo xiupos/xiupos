@@ -11,7 +11,7 @@ import {
   HEADER_LINKS,
 } from "../../site.config";
 import { getCollection } from "astro:content";
-import OtherPosts from "../../other-posts.json";
+import OtherPosts from "@data/other-posts.json";
 
 const sortByDate = (a: any, b: any) =>
   b.pubDate.valueOf() - a.pubDate.valueOf();

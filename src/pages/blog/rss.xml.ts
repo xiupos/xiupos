@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../site.config.ts";
-import OtherPosts from "../../other-posts.json";
+import OtherPosts from "@data/other-posts.json";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {

@@ -50,6 +50,7 @@ export default defineConfig({
         "@content": "/src/content",
         "@plugins": "/src/plugins",
         "@assets": "/src/assets",
+        "@data": "/src/data",
       },
     },
   },

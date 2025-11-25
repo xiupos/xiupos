@@ -1,24 +1,30 @@
 ---
-import BaseHead from '@components/BaseHead.astro';
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import Social from '@components/Social.astro';
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Social from "@components/Social.astro";
 import {
   SITE_TITLE,
   SITE_AUTHOR,
   SITE_DESCRIPTION,
   HEADER_LINKS,
   SOCIAL_LINKS,
-} from '../site.config';
+} from "../site.config";
 
-import {Content as IndexContent} from '@content/index.mdx';
-import FormattedDate from '@components/FormattedDate.astro';
+import { Content as IndexContent } from "@content/index.mdx";
+import FormattedDate from "@components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import HeroImage from "@assets/images/hero.jpg";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} author={SITE_AUTHOR} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={SITE_TITLE}
+      author={SITE_AUTHOR}
+      description={SITE_DESCRIPTION}
+    />
     <style lang="scss">
       // Noto Sans by Google
       main {
@@ -54,8 +60,13 @@ import FormattedDate from '@components/FormattedDate.astro';
     <Header links={HEADER_LINKS} />
     <main>
       <div class="hero">
-        <img src="/images/city.jpg" alt="hero" />
-        <p class="monospace">sapporo, hokkaido (<FormattedDate date={new Date("2025-07-30")} />)</p>
+        <Image
+          src={HeroImage}
+          alt="A digital glitch art piece, depicting a cityscape viewed through a rectangular window."
+        />
+        <p class="monospace">
+          sapporo, hokkaido (<FormattedDate date={new Date("2025-07-30")} />)
+        </p>
       </div>
       <Social links={SOCIAL_LINKS} />
       <article>

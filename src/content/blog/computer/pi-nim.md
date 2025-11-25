@@ -43,7 +43,7 @@ sudo apt-get install -y build-essential/testing nim/testing
 
 本題はこっち.
 こちらの方が自分的には需要がある.
-Dockerのインストールは[前回の記事](../pi-docker/index.md#dockerのインストール)を見てほしい.
+Dockerのインストールは[前回の記事](pi-docker.md#dockerのインストール)を見てほしい.
 
 使い方としては,
 `docker-compose.yml`でビルド用のコンテナを分ける感じだろうか.

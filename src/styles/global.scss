@@ -1,17 +1,18 @@
-// Source Code Pro by Adobe
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
-
 // Math fonts for MathML
-@import "mathml-fonts.css";
+@use "mathml-fonts";
 
 // Math fonts for TikZJax
-@import "/node_modules/node-tikzjax/css/fonts.css";
+@use "/node_modules/node-tikzjax/css/fonts.css";
 
 // Math styles for KaTeX
-@import "/node_modules/katex/dist/katex.min.css";
+@use "/node_modules/katex/dist/katex.min.css";
 
 // Math styles for mathyml (Typst to MathML converter)
-@import "/plugins/mathyml/src/mathyml.css", "mathyml-patch.css";
+@use "/plugins/mathyml/src/mathyml.css";
+@use "mathyml-patch";
+
+// Source Code Pro by Adobe
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
 
 html {
   color-scheme: light dark;

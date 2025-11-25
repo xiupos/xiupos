@@ -8,11 +8,17 @@
   draft: true,
 )
 
-#link("https://typst.app/")[Typst] は TeX/LaTeX に替わる次世代の組版ソフトとして, 徐々に普及してきている.
+#link("https://astro.build/")[Astro] で構築された本ブログの記事を #link("https://typst.app/")[Typst] で書くためにしたことの備忘録. ちなみにこの記事も Typst で書かれている.
 
 = 導入
 
-#link("https://github.com/OverflowCat/astro-typst")[OverflowCat/astro-typst]
+#link("https://github.com/ahxt/academic-homepage-typst")[ahxt/academic-homepage-typst] を参考に導入する.
+
+本ブログは Astro を用いて構築されていて, 記事執筆には主に Markdown (数式は TeX 記法) を使っている. それと共存する形で Typst を導入するために, まず #link("https://github.com/OverflowCat/astro-typst")[OverflowCat/astro-typst] を追加する.
+
+```sh
+npm install astro-typst
+```
 
 = 数式表示
 

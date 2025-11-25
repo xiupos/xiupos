@@ -37,7 +37,8 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   margin: 0;
   padding: 1.5rem 0;
   background-color: var(--back);
@@ -67,7 +68,7 @@ a {
 }
 
 .monospace {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   font-weight: 400;
   text-transform: lowercase;
 }
@@ -79,7 +80,8 @@ article {
   text-align: center;
   font-size: 1.1em;
 
-  > *, pre > code {
+  > *,
+  pre > code {
     width: 90%;
     max-width: var(--width);
     margin: var(--headerMargin) auto;
@@ -89,10 +91,18 @@ article {
     text-align: left;
   }
 
-  > h1, > h2, > h3, > h4, > h5 {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5 {
     margin-top: 3rem;
 
-    &+h1, &+h2, &+h3, &+h4, &+h5 {
+    & + h1,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5 {
       margin-top: var(--headerMargin);
     }
   }
@@ -111,12 +121,14 @@ article {
     zoom: 0.9;
   }
 
-  .math-wrapper, .katex-display {
+  .math-wrapper,
+  .katex-display {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
-    math, .katex {
+    math,
+    .katex {
       display: block; // some browsers don't support "math"
       display: block math;
       padding: 0.2em 0;
@@ -139,7 +151,8 @@ article {
     }
   }
 
-  div.responsive, p:has(> img) {
+  div.responsive,
+  p:has(> img) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +161,9 @@ article {
     margin-top: calc(var(--headerMargin) + 0.5rem);
     margin-bottom: calc(var(--headerMargin) + 0.5rem);
 
-    img, video, > svg {
+    img,
+    video,
+    > svg {
       margin: 0 auto;
       max-width: 100%;
       width: unset;
@@ -161,7 +176,8 @@ article {
       border-collapse: collapse;
       overflow-x: scroll;
 
-      th, td {
+      th,
+      td {
         padding: 0.5rem 1rem;
         margin: 0;
       }
@@ -184,13 +200,15 @@ article {
       tbody {
         tr {
           &:nth-child(odd) {
-            th, td {
+            th,
+            td {
               background: var(--back);
             }
           }
 
           &:nth-child(even) {
-            th, td {
+            th,
+            td {
               background: var(--back-sub);
             }
           }
@@ -240,8 +258,8 @@ article {
   }
 
   blockquote {
-    border-left: .3rem solid var(--color-sub);
-    padding: .2em 1.6em;
+    border-left: 0.3rem solid var(--color-sub);
+    padding: 0.2em 1.6em;
     font-style: italic;
   }
 
@@ -255,7 +273,7 @@ article {
   }
 
   .footnotes::before {
-    content: '';
+    content: "";
     display: block;
     width: var(--width);
     margin-top: var(--headerMargin);

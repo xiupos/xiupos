@@ -53,7 +53,10 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
         svg = svg
           // .replaceAll(/stroke="none"/g, `storoke="var(--color)"`)
           .replaceAll(/("#000"|"black")/g, `"currentColor"`)
-          .replaceAll(/stroke="currentColor"/g, `stroke="currentColor" fill="currentColor"`)
+          .replaceAll(
+            /stroke="currentColor"/g,
+            `stroke="currentColor" fill="currentColor"`
+          )
           .replaceAll(/("#fff"|"white")/g, `"var(--back)"`);
 
         node.value = svg;

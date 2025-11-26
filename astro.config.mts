@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { typst } from "astro-typst";
+import { ipynb } from "./src/plugins/astro-ipynb.ts";
 import icon from "astro-icon";
 
 import remarkMath from "remark-math";
@@ -37,6 +38,7 @@ export default defineConfig({
     typst({
       target: () => "html",
     }),
+    ipynb(),
     icon(),
   ],
   trailingSlash: "never",

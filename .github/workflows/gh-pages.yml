@@ -30,8 +30,13 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install javascript dependencies
         run: bun install
+
+      - name: Install python dependencies
+        run: uv sync --locked --all-extras --dev
 
       - name: Build
         run: bun run build

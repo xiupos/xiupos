@@ -4,6 +4,7 @@ import path from "path";
 import glob from "fast-glob";
 import { execSync } from "child_process";
 import fs from "fs";
+import YAML from "yaml";
 
 const nbconvertCmd = "uv run jupyter nbconvert";
 const template = "src/templates/ipynb";
@@ -14,22 +15,74 @@ const ipynb = (): AstroIntegration => {
     hooks: {
       "astro:config:setup": async ({ addWatchFile, logger }) => {
         const ipynbFiles = await glob("src/content/**/*.ipynb");
+        const contentDir = path.resolve("src/content");
 
         for (const file of ipynbFiles) {
           const ipynbPath = path.resolve(file);
-          const dir = path.dirname(ipynbPath);
-          const ipynbFilename = path.basename(ipynbPath);
-
           addWatchFile(ipynbPath);
+          const ipynbDir = path.dirname(ipynbPath);
+          const ipynbFilename = path.basename(ipynbPath);
+          const ipynbUrlDir = path
+            .relative(contentDir, ipynbDir)
+            .split("/")
+            .slice(1)
+            .join("/");
+          const ipynbBasename = path.basename(ipynbPath, ".ipynb");
+          const ipynbUrl =
+            ipynbBasename === "index"
+              ? ipynbUrlDir
+              : path.join(ipynbUrlDir, ipynbBasename);
+
+          const ipynbBody = fs.readFileSync(ipynbPath, { encoding: "utf-8" });
+          const ipynbObj = JSON.parse(ipynbBody);
 
           const mdFilename = ipynbFilename + ".md";
-          const mdPath = path.join(dir, mdFilename);
+          const mdPath = path.join(ipynbDir, mdFilename);
 
-          // TODO: set the path name without "ipynb" to `slug` in frontmatter
+          if (ipynbObj.cells?.length == 0) {
+            logger.error(`Empty notebook: ${ipynbPath}`);
+            return;
+          }
+          const ipynbFirstCellText = [...ipynbObj.cells[0].source].join("");
 
+          if (
+            !ipynbFirstCellText.startsWith("---") ||
+            !ipynbFirstCellText.endsWith("---")
+          ) {
+            logger.error(`First cell must be frontmatter in ${ipynbPath}`);
+            return;
+          }
+          const frontmatterText = ipynbFirstCellText
+            .replace(/^---\n/, "")
+            .replace(/\n---$/, "");
+
+          // get frontmatter from first cell of ipynb
+          let frontmatterObj: any = {};
           try {
-            const cmd = `${nbconvertCmd} --to markdown --template "${template}" --stdout "${ipynbPath}"`;
-            const mdBody = execSync(cmd, { encoding: "utf-8" });
+            frontmatterObj = YAML.parse(frontmatterText);
+          } catch (e) {
+            logger.warn(`Failed to parse frontmatter in ${ipynbPath}`);
+            console.warn(e);
+          }
+
+          // set the path name without "ipynb" to `slug` in frontmatter
+          if (!frontmatterObj.slug) frontmatterObj.slug = ipynbUrl;
+
+          // reconstruct frontmatter
+          ipynbObj.cells[0].source = [
+            "---\n",
+            ...YAML.stringify(frontmatterObj)
+              .split(/(?<=\n)/),
+            "---",
+          ];
+
+          // run nbconvert and save to ".ipynb.md" file
+          try {
+            const cmd = `${nbconvertCmd} --to markdown --template "${template}" --stdin --stdout`;
+            const mdBody = execSync(cmd, {
+              input: JSON.stringify(ipynbObj),
+              encoding: "utf-8",
+            });
 
             if (
               !fs.existsSync(mdPath) ||

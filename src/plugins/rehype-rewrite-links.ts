@@ -2,7 +2,7 @@ import type { RehypePlugin } from "@astrojs/markdown-remark";
 import { visit } from "unist-util-visit";
 
 /** extensions for post files */
-const extensions = ["md", "mdx", "typ"];
+const extensions = ["ipynb.md", "md", "mdx", "typ"];
 
 /**
  * Remove the extension of the relative link and solve the hierarchy.

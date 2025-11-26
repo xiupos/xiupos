@@ -7,4 +7,3 @@ lang: ja
 math: true
 draft: true
 ---
-preamble: _preamble

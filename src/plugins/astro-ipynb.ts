@@ -71,14 +71,13 @@ const ipynb = (): AstroIntegration => {
           // reconstruct frontmatter
           ipynbObj.cells[0].source = [
             "---\n",
-            ...YAML.stringify(frontmatterObj)
-              .split(/(?<=\n)/),
+            ...YAML.stringify(frontmatterObj).split(/(?<=\n)/),
             "---",
           ];
 
           // run nbconvert and save to ".ipynb.md" file
           try {
-            const cmd = `${nbconvertCmd} --to markdown --template "${template}" --stdin --stdout`;
+            const cmd = /*sh*/ `${nbconvertCmd} --to markdown --template "${template}" --stdin --stdout`;
             const mdBody = execSync(cmd, {
               input: JSON.stringify(ipynbObj),
               encoding: "utf-8",

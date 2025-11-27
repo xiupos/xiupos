@@ -49,7 +49,6 @@ body {
   color: var(--color);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  text-autospace: normal; // TODO: 検証
 }
 
 main {
@@ -89,6 +88,7 @@ article {
     color: var(--color);
     overflow: hidden;
     text-align: left;
+    text-autospace: normal; // TODO: 検証
   }
 
   > h1,
@@ -250,6 +250,7 @@ article {
       tab-size: 2;
       overflow: unset;
       color: var(--color-code);
+      text-autospace: unset;
 
       > * {
         margin-right: 5vw;

@@ -35,9 +35,6 @@ jobs:
       - name: Install javascript dependencies
         run: bun install
 
-      - name: Install python dependencies
-        run: uv sync --locked --all-extras --dev
-
       - name: Build
         run: bun run build
 

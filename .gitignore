@@ -30,13 +30,3 @@ bun.lockb
 # jupyter notebook
 */**/*.ipynb.md
 
-# python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
-# virtual environments
-.venv

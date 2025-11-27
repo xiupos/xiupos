@@ -38,7 +38,12 @@ export default defineConfig({
     typst({
       target: () => "html",
     }),
-    ipynb(),
+    ipynb({
+      nbconvert: {
+        cmd: "uv run jupyter nbconvert",
+        template: "src/templates/ipynb",
+      },
+    }),
     icon(),
   ],
   trailingSlash: "never",

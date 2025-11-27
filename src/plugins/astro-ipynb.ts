@@ -6,16 +6,22 @@ import { execSync } from "child_process";
 import fs from "fs";
 import YAML from "yaml";
 
-const nbconvertCmd = "uv run jupyter nbconvert";
-const template = "src/templates/ipynb";
+type AstroIpynbConfig = {
+  nbconvert: {
+    cmd?: string;
+    template?: string;
+  };
+};
 
-const ipynb = (): AstroIntegration => {
+const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
   return {
     name: "ipynb",
     hooks: {
       "astro:config:setup": async ({ addWatchFile, logger }) => {
         const ipynbFiles = await glob("src/content/**/*.ipynb");
         const contentDir = path.resolve("src/content");
+
+        console.log(config.nbconvert);
 
         for (const file of ipynbFiles) {
           const ipynbPath = path.resolve(file);
@@ -46,15 +52,15 @@ const ipynb = (): AstroIntegration => {
           const ipynbFirstCellText = [...ipynbObj.cells[0].source].join("");
 
           if (
-            !ipynbFirstCellText.startsWith("---") ||
-            !ipynbFirstCellText.endsWith("---")
+            !ipynbFirstCellText.startsWith("```yaml") ||
+            !ipynbFirstCellText.endsWith("```")
           ) {
             logger.error(`First cell must be frontmatter in ${ipynbPath}`);
             return;
           }
           const frontmatterText = ipynbFirstCellText
-            .replace(/^---\n/, "")
-            .replace(/\n---$/, "");
+            .replace(/^```yaml\n/, "")
+            .replace(/\n```$/, "");
 
           // get frontmatter from first cell of ipynb
           let frontmatterObj: any = {};
@@ -77,7 +83,15 @@ const ipynb = (): AstroIntegration => {
 
           // run nbconvert and save to ".ipynb.md" file
           try {
-            const cmd = /*sh*/ `${nbconvertCmd} --to markdown --template "${template}" --stdin --stdout`;
+            const cmd = /*sh*/ [
+              config.nbconvert.cmd || "jupyter-nbconvert",
+              "--to markdown",
+              config.nbconvert.template
+                ? `--template "${config.nbconvert.template}"`
+                : "",
+              "--stdin",
+              "--stdout",
+            ].join(" ");
             const mdBody = execSync(cmd, {
               input: JSON.stringify(ipynbObj),
               encoding: "utf-8",
@@ -100,4 +114,4 @@ const ipynb = (): AstroIntegration => {
   };
 };
 
-export { ipynb };
+export { ipynb, type AstroIpynbConfig };

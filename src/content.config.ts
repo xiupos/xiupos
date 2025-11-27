@@ -11,6 +11,14 @@ const blog = defineCollection({
       .transform((val) => new Date(val)),
     lang: z.string().default("en"),
     draft: z.boolean().default(false),
+    links: z
+      .array(
+        z.object({
+          text: z.string(),
+          href: z.string(),
+        })
+      )
+      .default([]),
   }),
 });
 

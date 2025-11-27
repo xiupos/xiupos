@@ -21,8 +21,6 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
         const ipynbFiles = await glob("src/content/**/*.ipynb");
         const contentDir = path.resolve("src/content");
 
-        console.log(config.nbconvert);
-
         for (const file of ipynbFiles) {
           const ipynbPath = path.resolve(file);
           addWatchFile(ipynbPath);
@@ -46,7 +44,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
           const mdPath = path.join(ipynbDir, mdFilename);
 
           if (ipynbObj.cells?.length == 0) {
-            logger.error(`Empty notebook: ${ipynbPath}`);
+            logger.warn(`${ipynbPath} is empty; Skip.`);
             return;
           }
           const ipynbFirstCellText = [...ipynbObj.cells[0].source].join("");
@@ -55,7 +53,9 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
             !ipynbFirstCellText.startsWith("```yaml") ||
             !ipynbFirstCellText.endsWith("```")
           ) {
-            logger.error(`First cell must be frontmatter in ${ipynbPath}`);
+            logger.warn(
+              `First cell must be a yaml code block only in ${ipynbPath}; Skip.`
+            );
             return;
           }
           const frontmatterText = ipynbFirstCellText
@@ -73,6 +73,17 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
 
           // set the path name without "ipynb" to `slug` in frontmatter
           if (!frontmatterObj.slug) frontmatterObj.slug = ipynbUrl;
+
+          // add colab link
+          if (!frontmatterObj.links || frontmatterObj.links.length == 0)
+            frontmatterObj.links = [];
+          frontmatterObj.links.push({
+            text: "colab",
+            href: path.join(
+              "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/",
+              path.relative(contentDir, ipynbPath)
+            ),
+          });
 
           // reconstruct frontmatter
           ipynbObj.cells[0].source = [

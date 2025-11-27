@@ -4,3 +4,4 @@ bun = "latest"
 [tasks]
 build = "bun run build"
 dev = "bun run dev"
+preview = "bun run preview"

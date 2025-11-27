@@ -1,25 +1,25 @@
 {% extends 'markdown/index.md.j2' %}
 
 {% block data_png %}
-<div class="responsive">
+<div class="responsive ipynb-data">
 {{ super() }}
 </div>
 {% endblock data_png %}
 
 {% block data_jpg %}
-<div class="responsive">
+<div class="responsive ipynb-data">
 {{ super() }}
 </div>
 {% endblock data_jpg %}
 
 {% block data_svg %}
-<div class="responsive">
+<div class="responsive ipynb-data">
 {{ super() }}
 </div>
 {% endblock data_svg %}
 
 {% block data_html scoped %}
-<div class="responsive">
+<div class="responsive ipynb-data">
 {{ super() }}
 </div>
 {% endblock data_html %}

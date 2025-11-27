@@ -171,6 +171,15 @@ article {
       height: auto;
     }
 
+    // For ipynb outputs, html attr is stronger than css
+    &.ipynb-data {
+      img,
+      video,
+      > svg {
+        width: revert-layer;
+      }
+    }
+
     table {
       display: block;
       border-collapse: collapse;

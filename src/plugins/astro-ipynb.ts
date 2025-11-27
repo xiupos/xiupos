@@ -79,10 +79,9 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => {
             frontmatterObj.links = [];
           frontmatterObj.links.push({
             text: "colab",
-            href: path.join(
-              "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/",
-              path.relative(contentDir, ipynbPath)
-            ),
+            href:
+              "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/" +
+              path.relative(contentDir, ipynbPath),
           });
 
           // reconstruct frontmatter

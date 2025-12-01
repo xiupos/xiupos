@@ -1,6 +1,6 @@
 #import "/src/templates/blog.typ": *
 
-#show: main.with(
+#show: post.with(
   title: "商の微分",
   author: "xiupos",
   date: "2024-07-22T09:00:00+09:00",

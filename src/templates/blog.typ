@@ -1,7 +1,7 @@
 #import "/src/plugins/mathyml/src/lib.typ": *
 #import prelude: *
 
-#let main(
+#let post(
   title: "Untitled",
   date: "2025-10-11T12:00:00+09:00",
   lang: "en",
@@ -22,8 +22,8 @@
 
     // set basic document metadata
     set document(
-      author: author,
       title: title,
+      author: author,
     )
 
     // math rules
@@ -41,7 +41,6 @@
     }
 
     // Main body.
-    // outline(title: "", indent: auto)
     set par(justify: true)
     it
   }

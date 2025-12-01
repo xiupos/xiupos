@@ -1,6 +1,6 @@
 #import "/src/templates/blog.typ": *
 
-#show: main.with(
+#show: post.with(
   title: "Astroの記事をTypstで書く",
   author: "xiupos",
   date: "2025-11-23T23:00:00+09:00",
@@ -22,10 +22,12 @@ npm install astro-typst
 
 = 数式表示
 
+#image("ipad-mini-6/image.jpg", width: 70%)
+
 == 数式フォント問題
 
 = 参考サイト
 
-#link("../../note/quotient.typ")
+#link("../note/quotient.typ")
 
-#link("../../note/ca.md")
+#link("../note/ca.md")

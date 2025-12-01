@@ -173,4 +173,4 @@ time julia example.jl
 
 [^unicode]: ちなみに, 元記事と対応させるために変数名を揃えたが, Julia では変数名などに Unicode を使うことができる. 例えば `activation(x)` を `φ(x)` など. こう書いてしまえば, ほぼ完全に元の数式のままのコードになる. 数式と実装の乖離が小さいのは, 個人的にはかなり嬉しい.
 
-[^advice]: https://mk.xiupos.net/notes/af4tczxby6
+[^advice]: https://misskey.qwjyh.net/notes/af4tczxb6f

@@ -7,6 +7,7 @@ import { visit } from "unist-util-visit";
 const remarkFencedDivs: RemarkPlugin = () => (tree) =>
   visit(tree, (node) => {
     if (node.type === "containerDirective") {
+      console.log(node.name);
       // :::screen ~ :::
       if (node.name === "screen") {
         const data = node.data || (node.data = {});
@@ -14,6 +15,15 @@ const remarkFencedDivs: RemarkPlugin = () => (tree) =>
 
         data.hName = tagName;
         data.hProperties = h(tagName, { class: "screen" }).properties;
+      }
+
+      // :::adcal ~ :::
+      if (node.name === "adcal") {
+        const data = node.data || (node.data = {});
+        const tagName = "div";
+
+        data.hName = tagName;
+        data.hProperties = h(tagName, { class: "adcal" }).properties;
       }
     }
   });

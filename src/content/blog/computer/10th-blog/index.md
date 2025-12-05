@@ -2,14 +2,13 @@
 title : ブログを始めて10年が経った
 author : xiupos
 date : \today
-pubDate : 2025-12-06T08:00:00+09:00
+pubDate : 2025-12-05T19:15:00+09:00
 lang : ja
-draft : true
 ---
 
 :::adcal
 
-この記事は「[Fediverse (3) Advent Calendar 2025](https://adventar.org/calendars/12280)」6日目および「[北大IT研究会 HUIT Advent Calendar 2025](https://adventar.org/calendars/11772)」6日目の記事です.
+この記事は「[Fediverse (3) Advent Calendar 2025](https://adventar.org/calendars/12280)」5日目および「[北大IT研究会 HUIT Advent Calendar 2025](https://adventar.org/calendars/11772)」5日目の記事です.
 
 :::
 

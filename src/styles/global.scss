@@ -19,13 +19,13 @@ html {
   --width: 50rem;
   --width-responsible: calc(var(--width) + 10vw);
   --width-code: 100%;
-  --accent: light-dark(#e2890c, #e6db74);
-  --color: light-dark(#000, #f8f8f8);
+  --accent: light-dark(#fb7101, #e6db74);
+  --color: light-dark(#1a1a1a, #e2e2e2);
   --color-sub: light-dark(#444, #bbb);
   --color-code: var(--color);
-  --back: light-dark(#fff, #333);
-  --back-sub: light-dark(#f0f0f0, #2a2a2a);
-  --back-code: light-dark(#f5f5f5, #222);
+  --back: light-dark(#fff, #222222);
+  --back-sub: light-dark(#f2f2f2, #1a1a1a);
+  --back-code: light-dark(#f4f4f4, #111);
   --back-thumb: light-dark(#e3e3e3, #4a4a4a);
   --filter: light-dark(none, invert());
 
@@ -37,8 +37,8 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Noto Sans CJK JP", "Helvetica Neue", Arial,
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   margin: 0;
   padding: 1.5rem 0;
   background-color: var(--back);
@@ -233,11 +233,13 @@ article {
     }
   }
 
+  // :::screen ~ :::
   div.screen {
     padding: 0 1.2em;
     background: var(--back-sub);
   }
 
+  // :::adcal ~ :::
   div.adcal {
     padding: 0 1.2em;
     background: var(--back-sub);

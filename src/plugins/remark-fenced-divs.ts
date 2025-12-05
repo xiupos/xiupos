@@ -7,7 +7,6 @@ import { visit } from "unist-util-visit";
 const remarkFencedDivs: RemarkPlugin = () => (tree) =>
   visit(tree, (node) => {
     if (node.type === "containerDirective") {
-      console.log(node.name);
       // :::screen ~ :::
       if (node.name === "screen") {
         const data = node.data || (node.data = {});

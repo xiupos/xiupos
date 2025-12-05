@@ -61,7 +61,7 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
 
         node.value = svg;
       } catch (e) {
-        console.log("ERROR", e);
+        console.error("ERROR: ", e);
         return reject(e);
       }
     }

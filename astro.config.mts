@@ -40,7 +40,7 @@ export default defineConfig({
     }),
     ipynb({
       nbconvert: {
-        cmd: "uvx jupyter nbconvert",
+        cmd: "uvx --from jupyter-core jupyter nbconvert",
         template: "src/templates/ipynb",
       },
       links: [

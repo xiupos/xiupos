@@ -76,6 +76,6 @@ vagrant up
 
 ## 参考
 
- - https://wiki.archlinux.jp/index.php/VirtualBox
- - https://wiki.archlinux.jp/index.php/Vagrant
- - https://www.youtube.com/watch?v=QzOrQGlehpQ
+ - [VirtualBox - ArchWiki](https://wiki.archlinux.jp/index.php/VirtualBox)
+ - [Vagrant - ArchWiki](https://wiki.archlinux.jp/index.php/Vagrant)
+ - [Quick Install: Virtualbox in Arch Linux - YouTube](https://www.youtube.com/watch?v=QzOrQGlehpQ)

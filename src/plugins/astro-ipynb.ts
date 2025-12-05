@@ -11,10 +11,6 @@ type AstroIpynbConfig = {
     cmd?: string;
     template?: string;
   };
-  links?: {
-    text: string;
-    base: string;
-  }[];
 };
 
 const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
@@ -77,14 +73,25 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
         // set the path name without "ipynb" to `slug` in frontmatter
         if (!frontmatterObj.slug) frontmatterObj.slug = ipynbUrl;
 
-        // add colab link
+        // add link
         if (!frontmatterObj.links || frontmatterObj.links.length == 0)
           frontmatterObj.links = [];
         frontmatterObj.links = frontmatterObj.links.concat(
-          config.links?.map((link) => ({
-            text: link.text,
-            href: link.base + path.relative(contentDir, ipynbPath),
-          })) || []
+          frontmatterObj.ipynb_link_type == "colab"
+            ? {
+                text: "colab",
+                href:
+                  "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/" +
+                  path.relative(contentDir, ipynbPath),
+              }
+            : frontmatterObj.ipynb_link_type == "ipynb"
+            ? {
+                text: "ipynb",
+                href:
+                  "https://github.com/xiupos/xiupos/blob/main/src/content/" +
+                  path.relative(contentDir, ipynbPath),
+              }
+            : []
         );
 
         // reconstruct frontmatter

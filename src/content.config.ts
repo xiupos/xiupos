@@ -19,6 +19,7 @@ const blog = defineCollection({
         })
       )
       .default([]),
+    ipynb_link_type: z.enum(["colab", "ipynb", "none"]).default("none"),
   }),
 });
 

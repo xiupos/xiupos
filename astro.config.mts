@@ -43,12 +43,6 @@ export default defineConfig({
         cmd: "uvx --from jupyter-core jupyter nbconvert",
         template: "src/templates/ipynb",
       },
-      links: [
-        {
-          text: "colab",
-          base: "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/",
-        },
-      ],
     }),
     icon(),
   ],

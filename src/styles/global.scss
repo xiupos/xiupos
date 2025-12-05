@@ -59,7 +59,6 @@ main {
 a {
   text-decoration: none;
   color: var(--accent);
-  word-break: break-all;
   transition: 0.2s;
   &:hover {
     color: inherit;
@@ -246,7 +245,7 @@ article {
     font-size: 0.9em;
   }
 
-  p > code {
+  *:not(pre) > code {
     padding: 0.3em 0.5em;
     background-color: var(--back-code);
     border-radius: 0.3em;

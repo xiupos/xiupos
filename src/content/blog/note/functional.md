@@ -467,10 +467,10 @@ $$
     \end{aligned}
     $$
 
-3. デルタ汎関数 $Δ[φ(x)]$:  
+3. デルタ汎関数 $δ[φ(x)]$:  
     汎関数積分で
     $$
-    Δ[φ(x)] := ∫\mathcal{D}ξ(x) \exp\bqty{i∫\dd{x} φ(x) ξ(x)}
+    δ[φ(x)] := ∫\mathcal{D}ξ(x) \exp\bqty{i∫\dd{x} φ(x) ξ(x)}
     $$
     と定義される. 離散表現は
     $$
@@ -488,19 +488,19 @@ $$
     $$
     であるから, $N→∞$ の極限で, デルタ汎関数は
     $$
-    Δ[φ(x)] = ∏_x δ(φ(x))
+    δ[φ(x)] = ∏_x δ(φ(x))
     $$
     と書ける. さて, 汎関数デルタ関数は,
     $$
     \begin{gathered}
-      ∫\mathcal{D}φ(x) F[φ(x)] Δ[φ(x) - \~φ(x)] = F[\~φ(x)], \\
-      ∫\mathcal{D}φ(x) Δ[φ(x)] = 1 \\
+      ∫\mathcal{D}φ(x) F[φ(x)] δ[φ(x) - \~φ(x)] = F[\~φ(x)], \\
+      ∫\mathcal{D}φ(x) δ[φ(x)] = 1 \\
     \end{gathered}
     $$
     の性質を満たす. 実際,
     $$
     \begin{aligned}
-       &\ ∫\mathcal{D}φ(x) F[φ(x)] Δ[φ(x) - \~φ(x)] \\
+       &\ ∫\mathcal{D}φ(x) F[φ(x)] δ[φ(x) - \~φ(x)] \\
       =&\ \frac1{θ} \pqty{∏_{x} ∫ \dd{φ(x)}} F[φ(x)] \pqty{∏_x δ(φ(x) - \~φ(x))} \\
       =&\ \frac1{θ} \pqty{∏_{x} ∫ \dd{φ(x)} δ(φ(x) - \~φ(x))} F[φ(x)] \\
       =&\ F[\~φ(x)] \\
@@ -542,13 +542,13 @@ $$
 $$
 となって, $N→∞$ の極限で汎関数 Fourier 変換が得られる. 逆変換も同様.
 
-汎関数デルタ関数 $Δ[φ(x)]$ を用いれば, 容易に逆変換であることがわかる:
+汎関数デルタ関数 $δ[φ(x)]$ を用いれば, 容易に逆変換であることがわかる:
 $$
 \begin{aligned}
   &\quad \mathscr{F}^{-1}\{\mathscr{F}\{F[\~φ(x)]\}[ξ(x)]\}[φ(x)] \\
   &= ∫\mathcal{D}ξ(x) \mathcal{F}\{F[\~φ(x)]\}[ξ(x)] \exp\bqty{i∫\dd{x} φ(x) ξ(x)} \\
   &= ∫\mathcal{D}\~φ(x) F[\~φ(x)] ∫\mathcal{D}ξ(x) \exp\qty{i∫\dd{x} \Big[φ(x) - \~φ(x)\Big] ξ(x)} \\
-  &= ∫\mathcal{D}\~φ(x) F[\~φ(x)] Δ[φ(x) - \~φ(x)] \\
+  &= ∫\mathcal{D}\~φ(x) F[\~φ(x)] δ[φ(x) - \~φ(x)] \\
   &= F[φ(x)].
 \end{aligned}
 $$
@@ -559,14 +559,14 @@ $$
 
 1. $1$ (恒等的に1である汎関数) の汎関数 Fourier 変換:  
     $$
-    \mathscr{F}\{1\}[ξ(x)] = ∫\mathcal{D}φ(x) \exp\bqty{-i∫\dd{x} φ(x) ξ(x)} = Δ[ξ(x)].
+    \mathscr{F}\{1\}[ξ(x)] = ∫\mathcal{D}φ(x) \exp\bqty{-i∫\dd{x} φ(x) ξ(x)} = δ[ξ(x)].
     $$
 
-2. デルタ汎関数 $Δ[φ(x)]$ の汎関数 Fourier 変換:  
+2. デルタ汎関数 $δ[φ(x)]$ の汎関数 Fourier 変換:  
     $$
     \begin{aligned}
-      \mathscr{F}\{Δ[φ(x)]\}[ξ(x)]
-        &= ∫\mathcal{D}φ(x) Δ[φ(x)] \exp\bqty{-i∫\dd{x} φ(x) ξ(x)} \\
+      \mathscr{F}\{δ[φ(x)]\}[ξ(x)]
+        &= ∫\mathcal{D}φ(x) δ[φ(x)] \exp\bqty{-i∫\dd{x} φ(x) ξ(x)} \\
         &= \exp\bqty{-i∫\dd{x} 0 × ξ(x)} \\
         &= 1 \\
     \end{aligned}

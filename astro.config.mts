@@ -70,7 +70,14 @@ export default defineConfig({
       remarkTikzjax,
     ],
     rehypePlugins: [
-      [rehypeKatex, { macros: mathMacros, strict: "error" }],
+      [
+        rehypeKatex,
+        {
+          macros: mathMacros,
+          strict: "error",
+          output: "html",
+        },
+      ],
       [rehypeWrapAll, rehypeWrapAllOptions],
       rehypeHeadingIds,
       rehypeRewriteLinks,

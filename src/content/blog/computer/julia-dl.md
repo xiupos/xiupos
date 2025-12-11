@@ -82,15 +82,15 @@ include("hello.jl")
 ```julia
 using Random
 
-dim_in::Int64 = 1            # 入力は1次元
-dim_out::Int64 = 1           # 出力は1次元
-hidden_count::Int64 = 1024   # 隠れ層のノードは1024個
-learn_rate::Float64 = 0.005  # 学習率
+const dim_in = 1            # 入力は1次元
+const dim_out = 1           # 出力は1次元
+const hidden_count = 1024   # 隠れ層のノードは1024個
+const learn_rate = 0.005  # 学習率
 
 # 訓練データは x は -1 ~ 1, y は 2 * x ^ 2 - 1
-train_count::Int64 = 64      # 訓練データ数
-train_x::Matrix{Float64} = reshape(-1:(2/(train_count-1)):1, (dim_in, train_count))
-train_y::Matrix{Float64} = reshape((@. 2 * train_x^2 - 1), (dim_out, train_count))
+const train_count = 64      # 訓練データ数
+const train_x = reshape(-1:(2/(train_count-1)):1, (dim_in, train_count))
+const train_y = reshape((@. 2 * train_x^2 - 1), (dim_out, train_count))
 
 # 重みパラメータ. -0.5 〜 0.5 でランダムに初期化. この行列の値を学習する.
 w1::Matrix{Float64} = rand(Float64, (hidden_count, dim_in)) .- 0.5
@@ -120,9 +120,8 @@ function backward(x, diff)
 end
 
 # メイン処理
-idxes::UnitRange{Int64} = 1:train_count   # idxes は 1～64
+const idxes = 1:train_count   # idxes は 1～64
 for epoc in 1:1000                        # 1000エポック
-  global idxes
   error = 0                               # 二乗和誤差
   for idx in shuffle(idxes)               # 確率的勾配降下法のため, エポックごとにランダムにシャッフルする
     y = forward(train_x[:, idx])          # 順方向で x から y を計算する
@@ -140,20 +139,20 @@ Wikipedia にある Python コードとの比較をしてみる.
 
 ```bash
 time python example.py
-# 2.50 s
+# 2.51 s
 
 time julia example.jl
-# 3.32 s
+# 3.29 s
 ```
 
 この結果からは Julia は Python より遅いように見える. しかし, これは呼び出し直後のコンパイルの時間があるためであり, 実行自体は Julia の方が早い. 試しに エポック数を 10000 にして実行すると, 以下のように10秒弱の差が開いた.
 
 ```bash
 time python example.py
-# 23.76 s
-
+# 37.19 s
+time python example.py
 time julia example.jl
-# 15.55 s
+# 21.75 s
 ```
 
 ## 感想

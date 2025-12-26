@@ -358,7 +358,7 @@ spec:
 
 ## 運用について
 
-この記事は k3s で Misskey を構築する最低限の手順の備忘録であって, 実運用におけるノウハウについては省く[^iiwake]. たとえば DB バックアップの有無は Misskey サーバーの寿命を大きく左右するから, [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) を使って定期的に S3 にアップロードする処理などを書く必要がありそう. また, k8s の良さを引き出すにはマルチノード構成にしたり [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) を適切に設定したりしなければならない.
+この記事は k3s で Misskey を構築する最低限の手順の備忘録であって, 実運用におけるノウハウについては紹介しない[^iiwake]. たとえば DB バックアップの有無は Misskey サーバーの寿命を大きく左右するから, [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) を作って定期的に S3 にアップロードする処理などを書く必要がありそう. また, k8s の良さを引き出すにはマルチノード構成にしたり [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) を適切に設定したりしなければならない.
 
 [^iiwake]: というか自分もまだわかってない. 鯖缶の先輩方, k8s 運用に関するノウハウ記事をお待ちしております!
 

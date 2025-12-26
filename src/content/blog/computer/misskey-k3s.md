@@ -92,7 +92,7 @@ kubectl apply -f apps/manifest-01.yml
 
 ### Ingress (≃リバースプロキシ) について
 
-リバースプロキシに相当するものは, K8s 語では [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) と言うらしい. k3s では標準で Traefik が Ingress として同梱されている ([参考](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller)). 素の Traefik で `config/dynamic.yml` にまとめて記載するようなルーティングは, k8s ではアプリごとに Ingress に登録できる(後述).
+リバースプロキシに相当するものは, k8s 語では [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) と言うらしい. k3s では標準で Traefik が Ingress として同梱されている ([参考](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller)). 素の Traefik で `config/dynamic.yml` にまとめて記載するようなルーティングは, k8s ではアプリごとに Ingress に登録できる(後述).
 
 ただ, 複数のアプリで共通するような Ingress の設定は先に設定する必要がある. たとえば DNS に Cloudflare を使っていて, ACME の DNS チャレンジをする場合には, 以下のように certificates resolver を追加する. ちなみに k3s では `HelmChart` や `HelmChartConfig` として Helm の操作もマニフェストとして管理できる ([参考](https://docs.k3s.io/add-ons/helm#using-the-helm-controller)). 便利!
 

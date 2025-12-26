@@ -174,7 +174,7 @@ spec:
         enabled: true
         storageClass: local-path
 
-    # DBのパスワード等 (適宜変更)
+    # DBのパスワード等
     auth:
       database: misskey
       username: example-misskey-user
@@ -196,12 +196,12 @@ spec:
     # https://github.com/bitnami/charts/blob/main/bitnami/redis/README.md
 
     master:
+      # Redis データを保持するためのストレージ
       persistence:
-        # Redis データを保持するためのストレージ
         enabled: true
         storageClass: local-path
 
-    # Redis のパスワード等は設定しない (適宜変更)
+    # Redis のパスワード等は設定しない
     auth:
       enabled: false
 ```
@@ -289,8 +289,8 @@ spec:
           image: misskey/misskey:latest
           ports:
             - containerPort: 3000
-          # default.yml をマウント
           volumeMounts:
+            # default.yml をマウント
             - name: config
               mountPath: /misskey/.config/default.yml
               subPath: default.yml

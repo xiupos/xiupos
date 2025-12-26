@@ -333,6 +333,7 @@ metadata:
   name: misskey-ingress
   namespace: misskey-example-tld
   annotations:
+    # https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/ingress/#annotations
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     # ACME の DNS チャレンジを Cloudflare でする場合 (先に登録した certresolver を指定)

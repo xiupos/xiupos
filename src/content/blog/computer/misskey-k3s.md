@@ -7,7 +7,7 @@ draft: true
 
 :::adcal
 
-この記事は「[Misskey Advent Calendar 2025](https://adventar.org/calendars/12280)」5日目および「[北大IT研究会 HUIT Advent Calendar 2025](https://adventar.org/calendars/11772)」20日目の記事です.
+この記事は「[Misskey Advent Calendar 2025](https://adventar.org/calendars/11291)」5日目および「[北大IT研究会 HUIT Advent Calendar 2025](https://adventar.org/calendars/11772)」20日目の記事です.
 
 :::
 

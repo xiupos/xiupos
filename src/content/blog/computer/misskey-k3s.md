@@ -66,7 +66,7 @@ Docker Compose による構築については, Misskey の公式ドキュメン�
 
 ## k3s による構築
 
-Docker Compose による構築は簡単で, 4年間の Misskey 運用でも大きなトラブルはなかった. ただ, 複数の Misskey を動かしたり, 他の [self-hosted な Web アプリ](https://github.com/awesome-selfhosted/awesome-selfhosted)を追加で動かそうとすると, 途端に管理が億劫になる. 可用性についてもかなり自由度が少ない. Docker Compose 運用からコンテナオーケストレーションツールの [Kubernetes (k8s)](https://kubernetes.io/) へ移行したくなるのは必然(?).
+Docker Compose による構築は簡単で, 4年間の Misskey 運用でも大きなトラブルはなかった. ただ, 複数の Misskey を動かしたり, 他の [self-hosted な Web アプリ](https://github.com/awesome-selfhosted/awesome-selfhosted)を追加で動かそうとすると, 途端に管理が億劫になる. 可用性についてもかなり自由度が少ない. Docker Compose 運用からコンテナオーケストレーションツールの [Kubernetes (k8s)](https://kubernetes.io/) へ移行したくなるのは必然だろう(?).
 
 ただ, お一人様で使うような VPS で k8s を動かすのはスペック的に厳しい. ここでは [k3s](https://k3s.io/) という軽量な k8s distribution を使う.
 

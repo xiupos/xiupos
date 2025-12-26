@@ -32,6 +32,7 @@ lang: ja
     1. [Service として登録](#service-として登録)
     1. [Ingress の追加](#ingress-の追加)
 1. [運用について](#運用について)
+1. [参考](#参考)
 
 ## Docker Compose による構築
 
@@ -256,6 +257,8 @@ Misskey 本体を[デプロイ (Deployment)](https://kubernetes.io/docs/concepts
 
 また, Misskey 起動時に DB が起動していないとエラーになってしまうので, Misskey に先立つコンテナ (`initContainers`) で DB が起動するまで待つ処理を書く.
 
+あと画像等が保存される `/misskey/files` のマウントについては省略している. 本気で Misskey 運用を続けるのであれば, 初めから [Amazon S3](https://aws.amazon.com/jp/s3/) や [Cloudflare R2](https://www.cloudflare.com/ja-jp/developer-platform/products/r2/) などのオブジェクトストレージなどを使うべき (後から変更がかなり面倒であるため). オブジェクトストレージは Misskey 立ち上げ後にコントロールパネルから設定できる. どうしてもローカルに保存したい場合については[永続ボリューム (Persistent Volumes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) を設定する必要がある.
+
 ```yaml
 # Misskey 本体をデプロイ
 apiVersion: apps/v1
@@ -362,3 +365,22 @@ spec:
 k8s とは直接関係ない Misskey 自体の運用方法については, 前述の[ちゃんまい氏による解説記事](https://mq1.dev/entry/krpvl5itbr9h)がとても参考になる. また, 困ったことがあれば Misskey (Fediverse) 上で質問すれば野良の鯖缶が答えてくれるかもしれない.
 
 Docker Compose 運用から k8s 運用に移行するハードルがとにかく高いから, この記事がその取っ掛かりになればうれしい.
+
+## 参考
+
+### 公式ドキュメント
+
+- [Misskey](https://misskey-hub.net/ja/docs/)
+
+- [K3s](https://docs.k3s.io/) ([日本語](https://docs.k3s.io/ja/))
+
+- [Kubernetes](https://kubernetes.io/docs/home/) ([日本語](https://kubernetes.io/ja/docs/home/))
+
+- [Traefik](https://doc.traefik.io/traefik/)
+
+- Bitnami の Helm Chart ([PostgreSQL](https://github.com/bitnami/charts/blob/main/bitnami/postgresql/README.md), [Redis](https://github.com/bitnami/charts/blob/main/bitnami/redis/README.md))
+
+### 個人ブログ・記事
+
+- [Misskeyサーバー構築から爆破までのすべて - まいの雑記帳](https://mq1.dev/entry/krpvl5itbr9h)
+

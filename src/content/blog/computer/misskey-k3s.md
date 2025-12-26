@@ -57,7 +57,7 @@ services:
     restart: always # 以下は変更なし
 ```
 
-あとは `docker compose up` するだけで [3000 ポート](http://localhost:3000)に Misskey が立ち上がる. 使いたいドメイン宛てのアクセスをリバースプロキシ ([Nginx](https://nginx.org/en/docs/), [Caddy](https://caddyserver.com/docs/), [Traefik](https://doc.traefik.io/traefik/) 等) や [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) で 3000 ポートに向ければ, 実運用できる Misskey の出来上がり. 簡単!
+あとは `docker compose up` するだけで[ポート 3000](http://localhost:3000) に Misskey が立ち上がる. 使いたいドメイン宛てのアクセスをリバースプロキシ ([Nginx](https://nginx.org/en/docs/), [Caddy](https://caddyserver.com/docs/), [Traefik](https://doc.traefik.io/traefik/) 等) や [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) でポート 3000 に向ければ, 実運用できる Misskey の出来上がり. 簡単!
 
 Docker Compose による構築については, Misskey の公式ドキュメントに記載がある. 運用にも目を向けたものとしては, [ちゃんまい氏](https://mq1.dev/)の記事が決定版だと思う.
 
@@ -303,7 +303,7 @@ spec:
 
 ### Service として登録
 
-作成した Misskey の Deployment を [Service](https://kubernetes.io/docs/concepts/services-networking/service/) として登録する. これによってクラスタ内から 3000 ポートで Misskey にアクセスできるようになる.
+作成した Misskey の Deployment を [Service](https://kubernetes.io/docs/concepts/services-networking/service/) として登録する. これによってクラスタ内からポート 3000 で Misskey にアクセスできるようになる.
 
 ```yaml
 # Misskey を Service として登録
@@ -316,14 +316,14 @@ spec:
   selector:
     app: misskey
   ports:
-    # Misskey を 3000 ポートに接続
+    # Misskey をポート 3000 に接続
     - port: 3000
       targetPort: 3000
 ```
 
 ### Ingress の追加
 
-あとは Ingress でドメインを 3000 ポートに向けるだけ. k8s では Ingress の設定も Misskey 用の名前空間で登録できる. たとえば, Ingress として k3s 標準の Traefik を使い, また certificates resolver に Cloudflare を使う場合は, 以下のように登録できる.
+あとは Ingress でドメインをポート 3000 に向けるだけ. k8s では Ingress の設定も Misskey 用の名前空間で登録できる. たとえば, Ingress として k3s 標準の Traefik を使い, また certificates resolver に Cloudflare を使う場合は, 以下のように登録できる.
 
 ```yaml
 # Ingress の設定
@@ -339,7 +339,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
 spec:
   rules:
-    # example.tld 宛てのアクセスをローカルの 3000 ポートに向ける
+    # example.tld 宛てのアクセスをローカルのポート 3000 に向ける
     - host: example.tld
       http:
         paths:

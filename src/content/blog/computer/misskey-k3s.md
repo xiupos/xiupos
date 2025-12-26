@@ -257,7 +257,7 @@ Misskey 本体を[デプロイ (Deployment)](https://kubernetes.io/docs/concepts
 
 また, Misskey 起動時に DB が起動していないとエラーになってしまうので, Misskey に先立つコンテナ (`initContainers`) で DB が起動するまで待つ処理を書く.
 
-あと画像等が保存される `/misskey/files` のマウントについては省略している. 本気で Misskey 運用を続けるのであれば, 初めから [Amazon S3](https://aws.amazon.com/jp/s3/) や [Cloudflare R2](https://www.cloudflare.com/ja-jp/developer-platform/products/r2/) などのオブジェクトストレージなどを使うべき (後から変更がかなり面倒であるため). オブジェクトストレージは Misskey 立ち上げ後にコントロールパネルから設定できる. どうしてもローカルに保存したい場合については[永続ボリューム (Persistent Volumes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) を設定する必要がある.
+あと画像等が保存される `/misskey/files` のマウントについては省略している. 本気で Misskey 運用を続けるのであれば, 初めから [Amazon S3](https://aws.amazon.com/jp/s3/) や [Cloudflare R2](https://www.cloudflare.com/ja-jp/developer-platform/products/r2/) などのオブジェクトストレージなどを使うべき (後から変更がかなり面倒であるため). オブジェクトストレージは Misskey 立ち上げ後にコントロールパネルから設定できる. どうしてもローカルに保存したい場合には[永続ボリューム (Persistent Volumes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) を設定する必要がある.
 
 ```yaml
 # Misskey 本体をデプロイ
@@ -384,3 +384,4 @@ Docker Compose 運用から k8s 運用に移行するハードルがとにかく
 
 - [Misskeyサーバー構築から爆破までのすべて - まいの雑記帳](https://mq1.dev/entry/krpvl5itbr9h)
 
+- [k8sでmisskeyインスタンス構築してみた :: s1ck h4ck](https://4nm1tsu.com/posts/4pdgkbc/)

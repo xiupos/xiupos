@@ -12,9 +12,9 @@ lang: ja
 
 :::
 
-[Misskey](https://misskey-hub.net/) を [k3s](https://docs.k3s.io/) で建てる際の備忘録. 簡易的な Docker Compose 運用から本格的な k8s クラスタによる運用への橋渡しとして, 軽量な k8s distribution である k3s で構築してみる. 当然ですが, 作業は全て自己責任でお願いします[^attention].
+[Misskey](https://misskey-hub.net/) を [k3s](https://docs.k3s.io/) で建てる際の備忘録. 簡易的な Docker Compose 運用から本格的な k8s クラスタによる運用への橋渡しとして, 軽量な k8s distribution である k3s で構築してみる[^attention].
 
-[^attention]: 一般的なサーバー管理の注意点に加え, Misskey の管理では以下の点に気をつけて作業しましょう.
+[^attention]: 作業は全て自己責任でお願いします. 一般的なサーバー管理の注意点に加え, Misskey の管理では以下の点に気をつけて作業しましょう.
     1. 作業前は必ずバックアップを作成する. 特に PostgreSQL データは死守!!
     1. 既に Misskey で使っているドメインで, 別の Misskey, 新しい Misskey を動かさない.
     1. まだ Misskey で使う予定のドメインで 410 を返さない.
@@ -46,7 +46,7 @@ Misskey 本体を動かすのに必要なのは [`compose.yml`](https://github.c
 compose.yml
 ```
 
-`.config/` 以下の設定ファイルは適当に書き直す. また, ソースコード内の `compose_example.yml` はイメージをローカルでビルドするようになっているが, Docker Hub に[公式イメージ](https://hub.docker.com/r/misskey/misskey)があるからそちらを使うようにする.
+`.config/` 以下の設定ファイルは適当に書き直す. また, ソースコード内の `compose_example.yml` はイメージをローカルでビルドするようになっているが, Docker Hub にビルド済みの[公式イメージ](https://hub.docker.com/r/misskey/misskey)があるから, それを使うようにする.
 
 ```yaml
 # compose.yml
@@ -92,7 +92,7 @@ kubectl apply -f apps/manifest-01.yml
 
 ### Ingress (≃リバースプロキシ) について
 
-リバースプロキシに相当するものは, K8s 語では [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) と言うらしい. k3s では標準で Traefik が Ingress として同封されている ([参考](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller)). 素の Traefik で `config/dynamic.yml` にまとめて記載するようなルーティングは, k8s ではアプリごとに Ingress に登録できる(後述).
+リバースプロキシに相当するものは, K8s 語では [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) と言うらしい. k3s では標準で Traefik が Ingress として同梱されている ([参考](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller)). 素の Traefik で `config/dynamic.yml` にまとめて記載するようなルーティングは, k8s ではアプリごとに Ingress に登録できる(後述).
 
 ただ, 複数のアプリで共通するような Ingress の設定は先に設定する必要がある. たとえば DNS に Cloudflare を使っていて, ACME の DNS チャレンジをする場合には, 以下のように certificates resolver を追加する. ちなみに k3s では `HelmChart` や `HelmChartConfig` として Helm の操作もマニフェストとして管理できる ([参考](https://docs.k3s.io/add-ons/helm#using-the-helm-controller)). 便利!
 
@@ -303,7 +303,7 @@ spec:
 
 ### Service として登録
 
-作成した Misskey の Deployment を [Service](https://kubernetes.io/docs/concepts/services-networking/service/) として登録する. これによって Misskey が [3000 ポート](http://localhost:3000)で公開される.
+作成した Misskey の Deployment を [Service](https://kubernetes.io/docs/concepts/services-networking/service/) として登録する. これによってクラスタ内から 3000 ポートで Misskey にアクセスできるようになる.
 
 ```yaml
 # Misskey を Service として登録
@@ -316,7 +316,7 @@ spec:
   selector:
     app: misskey
   ports:
-    # Misskey の 3000 ポートをサーバー自身の 3000ポートに接続
+    # Misskey を 3000 ポートに接続
     - port: 3000
       targetPort: 3000
 ```
@@ -354,10 +354,10 @@ spec:
 
 ## 運用について
 
-この記事は k3s で Misskey を構築する最低限の手順の備忘録であって, 実運用におけるノウハウについては省く[^iiwake]. たとえば DB バックアップの有無は Misskey サーバーの寿命を大きく左右するから, [CronTab](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) を使って定期的に S3 にアプロードする処理などを書く必要がありそう. また, k8s の良さを引き出すにはマルチノード構成にしたり [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) を適切に設定したりしなければならない.
+この記事は k3s で Misskey を構築する最低限の手順の備忘録であって, 実運用におけるノウハウについては省く[^iiwake]. たとえば DB バックアップの有無は Misskey サーバーの寿命を大きく左右するから, [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) を使って定期的に S3 にアップロードする処理などを書く必要がありそう. また, k8s の良さを引き出すにはマルチノード構成にしたり [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) を適切に設定したりしなければならない.
 
 [^iiwake]: というか自分もまだわかってない. 鯖缶の先輩方, k8s 運用に関するノウハウ記事をお待ちしております!
 
-k8s とは直接関係ない Misskey 自体の運用方法については, 前述の[ちゃんまい氏による解説記事](https://mq1.dev/entry/krpvl5itbr9h)がとても参考になる. また, 困ったことがあれば Misskey 上で質問すれば野良の鯖缶が答えてくれるかもしれない.
+k8s とは直接関係ない Misskey 自体の運用方法については, 前述の[ちゃんまい氏による解説記事](https://mq1.dev/entry/krpvl5itbr9h)がとても参考になる. また, 困ったことがあれば Misskey (Fediverse) 上で質問すれば野良の鯖缶が答えてくれるかもしれない.
 
-とにかく Docker Compose 運用から k8s 運用に移行する敷居が高いから, この記事がその取っ掛かりになればうれしい.
+Docker Compose 運用から k8s 運用に移行するハードルがとにかく高いから, この記事がその取っ掛かりになればうれしい.

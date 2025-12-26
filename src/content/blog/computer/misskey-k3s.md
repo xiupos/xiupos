@@ -35,7 +35,7 @@ lang: ja
 
 ## Docker Compose による構築
 
-2021 年末頃からお一人様 Misskey サーバー (執筆時点では [mk.xiupos.net](https://mk.xiupos.net/)) を運用していて, ずっと [Docker Compose](https://docs.docker.com/compose/) を使っていた. まずは Docker Compose での Misskey の構築を簡単にまとめる.
+2021 年末頃からお一人様 Misskey サーバー (執筆時点では [mk.xiupos.net](https://mk.xiupos.net/)) を運用していて, ずっと [Docker Compose](https://docs.docker.com/compose/) を使っていた. まずは Docker Compose での Misskey の構築手順を簡単にまとめる.
 
 Misskey 本体を動かすのに必要なのは [`compose.yml`](https://github.com/misskey-dev/misskey/blob/master/compose_example.yml), [`.config/docker.env`](https://github.com/misskey-dev/misskey/blob/master/.config/docker_example.env), [`.config/docker.yml`](https://github.com/misskey-dev/misskey/blob/master/.config/docker_example.yml) の 3 ファイルのみ.
 

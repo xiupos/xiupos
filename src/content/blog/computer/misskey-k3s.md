@@ -1,5 +1,5 @@
 ---
-title: Misskey を k3s で建てるメモ
+title: Misskeyをk3sで建てるメモ
 author : xiupos
 date : \today
 pubDate: 2025-12-26T18:30:00+09:00
@@ -12,7 +12,7 @@ lang: ja
 
 :::
 
-分散型 SNS の [Misskey](https://misskey-hub.net/) を [k3s](https://docs.k3s.io/) で建てる際の備忘録. 簡易的な Docker Compose 運用から本格的な k8s クラスタによる運用への橋渡しとして, 軽量な k8s distribution である k3s で構築してみる[^attention].
+分散型 SNS の [Misskey](https://misskey-hub.net/) を [k3s](https://docs.k3s.io/) で建てる際の備忘録. 簡易的な Docker Compose 運用から本格的な k8s クラスタによる運用への橋渡しとして, 軽量な k8s distribution の k3s で構築してみる[^attention].
 
 [^attention]: 作業は全て自己責任でお願いします. 一般的なサーバー管理の注意点に加え, Misskey の管理では以下の点に気をつけて作業しましょう.
     1. 作業前は必ずバックアップを作成する. 特に PostgreSQL データは死守!!

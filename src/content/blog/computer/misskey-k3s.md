@@ -371,17 +371,12 @@ Docker Compose 運用から k8s 運用に移行するハードルがとにかく
 ### 公式ドキュメント
 
 - [Misskey](https://misskey-hub.net/ja/docs/)
-
 - [K3s](https://docs.k3s.io/) ([日本語](https://docs.k3s.io/ja/))
-
 - [Kubernetes](https://kubernetes.io/docs/home/) ([日本語](https://kubernetes.io/ja/docs/home/))
-
 - [Traefik](https://doc.traefik.io/traefik/)
-
 - Bitnami の Helm Chart ([PostgreSQL](https://github.com/bitnami/charts/blob/main/bitnami/postgresql/README.md), [Redis](https://github.com/bitnami/charts/blob/main/bitnami/redis/README.md))
 
 ### 個人ブログ・記事
 
 - [Misskeyサーバー構築から爆破までのすべて - まいの雑記帳](https://mq1.dev/entry/krpvl5itbr9h)
-
 - [k8sでmisskeyインスタンス構築してみた :: s1ck h4ck](https://4nm1tsu.com/posts/4pdgkbc/)

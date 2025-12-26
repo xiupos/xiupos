@@ -2,7 +2,7 @@
 title: Misskey を k3s で建てるメモ
 author : xiupos
 date : \today
-pubDate: 2025-12-26T13:30:00+09:00
+pubDate: 2025-12-26T18:30:00+09:00
 lang: ja
 ---
 

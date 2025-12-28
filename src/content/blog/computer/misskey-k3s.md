@@ -226,7 +226,7 @@ data:
     port: 3000
 
     db:
-      host: db.misskey-example-tld.svc.cluster.local
+      host: db-postgresql.misskey-example-tld.svc.cluster.local
       port: 5432
       db: misskey
       user: example-misskey-user
@@ -283,7 +283,7 @@ spec:
           command: ["sh", "-c"]
           args:
             - | #sh
-              until nc -z -v -w 2 db.misskey-example-tld.svc.cluster.local 5432; do sleep 2; done
+              until nc -z -v -w 2 db-postgresql.misskey-example-tld.svc.cluster.local 5432; do sleep 2; done
               until nc -z -v -w 2 redis-master.misskey-example-tld.svc.cluster.local 6379; do sleep 2; done
 
       # Misskey 本体

@@ -228,7 +228,7 @@ data:
     port: 3000
 
     db:
-      host: db-postgresql.misskey-example-tld.svc.cluster.local
+      host: db-postgresql
       port: 5432
       db: misskey
       user: example-misskey-user
@@ -237,7 +237,7 @@ data:
     dbReplications: false
 
     redis:
-      host: redis-master.misskey-example-tld.svc.cluster.local
+      host: redis-master
       port: 6379
 
     fulltextSearch:
@@ -285,8 +285,8 @@ spec:
           command: ["sh", "-c"]
           args:
             - | #sh
-              until nc -z -v -w 2 db-postgresql.misskey-example-tld.svc.cluster.local 5432; do sleep 2; done
-              until nc -z -v -w 2 redis-master.misskey-example-tld.svc.cluster.local 6379; do sleep 2; done
+              until nc -z -v -w 2 db-postgresql 5432; do sleep 2; done
+              until nc -z -v -w 2 redis-master 6379; do sleep 2; done
 
       # Misskey 本体
       containers:

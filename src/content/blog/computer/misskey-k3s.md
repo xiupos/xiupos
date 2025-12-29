@@ -83,10 +83,14 @@ curl -sfL https://get.k3s.io | sh -s -
 
 以降は [`kubectl`](https://kubernetes.io/ja/docs/reference/kubectl/) を使ってクラスタを操作する. サーバー上で操作してもいいが, `/etc/rancher/k3s/k3s.yaml` を作業マシンに転送して `~/.kube/config` として保存し, 中身の `127.0.0.1` をサーバーの IP アドレスに置換すれば, 手元の作業マシンから `kubectl` で操作できる. これも Docker Compose 運用との大きな違いの一つ.
 
-また k8s クラスタへの設定反映も, 基本的にはマニフェストと呼ばれる yaml を書いて適用する形式になる. たとえば `apps/manifest-01.yml` というファイルに書いてあるマニフェストの作成/変更を反映するには, 次のコマンドを実行する.
+また k8s クラスタへの設定反映も, 基本的にはマニフェストと呼ばれる yaml を書いて適用する形式になる. たとえば `apps/manifest-01.yml` というファイルに書いてあるマニフェストの変更を反映するには, 次のコマンドを実行する.
 
 ```sh
+# 適用/更新
 kubectl apply -f apps/manifest-01.yml
+
+# 取り消し(マニフェストで作成されたものが消える)
+kubectl delete -f apps/manifest-01.yml
 ```
 
 書いたマニフェストは Git などで管理などすれば再現性を高めることができる. また, 1つの yaml ファイルに複数のマニフェストを連記できるから,「Misskey に関するマニフェストは `misskey.yml`」といった単純な運用ができる.
@@ -161,7 +165,6 @@ apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
   name: db
-  namespace: misskey-example-tld
 spec:
   chart: postgresql
   repo: https://charts.bitnami.com/bitnami
@@ -188,7 +191,6 @@ apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
   name: redis
-  namespace: misskey-example-tld
 spec:
   chart: redis
   repo: https://charts.bitnami.com/bitnami

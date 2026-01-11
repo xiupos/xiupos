@@ -26,6 +26,17 @@
     // math rules
     show math.equation: set text(weight: 500, size: 15pt)
     show math.equation: html.frame
+    show math.equation.where(block: true): it => {
+      html.elem(
+        "div",
+        attrs: ("class": "typst-math-display"),
+        html.elem(
+          "div",
+          attrs: ("class": "typst-math"),
+          it,
+        ),
+      )
+    }
     show math.equation.where(block: false): box
 
     // Footnotes

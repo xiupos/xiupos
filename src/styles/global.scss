@@ -114,16 +114,22 @@ article {
     zoom: 0.9;
   }
 
+  .typst-math-display,
   .katex-display {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
+    .typst-math,
     .katex {
-      display: block; // some browsers don't support "math"
-      display: block math;
+      display: block;
       padding: 0.2em 0;
       width: 100%;
+
+      .typst-frame {
+        margin: 0 auto;
+        display: block;
+      }
     }
   }
 

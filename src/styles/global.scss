@@ -1,15 +1,8 @@
-// Math fonts for MathML
-@use "mathml-fonts";
-
 // Math fonts for TikZJax
 @use "/node_modules/node-tikzjax/css/fonts.css";
 
 // Math styles for KaTeX
 @use "/node_modules/katex/dist/katex.min.css";
-
-// Math styles for mathyml (Typst to MathML converter)
-@use "@plugins/mathyml/src/mathyml.css";
-@use "mathyml-patch";
 
 // Source Code Pro by Adobe
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap");
@@ -27,9 +20,11 @@ html {
   --back-sub: light-dark(#f2f2f2, #1a1a1a);
   --back-code: light-dark(#f4f4f4, #111);
   --back-thumb: light-dark(#e3e3e3, #4a4a4a);
-  --filter: light-dark(none, invert());
+  --filter: none;
 
   @media (prefers-color-scheme: dark) {
+    --filter: invert(1);
+
     pre code span {
       color: var(--shiki-dark) !important;
     }
@@ -110,28 +105,34 @@ article {
     display: none;
   }
 
-  // MathML and KaTeX
-
-  math {
-    zoom: 1.1;
+  // Typst formula and KaTeX
+  .typst-frame {
+    width: auto;
+    height: auto;
+    margin: 0;
+    filter: var(--filter);
   }
 
   .katex {
     zoom: 0.9;
   }
 
-  .math-wrapper,
+  .typst-math-display,
   .katex-display {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
-    math,
+    .typst-math,
     .katex {
-      display: block; // some browsers don't support "math"
-      display: block math;
+      display: block;
       padding: 0.2em 0;
       width: 100%;
+
+      .typst-frame {
+        margin: 0 auto;
+        display: block;
+      }
     }
   }
 

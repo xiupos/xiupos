@@ -1,6 +1,3 @@
-// Math fonts for MathML
-@use "mathml-fonts";
-
 // Math fonts for TikZJax
 @use "/node_modules/node-tikzjax/css/fonts.css";
 
@@ -108,21 +105,15 @@ article {
 
   // MathML and KaTeX
 
-  math {
-    zoom: 1.1;
-  }
-
   .katex {
     zoom: 0.9;
   }
 
-  .math-wrapper,
   .katex-display {
     margin: calc(var(--headerMargin) - 0.2em) auto !important;
     overflow: hidden;
     overflow-x: auto;
 
-    math,
     .katex {
       display: block; // some browsers don't support "math"
       display: block math;

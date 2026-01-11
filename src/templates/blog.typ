@@ -24,6 +24,9 @@
     )
 
     // math rules
+    show math.equation: set text(weight: 500, font: "STIX Two Math", size: 13pt)
+    show math.equation: html.frame
+    show math.equation.where(block: false): box
 
     // Footnotes
     show: it => {

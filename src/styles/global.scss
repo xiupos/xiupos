@@ -103,7 +103,12 @@ article {
     display: none;
   }
 
-  // MathML and KaTeX
+  // Typst formula and KaTeX
+  .typst-frame {
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
 
   .katex {
     zoom: 0.9;

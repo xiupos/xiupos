@@ -20,9 +20,11 @@ html {
   --back-sub: light-dark(#f2f2f2, #1a1a1a);
   --back-code: light-dark(#f4f4f4, #111);
   --back-thumb: light-dark(#e3e3e3, #4a4a4a);
-  --filter: light-dark(none, invert());
+  --filter: none;
 
   @media (prefers-color-scheme: dark) {
+    --filter: invert(1);
+
     pre code span {
       color: var(--shiki-dark) !important;
     }
@@ -108,6 +110,7 @@ article {
     width: auto;
     height: auto;
     margin: 0;
+    filter: var(--filter);
   }
 
   .katex {

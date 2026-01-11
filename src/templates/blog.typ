@@ -1,6 +1,3 @@
-#import "/src/plugins/mathyml/src/lib.typ": *
-#import prelude: *
-
 #let post(
   title: "Untitled",
   date: "2025-10-11T12:00:00+09:00",
@@ -27,9 +24,6 @@
     )
 
     // math rules
-    show math.equation: set text(weight: 500)
-    // show math.equation: to-mathml
-    show math.equation: try-to-mathml
 
     // Footnotes
     show: it => {

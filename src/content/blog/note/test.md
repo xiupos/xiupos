@@ -16,6 +16,16 @@ test
 
 :::
 
+````md
+## Proof
+
+:::proof
+
+test
+
+:::
+````
+
 ## Fenced Divs
 
 :::screen

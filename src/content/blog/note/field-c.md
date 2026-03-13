@@ -143,10 +143,10 @@ $$
 $$
 ここで, $ϕ^α$ と ${ϕ^α}^*$ を独立に扱って,
 $$
-\begin{gathered}
+\begin{aligned}
 \pdv{\mathcal{L}}{{ϕ^α}^*} = - \frac12 m^2 ϕ_α, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ {ϕ^α}^*)} } = \frac12 ∂_μ ∂^μ ϕ_α ≡ \frac12 □ ϕ_α, \\
 \pdv{\mathcal{L}}{ϕ^α} = - \frac12 m^2 ϕ_α^*, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = \frac12 ∂_μ ∂^μ ϕ_α^* ≡ \frac12 □ ϕ_α^*, \\
-\end{gathered}
+\end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
@@ -220,10 +220,10 @@ $$
 $$
 ただし $\slashed{∂}≡γ^μ∂_μ$ は Dirac 演算子, $γ^μ$ は $\{γ^μ,γ^ν\}=g^{μν}$ を満たす $γ$ 行列で, $\overline{ψ}≡ψ^{\dagger}γ^0$ は Dirac 共役である. また, Dirac 場 $ψ$ は Dirac スピノルと呼ばれる列ベクトルで, 例えば4成分である: $ψ = (ψ_1, ψ_2, ψ_3, ψ_4)^{\mathsf{T}}$. ここで, $ψ$ と $\overline{ψ}$ を独立に扱って,
 $$
-\begin{gathered}
+\begin{aligned}
   \pdv{\mathcal{L}}{\overline{ψ}} = i\slashed{∂} ψ - m ψ = (i\slashed{∂} - m) ψ, \quad \pdv{\mathcal{L}}{(∂_μ\overline{ψ})} = 0, \\
   \pdv{\mathcal{L}}{ψ} = - m\overline{ψ}, \quad \pdv{\mathcal{L}}{(∂_μψ)} = \overline{ψ} iγ^μ. \\
-\end{gathered}
+\end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
@@ -388,11 +388,11 @@ $$
 $$
 例えば,
 $$
-\begin{gathered}
+\begin{aligned}
 \{ϕ^α, H\}_\mathrm{P} = \.ϕ^α, \quad \{π_α, H\}_\mathrm{P} = \.π_α, \\
 \{ϕ^α(t, \bm{x}), ϕ^β(t, \bm{x}')\}_\mathrm{P} = \{π_α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} = 0, \\
 \{ϕ^α(t, \bm{x}), π_β(t, \bm{x}')\}_\mathrm{P} = δ^α_β δ^3(\bm{x}-\bm{x}').
-\end{gathered}
+\end{aligned}
 $$
 
 ある物理量 $A[ϕ^α, π_α]$ について, 時間発展に関する式は:

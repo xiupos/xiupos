@@ -150,7 +150,7 @@ time julia example.jl
 ```bash
 time python example.py
 # 37.19 s
-time python example.py
+
 time julia example.jl
 # 21.75 s
 ```

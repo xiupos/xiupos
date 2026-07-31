@@ -26,11 +26,7 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - uses: astral-sh/setup-uv@v6
+      - uses: jdx/mise-action@v4
 
       - name: Install javascript dependencies
         run: bun install

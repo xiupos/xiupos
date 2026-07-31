@@ -1,5 +1,6 @@
 [tools]
 bun = "latest"
+uv = "latest"
 
 [tasks]
 build = "bun run build"

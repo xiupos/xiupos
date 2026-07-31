@@ -21,7 +21,7 @@ const BlogPosts = (
 ).map((post) => ({
   title: post.data.title,
   pubDate: post.data.pubDate,
-  link: `/blog/${post.slug}`,
+  link: `/blog/${post.id}`,
 }));
 
 const posts = [

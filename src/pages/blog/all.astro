@@ -19,7 +19,7 @@ const sortByDate = (a: any, b: any) =>
 const BlogPosts = (await getCollection("blog")).map((post) => ({
   title: (post.data.draft ? "[draft] " : "") + post.data.title,
   pubDate: post.data.pubDate,
-  link: `/blog/${post.slug}`,
+  link: `/blog/${post.id}`,
 }));
 
 const posts = [

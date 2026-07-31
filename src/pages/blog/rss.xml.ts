@@ -14,7 +14,7 @@ export async function GET(context: APIContext) {
     title: post.data.title,
     pubDate: post.data.pubDate,
     // description: post.description,
-    link: `/blog/${post.slug}/`,
+    link: `/blog/${post.id}/`,
   }));
 
   // combine other posts with blog posts

@@ -1,10 +1,14 @@
 // wip
 import { visitParents } from "unist-util-visit-parents";
-import * as nodeTikzjax from "node-tikzjax";
+import nodeTikzjax from "node-tikzjax";
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
 import type { Code, Root } from "mdast";
 
-const tex2svg = nodeTikzjax.default;
+const tex2svg = (
+  nodeTikzjax as unknown as {
+    default: typeof import("node-tikzjax").default;
+  }
+).default;
 const tex2svgOptions = {
   embedFontCss: true,
   texPackages: {

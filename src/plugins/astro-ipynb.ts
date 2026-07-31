@@ -44,7 +44,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
 
         if (ipynbObj.cells?.length === 0) {
           logger.warn(`${ipynbPath} is empty; Skip.`);
-          return;
+          continue;
         }
         const ipynbFirstCellText = [...ipynbObj.cells[0].source].join("");
 
@@ -55,7 +55,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
           logger.warn(
             `First cell must be a yaml code block only in ${ipynbPath}; Skip.`
           );
-          return;
+          continue;
         }
         const frontmatterText = ipynbFirstCellText
           .replace(/^```yaml\n/, "")

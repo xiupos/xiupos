@@ -77,7 +77,7 @@ const rehypeRewriteLinks: RehypePlugin = () => (tree, file) =>
       const href = node.properties.href;
       if (typeof href !== "string") return;
 
-      // it doesn't work for .typ files i.e. @components/Link.astro
+      // it doesn't work for .typ files c.f. @components/Link.astro
       if (file.path && !file.path.endsWith(".typ")) {
         node.properties.href = updateHref(href, file.path);
       }

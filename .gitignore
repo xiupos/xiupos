@@ -32,4 +32,3 @@ bun.lockb
 
 # jupyter notebook
 */**/*.ipynb.md
-

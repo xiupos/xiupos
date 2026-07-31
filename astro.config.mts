@@ -12,7 +12,6 @@ import remarkTikzjax from "./src/plugins/remark-tikzjax.ts";
 
 import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
-// @ts-ignore
 import rehypeWrapAll from "rehype-wrap-all";
 import { rehypeRewriteLinks } from "./src/plugins/rehype-rewrite-links.ts";
 

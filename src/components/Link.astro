@@ -8,11 +8,13 @@ let newHref = href;
 // rewrite relative links between md files (only for .typ files)
 try {
   const { slug } = Astro.params;
-  const currentEntry = await getEntry("blog", slug || "");
-  const currentPath = currentEntry ? currentEntry.id : "";
+  if (slug) {
+    const currentEntry = await getEntry("blog", slug);
+    const currentPath = currentEntry ? currentEntry.id : "";
 
-  if (currentPath.endsWith(".typ")) {
-    newHref = updateHref(href, currentPath);
+    if (currentPath.endsWith(".typ")) {
+      newHref = updateHref(href, currentPath);
+    }
   }
 } catch (e) {
   newHref = href;

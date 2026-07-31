@@ -1,9 +1,9 @@
 // wip
 import { visitParents } from "unist-util-visit-parents";
-import nodeTikzjax from "node-tikzjax";
+import * as nodeTikzjax from "node-tikzjax";
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
+import type { Code, Root } from "mdast";
 
-// @ts-ignore
 const tex2svg = nodeTikzjax.default;
 const tex2svgOptions = {
   embedFontCss: true,
@@ -17,7 +17,7 @@ const htmlTemplate = (body: string): string =>
   `<div class="responsive" style="zoom:1.4;">${body}</div>`;
 
 const texTemplate = (type: string, body: string): string => {
-  if (type == "tikz")
+  if (type === "tikz")
     return `
     \\begin{document}
       ${body}
@@ -29,25 +29,21 @@ const texTemplate = (type: string, body: string): string => {
 const tex2html = async (type: string, tex: string): Promise<string> =>
   htmlTemplate(await tex2svg(texTemplate(type, tex), tex2svgOptions));
 
-// @ts-ignore
-const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
+const remarkTikzjax: RemarkPlugin<any[]> = () => (tree: Root) =>
   new Promise(async (resolve, reject) => {
-    // @ts-ignore
-    const instances = [];
+    const instances: Code[] = [];
     visitParents(
       tree,
       [{ type: "code", lang: "tikz" }],
-      // @ts-ignore
-      (node) => {
-        // @ts-ignore
-        instances.push({ node });
+      (node: Code) => {
+        instances.push(node);
       }
     );
-    // @ts-ignore
-    for (const { node } of instances) {
+    for (const node of instances) {
       try {
-        node.type = "html";
-        let svg = await tex2html(node.lang, node.value);
+        const mutableNode = node as Omit<Code, "type"> & { type: string };
+        mutableNode.type = "html";
+        let svg = await tex2html("tikz", node.value);
 
         // for dark mode;
         svg = svg
@@ -58,14 +54,13 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
           )
           .replaceAll(/("#fff"|"white")/g, `"var(--back)"`);
 
-        node.value = svg;
+        mutableNode.value = svg;
       } catch (e) {
         console.error("ERROR: ", e);
         return reject(e);
       }
     }
 
-    // @ts-ignore
     resolve();
   });
 

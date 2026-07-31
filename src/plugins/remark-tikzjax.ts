@@ -33,7 +33,7 @@ const texTemplate = (type: string, body: string): string => {
 const tex2html = async (type: string, tex: string): Promise<string> =>
   htmlTemplate(await tex2svg(texTemplate(type, tex), tex2svgOptions));
 
-const remarkTikzjax: RemarkPlugin<any[]> = () => async (tree: Root) => {
+const remarkTikzjax: RemarkPlugin<unknown[]> = () => async (tree: Root) => {
   const instances: Code[] = [];
   visitParents(tree, [{ type: "code", lang: "tikz" }], (node: Code) => {
     instances.push(node);
@@ -49,7 +49,7 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => async (tree: Root) => {
       .replaceAll(/("#000"|"black")/g, `"currentColor"`)
       .replaceAll(
         /stroke="currentColor"/g,
-        `stroke="currentColor" fill="currentColor"`
+        `stroke="currentColor" fill="currentColor"`,
       )
       .replaceAll(/("#fff"|"white")/g, `"var(--back)"`);
 

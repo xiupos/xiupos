@@ -35,6 +35,15 @@ jobs:
       - name: Install javascript dependencies
         run: bun install
 
+      - name: Format check
+        run: bun run format:check
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Type check
+        run: bun run check
+
       - name: Build
         run: bun run build
 

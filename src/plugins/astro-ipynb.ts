@@ -53,7 +53,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
           !ipynbFirstCellText.endsWith("```")
         ) {
           logger.warn(
-            `First cell must be a yaml code block only in ${ipynbPath}; Skip.`
+            `First cell must be a yaml code block only in ${ipynbPath}; Skip.`,
           );
           continue;
         }
@@ -85,13 +85,13 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
                   path.relative(contentDir, ipynbPath),
               }
             : frontmatterObj.ipynb_link_type === "ipynb"
-            ? {
-                text: "ipynb",
-                href:
-                  "https://github.com/xiupos/xiupos/blob/main/src/content/" +
-                  path.relative(contentDir, ipynbPath),
-              }
-            : []
+              ? {
+                  text: "ipynb",
+                  href:
+                    "https://github.com/xiupos/xiupos/blob/main/src/content/" +
+                    path.relative(contentDir, ipynbPath),
+                }
+              : [],
         );
 
         // reconstruct frontmatter

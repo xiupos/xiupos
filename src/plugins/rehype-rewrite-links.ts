@@ -30,7 +30,7 @@ const updateHref = (href: string, currentPath: string) => {
     // "../path/to/post.md"
     const relativePath = href.substring(
       0,
-      href.length - hash.length - search.length
+      href.length - hash.length - search.length,
     );
 
     for (const ext of extensions) {
@@ -41,19 +41,19 @@ const updateHref = (href: string, currentPath: string) => {
           // "./path/to/post/index.md" -> "./path/to/post"
           newRelativePath = newRelativePath.replace(
             new RegExp(`/index\.${ext}$`),
-            ""
+            "",
           );
         } else {
           // "./path/to/post.md" -> "./path/to/post"
           newRelativePath = newRelativePath.replace(
             new RegExp(`\.${ext}$`),
-            ""
+            "",
           );
         }
 
         // is the link source a index file like "~/index.md"
         const isIndexFile = extensions.some((ext) =>
-          currentPath.endsWith("index." + ext)
+          currentPath.endsWith("index." + ext),
         );
         if (isIndexFile) {
           // "../../path/to/post" -> "./../path/to/post"
@@ -63,7 +63,7 @@ const updateHref = (href: string, currentPath: string) => {
         return newRelativePath + hash + search;
       }
     }
-  } catch (e) {
+  } catch {
     console.error(`ERROR: resolving link ${href}`);
     return href;
   }

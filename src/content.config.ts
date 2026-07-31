@@ -19,7 +19,7 @@ const blog = defineCollection({
         z.object({
           text: z.string(),
           href: z.string(),
-        })
+        }),
       )
       .default([]),
     ipynb_link_type: z.enum(["colab", "ipynb", "none"]).default("none"),

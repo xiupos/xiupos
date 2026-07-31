@@ -1,0 +1,10 @@
+dist/
+.astro/
+node_modules/
+.github/
+src/plugins/mathyml/
+src/assets/fonts/stixfonts/
+src/content/
+public/
+bun.lock
+*.ipynb.md

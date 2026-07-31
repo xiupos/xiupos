@@ -3,17 +3,14 @@ import { getCollection } from "astro:content";
 import { BLOG_TITLE, BLOG_DESCRIPTION } from "../../site.config.ts";
 import OtherPosts from "@data/other-posts.json";
 import type { APIContext } from "astro";
+import { sortByDate } from "../../utils/sortByDate";
 
 export async function GET(context: APIContext) {
-  const sortByDate = (a: { pubDate: Date }, b: { pubDate: Date }): number =>
-    b.pubDate.valueOf() - a.pubDate.valueOf();
-
   const BlogPosts = (
     await getCollection("blog", ({ data }) => data.draft !== true)
   ).map((post) => ({
     title: post.data.title,
     pubDate: post.data.pubDate,
-    // description: post.description,
     link: `/blog/${post.id}/`,
   }));
 

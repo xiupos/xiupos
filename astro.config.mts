@@ -36,7 +36,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     typst({
-      target: () => "html",
+      target: "html",
     }),
     ipynb({
       nbconvert: {

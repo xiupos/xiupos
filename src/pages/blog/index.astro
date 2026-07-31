@@ -12,9 +12,7 @@ import {
 } from "../../site.config";
 import { getCollection } from "astro:content";
 import OtherPosts from "@data/other-posts.json";
-
-const sortByDate = (a: any, b: any) =>
-  b.pubDate.valueOf() - a.pubDate.valueOf();
+import { sortByDate } from "../../utils/sortByDate";
 
 const BlogPosts = (
   await getCollection("blog", ({ data }) => data.draft !== true)

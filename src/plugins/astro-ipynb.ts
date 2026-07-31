@@ -42,7 +42,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
         const mdFilename = ipynbFilename + ".md";
         const mdPath = path.join(ipynbDir, mdFilename);
 
-        if (ipynbObj.cells?.length == 0) {
+        if (ipynbObj.cells?.length === 0) {
           logger.warn(`${ipynbPath} is empty; Skip.`);
           return;
         }
@@ -74,17 +74,17 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
         if (!frontmatterObj.slug) frontmatterObj.slug = ipynbUrl;
 
         // add link
-        if (!frontmatterObj.links || frontmatterObj.links.length == 0)
+        if (!frontmatterObj.links || frontmatterObj.links.length === 0)
           frontmatterObj.links = [];
         frontmatterObj.links = frontmatterObj.links.concat(
-          frontmatterObj.ipynb_link_type == "colab"
+          frontmatterObj.ipynb_link_type === "colab"
             ? {
                 text: "colab",
                 href:
                   "https://colab.research.google.com/github/xiupos/xiupos/blob/main/src/content/" +
                   path.relative(contentDir, ipynbPath),
               }
-            : frontmatterObj.ipynb_link_type == "ipynb"
+            : frontmatterObj.ipynb_link_type === "ipynb"
             ? {
                 text: "ipynb",
                 href:

@@ -51,7 +51,6 @@ const remarkTikzjax: RemarkPlugin<any[]> = () => (tree) =>
 
         // for dark mode;
         svg = svg
-          // .replaceAll(/stroke="none"/g, `storoke="var(--color)"`)
           .replaceAll(/("#000"|"black")/g, `"currentColor"`)
           .replaceAll(
             /stroke="currentColor"/g,

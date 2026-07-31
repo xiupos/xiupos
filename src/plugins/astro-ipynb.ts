@@ -67,7 +67,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
           frontmatterObj = YAML.parse(frontmatterText);
         } catch (e) {
           logger.warn(`Failed to parse frontmatter in ${ipynbPath}`);
-          console.warn(e);
+          console.warn("WARN: ", e);
         }
 
         // set the path name without "ipynb" to `slug` in frontmatter
@@ -126,7 +126,7 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
           }
         } catch (e) {
           logger.error(`nbconvert cannot convert ${ipynbPath}`);
-          console.error(e);
+          console.error("ERROR: ", e);
         }
       }
     },

@@ -11,7 +11,7 @@ import remarkFencedDivs from "./src/plugins/remark-fenced-divs.ts";
 import remarkTikzjax from "./src/plugins/remark-tikzjax.ts";
 
 import rehypeKatex from "rehype-katex";
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
 import rehypeWrapAll from "rehype-wrap-all";
 import { rehypeRewriteLinks } from "./src/plugins/rehype-rewrite-links.ts";
 
@@ -39,7 +39,7 @@ export default defineConfig({
     }),
     ipynb({
       nbconvert: {
-        cmd: "uvx jupyter nbconvert",
+        cmd: "uvx --from jupyter-core jupyter nbconvert",
         template: "src/templates/ipynb",
       },
     }),
@@ -62,25 +62,27 @@ export default defineConfig({
   },
   output: "static",
   markdown: {
-    remarkPlugins: [
-      remarkMath,
-      remarkDirective,
-      remarkFencedDivs,
-      remarkTikzjax,
-    ],
-    rehypePlugins: [
-      [
-        rehypeKatex,
-        {
-          macros: mathMacros,
-          strict: "error",
-          output: "html",
-        },
+    processor: unified({
+      remarkPlugins: [
+        remarkMath,
+        remarkDirective,
+        remarkFencedDivs,
+        remarkTikzjax,
       ],
-      [rehypeWrapAll, rehypeWrapAllOptions],
-      rehypeHeadingIds,
-      rehypeRewriteLinks,
-    ],
+      rehypePlugins: [
+        [
+          rehypeKatex,
+          {
+            macros: mathMacros,
+            strict: "error",
+            output: "html",
+          },
+        ],
+        [rehypeWrapAll, rehypeWrapAllOptions],
+        rehypeHeadingIds,
+        rehypeRewriteLinks,
+      ],
+    }),
     shikiConfig: {
       themes: {
         light: "github-light",

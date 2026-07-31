@@ -127,11 +127,11 @@ $$
 $$
 ここで,
 $$
-\pdv{\mathcal{L}}{ϕ^α} = - m^2 ϕ_α, \quad ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ_α = □ ϕ_α.
+\pdv{\mathcal{L}}{ϕ^α} = - m^2 ϕ_α, \quad ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = ∂_μ ∂^μ ϕ_α = \square ϕ_α.
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(□ + m^2) ϕ^α = 0.
+(\square + m^2) ϕ^α = 0.
 $$
 これは **Klein-Gordon 方程式**と呼ばれる.
 
@@ -144,13 +144,13 @@ $$
 ここで, $ϕ^α$ と ${ϕ^α}^*$ を独立に扱って,
 $$
 \begin{aligned}
-\pdv{\mathcal{L}}{{ϕ^α}^*} = - \frac12 m^2 ϕ_α, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ {ϕ^α}^*)} } = \frac12 ∂_μ ∂^μ ϕ_α ≡ \frac12 □ ϕ_α, \\
-\pdv{\mathcal{L}}{ϕ^α} = - \frac12 m^2 ϕ_α^*, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = \frac12 ∂_μ ∂^μ ϕ_α^* ≡ \frac12 □ ϕ_α^*, \\
+\pdv{\mathcal{L}}{{ϕ^α}^*} = - \frac12 m^2 ϕ_α, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ {ϕ^α}^*)} } = \frac12 ∂_μ ∂^μ ϕ_α ≡ \frac12 \square ϕ_α, \\
+\pdv{\mathcal{L}}{ϕ^α} = - \frac12 m^2 ϕ_α^*, & ∂_μ \pqty{ \pdv{\mathcal{L}}{(∂_μ ϕ^α)} } = \frac12 ∂_μ ∂^μ ϕ_α^* ≡ \frac12 \square ϕ_α^*, \\
 \end{aligned}
 $$
 したがって, Euler–Lagrange の運動方程式より,
 $$
-(□ + m^2) ϕ^α = 0, \quad (□ + m^2) {ϕ^α}^* = 0.
+(\square + m^2) ϕ^α = 0, \quad (\square + m^2) {ϕ^α}^* = 0.
 $$
 
 #### 例: de Broglie 場
@@ -419,7 +419,7 @@ $$
 $$
 運動方程式は
 $$
-(□ + m^2) ϕ = 0,
+(\square + m^2) ϕ = 0,
 $$
 一般化運動量 $π ≡ ∂\mathcal{L}/∂ϕ$ は
 $$
@@ -434,10 +434,10 @@ $$
 $$
 ϕ(t,\bm{x}) = ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i \bm{p}⋅\bm{x}}
 $$
-が得られる. ただし, $q(t, \bm{p})$ は展開係数である. これを運動方程式 $(□ + m^2)ϕ = 0$ に代入すると,
+が得られる. ただし, $q(t, \bm{p})$ は展開係数である. これを運動方程式 $(\square + m^2)ϕ = 0$ に代入すると,
 $$
 \begin{aligned}
-   &\ (□ + m^2) ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
+   &\ (\square + m^2) ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
   =&\ \pdv{{}^2}{t^2} ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} - ∇^2 ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + m^2 ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
   =&\ ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \"q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} |\bm{p}|^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} + ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} m^2 q(t, \bm{p}) e^{i\bm{p}⋅\bm{x}} \\
   =&\ ∫ \frac{\dd{{}^3 \bm{p}}}{\sqrt{(2π)^3}} \bqty{\"q + (\bm{p}^2 + m^2) q} e^{i\bm{p}⋅\bm{x}} = 0

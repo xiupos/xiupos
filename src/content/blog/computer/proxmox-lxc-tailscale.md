@@ -27,7 +27,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 タイトルとは関係ないが, 引っ掛かったのでこれもメモ. 執筆時点では素直に [Docker](https://docs.docker.com/engine/install/) が動かなかった. 対処法は, Proxmox VE のターミナルで `/etc/pve/lxc/[CT ID].conf` に以下を追記すればよい.
 
-```conf
+```
 lxc.apparmor.profile: unconfined
 lxc.mount.entry: /dev/null sys/module/apparmor/parameters/enabled none bind 0 0
 ```

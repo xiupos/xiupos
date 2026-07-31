@@ -5,14 +5,14 @@ const { href, ...props } = Astro.props;
 
 let newHref = href;
 
-// rewrite relative links between md files (only for .typ files)
+// rewrite relative links between post files; safe to re-run since updateHref is idempotent
 try {
   const { slug } = Astro.params;
   if (slug) {
     const currentEntry = await getEntry("blog", slug);
     const currentPath = currentEntry ? currentEntry.id : "";
 
-    if (currentPath.endsWith(".typ")) {
+    if (currentPath) {
       newHref = updateHref(href, currentPath);
     }
   }

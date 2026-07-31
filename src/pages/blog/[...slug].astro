@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 import Link from "@components/Link.astro";
 
@@ -11,12 +11,7 @@ export async function getStaticPaths() {
   }));
 }
 
-/**
- * @typedef {import('astro:content').CollectionEntry<'blog'>['data']} Props
- */
-
-/** @type {Props} */
-const post = Astro.props;
+const post = Astro.props as CollectionEntry<"blog">;
 
 const { Content } = await render(post);
 ---

@@ -21,6 +21,7 @@
     "astro": "^7.1.6",
     "astro-icon": "^1.1.5",
     "astro-typst": "^0.12.3",
+    "fast-glob": "^3.3.3",
     "node-tikzjax": "github:xiupos/node-tikzjax",
     "typescript": "^6.0.3"
   },

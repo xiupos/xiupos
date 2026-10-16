@@ -75,23 +75,19 @@ const rssLink = [
     <main>
       <article>
         <ul>
-          {
-            posts.sort(sortByDate).map((post) => (
-              <li>
-                <FormattedDate date={post.pubDate} />
-                <a href={post.link}>
-                  {post.title}
-                  {post.link.indexOf("http") === 0 &&
-                    new URL(post.link).hostname !== "xiupos.net" && (
-                      // hostname of the article
-                      <span class="monospace">
-                        {new URL(post.link).hostname}
-                      </span>
-                    )}
-                </a>
-              </li>
-            ))
-          }
+          {posts.sort(sortByDate).map((post) => (
+            <li>
+              <FormattedDate date={post.pubDate} />
+              <a href={post.link}>
+                {post.title}
+                {post.link.indexOf("http") === 0 &&
+                  new URL(post.link).hostname !== "xiupos.net" && (
+                    // hostname of the article
+                    <span class="monospace">{new URL(post.link).hostname}</span>
+                  )}
+              </a>
+            </li>
+          ))}
         </ul>
       </article>
     </main>

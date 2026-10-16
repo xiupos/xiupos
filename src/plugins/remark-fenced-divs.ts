@@ -1,7 +1,11 @@
 // wip
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
+import type { Properties } from "hast";
 import { h } from "hastscript";
 import { visit } from "unist-util-visit";
+
+// mdast-util-to-hast augments this, but only when its types happen to be loaded
+type HastData = { hName?: string; hProperties?: Properties };
 
 /** rewite "::: ~ :::" to div blocks */
 const remarkFencedDivs: RemarkPlugin = () => (tree) =>
@@ -9,7 +13,7 @@ const remarkFencedDivs: RemarkPlugin = () => (tree) =>
     if (node.type === "containerDirective") {
       // :::screen ~ :::
       if (node.name === "screen") {
-        const data = node.data || (node.data = {});
+        const data: HastData = node.data || (node.data = {});
         const tagName = "div";
 
         data.hName = tagName;
@@ -18,7 +22,7 @@ const remarkFencedDivs: RemarkPlugin = () => (tree) =>
 
       // :::adcal ~ :::
       if (node.name === "adcal") {
-        const data = node.data || (node.data = {});
+        const data: HastData = node.data || (node.data = {});
         const tagName = "div";
 
         data.hName = tagName;

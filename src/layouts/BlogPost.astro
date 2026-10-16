@@ -37,16 +37,14 @@ const { title, pubDate, lang, draft, links } =
         <header>
           <h1 class="title">{title}</h1>
           <div class="monospace">
-            {
-              [
-                <FormattedDate date={pubDate} />,
-                draft && "draft",
-                ...links.map((link) => <a href={link.href}>{link.text}</a>),
-              ]
-                .filter(Boolean)
-                .flatMap((a) => [a, "; "])
-                .toSpliced(-1, 1)
-            }
+            {[
+              <FormattedDate date={pubDate} />,
+              draft && "draft",
+              ...links.map((link) => <a href={link.href}>{link.text}</a>),
+            ]
+              .filter(Boolean)
+              .flatMap((a) => [a, "; "])
+              .toSpliced(-1, 1)}
           </div>
         </header>
         <slot />

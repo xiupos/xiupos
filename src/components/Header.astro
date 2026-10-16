@@ -8,13 +8,11 @@ const { links } = Astro.props;
 
 <header>
   <nav class="monospace" aria-label="Main navigation">
-    {
-      links.map((link) => (
-        <>
-          <a href={link.link}>{link.name}</a>{" "}
-        </>
-      ))
-    }
+    {links.map((link) => (
+      <>
+        <a href={link.link}>{link.name}</a>{" "}
+      </>
+    ))}
   </nav>
 </header>
 

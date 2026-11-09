@@ -125,8 +125,9 @@ const ipynb = (config: AstroIpynbConfig): AstroIntegration => ({
             logger.info(`Generated: ${mdFilename}`);
           }
         } catch (e) {
-          logger.error(`nbconvert cannot convert ${ipynbPath}`);
-          console.error("ERROR: ", e);
+          throw new Error(`nbconvert cannot convert ${ipynbPath}`, {
+            cause: e,
+          });
         }
       }
     },

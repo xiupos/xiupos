@@ -1134,7 +1134,7 @@
 
     "node-mock-http": ["node-mock-http@1.0.5", "", {}, "sha512-KQyt/wLjG3TAc7DOUhpqWzgd4ERxR80JOlTK5VE5R1S12IaPVN5qkj4klBce9HPG1Njuup4Sb5bljaT34lIyjw=="],
 
-    "node-tikzjax": ["node-tikzjax@github:xiupos/node-tikzjax#8342287", { "dependencies": { "@prinsss/dvi2html": "^0.0.1", "jsdom": "^23.2.0", "memfs": "^4.6.0", "svgo": "^3.2.0", "tar-fs": "^3.0.4" } }, "xiupos-node-tikzjax-8342287", "sha512-bsygsWnpbblnAoc2ebGyrd0jNzxIw9tcWROPPFl3zNAur6k2UaIGyYmQmE6IvsiA5V/fb7vcyOwwEczUI84LGA=="],
+    "node-tikzjax": ["node-tikzjax@github:xiupos/node-tikzjax#3043508", { "dependencies": { "@prinsss/dvi2html": "^0.0.1", "jsdom": "^23.2.0", "memfs": "^4.6.0", "svgo": "^3.2.0", "tar-fs": "^3.0.4" } }, "xiupos-node-tikzjax-3043508", "sha512-65G+YTBoETi1Ge8OD0BghWdCClYvYiTUmQSnPmPSzjLS5d/aQz9M8d+Wtcnn9QyD59kgb3a7n8V0ZLEQPdN1oA=="],
 
     "normalize-path": ["normalize-path@3.0.0", "", {}, "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="],
 
